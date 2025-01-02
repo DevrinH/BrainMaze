@@ -1,3 +1,9 @@
 .linkcenter{
   text-align: center;
 }
+.practice {
+  width: 80%;
+  background-color: silver;
+  margin-left: auto;
+  margin-right: auto;
+}
