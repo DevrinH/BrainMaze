@@ -4,6 +4,11 @@ font-family: Arial, sans-serif;
 .linkcenter{
   text-align: center;
 }
+
+div{
+margin-bottom: 15px;
+}
+
 .practice {
   width: 80%;
   background-color: silver;
