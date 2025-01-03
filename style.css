@@ -6,7 +6,7 @@ font-family: Arial, sans-serif;
 }
 
 div{
-margin-bottom: 15px;
+margin-bottom: 20px;
 }
 
 .practice {
@@ -14,12 +14,16 @@ margin-bottom: 15px;
   background-color: silver;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px
+  padding-top: 5px
 }
 .smartphone {
   width: 80%;
   background-color: silver;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding-left: 20px
+  padding-right: 20px
+  padding-top: 5px
 }
