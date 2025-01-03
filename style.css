@@ -1,6 +1,4 @@
-body {
-font-family: sans-serif;
-}
+
 .linkcenter{
   text-align: center;
 }
@@ -11,5 +9,5 @@ font-family: sans-serif;
   margin-right: auto;
   padding-left: 20px;
   padding-right:20px;
-  font_family: Arial, sans-serif;;
+  font-family: Tahoma, sans-serif;
 }
