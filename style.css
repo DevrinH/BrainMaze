@@ -3,6 +3,7 @@ font-family: Arial, sans-serif;
   color: white; 
   background-color: purple; /* For browsers that do not support gradients */
   background-image: linear-gradient(darkorchid, mediumpurple);
+   height: 1000px;
 }
 .linkcenter{
   text-align: center;
