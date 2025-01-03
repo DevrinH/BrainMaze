@@ -1,3 +1,6 @@
+h1, h2, p {
+font_family: sans-serif;
+}
 .linkcenter{
   text-align: center;
 }
