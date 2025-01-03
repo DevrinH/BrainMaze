@@ -1,5 +1,7 @@
 body {
 font-family: Arial, sans-serif;
+  background-color: purple; /* For browsers that do not support gradients */
+  background-image: linear-gradient(darkorchid, mediumpurple);
 }
 .linkcenter{
   text-align: center;
@@ -11,21 +13,19 @@ margin-bottom: 20px;
 
 .practice {
   width: 80%;
-  background-color: silver;
+  background-color: mediumpurple;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 2px;
   padding-bottom: 2px;
 }
 .smartphone {
   width: 80%;
-  background-color: silver;
+  background-color: mediumpurple;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 2px;
   padding-bottom: 2px;
 }
