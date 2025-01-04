@@ -2,7 +2,7 @@ body {
 font-family: Arial, sans-serif;
   color: white; 
   background-color: purple; /* For browsers that do not support gradients */
-  background-image: linear-gradient(darkorchid, mediumpurple);
+  background-image: linear-gradient(indigo, mediumpurple);
    height: 1000px;
 }
 .linkcenter{
