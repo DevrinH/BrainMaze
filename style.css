@@ -5,9 +5,7 @@ font-family: Arial, sans-serif;
   background-image: linear-gradient(rgb(22, 7, 32), rgb(61, 24, 134));
    height: 1000px;
 }
-header{
-  justify-content: center;
-}
+
 .linkcenter{
   text-align: center;
 }
@@ -16,6 +14,7 @@ header{
   width: max-content;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 14px;
   border-radius: 28px;
   background: #9787f5;
@@ -24,7 +23,7 @@ header{
 .search-input{
   font-size: 16px;
   font-family: 'Lexend', sans-serif;
-  color: #f5f5f5;
+  color: #ffffff;
   margin-left: 14px;
   outline: none;
   border: none;
@@ -56,8 +55,6 @@ margin-bottom: 20px;
   padding-bottom: 2px;
   padding-top: 0.5px;
 }
-nav{
+.header{
   justify-content: center;
-
 }
-
