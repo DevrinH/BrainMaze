@@ -9,6 +9,25 @@ font-family: Arial, sans-serif;
   text-align: center;
 }
 
+.search{
+  --pading: 14px
+  width: max-content;
+  align-items: center;
+  padding: var(--padding);
+  border-radius: 28px;
+  background: #f6f6f6;
+
+}
+.search-input{
+  font-size: 16px;
+  font-family: 'Lexend', sans-serif;
+  color: #333333;
+  margin-left: var(--padding);
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
 div{
 margin-bottom: 20px;
 }
@@ -35,6 +54,6 @@ margin-bottom: 20px;
 }
 nav{
 
-  
+
 }
 
