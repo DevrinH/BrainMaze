@@ -2,7 +2,7 @@ body {
 font-family: Arial, sans-serif;
   color: white; 
   background-color: purple; /* For browsers that do not support gradients */
-  background-image: linear-gradient(indigo, mediumpurple);
+  background-image: linear-gradient(rgb(22, 7, 32), mediumpurple);
    height: 1000px;
 }
 .linkcenter{
@@ -15,7 +15,7 @@ font-family: Arial, sans-serif;
   align-items: center;
   padding: 14px;
   border-radius: 28px;
-  background: #f6f6f6;
+  background: #9787f5;
 
 }
 .search-input{
