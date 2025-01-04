@@ -10,7 +10,7 @@ font-family: Arial, sans-serif;
 }
 
 .search{
-  --pading: 14px
+  --pading: 14px;
   width: max-content;
   align-items: center;
   padding: var(--padding);
