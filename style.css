@@ -47,7 +47,9 @@ nav{
 
 .logo{
 font-size:32px;
+color: indigo;
 font-weight: bold;
 justify-content: center;
+padding: 5px;
 
 }
