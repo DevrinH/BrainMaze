@@ -25,10 +25,11 @@ font-family: Arial, sans-serif;
 .search-input{
   font-size: 16px;
   font-family: 'Lexend', sans-serif;
-  color: #fd0c0c;
+  color: #ffffff;
   margin-left: 14px;
   outline: none;
   border: none;
+  background: transparent;
   width: 300px;
 }
 
