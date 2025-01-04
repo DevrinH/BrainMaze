@@ -1,7 +1,7 @@
 body {
 font-family: Arial, sans-serif;
   color: white; 
-  background-color: purple; /* For browsers that do not support gradients */
+  background-color: rgb(31, 2, 31); /* For browsers that do not support gradients */
   background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
    height: 1000px;
 }
@@ -61,12 +61,4 @@ margin-bottom: 20px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-}
-::placeholder {
-  color: white;
-  opacity: 1; /* Firefox */
-}
-
-::-ms-input-placeholder { /* Edge 12-18 */
-  color: white;
 }
