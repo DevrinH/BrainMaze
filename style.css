@@ -39,7 +39,7 @@ margin-bottom: 20px;
 
 .practice {
   width: 80%;
-  background-color: mediumpurple;
+  
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -49,7 +49,7 @@ margin-bottom: 20px;
 }
 .smartphone {
   width: 80%;
-  background-color: mediumpurple;
+ 
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -65,4 +65,14 @@ margin-bottom: 20px;
 
 .search-input::placeholder{
   color:rgb(255, 255, 255)
+}
+
+.displaytests{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 32px;
+  justify-content: space-between;
+
+
 }
