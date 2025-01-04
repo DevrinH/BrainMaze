@@ -39,9 +39,15 @@ nav{
   background-image: linear-gradient(gold, yellow);
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 0px 50px;
   top: 0;
   z-index: 1;
+
+}
+
+.logo{
+font-size:32px;
+font-weight: bold;
+justify-content: center;
 
 }
