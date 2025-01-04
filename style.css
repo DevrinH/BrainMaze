@@ -35,19 +35,6 @@ margin-bottom: 20px;
 }
 nav{
 
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-
-
+  
 }
 
-.logo{
-font-size:32px;
-color: indigo;
-font-weight: bold;
-justify-content: center;
-padding: 5px;
-
-}
