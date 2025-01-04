@@ -18,16 +18,7 @@ font-family: Arial, sans-serif;
   background: #f6f6f6;
 
 }
-.search-input{
-  font-size: 16px;
-  font-family: 'Lexend', sans-serif;
-  color: #333333;
-  margin-left: 50px;
-  outline: none;
-  border: none;
-  background: transparent;
-  width: 300px;
-}
+
 
 div{
 margin-bottom: 20px;
@@ -54,7 +45,7 @@ margin-bottom: 20px;
   padding-top: 0.5px;
 }
 nav{
-
+justify-content: center;
 
 }
 
