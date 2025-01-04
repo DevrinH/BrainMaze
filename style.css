@@ -10,10 +10,9 @@ font-family: Arial, sans-serif;
 }
 
 .search{
-  --padding: 14px;
   width: max-content;
   align-items: center;
-  padding: var(--padding);
+  padding: 14px;
   border-radius: 28px;
   background: #f6f6f6;
 
@@ -21,8 +20,8 @@ font-family: Arial, sans-serif;
 .search-input{
   font-size: 16px;
   font-family: 'Lexend', sans-serif;
-  
-  margin-left: var(--padding);
+  color: #333333;
+  margin-left: 14px;
   outline: none;
   border: none;
   background: transparent;
