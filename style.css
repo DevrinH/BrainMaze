@@ -2,7 +2,7 @@ body {
 font-family: Arial, sans-serif;
   color: white; 
   background-color: purple; /* For browsers that do not support gradients */
-  background-image: linear-gradient(rgb(22, 7, 32), rgb(61, 24, 134));
+  background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
    height: 1000px;
 }
 
@@ -23,11 +23,10 @@ font-family: Arial, sans-serif;
 .search-input{
   font-size: 16px;
   font-family: 'Lexend', sans-serif;
-  color: #ffffff;
+  color: #fd0c0c;
   margin-left: 14px;
   outline: none;
   border: none;
-  background: transparent;
   width: 300px;
 }
 
@@ -56,5 +55,5 @@ margin-bottom: 20px;
   padding-top: 0.5px;
 }
 .header{
-  justify-content: center;
+  text-align: center;
 }
