@@ -2,13 +2,12 @@ body {
 font-family: Arial, sans-serif;
   color: white; 
   background-color: purple; /* For browsers that do not support gradients */
-  background-image: linear-gradient(rgb(22, 7, 32), mediumpurple);
+  background-image: linear-gradient(rgb(22, 7, 32), rgb(61, 24, 134));
    height: 1000px;
 }
 header{
   align-items: center;
   text-align: center;
-  font-size: 32;
 }
 .linkcenter{
   text-align: center;
