@@ -34,16 +34,13 @@ margin-bottom: 20px;
   padding-top: 0.5px;
 }
 nav{
-  width:80%;
-  height: 75px;
+
   margin-left: auto;
   margin-right: auto;
   background-image: linear-gradient(gold, yellow);
   display: flex;
   justify-content: center;
-  padding: 0px 50px;
-  top: 0;
-  z-index: 1;
+
 
 }
 
