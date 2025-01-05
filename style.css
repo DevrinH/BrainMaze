@@ -42,8 +42,10 @@ margin-bottom: 20px;
 }
 
 .practice {
-  width: 60%;
-  
+  p {
+    font-family: impact, fantasy;
+  }
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -61,6 +63,7 @@ margin-bottom: 20px;
   padding-bottom: 2px;
   padding-top: 0.5px;
 }
+
 .header{
   text-align: center;
   margin-left: auto;
@@ -68,13 +71,10 @@ margin-bottom: 20px;
 }
 
 
-
-
-
 .displaytestsat{
   
   background: #ffffff;
-  color:rgb(94, 1, 117);
+  color:#9787f5;
   border: 5px solid #9787f5;
   width: 60%;
   height: 150px;
@@ -88,7 +88,7 @@ margin-bottom: 20px;
 .displaytestact{
   
   background: #ffffff;
-  color:rgb(94, 1, 117);
+  color:#9787f5;
   border: 5px solid #9787f5;
   width: 60%;
   height: 150px;
@@ -102,7 +102,7 @@ margin-bottom: 20px;
 .displaytestged{
   
   background: #ffffff;
-  color:rgb(94, 1, 117);
+  color:#9787f5;
   border: 5px solid #9787f5;
   width: 60%;
   height: 150px;
