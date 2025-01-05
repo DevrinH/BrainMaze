@@ -26,12 +26,15 @@ font-family: Arial, sans-serif;
 .search-input{
   font-size: 16px;
   font-family: 'Lexend', sans-serif;
-  color: #04ffc9;
   margin-left: 14px;
   outline: none;
   border: none;
   background: transparent;
   width: 300px;
+}
+
+.search-input::placeholder{
+  color:rgb(255, 255, 255)
 }
 
 div{
@@ -62,11 +65,11 @@ margin-bottom: 20px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-}`
-
-.search-input::placeholder{
-  color:rgb(255, 255, 255)
 }
+
+
+
+
 
 .displaytestsat{
   
