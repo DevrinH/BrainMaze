@@ -69,7 +69,7 @@ margin-bottom: 20px;
 
 .displaytestsat{
   border-radius: 25px;
-  border: 2px solid #ffffff;
+  background: #ffffff;
   width: 60%;
   height: 150px;
   margin-left: auto;
@@ -81,7 +81,7 @@ margin-bottom: 20px;
 }
 .displaytestact{
   border-radius: 25px;
-  border: 2px solid #ffffff;
+  background: #ffffff;
   width: 60%;
   height: 150px;
   margin-left: auto;
@@ -93,7 +93,7 @@ margin-bottom: 20px;
 }
 .displaytestged{
   border-radius: 25px;
-  border: 2px solid #ffffff;
+  background: #ffffff;
   width: 60%;
   height: 150px;
   margin-left: auto;
