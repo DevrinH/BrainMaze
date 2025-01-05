@@ -40,6 +40,9 @@ font-family: Arial, sans-serif;
 div{
 margin-bottom: 20px;
 }
+a{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 
 .practice {
   h{
