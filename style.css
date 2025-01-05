@@ -61,16 +61,17 @@ margin-bottom: 20px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-}
+}`
 
 .search-input::placeholder{
   color:rgb(255, 255, 255)
 }
 
 .displaytestsat{
-  border-radius: 25px;
+  
   background: #ffffff;
   color:rgb(94, 1, 117);
+  border: 2px solid #28033d;
   width: 60%;
   height: 150px;
   margin-left: auto;
@@ -81,7 +82,7 @@ margin-bottom: 20px;
   padding-top: 2px;
 }
 .displaytestact{
-  border-radius: 25px;
+  
   background: #ffffff;
   width: 60%;
   height: 150px;
@@ -93,7 +94,7 @@ margin-bottom: 20px;
   padding-top: 2px;
 }
 .displaytestged{
-  border-radius: 25px;
+  
   background: #ffffff;
   width: 60%;
   height: 150px;
