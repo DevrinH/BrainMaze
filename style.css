@@ -10,6 +10,12 @@ font-family: Arial, sans-serif;
   text-align: center;
 }
 
+.header{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .search{
   width: max-content;
   display: flex;
@@ -42,7 +48,7 @@ margin-bottom: 20px;
 }
 a{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 50px;
+  font-size: 36px;
 
 }
 
@@ -56,20 +62,13 @@ a{
   padding-top: 0.5px;
 }
 .smartphone {
-  width: 60%;
- 
+  width: 65%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 2px;
   padding-top: 0.5px;
-}
-
-.header{
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 
