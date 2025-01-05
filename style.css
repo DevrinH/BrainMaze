@@ -70,10 +70,13 @@ margin-bottom: 20px;
 .displaytestsat{
   border-radius: 25px;
   border: 2px solid #ffffff;
-  padding: 20px; 
   width: 200px;
   height: 150px;
-  margin-left: 25px; 
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 2px;
 }
 .displaytestact{
   border-radius: 25px;
