@@ -11,7 +11,7 @@ font-family: Arial, sans-serif;
 }
 
 .header{
-  margin-left: 75%;
+  margin-left: center;
   
 }
 
@@ -118,3 +118,6 @@ a{
   padding-bottom: 2px;
   padding-top: 2px;
 }
+
+
+
