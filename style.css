@@ -42,8 +42,8 @@ margin-bottom: 20px;
 }
 
 .practice {
-  p {
-    font-family: impact, fantasy;
+  h{
+    font-family: impact, sans-serif;
   }
   width: 70%;
   margin-left: auto;
