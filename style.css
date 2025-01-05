@@ -11,7 +11,8 @@ font-family: Arial, sans-serif;
 }
 
 .header{
-  margin-left: center;
+  margin-left: 50;
+  margin-right: 0;
   
 }
 
@@ -85,7 +86,18 @@ a{
   padding-top: 2px;
 }
 
+.backbox{
+  background: #9787f5;
+  width: 60%;
+  height: 150px;
+  margin-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
 
+}
 
 
 
