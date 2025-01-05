@@ -38,7 +38,7 @@ margin-bottom: 20px;
 }
 
 .practice {
-  width: 80%;
+  width: 60%;
   
   margin-left: auto;
   margin-right: auto;
@@ -48,7 +48,7 @@ margin-bottom: 20px;
   padding-top: 0.5px;
 }
 .smartphone {
-  width: 80%;
+  width: 60%;
  
   margin-left: auto;
   margin-right: auto;
@@ -67,12 +67,24 @@ margin-bottom: 20px;
   color:rgb(255, 255, 255)
 }
 
-.displaytests{
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  font-size: 32px;
-  justify-content: space-between;
-
-
+.displaytestsat{
+  border-radius: 25px;
+  border: 2px solid #ffffff;
+  padding: 20px; 
+  width: 200px;
+  height: 150px; 
+}
+.displaytestact{
+  border-radius: 25px;
+  border: 2px solid #ffffff;
+  padding: 20px; 
+  width: 200px;
+  height: 150px; 
+}
+.displaytestged{
+  border-radius: 25px;
+  border: 2px solid #ffffff;
+  padding: 20px; 
+  width: 200px;
+  height: 150px; 
 }
