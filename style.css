@@ -3,6 +3,10 @@
   text-align: center;
   width: 100%;
 }
+@font-face {
+  font-family: 'Arcade';
+  src: url(ArcadeClassic.ttf);
+}
 
 body {
 font-family: Arial, sans-serif;
@@ -55,6 +59,9 @@ a{
 }
 
 .practice {
+  h {
+    font-family: Arcade;
+  }
   width: 65%;
   margin-left: auto;
   margin-right: auto;
