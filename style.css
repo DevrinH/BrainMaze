@@ -20,7 +20,9 @@ font-family: Arial, sans-serif;
   text-align: center;
 }
 
-
+.arcade{
+  font-family: "Arcade";
+}
 
 .search{
   width: max-content;
@@ -53,13 +55,12 @@ div{
 margin-bottom: 30px;
 }
 a{
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: "Arcade";
   font-size: 26px;
 
 }
 
 .practice {
-  font-family: "Arcade";
   width: 65%;
   margin-left: auto;
   margin-right: auto;
