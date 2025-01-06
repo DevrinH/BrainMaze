@@ -2,6 +2,7 @@
   margin: 0 auto;
   text-align: center;
   width: 100%;
+  margin-bottom: 50PX;
 }
 @font-face {
   font-family: "Arcade";
@@ -130,6 +131,7 @@ a{
 footer{
   margin-left: auto;
   margin-right: auto; 
+  text-align: center;
   font-family: "Arcade";
   color: white;
 }
