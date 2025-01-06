@@ -127,5 +127,11 @@ a{
   padding-top: 2px;
 }
 
+footer{
+  margin-left: auto;
+  margin-right: auto; 
+  font-family: "Arcade";
+  color: white;
+}
 
 
