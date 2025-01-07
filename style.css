@@ -34,7 +34,6 @@ font-family: Arial, sans-serif;
 .arcadetitle{
   font-family: "Arcade";
   font-size: 32px;
-   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -165,7 +164,6 @@ footer{
 }
 
 .testqt {
-  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
