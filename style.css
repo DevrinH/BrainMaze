@@ -34,10 +34,7 @@ font-family: Arial, sans-serif;
 .arcadetitle{
   font-family: "Arcade";
   font-size: 32px;
-   width: 60%;
-   align-items: center;
-  justify-content: center;
-  padding: 14px;
+   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -168,10 +165,7 @@ footer{
 }
 
 .testqt {
- width: 60%;
- align-items: center;
-  justify-content: center;
-  padding: 14px;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
