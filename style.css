@@ -34,7 +34,7 @@ font-family: Arial, sans-serif;
 .arcadetitle{
   font-family: "Arcade";
   font-size: 32px;
-  width: 80%;
+  width: 70%;
 }
 .search{
   width: max-content;
@@ -163,6 +163,6 @@ footer{
 }
 
 .testqt {
- width: 80%;
+ width: 70%;
   
 }
