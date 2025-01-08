@@ -16,3 +16,8 @@ body{
     margin: 100px auto 0;
     padding: 20px
 }
+
+.arcade{
+    font-family: "Arcade";
+    font-size: 32px;
+  }
