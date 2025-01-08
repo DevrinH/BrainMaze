@@ -41,3 +41,13 @@ body{
     color: #000000;
     font-weight: 600;
   }
+  .btn{
+    background: #ffffff;
+    color: #000000;
+    font-weight: 500;
+    width: 100%;
+    box-shadow: 5px 5px #9787f5;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+  }
