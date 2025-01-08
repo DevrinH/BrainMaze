@@ -1,4 +1,3 @@
-alert("Success")
 const questions = [
     {
     question: "Which is the largest animal in the world?",
@@ -46,7 +45,6 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 function startQuiz(){
-    resetState();
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
@@ -54,6 +52,7 @@ function startQuiz(){
 }
 
 function showQuestion(){
+    resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
 questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
