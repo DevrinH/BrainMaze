@@ -9,13 +9,13 @@ const questions = [
             ]
     },
     {
-        question: "Which is the smallest country in the world?",
-        answers:[
-        {text:"Vatican City", correct: true},
-        {text:"Bhutan", correct: false},
-        {text:"Nepal", correct: false},
-        {text:"Shri Lanka", correct: false},
-                ]  
+    question: "Which is the smallest country in the world?",
+    answers:[
+    {text:"Vatican City", correct: true},
+    {text:"Bhutan", correct: false},
+    {text:"Nepal", correct: false},
+    {text:"Shri Lanka", correct: false},
+             ]  
     },      
     {
         question: "Which is the largest desert in the world?",
