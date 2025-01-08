@@ -12,13 +12,12 @@ const questions = [
         question: "Which is the smallest country in the world?"
         answers:[
         {text:"Vatican City", Correct: true},
-        {text:"Bhutan, Correct: false},
+        {text:"Bhutan", Correct: false},
         {text:"Nepal", Correct: false},
         {text:"Shri Lanka", Correct: false},
                 ]  
     },      
     {
-
         question: "Which is the largest desert in the world?"
         answers:[
         {text:"Kalahari", Correct: false},
@@ -40,7 +39,7 @@ const questions = [
 
 const questionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer-button");
-const nextButton = document.getElementById("nxt-btn");
+const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
