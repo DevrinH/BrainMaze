@@ -1,7 +1,6 @@
 const questions = [
     {
-
-    question: "Which is the largest anmal in the world?"
+    question: "Which is the largest animal in the world?"
     answers:[
     {text:"Shark", Correct: false},
     {text:"Blue whale", Correct: true},
@@ -10,12 +9,12 @@ const questions = [
             ]
     },
     {
-        question: "Which is the largest anmal in the world?"
+        question: "Which is the smallest country in the world?"
         answers:[
-        {text:"Shark", Correct: false},
-        {text:"Blue whale", Correct: true},
-        {text:"Elephant", Correct: false},
-        {text:"Giraffe", Correct: false},
+        {text:"Vatican City", Correct: true},
+        {text:"Bhutan, Correct: false},
+        {text:"Nepal", Correct: false},
+        {text:"Shri Lanka", Correct: false},
                 ]  
     },      
     {
