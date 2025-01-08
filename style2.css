@@ -15,9 +15,10 @@ body{
     max-width: 600px;
     margin: 100px auto 0;
     padding: 20px
+    box-shadow: 5px 5px #9787f5;
 }
 
-.arcade{
+.arcade2{
     font-family: "Arcade";
     font-size: 32px;
   }
