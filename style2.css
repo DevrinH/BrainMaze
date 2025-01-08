@@ -51,3 +51,8 @@ body{
     margin: 10px 0;
     text-align: left;
   }
+
+  .btn:hover{
+    background: #9787f5;
+    color: #fff;
+  }
