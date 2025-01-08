@@ -55,7 +55,7 @@ function startSattesttimed(){
 function showQuestion(){
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-questionElement.innerHTML = questionNo + "." + currentQuestion.question;
+questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
 currentQuestion.answers.forEach(answer => {
     const button = document.createElement("button");
