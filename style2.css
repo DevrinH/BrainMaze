@@ -6,6 +6,7 @@ box-sizing: border-box;
 }
 body{
     background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
+    height: 750;
 }
 
 .app{
