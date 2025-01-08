@@ -34,7 +34,7 @@ const questions = [
     {text: "Arctic", correct: false},
     {text: "Africa", correct: false},
                     ]  
-        },
+        }
 ];
 
 const questionElement = document.getElementById("question");
@@ -44,7 +44,7 @@ const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 
-function startSattesttimed(){
+function startQuiz(){
     resetState();
     currentQuestionIndex = 0;
     score = 0;
@@ -77,4 +77,4 @@ function resetState(){
 }
 
 
-startSattesttimed();
+startQuiz();
