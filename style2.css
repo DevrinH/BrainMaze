@@ -58,3 +58,15 @@ body{
     background: #9787f5;
     color: #fff;
   }
+
+  #next-btn{
+    background: #ffffff;
+    color: #000000;
+    font-weight: 500;
+    width: 150px;
+    box-shadow: 5px 5px #9787f5;
+    padding: 10px;
+    margin: 20px auto 0;
+    cursor: pointer;
+    display:block;
+  }
