@@ -5,7 +5,7 @@ font-family: Arial, Helvetica, sans-serif;
 box-sizing: border-box;
 }
 body{
-    background: #001e4d;
+    background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
 }
 
 .app{
