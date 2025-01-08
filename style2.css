@@ -27,4 +27,10 @@ body{
 .arcade2{
     font-family: "Arcade";
     font-size: 32px;
+  }.app h1{
+    font-weight: 25px;
+    font-family: "Arcade";
+    color: black;
+    bordwer-bottom: 1px solid #9787f5;
+
   }
