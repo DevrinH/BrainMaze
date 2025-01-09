@@ -20,7 +20,7 @@
 
 body{
     background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
-    height: 1750px;
+    height: 1950px;
     background-color:  rgb(31, 2, 31); /* For browsers that do not support gradients */
 }
 
@@ -82,7 +82,7 @@ body{
   }
 
   p{
-    margin: 10px;
+    margin: 50px;
   }
 
 
