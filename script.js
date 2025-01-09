@@ -10,6 +10,15 @@ const questions = [
         ]
     },
     {
+        question: "I like big boats?",
+        answers: [
+            { text: "Asia", correct: false},
+            { text: "Australia", correct: true},
+            { text: "Arctic", correct: false},
+            { text: "Africa", correct: false},
+        ]
+    },   
+    {
         question: "Which is the smallest country in the world?",
         answers: [
             { text: "Vatican City", correct: true},
