@@ -1,8 +1,6 @@
 const questions = [
     {
-        question: "The passage characterizes the main finding of 
-                the 2015 sea otter survey conducted by the US Geological 
-                Survey as",
+        question: "The passage characterizes the main finding of the 2015 sea otter survey conducted by the US Geological Survey as",
         answers: [
             { text: "Shark", correct: false},
             { text: "Blue whale", correct: true},
