@@ -1,5 +1,6 @@
 const questions = [
     {
+        senario:" The recovery of southern sea otters appears to have taken an",
         question: "The passage characterizes the main finding of the 2015 sea otter survey conducted by the US Geological Survey as",
         answers: [
             { text: "initially promising, because it shows that the southern sea otter will not become an endangered species.", correct: false},
@@ -34,9 +35,19 @@ const questions = [
             { text: "Arctic", correct: false},
             { text: "Africa", correct: false},
         ]
-    }  
+    },
+    {
+        question: "I like big boats?",
+        answers: [
+            { text: "Asia", correct: false},
+            { text: "Australia", correct: true},
+            { text: "Arctic", correct: false},
+            { text: "Africa", correct: false},
+        ]
+    }    
 ];
 
+const senarioElement = document.getElementById("senario");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
