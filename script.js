@@ -1,7 +1,7 @@
 const questions = [
     {
         
-        question: " The recovery of southern sea otters appears to have taken an upturn, according to results from the annual California sea otter survey released by the U.S. Geological Survey. Yet despite an overall increase in sea otter abundance, sharks have been “taking a bite” out of the portion of the population that could fuel expansion into new areas.\nGuestion:\ncharacterizes the main finding of the 2015 sea otter survey conducted by the US Geological Survey as",
+        question: " The recovery of southern sea otters appears to have taken an upturn, according to results from the annual California sea otter survey released by the U.S. Geological Survey. Yet despite an overall increase in sea otter abundance, sharks have been “taking a bite” out of the portion of the population that could fuel expansion into new areas.\nQuestion:\nThe passage characterizes the main finding of the 2015 sea otter survey conducted by the US Geological Survey as",
         answers: [
             { text: "initially promising, because it shows that the southern sea otter will not become an endangered species.", correct: false},
             { text: "very significant, because it validates the recent efforts of sea otter conservation groups working along the California coast.", correct: false},
