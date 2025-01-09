@@ -2,7 +2,7 @@ const questions = [
     {
         question: "The passage characterizes the main finding of the 2015 sea otter survey conducted by the US Geological Survey as",
         answers: [
-            { text: "Shark", correct: false},
+            { text: "initially promising, because it shows that the southern sea otter will not become an endangered species.", correct: false},
             { text: "Blue whale", correct: true},
             { text: "Elephant", correct: false},
             { text: "Giraffe", correct: false},
