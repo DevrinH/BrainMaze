@@ -3,9 +3,9 @@ const questions = [
         question: "The passage characterizes the main finding of the 2015 sea otter survey conducted by the US Geological Survey as",
         answers: [
             { text: "initially promising, because it shows that the southern sea otter will not become an endangered species.", correct: false},
-            { text: "Blue whale", correct: true},
-            { text: "Elephant", correct: false},
-            { text: "Giraffe", correct: false},
+            { text: "very significant, because it validates the recent efforts of sea otter conservation groups working along the California coast.", correct: true},
+            { text: "ultimately inconclusive, because it does not incorporate data from sea otter population surveys conducted before 2010.", correct: false},
+            { text: "somewhat misleading, because it does not make it clear that the southern sea otter population trends varied throughout the range.", correct: false},
         ]
     },
     {
