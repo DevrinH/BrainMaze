@@ -20,7 +20,7 @@
 
 body{
     background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
-    height: 1950px;
+    height: 1850px;
     background-color:  rgb(31, 2, 31); /* For browsers that do not support gradients */
 }
 
