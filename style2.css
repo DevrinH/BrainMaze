@@ -64,6 +64,10 @@ body{
     cursor: pointer;
     transition: all 0.3s;
   }
+  .id{
+    font-size: 24px;
+
+  }
 
   .btn:hover{
     background: #9787f5;
