@@ -92,12 +92,7 @@ body{
     border-width: 3px;
     border-radius: 30px;
     top: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 2px;
-    padding-top: 2px;
+    margin: auto;
     position: fixed;
     
   }
