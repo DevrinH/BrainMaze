@@ -93,6 +93,7 @@ body{
     margin-right: auto;
     position: fixed;
     padding: 20px;
+    -webkit-text-stroke: #000000;
   }
 
   p{
