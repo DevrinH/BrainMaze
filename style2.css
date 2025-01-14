@@ -85,6 +85,13 @@ body{
     cursor: pointer;
     display:none;
   }
+
+  .container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  }
+
   .timer{
     background: #9787f5;;
     width: 10%;
@@ -92,7 +99,6 @@ body{
     border-width: 3px;
     border-radius: 30px;
     top: 90%;
-    margin: auto;
     position: fixed;
     text-align: center;
     
