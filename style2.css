@@ -86,13 +86,7 @@ body{
     display:none;
   }
   .timer p {
-    background: #ffff;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
-    border-color: #9787f5;
-    border-radius: 30px;
+
     font-size:50px;
     font-family: "Arcade";
     color: #000000;
