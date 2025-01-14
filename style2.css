@@ -87,10 +87,12 @@ body{
   }
 
   .container {
-    margin: 0 auto;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+    margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 2px;
+  padding-top: 2px;
   }
 
   .timer{
@@ -101,11 +103,13 @@ body{
     border-radius: 30px;
     top: 90%;
     position: fixed;
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+  }
     
     
   }
