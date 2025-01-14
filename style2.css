@@ -85,7 +85,7 @@ body{
     cursor: pointer;
     display:none;
   }
-  .timer {
+  .timer p {
     font-size:32px;
     font-family: "Arcade";
     color: rgb(255, 255, 255);
