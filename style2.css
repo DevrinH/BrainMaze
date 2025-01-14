@@ -89,8 +89,9 @@ body{
     font-size:32px;
     font-family: "Arcade";
     color: rgb(255, 255, 255);
-    margin-left: auto;
-    margin-right: auto;
+    top: 50%;
+    left: 50%;
+    translate: -50%, 0%;
     position: fixed;
     -webkit-text-stroke: #000000;
   }
