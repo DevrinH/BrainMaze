@@ -88,7 +88,8 @@ body{
   .timer{
     background: #ffffff;
     width: 10%;
-    border-color: 3px #9787f5;
+    border-color: #9787f5;
+    border-width: 3px;
     border-radius: 30px;
     top: 90%;
     margin-left: auto;
