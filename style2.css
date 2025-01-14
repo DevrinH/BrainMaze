@@ -85,13 +85,15 @@ body{
     cursor: pointer;
     display:none;
   }
-  .timer p{
-    font-size: 25px;
+  .timer {
+    font-size:32px;
     font-family: "Arcade";
     color: rgb(255, 255, 255);
     margin-left: auto;
     margin-right: auto;
     position: fixed;
+    padding: 20px;
+  }
 
   p{
     margin: 10px;
