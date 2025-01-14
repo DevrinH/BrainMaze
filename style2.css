@@ -86,12 +86,7 @@ body{
     display:none;
   }
 
-  .container {
-    margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 50PX;
-  }
+
 
   .timer{
     background: #9787f5;;
@@ -101,6 +96,8 @@ body{
     border-radius: 30px;
     top: 90%;
     position: fixed;
+    left: 50%;
+    translate: -50;
     
     
     
