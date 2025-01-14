@@ -86,7 +86,7 @@ body{
     display:none;
   }
   .timer{
-    background: #ffffff;
+    background: #9787f5;;
     width: 10%;
     border-color: #9787f5;
     border-width: 3px;
@@ -99,7 +99,7 @@ body{
   }
   .timerp{
   font-size:50px;
-  color: #000000;
+  color: #ffffff;
   text-align: center;
   font-family: "Arcade";
   }
