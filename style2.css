@@ -100,12 +100,12 @@ body{
     position: fixed;
     
   }
-.timerp{
-font-size:50px;
-color: #000000;
-text-align: center;
-font-family: "Arcade";
-}
+  .timerp{
+  font-size:50px;
+  color: #000000;
+  text-align: center;
+  font-family: "Arcade";
+  }
 
 
   p{
