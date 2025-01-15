@@ -1,0 +1,200 @@
+.header{
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50PX;
+  }
+  @font-face {
+    font-family: "Arcade";
+    src: url(ArcadeClassic.ttf);
+  }
+  
+  body {
+  font-family: Arial, sans-serif;
+    color: white; 
+    background-color: rgb(31, 2, 31); /* For browsers that do not support gradients */
+    background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
+     height: max-content;
+  }
+  
+  .linkcenter{
+    text-align: center;
+  }
+  
+  .arcade{
+    font-family: "Arcade";
+    font-size: 32px;
+  }
+  
+  .arcade2{
+    font-family: "Arcade";
+    font-size: 32px;
+  }
+  
+  .arcadetitle{
+    font-family: "Arcade";
+    font-size: 32px;
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center;
+    color: white;
+  }
+  .search{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    border-radius: 28px;
+    background: #9787f5;
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .search-input{
+    font-size: 16px;
+    font-family: 'Lexend', sans-serif;
+    margin-left: 14px;
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 300px;
+  }
+  
+  .search-input::placeholder{
+    color:rgb(255, 255, 255)
+  }
+  
+  div{
+  margin-bottom: 30px;
+  }
+  a{
+    font-family: "Arcade";
+    font-size: 32px;
+  
+  }
+  
+  .practice {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-top: 0.5px;
+  }
+  .smartphone {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-top: 0.5px;
+  }
+  
+  .displaytestsat{
+    
+    background: #ffffff;
+    color:#9787f5;
+    border: 5px solid #9787f5;
+    width: 60%;
+    height: max-content;
+    box-shadow: 5px 5px #9787f5;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+  }
+  
+  .displaytestact{
+    
+    background: #ffffff;
+    color:#9787f5;
+    border: 5px solid #9787f5;
+    width: 60%;
+    height: 250px;
+    box-shadow: 5px 5px #9787f5;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+  }
+  .displaytestged{
+    
+    background: #ffffff;
+    color:#9787f5;
+    border: 5px solid #9787f5;
+    width: 60%;
+    height: 250px;
+    box-shadow: 5px 5px #9787f5;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+  }
+  
+  footer{
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center;
+    font-family: "Arcade";
+    color: white;
+  }
+  
+  .satbodytimed{
+    background: #ffffff;
+    color:#000000;
+    border: 5px solid #9787f5;
+    width: 80%;
+    height: 1200px;
+    box-shadow: 5px 5px #9787f5;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+  
+  }
+  
+  .testqt {
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .questionformat {
+    width: 80%;
+   margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .abutton{
+    background: #9787f5;;
+    width: 15%;
+    height: 46px;
+    color:#ffffff;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  
+  
+  
+  .whitearcade{
+    font-family: "Arcade";
+    font-size: 38px;
+    color:#ffffff;
+  
+  }
