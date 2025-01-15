@@ -181,9 +181,9 @@
   .abutton{
     background: #9787f5;;
     width: max-content;
-    padding: 10px;
+    padding: 20px;
     color:#ffffff;
-    border-radius: 30px;
+    border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
