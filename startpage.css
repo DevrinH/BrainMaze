@@ -180,8 +180,9 @@
   
   .abutton{
     background: #9787f5;;
-    width: 15%;
-    height: 46px;
+    width: max-content;
+    height: max-content;
+    padding: 10px;
     color:#ffffff;
     border-radius: 30px;
     margin-left: auto;
@@ -196,5 +197,6 @@
     font-family: "Arcade";
     font-size: 38px;
     color:#ffffff;
+
   
   }
