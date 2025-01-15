@@ -20,7 +20,7 @@
 
 body{
     background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
-    height: 2050px;
+    height: 2150px;
     background-color:  rgb(31, 2, 31); /* For browsers that do not support gradients */
 }
 
@@ -115,7 +115,19 @@ body{
     text-align: start;
   }
 
+  button{
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-color: #000000;
+    box-shadow: 5px 5px #9787f5;
+    font-size: 16px;
+    cursor: pointer;
+  }
 
+  button:hover{
+background-color: #9787f5;
+
+  }
 
 
 
