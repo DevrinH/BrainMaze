@@ -39,32 +39,7 @@
     text-align: center;
     color: white;
   }
-  .search{
-    width: max-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px;
-    border-radius: 28px;
-    background: #9787f5;
-    color: #ffffff;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .search-input{
-    font-size: 16px;
-    font-family: 'Lexend', sans-serif;
-    margin-left: 14px;
-    outline: none;
-    border: none;
-    background: transparent;
-    width: 300px;
-  }
-  
-  .search-input::placeholder{
-    color:rgb(255, 255, 255)
-  }
+
   
   div{
   margin-bottom: 30px;
@@ -110,36 +85,6 @@
     padding-top: 2px;
   }
   
-  .displaytestact{
-    
-    background: #ffffff;
-    color:#9787f5;
-    border: 5px solid #9787f5;
-    width: 60%;
-    height: 250px;
-    box-shadow: 5px 5px #9787f5;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-  }
-  .displaytestged{
-    
-    background: #ffffff;
-    color:#9787f5;
-    border: 5px solid #9787f5;
-    width: 60%;
-    height: 250px;
-    box-shadow: 5px 5px #9787f5;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-  }
   
   footer{
     margin-left: auto;
@@ -165,18 +110,6 @@
   
   }
   
-  .testqt {
-    font-size: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  
-  .questionformat {
-    width: 80%;
-   margin-left: auto;
-    margin-right: auto;
-  }
   
   .abutton{
     background: #9787f5;;
