@@ -11,6 +11,6 @@ function updateCountdown(){
     let seconds = time % 60;
     seconds = seconds < 10 ? '0' + seconds : seconds;
 
-    countdownEl.innerHTML = '${minutes} : ${seconds}`;
+    countdownEl.innerHTML = `${minutes} : ${seconds}`;
     time--;
 }
