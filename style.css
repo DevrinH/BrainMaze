@@ -178,14 +178,21 @@ footer{
   margin-right: auto;
 }
 
-button{
+.abutton{
     background: #9787f5;;
     width: max-content;
+    height: max-content;
     color:#ffffff;
-    border-width: 3px;
     border-radius: 30px;
     left: 50%;
     translate: -50% -50%;
 
+
+}
+
+.whitearcade{
+  font-family: "Arcade";
+  font-size: 32px;
+  color:#ffffff;
 
 }
