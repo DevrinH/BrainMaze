@@ -180,8 +180,8 @@ footer{
 
 .abutton{
     background: #9787f5;;
-    width: max-content;
-    height: max-content;
+    width: 30%;
+    height: 40px;
     color:#ffffff;
     border-radius: 30px;
     left: 50%;
