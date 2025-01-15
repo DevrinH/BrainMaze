@@ -179,20 +179,22 @@ footer{
 }
 
 .abutton{
-    background: #9787f5;;
-    width: 30%;
-    height: 40px;
-    color:#ffffff;
-    border-radius: 30px;
-    left: 50%;
-    translate: -50% -50%;
-
-
+  background: #9787f5;;
+  width: 15%;
+  height: 46px;
+  color:#ffffff;
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
+
+
+
 
 .whitearcade{
   font-family: "Arcade";
-  font-size: 32px;
+  font-size: 38px;
   color:#ffffff;
 
 }
