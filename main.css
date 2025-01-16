@@ -180,6 +180,7 @@ footer{
 
 .abutton{
   background-image: linear-gradient(rgb(255, 255, 255), #9787f5);
+  box-shadow: 2px 2px 3px #380e49;
   width: max-content;
   padding: 20px;
   color:#ffffff;
