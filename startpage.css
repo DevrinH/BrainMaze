@@ -112,7 +112,7 @@
   
   
   .abutton{
-    background: #9787f5;;
+    background-image: linear-gradient(rgb(167, 108, 206), rgb(58, 36, 102));
     width: max-content;
     padding: 20px;
     color:#ffffff;
