@@ -42,25 +42,8 @@ const questions = [
             { text: "Sahara", correct: false},
             { text: "Antarctica", correct: true},
         ]
-    },
-    {
-        question: "Which is the smallest continent in the world?",
-        answers: [
-            { text: "Asia", correct: false},
-            { text: "Australia", correct: true},
-            { text: "Arctic", correct: false},
-            { text: "Africa", correct: false},
-        ]
-    },
-    {
-        question: "I like big boats?",
-        answers: [
-            { text: "Asia", correct: false},
-            { text: "Australia", correct: true},
-            { text: "Arctic", correct: false},
-            { text: "Africa", correct: false},
-        ]
-    }    
+    }
+       
 ];
 
 
