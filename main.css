@@ -96,7 +96,7 @@ a{
 
 .displaytestsat{
   
-  background: #ffffff;
+  background-image: linear-gradient(rgb(231, 221, 238), rgb(122, 87, 192));
   color:#9787f5;
   border: 5px solid #9787f5;
   width: 60%;
