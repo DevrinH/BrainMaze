@@ -185,6 +185,7 @@ button{
   padding: 20px;
   font-family: "Arcade";
   font-size: 32px;
+  border: none;
   color:#ffffff;
   border-radius: 10px;
   margin-left: auto;
