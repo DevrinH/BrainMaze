@@ -178,7 +178,7 @@ footer{
   margin-right: auto;
 }
 
-.abutton{
+button{
   background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
   box-shadow: 0px 3px  #784f88;
   width: max-content;
