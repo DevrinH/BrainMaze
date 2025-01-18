@@ -18,3 +18,4 @@ function updateCountdown(){
         clearInterval(refreshIntervalId);
 }
 
+}
