@@ -198,8 +198,7 @@ button:hover{
 cursor: pointer;
 background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
 box-shadow: 0 0 5px #9787f5,
-            0 0 20px #9787f5,
-            0 0 60px #9787f5;
+            0 0 20px #9787f5;
 
 }
 
@@ -208,6 +207,14 @@ box-shadow: 0 0 5px #9787f5,
   font-family: "Arcade";
   font-size: 18px;
   color:#ffffff;
+
+
+}
+
+.gif{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 
 
 }
