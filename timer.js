@@ -1,4 +1,4 @@
-const startingMinutes = 10;
+const startingMinutes = 5;
 
 
 const countdownEl = document.getElementById('countdown');
@@ -17,6 +17,7 @@ function updateCountdown(){
 
     if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
         clearInterval(refreshIntervalId);
+        showScore();
 }
 
 }
