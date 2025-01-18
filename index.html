@@ -47,10 +47,19 @@
 
 
 <div class="video">
-      <video  autoplay="autoplay" loop width="300px">
+      <video  autoplay="autoplay" loop width="300px" id="autoplay">
             <source src="iphonetest.mp4" type="video/mp4">
 
        </video>
+       <script>
+window.onload =function(){
+
+   document.getElementById("autoplay").play();
+}
+
+       </script>
+
+
  </div>
 
 
