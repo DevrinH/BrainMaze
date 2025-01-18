@@ -1,8 +1,9 @@
-const startingMinutes = 1;
-let time = startingMinutes *60;
+const startingMinutes = 10;
+
 
 const countdownEl = document.getElementById('countdown');
 
+let time = startingMinutes * 60; //minutes * 60 seconds
 let refreshIntervalId = setInterval(updateCountdown, 1000);
 
 function updateCountdown(){
