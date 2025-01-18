@@ -54,3 +54,43 @@ h1 {
   div{
     margin: 20px;
     }
+    
+    
+    button{
+        background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
+        box-shadow: 0px 3px  #784f88;
+        width: max-content;
+        padding: 17px;
+        font-family: "Arcade";
+        font-size: 27px;
+        border: none;
+        color:#ffffff;
+        border-radius: 10px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        transition: all 0.3s;
+      }
+      
+      button:hover{
+      cursor: pointer;
+      background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
+      box-shadow: 0 0 5px #9787f5,
+                  0 0 20px #9787f5;
+      
+      }
+
+      .timedsat{
+        background: #ffffff;
+        color:#9787f5;
+        border: 5px solid #9787f5;
+        width: 60%;
+        height: max-content;
+        box-shadow: 5px 5px #9787f5;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+      }
