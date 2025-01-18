@@ -15,7 +15,7 @@ function updateCountdown(){
     time--;
 }
 
-if (updateCountdown=0) {
+if (time=0) {
 minutes = 0
 seconds = 0
 
