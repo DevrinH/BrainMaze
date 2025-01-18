@@ -15,8 +15,7 @@ function updateCountdown(){
     time--;
 }
 
-if (time=0) {
-minutes = 0
-seconds = 0
+if (updateCountdown > 0) {
+clearInterval(countdownEl)
 
 }
