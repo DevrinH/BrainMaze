@@ -3,7 +3,7 @@
 
 
 
-const startingMinutes = 5;
+const startingMinutes = 10;
 
 
 const countdownEl = document.getElementById('countdown');
