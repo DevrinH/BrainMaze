@@ -3,7 +3,7 @@
 import { function showScore()} from './script.js';
 
 
-const startingMinutes = 10;
+const startingMinutes = 1;
 
 
 const countdownEl = document.getElementById('countdown');
