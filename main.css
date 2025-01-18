@@ -193,7 +193,7 @@ button{
   text-align: center;
 }
 
-.button:hover{
+button:hover{
 cursor: pointer;
 background:#9787f5;
 box-shadow: 0 0 5px #9787f5,
