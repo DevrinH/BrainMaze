@@ -1,6 +1,6 @@
 
 
-
+import { function showScore()} from './script.js';
 
 
 const startingMinutes = 10;

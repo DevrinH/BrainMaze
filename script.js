@@ -105,7 +105,7 @@ function selectAnswer(e){
     nextButton.style.display = "block";
 }
 
-function showScore(){
+export function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length} a percentage of ${(score/questions.length)*100}%!`;
     nextButton.innerHTML = "Exit";
