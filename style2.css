@@ -87,7 +87,12 @@ body{
     display:none;
   }
 
-
+  .correct{
+    background: #9aeabc;
+  }
+  .incorrect{
+    background: #ff9393;
+  }
 
   .timer{
     background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
