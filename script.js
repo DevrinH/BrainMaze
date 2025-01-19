@@ -2,7 +2,7 @@
 setTimeout(function() {
 
     showScore()
-    }, 10000);
+    }, 602000);
 
 
 
