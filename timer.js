@@ -1,7 +1,7 @@
 
 
 
-const startingMinutes = 1;
+const startingMinutes = 10;
 
 
 const countdownEl = document.getElementById('countdown');
