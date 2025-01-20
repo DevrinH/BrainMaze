@@ -142,7 +142,12 @@ function handleNextButton(){
     currentQuestionIndex++;
     if(currentQuestionIndex < questions.length){
         showQuestion();
-    }else{
+    }
+    
+    else if (setTimeout=62000) { //stop the setInterval whe time = 0 for avoid negative time
+        showScore();
+    }
+    else{
         showScore();
         endtimer();
         clearInterval(refreshIntervalId);
