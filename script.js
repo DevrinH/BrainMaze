@@ -161,8 +161,8 @@ nextButton.addEventListener("click", ()=>{
         handleNextButton();
         
     }
-    if (setTimeout = 602000){
-        currentQuestionIndex = questions.length;
+    if (setTimeout = 0){
+        currentQuestionIndex > questions.length;
         
     }
     
