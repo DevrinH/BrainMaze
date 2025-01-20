@@ -142,9 +142,7 @@ function handleNextButton(){
     currentQuestionIndex++;
     if(currentQuestionIndex < questions.length){
         showQuestion();
-    }
-    
-    else{
+    }else{
         showScore();
         endtimer();
         clearInterval(refreshIntervalId);
@@ -164,11 +162,10 @@ function mathlink(){
 }
 
 nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length ){
-        handleNextButton(); 
-    }
-    
-    else{
+    if(currentQuestionIndex < questions.length){
+        handleNextButton();
+        
+    }else{
         
        mathlink(); 
     }
