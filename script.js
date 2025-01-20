@@ -1,7 +1,7 @@
 setTimeout(function() {
 
     showScore();
-    mathlink();
+    
     }, 602000);
     
     const startingMinutes = 10;
@@ -136,6 +136,7 @@ function showScore(){
     questionElement.innerHTML = `You scored ${score} out of ${questions.length} a percentage of ${(score/questions.length)*100}%!`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
+    
 }
 function handleNextButton(){
     currentQuestionIndex++;
@@ -163,6 +164,9 @@ function mathlink(){
 nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
         handleNextButton();
+        
+    }if (setTimeout = 0){
+        mathlink();
         
     }else{
         
