@@ -148,8 +148,12 @@ function handleNextButton(){
     }
 }
 
-
-
+function endtimer(){
+    if(currentQuestionIndex === 3){
+        
+        console.log("nada")
+    }
+}
 function mathlink(){
 
     location.href = "https://www.google.com";
@@ -160,8 +164,7 @@ nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
         handleNextButton();
         
-    }
-    else{
+    }else{
         
        mathlink(); 
     }
