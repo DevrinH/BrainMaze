@@ -165,8 +165,7 @@ nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
         handleNextButton();
         
-    }if (time = 0){
-        mathlink();
+   
         
     }else{
         
