@@ -4,7 +4,7 @@ setTimeout(function() {
     
     }, 602000);
     
-    const startingMinutes = 10;
+    const startingMinutes = 1;
     const countdownEl = document.getElementById('countdown');
     
     let time = startingMinutes * 60; //minutes * 60 seconds
