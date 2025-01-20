@@ -140,7 +140,7 @@ function showScore(){
 }
 function handleNextButton(){
     currentQuestionIndex++;
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex < questions.length && time > 0){
         showQuestion();
     }else{
         showScore();
@@ -162,7 +162,7 @@ function mathlink(){
 }
 
 nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex < questions.length && time > 0){
         handleNextButton();
         
     }else{
