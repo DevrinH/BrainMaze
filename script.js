@@ -151,7 +151,7 @@ function handleNextButton(){
 
 function endtimer(){
     if(currentQuestionIndex === 3){
-        time=-1;
+        
         console.log("nada")
     }
 }
@@ -163,11 +163,13 @@ function mathlink(){
 
 nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
-        handleNextButton();   
-    }
-    if (countdownEl.innerHTML = `${0} : ${0}`) { //stop the setInterval whe time = 0 for avoid negative time
+        handleNextButton(); 
+        
+        if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
         mathlink();
+    }  
     }
+    
     else{
         
        mathlink(); 
