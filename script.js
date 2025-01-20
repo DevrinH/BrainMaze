@@ -165,7 +165,7 @@ nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
         handleNextButton(); 
     }
-    else if (time <= 0) { //stop the setInterval whe time = 0 for avoid negative time
+    else if (time = 0) { //stop the setInterval whe time = 0 for avoid negative time
         mathlink();
     }  
     
