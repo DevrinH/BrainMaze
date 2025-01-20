@@ -1,6 +1,7 @@
 setTimeout(function() {
 
-    showScore()
+    showScore();
+    mathlink();
     }, 602000);
     
     const startingMinutes = 10;
