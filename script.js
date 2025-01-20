@@ -164,11 +164,10 @@ function mathlink(){
 nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length){
         handleNextButton(); 
-        
-        if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
+    }
+    if (updateCountdown< 0) { //stop the setInterval whe time = 0 for avoid negative time
         mathlink();
     }  
-    }
     
     else{
         
