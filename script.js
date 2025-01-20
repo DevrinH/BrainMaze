@@ -163,7 +163,7 @@ nextButton.addEventListener("click", ()=>{
     }
     if (setTimeout = 602000){
         currentQuestionIndex = questions.length;
-        mathlink(); 
+        
     }
     
     else{
