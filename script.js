@@ -167,12 +167,9 @@ function mathlink(){
 }
 
 nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length){
+    if((currentQuestionIndex < questions.length) (time > 0 )){
         handleNextButton(); 
     }
-    else if (setTimeout=62000) { //stop the setInterval whe time = 0 for avoid negative time
-        mathlink();
-    }  
     
     else{
         
