@@ -133,7 +133,7 @@ function selectAnswer(e){
 function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length} a percentage of ${(score/questions.length)*100}%!`;
-    nextButton.innerHTML = "Exit";
+    nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
 }
 
@@ -148,12 +148,8 @@ function handleNextButton(){
     }
 }
 
-function endtimer(){
-    if(currentQuestionIndex === 3){
-        
-        console.log("nada")
-    }
-}
+
+
 function mathlink(){
 
     location.href = "https://www.google.com";
