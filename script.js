@@ -164,7 +164,7 @@ function mathlink(){
 }
 
 nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length && time > 0 ){
+    if(currentQuestionIndex < questions.length ){
         handleNextButton(); 
     }
     
