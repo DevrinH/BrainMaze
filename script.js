@@ -2,7 +2,7 @@ setTimeout(function() {
 
     showScore();
     
-    }, 902000);
+    }, refreshIntervalid);
     
     const startingMinutes = 15;
     const countdownEl = document.getElementById('countdown');
