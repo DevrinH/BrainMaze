@@ -2,9 +2,9 @@ setTimeout(function() {
 
     showScore();
     
-    }, 602000);
+    }, 902000);
     
-    const startingMinutes = 10;
+    const startingMinutes = 15;
     const countdownEl = document.getElementById('countdown');
     
     let time = startingMinutes * 60; //minutes * 60 seconds
