@@ -16,6 +16,7 @@
     background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
     background-size: contain;
     height: max-content;
+    padding-bottom: 50px;
   }
   
   .linkcenter{
