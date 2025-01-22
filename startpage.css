@@ -19,30 +19,6 @@
     padding-bottom: 50px;
   }
   
-  .linkcenter{
-    text-align: center;
-  }
-  
-  .arcade{
-    font-family: "Arcade";
-    font-size: 32px;
-  }
-  
-  .arcade2{
-    font-family: "Arcade";
-    font-size: 32px;
-  }
-  
-  .arcadetitle{
-    font-family: "Arcade";
-    font-size: 32px;
-    margin-left: auto;
-    margin-right: auto; 
-    text-align: center;
-    color: white;
-  }
-
-  
   div{
   margin-bottom: 30px;
   }
@@ -50,41 +26,6 @@
     font-family: "Arcade";
     font-size: 32px;
   
-  }
-  
-  .practice {
-    width: 65%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 2px;
-    padding-top: 0.5px;
-  }
-  .smartphone {
-    width: 65%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 2px;
-    padding-top: 0.5px;
-  }
-  
-  .displaytestsat{
-    
-    background: #ffffff;
-    color:#000000;
-    border: 5px solid #9787f5;
-    width: 60%;
-    height: max-content;
-    box-shadow: 5px 5px #9787f5;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 2px;
-    padding-top: 2px;
   }
   
   
@@ -96,37 +37,7 @@
     color: white;
   }
   
-  .satbodytimed{
-    background: #ffffff;
-    color:#000000;
-    border: 5px solid #9787f5;
-    width: 80%;
-    height: 1200px;
-    box-shadow: 5px 5px #9787f5;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-  
-  }
-  
-  
-  .abutton{
-    background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
-    box-shadow: 0px 3px  #784f88;
-    width: max-content;
-    padding: 20px;
-    color:#ffffff;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  
-  
-  
+
   
   .whitearcade{
     font-family: "Arcade";
