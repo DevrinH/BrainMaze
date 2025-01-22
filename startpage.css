@@ -19,6 +19,30 @@
     padding-bottom: 50px;
   }
   
+  .linkcenter{
+    text-align: center;
+  }
+  
+  .arcade{
+    font-family: "Arcade";
+    font-size: 32px;
+  }
+  
+  .arcade2{
+    font-family: "Arcade";
+    font-size: 32px;
+  }
+  
+  .arcadetitle{
+    font-family: "Arcade";
+    font-size: 32px;
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center;
+    color: white;
+  }
+
+  
   div{
   margin-bottom: 30px;
   }
@@ -28,8 +52,10 @@
   
   }
   
-  .displaytestged{
+
   
+  .displaytestsat{
+    
     background: #ffffff;
     color:#000000;
     border: 5px solid #9787f5;
@@ -43,6 +69,8 @@
     padding-bottom: 2px;
     padding-top: 2px;
   }
+  
+  
   footer{
     margin-left: auto;
     margin-right: auto; 
@@ -51,12 +79,6 @@
     color: white;
   }
   
-
-  
-  .whitearcade{
-    font-family: "Arcade";
-    font-size: 38px;
-    color:#ffffff;
 
   
   }
