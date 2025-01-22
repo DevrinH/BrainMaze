@@ -21,8 +21,8 @@
 body{
     background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
     background-color:  rgb(31, 2, 31); /* For browsers that do not support gradients */
-    background-size: contain;
-    height: max-content + 30px;
+    background-size: cover;
+    background-position: center, center;
 }
 
 .app{
