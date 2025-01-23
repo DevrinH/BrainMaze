@@ -131,7 +131,7 @@ a{
 }
 .displaytestged{
   
-  background: #83007c;
+  background-image: linear-gradient(#0f8b94, #c401c4);
   color:#ffffff;
   width: 60%;
   border-radius: 10px;
