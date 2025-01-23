@@ -230,11 +230,6 @@ h2 {
   text-align: center;
 }
 
-body, .black {
-  width: 100%;
-  height: 200px;
-  background: black;
-}
 
 .e-with-fixed-bg {
   width: 100%;
