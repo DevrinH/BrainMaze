@@ -118,10 +118,10 @@ a{
   
   background-image:linear-gradient(rgb(176, 127, 255), #9787f5);
   color:#ffffff;
-  border: 5px solid #9787f5;
   width: 60%;
+  border-radius: 10px;
   height: max-content;
-  box-shadow: 5px 5px #ffffff;
+  box-shadow:0px 5px #ffffff;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
