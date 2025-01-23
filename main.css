@@ -13,7 +13,7 @@ body {
 font-family: Arial, sans-serif;
   color: white; 
   background-color: rgb(31, 2, 31); /* For browsers that do not support gradients */
-  background-image: linear-gradient(rgb(22, 7, 32), rgb(41, 14, 94));
+  background-image: linear-gradient(rgb(107, 50, 145), rgb(81, 46, 151));
   background-size: contain;
   height: max-content;
   
@@ -129,10 +129,11 @@ a{
 }
 .displaytestged{
   
-  background: #ffffff;
+  background: #f575ea;
   color:#000000;
   border: 5px solid #9787f5;
   width: 60%;
+  border-radius: 10px;
   height: max-content;
   box-shadow: 5px 5px #9787f5;
   margin-left: auto;
