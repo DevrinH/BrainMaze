@@ -230,3 +230,45 @@ h2 {
   text-align: center;
 }
 
+body, .black {
+  width: 100%;
+  height: 200px;
+  background: black;
+}
+
+.e-with-fixed-bg {
+  width: 100%;
+  height: 300px;
+  
+  /* Important */
+  position: relative;
+}
+
+.bg-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-image: linear-gradient(#8447D0, #393299);;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.e-container {
+  z-index: 1;
+  color: white;
+  background: transparent;
+}
