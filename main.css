@@ -15,7 +15,6 @@ font-family: Arial, sans-serif;
   background-color: rgb(31, 2, 31); /* For browsers that do not support gradients */
   background-image: linear-gradient(#8447D0, #393299);
   background-repeat: no-repeat;
-  position: fixed;
   background-size: contain;
  
   
