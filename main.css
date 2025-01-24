@@ -30,12 +30,12 @@ font-family: Arial, sans-serif;
   
 }
 
-.linkcenter{
-  text-align: center;
+.welcome{
+  text-align: left;
 }
 
 .arcade{
-  font-family: "Arcade";
+  font-family: sans-serif;
   font-size: 32px;
 }
 
