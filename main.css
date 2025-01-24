@@ -22,7 +22,7 @@ body {
 font-family: Arial, sans-serif;
   color: white; 
   background-color: rgb(31, 2, 31); /* For browsers that do not support gradients */
-  background-image: linear-gradient(0.05turn,#9F65D9, #2E255E);
+  background-image: linear-gradient(-0.1turn,#9F65D9, #2E255E);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: contain;
@@ -42,7 +42,8 @@ font-family: Arial, sans-serif;
 
 .offer{
   font-family: sans-serif;
-  font-size: 32px;
+  font-size: 20px;
+  text-align: center;
 }
 
 .arcade2{
