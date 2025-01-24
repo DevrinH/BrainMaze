@@ -15,14 +15,14 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(#8447D0, #393299);
+  background-image: linear-gradient(0.05turn,#9F65D9, #2E255E);
   z-index: -1;
 }
 body {
 font-family: Arial, sans-serif;
   color: white; 
   background-color: rgb(31, 2, 31); /* For browsers that do not support gradients */
-  background-image: linear-gradient(#8447D0, #393299);
+  background-image: linear-gradient(0.05turn,#9F65D9, #2E255E);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: contain;
@@ -106,6 +106,7 @@ a{
   padding-right: 20px;
   padding-bottom: 2px;
   padding-top: 0.5px;
+  text-align: center;
 }
 
 .displaytestsat{
