@@ -32,10 +32,15 @@ font-family: Arial, sans-serif;
 
 .welcome{
   text-align: left;
-  padding: 35px;
+  padding: 40px;
 }
 
 .arcade{
+  font-family: sans-serif;
+  font-size: 32px;
+}
+
+.offer{
   font-family: sans-serif;
   font-size: 32px;
 }
