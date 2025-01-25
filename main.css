@@ -215,14 +215,14 @@ footer{
   font-family: sans-serif;
   font-size: 30px;
   border: none;
-  border-radius: 50%;
+  border-radius: 25px;
   display: block;
   text-align: center;
   transition: all 0.3s;
 }
 
 .satdesc{
-font-size: 8px;
+font-size: 18px;
 
 }
 
@@ -261,6 +261,6 @@ h2 {
 .container{
 display: flex;
 column-gap: 20px;
-width: 90%;
+width: 60%;
 
 }
