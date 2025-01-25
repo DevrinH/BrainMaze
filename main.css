@@ -219,6 +219,7 @@ footer{
   display: block;
   text-align: center;
   transition: all 0.3s;
+  margin-left: 20% ;
 }
 
 .satdesc{
