@@ -221,6 +221,11 @@ footer{
   transition: all 0.3s;
 }
 
+.satdesc{
+font-size: 8px;
+
+}
+
 button:hover{
 cursor: pointer;
 background: linear-gradient(rgb(176, 127, 255), #9787f5);
