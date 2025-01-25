@@ -224,7 +224,7 @@ footer{
 }
 
 .actbutton{
-  background-image:linear-gradient(#ebecec, #e0ecf1);
+  background-image:linear-gradient(#ebecec, #b8c7ce);
   color: #1b1b1b;
   box-shadow: 4px 10px 21px -10px rgba(0,0,0,0.75);
   width: max-content;
@@ -240,7 +240,7 @@ footer{
 
 }
 .gedbutton{
-  background-image:linear-gradient(#34acac, #198699);
+  background-image:linear-gradient(#8ed8d8, #198699);
   color: #ffffff;
   box-shadow: 4px 10px 21px -10px rgba(0,0,0,0.75);
   width: max-content;
