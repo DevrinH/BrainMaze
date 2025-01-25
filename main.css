@@ -220,7 +220,7 @@ footer{
   display: block;
   text-align: center;
   transition: all 0.3s;
-  padding-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .actbutton{
@@ -236,7 +236,8 @@ footer{
   display: block;
   text-align: center;
   transition: all 0.3s;
-  padding-bottom: 60px;
+  margin-bottom: 50px;
+
 }
 
 .satdesc{
