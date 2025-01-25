@@ -213,7 +213,7 @@ footer{
   width: max-content;
   padding: 17px;
   font-family: sans-serif;
-  font-size: 34px;
+  font-size: 30px;
   border: none;
   border-radius: 50px;
   display: block;
@@ -256,6 +256,6 @@ h2 {
 .container{
 display: flex;
 column-gap: 20px;
-width: 80%;
+width: 90%;
 
 }
