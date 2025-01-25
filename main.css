@@ -210,7 +210,7 @@ footer{
 .satbutton{
   background-image:linear-gradient(#8abbcf, #0b85b9);
   color: #ffffff;
-  box-shadow: 4px 10px 21px -4px rgba(0,0,0,0.75);
+  box-shadow: 4px 10px 21px -10px rgba(0,0,0,0.75);
   width: max-content;
   padding: 17px;
   font-family: sans-serif;
@@ -224,7 +224,7 @@ footer{
 }
 
 .satdesc{
-font-size: 14px;
+font-size: 13px;
 
 }
 
