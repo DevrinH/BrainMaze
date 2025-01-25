@@ -264,5 +264,6 @@ h2 {
 .container{
 display: flex;
 column-gap: 15px;
-margin-left: 6% ;
+margin-left: auto ;
+width: 100%;
 }
