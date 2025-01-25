@@ -249,7 +249,7 @@ box-shadow: 0 0 5px #9787f5,
 .gif{
   display: block;
   margin-left: auto;
-  margin: auto;
+  margin-right: auto;
   text-align: center;
   padding-bottom: 40px;
 
@@ -264,6 +264,6 @@ h2 {
 .container{
 display: flex;
 column-gap: 15px;
-margin-left: auto ;
+margin-left: 5%;
 width: 100%;
 }
