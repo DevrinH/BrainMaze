@@ -309,3 +309,26 @@ margin-left: 5%;
   column-gap: 15px;
   margin-left: 5%;
   }
+
+  .lessoncontainer{
+    display: flex;
+    column-gap: 15px;
+    margin-left: 5%;
+    }
+
+    .lessonbutton{
+      background-image:linear-gradient(#fcff58, #ebd82e);
+      color: #ffffff;
+      box-shadow: 4px 10px 21px -10px rgba(0,0,0,0.75);
+      width: 30px;
+      padding: 17px;
+      font-family: sans-serif;
+      font-size: 22px;
+      border: none;
+      border-radius: 25px;
+      display: block;
+      text-align: center;
+      transition: all 0.3s;
+      margin-bottom: 40px;
+    }
+    
