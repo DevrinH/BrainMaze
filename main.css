@@ -35,7 +35,7 @@ font-family: Arial, sans-serif;
 }
 
 .brainchar{
-width: 5%;
+margin-top: 20px;
 
 }
 
@@ -349,5 +349,5 @@ margin-left: 5%;
       display: flex;
       column-gap: 15px;
       margin-left: 5%;
-      margin-top: 40px;
+      margin-top: 80px;
       }
