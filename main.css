@@ -31,12 +31,11 @@ font-family: Arial, sans-serif;
 }
 
 .welcome{
-  float: left;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .brainchar{
-float: right;
+height: 150px;
 
 }
 
@@ -345,3 +344,8 @@ margin-left: 5%;
       margin-bottom: 40px;
     }
     
+    .wrapper{
+      display: flex;
+      column-gap: 15px;
+      margin-left: 5%;
+      }
