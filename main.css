@@ -316,6 +316,13 @@ margin-left: 5%;
     margin-left: 5%;
     }
 
+
+.containerwelcome{
+  display: flex;
+  column-gap: 15px;
+  margin-left: 5%;
+  }
+
     .lessonbutton{
       background-image:linear-gradient(#fcff58, #ebd82e);
       color: #000000;
