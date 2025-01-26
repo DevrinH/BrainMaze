@@ -1,0 +1,42 @@
+button:hover {
+    cursor: pointer;
+}
+#headerSec {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+#mainContainer {
+    display: flex;
+    gap: 1em;
+    height: 50dvh;
+}
+#mainContainer > div {
+    width: 100%;
+}
+#cardContainer {
+    border: 3px solid green;
+    text-align: center;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#editWord, #removeWordBtn {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#editWord {
+    bottom: 10%; 
+}
+#removeWordBtn {
+   bottom: 0%;
+}
+.orderBtn {
+   height: 30%;
+   transform: translateY(100%);
+}
+#wordDefinition {
+    display: none;
+}
