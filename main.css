@@ -347,7 +347,8 @@ margin-left: 5%;
     
     .wrapper{
       display: flex;
-      column-gap: 50px;
+      column-gap: 25px;
       margin-left: 5%;
       margin-top: 80px;
+      margin-bottom: 30px;
       }
