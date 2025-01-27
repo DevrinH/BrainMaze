@@ -216,11 +216,11 @@ footer{
   color: #ffffff;
   box-shadow: 4px 10px 21px -10px rgba(0,0,0,0.75);
   width: max-content;
-  padding: 17px;
+  padding: 12px;
   font-family: sans-serif;
   font-size: 22px;
   border: none;
-  border-radius: 15px;
+  border-radius: 11px;
   display: block;
   text-align: center;
   transition: all 0.3s;
