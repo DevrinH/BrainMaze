@@ -232,12 +232,13 @@ footer{
 .actbutton{
   background-image:linear-gradient(#ebecec, #838e94);
   color: #1b1b1b;
-  box-shadow: 4px 10px 21px -10px rgba(0,0,0,0.75);
+  box-shadow: 2px 2px black;
   width: 77px;
   height: 77px;
   padding: 3px;
+  border-width: 3px;
+  border-color: black;
   font-size: 31px;
-  border: none;
   border-radius: 12px;
   display: block;
   text-align: center;
@@ -248,12 +249,13 @@ footer{
 .gedbutton{
   background-image:linear-gradient(#8ed8d8, #198699);
   color: #ffffff;
-  box-shadow: 4px 10px 21px -10px rgba(0,0,0,0.75);
+  box-shadow: 2px 2px black;
   width: 77px;
   height: 77px;
   padding: 3px;
+  border-width: 3px;
+  border-color: black;
   font-size: 31px;
-  border: none;
   border-radius: 12px;
   display: block;
   text-align: center;
