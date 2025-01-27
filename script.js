@@ -72,12 +72,22 @@ const questions = [
     {
         question: "The impression that the town meetings of Colonial New England were free, democratic, and civilized is far too simplistic. For one thing, those who could vote did not include women, Black people, American Indians, and White men who did <mark>not own property. In the seventeenth century it was not 'the people' who ran the town meetings; it was the town selectmen.</mark> However, in early colonial Dedham, Massachusetts, there was a time when the townsfolk themselves actually made all the big decisions at town meetings. A great and noble experiment, it lasted all of three years and was abandoned by 1639, soon Line15 after the town was established. <br/><br/>Question:<br/>In the highlighted portions('In…selectmen'), the author distinguishes between the",
         answers: [
-            { text: "general population and a small group", correct: true},
+            { text: "objectively summarizes crucial events in a typical town", correct: true},
             { text: "earliest colonizers and the earliest inhabitants", correct: false},
             { text: "rural population and the population of towns", correct: false},
             { text: "agricultural labor force and an aristocratic class", correct: false},
         ]
+    },
+    {
+        question: "The impression that the town meetings of Colonial New England were free, democratic, and civilized is far too simplistic. For one thing, those who could vote did not include women, Black people, American Indians, and White men who did <mark>not own property. In the seventeenth century it was not 'the people' who ran the town meetings; it was the town selectmen.</mark> However, in early colonial Dedham, Massachusetts, there was a time when the townsfolk themselves actually made all the big decisions at town meetings. A great and noble experiment, it lasted all of three years and was abandoned by 1639, soon Line15 after the town was established. <br/><br/>Question:<br/>In the highlighted portions('In…selectmen'), the author distinguishes between the",
+        answers: [
+            { text: "general population and a small group", correct: false},
+            { text: "enthusiastically reveals a startling discovery", correct: false},
+            { text: "mildly scolds historians who support inaccurate interpretations", correct: false},
+            { text: "gently mocks false notions about town meetings", correct: true},
+        ]
     }
+
 
 ];
 
