@@ -380,10 +380,10 @@ margin-bottom: 20px;
 
 .app{
   background: #ffff;
-  width: 90%;
+  width: 95%;
   max-width: 600px;
   margin: 100px auto 0;
-  height: 750px;
+  height: 850px;
   box-shadow: 4px 4px #000000; 
   border-width: 4px;
   border-color: #000000;
@@ -391,11 +391,11 @@ margin-bottom: 20px;
 }
 
 .app h1{
-  font-size: 25px;
-  font-family: "Arcade";
+  font-size: 15px;
+  font-family: "Bungee";
   color: black;
   border-bottom: 1px solid #000000;
-  padding: 30px;
+  padding: 15px;
 }
 
 .quiz{
@@ -412,7 +412,7 @@ margin-bottom: 20px;
   color: #000000;
   border-color:#000000;
   font-weight: 500;
-  font-size: 16px ;
+  font-size: 12px ;
   width: 100%;
   box-shadow: 2px 2px #000000;
   border-width: 3px;
@@ -424,7 +424,7 @@ margin-bottom: 20px;
   transition: all 0.3s;
 }
 .id{
-  font-size: 24px;
+  font-size: 20px;
 
 }
 
