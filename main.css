@@ -8,6 +8,13 @@
   font-family: "Arcade";
   src: url(ArcadeClassic.ttf);
 }
+@font-face {
+  font-family: "Montserrat-SemiBold";
+  src: url(Montserrat-SemiBold.ttf);
+
+  
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -31,7 +38,7 @@ font-family: Arial, sans-serif;
 }
 
 .welcome{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "";
   text-align: center;
   color:#000000;
 }
