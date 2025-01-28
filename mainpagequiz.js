@@ -1,7 +1,7 @@
 const questions = [
     {
         
-        question: " 1<br>21<br>21<br>21<br>21<br>21<br>21<br>21<br>21<br>2",
+        question: " Question 1 1<br>21<br>21<br>21<br>21<br>21<br>21<br>21<br>21<br>2",
        
         answers: [
             { text: "initially promising, because it shows that the southern sea otter will not become an endangered species.", correct: false},
@@ -11,7 +11,7 @@ const questions = [
         ]
     },
     {
-        question: " ",
+        question: " Question 2 ",
        
         answers: [
             { text: "The first sentence of the first paragraph (“The recovery … Survey”)", correct: false},
