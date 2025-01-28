@@ -57,7 +57,7 @@ margin-top: 50px;
 .offer h2{
   text-align: left;
   font-family:"Montserrat-SemiBold";
-  font-size: 24px;
+  font-size: 20px;
   color: #000000;
   padding-left: 25px;
   
@@ -136,6 +136,7 @@ a{
   padding-bottom: 2px;
   padding-top: 0.5px;
   text-align: left;
+  color: #000000;
 }
 
 .displaytestsat{
