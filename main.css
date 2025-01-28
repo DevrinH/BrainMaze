@@ -391,4 +391,6 @@ width: 100%;
 background-color: white;
 border-radius: 15px;
 padding-top: 10px;
+border-width: 3px;
+border-color: #000000;
 }
