@@ -22,7 +22,7 @@ body::before {
   left: 0;
   width: 105vw;
   height: 100vh;
-  background-image: linear-gradient(#ffffff, #FAF0EA);
+  background-image: linear-gradient(#e7ffa3, #FAF0EA);
   z-index: -1;
 }
 body {
