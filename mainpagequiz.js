@@ -108,27 +108,38 @@ function showScore(){
 }
 function handleNextButton(){
     currentQuestionIndex++;
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex < questions.length && time > 0){
         showQuestion();
     }else{
         showScore();
-       
-
+        endtimer();
+        clearInterval(refreshIntervalId);
     }
 }
 
+function endtimer(){
+    if(currentQuestionIndex === 3){
+        
+        console.log("nada")
+    }
+}
+function mathlink(){
 
+    location.href = "https://www.brainsmaze.com/math.html";
 
+}
 
 nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length){
+    if(currentQuestionIndex < questions.length && time > 0){
         handleNextButton();
         
     }else{
-    
-        startQuiz();
+        localStorage.setItem("readingScore", score); 
+        mathlink(); 
     }
 });
 
 
 startQuiz();
+
+
