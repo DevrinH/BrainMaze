@@ -109,12 +109,12 @@ function showScore(){
 }
 function handleNextButton(){
     currentQuestionIndex++;
-    if(currentQuestionIndex < questions.length && time > 0){
+    if(currentQuestionIndex < questions.length){
         showQuestion();
     }else{
         showScore();
-        endtimer();
-        clearInterval(refreshIntervalId);
+       
+
     }
 }
 
@@ -127,11 +127,11 @@ function endtimer(){
 
 
 nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length && time > 0){
+    if(currentQuestionIndex < questions.length){
         handleNextButton();
         
     }else{
-        localStorage.setItem("readingScore", score); 
+    
         startQuiz();
     }
 });
