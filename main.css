@@ -15,7 +15,7 @@ body::before {
   left: 0;
   width: 105vw;
   height: 100vh;
-  background-image: linear-gradient(-0.35turn,#DECCFF, #FFB7FA);
+  background-image: linear-gradient(-0.35turn,#b9a1e7, #f1a3ec);
   z-index: -1;
 }
 body {
@@ -60,7 +60,7 @@ margin-top: 50px;
   font-size: 44px;
 }
 .satfont{
-
+  
   font-family: sans-serif;
 }
 
