@@ -15,7 +15,7 @@ body::before {
   left: 0;
   width: 105vw;
   height: 100vh;
-  background-image: linear-gradient(-0.35turn,#FDB7FA, #FAF0EA);
+  background-image: linear-gradient(-0.15turn,#FDB7FA, #FAF0EA);
   z-index: -1;
 }
 body {
@@ -376,3 +376,10 @@ margin-left: 5%;
         transition: all 0.3s;
         margin-bottom: 40px;
       }
+.testlessonscontainer{
+
+width: 100%;
+background-color: white;
+border-radius: 12px;
+
+}
