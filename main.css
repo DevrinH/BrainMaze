@@ -14,6 +14,12 @@
 
   
 }
+@font-face {
+  font-family: "Bungee";
+  src: url(Bungee-Regular.ttf);
+
+  
+}
 
 body::before {
   content: '';
@@ -38,9 +44,9 @@ font-family: Arial, sans-serif;
 }
 
 .welcome{
-  font-family:"Montserrat-SemiBold" ;
+  font-family:"Bungee" ;
   text-align: center;
-  color:#000000;
+  color:#ffffff;
 }
 
 .brainchar{
