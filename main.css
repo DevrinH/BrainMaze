@@ -15,7 +15,7 @@ body::before {
   left: 0;
   width: 105vw;
   height: 100vh;
-  background-image: linear-gradient(-0.35turn,#b9a1e7, #f1a3ec);
+  background-image: linear-gradient(-0.35turn,#FDB7FA, #FAF0EA);
   z-index: -1;
 }
 body {
@@ -78,8 +78,8 @@ margin-top: 50px;
   align-items: center;
   justify-content: center;
   padding: 14px;
-  border-radius: 28px;
-  border-width: 3px;
+  border-radius: 12px;
+  border-width: 5px;
   border-color: black;
   box-shadow: 2px 2px black;
   background-image:linear-gradient(0.35turn, hsl(288, 91%, 65%), #1de1e7);
