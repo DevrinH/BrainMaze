@@ -15,7 +15,7 @@ body::before {
   left: 0;
   width: 105vw;
   height: 100vh;
-  background-image: linear-gradient(-0.15turn,#FDB7FA, #FAF0EA);
+  background-image: linear-gradient(#FDB7FA, #FAF0EA);
   z-index: -1;
 }
 body {
@@ -33,6 +33,7 @@ font-family: Arial, sans-serif;
 .welcome{
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  color:#000000;
 }
 
 .brainchar{
@@ -378,8 +379,8 @@ margin-left: 5%;
       }
 .testlessonscontainer{
 
-width: 103%;
+width: 100%;
 background-color: white;
 border-radius: 15px;
-
+margin-top: 10px;
 }
