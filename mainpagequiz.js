@@ -102,7 +102,7 @@ function selectAnswer(e){
 function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length} a percentage of ${(score/questions.length)*100}%!`;
-    nextButton.innerHTML = "Continue";
+    nextButton.innerHTML = "Try Again";
     nextButton.style.display = "block";
     
 }
