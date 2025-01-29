@@ -507,3 +507,16 @@ text-align: center;
 width: 100%;
 
 }  
+.morebutton{
+font-family: "Bungee";
+font-size: 10px;
+background-color: #9787f5;
+color: white;
+box-shadow: 2px 2px black;
+border-color: #000000;
+border-width: 3px;
+width: 15px;
+height:12px;
+border-radius: 12px;
+margin-top: 8px;
+}
