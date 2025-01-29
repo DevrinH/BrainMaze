@@ -1,13 +1,13 @@
 const questions = [
     {
         
-        question: " Questions 1",
+        question: " Which of the following is the greatest in value?",
        
         answers: [
-            { text: "initially promising, because it shows that the southern sea otter will not become an endangered species.", correct: false},
-            { text: "very significant, because it validates the recent efforts of sea otter conservation groups working along the California coast.", correct: false},
-            { text: "ultimately inconclusive, because it does not incorporate data from sea otter population surveys conducted before 2010.", correct: false},
-            { text: "somewhat misleading, because it does not make it clear that the southern sea otter population trends varied throughout the range.", correct: true},
+            { text: "5/2", correct: false},
+            { text: "2.5", correct: false},
+            { text: "2.556", correct: false},
+            { text: "8/3", correct: true},
         ]
     },
     {
