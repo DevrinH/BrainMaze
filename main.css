@@ -197,9 +197,9 @@ a{
 }
 
 footer{
-
+  margin: auto;
   text-align: center;
-  font-family: "Bungee";
+  font-family: "Montserrat-SemiBold";
   font-size: 11px;
   color: white;
 }
