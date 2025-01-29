@@ -97,8 +97,8 @@ margin-top: 50px;
   padding: 14px;
   border-radius: 12px;
   border-width: 5px;
-  border-color: black;
-  box-shadow: 8px 8px #c890fd;
+  border-color: #c890fd;
+  box-shadow: 6px 6px #c890fd;
   background:white;
   color: black;
   margin-left: auto;
@@ -110,7 +110,7 @@ margin-top: 50px;
   font-family: 'Lexend', sans-serif;
   margin-left: 14px;
   outline: none;
-  border: none;
+  
   background: transparent;
   width: 300px;
 }
@@ -398,11 +398,11 @@ box-shadow: 4px 4px #000000;
     font-family: "Bungee";
     color: black;
     border-bottom: 1px solid #000000;
-    padding: 15px;
+    padding: 12px;
   }
   
   .quiz{
-    padding: 5px 0;
+    padding: 2px 0;
   }
 
   .quiz h3{
