@@ -197,10 +197,10 @@ a{
 }
 
 footer{
-  margin-left: auto;
-  margin-right: auto; 
+
   text-align: center;
-  font-family: "Arcade";
+  font-family: "Bungee";
+  font-size: 11px;
   color: white;
 }
 
