@@ -519,4 +519,7 @@ width: 15px;
 height:12px;
 border-radius: 12px;
 margin-top: 8px;
+margin: 0 auto;
+text-align: center;
+width: 100%;
 }
