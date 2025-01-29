@@ -98,7 +98,7 @@ margin-top: 50px;
   border-radius: 12px;
   border-width: 5px;
   border-color: black;
-  box-shadow: 2px 2px #c890fd;
+  box-shadow: 2px 8px #c890fd;
   background:white;
   color: black;
   margin-left: auto;
@@ -402,7 +402,7 @@ box-shadow: 4px 4px #000000;
   }
   
   .quiz{
-    padding: 8px 0;
+    padding: 5px 0;
   }
 
   .quiz h3{
