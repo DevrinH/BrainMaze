@@ -374,7 +374,7 @@ border-radius: 15px;
 padding-top: 10px;
 border-width: 5px;
 border-color: #000000;
-margin-bottom: 25px;
+margin-bottom: 20px;
 box-shadow: 4px 4px #000000; 
 }
 
@@ -523,11 +523,11 @@ width: 100%;
   text-align: center;
   margin: auto;
   transition: all 0.3s;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .margin{
 
-padding-bottom: 15px;
+padding-bottom: 10px;
 
 }
