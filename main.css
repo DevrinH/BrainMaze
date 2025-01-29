@@ -508,19 +508,19 @@ width: 100%;
 
 }  
 .morebutton{
-font-family: "Bungee";
-font-size: 10px;
-background-color: #9787f5;
-color: white;
-box-shadow: 2px 2px black;
-border-color: #000000;
-border-width: 3px;
-width: 77px;
-height:77px;
-border-radius: 12px;
-margin-top: 8px;
-margin: 0 auto;
-text-align: center;
-display: block;
-padding: 3px;
+background: purple;
+  color: #ffffff;
+  box-shadow: 2px 2px black;
+  width: 77px;
+  height: 77px;
+  padding: 3px;
+  border-width: 3px;
+  border-color: black;
+  font-size: 31px;
+  font-family: "Bungee";
+  border-radius: 12px;
+  display: block;
+  text-align: center;
+  transition: all 0.3s;
+  margin-bottom: 40px;
 }
