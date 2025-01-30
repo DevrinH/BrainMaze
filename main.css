@@ -295,6 +295,9 @@ box-shadow: 0 0 5px #9787f5,
   border-radius: 12px;
   border-width: 3px;
   border-color: #000000;
+  box-shadow: 2px 2px black;
+  border: solid;
+  display: block;
 }
 
 h2 {
