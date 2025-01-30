@@ -132,9 +132,10 @@ body{
     box-shadow: 2px 2px black;
     width: max-content;
     min-width: 25px;
-    border-width: 3px;
+    border-width: 7px;
     border-color: #000000;
     border-radius: 12px;
+    border: solid;
     display: block;
     top: 90%;
     position: fixed;
