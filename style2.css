@@ -135,6 +135,7 @@ body{
     border-width: 3px;
     border-color: #000000;
     border-radius: 12px;
+    display: block;
     top: 90%;
     position: fixed;
     left: 19%;
