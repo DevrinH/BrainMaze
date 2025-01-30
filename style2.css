@@ -132,6 +132,7 @@ body{
     box-shadow: 2px 2px black;
     width: max-content;
     min-width: 25px;
+    padding: 3px;
     border-width: 7px;
     border-color: #000000;
     border-radius: 12px;
