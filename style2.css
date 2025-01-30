@@ -17,6 +17,18 @@
     font-family: "Arcade";
     src: url(ArcadeClassic.ttf);
   }
+  @font-face {
+    font-family: "Montserrat-SemiBold";
+    src: url(Montserrat-SemiBold.ttf);
+  
+    
+  }
+  @font-face {
+    font-family: "Bungee";
+    src: url(Bungee-Regular.ttf);
+  
+    
+  }
   body::before {
     content: '';
     position: fixed;
@@ -24,7 +36,7 @@
     left: 0;
     width: 105vw;
     height: 100vh;
-    background-image: linear-gradient(#FFB7FA, #FAF0EA);
+    background-image: linear-gradient(#4b1c81, #c890fd);
     z-index: -1;
   }
 body{
@@ -41,7 +53,7 @@ body{
     width: 90%;
     max-width: 600px;
     margin: 100px auto 0;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 4px 4px #000000; 
     border-width: 4px;
     border-color: #000000;
@@ -50,18 +62,18 @@ body{
 
   .app h1{
     font-size: 25px;
-    font-family: "Arcade";
+    font-family: "Bungee";
     color: black;
     border-bottom: 1px solid #000000;
-    padding: 30px;
+    padding: 10px;
   }
   
   .quiz{
-    padding: 20px 0;
+    padding: 2px 0;
   }
 
   .quiz h2{
-    font-size: 18px;
+    font-size: 13px;
     color: #000000;
     font-weight: 600;
   }
@@ -98,6 +110,7 @@ body{
     box-shadow: 2px 2px #000000;
     border-width: 3px;
     border-radius: 12px;
+    border-color: #000000;
     font-weight: 500;
     width: 150px;
     padding: 10px;
@@ -114,11 +127,12 @@ body{
   }
 
   .timer{
-    background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
-    box-shadow: 0px 3px  #784f88;
+    background: #c890fd;
+    color: #ffffff;
+    box-shadow: 2px 2px black;
     width: max-content;
     border-width: 3px;
-    border-radius: 30px;
+    border-radius: 12px;
     top: 90%;
     position: fixed;
     left: 19%;
@@ -128,10 +142,10 @@ body{
     
   }
   .timerp{
-  font-size:34px;
+  font-size:16px;
   color: #ffffff;
   text-align: center;
-  font-family: "Arcade";
+  font-family: "Bungee";
   }
 
 
