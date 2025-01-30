@@ -176,7 +176,7 @@ function endtimer(){
 }
 function mathlink(){
 
-    location.href = "https://www.brainsmaze.com/math.html";
+    location.href = "https://www.brainjelli.com/math.html";
 
 }
 
