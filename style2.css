@@ -136,7 +136,7 @@ body{
     border-width: 3px;
     border-color: #000000;
     border-radius: 12px;
-    
+    border: solid;
     display: block;
     top: 93%;
     position: fixed;
