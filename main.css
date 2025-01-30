@@ -281,7 +281,7 @@ box-shadow: 0 0 5px #9787f5,
 
 }
 
-.gif{
+.gifsection{
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -289,6 +289,10 @@ box-shadow: 0 0 5px #9787f5,
   padding-bottom: 40px;
 
 
+}
+
+.gif{
+  border-radius: 12px;
 }
 
 h2 {
