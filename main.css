@@ -27,7 +27,7 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   background-image: linear-gradient(#4b1c81, #c890fd);
   z-index: -1;
 }
@@ -39,48 +39,14 @@ font-family: Arial, sans-serif;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: contain;
-  width: 100%;
- 
+  max-width: 1440px;
+  height: -webkit-fill-available;
   
 }
 
-.wrapper-main{
-width: 1000px;
-padding: 100px 0;
-margin: auto;
+html {
 
-}
-
-@media (max-width: 430px)
-{.wrapper-main{
-
-width: 100%
-}
-}
-
-@media (min-width: 431px)
-{.wrapper-main{
-
-width: 100%
-}
-}
-@media (min-width: 768px)
-{.wrapper-main{
-
-width: 100%
-}
-}
-@media (min-width: 1000px)
-{.wrapper-main{
-
-width: 100%
-}
-}
-@media (min-width: 1200px)
-{.wrapper-main{
-
-width: 100%
-}
+height: -webkit-fill-available;
 }
 
 
