@@ -302,7 +302,7 @@ box-shadow: 0 0 5px #9787f5,
   
 
   text-align: center;
-  width: 100%;
+  width: 96%;
   padding-bottom: 40px;
 
 
@@ -398,7 +398,7 @@ margin-left: 5%;
       }
 .testlessonscontainer{
 
-width: 97%;
+width: 96%;
 background-color: white;
 border-radius: 15px;
 padding-top: 10px;
@@ -406,6 +406,7 @@ border-width: 5px;
 border-color: #000000;
 margin-bottom: 20px;
 box-shadow: 4px 4px #000000; 
+margin:auto;
 }
 
 
