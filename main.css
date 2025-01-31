@@ -53,25 +53,6 @@ height: -webkit-fill-available;
 
 
 
-
-
-
-
-
-
-.welcome{
-  font-family:"Bungee" ;
-  text-align: center;
-  color:#ffffff;
-  font-size: 32px;
-  width: 95%;
-}
-
-.brainchar{
-margin-top: 50px;
-
-}
-
 .sans{
   font-family: "Montserrat-SemiBold";
   font-size: 18px;
@@ -374,10 +355,12 @@ margin-left: 5%;
     }
     
     .wrapper{
-      margin: 35px auto 0;
+      margin: 0 auto;
+      text-align: center;
+       width: 95%;
       margin-top: 80px;
       margin-bottom: 50px;
-      width: 95%;
+      w
       }
 
       .actlessonbutton{
