@@ -280,12 +280,14 @@ box-shadow: 0 0 5px #9787f5,
 }
 
 .gifsection{
-  
+  margin: 0 auto;
+  text-align: center;
+   width: 95%;
 
   text-align: center;
-  width: 100%;
+ 
   padding-bottom: 40px;
-  margin: 35px auto 0;
+  
 
 }
 
