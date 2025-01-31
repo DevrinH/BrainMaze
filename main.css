@@ -293,7 +293,13 @@ box-shadow: 0 0 5px #9787f5,
   text-align: center;
  
   padding-bottom: 40px;
-  
+  margin: 0 auto;
+  text-align: center;
+   width: 95%;
+
+  text-align: center;
+ 
+ 
 
 }
 
@@ -305,7 +311,13 @@ box-shadow: 0 0 5px #9787f5,
   color: #000000;
   border: solid;
   display: block;
-  margin: 35px auto 0;
+  margin: 0 auto;
+  text-align: center;
+   width: 95%;
+
+  text-align: center;
+ 
+  
 }
 
 h2 {
