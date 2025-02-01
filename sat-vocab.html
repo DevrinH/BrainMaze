@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equ iv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="satflashcard.css">
+  <link rel="stylesheet" href="modal.css">
+  <title></title>
+</head>
+
+<body>
+  <h1 style="text-align: center;">Vocabulary Flashcard App</h1>
+  <section id="headerSec">
+    <button id="addBtn">Add Word</button>
+    <button id="shuffleBtn">Shuffle Words</button>
+  </section>
+
+  <br>
+  <hr>
+  <br>
+  <main id="mainContainer">
+    <button id="leftBtn" class="orderBtn"> < </button>
+    <div id="cardContainer">
+      <p>card #<span id="cardPosition"></span></p>
+      <h3 id="wordName"></h3>
+      <button id="revealBtn">Reveal</button>
+      <p id="wordDefinition"></p>
+      <button id="editWord">Edit Word</button>
+      <button id="removeWordBtn">Remove Word</button>
+    </div>
+    <button id="rightBtn" class="orderBtn"> > </button>
+  </main>
+
+  <div id="myModal" class="modal"> 
+  </div>
+
+  <script src="data.js"></script>
+  <script src="satvocabflash.js"></script>
+</body>
+
+</html>
