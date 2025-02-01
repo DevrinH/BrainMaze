@@ -114,14 +114,13 @@ function showQuestion(){
     });
 }
 
-
 function resetState() {
     nextButton.style.display = "none";
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
-    explanationElement.style.display = "none";  // Hide explanation when moving to the next question
-    explanationElement.textContent = "";  // Clear the explanation text
+    explanationElement.style.display = "none";  // Hide explanation
+    explanationElement.textContent = "";  // Clear explanation text
 }
 
 function selectAnswer(e) {
@@ -155,26 +154,17 @@ function showScore(){
     nextButton.style.display = "block";
     
 }
-function handleNextButton(){
+function handleNextButton() {
     currentQuestionIndex++;
-    if(currentQuestionIndex < questions.length){
+    if (currentQuestionIndex < questions.length) {
         showQuestion();
-    }else{
+    } else {
         showScore();
-
+        localStorage.setItem("readingScore", score);  // Move storage here
     }
 }
 
 
-nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length){
-        handleNextButton();
-        
-    }else{
-        localStorage.setItem("readingScore", score); 
-       
-    }
-});
-
+nextButton.addEventListener("click", handleNextButton);
 
 startQuiz();
