@@ -56,6 +56,13 @@ h1 {
 
 }
 
+.wrapper{
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 35px;
+  }
+
 .search{
   width: max-content;
   display: flex;
@@ -63,8 +70,8 @@ h1 {
   justify-content: center;
   padding: 14px;
   border-radius: 12px;
-  
-  
+  border: none;
+  color: black;
   box-shadow: 6px 6px #c890fd;
   background:white;
   
@@ -96,18 +103,18 @@ h1 {
       background-image:linear-gradient(#8abbcf, #0b85b9);
       color: #ffffff;
       box-shadow: 2px 2px black;
-      width: 77px;
-      height: 77px;
-      padding: 3px;
+      width: 125px;
+      padding: 10px;
       border-width: 3px;
       border-color: black;
-      font-size: 31px;
       font-family: sans-serif;
+      font-size: 22px;
+      
       border-radius: 12px;
       display: block;
       text-align: center;
       transition: all 0.3s;
-      margin-bottom: 25px;
+      margin-bottom: 40px;
     }
       
       button:hover{
@@ -119,7 +126,7 @@ h1 {
       }
 
       .satbackground{
-        width: 75%;
+        width: 65%;
         background-color: white;
         border-radius: 15px;
         padding-top: 10px;
@@ -132,6 +139,6 @@ h1 {
         margin: 35px auto 0;
         }
 .aboutsat{
-    width: 75%;
+    width: 65%;
 
       }
