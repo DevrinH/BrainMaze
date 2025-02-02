@@ -67,7 +67,7 @@ h1 {
   
   box-shadow: 6px 6px #c890fd;
   background:white;
-  color: black;
+  
   margin-left: auto;
   margin-right: auto;
 }
@@ -119,7 +119,7 @@ h1 {
       }
 
       .satbackground{
-        width: 96%;
+        width: 75%;
         background-color: white;
         border-radius: 15px;
         padding-top: 10px;
@@ -131,4 +131,7 @@ h1 {
         padding-bottom: 10px;
         margin: 35px auto 0;
         }
-      
+.aboutsat{
+    width: 75%;
+
+      }
