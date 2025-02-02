@@ -71,7 +71,7 @@ h1 {
   padding: 14px;
   border-radius: 12px;
   border: none;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   box-shadow: 6px 6px #c890fd;
   background:white;
   
@@ -84,7 +84,7 @@ h1 {
   font-family: 'Lexend', sans-serif;
   margin-left: 14px;
   outline: none;
-  
+  border: none;
   background: transparent;
   width: 300px;
 }
@@ -126,7 +126,7 @@ h1 {
       }
 
       .satbackground{
-        width: 65%;
+        width: 75%;
         background-color: white;
         border-radius: 15px;
         padding-top: 10px;
@@ -139,7 +139,7 @@ h1 {
         margin: 35px auto 0;
         }
 .aboutsat{
-    width: 65%;
+    width: 75%;
     margin: 0 auto;
   text-align: center;
   font-family: "Montserrat-SemiBold";
