@@ -192,6 +192,7 @@ background-color: #9787f5;
     border-radius: 10px;
     margin-bottom: 20px;
     overflow: hidden;
+    margin: 100px auto 0;
 }
 
 #progress-bar {
