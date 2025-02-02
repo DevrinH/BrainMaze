@@ -153,3 +153,12 @@ h1 {
   height: max-content;
   color: #000000;
         }
+
+
+footer{
+          width: 100%;
+          text-align: center;
+          font-family: "Montserrat-SemiBold";
+          font-size: 11px;
+          color: white;
+        }
