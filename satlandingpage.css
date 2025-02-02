@@ -126,7 +126,7 @@ h1 {
       }
 
       .satbackground{
-        width: 75%;
+        width: 95%;
         background-color: white;
         border-radius: 15px;
         padding-top: 10px;
@@ -139,7 +139,7 @@ h1 {
         margin: 35px auto 0;
         }
 .aboutsat{
-    width: 75%;
+    width: 95%;
     margin: 0 auto;
   text-align: center;
   font-family: "Montserrat-SemiBold";
