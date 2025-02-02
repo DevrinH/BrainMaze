@@ -156,6 +156,7 @@ h2 {
   display: flex;
   column-gap: 7px;
   margin-left: 1%;
+  width: 96%;
         }
         
 .satdesc{
@@ -164,6 +165,7 @@ h2 {
   height: max-content;
   width: max-content;
   color: #000000;
+  text-align: left;
         }
 
 
