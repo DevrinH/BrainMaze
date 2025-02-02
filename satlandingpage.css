@@ -154,8 +154,8 @@ h2 {
 
 .container{
   display: flex;
-  column-gap: 15px;
-  margin-left: 5%;
+  column-gap: 10px;
+  margin-left: 2%;
         }
         
 .satdesc{
@@ -173,3 +173,9 @@ footer{
           font-size: 11px;
           color: white;
         }
+
+        .lessoncontainer{
+          display: flex;
+          column-gap: 15px;
+          margin-left: 5%;
+          }
