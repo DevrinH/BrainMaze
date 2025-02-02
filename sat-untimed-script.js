@@ -1,6 +1,6 @@
 const explanation = [
     {
-        explanation: "The whale is the larget animal in the world other than trees",
+        explanation: "The author acknowledges both the benefits and concerns associated with AI, indicating a balanced and cautiously optimistic perspective.",
       
     },
     {
