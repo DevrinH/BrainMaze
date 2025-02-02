@@ -190,7 +190,7 @@ background-color: #9787f5;
     height: 20px;
     background-color: #e0e0e0;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     overflow: hidden;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Fix shadow */
     border: 3px solid #000000; /* Border fix */
@@ -199,7 +199,7 @@ background-color: #9787f5;
 #progress-bar {
     height: 100%;
     width: 0%;
-    background-color: #9787f5;
-    transition: width 0.3s ease-in-out;
+    background-image: linear-gradient(#4b1c81, #c890fd);
+    transition: width 0.9s ease-in-out;
     margin: 100px auto 0;
 }
