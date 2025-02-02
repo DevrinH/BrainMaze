@@ -315,9 +315,17 @@ box-shadow: 0 0 5px #9787f5,
    width: 95%;
    max-width: 800px;
   margin-bottom: 20px;
+  text-align: center; 
+}
+
+.rocketimg{
+  margin: 0 auto;
   text-align: center;
- 
-  
+  width: 95%;
+  margin-bottom: 35px;
+  margin-top: 45px;
+  max-width: 800;
+  display: block;
 }
 
 h2 {
@@ -547,10 +555,3 @@ padding-top: 10px;
   
   }
 
-  .rocketimg{
-    margin: 0 auto;
-    text-align: center;
-    width: 95%;
-    margin-bottom: 35px;
-    margin-top: 45px;
-  }
