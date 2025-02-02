@@ -106,7 +106,7 @@ function startQuiz(){
     showQuestion();
 }
 
-function showQuestion(){
+function showQuestion() {
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
@@ -117,11 +117,13 @@ function showQuestion(){
         button.innerHTML = answer.text;
         button.classList.add("btn");
         answerButtons.appendChild(button);
-        if(answer.correct){
+        if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
     });
+
+    updateProgressBar(); // Update progress bar
 }
 
 
@@ -150,12 +152,14 @@ function selectAnswer(e){
     nextButton.style.display = "block";
 }
 
-function showScore(){
+function showScore() {
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length} a percentage of ${(score/questions.length)*100}%!`;
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
     
+    // Set progress bar to 100% when finished
+    document.getElementById("progress-bar").style.width = "100%";
 }
 function handleNextButton(){
     currentQuestionIndex++;
@@ -178,6 +182,12 @@ function mathlink(){
 
     location.href = "https://www.brainjelli.com/math.html";
 
+}
+
+function updateProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+    progressBar.style.width = progress + "%";
 }
 
 nextButton.addEventListener("click", ()=>{
