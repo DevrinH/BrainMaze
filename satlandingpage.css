@@ -54,6 +54,13 @@ h1 {
     font-size: 32px;
 
 }
+h2 {
+
+  font-family: "Bungee";
+  font-size: 26px;
+  color:#000000;
+
+}
 
 .wrapper{
   margin: 0 auto;
