@@ -8,9 +8,21 @@
     font-family: "Arcade";
     src: url(ArcadeClassic.ttf);
   }
+  @font-face {
+    font-family: "Bungee";
+    src: url(Bungee-Regular.ttf);
+  
+    
+  }
+  @font-face {
+    font-family: "Montserrat-SemiBold";
+    src: url(Montserrat-SemiBold.ttf);
+  
+    
+  }
   
   body {
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat-SemiBold";
     color: white; 
     background-color: rgb(31, 2, 31); /* For browsers that do not support gradients */
     background-image: linear-gradient(rgb(22, 7, 32), rgb(41, 14, 94));
@@ -20,58 +32,64 @@ background-position: center, center;
 
 h1 {
 
-    font-family: "Arcade";
+    font-family: "Bungee";
     font-size: 32px;
 
 }
 
 .search{
-    width: max-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px;
-    border-radius: 28px;
-    background: #9787f5;
-    color: #ffffff;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  border-radius: 12px;
   
-  .search-input{
-    font-size: 16px;
-    font-family: 'Lexend', sans-serif;
-    margin-left: 14px;
-    outline: none;
-    border: none;
-    background: transparent;
-    width: 300px;
-  }
   
-  .search-input::placeholder{
-    color:rgb(255, 255, 255)
-  }
+  box-shadow: 6px 6px #c890fd;
+  background:white;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-input{
+  font-size: 16px;
+  font-family: 'Lexend', sans-serif;
+  margin-left: 14px;
+  outline: none;
+  
+  background: transparent;
+  width: 300px;
+}
+
+.search-input::placeholder{
+  color:black;
+}
+
   
   div{
     margin: 20px;
     }
     
     
-    button{
-        background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
-        box-shadow: 0px 3px  #784f88;
-        width: max-content;
-        padding: 17px;
-        font-family: "Arcade";
-        font-size: 27px;
-        border: none;
-        color:#ffffff;
-        border-radius: 10px;
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        transition: all 0.3s;
-      }
+    .satbuttontimed{
+      background-image:linear-gradient(#8abbcf, #0b85b9);
+      color: #ffffff;
+      box-shadow: 2px 2px black;
+      width: 77px;
+      height: 77px;
+      padding: 3px;
+      border-width: 3px;
+      border-color: black;
+      font-size: 31px;
+      font-family: sans-serif;
+      border-radius: 12px;
+      display: block;
+      text-align: center;
+      transition: all 0.3s;
+      margin-bottom: 25px;
+    }
       
       button:hover{
       cursor: pointer;
@@ -81,17 +99,17 @@ h1 {
       
       }
 
-      .timedsat{
-        background: #ffffff;
-        color:#9787f5;
-        border: 5px solid #9787f5;
-        width: 60%;
-        height: max-content;
-        box-shadow: 5px 5px #9787f5;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 2px;
-        padding-top: 2px;
-      }
+      .satbackground{
+        width: 96%;
+        background-color: white;
+        border-radius: 15px;
+        padding-top: 10px;
+        border-width: 5px;
+        border-color: #000000;
+        padding-bottom: 30px;
+        box-shadow: 4px 4px #000000; 
+        margin-bottom: 30px;  
+        padding-bottom: 10px;
+        margin: 35px auto 0;
+        }
+      
