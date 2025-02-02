@@ -154,14 +154,15 @@ h2 {
 
 .container{
   display: flex;
-  column-gap: 10px;
-  margin-left: 2%;
+  column-gap: 7px;
+  margin-left: 1%;
         }
         
 .satdesc{
   font-size: 14px;
   font-style: "Montserrat-SemiBold";
   height: max-content;
+  width: max-content;
   color: #000000;
         }
 
