@@ -114,7 +114,7 @@ h1 {
       display: block;
       text-align: center;
       transition: all 0.3s;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
       
       button:hover{
@@ -143,6 +143,7 @@ h1 {
     margin: 0 auto;
   text-align: center;
   font-family: "Montserrat-SemiBold";
+  margin-top: 25px;
       }
 
 .container{
