@@ -547,3 +547,10 @@ padding-top: 10px;
   
   }
 
+  .rocketimg{
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 35px;
+    margin-top: 45px;
+  }
