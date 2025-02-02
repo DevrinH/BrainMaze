@@ -179,6 +179,6 @@ footer{
 
         .lessoncontainer{
           display: flex;
-          column-gap: 15px;
-          margin-left: 5%;
+          column-gap: 8px;
+          margin-left: 2%;
           }
