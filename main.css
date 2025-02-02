@@ -313,6 +313,7 @@ box-shadow: 0 0 5px #9787f5,
   margin: 0 auto;
   text-align: center;
    width: 95%;
+   max-width: 800px;
   margin-bottom: 20px;
   text-align: center;
  
