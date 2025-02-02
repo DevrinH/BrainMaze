@@ -143,9 +143,10 @@ h2 {
         border-radius: 12px;
         }
 .aboutsat{
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
   text-align: center;
+  max-width: 800px;
   font-family: "Montserrat-SemiBold";
   margin-top: 25px;
   color: #ffffff;
