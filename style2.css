@@ -186,9 +186,10 @@ background-color: #9787f5;
 
   #progress-container {
     width: 100%;
-    height: 10px;
+    max-width: 800px;
+    height: 20px;
     background-color: #e0e0e0;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 20px;
     overflow: hidden;
 }
@@ -196,7 +197,7 @@ background-color: #9787f5;
 #progress-bar {
     height: 100%;
     width: 0%;
-    background-color: #4caf50;
+    background-color: #9787f5;
     transition: width 0.3s ease-in-out;
 }
 
