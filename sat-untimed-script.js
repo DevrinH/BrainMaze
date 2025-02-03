@@ -16,7 +16,7 @@ const explanation = [
 
     },  
     {
-        explanation: "The passage focuses on how monarch butterflies rely on environmental cues for migration and how climate change has disrupted their patterns. It also warns that continued disruptions could threaten their population. Answer choice D captures this key idea, making it the best choice.<br/>A is incorrect because the passage suggests that monarchs are struggling with climate disruptions rather than easily adapting.<br/>B is incorrect because the passage does not state that scientists have found solutions to prevent these disruptions.<br/>C is incorrect because the passage emphasizes environmental factors rather than physical strength as the primary influence on migration.",
+        explanation: "The passage focuses on how monarch butterflies rely on environmental cues for migration and how climate change has disrupted their patterns. It also warns that continued disruptions could threaten their population. Answer choice D captures this key idea, making it the best choice. <br/> A is incorrect because the passage suggests that monarchs are struggling with climate disruptions rather than easily adapting.<br/>B is incorrect because the passage does not state that scientists have found solutions to prevent these disruptions.<br/>C is incorrect because the passage emphasizes environmental factors rather than physical strength as the primary influence on migration.",
 
     },
     {

@@ -53,7 +53,7 @@ body{
     background: #ffff;
     width: 90%;
     max-width: 800px;
-    margin: 100px auto 0;
+    margin: 65px auto 0;
     padding: 10px;
     box-shadow: 4px 4px #000000; 
     border-width: 4px;
@@ -196,7 +196,7 @@ background-color: #9787f5;
 
     border-radius: 10px;
 
-    margin: 100px auto 5px; /* Adjusted margin */
+    margin: 50px auto 5px; /* Adjusted margin */
 
     overflow: hidden;
 
