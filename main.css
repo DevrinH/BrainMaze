@@ -10,6 +10,7 @@
   text-align: center;
   width: 100%;
   margin-bottom: 35px;
+  margin-top: 15px;
 }
 @font-face {
   font-family: "Arcade";
@@ -425,7 +426,7 @@ padding-bottom: 30px;
 box-shadow: 4px 4px #000000; 
 margin-bottom: 1px;  
 padding-bottom: 10px;
-margin: 100px auto 0;
+margin: 50px auto 0;
 margin-bottom: 10px;
 }
 
