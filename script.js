@@ -79,12 +79,12 @@ const questions = [
         ]
     },
     {
-        question: "The impression that the town meetings of Colonial New England were free, democratic, and civilized is far too simplistic. For one thing, those who could vote did not include women, Black people, American Indians, and White men who did not own property. In the seventeenth century it was not 'the people' who ran the town meetings; it was the town selectmen. However, in early colonial Dedham, Massachusetts, there was a time when the townsfolk themselves actually made all the big decisions at town meetings. <mark>A great and noble experiment,</mark> it lasted all of three years and was abandoned by 1639, soon Line15 after the town was established. <br/><br/>Question:<br/>The author describes the 'experiment' in a tone that",
+        question: "The field of renewable energy has expanded significantly in recent decades, driven by concerns over climate change and the depletion of fossil fuel resources. Solar and wind power have become more efficient and affordable, leading to widespread adoption in many countries. However, some critics argue that these energy sources are not yet reliable enough to fully replace traditional power grids. As technology improves, researchers continue to explore ways to store renewable energy more effectively and integrate it into existing infrastructure<br/><br/>Question:<br/>Which choice best expresses the main idea of the passage?",
         answers: [
-            { text: "general population and a small group", correct: false},
-            { text: "enthusiastically reveals a startling discovery", correct: false},
-            { text: "mildly scolds historians who support inaccurate interpretations", correct: false},
-            { text: "gently mocks false notions about town meetings", correct: true},
+            { text: "Renewable energy has made progress but still faces challenges in becoming a complete replacement for traditional energy sources.", correct: true},
+            { text: "The world will soon abandon fossil fuels entirely in favor of renewable energy.", correct: false},
+            { text: "Solar and wind power are too unreliable to ever be used on a large scale.", correct: false},
+            { text: "Governments have stopped investing in fossil fuels and now focus entirely on renewable energy.", correct: false},
         ]
     }
 
