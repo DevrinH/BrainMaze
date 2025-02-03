@@ -14,7 +14,15 @@ const explanation = [
     {
         explanation: "(The passage emphasizes that access to parks and gardens significantly enhances residents' mental well-being.)",
 
-    }  
+    },  
+    {
+        explanation: "The passage focuses on how monarch butterflies rely on environmental cues for migration and how climate change has disrupted their patterns. It also warns that continued disruptions could threaten their population. Answer choice D captures this key idea, making it the best choice.<br/>A is incorrect because the passage suggests that monarchs are struggling with climate disruptions rather than easily adapting.<br/>B is incorrect because the passage does not state that scientists have found solutions to prevent these disruptions.<br/>C is incorrect because the passage emphasizes environmental factors rather than physical strength as the primary influence on migration.",
+
+    },
+    {
+        explanation: "The passage discusses how innovations in transportation—from steam engines to modern autonomous vehicles—have historically transformed human civilization and continue to drive change. Answer choice A accurately captures this theme.<br/>B is incorrect because the passage does not claim railroads are the most significant innovation; it discusses multiple advancements.<br/>C is incorrect because the passage suggests that transportation continues to evolve rather than being finalized.<br/>D is incorrect because, while efficiency is mentioned, the passage does not state that reducing costs has always been the primary goal.",
+
+    } 
 ];
 
 const questions = [
@@ -62,17 +70,17 @@ const questions = [
         answers: [
             { text: "Monarch butterflies are resilient creatures that can easily adapt to changes in their migration patterns.", correct: false},
             { text: " Scientists have successfully found ways to prevent disruptions in monarch butterfly migration despite climate change.", correct: false},
-            { text: "The annual migration of monarch butterflies is influenced by climate factors, which may pose a threat to their population.", correct: false},
+            { text: "The migration of monarch butterflies is primarily determined by their physical strength rather than environmental factors.", correct: false},
             { text: "The annual migration of monarch butterflies is influenced by climate factors, which may pose a threat to their population", correct: true},
         ]
     },
     {
-        question: "The impression that the town meetings of Colonial New England were free, democratic, and civilized is far too simplistic. For one thing, those who could vote did not include women, Black people, American Indians, and White men who did not own property. In the seventeenth century it was not 'the people' who ran the town meetings; it was the town selectmen. However, in early colonial Dedham, Massachusetts, there was a time when the townsfolk themselves actually made all the big decisions at town meetings. <mark>A great and noble experiment,</mark> it lasted all of three years and was abandoned by 1639, soon Line15 after the town was established. <br/><br/>Question:<br/>The author describes the 'experiment' in a tone that",
+        question: "Throughout history, innovations in transportation have reshaped human civilization. The invention of the steam engine in the 18th century led to the expansion of railroads, allowing goods and people to travel faster than ever before. In the 20th century, the development of automobiles and airplanes further revolutionized travel, shrinking distances and connecting societies in unprecedented ways. Today, advancements in electric and autonomous vehicles promise to transform transportation yet again, raising questions about efficiency, sustainability, and the future of mobility. <br/><br/>Question:<br/>Which choice best expresses the main idea of the passage?",
         answers: [
-            { text: "general population and a small group", correct: false},
-            { text: "enthusiastically reveals a startling discovery", correct: false},
-            { text: "mildly scolds historians who support inaccurate interpretations", correct: false},
-            { text: "gently mocks false notions about town meetings", correct: true},
+            { text: "Technological advancements in transportation have continuously shaped human society and will continue to do so.", correct: false},
+            { text: "Railroads remain the most significant innovation in transportation history.", correct: false},
+            { text: "The development of automobiles and airplanes has eliminated the need for future advancements in transportation.", correct: false},
+            { text: "The primary goal of transportation innovations has always been to reduce travel costs rather than increase efficiency.", correct: true},
         ]
     }
 
