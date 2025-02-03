@@ -214,7 +214,7 @@ background-color: #9787f5;
 
     width: 0%; /* Default width */
 
-
+    background-color: #ff52f6;
     background-image: linear-gradient(#ff52f6, #c890fd);
 
     transition: width 0.9s ease-in-out;
