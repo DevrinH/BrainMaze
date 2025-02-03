@@ -8,7 +8,7 @@ const explanation = [
        
     },
     {
-        explanation: "(The passage highlights the library's role in preserving manuscripts and fostering advancements in various fields, indicating its function as a cultural and educational institution.) Let me know if you'd like more questions or assistance with other topics!",
+        explanation: "(The passage highlights the library's role in preserving manuscripts and fostering advancements in various fields, indicating its function as a cultural and educational institution.)",
        
     },
     {
