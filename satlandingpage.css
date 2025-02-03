@@ -136,7 +136,7 @@ h2 {
         width: 90%;
         max-width: 800px;
         margin: 100px auto 0;
-        padding: 4px;
+        padding: 1px;
         box-shadow: 4px 4px #000000; 
         border-width: 4px;
         border-color: #000000;
@@ -156,7 +156,7 @@ h2 {
   display: flex;
   column-gap: 7px;
   margin-left: 1%;
-  width: 96%;
+  width: 98%;
         }
         
 .satdesc{
