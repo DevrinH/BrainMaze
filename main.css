@@ -410,7 +410,9 @@ margin-left: 5%;
         margin-bottom: 40px;
       }
 .testlessonscontainer{
-display: block;
+  margin: 0; /* Remove extra margin */
+  padding: 20px 0; /* Add padding instead */
+  display: block;
 width: 96%;
 max-width: 800px;
 background-color: white;
