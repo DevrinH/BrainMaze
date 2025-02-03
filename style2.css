@@ -214,10 +214,11 @@ background-color: #9787f5;
 
     width: 0%; /* Default width */
 
-    background-image: linear-gradient(#4b1c81, #c890fd);
+
+    background-image: linear-gradient(#ff52f6, #c890fd);
 
     transition: width 0.9s ease-in-out;
 
-    border-radius: 10px; /* Rounded edges */
+    
 
 }
