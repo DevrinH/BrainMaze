@@ -57,6 +57,24 @@ function filterWords() {
    index = 0; // Reset index
    updateWord();
 }
+function searchWord() {
+   const searchText = document.getElementById("searchInput").value.toLowerCase();
+   
+   // Find the word in the vocab list
+   const foundWord = vocab.find(wordObj => wordObj.word.toLowerCase() === searchText);
+
+   if (foundWord) {
+       // Update the display with the found word
+       document.getElementById("word").textContent = foundWord.word;
+       document.getElementById("definition").textContent = foundWord.definition;
+       document.getElementById("example").textContent = foundWord.example || "No example available.";
+   } else {
+       // Show a message if the word isn't found
+       document.getElementById("word").textContent = "Word not found";
+       document.getElementById("definition").textContent = "";
+       document.getElementById("example").textContent = "";
+   }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
    populateLetterFilter();

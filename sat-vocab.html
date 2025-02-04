@@ -27,6 +27,10 @@
 <body>
 
   <div class="filter-container">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search for a word..." oninput="searchWord()">
+  </div>
+   
     <label for="letterFilter" font-family="Montserrat-SemiBold" >Filter by letter:</label>
     <select id="letterFilter" onchange="filterWords()">
         <option value="">All</option>
