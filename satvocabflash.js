@@ -59,7 +59,14 @@ function filterWords() {
 }
 function searchWord() {
    const searchText = document.getElementById("searchInput").value.toLowerCase();
-   
+
+   if (searchText === "") {
+       // If input is empty, reset to the first word
+       index = 0;
+       updateWord();
+       return;
+   }
+
    // Find the word in the vocab list
    const foundWord = vocab.find(wordObj => wordObj.word.toLowerCase() === searchText);
 
