@@ -89,6 +89,11 @@ button {
  margin-top: 15px;
 
 }
+
+ /* Dropdown Menu */
+ .filter-container {
+    margin-bottom: 20px;
+}
 .prev { background: #9787f5; }
 .next { background: #9787f5; }
 button:hover { opacity: 0.8; }
