@@ -46,17 +46,19 @@ button {
     margin: 5px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 12px;
     border: solid;
     border-color:#000000;
     box-shadow: 2px 2px #000000;
     border-width: 3px;
+    color: white;
+   
 }
 
 .break{
- margin-top: 8px;
+ margin-top: 15px;
 
 }
-.prev { background: #ff7b7b; }
-.next { background: #7bafff; }
+.prev { background: #9787f5; }
+.next { background: #9787f5; }
 button:hover { opacity: 0.8; }
