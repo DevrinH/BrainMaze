@@ -93,6 +93,8 @@ button {
  /* Dropdown Menu */
  .filter-container {
     margin-bottom: 20px;
+    background: white;
+    width: 40%;
 }
 select {
     padding: 10px;
