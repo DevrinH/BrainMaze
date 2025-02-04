@@ -15,13 +15,15 @@ function updateWord() {
 }
 
 function nextWord() {
-   index = (index + 1) % vocab.length; // Loop back to the beginning
+   index = (index + 1) % vocab.length;
    updateWord();
 }
 
 function prevWord() {
-   index = (index - 1 + vocab.length) % vocab.length; // Loop back to the end
+   index = (index - 1 + vocab.length) % vocab.length;
    updateWord();
 }
 
-updateWord(); // Initialize the first word
+document.addEventListener("DOMContentLoaded", function () {
+   updateWord();
+});
