@@ -98,7 +98,7 @@ button {
     box-shadow: 2px 2px #000000;
     border-radius: 12px;
     width: 40%;
-    max-width: 100px;
+    max-width: 300px;
     padding: 5px;
 }
 select {
