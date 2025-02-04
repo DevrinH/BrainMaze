@@ -93,6 +93,7 @@ button {
  /* Dropdown Menu */
  .filter-container {
     margin-bottom: 20px;
+    background-color: white;
 
 }
 select {
