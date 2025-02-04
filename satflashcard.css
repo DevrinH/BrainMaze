@@ -14,6 +14,33 @@ body {
     text-align: center;
     margin: 50px;
 }
+@font-face {
+    font-family: "Montserrat-SemiBold";
+    src: url(Montserrat-SemiBold.ttf);
+  
+    
+  }
+  @font-face {
+    font-family: "Bungee";
+    src: url(Bungee-Regular.ttf);
+  
+    
+  }
+  
+  .header{
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 35px;
+    margin-top: 15px;
+  }
+
+.container h2{
+
+font-family: "Bungee";
+color: black;
+
+}  
 .container {
     max-width: 400px;
     margin: 50px auto 0;
@@ -23,6 +50,7 @@ body {
     border-width: 5px;
     border-color: #000000;
     box-shadow: 4px 4px #000000; 
+    font-family: "Montserrat-SemiBold" ;
 
 }
 #word {
