@@ -94,7 +94,9 @@ button {
  .filter-container {
     margin-bottom: 20px;
     background-color: white;
-
+    margin: 30px auto 0;
+    box-shadow: 2px 2px #000000;
+    border-radius: 12px;
 }
 select {
     padding: 10px;
