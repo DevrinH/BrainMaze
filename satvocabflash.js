@@ -6,24 +6,59 @@ const vocab = [
    { word: "Ubiquitous", definition: "Present, appearing, or found everywhere.", example: "Smartphones have become ubiquitous in modern life." }
 ];
 
+let filteredVocab = [...vocab]; // Copy of vocab list to filter
 let index = 0;
 
 function updateWord() {
-   document.getElementById("word").textContent = vocab[index].word;
-   document.getElementById("definition").textContent = vocab[index].definition;
-   document.getElementById("example").textContent = vocab[index].example || "No example available.";
+   if (filteredVocab.length > 0) {
+       document.getElementById("word").textContent = filteredVocab[index].word;
+       document.getElementById("definition").textContent = filteredVocab[index].definition;
+       document.getElementById("example").textContent = filteredVocab[index].example || "No example available.";
+   } else {
+       document.getElementById("word").textContent = "No words available";
+       document.getElementById("definition").textContent = "";
+       document.getElementById("example").textContent = "";
+   }
 }
 
 function nextWord() {
-   index = (index + 1) % vocab.length;
-   updateWord();
+   if (filteredVocab.length > 0) {
+       index = (index + 1) % filteredVocab.length;
+       updateWord();
+   }
 }
 
 function prevWord() {
-   index = (index - 1 + vocab.length) % vocab.length;
+   if (filteredVocab.length > 0) {
+       index = (index - 1 + filteredVocab.length) % filteredVocab.length;
+       updateWord();
+   }
+}
+
+function populateLetterFilter() {
+   const select = document.getElementById("letterFilter");
+   const letters = new Set(vocab.map(wordObj => wordObj.word.charAt(0).toUpperCase()));
+
+   letters.forEach(letter => {
+       const option = document.createElement("option");
+       option.value = letter;
+       option.textContent = letter;
+       select.appendChild(option);
+   });
+}
+
+function filterWords() {
+   const selectedLetter = document.getElementById("letterFilter").value;
+   if (selectedLetter === "") {
+       filteredVocab = [...vocab]; // Reset to all words
+   } else {
+       filteredVocab = vocab.filter(wordObj => wordObj.word.startsWith(selectedLetter));
+   }
+   index = 0; // Reset index
    updateWord();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+   populateLetterFilter();
    updateWord();
 });
