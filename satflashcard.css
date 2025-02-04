@@ -48,6 +48,9 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    border-color:#000000;
+    box-shadow: 2px 2px #000000;
+    border-width: 3px;
 }
 .prev { background: #ff7b7b; }
 .next { background: #7bafff; }
