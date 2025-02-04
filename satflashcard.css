@@ -1,42 +1,36 @@
-button:hover {
-    cursor: pointer;
-}
-#headerSec {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-}
-
-#mainContainer {
-    display: flex;
-    gap: 1em;
-    height: 50dvh;
-}
-#mainContainer > div {
-    width: 100%;
-}
-#cardContainer {
-    border: 3px solid green;
+body {
+    font-family: Arial, sans-serif;
     text-align: center;
-    position: relative;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    margin: 50px;
 }
-#editWord, #removeWordBtn {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f4f4f4;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
-#editWord {
-    bottom: 10%; 
+#word {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
-#removeWordBtn {
-   bottom: 0%;
+#definition {
+    font-size: 18px;
+    color: #333;
 }
-.orderBtn {
-   height: 30%;
-   transform: translateY(100%);
+.buttons {
+    margin-top: 20px;
 }
-#wordDefinition {
-    display: none;
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
+.prev { background: #ff7b7b; }
+.next { background: #7bafff; }
+button:hover { opacity: 0.8; }

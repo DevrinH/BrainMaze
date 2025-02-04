@@ -3,7 +3,7 @@
     
 <head>
         <title>Multiple Choice</title>
-<link rel="stylesheet" href="https://www.brainjelli.com/style2.css">
+<link rel="stylesheet" href="satflashcard.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
    
    </head>
@@ -22,44 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocab Lesson</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        .container {
-            max-width: 400px;
-            margin: auto;
-            padding: 20px;
-            border-radius: 10px;
-            background: #f4f4f4;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        #word {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        #definition {
-            font-size: 18px;
-            color: #333;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .prev { background: #ff7b7b; }
-        .next { background: #7bafff; }
-        button:hover { opacity: 0.8; }
-    </style>
+
 </head>
 <body>
 
@@ -73,34 +36,7 @@
         </div>
     </div>
 
-    <script>
-        const vocab = [
-            { word: "Aberration", definition: "A departure from what is normal or expected." },
-            { word: "Cacophony", definition: "A harsh, discordant mixture of sounds." },
-            { word: "Eloquent", definition: "Fluent or persuasive in speaking or writing." },
-            { word: "Meticulous", definition: "Showing great attention to detail; very careful." },
-            { word: "Ubiquitous", definition: "Present, appearing, or found everywhere." }
-        ];
-
-        let index = 0;
-
-        function updateWord() {
-            document.getElementById("word").textContent = vocab[index].word;
-            document.getElementById("definition").textContent = vocab[index].definition;
-        }
-
-        function nextWord() {
-            index = (index + 1) % vocab.length; // Loop back to the beginning
-            updateWord();
-        }
-
-        function prevWord() {
-            index = (index - 1 + vocab.length) % vocab.length; // Loop back to the end
-            updateWord();
-        }
-
-        updateWord(); // Initialize the first word
-    </script>
+    <script src="satvocabflash.js"></script>
 
 </body>
 </html>
