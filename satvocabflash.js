@@ -1,5 +1,5 @@
 const vocab = [
-   { word: "Aberration", definition: "A departure from what is normal or expected." },
+   { word: "Aberration", definition: "A departure from what is normal or expected.", example: "She made an abberration." },
    { word: "Cacophony", definition: "A harsh, discordant mixture of sounds." },
    { word: "Eloquent", definition: "Fluent or persuasive in speaking or writing." },
    { word: "Meticulous", definition: "Showing great attention to detail; very careful." },
@@ -11,6 +11,7 @@ let index = 0;
 function updateWord() {
    document.getElementById("word").textContent = vocab[index].word;
    document.getElementById("definition").textContent = vocab[index].definition;
+   document.getElementById("example").textContent = vocab[index].definition.example;
 }
 
 function nextWord() {
