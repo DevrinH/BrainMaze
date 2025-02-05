@@ -68,6 +68,11 @@ h2 {
   color:#000000;
 
 }
+.satbackground p {
+  font-family: "Montserrat-SemiBold";
+  color: black;
+
+}
 
 .wrapper{
   margin: 0 auto;
