@@ -97,10 +97,9 @@ let currentQuestionIndex = 0;
 let score = 0;
 let explanationElement = document.getElementById("explanation"); //explain
 
-function startQuiz(){
-    currentQuestionIndex = 0;
-    score = 0;
-    nextButton.innerHTML = "Next";
+function startQuiz() {
+    elapsedTime = 0;  // Ensure timer starts fresh
+    startTimer();  // Start the timer when quiz begins
     showQuestion();
 }
 
@@ -176,9 +175,9 @@ function handleNextButton() {
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
+        clearInterval(timer);  // Stop timer before showing score
         showScore();
         localStorage.setItem("readingScore", score);  // Move storage here
-        clearInterval(timer);
     }
 }
 
@@ -207,7 +206,7 @@ function startTimer() {
             (seconds < 10 ? "0" : "") + seconds;
         
         ele.innerHTML = formattedTime;
-        elapsedTime++; 
+        elapsedTime++;  // Increment time
     }, 1000);
 }
 
