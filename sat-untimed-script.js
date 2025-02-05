@@ -194,7 +194,7 @@ var sec=0;
 timer = setInterval(()=>{
 
 
-    Element.innerHTML = '00:' +sec;
+    Element.innerHTML = '00:00' +sec;
     sec ++;
 }, 1000)})()
 
