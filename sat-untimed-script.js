@@ -159,7 +159,7 @@ function selectAnswer(e) {
 
 function showScore() {
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!`;
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length} (${(score / questions.length) * 100}%)! Time it took you was ${timer}`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
     
@@ -173,6 +173,7 @@ function handleNextButton() {
     } else {
         showScore();
         localStorage.setItem("readingScore", score);  // Move storage here
+        clearInterval(timer);
     }
 }
 
@@ -181,6 +182,24 @@ function updateProgressBar() {
     let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
     progressBar.style.width = progress + "%";
 }
+
+
+
+
+var timer;
+var ele = document.getElementById('timer');
+
+(function(){
+var sec=0;
+timer = setInterval(()=>{
+
+
+    Element.innerHTML = '00:' +sec;
+    sec ++;
+}, 1000)})()
+
+
+
 
 
 nextButton.addEventListener("click", handleNextButton);

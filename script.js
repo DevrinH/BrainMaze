@@ -190,6 +190,11 @@ function updateProgressBar() {
     progressBar.style.width = progress + "%";
 }
 
+
+
+
+
+
 nextButton.addEventListener("click", ()=>{
     if(currentQuestionIndex < questions.length && time > 0){
         handleNextButton();
