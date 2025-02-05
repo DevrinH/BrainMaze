@@ -8,19 +8,19 @@ const explanation = [
        
     },
     {
-        explanation: "(The passage highlights the library's role in preserving manuscripts and fostering advancements in various fields, indicating its function as a cultural and educational institution.)",
+        explanation: "Answer: B) Original and creative Explanation:The word innovative refers to something new, groundbreaking, or creative. In the sentence, the artist is praised for introducing techniques that had never been seen before, which suggests originality. A is the opposite of innovative, while C implies a lack of distinction, and D does not relate to creativity or originality.",
        
     },
     {
-        explanation: "(The passage emphasizes that access to parks and gardens significantly enhances residents' mental well-being.)",
+        explanation: "Answer: B) Weak and flimsy. Explanation:The word tenuous describes something that is weak, insubstantial, or lacking a strong foundation. In the sentence, the lawyer’s argument is based on speculation rather than solid evidence, suggesting it is not strong or convincing. A and C contradict this meaning, while D describes an approach rather than the strength of the argument itself.",
 
     },  
     {
-        explanation: "The passage focuses on how monarch butterflies rely on environmental cues for migration and how climate change has disrupted their patterns. It also warns that continued disruptions could threaten their population. Answer choice D captures this key idea, making it the best choice. <br/> A is incorrect because the passage suggests that monarchs are struggling with climate disruptions rather than easily adapting.<br/>B is incorrect because the passage does not state that scientists have found solutions to prevent these disruptions.<br/>C is incorrect because the passage emphasizes environmental factors rather than physical strength as the primary influence on migration.",
+        explanation: "Answer: B) Shallow and insincere Explanation:The word superficial refers to something that is shallow, lacking depth, or only concerned with surface-level matters. In the sentence, Daniel’s apology is described as lacking sincerity, implying that it was not heartfelt. A is the opposite of superficial, C refers to length rather than depth, and D describes a tone rather than the level of sincerity.",
 
     },
     {
-        explanation: "The passage discusses how innovations in transportation—from steam engines to modern autonomous vehicles—have historically transformed human civilization and continue to drive change. Answer choice A accurately captures this theme.<br/>B is incorrect because the passage does not claim railroads are the most significant innovation; it discusses multiple advancements.<br/>C is incorrect because the passage suggests that transportation continues to evolve rather than being finalized.<br/>D is incorrect because, while efficiency is mentioned, the passage does not state that reducing costs has always been the primary goal.",
+        explanation: "Answer: B) Fair and unbiased Explanation:The word impartial means treating all sides equally without favoritism or bias. In the sentence, the scientist is described as carefully considering both sides before deciding, which suggests fairness. A is the opposite of impartial, C implies a lack of concern rather than fairness, and D suggests uncertainty rather than neutrality.",
 
     } 
 ];
@@ -48,39 +48,39 @@ const questions = [
         ]
     },   
     {
-        question: "The ancient city of Alexandria was renowned for its vast library, which attracted scholars from across the world. This center of learning not only preserved countless manuscripts but also fostered significant advancements in science, philosophy, and literature.<br/><br/>Question:<br/>Based on the passage, the Library of Alexandria is best described as:",
+        question: "The artist’s work was praised for its innovative approach, as it introduced techniques never seen before in the industry.<br/><br/>Question:<br/>Which of the following best defines innovative?",
         answers: [
-            { text: "A commercial hub for international traders", correct: false},
-            { text: "A military fortress protecting the city", correct: false},
-            { text: " A cultural institution promoting knowledge", correct: true,},
-            { text: "A political center for governmental affairs", correct: false},
+            { text: "Traditional and predictable", correct: false},
+            { text: "Original and creative", correct: true},
+            { text: " Simple and unremarkable", correct: false,},
+            { text: "Confusing and unclear", correct: false},
         ]
     },
     {
-        question: "The recent study on urban green spaces revealed that access to parks and gardens significantly enhances residents' mental well-being. The researchers found that individuals living near these areas reported lower stress levels and improved mood compared to those without such access.<br/><br/>Question:<br/>According to the passage, what is the primary benefit of urban green spaces for residents?",
+        question: "The lawyer’s argument was tenuous, relying on speculation rather than solid evidence.<br/><br/>Question:<br/>Which of the following best defines tenuous?",
         answers: [
-            { text: " Increased physical activity", correct: false},
-            { text: "Enhanced mental well-being", correct: true},
-            { text: "Improved air quality", correct: false},
-            { text: "Greater social interaction", correct: false},
+            { text: "Strong and well-supported", correct: false},
+            { text: "Weak and flimsy", correct: true},
+            { text: " Persuasive and compelling", correct: false},
+            { text: "Aggressive and forceful", correct: false},
         ]
     },
     {
-        question: "For decades, researchers have studied the migration patterns of monarch butterflies, which travel thousands of miles each year between North America and central Mexico. These delicate creatures rely on environmental cues, such as temperature and sunlight, to navigate their journey. However, recent changes in climate patterns have disrupted their migration, causing delays and shifts in their usual routes. Scientists warn that if these disruptions continue, monarch populations may decline significantly, threatening the stability of ecosystems that depend on them for pollination. <br/><br/>Question:<br/>Which statement best summarizes the central idea of the passage?",
+        question: "Rather than admitting his mistake, Daniel offered a superficial apology that lacked sincerity. <br/><br/>Question:<br/>Which of the following best defines superficial?",
         answers: [
-            { text: "Monarch butterflies are resilient creatures that can easily adapt to changes in their migration patterns.", correct: false},
-            { text: " Scientists have successfully found ways to prevent disruptions in monarch butterfly migration despite climate change.", correct: false},
-            { text: "The migration of monarch butterflies is primarily determined by their physical strength rather than environmental factors.", correct: false},
-            { text: "The annual migration of monarch butterflies is influenced by climate factors, which may pose a threat to their population", correct: true},
+            { text: " Deep and meaningful", correct: false},
+            { text: " Shallow and insincere", correct: true},
+            { text: "Long and detailed", correct: false},
+            { text: "Harsh and critical", correct: false},
         ]
     },
     {
-        question: "Throughout history, innovations in transportation have reshaped human civilization. The invention of the steam engine in the 18th century led to the expansion of railroads, allowing goods and people to travel faster than ever before. In the 20th century, the development of automobiles and airplanes further revolutionized travel, shrinking distances and connecting societies in unprecedented ways. Today, advancements in electric and autonomous vehicles promise to transform transportation yet again, raising questions about efficiency, sustainability, and the future of mobility. <br/><br/>Question:<br/>Which choice best expresses the main idea of the passage?",
+        question: "The scientist remained impartial throughout the debate, carefully considering both sides before drawing a conclusion.<br/><br/>Question:<br/>Which of the following best defines impartial?",
         answers: [
-            { text: "Technological advancements in transportation have continuously shaped human society and will continue to do so.", correct: false},
-            { text: "Railroads remain the most significant innovation in transportation history.", correct: false},
-            { text: "The development of automobiles and airplanes has eliminated the need for future advancements in transportation.", correct: false},
-            { text: "The primary goal of transportation innovations has always been to reduce travel costs rather than increase efficiency.", correct: true},
+            { text: "Biased and opinionated", correct: false},
+            { text: "Fair and unbiased", correct: true},
+            { text: "Indifferent and uninterested", correct: false},
+            { text: "Hesitant and uncertain", correct: false},
         ]
     }
 
