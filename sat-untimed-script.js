@@ -188,7 +188,10 @@ function showScore() {
     let seconds = elapsedTime % 60;
     let formattedTime = `${minutes} minutes and ${seconds} seconds`;
 
-    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!<br/>Time: ${formattedTime}`;
+    // Round the percentage to avoid decimals
+    let percentage = Math.round((score / questions.length) * 100);
+
+    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentage}%)!<br/>Time: ${formattedTime}`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
 
