@@ -41,8 +41,8 @@ const questions = [
         question: "Despite his initial reluctance, James eventually gave a candid account of the incident, revealing all the details without hesitation.<br/><br/>Question: <br/> Which of the following best defines candid? ",
        
         answers: [
-            { text: " Honest and straightforward", correct: false},
-            { text: "Vague and uncertain", correct: true},
+            { text: " Honest and straightforward", correct: true},
+            { text: "Vague and uncertain", correct: false},
             { text: " Reserved and secretive", correct: false},
             { text: "Exaggerated and dramatic.", correct: false},
         ]
