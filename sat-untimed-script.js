@@ -159,10 +159,15 @@ function selectAnswer(e) {
 
 function showScore() {
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length} (${(score / questions.length) * 100}%)! Time it took you was ${timer}`;
+    clearInterval(timer); // Stop the timer
+    let minutes = Math.floor(elapsedTime / 60);
+    let seconds = elapsedTime % 60;
+    let formattedTime = `${minutes} minutes and ${seconds} seconds`;
+
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!<br/>Time it took you: ${formattedTime}`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
-    
+
     // Set progress bar to 100% when finished
     document.getElementById("progress-bar").style.width = "100%";
 }
@@ -187,23 +192,24 @@ function updateProgressBar() {
 
 
 var timer;
+var elapsedTime = 0;  // Track elapsed time separately
 var ele = document.getElementById('timer');
 
-(function() {
-    var sec = 0;
+function startTimer() {
+    elapsedTime = 0; // Reset time at the start
     timer = setInterval(() => {
-        let minutes = Math.floor(sec / 60);
-        let seconds = sec % 60;
-        
-        // Format to always show 2 digits (e.g., 00:05, 01:10)
+        let minutes = Math.floor(elapsedTime / 60);
+        let seconds = elapsedTime % 60;
+
+        // Format the timer display (MM:SS)
         let formattedTime = 
             (minutes < 10 ? "0" : "") + minutes + ":" + 
             (seconds < 10 ? "0" : "") + seconds;
         
         ele.innerHTML = formattedTime;
-        sec++;
+        elapsedTime++; 
     }, 1000);
-})();
+}
 
 
 
