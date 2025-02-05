@@ -22,6 +22,22 @@ const explanation = [
     {
         explanation: "Answer: B) Fair and unbiased Explanation:The word impartial means treating all sides equally without favoritism or bias. In the sentence, the scientist is described as carefully considering both sides before deciding, which suggests fairness. A is the opposite of impartial, C implies a lack of concern rather than fairness, and D suggests uncertainty rather than neutrality.",
 
+    }, 
+    {
+        explanation: "Answer: B) Able to recover quickly from difficulties Explanation:The word resilient refers to the ability to recover or bounce back from challenges or setbacks. In the sentence, the person's ability to overcome failure quickly shows resilience. A and C describe traits opposite to resilience, and D does not fit the context of overcoming difficulties.",
+
+    }, 
+    {
+        explanation: "Answer: A) Lasting for a very short timeExplanation: The word ephemeral describes something that is fleeting or short-lived. The sentence emphasizes that the beauty of the sunset didn’t last long, indicating that the sunset was ephemeral. B, C, and D do not capture the fleeting nature implied by the word.",
+
+    }, 
+    {
+        explanation: "Answer: B) Generous and kind-hearted Explanation:The word benevolent refers to a person who is kind-hearted, charitable, and generous. In the sentence, the CEO’s leadership is described as loved by employees due to his generous nature. A, C, and D do not describe the kindness or generosity associated with benevolent leadership.",
+
+    }, 
+    {
+        explanation: "Answer: C) Delicate and difficult to detect Explanation:The word subtle refers to something that is not obvious, requiring careful attention to notice. In the sentence, the detective is the only one who noticed the clue, implying that it was delicate or difficult to detect. A is the opposite of subtle, B suggests intentional deception rather than faintness, and D implies confusion rather than something barely noticeable.",
+
     } 
 ];
 
@@ -82,8 +98,43 @@ const questions = [
             { text: "Indifferent and uninterested", correct: false},
             { text: "Hesitant and uncertain", correct: false},
         ]
+    },
+    {
+        question: "Her resilient nature allowed her to bounce back quickly from setbacks, never letting failure keep her down for long.",
+        answers: [
+            { text: "Easily discouraged", correct: false},
+            { text: "Able to recover quickly from difficulties ", correct: true},
+            { text: " Constantly pessimistic", correct: false},
+            { text: "Reluctant to change", correct: false},
+        ]
+    },
+    {
+        question: "The ephemeral beauty of the sunset left them in awe, as they knew it would soon fade away.",
+        answers: [
+            { text: "Lasting for a very short time", correct: true},
+            { text: "Extremely vibrant and bright", correct: false},
+            { text: "Painful and unpleasant", correct: false},
+            { text: "Easily noticeable", correct: false},
+        ]
+    },
+    {
+        question: "The CEO’s benevolent leadership style made him loved by employees, who appreciated his generous approach to workplace welfare.",
+        answers: [
+            { text: "Strict and authoritarian", correct: false},
+            { text: "Generous and kind-hearted", correct: true},
+            { text: "Uninterested in others' needs", correct: false},
+            { text: "Cautious and careful", correct: false},
+        ]
+    },
+    {
+        question: "The detective noticed a subtle clue that everyone else had overlooked, leading him to solve the case.",
+        answers: [
+            { text: "Obvious and easily noticed", correct: false},
+            { text: "Clever and deceptive", correct: false},
+            { text: "Delicate and difficult to detect", correct: true},
+            { text: "Confusing and misleading", correct: false},
+        ]
     }
-
 
 ];
 
