@@ -189,15 +189,21 @@ function updateProgressBar() {
 var timer;
 var ele = document.getElementById('timer');
 
-(function(){
-var sec=0;
-timer = setInterval(()=>{
-
-
-    Element.innerHTML = '00:00' +sec;
-    sec ++;
-}, 1000)})()
-
+(function() {
+    var sec = 0;
+    timer = setInterval(() => {
+        let minutes = Math.floor(sec / 60);
+        let seconds = sec % 60;
+        
+        // Format to always show 2 digits (e.g., 00:05, 01:10)
+        let formattedTime = 
+            (minutes < 10 ? "0" : "") + minutes + ":" + 
+            (seconds < 10 ? "0" : "") + seconds;
+        
+        ele.innerHTML = formattedTime;
+        sec++;
+    }, 1000);
+})();
 
 
 
