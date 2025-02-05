@@ -47,7 +47,7 @@ const vocab = [
    { word: "Yearn", definition: "To have an intense feeling of longing for something.", example: "She yearned for adventure." },
    { word: "Yoke", definition: "To join or link together.", example: "The two companies were yoked in a merger." },
    { word: "Zealous", definition: "Showing great energy or enthusiasm in pursuit of a cause or objective.", example: "The scientist was zealous in his research." },
-   { word: "Zenith", definition: "The highest point or peak.", example: "Her career reached its zenith when she won the award." }
+   { word: "Zenith", definition: "The highest point or peak.", example: "Her career reached its zenith when she won the award." },
    { word: "Abate", definition: "To lessen in intensity or degree.", example: "The storm began to abate after midnight." },
    { word: "Acumen", definition: "Keen insight or judgment.", example: "Her business acumen led to great success." },
    { word: "Affable", definition: "Friendly and easy to talk to.", example: "He was an affable host at the party." },
