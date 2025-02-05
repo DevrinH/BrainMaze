@@ -127,7 +127,11 @@ function resetState() {
     explanationElement.style.display = "none";  // Hide explanation
     explanationElement.textContent = "";  // Clear explanation text
 }
-
+function updateProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+    progressBar.style.width = progress + "%";
+}
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -156,8 +160,11 @@ var elapsedTime = 0;  // Track elapsed time separately
 var ele = document.getElementById('timer');
 
 function startTimer() {
+    clearInterval(timer); // Ensure no duplicate timers are running
     elapsedTime = 0; // Reset time at the start
     timer = setInterval(() => {
+        elapsedTime++;  // Increment time first to avoid display lag
+
         let minutes = Math.floor(elapsedTime / 60);
         let seconds = elapsedTime % 60;
 
@@ -166,14 +173,17 @@ function startTimer() {
             (minutes < 10 ? "0" : "") + minutes + ":" + 
             (seconds < 10 ? "0" : "") + seconds;
         
-        ele.innerHTML = formattedTime;
-        elapsedTime++;  // Increment time
+        if (ele) {
+            ele.innerHTML = formattedTime;
+        }
     }, 1000);
 }
 
 function showScore() {
     resetState();
     clearInterval(timer); // Stop the timer
+    
+    // Ensure elapsedTime is still correct
     let minutes = Math.floor(elapsedTime / 60);
     let seconds = elapsedTime % 60;
     let formattedTime = `${minutes} minutes and ${seconds} seconds`;
@@ -185,6 +195,7 @@ function showScore() {
     // Set progress bar to 100% when finished
     document.getElementById("progress-bar").style.width = "100%";
 }
+
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -192,19 +203,19 @@ function handleNextButton() {
     } else {
         clearInterval(timer);  // Stop timer before showing score
         showScore();
-        localStorage.setItem("readingScore", score);  // Move storage here
+        localStorage.setItem("readingScore", score);  // Store score
+        localStorage.setItem("readingTime", elapsedTime);  // Store time in seconds
     }
 }
+
 function startQuiz() {
     elapsedTime = 0;  // Ensure timer starts fresh
     startTimer();  // Start the timer when quiz begins
     showQuestion();
 }
-function updateProgressBar() {
-    const progressBar = document.getElementById("progress-bar");
-    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
-    progressBar.style.width = progress + "%";
-}
+
+nextButton.addEventListener("click", handleNextButton);
+startQuiz();
 
 
 
