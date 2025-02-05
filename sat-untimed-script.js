@@ -97,11 +97,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let explanationElement = document.getElementById("explanation"); //explain
 
-function startQuiz() {
-    elapsedTime = 0;  // Ensure timer starts fresh
-    startTimer();  // Start the timer when quiz begins
-    showQuestion();
-}
+
 
 function showQuestion() {
     resetState();
@@ -155,6 +151,25 @@ function selectAnswer(e) {
 
     nextButton.style.display = "block";
 }
+var timer;
+var elapsedTime = 0;  // Track elapsed time separately
+var ele = document.getElementById('timer');
+
+function startTimer() {
+    elapsedTime = 0; // Reset time at the start
+    timer = setInterval(() => {
+        let minutes = Math.floor(elapsedTime / 60);
+        let seconds = elapsedTime % 60;
+
+        // Format the timer display (MM:SS)
+        let formattedTime = 
+            (minutes < 10 ? "0" : "") + minutes + ":" + 
+            (seconds < 10 ? "0" : "") + seconds;
+        
+        ele.innerHTML = formattedTime;
+        elapsedTime++;  // Increment time
+    }, 1000);
+}
 
 function showScore() {
     resetState();
@@ -180,7 +195,11 @@ function handleNextButton() {
         localStorage.setItem("readingScore", score);  // Move storage here
     }
 }
-
+function startQuiz() {
+    elapsedTime = 0;  // Ensure timer starts fresh
+    startTimer();  // Start the timer when quiz begins
+    showQuestion();
+}
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
     let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
@@ -190,25 +209,6 @@ function updateProgressBar() {
 
 
 
-var timer;
-var elapsedTime = 0;  // Track elapsed time separately
-var ele = document.getElementById('timer');
-
-function startTimer() {
-    elapsedTime = 0; // Reset time at the start
-    timer = setInterval(() => {
-        let minutes = Math.floor(elapsedTime / 60);
-        let seconds = elapsedTime % 60;
-
-        // Format the timer display (MM:SS)
-        let formattedTime = 
-            (minutes < 10 ? "0" : "") + minutes + ":" + 
-            (seconds < 10 ? "0" : "") + seconds;
-        
-        ele.innerHTML = formattedTime;
-        elapsedTime++;  // Increment time
-    }, 1000);
-}
 
 
 
