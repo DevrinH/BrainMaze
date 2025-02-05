@@ -188,7 +188,7 @@ function showScore() {
     let seconds = elapsedTime % 60;
     let formattedTime = `${minutes} minutes and ${seconds} seconds`;
 
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!<br/>Time it took you: ${formattedTime}`;
+    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!<br/>Time: ${formattedTime}`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
 

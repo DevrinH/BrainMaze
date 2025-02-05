@@ -154,7 +154,7 @@ function selectAnswer(e){
 
 function showScore() {
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!`;
+    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
     
