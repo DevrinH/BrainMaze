@@ -47,7 +47,13 @@
     padding-bottom: 70px;
     
 }
+a {
+font-family: "Montserrat-SemiBold";
+color: black;
+text-align: center;
+margin: 10px auto 0;
 
+}
 
 h1 {
 
