@@ -100,7 +100,7 @@ const questions = [
         ]
     },
     {
-        question: "Her resilient nature allowed her to bounce back quickly from setbacks, never letting failure keep her down for long.",
+        question: "Her resilient nature allowed her to bounce back quickly from setbacks, never letting failure keep her down for long.<br/><br/>Question:Which of the following best defines resilient?",
         answers: [
             { text: "Easily discouraged", correct: false},
             { text: "Able to recover quickly from difficulties ", correct: true},
@@ -109,7 +109,7 @@ const questions = [
         ]
     },
     {
-        question: "The ephemeral beauty of the sunset left them in awe, as they knew it would soon fade away.",
+        question: "The ephemeral beauty of the sunset left them in awe, as they knew it would soon fade away.<br/><br/>Question:Which of the following best defines ephemeral?",
         answers: [
             { text: "Lasting for a very short time", correct: true},
             { text: "Extremely vibrant and bright", correct: false},
@@ -118,7 +118,7 @@ const questions = [
         ]
     },
     {
-        question: "The CEO’s benevolent leadership style made him loved by employees, who appreciated his generous approach to workplace welfare.",
+        question: "The CEO’s benevolent leadership style made him loved by employees, who appreciated his generous approach to workplace welfare.<br/><br/>Question:Which of the following best defines benevolent?",
         answers: [
             { text: "Strict and authoritarian", correct: false},
             { text: "Generous and kind-hearted", correct: true},
@@ -127,7 +127,7 @@ const questions = [
         ]
     },
     {
-        question: "The detective noticed a subtle clue that everyone else had overlooked, leading him to solve the case.",
+        question: "The detective noticed a subtle clue that everyone else had overlooked, leading him to solve the case.<br/><br/>Question:Which of the following best defines subtle?",
         answers: [
             { text: "Obvious and easily noticed", correct: false},
             { text: "Clever and deceptive", correct: false},
