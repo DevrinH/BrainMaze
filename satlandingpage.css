@@ -200,3 +200,22 @@ footer{
 .textpadding{
   padding: 5px;
 }
+
+.morebutton{
+  background: #c890fd;
+  color: #ffffff;
+  box-shadow: 2px 2px black;
+  width: 86px;
+  height: 70px;
+  padding: 3px;
+  border-width: 3px;
+  border-color: black;
+  font-size: 24px;
+  font-family: "Bungee";
+  border-radius: 12px;
+  display: block;
+  text-align: center;
+  margin: auto;
+  transition: all 0.3s;
+  margin-bottom: 25px;
+}
