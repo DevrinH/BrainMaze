@@ -207,8 +207,36 @@ const questions = [
             { text: "  Historically, technological innovation has had no significant impact on employment trends.", correct: false},
             { text: "  While technological advancements displace workers, their long-term effects depend on society’s ability to adapt.", correct: true},
         ]
+    },
+    {
+        question: "The study of human memory has revealed both its remarkable strengths and its surprising fallibility. While many assume that memory functions as an objective record of past events, research suggests that recollections are often reconstructed rather than retrieved in their original form. Studies have shown that memories can be influenced by suggestion, emotional state, and even subsequent experiences, leading to distortions or outright false memories. Some researchers argue that despite these flaws, memory remains a reliable guide for daily decision-making. Others contend that the inherent malleability of memory raises serious concerns about its reliability, particularly in contexts such as eyewitness testimony. This ongoing debate highlights the complexity of understanding how memory truly functions.<br/><br/>Question:<br/> Which choice best summarizes the central claim of the passage?",
+        answers: [
+            { text: "  Memory is a perfect record of past experiences and is rarely subject to distortion.", correct: false},
+            { text: "Eyewitness testimony is the most reliable form of evidence due to the accuracy of human memory.", correct: false},
+            { text: "  Human memory is not a flawless recording of events but a reconstructive process that is susceptible to distortion.", correct: true},
+            { text: "   Despite occasional inaccuracies, memory is fundamentally reliable and rarely influenced by external factors.", correct: false},
+        ]
+    },
+    {
+        question: "Student’s Research Notes: <li>The woolly mammoth was a prehistoric elephant species that lived during the Ice Age.</li> <li>In 2022, Dr. Emily Richardson examined preserved woolly mammoth hair samples from Siberia.</li><li>She analyzed the protein structures in the hair to determine how mammoths adapted to cold climates.</li><li>The study found that the proteins had unique chemical bonds that helped retain heat.</li><li>Richardson concluded that these adaptations were crucial for the survival of woolly mammoths in freezing temperatures.</li><br/><br/>Question:<br/> The student wants to present the study and its findings. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+        answers: [
+            { text: "   Dr. Emily Richardson conducted a 2022 study on woolly mammoths, prehistoric elephants that lived during the Ice Age.", correct: false},
+            { text: "A 2022 study analyzed preserved woolly mammoth hair samples from Siberia using advanced protein analysis.", correct: false},
+            { text: " In a 2022 study, Dr. Emily Richardson examined preserved woolly mammoth hair and found that its protein structures had unique chemical bonds that helped the animals retain heat.", correct: true},
+            { text: "Dr. Emily Richardson was interested in understanding woolly mammoth adaptations to cold temperatures and conducted research in 2022.", correct: false},
+        ]
+    },
+    {
+        question: "Student’s Research Notes: <li>The Mariana Trench is the deepest part of the ocean, reaching nearly 36,000 feet below the surface.</li> <li>In 2023, marine biologist Dr. Alan Hayes led a study on microbial life in the trench.</li><li>His team collected sediment samples from the trench floor and analyzed microbial DNA.</li><li>The study revealed that certain microbes had genetic adaptations allowing them to survive under extreme pressure.</li><li>Hayes concluded that deep-sea microbes could provide insights into life in extreme environments, including other planets.</li><br/><br/>Question:<br/> The student wants to present the study and its findings. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+        answers: [
+            { text: "Dr. Alan Hayes led a 2023 study that explored microbial life in extreme environments, such as the Mariana Trench.", correct: false},
+            { text: " In 2023, researchers examined sediment samples from the Mariana Trench, the deepest part of the ocean, to study microbial DNA.", correct: false},
+            { text: "Dr. Alan Hayes’s 2023 study of deep-sea microbes in the Mariana Trench found that they had genetic adaptations enabling them to survive extreme pressure.", correct: true},
+            { text: "The Mariana Trench, which reaches nearly 36,000 feet below the ocean’s surface, was the site of a 2023 study on microbial life.", correct: false},
+        ]
     }
 ];
+
 
 
 const questionElement = document.getElementById("question");
