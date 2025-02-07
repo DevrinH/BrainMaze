@@ -345,7 +345,9 @@ function selectAnswer(e){
 
 function showScore() {
     resetState();
-    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!`;
+    let percentageScore = Math.round((score / questions.length) * 100); // ✅ Rounds to the nearest whole number
+
+    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentageScore}%)!`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
     
