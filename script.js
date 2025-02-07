@@ -272,12 +272,12 @@ const questions = [
         ]
     },
     {
-        question: "The notion of “human nature” has long been debated by philosophers, with divergent views on whether it is inherently selfish or altruistic. Some argue that humans are driven primarily by self-interest, as evidenced by behaviors that suggest individuals are naturally inclined to maximize their own well-being, even at the expense of others. This perspective posits that cooperation and kindness are merely social constructs, designed to mitigate the inherent competition within human nature. Others, however, assert that humans are fundamentally cooperative creatures, capable of selflessness and empathy. According to this view, individuals possess an innate sense of moral duty that compels them to act in the interest of others, even when such actions do not directly benefit themselves.<br/>The challenge lies in reconciling these competing perspectives. If human nature is inherently selfish, how can we explain acts of unprovoked altruism? Conversely, if humans are innately altruistic, why do we frequently observe egocentric behavior? The answer may lie not in the nature of humanity itself, but in the complex interplay between individual predispositions and societal influences. The human experience is shaped not by one single aspect of our nature, but by the interaction of conflicting impulses—self-interest, empathy, and the desire to belong to a larger community.<br/><br/>Question:<br/> Which of the following best represents the central theme of the passage?",
+        question: "Test<br/><br/>Question:<br/> Which of the following best represents the central issue discussed in the passage?",
         answers: [
-            { text: "Human nature is defined by selfishness, and any acts of kindness are simply societal constructs meant to preserve order.", correct: false},
-            { text: "Humans are inherently cooperative, but the complexity of human behavior can be traced to external factors such as socialization and cultural expectations.", correct: false},
-            { text: " Human nature is not singular but exists in a tension between competing impulses, with individual behavior shaped by both innate qualities and external influences.", correct: true},
-            { text: "Despite philosophical debates, humans are innately selfish, and altruism is merely a strategy to maximize individual gain in a complex society.", correct: false},
+            { text: "A", correct: false},
+            { text: "B", correct: true},
+            { text: "C", correct: false},
+            { text: "D", correct: false},
         ]
     }
 ];
