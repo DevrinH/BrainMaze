@@ -283,7 +283,6 @@ const questions = [
 ];
 
 
-
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
@@ -346,9 +345,7 @@ function selectAnswer(e){
 
 function showScore() {
     resetState();
-    let percentage = Math.round((score / questions.length) * 100);
-
-    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentage}%)`;
+    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
     
