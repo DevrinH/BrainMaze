@@ -346,7 +346,9 @@ function selectAnswer(e){
 
 function showScore() {
     resetState();
-    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${(score / questions.length) * 100}%)!`;
+    let percentage = Math.round((score / questions.length) * 100);
+
+    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentage}%)!<br/>Time: ${formattedTime}`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
     
