@@ -348,7 +348,7 @@ function showScore() {
     resetState();
     let percentage = Math.round((score / questions.length) * 100);
 
-    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentage}%)!<br/>Time: ${formattedTime}`;
+    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentage}%)`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
     
