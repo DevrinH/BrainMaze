@@ -87,18 +87,6 @@ const questions = [
             { text: "The primary goal of transportation innovations has always been to reduce travel costs rather than increase efficiency.", correct: true},
         ]
     },
- 
-    {
-        question: "The following passage is adapted from Charlotte Perkins Gilman’s short story The Yellow Wallpaper (1892). The narrator, a woman suffering from nervous depression, is prescribed a 'rest cure' by her husband, a physician.*<br/>I lie here on this great immovable bed—it is nailed down, I believe—and follow that pattern about by the hour. It is as good as gymnastics, I assure you. I start, we’ll say, at the bottom, down in the corner over there where it has not been touched, and I determine for the thousandth time that I will follow that pointless pattern to some sort of a conclusion.<br/>I know a little of the principle of design, and I know this thing was not arranged on any laws of radiation, or alternation, or repetition, or symmetry, or anything else that I ever heard of.<br/>It is repeated, of course, by the breadths, but not otherwise.<br/>Looked at in one way each breadth stands alone, the bloated curves and flourishes—a kind of “debased Romanesque” with delirium tremens—go waddling up and down in isolated columns of fatuity.<br/>But, on the other hand, they connect diagonally, and the sprawling outlines run off in great slanting waves of optic horror, like a lot of wallowing seaweeds in full chase.<br/>The whole thing goes horizontally, too, at least it seems so, and I exhaust myself in trying to distinguish the order of its going in that direction.<br/>They have used a horizontal breadth for a frieze, and that adds wonderfully to the confusion.*<br/> <br/>Questions:<br/>Which choice best describes the function of the passage in relation to the overall work?",
-       
-        answers: [
-            { text: "It provides insight into the narrator’s growing fascination with and obsession over the wallpaper, foreshadowing her eventual mental decline.", correct: true},
-            { text: "It reveals the historical context of the rest cure, suggesting that the narrator’s experiences are typical for women of her time.", correct: false},
-            { text: "It presents a rational, logical analysis of the wallpaper that contrasts with the narrator’s otherwise erratic thoughts.", correct: false},
-            { text: "It describes the narrator’s physical environment in a detached manner, emphasizing her disinterest in the wallpaper’s pattern.", correct: false},
-        ]
-    },   
-
 
     {
         question: "The study of space has fascinated humans for centuries, leading to groundbreaking discoveries about the universe. In the mid-20th century, the space race between the United States and the Soviet Union led to rapid advancements in space exploration, culminating in the Apollo 11 moon landing. Today, private companies are playing a larger role in space travel, developing reusable rockets and planning future missions to Mars. While space exploration continues to push technological boundaries, some critics argue that resources should be directed toward pressing issues on Earth instead.<br/><br/>Question:<br/>Which choice best summarizes the central idea of the passage?",
@@ -199,6 +187,7 @@ const questions = [
             { text: " Theories that undergo revision are inherently weaker than those that remain unchanged over time.", correct: false},
         ]
     },
+    
     {
         question: "The relationship between technological advancement and human employment has been a subject of debate for centuries. Historically, innovations such as mechanized farming and automated manufacturing have displaced workers in certain industries while simultaneously creating new opportunities elsewhere. Some argue that automation inevitably leads to widespread unemployment, as machines and artificial intelligence become capable of performing tasks once reserved for humans. Others contend that while job displacement occurs in the short term, technological progress ultimately generates new industries and demand for skilled labor. The challenge lies in managing these transitions to ensure economic stability and workforce adaptation.<br/><br/>Question:<br/>Which choice best captures the passage’s central claim?",
         answers: [
@@ -272,12 +261,12 @@ const questions = [
         ]
     },
     {
-        question: "Test<br/><br/>Question:<br/> Which of the following best represents the central issue discussed in the passage?",
+        question: "The notion of “human nature” has long been debated by philosophers, with divergent views on whether it is inherently selfish or altruistic. Some argue that humans are driven primarily by self-interest, as evidenced by behaviors that suggest individuals are naturally inclined to maximize their own well-being, even at the expense of others. This perspective posits that cooperation and kindness are merely social constructs, designed to mitigate the inherent competition within human nature. Others, however, assert that humans are fundamentally cooperative creatures, capable of selflessness and empathy. According to this view, individuals possess an innate sense of moral duty that compels them to act in the interest of others, even when such actions do not directly benefit themselves.<br/>The challenge lies in reconciling these competing perspectives. If human nature is inherently selfish, how can we explain acts of unprovoked altruism? Conversely, if humans are innately altruistic, why do we frequently observe egocentric behavior? The answer may lie not in the nature of humanity itself, but in the complex interplay between individual predispositions and societal influences. The human experience is shaped not by one single aspect of our nature, but by the interaction of conflicting impulses—self-interest, empathy, and the desire to belong to a larger community.<br/><br/>Question:<br/> Which of the following best represents the central theme of the passage?",
         answers: [
-            { text: "A", correct: false},
-            { text: "B", correct: true},
-            { text: "C", correct: false},
-            { text: "D", correct: false},
+            { text: " Human nature is defined by selfishness, and any acts of kindness are simply societal constructs meant to preserve order.", correct: false},
+            { text: "Humans are inherently cooperative, but the complexity of human behavior can be traced to external factors such as socialization and cultural expectations.", correct: false},
+            { text: "Human nature is not singular but exists in a tension between competing impulses, with individual behavior shaped by both innate qualities and external influences.", correct: true},
+            { text: "Despite philosophical debates, humans are innately selfish, and altruism is merely a strategy to maximize individual gain in a complex society.", correct: false},
         ]
     }
 ];
