@@ -661,12 +661,12 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
 
-    let maxPossibleScore = questions.length * 3; // Max raw score assuming hardest questions
+    let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3); // 18 easy, 18 medium, 18 hard
     let rawScore = score;
-    
-    // SAT Approximation: Convert raw score to 200-800 scale
+
+    // Convert raw score to SAT scaled score (approximation)
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
-    
+
     // Store in local storage for use in other sections
     localStorage.setItem("readingScore", scaledScore);
 
