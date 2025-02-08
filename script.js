@@ -37,7 +37,8 @@ const questions = [
             { text: "Cautiously optimistic ", correct: true},
             { text: " Indifferent.", correct: false},
             { text: "Overwhelmingly negative", correct: false},
-        ]
+        ],
+        difficulty:"easy"
     },
     {
         question: "The small town had long been known for its quiet charm, but the recent construction of a major highway nearby brought unexpected changes. Local businesses saw an increase in customers, yet some longtime residents lamented the loss of the town’s peaceful atmosphere.<br/><br/>Question: <br/> Which choice best describes the impact of the highway on the town? ",
@@ -47,7 +48,8 @@ const questions = [
             { text: "It led to both benefits and drawbacks for the town.", correct: true},
             { text: " It was overwhelmingly positive for all residents.", correct: false},
             { text: "It had no significant effect on the town’s character.", correct: false},
-        ]
+        ],
+        difficulty:"easy"
     },   
     {
         question: "The ancient city of Alexandria was renowned for its vast library, which attracted scholars from across the world. This center of learning not only preserved countless manuscripts but also fostered significant advancements in science, philosophy, and literature.<br/><br/>Question:<br/>Based on the passage, the Library of Alexandria is best described as:",
@@ -56,7 +58,8 @@ const questions = [
             { text: "A military fortress protecting the city", correct: false},
             { text: " A cultural institution promoting knowledge", correct: true,},
             { text: "A political center for governmental affairs", correct: false},
-        ]
+        ],
+        difficulty:"easy"
     },
     {
         question: "The recent study on urban green spaces revealed that access to parks and gardens significantly enhances residents' mental well-being. The researchers found that individuals living near these areas reported lower stress levels and improved mood compared to those without such access.<br/><br/>Question:<br/>According to the passage, what is the primary benefit of urban green spaces for residents?",
@@ -65,7 +68,8 @@ const questions = [
             { text: "Enhanced mental well-being", correct: true},
             { text: "Improved air quality", correct: false},
             { text: "Greater social interaction", correct: false},
-        ]
+        ],
+        difficulty:"easy"
     },
     {
         question: "For decades, researchers have studied the migration patterns of monarch butterflies, which travel thousands of miles each year between North America and central Mexico. These delicate creatures rely on environmental cues, such as temperature and sunlight, to navigate their journey. However, recent changes in climate patterns have disrupted their migration, causing delays and shifts in their usual routes. Scientists warn that if these disruptions continue, monarch populations may decline significantly, threatening the stability of ecosystems that depend on them for pollination. <br/><br/>Question:<br/>Which statement best summarizes the central idea of the passage?",
@@ -74,7 +78,8 @@ const questions = [
             { text: " Scientists have successfully found ways to prevent disruptions in monarch butterfly migration despite climate change.", correct: false},
             { text: "The migration of monarch butterflies is primarily determined by their physical strength rather than environmental factors.", correct: false},
             { text: "The annual migration of monarch butterflies is influenced by climate factors, which may pose a threat to their population", correct: true},
-        ]
+        ],
+        difficulty:"easy"
     },
     {
         question: "Throughout history, innovations in transportation have reshaped human civilization. The invention of the steam engine in the 18th century led to the expansion of railroads, allowing goods and people to travel faster than ever before. In the 20th century, the development of automobiles and airplanes further revolutionized travel, shrinking distances and connecting societies in unprecedented ways. Today, advancements in electric and autonomous vehicles promise to transform transportation yet again, raising questions about efficiency, sustainability, and the future of mobility. <br/><br/>Question:<br/>Which choice best expresses the main idea of the passage?",
@@ -83,7 +88,8 @@ const questions = [
             { text: "Railroads remain the most significant innovation in transportation history.", correct: false},
             { text: "The development of automobiles and airplanes has eliminated the need for future advancements in transportation.", correct: false},
             { text: "The primary goal of transportation innovations has always been to reduce travel costs rather than increase efficiency.", correct: true},
-        ]
+        ],
+        difficulty:"easy"
     },
 
     {
