@@ -2,7 +2,7 @@ setTimeout(function() {
 
     showScore();
     
-    }, 902000);
+    }, 3840000);
     
     const startingMinutes = 64;
     const countdownEl = document.getElementById('countdown');
