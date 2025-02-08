@@ -490,21 +490,21 @@ const questions = [
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Despite advancements in artificial intelligence, the notion that machines could exhibit true consciousness remains <u>both a subject of debate and is something that continues to challenge researchers.</u><br/><br/>Question:<br/>Which choice best corrects the sentence while preserving clarity and conciseness?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "both a subject of debate and is something that continues to challenge researchers ", correct: false},
+            { text: "a subject of debate while also continuing to challenge researchers", correct: false},
+            { text: "both a subject of debate and a challenge for researchers", correct: true},
+            { text: "a subject of debate and one that continues to challenge researchers", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Unlike most species of insects, whose lifespans are often measured in weeks, the cicada is remarkable for having a life cycle that extends <u>for as long as seventeen years before emerging from underground.</u><br/><br/>Question:<br/>Which choice best improves the sentence for grammatical accuracy and logical clarity?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "for having a life cycle that extends for as long as seventeen years before emerging from underground ", correct: false},
+            { text: "because its life cycle extends as long as seventeen years before it emerges from underground", correct: false},
+            { text: "in that its life cycle, extending for as long as seventeen years, ends with it emerging from underground", correct: false},
+            { text: "because it has a life cycle that extends up to seventeen years before emerging from underground", correct: true},
         ]
     },
 
