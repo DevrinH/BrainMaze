@@ -409,75 +409,75 @@ const questions = [
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Despite numerous warnings from scientists, the effects of climate change <u>has not been fully addressed by policymakers, who often cite economic concerns.</u><br/><br/>Question:<br/>Which choice best maintains grammatical accuracy and logical consistency?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "has not been fully addressed by policymakers, who often cite economic concerns ", correct: false},
+            { text: " have not been fully addressed by policymakers, who often cite economic concerns", correct: true},
+            { text: "has not been fully addressed by policymakers, citing economic concerns", correct: false},
+            { text: " have not fully been addressed by policymakers citing economic concerns", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Scholars argue that the novel's central theme is<u> one that deals with the idea of personal identity and the way in which it is shaped by experiences.</u><br/><br/>Question:<br/>Which choice best improves clarity and conciseness?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: " one that deals with the idea of personal identity and the way in which it is shaped by experiences ", correct: false},
+            { text: "the idea of personal identity and how experiences shape it", correct: true},
+            { text: "a theme about personal identity and the way it is shaped by experiences", correct: false},
+            { text: " about personal identity and its shaping through experiences", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The workshop emphasized the importance of refining one’s writing, <u>clarifying arguments, and that sources should be cited properly.</u><br/><br/>Question:<br/>Which choice best maintains parallel structure and logical flow?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "clarifying arguments, and that sources should be cited properly ", correct: false},
+            { text: "clarifying arguments, and citing sources properly", correct: true},
+            { text: " arguments should be clarified, and citing sources properly", correct: false},
+            { text: "arguments being clarified, and citing sources properly", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Even though the artist’s early works were largely dismissed by critics, her later paintings, which blended realism with abstract elements,<u> was widely regarded as groundbreaking.</u><br/><br/>Question:<br/>Which choice best corrects the sentence while maintaining grammatical accuracy and logical clarity?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "was widely regarded as groundbreaking ", correct: false},
+            { text: "were widely regarded as groundbreaking", correct: true},
+            { text: "was, in general, regarded as being groundbreaking", correct: false},
+            { text: "were, in general, regarded to be groundbreaking", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The policy changes enacted by the government were controversial not only because they affected tax rates but also because <u>they resulted in the impact of healthcare costs rising significantly.</u><br/><br/>Question:<br/>Which choice best improves the clarity and conciseness of the sentence?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: " they resulted in the impact of healthcare costs rising significantly", correct: false},
+            { text: "the impact on healthcare costs was significant due to them", correct: false},
+            { text: " they caused healthcare costs to rise significantly", correct: true},
+            { text: " there was a significant rise in healthcare costs that resulted from them", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "To succeed in the program, students must demonstrate strong analytical skills, the ability to work collaboratively, and <u>that they can adapt to changing circumstances.</u><br/><br/>Question:<br/>Which choice best maintains parallelism and clarity?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "that they can adapt to changing circumstances ", correct: false},
+            { text: "the fact that they can adapt to changing circumstances", correct: false},
+            { text: " adapting to changing circumstances", correct: false},
+            { text: "an ability to adapt to changing circumstances", correct: true},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The economic downturn not only affected small businesses, causing many to close, but it also had an impact on the employment rate, which was something that led to a significant increase in joblessness.<br/><br/>Question:<br/>Which choice best improves the sentence while maintaining conciseness and clarity?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "which was something that led to a significant increase in joblessness ", correct: false},
+            { text: "and this resulted in a significant increase in joblessness", correct: false},
+            { text: "leading to a significant increase in joblessness", correct: true},
+            { text: "which as a consequence meant there was a significant increase in joblessness", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The university’s research center, along with several faculty members, <u>are investigating new methods for reducing greenhouse gas emissions that has proven effective in preliminary trials.</u><br/><br/>Question:<br/>Which choice best corrects the sentence while maintaining grammatical accuracy and logical consistency?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "are investigating new methods for reducing greenhouse gas emissions that has proven effective ", correct: false},
+            { text: "is investigating new methods to reduce greenhouse gas emissions that has proven effective", correct: false},
+            { text: "are investigating new methods to reduce greenhouse gas emissions, which has proven effective", correct: false},
+            { text: "is investigating new methods for reducing greenhouse gas emissions that have proven effective", correct: true},
         ]
     },
     {
