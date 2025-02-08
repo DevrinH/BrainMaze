@@ -27,6 +27,8 @@ setTimeout(function() {
     
 updateCountdown();
 
+
+
 const questions = [
     {
         
@@ -120,7 +122,7 @@ const questions = [
             { text: "Societies should resist technological changes to preserve the value of traditional knowledge-sharing methods.", correct: false},
             { text: "The internet has solved all information-related problems, just as the printing press did in its time.", correct: false},
         ],
-        difficulty:"medium"
+        difficulty:"easy"
     },
     {
         question: "The relationship between economic growth and environmental sustainability has long been a subject of debate. Historically, industrial expansion has been associated with rising carbon emissions and depletion of natural resources. However, recent innovations in renewable energy, sustainable agriculture, and eco-friendly manufacturing suggest that economic progress does not have to come at the expense of the environment. Some experts argue that with the right policies and technological advancements, nations can achieve both economic prosperity and environmental responsibility. Others caution that meaningful change requires significant sacrifices and a fundamental shift in consumption patterns.<br/><br/>Question:<br/>Which choice best captures the passage’s main argument?",
@@ -293,6 +295,17 @@ const questions = [
         ],
         difficulty:"hard"
     },
+    {
+        question: "The nature of consciousness has puzzled philosophers and scientists alike for centuries. Some theorists argue that consciousness is a mere byproduct of neural activity—a biological phenomenon with no inherent meaning beyond its evolutionary utility. This view suggests that our perception of reality is not an objective reflection of the world but rather a construct shaped by cognitive limitations and survival-driven biases. From this perspective, what we call 'reality' is a filtered interpretation of the external world, optimized for function rather than truth.<br/>Others, however, contend that consciousness is not reducible to neural activity alone. They argue that subjective experience—what is often referred to as “qualia”—cannot be fully explained by physical processes. This school of thought suggests that our awareness of reality might transcend mere sensory input and could be indicative of a deeper, possibly non-material dimension of existence.<br/>Yet, both perspectives must grapple with a fundamental question: if reality is either an illusion shaped by biological constraints or an entity beyond material explanation, can we ever claim to know it objectively? The debate ultimately forces us to reconsider whether the mind passively perceives an independent reality or actively constructs one based on its own internal framework.<br/><br/>Question:<br/> Which of the following best captures the central argument of the passage?",
+        answers: [
+            { text: "Human consciousness is an evolutionary adaptation that shapes perception, which prevents us from accessing reality as it truly is.", correct: false},
+            { text: "The mind’s perception of reality may be either a filtered representation shaped by evolution or a reflection of something beyond physical processes, but both views raise questions about objectivity.", correct: true},
+            { text: " Consciousness is best understood through its biological function, as subjective experience does not provide meaningful insight into reality.", correct: false},
+            { text: "The debate over the nature of consciousness is inconsequential because reality remains unchanged regardless of how it is perceived.", correct: false},
+        ],
+        difficulty:"hard"
+    },
+
 
 
 //Writing Portion Below
@@ -385,7 +398,7 @@ const questions = [
             { text: "but also analyze them critically", correct: true},
             { text: "but also that they analyze them critically", correct: false},
         ],
-        difficulty:"medium"
+        difficulty:"easy"
     },
     {
         question: "Unlike traditional advertisements, which rely on direct messaging, viral marketing succeeds <u>by making use of social media to engage audiences.</u><br/><br/>Question:<br/>Which choice best corrects the underlined portion for clarity and conciseness?",
@@ -557,6 +570,16 @@ const questions = [
         ],
         difficulty:"hard"
     },
+    {
+        question: "The report not only highlighted deficiencies in the system but also <u>pointing out the lack of accountability among those responsible for oversight.</u></u><br/><br/>Question:<br/>Which choice best corrects the sentence while maintaining parallel structure and avoiding redundancy?",
+        answers: [
+            { text: "pointing out the lack of accountability among those responsible for oversight ", correct: false},
+            { text: "pointed out the lack of accountability among those responsible for oversight", correct: true},
+            { text: "in addition, it pointed out how there was a lack of accountability among those responsible for oversight", correct: false},
+            { text: "pointed out that a lack of accountability existed among those responsible for oversight", correct: false},
+        ],
+        difficulty:"hard"
+    },
 
 ];
 
@@ -568,13 +591,11 @@ const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
-let totalAnswered = 0;
 
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
-    totalAnswered = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
 }
@@ -615,24 +636,17 @@ function selectAnswer(e) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
 
-        // Adaptive scoring based on difficulty & accuracy
+        // Fixed weighted scoring based on difficulty (NO scaling)
         if (questionDifficulty === "easy") {
             score += 1;
         } else if (questionDifficulty === "medium") {
-            score += totalAnswered > 2 && (correctAnswers / totalAnswered) > 0.7 ? 2 : 1.5;
+            score += 2;
         } else if (questionDifficulty === "hard") {
-            score += totalAnswered > 2 && (correctAnswers / totalAnswered) > 0.7 ? 2.5 : 2;
+            score += 3;
         }
     } else {
         selectedBtn.classList.add("incorrect");
-
-        // Apply penalty for incorrect Medium/Hard questions
-        if (questionDifficulty === "medium" || questionDifficulty === "hard") {
-            score = Math.max(0, score - 0.25); // Prevents negative score
-        }
     }
-
-    totalAnswered++;
 
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
@@ -646,12 +660,17 @@ function selectAnswer(e) {
 
 function showScore() {
     resetState();
-    
-    let scaledScore = Math.round((score / (questions.length * 2.5)) * 800); // Normalizing to 800 scale
-    let readScore = localStorage.getItem("readingScore") || 0;
 
-    questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800<br>
-                                 Reading & Writing Score: ${readScore}/ 54`;
+    let maxPossibleScore = questions.length * 3; // Max raw score assuming hardest questions
+    let rawScore = score;
+    
+    // SAT Approximation: Convert raw score to 200-800 scale
+    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+    
+    // Store in local storage for use in other sections
+    localStorage.setItem("readingScore", scaledScore);
+
+    questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
 
@@ -660,23 +679,11 @@ function showScore() {
 
 function handleNextButton() {
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length && time > 0) {
+    if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
         showScore();
-        endtimer();
-        clearInterval(refreshIntervalId);
     }
-}
-
-function endtimer() {
-    if (currentQuestionIndex === 3) {
-        console.log("nada");
-    }
-}
-
-function mathlink() {
-    location.href = "https://www.brainjelli.com/math.html";
 }
 
 function updateProgressBar() {
@@ -686,12 +693,15 @@ function updateProgressBar() {
 }
 
 nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length && time > 0) {
+    if (currentQuestionIndex < questions.length) {
         handleNextButton();
     } else {
-        localStorage.setItem("readingScore", score);
         mathlink();
     }
 });
+
+function mathlink() {
+    location.href = "https://www.brainjelli.com/math.html";
+}
 
 startQuiz();
