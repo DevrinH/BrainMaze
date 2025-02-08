@@ -274,7 +274,7 @@ const questions = [
 //Writing Portion Below
 
     {
-        question: "The committee made a decision to approve the new policy after several hours of deliberation.<br/><br/>Question:<br/>Which choice best maintains the sentence’s clarity and conciseness?",
+        question: "The committee <u>made a decision to approve</u> the new policy after several hours of deliberation.<br/><br/>Question:<br/>Which choice best maintains the sentence’s clarity and conciseness?",
         answers: [
             { text: "made a decision to approve ", correct: false},
             { text: "decided to approve", correct: true},
@@ -286,36 +286,36 @@ const questions = [
         question: "The scientist, along with her research assistants, <u>were</u> excited to present their findings at the conference.<br/><br/>Question:<br/>Which choice best corrects the underlined portion of the sentence?",
         answers: [
             { text: "were ", correct: false},
-            { text: " was", correct: false},
-            { text: "have been", correct: true},
+            { text: " was", correct: true},
+            { text: "have been", correct: false},
             { text: "had been", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The manager <u>gave an explanation regarding</u> the new policy changes to the employees.<br/><br/>Question:<br/>Which choice best improves the clarity and conciseness of the sentence?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "gave an explanation regarding ", correct: false},
+            { text: "explained", correct: true},
+            { text: "provided an explanation about", correct: false},
+            { text: "was giving an explanation regarding", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Neither of the two brothers ___ planning to attend the reunion this year.<br/><br/>Question:<br/>Which choice correctly completes the sentence?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "is ", correct: true},
+            { text: "are", correct: false},
+            { text: "have been", correct: false},
+            { text: "were", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The book’s introduction is engaging, but its later chapters fails to maintain the same level of interest.<br/><br/>Question:<br/>Which choice best maintains logical and grammatical consistency?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "fails to maintain ", correct: false},
+            { text: "fail to maintain", correct: true},
+            { text: "has failed in maintaining", correct: false},
+            { text: "is failing to maintain", correct: false},
         ]
     },
     {
