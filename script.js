@@ -481,12 +481,12 @@ const questions = [
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "By studying ancient civilizations, archaeologists have gained valuable insights into how societies develop, how cultures interact, and <u>the ways in which innovations, often occurring over centuries, led to transformations in social structures.</u><br/><br/>Question:<br/>Which choice best improves the sentence while maintaining logical accuracy and conciseness?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: " the ways in which innovations, often occurring over centuries, led to transformations in social structures ", correct: false},
+            { text: "the way innovations, often occurring over centuries, have led to transformations in social structures", correct: false},
+            { text: "how innovations, often occurring over centuries, have led to transformations in social structures", correct: true},
+            { text: "innovations, which, occurring over centuries, have led to transformations in social structures", correct: false},
         ]
     },
     {
