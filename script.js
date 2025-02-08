@@ -310,7 +310,7 @@ const questions = [
         ]
     },
     {
-        question: "The book’s introduction is engaging, but its later chapters fails to maintain the same level of interest.<br/><br/>Question:<br/>Which choice best maintains logical and grammatical consistency?",
+        question: "The book’s introduction is engaging, but its later chapters <u>fails to maintain</u> the same level of interest.<br/><br/>Question:<br/>Which choice best maintains logical and grammatical consistency?",
         answers: [
             { text: "fails to maintain ", correct: false},
             { text: "fail to maintain", correct: true},
@@ -319,12 +319,12 @@ const questions = [
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Unlike many of her colleagues, who prefer to analyze data behind a desk, Dr. Patel enjoys <u>conducting fieldwork, and she often travels</u> to remote locations to study wildlife.<br/><br/>Question:<br/>Which choice best maintains the sentence’s clarity and grammatical accuracy?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "conducting fieldwork, and she often travels ", correct: false},
+            { text: "conducting fieldwork and often travels", correct: true},
+            { text: " to conduct fieldwork, and she often travels", correct: false},
+            { text: "conducting fieldwork, often traveling", correct: false},
         ]
     },
     {
