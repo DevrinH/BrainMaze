@@ -7,24 +7,22 @@ setTimeout(function() {
     const startingMinutes = 64;
     const countdownEl = document.getElementById('countdown');
     
-    let time = startingMinutes * 60; //minutes * 60 seconds
+    let time = startingMinutes * 60 + 1; //minutes * 60 seconds
     let refreshIntervalId = setInterval(updateCountdown, 1000);
     
-    function updateCountdown(){
-    
-        const minutes = Math.floor(time/60);
+    function updateCountdown() {
+        const minutes = Math.floor(time / 60);
         let seconds = time % 60;
         seconds = seconds < 10 ? '0' + seconds : seconds;
-        const contdownEl = document.getElementById("f1"); 
+        
         countdownEl.innerHTML = `${minutes} : ${seconds}`;
-        time--;
     
-        if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
+        if (time === 0) { 
             clearInterval(refreshIntervalId);
-                        }
+            return; // Stop execution to prevent going negative
+        }
     
-    
-    
+        time--; 
     };
     
 updateCountdown();
@@ -517,10 +515,14 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let correctAnswers = 0;
+let totalAnswered = 0;
 
-function startQuiz(){
+function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
+    correctAnswers = 0;
+    totalAnswered = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
 }
@@ -542,67 +544,87 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
 
-    updateProgressBar(); // Update progress bar
+    updateProgressBar();
 }
 
-
-function resetState(){
+function resetState() {
     nextButton.style.display = "none";
-    while(answerButtons.firstChild){
+    while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
 
-function selectAnswer(e){
+function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    if(isCorrect){
+    let questionDifficulty = questions[currentQuestionIndex].difficulty;
+
+    if (isCorrect) {
         selectedBtn.classList.add("correct");
-        score++;
-    }else{
+        correctAnswers++;
+
+        // Adaptive scoring based on difficulty & accuracy
+        if (questionDifficulty === "easy") {
+            score += 1;
+        } else if (questionDifficulty === "medium") {
+            score += totalAnswered > 2 && (correctAnswers / totalAnswered) > 0.7 ? 2 : 1.5;
+        } else if (questionDifficulty === "hard") {
+            score += totalAnswered > 2 && (correctAnswers / totalAnswered) > 0.7 ? 2.5 : 2;
+        }
+    } else {
         selectedBtn.classList.add("incorrect");
+
+        // Apply penalty for incorrect Medium/Hard questions
+        if (questionDifficulty === "medium" || questionDifficulty === "hard") {
+            score = Math.max(0, score - 0.25); // Prevents negative score
+        }
     }
+
+    totalAnswered++;
+
     Array.from(answerButtons.children).forEach(button => {
-        if(button.dataset.correct === "true"){
+        if (button.dataset.correct === "true") {
             button.classList.add("correct");
         }
         button.disabled = true;
     });
+
     nextButton.style.display = "block";
 }
 
 function showScore() {
     resetState();
-    let percentageScore = Math.round((score / questions.length) * 100); // ✅ Rounds to the nearest whole number
+    
+    let scaledScore = Math.round((score / (questions.length * 2.5)) * 800); // Normalizing to 800 scale
+    let readScore = localStorage.getItem("readingScore") || 0;
 
-    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentageScore}%)!`;
+    questionElement.innerHTML = `Adaptive Math Score: ${scaledScore} / 800<br>
+                                 Reading & Writing Score: ${readScore}`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
-    
-    // Set progress bar to 100% when finished
+
     document.getElementById("progress-bar").style.width = "100%";
 }
-function handleNextButton(){
+
+function handleNextButton() {
     currentQuestionIndex++;
-    if(currentQuestionIndex < questions.length && time > 0){
+    if (currentQuestionIndex < questions.length && time > 0) {
         showQuestion();
-    }else{
+    } else {
         showScore();
         endtimer();
         clearInterval(refreshIntervalId);
     }
 }
 
-function endtimer(){
-    if(currentQuestionIndex === 3){
-        
-        console.log("nada")
+function endtimer() {
+    if (currentQuestionIndex === 3) {
+        console.log("nada");
     }
 }
-function mathlink(){
 
+function mathlink() {
     location.href = "https://www.brainjelli.com/math.html";
-
 }
 
 function updateProgressBar() {
@@ -611,20 +633,13 @@ function updateProgressBar() {
     progressBar.style.width = progress + "%";
 }
 
-
-
-
-
-
-nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length && time > 0){
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length && time > 0) {
         handleNextButton();
-        
-    }else{
-        localStorage.setItem("readingScore", score); 
-        mathlink(); 
+    } else {
+        localStorage.setItem("readingScore", score);
+        mathlink();
     }
 });
-
 
 startQuiz();
