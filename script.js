@@ -268,7 +268,246 @@ const questions = [
             { text: "Human nature is not singular but exists in a tension between competing impulses, with individual behavior shaped by both innate qualities and external influences.", correct: true},
             { text: "Despite philosophical debates, humans are innately selfish, and altruism is merely a strategy to maximize individual gain in a complex society.", correct: false},
         ]
-    }
+    },
+
+
+//Writing Portion Below
+
+    {
+        question: "The committee made a decision to approve the new policy after several hours of deliberation.<br/><br/>Question:<br/>Which choice best maintains the sentence’s clarity and conciseness?",
+        answers: [
+            { text: "made a decision to approve ", correct: false},
+            { text: "decided to approve", correct: true},
+            { text: "came to the conclusion to approve", correct: false},
+            { text: " reached a decision to approve", correct: false},
+        ]
+    },
+    {
+        question: "The scientist, along with her research assistants, <u>were</u> excited to present their findings at the conference.<br/><br/>Question:<br/>Which choice best corrects the underlined portion of the sentence?",
+        answers: [
+            { text: "were ", correct: false},
+            { text: " was", correct: false},
+            { text: "have been", correct: true},
+            { text: "had been", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+        ]
+    },
+
 ];
 
 
