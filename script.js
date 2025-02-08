@@ -604,8 +604,8 @@ function showScore() {
     let scaledScore = Math.round((score / (questions.length * 2.5)) * 800); // Normalizing to 800 scale
     let readScore = localStorage.getItem("readingScore") || 0;
 
-    questionElement.innerHTML = `Adaptive Math Score: ${scaledScore} / 800<br>
-                                 Reading & Writing Score: ${readScore}`;
+    questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800<br>
+                                 Reading & Writing Score: ${readScore}/ 54`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
 
