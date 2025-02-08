@@ -328,84 +328,84 @@ const questions = [
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Many believe that <u>a person should pursue their dreams, even if they face obstacles</u> along the way.<br/><br/>Question:<br/>Which choice best corrects the underlined portion of the sentence?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "a person should pursue their dreams, even if they face obstacles ", correct: false},
+            { text: " a person should pursue his or her dreams, even if he or she faces obstacles", correct: false},
+            { text: "people should pursue their dreams, even if they face obstacles", correct: true},
+            { text: "a person should pursue their dreams, even if that person faces obstacles", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The city’s new transportation plan, aimed at reducing traffic congestion, <u>require all commercial vehicles to be rerouted during peak hours.</u><br/><br/>Question:<br/>Which choice best maintains logical and grammatical consistency?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "require all commercial vehicles to be rerouted during peak hours ", correct: false},
+            { text: "requires all commercial vehicles to be rerouted during peak hours", correct: true},
+            { text: "requiring all commercial vehicles to be rerouted during peak hours", correct: false},
+            { text: "have required all commercial vehicles to be rerouted during peak hours", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The professor emphasized that students should not only read the assigned texts <u>but also they should analyze them critically</u>.<br/><br/>Question:<br/>Which choice best maintains logical structure and parallelism?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "but also they should analyze them critically ", correct: false},
+            { text: "but they also should analyze them critically", correct: false},
+            { text: "but also analyze them critically", correct: true},
+            { text: "but also that they analyze them critically", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Unlike traditional advertisements, which rely on direct messaging, viral marketing succeeds <u>by making use of social media to engage audiences.</u><br/><br/>Question:<br/>Which choice best corrects the underlined portion for clarity and conciseness?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "by making use of social media to engage audiences ", correct: false},
+            { text: "because it makes use of social media for audience engagement", correct: false},
+            { text: "by using social media to engage audiences", correct: true},
+            { text: " through the utilization of social media as a means to engage audiences", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The documentary explores the lives of endangered species, focusing on how climate change has affected <u>their habitats, migration patterns, and the availability of food.</u><br/><br/>Question:<br/>Which choice best completes the sentence while maintaining grammatical accuracy?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "their habitats, migration patterns, and the availability of food", correct: false},
+            { text: "their habitats, their migration patterns, and their food availability", correct: false},
+            { text: "habitats, migration patterns, and food availability", correct: true},
+            { text: "their habitats, migration patterns, and food that is available to them", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The company’s new policy, which was designed to reduce waste and promote sustainability, <u>have been met with mixed reactions from employees.</u><br/><br/>Question:<br/>Which choice best maintains clarity and grammatical correctness?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "have been met with mixed reactions from employees ", correct: false},
+            { text: "has been met with mixed reactions from employees", correct: true},
+            { text: "met mixed reactions from employees", correct: false},
+            { text: " was met with mixed reactions from employees", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The committee debated the proposal for hours, but neither the chairperson nor the board members <u>was willing to approve it.</u><br/><br/>Question:<br/>Which choice best corrects the underlined portion for clarity and grammatical accuracy?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "was willing to approve it ", correct: false},
+            { text: "were willing to approve it", correct: true},
+            { text: "was willing to approve them", correct: false},
+            { text: "were willing to approve them", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The new software update will increase efficiency, reduce errors, and <u>it will improve user satisfaction.</u><br/><br/>Question:<br/>Which choice best maintains clarity and conciseness while preserving the sentence’s meaning?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "it will improve user satisfaction", correct: false},
+            { text: "improve user satisfaction", correct: true},
+            { text: "improving user satisfaction", correct: false},
+            { text: "improvement of user satisfaction", correct: false},
         ]
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The scientist's discovery was significant because it led to advancements in medicine, and also because it revolutionized treatment methods.<br/><br/>Question:<br/>Which choice best improves the clarity and conciseness of the sentence?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
+            { text: "and also because it revolutionized treatment methods ", correct: false},
+            { text: "and it also revolutionized treatment methods", correct: false},
+            { text: "and it revolutionized treatment methods", correct: true},
+            { text: "as well as revolutionizing treatment methods", correct: false},
         ]
     },
     {
