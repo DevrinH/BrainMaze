@@ -137,7 +137,7 @@ function selectAnswer(e){
 
 function showScore(){
     resetState();
-    questionElement.innerHTML = `Your math score is ${mathScore} out of ${questions.length} and your reading score was ${readingWritingScore}!`; //score
+    questionElement.innerHTML = `Your math score is ${mathScore} out of ${questions.length} and your reading and writing score was ${readingWritingScore}!`; //score
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
     return true;
