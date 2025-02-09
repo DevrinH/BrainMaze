@@ -166,12 +166,112 @@ const questions = [
         difficulty:"easy"
     },
     {
-        question: "",
+        question: "A circle has center 𝑂 and radius 10. A tangent line is drawn from a point 𝑃 outside the circle to touch the circle at point 𝐴. If OP=26, what is the length of PA?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "16", correct: false},
+            { text: "18", correct: false},
+            { text: "20", correct: true},
+            { text: "24", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "A function 𝑓(𝑥) is defined as 𝑓(𝑥)=𝑥2−4𝑥+7. If the function is transformed to 𝑔(𝑥)=𝑓(𝑥−3)+2, what is the value of 𝑔(2)?",
+        answers: [
+            { text: "4", correct: false},
+            { text: "5", correct: true},
+            { text: "6", correct: false},
+            { text: "7", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "If 3^(2x+1) = 81, what is the value of x?,",
+        answers: [
+            { text: "1", correct: false},
+            { text: "2", correct: false},
+            { text: "3", correct: false},
+            { text: "4", correct: true},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "If 5^(x+1) = 125, what is the value of x?",
+        answers: [
+            { text: "1", correct: false},
+            { text: "2", correct: false},
+            { text: "3", correct: true},
+            { text: "4", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "A right triangle has legs of length 6 and 8. What is the length of the hypotenuse?",
+        answers: [
+            { text: "9", correct: false},
+            { text: "10", correct: true},
+            { text: "11", correct: false},
+            { text: "12", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "A train travels 180 miles in 3 hours. At this rate, how far will it travel in 7 hours?",
+        answers: [
+            { text: "300 miles", correct: false},
+            { text: "360 miles", correct: false},
+            { text: "420 miles", correct: true},
+            { text: "450 miles", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "A circle has a circumference of 36π. What is its radius?",
+        answers: [
+            { text: "9", correct: false},
+            { text: "10", correct: false},
+            { text: "12", correct: false},
+            { text: "18", correct: true},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "Emma is filling water bottles for a marathon. Each bottle holds 0.75 liters of water. She needs to fill 120 bottles. If water is sold in 18-liter jugs, how many jugs will she need?",
+        answers: [
+            { text: "4", correct: false},
+            { text: "5", correct: true},
+            { text: "6", correct: false},
+            { text: "7", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "A farmer plants 3 types of crops in a field. Wheat takes up 40% of the land, corn takes up 35%, and the remaining 15 acres are for soybeans. How large is the entire field?",
+        answers: [
+            { text: "50 acres", correct: false},
+            { text: "60 acres", correct: false},
+            { text: "75 acres", correct: true},
+            { text: "90 acres", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "Liam is painting a fence. He paints at a rate of 12 square feet per hour. If the fence is 96 feet long and 4 feet high, how many hours will it take him to complete the entire fence?",
+        answers: [
+            { text: "24", correct: true},
+            { text: "28", correct: false},
+            { text: "30", correct: false},
+            { text: "32", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "A bookstore sells a novel for $12. After applying a discount, the price is $9.60. What is the discount percentage?",
+        answers: [
+            { text: "10%", correct: false},
+            { text: "15%", correct: false},
+            { text: "20%", correct: true},
+            { text: "25%", correct: false},
         ],
         difficulty:"medium"
     },
@@ -204,8 +304,34 @@ const questions = [
             { text: "", correct: true},
         ],
         difficulty:"medium"
-    },
-    {
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"medium"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"medium"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"medium"
+    },    {
         question: "",
         answers: [
             { text: "", correct: false},
@@ -215,87 +341,6 @@ const questions = [
         ],
         difficulty:"medium"
     },
-    {
-        question: "",
-        answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-        ],
-        difficulty:"easy"
-    },
-    {
-        question: "",
-        answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-        ],
-        difficulty:"easy"
-    },
-    {
-        question: "",
-        answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-        ],
-        difficulty:"easy"
-    },
-    {
-        question: "",
-        answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-        ],
-        difficulty:"easy"
-    },
-    {
-        question: "",
-        answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-        ],
-        difficulty:"easy"
-    },
-    {
-        question: "",
-        answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-        ],
-        difficulty:"easy"
-    },
-    {
-        question: "",
-        answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-        ],
-        difficulty:"easy"
-    },
-    {
-        question: "",
-        answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
-        ],
-        difficulty:"easy"
-    },
-
 
 ];
 
