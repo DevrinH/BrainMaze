@@ -366,32 +366,32 @@ const questions = [
         difficulty:"hard"
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Many philosophers argue that morality is dictated by objective principles, independent of human perception. However, others contend that moral values are merely social constructs, shaped by cultural norms and historical context. This debate is particularly relevant when considering moral dilemmas that transcend time and geography. If morality were truly objective, then principles of justice and fairness should remain constant. Yet, history reveals a shifting landscape in which acts once deemed acceptable—such as public executions or slavery—are now widely condemned. Conversely, the notion of progress in moral reasoning implies an underlying standard toward which societies evolve, raising the question: if morality is entirely subjective, why does moral progress seem directional rather than arbitrary?<br/><br/>Question:<br/>Which statement best captures the complexity of the passage’s discussion on morality?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "Moral standards evolve over time, proving that morality is entirely subjective. ", correct: false},
+            { text: "The existence of moral progress suggests an underlying objective framework.", correct: false},
+            { text: "Morality is solely determined by cultural norms, with no universal standards.", correct: false},
+            { text: "Changes in moral values do not necessarily indicate whether morality is objective or subjective.", correct: true},
         ],
         difficulty:"hard"
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Isabella had always considered herself a rational person. She meticulously planned every aspect of her life, never leaving room for uncertainty. Yet now, as she stood before the portrait, she felt an inexplicable unease. There was nothing outwardly unsettling about the painting—it was a simple depiction of a woman in a garden. But something about the eyes, the faint curve of the lips, seemed disturbingly familiar. It was as if the painting knew her. The rational part of her mind scoffed at the thought. And yet, the longer she stared, the harder it became to shake the feeling that the woman in the painting was staring back.<br/><br/>Question:<br/>What is the primary literary function of Isabella’s internal conflict in the passage?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "It illustrates her struggle to reconcile logic with intuition.", correct: true},
+            { text: "It highlights her realization that she has repressed an important memory.", correct: false},
+            { text: "It serves as a metaphor for her reluctance to accept change.", correct: false},
+            { text: "It demonstrates her fear of being judged by others.", correct: false},
         ],
         difficulty:"hard"
     },
     {
-        question: "<br/><br/>Question:<br/",
+        question: "Democratic societies often pride themselves on the principle of majority rule, contending that it ensures fair governance by aligning policies with the preferences of the people. However, some political theorists caution that pure majoritarianism, unchecked by institutional safeguards, can devolve into the “tyranny of the majority,” where the rights of minority groups are systematically overlooked. They argue that constitutional protections, judicial oversight, and representative institutions serve not to undermine democracy but to refine it—ensuring that governance reflects not just the will of the majority, but the fundamental principles of justice and equality.<br/><br/>Question:<br/>What is the primary argument presented in the passage?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "Majority rule is the most effective method of governance, as it directly represents the will of the people.", correct: false},
+            { text: "Democratic systems should include safeguards to prevent the majority from infringing on minority rights.", correct: true},
+            { text: "Judicial oversight weakens democracy by limiting the power of the majority.", correct: false},
+            { text: "The principle of majority rule should be abandoned in favor of a more centralized system of governance.", correct: false},
         ],
         difficulty:"hard"
     },
