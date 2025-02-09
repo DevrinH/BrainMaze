@@ -173,7 +173,7 @@ const questions = [
             { text: "", correct: false},
             { text: "", correct: true},
         ],
-        difficulty:"easy"
+        difficulty:"medium"
     },
     {
         question: "",
@@ -183,7 +183,7 @@ const questions = [
             { text: "", correct: false},
             { text: "", correct: true},
         ],
-        difficulty:"easy"
+        difficulty:"medium"
     },
     {
         question: "",
@@ -193,7 +193,7 @@ const questions = [
             { text: "", correct: false},
             { text: "", correct: true},
         ],
-        difficulty:"easy"
+        difficulty:"medium"
     },
     {
         question: "",
@@ -203,7 +203,7 @@ const questions = [
             { text: "", correct: false},
             { text: "", correct: true},
         ],
-        difficulty:"easy"
+        difficulty:"medium"
     },
     {
         question: "",
@@ -213,7 +213,7 @@ const questions = [
             { text: "", correct: false},
             { text: "", correct: true},
         ],
-        difficulty:"easy"
+        difficulty:"medium"
     },
     {
         question: "",
