@@ -64,6 +64,36 @@ const questions = [
         difficulty:"easy"
     },
     {
+        question: "In the early 20th century, astronomer Henrietta Leavitt made a groundbreaking discovery while studying Cepheid variable stars. By analyzing their brightness patterns, she identified a correlation between a star’s luminosity and its pulsation period. This relationship allowed astronomers to measure vast cosmic distances with far greater accuracy than before. Although Leavitt’s work was instrumental in shaping modern astronomy, she did not receive widespread recognition during her lifetime.<br/><br/>Question:<br/>Which of the following best expresses the significance of Leavitt’s discovery?",
+        answers: [
+            { text: "It led to the realization that the universe is constantly expanding. ", correct: false},
+            { text: "It provided a method for determining the distance to celestial objects.", correct: true},
+            { text: "It demonstrated that all stars have the same intrinsic brightness.", correct: false},
+            { text: "It proved that stars change color as they age.", correct: false},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "In her novel, the author portrays the protagonist as an individual torn between personal ambition and familial duty. As he stands before the threshold of opportunity, he hesitates, recalling the sacrifices his family has made for him. The imagery of a locked door and a distant horizon underscores his internal struggle—one between seizing his own future and honoring his past.<br/><br/>Question:<br/>What is the most reasonable inference about the protagonist?",
+        answers: [
+            { text: "He ultimately chooses ambition over family loyalty.", correct: false},
+            { text: "He feels a sense of obligation that complicates his decision-making.", correct: true},
+            { text: "He believes that success and family are entirely incompatible.", correct: false},
+            { text: "He is indifferent to the sacrifices his family has made.", correct: false},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "The rise of industrialization in the 19th century led to significant economic and social changes. While new manufacturing technologies improved efficiency and increased production, they also contributed to harsh working conditions. Factory laborers often worked long hours for minimal wages in hazardous environments, leading to widespread calls for labor reform. These challenges eventually spurred the development of labor unions, which sought to advocate for workers’ rights and fair treatment.<br/><br/>Question:<br/What was one major effect of 19th-century industrialization, as described in the passage?",
+        answers: [
+            { text: "It created a growing demand for labor unions to protect workers.", correct: true},
+            { text: "It led to a decline in manufacturing efficiency.", correct: false},
+            { text: "It eliminated economic disparities between factory workers and business owners.", correct: false},
+            { text: "It resulted in a complete shift from agriculture to factory-based economies.", correct: false},
+        ],
+        difficulty:"easy"
+    },
+    {
         question: "The recent study on urban green spaces revealed that access to parks and gardens significantly enhances residents' mental well-being. The researchers found that individuals living near these areas reported lower stress levels and improved mood compared to those without such access.<br/><br/>Question:<br/>According to the passage, what is the primary benefit of urban green spaces for residents?",
         answers: [
             { text: " Increased physical activity", correct: false},
@@ -123,6 +153,36 @@ const questions = [
             { text: "The internet has solved all information-related problems, just as the printing press did in its time.", correct: false},
         ],
         difficulty:"easy"
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "<br/><br/>Question:<br/",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"medium"
     },
     {
         question: "The relationship between economic growth and environmental sustainability has long been a subject of debate. Historically, industrial expansion has been associated with rising carbon emissions and depletion of natural resources. However, recent innovations in renewable energy, sustainable agriculture, and eco-friendly manufacturing suggest that economic progress does not have to come at the expense of the environment. Some experts argue that with the right policies and technological advancements, nations can achieve both economic prosperity and environmental responsibility. Others caution that meaningful change requires significant sacrifices and a fundamental shift in consumption patterns.<br/><br/>Question:<br/>Which choice best captures the passage’s main argument?",
@@ -341,6 +401,36 @@ const questions = [
         difficulty:"easy"
     },
     {
+        question: "Each of the team members were responsible for completing their assigned tasks before the deadline.<br/><br/>Question:<br/>Which choice best corrects the sentence?",
+        answers: [
+            { text: "were responsible for completing their assigned tasks before the deadline. ", correct: false},
+            { text: "was responsible for completing their assigned tasks before the deadline.", correct: false},
+            { text: "were responsible for completing his or her assigned tasks before the deadline.", correct: false},
+            { text: "was responsible for completing his or her assigned tasks before the deadline.", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "The scientist <u>made a prediction about what would happen in the experiment’s future outcomes based on the data collected.</u><br/><br/>Question:<br/>",
+        answers: [
+            { text: "made a prediction about what would happen in the experiment’s future outcomes", correct: false},
+            { text: "predicted the outcomes of the experiment", correct: true},
+            { text: "gave a prediction regarding the future outcomes of the experiment", correct: false},
+            { text: "made a future prediction about what would happen in the experiment", correct: false},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "Many people believe that drinking coffee late at night causes insomnia. ______, studies show that caffeine affects individuals differently, and some people can sleep soundly after consuming it.<br/><br/>Question:<br/Which choice best fills in the blank for logical flow?",
+        answers: [
+            { text: "However", correct: true},
+            { text: "Therefore", correct: false},
+            { text: "For example", correct: false},
+            { text: "In addition", correct: false},
+        ],
+        difficulty:"easy"
+    },
+    {
         question: "Neither of the two brothers ___ planning to attend the reunion this year.<br/><br/>Question:<br/>Which choice correctly completes the sentence?",
         answers: [
             { text: "is ", correct: true},
@@ -399,6 +489,36 @@ const questions = [
             { text: "but also that they analyze them critically", correct: false},
         ],
         difficulty:"easy"
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"medium"
+    },
+    {
+        question: "<br/><br/>Question:<br/",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"medium"
     },
     {
         question: "Unlike traditional advertisements, which rely on direct messaging, viral marketing succeeds <u>by making use of social media to engage audiences.</u><br/><br/>Question:<br/>Which choice best corrects the underlined portion for clarity and conciseness?",
