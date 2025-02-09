@@ -146,22 +146,22 @@ const questions = [
         difficulty:"easy"
     },
     {
-        question: "",
+        question: "A car travels 150 miles using 5 gallons of gasoline. At this rate, how many gallons of gasoline will the car need to travel 420 miles?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "12", correct: false},
+            { text: "14", correct: true},
+            { text: "16", correct: false},
+            { text: "18", correct: false},
         ],
         difficulty:"easy"
     },
     {
-        question: "",
+        question: "A rectangle has a length that is 3 times its width. If the perimeter of the rectangle is 64 inches, what is the area of the rectangle?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "96", correct: true},
+            { text: "108", correct: false},
+            { text: "112", correct: false},
+            { text: "120", correct: false},
         ],
         difficulty:"easy"
     },
