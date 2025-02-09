@@ -346,121 +346,121 @@ const questions = [
         difficulty:"medium"
     },
     {
-        question: "",
+        question: "A rectangle has a length that is 4 times its width. If the perimeter of the rectangle is 80 cm, what is the area of the rectangle?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "128 cm²", correct: false},
+            { text: "160 cm²", correct: false},
+            { text: "256 cm²", correct: true},
+            { text: "320 cm²", correct: false},
         ],
         difficulty:"hard"
     },
     {
-        question: "",
+        question: "The sum of two numbers is 52, and their product is 640. What is the positive difference between the two numbers?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "4", correct: false},
+            { text: "6", correct: false},
+            { text: "8", correct: true},
+            { text: "10", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "A cone has a volume of 180π cubic inches and a height of 15 inches. What is the radius of the base?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "3 inches", correct: false},
+            { text: "4 inches", correct: false},
+            { text: "5 inches", correct: false},
+            { text: "6 inches", correct: true},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "A function f(x) is defined as f(x) = 2x³ - 5x² + ax + 7. If f(2) = 9, what is the value of a?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "-3", correct: true},
+            { text: "-2", correct: false},
+            { text: "1", correct: false},
+            { text: "4", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "A circle with center O has a chord AB that is 8 cm long and is 3 cm away from the center. What is the radius of the circle?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "4 cm", correct: false},
+            { text: "5 cm", correct: true},
+            { text: "6 cm", correct: false},
+            { text: "7 cm", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "Liam is filling a cylindrical water tank with a hose that pumps water at a rate of 2 liters per second. The tank has a radius of 50 cm and a height of 1.2 meters. If the tank starts empty, how many minutes will it take to completely fill it? (1 liter = 1,000 cm³)",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "7.5 minutes", correct: false},
+            { text: "8 minutes", correct: true},
+            { text: "8.5 minutes", correct: false},
+            { text: "9 minutes", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "Emma is running on a circular track that is 400 meters in circumference. She runs at a constant speed of 6 meters per second. Olivia starts running from the same point 20 seconds later at 8 meters per second. After how many seconds will Olivia catch up to Emma?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "80", correct: false},
+            { text: "100", correct: false},
+            { text: "120", correct: true},
+            { text: "140", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "A construction company is building a rectangular swimming pool. The length of the pool is 5 meters more than twice the width. The pool's area is 180 square meters. What is the width of the pool?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "9 meters", correct: true},
+            { text: "10 meters", correct: false},
+            { text: "11 meters", correct: false},
+            { text: "12 meters", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "A train travels from City A to City B at an average speed of 60 mph. On the return trip, due to track maintenance, the train travels at an average speed of 40 mph. If the total travel time for both trips is 5 hours, what is the distance between City A and City B?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "100 miles", correct: false},
+            { text: "120 miles", correct: true},
+            { text: "140 miles", correct: false},
+            { text: "150 miles", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "A sphere is inscribed inside a cube with a volume of 64 cubic inches. What is the ratio of the volume of the sphere to the volume of the cube?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "π/6", correct: true},
+            { text: "π/4", correct: false},
+            { text: "π/3", correct: false},
+            { text: "π/2", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "Sophia is designing a rectangular garden where the length is 3 meters longer than twice the width. To reduce costs, she decides to decrease both dimensions by 20%, which reduces the area by 32 square meters. What was the original width of the garden?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "5 meters", correct: false},
+            { text: "6 meters", correct: true},
+            { text: "7 meters", correct: false},
+            { text: "8 meters", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "Ethan and Mia are running a relay race. Ethan runs the first part at 8 meters per second, and Mia runs the second part at 12 meters per second. If the total distance is 400 meters and they finish in 40 seconds, how far did Ethan run?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "150 meters", correct: false},
+            { text: "160 meters", correct: true},
+            { text: "175 meters", correct: false},
+            { text: "180 meters", correct: false},
         ],
         difficulty:"hard"
     },    {
-        question: "",
+        question: "A cylindrical water tank is being filled by two pipes. Pipe A can fill the tank in 6 hours, while Pipe B can fill it in 9 hours. If both pipes are opened together but Pipe B is turned off after 3 hours, how much longer will Pipe A take to completely fill the tank?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "1.5 hours", correct: false},
+            { text: "2 hours", correct: true},
+            { text: "2.5 hours", correct: false},
+            { text: "3 hours", correct: false},
         ],
         difficulty:"hard"
     },    
