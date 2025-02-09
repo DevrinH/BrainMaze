@@ -96,52 +96,52 @@ const questions = [
         difficulty:"easy"
     },
     {
-        question: "",
+        question: "A right triangle has legs of lengths 6 and 8. What is the length of the hypotenuse?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "10", correct: true},
+            { text: "12", correct: false},
+            { text: "14", correct: false},
+            { text: "16", correct: false},
         ],
         difficulty:"easy"
     },
     {
-        question: "",
+        question: "A school is ordering chairs and tables. Each chair costs $15, and each table costs $40. If the school spends exactly $520 on a total of 20 chairs and tables combined, how many tables did they buy?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "6", correct: false},
+            { text: "7", correct: false},
+            { text: "8", correct: false},
+            { text: "10", correct: true},
         ],
         difficulty:"easy"
     },
     {
-        question: "",
+        question: "Jason is renting a car from a rental company that charges $45 per day plus tax. A sales tax of 10% is applied to the total rental cost, and an additional one-time service fee of $12 is charged without tax. Which of the following represents Jason’s total cost, in dollars, for renting the car for d days?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "45d+12+0.10d", correct: false},
+            { text: "1.10(45d+12)", correct: false},
+            { text: "1.10(45d)+12", correct: true},
+            { text: "1.10(45d)+1.10(12)", correct: false},
         ],
         difficulty:"easy"
     },
     {
-        question: "",
+        question: "A circle has center 𝑂, and points 𝐶 and 𝐷 lie on the circle. The measure of arc 𝐶𝐷 is 60°, and the length of arc CD is 4π inches. What is the circumference of the circle, in inches?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "12π", correct: false},
+            { text: "18π", correct: false},
+            { text: "24π", correct: true},
+            { text: "30π", correct: false},
         ],
         difficulty:"easy"
     },
     {
-        question: "",
+        question: "The density of a certain metal is 500 kilograms per cubic meter. A solid sample of this metal is in the shape of a cube and has a mass of 1,000 kilograms. To the nearest hundredth of a meter, what is the length of one edge of this sample?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "1.14", correct: false},
+            { text: "1.26", correct: true},
+            { text: "1.44", correct: false},
+            { text: "1.58", correct: false},
         ],
         difficulty:"easy"
     },
