@@ -34,47 +34,268 @@ updateCountdown();
 const questions = [
     {
         
-        question: "Maria is staying at a hotel that charges $99.95 per night plus tax for a room. A tax of 8% is applied to the room rate, and an additional onetime untaxed fee of $5.00 is charged by the hotel. Which of the following represents Maria’s total charge, in dollars, for staying x nights?",
+        question: "A store sells two types of pens: basic pens for $1.50 each and premium pens for $2.75 each. If a customer buys a total of 10 pens and spends exactly $21.50, how many premium pens did the customer buy?",
        
         answers: [
-            { text: "1.08(99.95 + 5)x", correct: false},
-            { text: "1.08(99.95x + 5)", correct: false},
-            { text: "(99.95 + 0.08x) + 5", correct: false},
-            { text: "1.08(99.95x) + 5", correct: true},
+            { text: "3", correct: false},
+            { text: "4", correct: true},
+            { text: "5", correct: false},
+            { text: "6", correct: false},
         ],
         difficulty:"easy"
     },
     {
-        question: " x² + y² = 153<br/> y = −4x <br/><br/>If (x, y) is a solution to the system of equations above, what is the value of x²?",
+        question: "A rectangular swimming pool is twice as long as it is wide. If the perimeter of the pool is 72 meters, what is the length of the pool?",
        
         answers: [
-            { text: "21", correct: false},
-            { text: "9", correct: true},
-            { text: "-9", correct: false},
-            { text: "7", correct: false},
+            { text: "18", correct: false},
+            { text: "24", correct: true},
+            { text: "30", correct: false},
+            { text: "36", correct: false},
         ],
         difficulty:"easy"
     },   
     {
-        question: "The function f is defined by f(x) = 2x³ + 3x² + cx + 8, where c is a constant. In the xy-plane, the graph of f intersects the x-axis at the three points (−4, 0), (1/2, 0), and (p, 0). What is the value of c?",
+        question: "A theater sells tickets for $8 each for adults and $5 each for children. If a family buys a total of 9 tickets and spends $59, how many adult tickets did they buy?",
         answers: [
-            { text: "-18", correct: true},
-            { text: "-2", correct: false},
+            { text: "4", correct: false},
             { text: "5", correct: false},
-            { text: "9", correct: false},
+            { text: "6", correct: true},
+            { text: "97", correct: false},
         ],
         difficulty:"easy"
     },
     {
-        question: "A researcher wanted to know if there is an association between exercise and sleep for the population of 16-year-olds in the United States. She obtained survey responses from a random sample of 2000 United States 16-year-olds and found convincing evidence of a positive association between exercise and sleep. Which of the following conclusions is well supported by the data?",
+        question: "A farmer has a total of 56 animals, consisting only of cows and chickens. If the animals have a total of 176 legs, how many cows does the farmer have?",
         answers: [
-            { text: "Using exercise and sleep as defined by the study, an increase in sleep is caused by an increase of exercise for 16-year-olds in the world.", correct: false},
-            { text: "Using exercise and sleep as defined by the study, an increase in sleep is caused by an increase of exercise for 16-year-olds in the United States.", correct: false},
-            { text: "There is a positive association between exercise and sleep for 16-year-olds in the world.", correct: false},
-            { text: "There is a positive association between exercise and sleep for 16-year-olds in the United States.", correct: true},
+            { text: "28", correct: false},
+            { text: "30", correct: false},
+            { text: "32", correct: false},
+            { text: "36", correct: true},
         ],
         difficulty:"easy"
-    }
+    },
+    {
+        question: "A factory produces small and large boxes. The total number of boxes produced in a day is 90. Each small box weighs 2 kg, and each large box weighs 5 kg. If the total weight of all the boxes is 230 kg, how many small boxes were produced?",
+        answers: [
+            { text: "40", correct: true},
+            { text: "42", correct: false},
+            { text: "45", correct: false},
+            { text: "50", correct: false},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "The sum of three consecutive even integers is 222. What is the smallest of these integers?",
+        answers: [
+            { text: "72", correct: true},
+            { text: "74", correct: false},
+            { text: "76", correct: false},
+            { text: "78", correct: false},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"easy"
+    },
+
 
 ];
 
@@ -153,20 +374,30 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
-function showScore() {
+function showScore() { 
     resetState();
 
-    let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3); // 18 easy, 18 medium, 18 hard
+    let maxPossibleScore = (13 * 1) + (18 * 2) + (13 * 3); // 13 easy, 18 medium, 13 hard
     let rawScore = score;
 
     // Convert raw score to SAT scaled score (approximation)
-    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+    let mathScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-    // Store in local storage for use in other sections
-    localStorage.setItem("readingScore", scaledScore);
+    // Retrieve Reading and Writing score from local storage
+    let readingScore = localStorage.getItem("readingScore");
+    readingScore = readingScore ? parseInt(readingScore) : 200; // Default to 200 if not found
 
-    questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
-    nextButton.innerHTML = "Continue";
+    // Calculate total SAT score (Reading + Math)
+    let totalSATScore = readingScore + mathScore;
+
+    // Display Math, Reading, and Total SAT Score
+    questionElement.innerHTML = `
+        <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
+        <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
+        <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>
+    `;
+
+    nextButton.innerHTML = "Finish";
     nextButton.style.display = "block";
 
     document.getElementById("progress-bar").style.width = "100%";
