@@ -731,32 +731,32 @@ const questions = [
         difficulty:"hard"
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Unlike most classical composers, whose works remain confined to concert halls, the music of Beethoven is recognized by a wider audience, including through film scores and popular culture.<br/><br/>Question:<br/>Which choice best corrects the sentence?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "the music of Beethoven is recognized by a wider audience, including through film scores and popular culture.", correct: false},
+            { text: "Beethoven’s music is recognized by a wider audience, including film scores and popular culture.", correct: true},
+            { text: "Beethoven is recognized by a wider audience, including through film scores and popular culture.", correct: false},
+            { text: "Beethoven’s music is more widely recognized, including film scores and popular culture.", correct: false},
         ],
         difficulty:"hard"
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Researchers investigating sleep patterns found that people who wake up earlier tend to be more productive, a result that suggests lifestyle habits may play a greater role than genetics.<br/><br/>Question:<br/>Which choice best improves the sentence’s clarity and logical flow?Which choice best improves the sentence’s clarity and logical flow?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: " a result that suggests lifestyle habits may play a greater role than genetics.", correct: false},
+            { text: "a result which suggests lifestyle habits play a greater role than genetics do.", correct: false},
+            { text: "suggesting that lifestyle habits may play a greater role than genetics.", correct: false},
+            { text: "a result suggesting that lifestyle habits may play a greater role than genetics do.", correct: true},
         ],
         difficulty:"hard"
     },
     {
-        question: "<br/><br/>Question:<br/",
+        question: "The committee members reached a mutual agreement together after hours of discussion.<br/><br/>Question:<br/>Which choice best eliminates unnecessary words while maintaining clarity?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "mutual agreement together", correct: false},
+            { text: "agreement together", correct: false},
+            { text: "mutual agreement", correct: false},
+            { text: "agreement", correct: true},
         ],
         difficulty:"hard"
     }
