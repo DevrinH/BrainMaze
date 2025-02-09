@@ -365,6 +365,36 @@ const questions = [
         ],
         difficulty:"hard"
     },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"hard"
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"hard"
+    },
+    {
+        question: "<br/><br/>Question:<br/",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"hard"
+    },
 
 
 
@@ -491,32 +521,32 @@ const questions = [
         difficulty:"easy"
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Running late for the meeting, the traffic jam made it impossible for Sarah to arrive on time.<br/><br/>Question:<br/>Which choice best corrects the sentence?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "Running late for the meeting, the traffic jam made it impossible for Sarah to arrive on time. ", correct: false},
+            { text: "Running late for the meeting, Sarah was unable to arrive on time due to the traffic jam.", correct: true},
+            { text: "Because she was running late for the meeting, the traffic jam made it impossible for Sarah to arrive on time.", correct: false},
+            { text: "Running late for the meeting, it was impossible for Sarah to arrive on time because of the traffic jam.", correct: false},
         ],
         difficulty:"medium"
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "The manager emphasized that in order to be able to succeed, the team must work together and communicate effectively.<br/><br/>Question:<br/>Which choice best improves the sentence by eliminating unnecessary words?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "in order to be able to succeed", correct: false},
+            { text: "for the purpose of being successful", correct: false},
+            { text: "to succeed", correct: true},
+            { text: "so that success can be achieved", correct: false},
         ],
         difficulty:"medium"
     },
     {
-        question: "<br/><br/>Question:<br/",
+        question: "After the teachers spoke with the principal, they decided to revise the school's grading policy.<br/><br/>Question:<br/>Which choice best corrects the sentence to ensure clarity?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "After the teachers spoke with the principal, they decided to revise the school's grading policy.", correct: false},
+            { text: "After speaking with the principal, the teachers decided to revise the school's grading policy.", correct: true},
+            { text: "The teachers spoke with the principal, who then decided to revise the school's grading policy.", correct: false},
+            { text: "After the teachers spoke with the principal, the school's grading policy was decided to be revised by them.", correct: false},
         ],
         difficulty:"medium"
     },
@@ -700,6 +730,36 @@ const questions = [
         ],
         difficulty:"hard"
     },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: " ", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"hard"
+    },
+    {
+        question: "<br/><br/>Question:<br/>",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"hard"
+    },
+    {
+        question: "<br/><br/>Question:<br/",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: true},
+            { text: "", correct: false},
+            { text: "", correct: false},
+        ],
+        difficulty:"hard"
+    }
 
 ];
 
