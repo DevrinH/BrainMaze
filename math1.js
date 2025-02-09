@@ -304,7 +304,8 @@ const questions = [
             { text: "10", correct: false},
         ],
         difficulty:"medium"
-    },    {
+    },    
+    {
         question: "A bakery sells cupcakes for $2.50 each or a dozen for $24. If Lisa needs 30 cupcakes, how much will she save by buying in dozens instead of individually?",
         answers: [
             { text: "$6", correct: false},
@@ -313,34 +314,156 @@ const questions = [
             { text: "$15", correct: false},
         ],
         difficulty:"medium"
-    },    {
-        question: "",
+    },    
+    {
+        question: "Olivia is making fruit baskets. Each basket contains 5 apples, 3 oranges, and 2 bananas. If she has 80 apples, 60 oranges, and 40 bananas, what is the maximum number of full baskets she can make?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "10", correct: true},
+            { text: "12", correct: false},
+            { text: "13", correct: false},
+            { text: "16", correct: false},
         ],
         difficulty:"medium"
-    },    {
-        question: "",
+    },    
+    {
+        question: "A cyclist starts a race at 9:00 AM, riding at a constant speed of 18 miles per hour. A second cyclist starts at 9:30 AM, riding at a speed of 24 miles per hour. How long will it take for the second cyclist to catch the first?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "1 hour", correct: false},
+            { text: "1.5 hours", correct: true},
+            { text: "2 hours", correct: false},
+            { text: "2.5 hours", correct: false},
         ],
         difficulty:"medium"
-    },    {
-        question: "",
+    },    
+    {
+        question: "A farmer is planting trees in rows. Each row must have the same number of trees. If the farmer has 84 apple trees and 126 orange trees, what is the greatest number of rows they can be evenly divided into?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "12", correct: false},
+            { text: "14", correct: false},
+            { text: "21", correct: true},
+            { text: "28", correct: false},
         ],
         difficulty:"medium"
     },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },
+    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    {
+        question: "",
+        answers: [
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: false},
+            { text: "", correct: true},
+        ],
+        difficulty:"hard"
+    },    
 
 ];
 
