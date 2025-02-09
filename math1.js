@@ -276,41 +276,41 @@ const questions = [
         difficulty:"medium"
     },
     {
-        question: "",
+        question: "Sophia is filling gift bags for a party. Each bag contains 3 pencils and 2 erasers. If she prepares 48 bags and each pencil costs $0.50 while each eraser costs $0.75, what is the total cost of all the supplies?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "$180", correct: false},
+            { text: "$192", correct: false},
+            { text: "$204", correct: false},
+            { text: "$216", correct: true},
         ],
         difficulty:"medium"
     },
     {
-        question: "",
+        question: "A train leaves City A at 8:00 AM, traveling toward City B at a constant speed of 60 miles per hour. A second train leaves City B at 9:30 AM, traveling toward City A at a speed of 75 miles per hour. If the two cities are 315 miles apart, at what time will the two trains meet?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "11:00AM", correct: false},
+            { text: "11:30AM", correct: true},
+            { text: "12:00pm", correct: false},
+            { text: "12:30pm", correct: false},
         ],
         difficulty:"medium"
     },
     {
-        question: "",
+        question: "David is stacking boxes. Each box is 8 inches tall. If the total height of the stacked boxes is 6 feet, how many boxes are in the stack?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "6", correct: false},
+            { text: "8", correct: false},
+            { text: "9", correct: true},
+            { text: "10", correct: false},
         ],
         difficulty:"medium"
     },    {
-        question: "",
+        question: "A bakery sells cupcakes for $2.50 each or a dozen for $24. If Lisa needs 30 cupcakes, how much will she save by buying in dozens instead of individually?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: false},
-            { text: "", correct: true},
+            { text: "$6", correct: false},
+            { text: "$9", correct: true},
+            { text: "$12", correct: false},
+            { text: "$15", correct: false},
         ],
         difficulty:"medium"
     },    {
