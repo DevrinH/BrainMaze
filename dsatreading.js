@@ -155,32 +155,32 @@ const questions = [
         difficulty:"easy"
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "Researchers studying human memory have long debated the accuracy of recollections. Some scientists argue that memory functions like a recording device, capturing events as they occur. Others, however, contend that memory is reconstructive—meaning that each time a person recalls an event, details may be altered, omitted, or even fabricated. Studies have shown that external suggestions, emotions, and expectations can subtly influence recollections, leading to discrepancies between what actually occurred and what is remembered.<br/><br/>Question:<br/>Which statement best summarizes the central claim of the passage?",
         answers: [
-            { text: " ", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "Memory is an unreliable system that distorts all recollections. ", correct: false},
+            { text: "Recollections are influenced by various factors and are not always exact replicas of past events", correct: true},
+            { text: "The accuracy of memory improves when individuals consciously attempt to recall details.", correct: false},
+            { text: "Memory functions as an objective record of past experiences, though minor changes may occur.", correct: false},
         ],
         difficulty:"medium"
     },
     {
-        question: "<br/><br/>Question:<br/>",
+        question: "As the clock struck midnight, Eleanor found herself staring at the unopened letter on her desk. Its presence loomed in her thoughts, an invisible force pressing against her resolve. She had waited weeks for this response, yet now that it was before her, she hesitated. What if it contained a rejection? What if it changed everything? The uncertainty was unbearable, yet the idea of knowing—of confronting the truth—was somehow more terrifying.<br/><br/>Question:<br/>What can be inferred about Eleanor’s emotional state?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "She is reluctant to open the letter because she fears an unfavorable outcome.", correct: true},
+            { text: "She is confident that the letter will bring good news, but she enjoys the anticipation.", correct: false},
+            { text: "She is indifferent to the letter’s contents and does not believe it will affect her.", correct: false},
+            { text: "She is frustrated because she has waited too long for the letter to arrive.", correct: false},
         ],
         difficulty:"medium"
     },
     {
-        question: "<br/><br/>Question:<br/",
+        question: "The rapid expansion of railroads in the 19th century transformed both commerce and society. Businesses gained access to new markets, enabling goods to be transported across vast distances at unprecedented speeds. However, this growth was not without consequences. Small, local producers found themselves unable to compete with larger companies that could transport goods cheaply and efficiently. At the same time, some railroad companies exploited their power, charging excessive fees to farmers and merchants who relied on their services. These challenges eventually led to public outcry and demands for government regulation.<br/><br/>Question:<br/>What was one major consequence of 19th-century railroad expansion, as described in the passage?",
         answers: [
-            { text: "", correct: false},
-            { text: "", correct: true},
-            { text: "", correct: false},
-            { text: "", correct: false},
+            { text: "It eliminated competition among businesses by allowing all producers to thrive equally.", correct: false},
+            { text: "It provided benefits for large companies but created challenges for smaller producers.", correct: true},
+            { text: "It prevented monopolies by ensuring fair pricing for farmers and merchants.", correct: false},
+            { text: " It resulted in immediate and widespread government regulations to protect consumers.", correct: false},
         ],
         difficulty:"medium"
     },
