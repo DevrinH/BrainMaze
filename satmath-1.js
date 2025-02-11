@@ -1,29 +1,28 @@
+// Math Timer Setup (44 minutes)
 setTimeout(function() {
-
     showScore();
+}, 2640000); // 44 minutes in milliseconds
+
+const startingMinutes = 44;
+const countdownEl = document.getElementById('countdown');
+
+let time = startingMinutes * 60 + 1; // Convert to seconds
+let refreshIntervalId = setInterval(updateCountdown, 1000);
+
+function updateCountdown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
     
-    }, 4200000);
-    
-    const startingMinutes = 70;
-    const countdownEl = document.getElementById('countdown');
-    
-    let time = startingMinutes * 60 + 1; //minutes * 60 seconds
-    let refreshIntervalId = setInterval(updateCountdown, 1000);
-    
-    function updateCountdown() {
-        const minutes = Math.floor(time / 60);
-        let seconds = time % 60;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        
-        countdownEl.innerHTML = `${minutes} : ${seconds}`;
-    
-        if (time === 0) { 
-            clearInterval(refreshIntervalId);
-            return; // Stop execution to prevent going negative
-        }
-    
-        time--; 
-    };
+    countdownEl.innerHTML = `${minutes} : ${seconds}`;
+
+    if (time === 0) { 
+        clearInterval(refreshIntervalId);
+        return; // Stop execution to prevent going negative
+    }
+
+    time--; 
+}
     
 updateCountdown();
 
