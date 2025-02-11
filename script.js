@@ -40,6 +40,7 @@ const questions = [
             { text: " Indifferent.", correct: false},
             { text: "Overwhelmingly negative", correct: false},
         ],
+        type: "reading",
         difficulty:"easy"
     },
     {
@@ -51,6 +52,7 @@ const questions = [
             { text: " It was overwhelmingly positive for all residents.", correct: false},
             { text: "It had no significant effect on the town’s character.", correct: false},
         ],
+        type: "reading",
         difficulty:"easy"
     },   
     {
@@ -61,6 +63,7 @@ const questions = [
             { text: " A cultural institution promoting knowledge", correct: true,},
             { text: "A political center for governmental affairs", correct: false},
         ],
+        type: "reading",
         difficulty:"easy"
     },
     {
@@ -71,6 +74,7 @@ const questions = [
             { text: "Improved air quality", correct: false},
             { text: "Greater social interaction", correct: false},
         ],
+        type: "reading",
         difficulty:"easy"
     },
     {
@@ -81,6 +85,7 @@ const questions = [
             { text: "The migration of monarch butterflies is primarily determined by their physical strength rather than environmental factors.", correct: false},
             { text: "The annual migration of monarch butterflies is influenced by climate factors, which may pose a threat to their population", correct: true},
         ],
+        type: "reading",
         difficulty:"easy"
     },
     {
@@ -91,6 +96,7 @@ const questions = [
             { text: "The development of automobiles and airplanes has eliminated the need for future advancements in transportation.", correct: false},
             { text: "The primary goal of transportation innovations has always been to reduce travel costs rather than increase efficiency.", correct: true},
         ],
+        type: "reading",
         difficulty:"easy"
     },
 
@@ -102,6 +108,7 @@ const questions = [
             { text: " The primary goal of space exploration has always been to establish human colonies on other planets.", correct: false},
             { text: "Governments no longer invest in space exploration due to the dominance of private companies.", correct: false},
         ],
+        type: "reading",
         difficulty:"easy"
     },
     {
@@ -112,6 +119,7 @@ const questions = [
             { text: "Solar and wind power are too unreliable to ever be used on a large scale.", correct: false},
             { text: "Governments have stopped investing in fossil fuels and now focus entirely on renewable energy.", correct: false},
         ],
+        type: "reading",
         difficulty:"easy"
     },
     {
@@ -122,6 +130,7 @@ const questions = [
             { text: "Societies should resist technological changes to preserve the value of traditional knowledge-sharing methods.", correct: false},
             { text: "The internet has solved all information-related problems, just as the printing press did in its time.", correct: false},
         ],
+        type: "reading",
         difficulty:"easy"
     },
     {
@@ -132,6 +141,7 @@ const questions = [
             { text: "Environmental concerns are secondary to economic progress, and technological innovation will naturally solve any ecological issues.", correct: false},
             { text: " Nations must abandon economic growth entirely if they wish to achieve true environmental sustainability.", correct: false},
         ],
+        type: "reading",
         difficulty:"medium"
     },
     {
@@ -142,6 +152,7 @@ const questions = [
             { text: " Environmental changes have played a minimal role in the fall of ancient societies.", correct: false},
             { text: " The fall of civilizations is largely unpredictable and cannot be analyzed through historical patterns.", correct: false},
         ],
+        type: "reading",
         difficulty:"medium"
     },
     {
@@ -152,6 +163,7 @@ const questions = [
             { text: " Human decision-making is influenced by cognitive biases, challenging traditional economic theories of rational choice.", correct: true},
             { text: " Psychologists and economists generally agree that all human decisions are completely random and unpredictable.", correct: false},
         ],
+        type: "reading",
         difficulty:"medium"
     },
     {
@@ -162,6 +174,7 @@ const questions = [
             { text: " The pursuit of scientific advancement must be balanced with ethical responsibility to minimize risks.", correct: true},
             { text: " The pursuit of scientific advancement must be balanced with ethical responsibility to minimize risks.", correct: false},
         ],
+        type: "reading",
         difficulty:"medium"
     },
     {
@@ -172,6 +185,7 @@ const questions = [
             { text: "  A combination of individual choices and systemic influences contributes to economic inequality, making the issue complex.", correct: true},
             { text: " Economic inequality has no significant effects on society and does not require intervention.", correct: false},
         ],
+        type: "reading",
         difficulty:"medium"
     },
     {
@@ -182,6 +196,7 @@ const questions = [
             { text: "  Artists should prioritize emotional expression over cultural commentary when creating meaningful work.", correct: false},
             { text: " Art’s ability to inspire change is more important than its connection to history or individual experience.", correct: false},
         ],
+        type: "reading",
         difficulty:"medium"
     },
     {
@@ -192,6 +207,7 @@ const questions = [
             { text: "  Despite external influences, individuals always have complete control over their decisions.", correct: false},
             { text: " Philosophers generally agree that free will exists, but its exact nature remains difficult to define.", correct: false},
         ],
+        type: "reading",
         difficulty:"medium"
     },
     {
@@ -202,6 +218,7 @@ const questions = [
             { text: "  Einstein’s theory of relativity proved that all previous scientific knowledge was incorrect.", correct: false},
             { text: " Theories that undergo revision are inherently weaker than those that remain unchanged over time.", correct: false},
         ],
+        type: "reading",
         difficulty:"medium"
     },
     
@@ -213,6 +230,7 @@ const questions = [
             { text: "  Historically, technological innovation has had no significant impact on employment trends.", correct: false},
             { text: "  While technological advancements displace workers, their long-term effects depend on society’s ability to adapt.", correct: true},
         ],
+        type: "reading",
         difficulty:"medium"
     },
     {
@@ -223,6 +241,7 @@ const questions = [
             { text: "  Human memory is not a flawless recording of events but a reconstructive process that is susceptible to distortion.", correct: true},
             { text: "   Despite occasional inaccuracies, memory is fundamentally reliable and rarely influenced by external factors.", correct: false},
         ],
+        type: "reading",
         difficulty:"hard"
     },
     {
@@ -233,6 +252,7 @@ const questions = [
             { text: " In a 2022 study, Dr. Emily Richardson examined preserved woolly mammoth hair and found that its protein structures had unique chemical bonds that helped the animals retain heat.", correct: true},
             { text: "Dr. Emily Richardson was interested in understanding woolly mammoth adaptations to cold temperatures and conducted research in 2022.", correct: false},
         ],
+        type: "reading",
         difficulty:"hard"
     },
     {
@@ -243,6 +263,7 @@ const questions = [
             { text: "Dr. Alan Hayes’s 2023 study of deep-sea microbes in the Mariana Trench found that they had genetic adaptations enabling them to survive extreme pressure.", correct: true},
             { text: "The Mariana Trench, which reaches nearly 36,000 feet below the ocean’s surface, was the site of a 2023 study on microbial life.", correct: false},
         ],
+        type: "reading",
         difficulty:"hard"
     },
     {
@@ -253,6 +274,7 @@ const questions = [
             { text: "While liberty and collective responsibility are often at odds, their coexistence is necessary for a functioning society.", correct: true},
             { text: "T A truly free society exists only when individuals can act without restriction or government intervention.", correct: false},
         ],
+        type: "reading",
         difficulty:"hard"
     },
     {
@@ -263,6 +285,7 @@ const questions = [
             { text: "Democratic principles such as checks and balances create inefficiencies that threaten effective governance.", correct: false},
             { text: " A government’s power is justified only when it is explicitly derived from the consent of the governed.", correct: false},
         ],
+        type: "reading",
         difficulty:"hard"
     },
     {
@@ -273,6 +296,7 @@ const questions = [
             { text: "While the social contract necessitates the sacrifice of liberty, this sacrifice is justified by the promise of protection.", correct: false},
             { text: "The state’s role is to establish a perfect balance between individual freedom and collective welfare.", correct: false},
         ],
+        type: "reading",
         difficulty:"hard"
     },
     {
@@ -283,6 +307,7 @@ const questions = [
             { text: "A punitive model of justice is superior to a rehabilitative one because it focuses on the direct consequences of crime.", correct: false},
             { text: "The state’s role in justice should be to punish wrongdoers without considering the broader social conditions that contribute to criminal behavior.", correct: false},
         ],
+        type: "reading",
         difficulty:"hard"
     },
     {
@@ -293,6 +318,7 @@ const questions = [
             { text: "Human nature is not singular but exists in a tension between competing impulses, with individual behavior shaped by both innate qualities and external influences.", correct: true},
             { text: "Despite philosophical debates, humans are innately selfish, and altruism is merely a strategy to maximize individual gain in a complex society.", correct: false},
         ],
+        type: "reading",
         difficulty:"hard"
     },
     {
@@ -303,6 +329,7 @@ const questions = [
             { text: " Consciousness is best understood through its biological function, as subjective experience does not provide meaningful insight into reality.", correct: false},
             { text: "The debate over the nature of consciousness is inconsequential because reality remains unchanged regardless of how it is perceived.", correct: false},
         ],
+        type: "reading",
         difficulty:"hard"
     },
 
@@ -318,6 +345,7 @@ const questions = [
             { text: "came to the conclusion to approve", correct: false},
             { text: " reached a decision to approve", correct: false},
         ],
+        type: "writing",
         difficulty:"easy"
     },
     {
@@ -328,6 +356,7 @@ const questions = [
             { text: "have been", correct: false},
             { text: "had been", correct: false},
         ],
+        type: "writing",
         difficulty:"easy"
     },
     {
@@ -338,6 +367,7 @@ const questions = [
             { text: "provided an explanation about", correct: false},
             { text: "was giving an explanation regarding", correct: false},
         ],
+        type: "writing",
         difficulty:"easy"
     },
     {
@@ -348,6 +378,7 @@ const questions = [
             { text: "have been", correct: false},
             { text: "were", correct: false},
         ],
+        type: "writing",
         difficulty:"easy"
     },
     {
@@ -358,6 +389,7 @@ const questions = [
             { text: "has failed in maintaining", correct: false},
             { text: "is failing to maintain", correct: false},
         ],
+        type: "writing",
         difficulty:"easy"
     },
     {
@@ -368,6 +400,7 @@ const questions = [
             { text: " to conduct fieldwork, and she often travels", correct: false},
             { text: "conducting fieldwork, often traveling", correct: false},
         ],
+        type: "writing",
         difficulty:"easy"
     },
     {
@@ -378,6 +411,7 @@ const questions = [
             { text: "people should pursue their dreams, even if they face obstacles", correct: true},
             { text: "a person should pursue their dreams, even if that person faces obstacles", correct: false},
         ],
+        type: "writing",
         difficulty:"easy"
     },
     {
@@ -388,6 +422,7 @@ const questions = [
             { text: "requiring all commercial vehicles to be rerouted during peak hours", correct: false},
             { text: "have required all commercial vehicles to be rerouted during peak hours", correct: false},
         ],
+        type: "writing",
         difficulty:"easy"
     },
     {
@@ -398,6 +433,7 @@ const questions = [
             { text: "but also analyze them critically", correct: true},
             { text: "but also that they analyze them critically", correct: false},
         ],
+        type: "writing",
         difficulty:"easy"
     },
     {
@@ -408,6 +444,7 @@ const questions = [
             { text: "by using social media to engage audiences", correct: true},
             { text: " through the utilization of social media as a means to engage audiences", correct: false},
         ],
+        type: "writing",
         difficulty:"medium"
     },
     {
@@ -418,6 +455,7 @@ const questions = [
             { text: "habitats, migration patterns, and food availability", correct: true},
             { text: "their habitats, migration patterns, and food that is available to them", correct: false},
         ],
+        type: "writing",
         difficulty:"medium"
     },
     {
@@ -428,6 +466,7 @@ const questions = [
             { text: "met mixed reactions from employees", correct: false},
             { text: " was met with mixed reactions from employees", correct: false},
         ],
+        type: "writing",
         difficulty:"medium"
     },
     {
@@ -438,6 +477,7 @@ const questions = [
             { text: "was willing to approve them", correct: false},
             { text: "were willing to approve them", correct: false},
         ],
+        type: "writing",
         difficulty:"medium"
     },
     {
@@ -448,6 +488,7 @@ const questions = [
             { text: "improving user satisfaction", correct: false},
             { text: "improvement of user satisfaction", correct: false},
         ],
+        type: "writing",
         difficulty:"medium"
     },
     {
@@ -458,6 +499,7 @@ const questions = [
             { text: "and it revolutionized treatment methods", correct: true},
             { text: "as well as revolutionizing treatment methods", correct: false},
         ],
+        type: "writing",
         difficulty:"medium"
     },
     {
@@ -468,6 +510,7 @@ const questions = [
             { text: "has not been fully addressed by policymakers, citing economic concerns", correct: false},
             { text: " have not fully been addressed by policymakers citing economic concerns", correct: false},
         ],
+        type: "writing",
         difficulty:"medium"
     },
     {
@@ -478,6 +521,7 @@ const questions = [
             { text: "a theme about personal identity and the way it is shaped by experiences", correct: false},
             { text: " about personal identity and its shaping through experiences", correct: false},
         ],
+        type: "writing",
         difficulty:"medium"
     },
     {
@@ -488,6 +532,7 @@ const questions = [
             { text: " arguments should be clarified, and citing sources properly", correct: false},
             { text: "arguments being clarified, and citing sources properly", correct: false},
         ],
+        type: "writing",
         difficulty:"medium"
     },
     {
@@ -498,6 +543,7 @@ const questions = [
             { text: "was, in general, regarded as being groundbreaking", correct: false},
             { text: "were, in general, regarded to be groundbreaking", correct: false},
         ],
+        type: "writing",
         difficulty:"hard"
     },
     {
@@ -508,6 +554,7 @@ const questions = [
             { text: " they caused healthcare costs to rise significantly", correct: true},
             { text: " there was a significant rise in healthcare costs that resulted from them", correct: false},
         ],
+        type: "writing",
         difficulty:"hard"
     },
     {
@@ -518,6 +565,7 @@ const questions = [
             { text: " adapting to changing circumstances", correct: false},
             { text: "an ability to adapt to changing circumstances", correct: true},
         ],
+        type: "writing",
         difficulty:"hard"
     },
     {
@@ -528,6 +576,7 @@ const questions = [
             { text: "leading to a significant increase in joblessness", correct: true},
             { text: "which as a consequence meant there was a significant increase in joblessness", correct: false},
         ],
+        type: "writing",
         difficulty:"hard"
     },
     {
@@ -538,6 +587,7 @@ const questions = [
             { text: "are investigating new methods to reduce greenhouse gas emissions, which has proven effective", correct: false},
             { text: "is investigating new methods for reducing greenhouse gas emissions that have proven effective", correct: true},
         ],
+        type: "writing",
         difficulty:"hard"
     },
     {
@@ -548,6 +598,7 @@ const questions = [
             { text: "how innovations, often occurring over centuries, have led to transformations in social structures", correct: true},
             { text: "innovations, which, occurring over centuries, have led to transformations in social structures", correct: false},
         ],
+        type: "writing",
         difficulty:"hard"
     },
     {
@@ -558,6 +609,7 @@ const questions = [
             { text: "both a subject of debate and a challenge for researchers", correct: true},
             { text: "a subject of debate and one that continues to challenge researchers", correct: false},
         ],
+        type: "writing",
         difficulty:"hard"
     },
     {
@@ -568,6 +620,7 @@ const questions = [
             { text: "in that its life cycle, extending for as long as seventeen years, ends with it emerging from underground", correct: false},
             { text: "because it has a life cycle that extends up to seventeen years before emerging from underground", correct: true},
         ],
+        type: "writing",
         difficulty:"hard"
     },
     {
@@ -578,6 +631,7 @@ const questions = [
             { text: "in addition, it pointed out how there was a lack of accountability among those responsible for oversight", correct: false},
             { text: "pointed out that a lack of accountability existed among those responsible for oversight", correct: false},
         ],
+        type: "writing",
         difficulty:"hard"
     },
 
@@ -596,13 +650,49 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
+
+    // Select 54 questions (ordered easy → medium → hard)
+    selectedQuestions = selectRandomQuestions(questions, 18, 18, 18);
+
     nextButton.innerHTML = "Next";
     showQuestion();
 }
+function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
+    // Separate questions by difficulty
+    const easyQuestions = questions.filter(q => q.difficulty === "easy");
+    const mediumQuestions = questions.filter(q => q.difficulty === "medium");
+    const hardQuestions = questions.filter(q => q.difficulty === "hard");
+
+    // Further separate by type (reading/writing)
+    const easyReading = easyQuestions.filter(q => q.type === "reading");
+    const easyWriting = easyQuestions.filter(q => q.type === "writing");
+
+    const mediumReading = mediumQuestions.filter(q => q.type === "reading");
+    const mediumWriting = mediumQuestions.filter(q => q.type === "writing");
+
+    const hardReading = hardQuestions.filter(q => q.type === "reading");
+    const hardWriting = hardQuestions.filter(q => q.type === "writing");
+
+    // Function to get random questions
+    function getRandom(arr, num) {
+        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
+    }
+
+    // Select 9 reading and 9 writing questions for each difficulty level
+    const selectedEasy = [...getRandom(easyReading, numEasy / 2), ...getRandom(easyWriting, numEasy / 2)];
+    const selectedMedium = [...getRandom(mediumReading, numMedium / 2), ...getRandom(mediumWriting, numMedium / 2)];
+    const selectedHard = [...getRandom(hardReading, numHard / 2), ...getRandom(hardWriting, numHard / 2)];
+
+    // Return ordered questions (Easy → Medium → Hard)
+    return [...selectedEasy, ...selectedMedium, ...selectedHard];
+}
+
+// Call this function before starting the quiz
+const selectedQuestions = selectRandomQuestions(questions, 18, 18, 18, 27, 27);
 
 function showQuestion() {
     resetState();
-    let currentQuestion = questions[currentQuestionIndex];
+    let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
@@ -630,7 +720,7 @@ function resetState() {
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    let questionDifficulty = questions[currentQuestionIndex].difficulty;
+    let questionDifficulty = selectedQuestions[currentQuestionIndex].difficulty;
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
