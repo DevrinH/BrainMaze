@@ -33,6 +33,73 @@ updateCountdown();
 
 const questions = [
     {
+        question: "Bird migration is one of nature’s most fascinating phenomena, with some species traveling thousands of miles annually. Scientists have long debated how birds navigate such vast distances with remarkable precision. Recent research suggests that birds may rely on Earth’s magnetic field, using special proteins in their eyes that react to magnetic forces. This ability, known as magnetoreception, allows them to maintain their course even when visual landmarks are unavailable.<br/><br/>Question: <br/>Which choice best summarizes the main idea of the passage?",
+        answers: [
+            { text: "Some bird species are capable of navigating vast distances without any visual guidance.", correct: false },
+            { text: "Scientists have discovered that birds use Earth’s magnetic field to navigate long migrations.", correct: true },
+            { text: "Bird migration patterns are unpredictable and vary based on seasonal factors.", correct: false },
+            { text: "Birds use special proteins in their eyes to see at night and avoid getting lost.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    },
+    {
+        question: "Emma hesitated before stepping into the grand ballroom. The air shimmered with golden light, and the murmur of conversation blended with the soft notes of a distant piano. She smoothed the fabric of her gown, willing her nerves to settle. The guests swirled past in elegant waves, their laughter light and effortless. Emma had spent years imagining this moment, yet standing here now, she felt like an outsider peering into a world that was not truly her own.<br/><br/>Question: <br/>What does the passage suggest about Emma’s feelings?",
+        answers: [
+            { text: "She is overwhelmed by the beauty of the ballroom and struggles to contain her excitement.", correct: false },
+            { text: "She feels out of place despite having anticipated this moment for a long time.", correct: true },
+            { text: "She is intimidated by the other guests and decides to leave before entering the ballroom.", correct: false },
+            { text: "She is eager to impress others and makes a confident entrance into the event.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    },
+    {
+        question: "Urban planners argue that green spaces are essential for city environments, providing both ecological and social benefits. Studies show that parks and gardens help lower urban temperatures, reduce air pollution, and offer residents a place to relax and exercise. However, as cities expand, land designated for green spaces often competes with demands for new housing and commercial development. Balancing economic growth with environmental well-being remains a challenge.<br/><br/>Question: <br/>What is the main argument of the passage?",
+        answers: [
+            { text: "Green spaces in cities contribute to environmental and social well-being, but they face competition from urban development.", correct: true },
+            { text: "City residents should prioritize parks and gardens over commercial expansion.", correct: false },
+            { text: "Urban development should be halted to preserve more land for parks and gardens.", correct: false },
+            { text: "Parks are primarily designed to reduce air pollution rather than serve a social purpose.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    },
+    {
+        question: "In the early 20th century, electric streetcars transformed urban life, making transportation faster and more efficient. As cities expanded, these streetcars enabled people to live farther from their workplaces, leading to the development of suburban neighborhoods. However, by the mid-century, the rise of the automobile and government investment in highways led to a decline in streetcar systems. Today, some cities are reviving streetcar networks as a means of reducing traffic congestion and promoting sustainable transit.<br/><br/>Question: <br/>What does the passage suggest about the role of streetcars in urban development?",
+        answers: [
+            { text: "Streetcars initially shaped urban expansion but later declined due to the popularity of automobiles.", correct: true },
+            { text: "The decline of streetcars in the 20th century was due to a lack of public interest in public transportation.", correct: false },
+            { text: "Modern cities have rejected streetcars in favor of more efficient transportation systems.", correct: false },
+            { text: "Electric streetcars were not widely used in the 20th century and only gained popularity recently.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    },
+    {
+        question: "Coral reefs are among the most diverse ecosystems on Earth, providing habitat for countless marine species. However, climate change poses a severe threat to these ecosystems. Rising ocean temperatures cause coral bleaching, a phenomenon where corals expel the algae that provide them with nutrients and color. Without these algae, corals become weak and more vulnerable to disease, potentially leading to widespread reef collapse.<br/><br/>Question: <br/>Which conclusion is best supported by the passage?",
+        answers: [
+            { text: "Climate change has little effect on coral reefs compared to other environmental factors.", correct: false },
+            { text: "Rising ocean temperatures can cause coral to lose essential algae, threatening reef ecosystems.", correct: true },
+            { text: "Coral bleaching occurs when algae consume too many nutrients from their coral hosts.", correct: false },
+            { text: "Most marine species are unaffected by the decline of coral reefs.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    },
+    {
+        question: "Electric vehicles (EVs) have been hailed as a key solution to reducing greenhouse gas emissions from transportation. Unlike traditional gasoline-powered cars, EVs produce no tailpipe emissions, which helps improve air quality. However, some critics argue that the environmental benefits of EVs depend on how the electricity that powers them is generated. If electricity comes from fossil fuels, EVs may still contribute to pollution and carbon emissions.<br/><br/>Question: <br/>What is the main idea of the passage?",
+        answers: [
+            { text: "Electric vehicles are completely emission-free and always benefit the environment.", correct: false },
+            { text: "Electric vehicles reduce air pollution, but their benefits depend on how their electricity is generated.", correct: true },
+            { text: "Gasoline-powered cars remain the most efficient mode of transportation.", correct: false },
+            { text: "The environmental benefits of electric vehicles are widely accepted and undisputed.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "meeasydium"
+    },
+
+    {
         
         question: "The rapid advancement of artificial intelligence (AI) has led to significant changes in various industries. While some experts highlight the efficiency and innovation brought by AI, others express concerns about potential job displacement and ethical considerations.<br/><br/>Question: <br/>The author's attitude toward artificial intelligence can best be described as: ",
        
@@ -749,6 +816,7 @@ function selectAnswer(e) {
 }
 
 function showScore() {
+    clearInterval(refreshIntervalId); // ✅ Stops the countdown when test is completed early
     resetState();
 
     let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3); // 18 easy, 18 medium, 18 hard
