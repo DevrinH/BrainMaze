@@ -907,7 +907,7 @@ nextButton.addEventListener("click", () => {
 });
 
 function mathlink() {
-    location.href = "https://www.brainjelli.com/math.html";
+    location.href = "https://www.brainjelli.com/dsatmath.html";
 }
 
 startQuiz();
