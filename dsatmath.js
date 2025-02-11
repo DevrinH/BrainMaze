@@ -645,11 +645,10 @@ function selectQuestions() {
     let mediumQs = questions.filter(q => q.difficulty === "medium");
     let hardQs = questions.filter(q => q.difficulty === "hard");
 
-    // Adaptive selection to maintain difficulty balance
     usedQuestions = [
-        ...getRandomQuestions(easyQs, 14),   // 14 easy
-        ...getRandomQuestions(mediumQs, 15), // 15 medium
-        ...getRandomQuestions(hardQs, 15)    // 15 hard
+        ...getRandomQuestions(easyQs, Math.min(14, easyQs.length)),  
+        ...getRandomQuestions(mediumQs, Math.min(15, mediumQs.length)),  
+        ...getRandomQuestions(hardQs, Math.min(15, hardQs.length))    
     ];
 }
 
