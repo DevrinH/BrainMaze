@@ -467,6 +467,42 @@ const questions = [
         type: "reading",
         difficulty:"hard"
     },
+    { 
+        question: "Linguists have long debated the mechanisms underlying language acquisition. While early theories emphasized a strict learning model, where individuals acquire language through repetition and reinforcement, modern research suggests that innate cognitive structures play a crucial role. Noam Chomsky’s theory of a 'universal grammar' posits that humans are born with an inherent ability to understand and generate language structures, an idea supported by studies showing that children can form complex grammatical sentences without explicit instruction. However, some critics argue that environmental exposure remains the most significant factor, contending that linguistic input shapes cognitive structures rather than the other way around. <br/><br/>Question: <br/>Which choice best expresses the central tension in the passage?",
+       
+        answers: [
+            { text: "The disagreement between those who believe language is learned entirely through external factors and those who argue it arises from an innate cognitive ability.", correct: true},
+            { text: "The idea that children’s grammatical development is entirely dependent on adult correction and reinforcement.", correct: false},
+            { text: "The argument that language learning depends more on innate structures than on exposure to linguistic input.", correct: false},
+            { text: "The suggestion that Chomsky’s universal grammar theory has been completely disproven by modern research.", correct: false},
+        ],
+        type: "reading",
+        difficulty: "hard"
+    },
+    { 
+        question: "As artificial intelligence (AI) continues to evolve, ethical dilemmas regarding its implementation have grown increasingly complex. While AI has enhanced efficiency in various fields, from medical diagnostics to autonomous vehicles, concerns persist over issues such as algorithmic bias, privacy violations, and job displacement. Some scholars argue that AI must be regulated to prevent potential harm, while others caution against excessive restrictions that could hinder technological progress. This ongoing debate raises fundamental questions about the balance between innovation and ethical responsibility. <br/><br/>Question: <br/>Which statement best summarizes the author’s perspective on artificial intelligence?",
+       
+        answers: [
+            { text: "The author strongly supports AI regulation, arguing that the potential risks outweigh the benefits.", correct: false},
+            { text: "The author maintains a neutral stance, acknowledging both the advantages and ethical concerns of AI.", correct: true},
+            { text: "The author believes that technological progress should not be hindered by ethical concerns.", correct: false},
+            { text: "The author argues that AI will inevitably lead to widespread unemployment and economic collapse.", correct: false},
+        ],
+        type: "reading",
+        difficulty: "hard"
+    },
+    { 
+        question: "Altruism, the selfless concern for the well-being of others, appears paradoxical in evolutionary terms. Natural selection typically favors traits that enhance an individual’s reproductive success, yet many species—including humans—exhibit behaviors that seem to prioritize the needs of others over personal gain. Some scientists suggest that altruism is an adaptive strategy, as helping relatives or members of a social group can indirectly enhance genetic survival. Others propose that altruistic behavior arises from complex social norms and learned cooperation rather than biological imperatives. This debate highlights the challenge of reconciling selfless behavior with traditional evolutionary theory. <br/><br/>Question: <br/>Which claim about altruism is most strongly supported by the passage?",
+       
+        answers: [
+            { text: "Altruistic behavior contradicts the principles of evolution and remains scientifically unexplained.", correct: false},
+            { text: "Altruism may serve an evolutionary function by benefiting the survival of related individuals or social groups.", correct: true},
+            { text: "Selfless behaviors are unique to humans and do not occur in other species.", correct: false},
+            { text: "Altruistic acts are purely the result of cultural expectations rather than biological influences.", correct: false},
+        ],
+        type: "reading",
+        difficulty: "hard"
+    },
 
 
 
@@ -570,6 +606,39 @@ const questions = [
         ],
         type: "writing",
         difficulty:"easy"
+    },
+    {
+        question: "The new wellness program encourages employees to <u>exercise regularly, eating a balanced diet, and getting enough sleep</u> to improve overall health.<br/><br/>Question:<br/>Which choice best completes the sentence while maintaining parallel structure?",
+        answers: [
+            { text: "exercise regularly, eating a balanced diet, and getting enough sleep", correct: false },
+            { text: "exercise regularly, eat a balanced diet, and get enough sleep", correct: true },
+            { text: "exercising regularly, eating a balanced diet, and getting enough sleep", correct: false },
+            { text: "to exercise regularly, to eat a balanced diet, and getting enough sleep", correct: false }
+        ],
+        type: "writing",
+        difficulty: "medium"
+    },
+    {
+        question: "Despite the fact that the meeting lasted three hours, the team was still unable to finalize a decision.<br/><br/>Question:<br/>Which choice best improves the sentence by eliminating unnecessary words?",
+        answers: [
+            { text: "Despite the fact that the meeting lasted three hours", correct: false },
+            { text: "Even though the meeting lasted three hours", correct: true },
+            { text: "Due to the fact that the meeting lasted three hours", correct: false },
+            { text: "Because of the fact that the meeting lasted three hours", correct: false }
+        ],
+        type: "writing",
+        difficulty: "medium"
+    },
+    {
+        question: "The new policy limits the amount of plastic waste businesses can produce. ______, companies that violate the rule will face steep fines and penalties.<br/><br/>Question:<br/>Which choice best completes the sentence with an appropriate transition?",
+        answers: [
+            { text: "For example", correct: false },
+            { text: "However", correct: false },
+            { text: "Therefore", correct: true },
+            { text: "Similarly", correct: false }
+        ],
+        type: "writing",
+        difficulty: "medium"
     },
     {
         question: "Unlike traditional advertisements, which rely on direct messaging, viral marketing succeeds <u>by making use of social media to engage audiences.</u><br/><br/>Question:<br/>Which choice best corrects the underlined portion for clarity and conciseness?",
