@@ -203,6 +203,72 @@ const questions = [
         difficulty:"easy"
     },
     {
+        question: "Throughout history, societies have struggled to define the role of government in regulating economic activity. Some argue that government intervention is necessary to correct market failures and ensure stability, while others believe that free markets function best without interference. The Great Depression of the 1930s led to increased regulation, but in later decades, economic policies shifted toward deregulation, reflecting an ongoing debate about the balance between government control and economic freedom.<br/><br/>Question: <br/>Which choice best states the central idea of the passage?",
+        answers: [
+            { text: "The Great Depression led to the first instance of government intervention in the economy.", correct: false},
+            { text: "Economic policies change over time as societies debate the role of government in markets.", correct: true},
+            { text: "Free markets have consistently been more successful than regulated economies.", correct: false},
+            { text: "Government intervention always leads to economic stability.", correct: false},
+        ],
+        type: "reading",
+        difficulty: "medium"
+    },
+    {
+        question: "The development of antibiotic-resistant bacteria has become a growing public health concern. Overuse and misuse of antibiotics in both medical and agricultural settings have contributed to the evolution of bacteria that no longer respond to conventional treatments. Scientists warn that if this trend continues, routine infections could become life-threatening once again. Research efforts are now focused on developing new treatments and alternative therapies to combat these resistant strains.<br/><br/>Question: <br/>Which conclusion is best supported by the passage?",
+        answers: [
+            { text: "The overuse of antibiotics has contributed to the emergence of antibiotic-resistant bacteria.", correct: true},
+            { text: "Bacteria are evolving at a rate faster than scientists can study them.", correct: false},
+            { text: "Alternative therapies have already replaced traditional antibiotics in many cases.", correct: false},
+            { text: "The development of antibiotics has prevented any serious bacterial infections in modern times.", correct: false},
+        ],
+        type: "reading",
+        difficulty: "medium"
+    },
+    {
+        question: "Studies on memory and learning have revealed that sleep plays a crucial role in cognitive function. During deep sleep, the brain consolidates information acquired throughout the day, strengthening neural connections and filtering out unnecessary details. Sleep deprivation has been shown to impair problem-solving abilities, creativity, and even emotional regulation. Despite this, many people sacrifice sleep in favor of work or study, unaware of its long-term effects on learning and mental well-being.<br/><br/>Question: <br/>What is the primary claim made in the passage?",
+        answers: [
+            { text: "Sleep deprivation can negatively impact cognitive function and learning.", correct: true},
+            { text: "People who sleep more tend to be more intelligent than those who sleep less.", correct: false},
+            { text: "Short naps during the day are more beneficial than a full night’s sleep.", correct: false},
+            { text: "The purpose of sleep is primarily to help regulate emotions.", correct: false},
+        ],
+        type: "reading",
+        difficulty: "medium"
+    },
+    {
+        question: "Throughout the 19th century, steam-powered locomotives revolutionized transportation, drastically reducing travel time and enabling economic expansion. Railroads allowed businesses to transport goods quickly and efficiently, connecting once-isolated regions. However, this progress came at a cost—deforestation, air pollution, and displacement of communities were common side effects of railroad expansion. While the rail industry brought undeniable economic benefits, it also raised concerns about environmental and social consequences.<br/><br/>Question: <br/>Which best describes the author's attitude toward railroad expansion?",
+        answers: [
+            { text: "Entirely critical, highlighting the negative environmental effects.", correct: false},
+            { text: "Neutral, presenting both the benefits and drawbacks of railroads.", correct: true},
+            { text: "Enthusiastic, emphasizing the economic benefits without mentioning any drawbacks.", correct: false},
+            { text: "Unconcerned, suggesting that railroad expansion had no significant impact.", correct: false},
+        ],
+        type: "reading",
+        difficulty: "medium"
+    },
+    {
+        question: "Archaeological discoveries have transformed our understanding of ancient civilizations. The unearthing of lost cities, deciphering of forgotten scripts, and analysis of artifacts have provided insights into cultures that once seemed mysterious. For example, the discovery of the Rosetta Stone allowed scholars to decode Egyptian hieroglyphs, unlocking a wealth of historical knowledge. Despite these advances, many ancient societies remain poorly understood, and new findings continue to reshape historical narratives.<br/><br/>Question: <br/>Which choice best describes the relationship between archaeology and historical understanding?",
+        answers: [
+            { text: "Archaeological discoveries have helped decode ancient languages and broaden historical knowledge.", correct: true},
+            { text: "Most ancient civilizations remain entirely unknown due to the limitations of archaeology.", correct: false},
+            { text: "The study of archaeology is only useful when examining well-preserved artifacts.", correct: false},
+            { text: "Historians have learned everything they need to know about ancient civilizations.", correct: false},
+        ],
+        type: "reading",
+        difficulty: "medium"
+    },
+    {
+        question: "Many classical composers, including Beethoven and Mozart, were known for their ability to improvise complex musical pieces. While their written compositions remain widely studied, accounts from their time suggest that much of their genius lay in their spontaneous performances. Today, improvisation is often associated with jazz rather than classical music, yet it played a crucial role in shaping the compositions of many great classical musicians.<br/><br/>Question: <br/>Which choice best reflects the main point of the passage?",
+        answers: [
+            { text: "Improvisation was an important aspect of classical composers’ musical skills.", correct: true},
+            { text: "Beethoven and Mozart were the first musicians to compose classical music.", correct: false},
+            { text: "Classical music has had little influence on modern musical genres.", correct: false},
+            { text: "Jazz musicians are better at improvisation than classical musicians.", correct: false},
+        ],
+        type: "reading",
+        difficulty: "medium"
+    },
+    {
         question: "The relationship between economic growth and environmental sustainability has long been a subject of debate. Historically, industrial expansion has been associated with rising carbon emissions and depletion of natural resources. However, recent innovations in renewable energy, sustainable agriculture, and eco-friendly manufacturing suggest that economic progress does not have to come at the expense of the environment. Some experts argue that with the right policies and technological advancements, nations can achieve both economic prosperity and environmental responsibility. Others caution that meaningful change requires significant sacrifices and a fundamental shift in consumption patterns.<br/><br/>Question:<br/>Which choice best captures the passage’s main argument?",
         answers: [
             { text: "Economic growth and environmental sustainability can coexist, but achieving this balance requires technological and policy changes.", correct: true},
@@ -703,6 +769,39 @@ const questions = [
         type: "writing",
         difficulty:"hard"
     },
+    {
+        question: "Unlike most classical composers, whose works remain confined to concert halls, the music of Beethoven is recognized by a wider audience, including through film scores and popular culture.<br/><br/>Question:<br/>Which choice best corrects the sentence?",
+        answers: [
+            { text: "the music of Beethoven is recognized by a wider audience, including through film scores and popular culture.", correct: false},
+            { text: "Beethoven’s music is recognized by a wider audience, including film scores and popular culture.", correct: true},
+            { text: "Beethoven is recognized by a wider audience, including through film scores and popular culture.", correct: false},
+            { text: "Beethoven’s music is more widely recognized, including film scores and popular culture.", correct: false},
+        ],
+        type: "writing",
+        difficulty:"hard"
+    },
+    {
+        question: "Researchers investigating sleep patterns found that people who wake up earlier tend to be more productive, a result that suggests lifestyle habits may play a greater role than genetics.<br/><br/>Question:<br/>Which choice best improves the sentence’s clarity and logical flow?Which choice best improves the sentence’s clarity and logical flow?",
+        answers: [
+            { text: " a result that suggests lifestyle habits may play a greater role than genetics.", correct: false},
+            { text: "a result which suggests lifestyle habits play a greater role than genetics do.", correct: false},
+            { text: "suggesting that lifestyle habits may play a greater role than genetics.", correct: false},
+            { text: "a result suggesting that lifestyle habits may play a greater role than genetics do.", correct: true},
+        ],
+        type: "writing",
+        difficulty:"hard"
+    },
+    {
+        question: "The committee members reached a mutual agreement together after hours of discussion.<br/><br/>Question:<br/>Which choice best eliminates unnecessary words while maintaining clarity?",
+        answers: [
+            { text: "mutual agreement together", correct: false},
+            { text: "agreement together", correct: false},
+            { text: "mutual agreement", correct: false},
+            { text: "agreement", correct: true},
+        ],
+        type: "writing",
+        difficulty:"hard"
+    }
 
 ];
 
