@@ -1,32 +1,34 @@
-setTimeout(function() {
+const startingMinutes = 64;
+const countdownEl = document.getElementById('countdown');
 
-    showScore();
+let time = startingMinutes * 60; // No need for "+1", ensures exactly 64 minutes
+let refreshIntervalId = setInterval(updateCountdown, 1000);
+
+function updateCountdown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
     
-    }, 3840000);
-    
-    const startingMinutes = 64;
-    const countdownEl = document.getElementById('countdown');
-    
-    let time = startingMinutes * 60 + 1; //minutes * 60 seconds
-    let refreshIntervalId = setInterval(updateCountdown, 1000);
-    
-    function updateCountdown() {
-        const minutes = Math.floor(time / 60);
-        let seconds = time % 60;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        
-        countdownEl.innerHTML = `${minutes} : ${seconds}`;
-    
-        if (time === 0) { 
-            clearInterval(refreshIntervalId);
-            return; // Stop execution to prevent going negative
-        }
-    
+    countdownEl.innerHTML = `${minutes} : ${seconds}`;
+
+    if (time === 0) { 
+        clearInterval(refreshIntervalId);
+        endQuiz();  // ✅ Stops quiz when timer hits zero
+    } else {
         time--; 
-    };
-    
-updateCountdown();
+    }
+}
 
+// Function to handle quiz timeout
+function endQuiz() {
+    resetState();  // Removes answer buttons
+    showScore();   // Shows final score immediately
+}
+
+// Automatically end test after 64 minutes (3,840,000 ms)
+setTimeout(endQuiz, 3840000);
+
+updateCountdown();
 
 
 const questions = [
@@ -637,7 +639,6 @@ const questions = [
 
 ];
 
-
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
@@ -645,18 +646,20 @@ const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
+let selectedQuestions = [];
 
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
 
-    // Select 54 questions (ordered easy → medium → hard)
+    // Select 54 questions (ordered Easy → Medium → Hard)
     selectedQuestions = selectRandomQuestions(questions, 18, 18, 18);
 
     nextButton.innerHTML = "Next";
     showQuestion();
 }
+
 function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     // Separate questions by difficulty
     const easyQuestions = questions.filter(q => q.difficulty === "easy");
@@ -686,9 +689,6 @@ function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     // Return ordered questions (Easy → Medium → Hard)
     return [...selectedEasy, ...selectedMedium, ...selectedHard];
 }
-
-// Call this function before starting the quiz
-const selectedQuestions = selectRandomQuestions(questions, 18, 18, 18, 27, 27);
 
 function showQuestion() {
     resetState();
@@ -769,7 +769,7 @@ function showScore() {
 
 function handleNextButton() {
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < selectedQuestions.length) { // ✅ FIXED: Now uses selectedQuestions
         showQuestion();
     } else {
         showScore();
@@ -778,12 +778,12 @@ function handleNextButton() {
 
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
-    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+    let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
     progressBar.style.width = progress + "%";
 }
 
 nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < selectedQuestions.length) { // ✅ FIXED: Now uses selectedQuestions
         handleNextButton();
     } else {
         mathlink();
