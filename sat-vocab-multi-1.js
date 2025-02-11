@@ -38,9 +38,38 @@ const explanation = [
     {
         explanation: "Answer: C) Delicate and difficult to detect Explanation:The word subtle refers to something that is not obvious, requiring careful attention to notice. In the sentence, the detective is the only one who noticed the clue, implying that it was delicate or difficult to detect. A is the opposite of subtle, B suggests intentional deception rather than faintness, and D implies confusion rather than something barely noticeable.",
 
-    } 
+    },
+    { 
+        explanation: "Answer: A) Dull and uninspiring. Explanation: The word lackluster describes something that is unexciting, uninspiring, or lacking brilliance. The sentence indicates that the comedian’s performance failed to impress, implying that it was dull."
+    },
+    { 
+        explanation: "Answer: A) Calm and unemotional. Explanation: The word stoic refers to someone who endures pain or hardship without showing emotions. The sentence describes the judge as not reacting to dramatic testimony, indicating emotional control."
+    },
+    { 
+        explanation: "Answer: B) Complex and difficult to follow. Explanation: The word convoluted means unnecessarily complicated or hard to understand. Since no one could comprehend his explanation, it must have been overly complex."
+    },
+    { 
+        explanation: "Answer: A) Sensitivity and diplomacy. Explanation: The word tact refers to the ability to handle difficult situations with sensitivity and thoughtfulness. In the sentence, she carefully chooses her words, indicating diplomacy."
+    },
+    { 
+        explanation: "Answer: B) Nervous and apprehensive. Explanation: The word trepidatious means feeling anxious or fearful about something. Since the student was feeling this way before an exam, it suggests worry."
+    },
+    { 
+        explanation: "Answer: A) Secret or hidden. Explanation: The word covert refers to something concealed or undercover. Since the spy is trying to avoid detection, his identity must be hidden."
+    },
+    { 
+        explanation: "Answer: A) Based on observation or experience. Explanation: The word empirical refers to knowledge derived from real-world observation or experience. The sentence contrasts this with speculation, reinforcing the idea that the theory was grounded in facts."
+    },
+    { 
+        explanation: "Answer: A) Friendly and sociable. Explanation: The word gregarious describes someone who enjoys socializing and interacting with others. Since the host made guests feel welcome, this suggests an outgoing nature."
+    },
+    { 
+        explanation: "Answer: A) Controversial and likely to cause arguments. Explanation: The word contentious refers to something that causes disagreements or disputes. Since the decision sparked a debate, it must have been controversial."
+    },
+    { 
+        explanation: "Answer: A) Careful and detail-oriented. Explanation: The word meticulous describes someone who pays close attention to detail and strives for accuracy. The sentence states that the intern double-checked her work, indicating thoroughness."
+    }
 ];
-
 const questions = [
     {
         
@@ -134,8 +163,97 @@ const questions = [
             { text: "Delicate and difficult to detect", correct: true},
             { text: "Confusing and misleading", correct: false},
         ]
+    },
+    { 
+        question: "Despite the comedian’s best efforts, his lackluster performance left the audience unimpressed.<br/><br/>Question: Which of the following best defines lackluster?",
+        answers: [
+            { text: "Dull and uninspiring", correct: true },
+            { text: "Extremely energetic", correct: false },
+            { text: "Loud and entertaining", correct: false },
+            { text: "Confusing and chaotic", correct: false },
+        ]
+    },
+    { 
+        question: "The judge remained stoic, showing no visible reaction even when dramatic testimony was presented.<br/><br/>Question: Which of the following best defines stoic?",
+        answers: [
+            { text: "Calm and unemotional", correct: true },
+            { text: "Outspoken and passionate", correct: false },
+            { text: "Easily startled", correct: false },
+            { text: "Confused and uncertain", correct: false },
+        ]
+    },
+    { 
+        question: "His explanation was so convoluted that nobody in the room could understand what he was trying to say.<br/><br/>Question: Which of the following best defines convoluted?",
+        answers: [
+            { text: "Clear and concise", correct: false },
+            { text: "Complex and difficult to follow", correct: true },
+            { text: "Short and straightforward", correct: false },
+            { text: "Funny and lighthearted", correct: false },
+        ]
+    },
+    { 
+        question: "She handled the tense situation with tact, carefully choosing her words to avoid offending anyone.<br/><br/>Question: Which of the following best defines tact?",
+        answers: [
+            { text: "Sensitivity and diplomacy", correct: true },
+            { text: "Carelessness and indifference", correct: false },
+            { text: "Harshness and rudeness", correct: false },
+            { text: "Uncertainty and hesitation", correct: false },
+        ]
+    },
+    { 
+        question: "Although he had prepared extensively, the student was still trepidatious before the big exam.<br/><br/>Question: Which of the following best defines trepidatious?",
+        answers: [
+            { text: "Confident and fearless", correct: false },
+            { text: "Nervous and apprehensive", correct: true },
+            { text: "Excited and optimistic", correct: false },
+            { text: "Unconcerned and indifferent", correct: false },
+        ]
+    },
+    { 
+        question: "The spy used a covert identity to avoid detection while carrying out his mission.<br/><br/>Question: Which of the following best defines covert?",
+        answers: [
+            { text: "Secret or hidden", correct: true },
+            { text: "Honest and open", correct: false },
+            { text: "Reckless and careless", correct: false },
+            { text: "Unimportant and irrelevant", correct: false },
+        ]
+    },
+    { 
+        question: "The scientist’s theory was based on empirical evidence rather than speculation.<br/><br/>Question: Which of the following best defines empirical?",
+        answers: [
+            { text: "Based on observation or experience", correct: true },
+            { text: "Created through imagination", correct: false },
+            { text: "False and misleading", correct: false },
+            { text: "Lacking any proof", correct: false },
+        ]
+    },
+    { 
+        question: "The gregarious host made sure every guest felt welcome and engaged in conversation.<br/><br/>Question: Which of the following best defines gregarious?",
+        answers: [
+            { text: "Friendly and sociable", correct: true },
+            { text: "Shy and reserved", correct: false },
+            { text: "Rude and dismissive", correct: false },
+            { text: "Quiet and uninterested", correct: false },
+        ]
+    },
+    { 
+        question: "The company’s decision to replace human workers with automation sparked a contentious debate.<br/><br/>Question: Which of the following best defines contentious?",
+        answers: [
+            { text: "Controversial and likely to cause arguments", correct: true },
+            { text: "Easily resolved and undisputed", correct: false },
+            { text: "Pointless and insignificant", correct: false },
+            { text: "Boring and uninteresting", correct: false },
+        ]
+    },
+    { 
+        question: "The intern was meticulous, double-checking every detail to ensure perfection in her report.<br/><br/>Question: Which of the following best defines meticulous?",
+        answers: [
+            { text: "Careful and detail-oriented", correct: true },
+            { text: "Disorganized and careless", correct: false },
+            { text: "Rushed and impatient", correct: false },
+            { text: "Lazy and uninterested", correct: false },
+        ]
     }
-
 ];
 
 
