@@ -702,7 +702,19 @@ function selectAnswer(selectedBtn, question) {
         score += question.difficulty === "easy" ? 1 : question.difficulty === "medium" ? 2 : 2.5;
     } else {
         selectedBtn.classList.add("incorrect");
+
+        // Highlight the correct answer when the user selects the wrong one
+        Array.from(answerButtons.children).forEach(button => {
+            if (button.dataset.correct === "true") {
+                button.classList.add("correct"); // ✅ Highlight correct answer
+            }
+        });
     }
+
+    // Disable all buttons after selection
+    Array.from(answerButtons.children).forEach(button => {
+        button.disabled = true;
+    });
 
     // Difficulty adjustment logic (but it does not affect this quiz run)
     let correctCount = recentAnswers.filter(Boolean).length;
