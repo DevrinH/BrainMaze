@@ -26,7 +26,6 @@ function updateCountdown() {
     
 updateCountdown();
 
-
 const questions = [
     {
         
@@ -160,6 +159,107 @@ const questions = [
             { text: "120", correct: false},
         ],
         difficulty:"easy"
+    },
+    { 
+        question: "What is the value of 3(4 + 2) - 5?", 
+        answers: [
+            { text: "10", correct: false }, 
+            { text: "11", correct: false }, 
+            { text: "12", correct: false }, 
+            { text: "13", correct: true } 
+        ],
+        difficulty: "easy"
+    },
+    { 
+        question: "A rectangle has a length of 10 cm and a width of 6 cm. What is its perimeter?", 
+        answers: [
+            { text: "24 cm", correct: false }, 
+            { text: "30 cm", correct: false }, 
+            { text: "32 cm", correct: true }, 
+            { text: "36 cm", correct: false } 
+        ],
+        difficulty: "easy"
+    },
+    { 
+        question: "If x + 7 = 15, what is the value of x?", 
+        answers: [
+            { text: "6", correct: false }, 
+            { text: "7", correct: false }, 
+            { text: "8", correct: false }, 
+            { text: "8", correct: true } 
+        ],
+        difficulty: "easy"
+    },
+    { 
+        question: "A store sells apples for $2 each. If James buys 5 apples, how much does he spend?", 
+        answers: [
+            { text: "$5", correct: false }, 
+            { text: "$8", correct: false }, 
+            { text: "$10", correct: false }, 
+            { text: "$10", correct: true } 
+        ],
+        difficulty: "easy"
+    },
+    { 
+        question: "What is the value of 15 ÷ 3 + 2 × 4?", 
+        answers: [
+            { text: "10", correct: false }, 
+            { text: "12", correct: false }, 
+            { text: "14", correct: false }, 
+            { text: "14", correct: true } 
+        ],
+        difficulty: "easy"
+    },
+
+    {
+        question: "A car travels 180 miles in 3 hours at a constant speed. What is the car’s speed in miles per hour?",
+        answers: [
+            { text: "30 mph", correct: false }, 
+            { text: "45 mph", correct: false }, 
+            { text: "50 mph", correct: false }, 
+            { text: "60 mph", correct: true } 
+        ],
+        difficulty: "medium"
+    },
+    {
+        question: "If 5x - 7 = 3x + 5, what is the value of x?",
+        answers: [
+            { text: "4", correct: true }, 
+            { text: "5", correct: false }, 
+            { text: "6", correct: false }, 
+            { text: "7", correct: false } 
+        ],
+        difficulty: "medium"
+    },
+    {
+        question: "A rectangular garden has a width of 8 feet and a length that is twice the width. What is the area of the garden?",
+        answers: [
+            { text: "64 square feet", correct: false }, 
+            { text: "96 square feet", correct: false }, 
+            { text: "128 square feet", correct: true }, 
+            { text: "144 square feet", correct: false } 
+        ],
+        difficulty: "medium"
+    },
+    {
+        question: "A store is offering a 20% discount on a jacket that originally costs $75. What is the sale price of the jacket?",
+        answers: [
+            { text: "$50", correct: false }, 
+            { text: "$55", correct: false }, 
+            { text: "$60", correct: true }, 
+            { text: "$65", correct: false } 
+        ],
+        difficulty: "medium"
+    },
+    {
+        question: "The sum of three consecutive even integers is 54. What is the smallest integer?",
+        answers: [
+            { text: "14", correct: false }, 
+            { text: "16", correct: true }, 
+            { text: "18", correct: false }, 
+            { text: "20", correct: false } 
+        ],
+        difficulty: "medium"
     },
     {
         question: "A circle has center 𝑂 and radius 10. A tangent line is drawn from a point 𝑃 outside the circle to touch the circle at point 𝐴. If OP=26, what is the length of PA?",
@@ -459,7 +559,57 @@ const questions = [
             { text: "3 hours", correct: false},
         ],
         difficulty:"hard"
-    },    
+    },
+    { 
+        question: "A scientist is studying bacteria growth. A bacteria culture doubles in population every 4 hours. If there were initially 500 bacteria, how many will there be after 24 hours?",
+        answers: [
+            { text: "16,000", correct: false }, 
+            { text: "32,000", correct: false }, 
+            { text: "64,000", correct: false }, 
+            { text: "128,000", correct: true } 
+        ],
+        difficulty: "hard"
+    },
+    { 
+        question: "A cylindrical water tank is being drained. It originally holds 500 gallons of water, but 10% of the remaining water is drained every hour. How much water remains after 5 hours, rounded to the nearest gallon?",
+        answers: [
+            { text: "275", correct: false }, 
+            { text: "295", correct: false }, 
+            { text: "328", correct: false }, 
+            { text: "295", correct: true } 
+        ],
+        difficulty: "hard"
+    },
+    { 
+        question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
+        answers: [
+            { text: "2.5 hours", correct: false }, 
+            { text: "2.6 hours", correct: false }, 
+            { text: "2.8 hours", correct: false }, 
+            { text: "2.75 hours", correct: true } 
+        ],
+        difficulty: "hard"
+    },
+    { 
+        question: "A car's value depreciates by 15% each year. If the car was originally purchased for $30,000, what will its value be after 3 years, rounded to the nearest dollar?",
+        answers: [
+            { text: "$18,520", correct: false }, 
+            { text: "$19,275", correct: false }, 
+            { text: "$20,250", correct: false }, 
+            { text: "$19,275", correct: true } 
+        ],
+        difficulty: "hard"
+    },
+    { 
+        question: "A farmer has a rectangular field that is 200 feet long and 150 feet wide. He wants to build a circular pond that takes up exactly 25% of the field’s area. What should the radius of the pond be, rounded to the nearest foot?",
+        answers: [
+            { text: "30 feet", correct: false }, 
+            { text: "35 feet", correct: false }, 
+            { text: "40 feet", correct: false }, 
+            { text: "38 feet", correct: true } 
+        ],
+        difficulty: "hard"
+    }    
 
 ];
 
@@ -471,18 +621,42 @@ const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
+let selectedQuestions = [];
 
+// Function to start the quiz
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
+
+    // Select 44 random questions (14 easy, 15 medium, 15 hard)
+    selectedQuestions = selectRandomMathQuestions(questions, 14, 15, 15);
+
     nextButton.innerHTML = "Next";
     showQuestion();
 }
 
+// Function to randomly select math questions
+function selectRandomMathQuestions(questions, numEasy, numMedium, numHard) {
+    const easyQuestions = questions.filter(q => q.difficulty === "easy");
+    const mediumQuestions = questions.filter(q => q.difficulty === "medium");
+    const hardQuestions = questions.filter(q => q.difficulty === "hard");
+
+    function getRandom(arr, num) {
+        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
+    }
+
+    const selectedEasy = getRandom(easyQuestions, numEasy);
+    const selectedMedium = getRandom(mediumQuestions, numMedium);
+    const selectedHard = getRandom(hardQuestions, numHard);
+
+    return [...selectedEasy, ...selectedMedium, ...selectedHard];
+}
+
+// Function to display the current question
 function showQuestion() {
     resetState();
-    let currentQuestion = questions[currentQuestionIndex];
+    let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
@@ -500,6 +674,7 @@ function showQuestion() {
     updateProgressBar();
 }
 
+// Function to reset the state before showing a new question
 function resetState() {
     nextButton.style.display = "none";
     while (answerButtons.firstChild) {
@@ -507,16 +682,17 @@ function resetState() {
     }
 }
 
+// Function to handle answer selection
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    let questionDifficulty = questions[currentQuestionIndex].difficulty;
+    let questionDifficulty = selectedQuestions[currentQuestionIndex].difficulty;
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
 
-        // Fixed weighted scoring based on difficulty (NO scaling)
+        // Fixed weighted scoring based on difficulty
         if (questionDifficulty === "easy") {
             score += 1;
         } else if (questionDifficulty === "medium") {
@@ -538,17 +714,22 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
+// Function to display the final score
 function showScore() { 
+    clearInterval(refreshIntervalId); // ✅ Stops the countdown when test is completed early
     resetState();
 
-    let maxPossibleScore = (13 * 1) + (18 * 2) + (13 * 3); // 13 easy, 18 medium, 13 hard
+    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3); // 14 easy, 15 medium, 15 hard
     let rawScore = score;
 
     // Convert raw score to SAT scaled score (approximation)
     let mathScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
+    // Retrieve Reading & Writing score from local storage
+    let readingScore = localStorage.getItem("readingScore") || 0;
+    readingScore = parseInt(readingScore, 10);
 
-    // Calculate total SAT score (Reading + Math)
+    // Calculate total SAT score
     let totalSATScore = readingScore + mathScore;
 
     // Display Math, Reading, and Total SAT Score
@@ -564,31 +745,36 @@ function showScore() {
     document.getElementById("progress-bar").style.width = "100%";
 }
 
+// Function to handle "Next" button click
 function handleNextButton() {
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
     } else {
         showScore();
     }
 }
 
+// Function to update the progress bar
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
-    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+    let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
     progressBar.style.width = progress + "%";
 }
 
+// Event listener for Next button
 nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < selectedQuestions.length) {
         handleNextButton();
     } else {
         homelink();
     }
 });
 
+// Function to redirect to home
 function homelink() {
     location.href = "https://www.brainjelli.com";
 }
 
+// Start the quiz
 startQuiz();

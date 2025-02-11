@@ -764,7 +764,7 @@ const questions = [
 ];
 
 
-const questionElement = document.getElementById("question");
+const questionElement = document.getElementById("question"); 
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
@@ -783,7 +783,13 @@ function startQuiz() {
     usedQuestions = [];
     recentAnswers = [];
     nextButton.innerHTML = "Next";
-    showQuestion(selectNextQuestion());
+
+    let nextQuestion = selectNextQuestion();
+    if (nextQuestion) {
+        showQuestion(nextQuestion);
+    } else {
+        showScore();
+    }
 }
 
 function selectNextQuestion() {
@@ -794,7 +800,6 @@ function selectNextQuestion() {
     }
 
     if (questionPool.length === 0) {
-        showScore();
         return null;
     }
 
@@ -806,7 +811,7 @@ function selectNextQuestion() {
 function showQuestion(question) {
     resetState();
 
-    if (currentQuestionIndex >= totalQuestions) {
+    if (currentQuestionIndex >= totalQuestions || !question) {
         showScore();
         return;
     }
@@ -863,40 +868,44 @@ function selectAnswer(selectedBtn, question) {
     else if (correctCount >= 2) currentDifficulty = "medium";
     else currentDifficulty = "easy";
 
-    function showScore() { 
-        resetState();
+    nextButton.style.display = "block";
+}
+
+function showScore() { 
+    resetState();
+
+    let numEasy = usedQuestions.filter(q => q.difficulty === "easy").length;
+    let numMedium = usedQuestions.filter(q => q.difficulty === "medium").length;
+    let numHard = usedQuestions.filter(q => q.difficulty === "hard").length;
+
+    // Maximum possible score based on selected questions
+    let maxPossibleScore = (numEasy * 1) + (numMedium * 2) + (numHard * 2.5);
+    let rawScore = score;
+
+    // Convert raw score into a scaled SAT score (200–800)
+    let readingScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
     
-        let numEasy = usedQuestions.filter(q => q.difficulty === "easy").length;
-        let numMedium = usedQuestions.filter(q => q.difficulty === "medium").length;
-        let numHard = usedQuestions.filter(q => q.difficulty === "hard").length;
-    
-        // Maximum possible score based on selected questions
-        let maxPossibleScore = (numEasy * 1) + (numMedium * 2) + (numHard * 2.5);
-        let rawScore = score;
-    
-        // Convert raw score into a scaled SAT score (200–800)
-        let readingScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
-        
-        // Ensure score is within SAT range (200-800)
-        readingScore = Math.min(800, Math.max(200, readingScore));
-    
-        // Store reading score in local storage for Math section
-        localStorage.setItem("readingScore", readingScore);
-    
-        questionElement.innerHTML = `
-            <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
-            <p>Next up: Math section!</p>
-        `;
-    
-        nextButton.innerHTML = "Proceed to Math";
-        nextButton.style.display = "block";
-        document.getElementById("progress-bar").style.width = "100%";
-    }
+    // Ensure score is within SAT range (200-800)
+    readingScore = Math.min(800, Math.max(200, readingScore));
+
+    // Store reading score in local storage for Math section
+    localStorage.setItem("readingScore", readingScore);
+
+    questionElement.innerHTML = `
+        <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
+        <p>Next up: Math section!</p>
+    `;
+
+    nextButton.innerHTML = "Proceed to Math";
+    nextButton.style.display = "block";
+    document.getElementById("progress-bar").style.width = "100%";
+}
 
 function handleNextButton() {
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
+    let nextQuestion = selectNextQuestion();
+    if (nextQuestion) {
+        showQuestion(nextQuestion);
     } else {
         showScore();
     }
@@ -904,12 +913,12 @@ function handleNextButton() {
 
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
-    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+    let progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
     progressBar.style.width = progress + "%";
 }
 
 nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < totalQuestions) {
         handleNextButton();
     } else {
         mathlink();
