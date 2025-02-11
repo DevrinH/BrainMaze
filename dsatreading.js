@@ -773,37 +773,47 @@ let score = 0;
 let correctAnswers = 0;
 let currentDifficulty = "medium";
 let usedQuestions = [];
+let recentAnswers = [];
+const totalQuestions = 44;
 
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
     usedQuestions = [];
+    recentAnswers = [];
     nextButton.innerHTML = "Next";
-    showQuestion();
+    showQuestion(selectNextQuestion());
 }
 
-function showQuestion() {
-    resetState();
-    
-    // Filter unused questions based on current difficulty
-    let filteredQuestions = questions.filter(q => q.difficulty === currentDifficulty && !usedQuestions.includes(q));
-    
-    if (filteredQuestions.length === 0) {
-        filteredQuestions = questions.filter(q => !usedQuestions.includes(q)); // Fallback to unused questions
+function selectNextQuestion() {
+    let questionPool = questions.filter(q => q.difficulty === currentDifficulty && !usedQuestions.includes(q));
+
+    if (questionPool.length === 0) {
+        questionPool = questions.filter(q => !usedQuestions.includes(q)); // Fallback if difficulty pool is empty
     }
-    
-    if (filteredQuestions.length === 0) {
+
+    if (questionPool.length === 0) {
+        showScore();
+        return null;
+    }
+
+    let nextQuestion = questionPool[Math.floor(Math.random() * questionPool.length)];
+    usedQuestions.push(nextQuestion);
+    return nextQuestion;
+}
+
+function showQuestion(question) {
+    resetState();
+
+    if (currentQuestionIndex >= totalQuestions) {
         showScore();
         return;
     }
-    
-    let currentQuestion = filteredQuestions[Math.floor(Math.random() * filteredQuestions.length)];
-    usedQuestions.push(currentQuestion);
-    
-    questionElement.innerHTML = currentQuestion.question;
-    
-    currentQuestion.answers.forEach(answer => {
+
+    questionElement.innerHTML = question.question;
+
+    question.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
@@ -811,9 +821,9 @@ function showQuestion() {
         if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
-        button.addEventListener("click", () => selectAnswer(button, currentQuestion));
+        button.addEventListener("click", () => selectAnswer(button, question));
     });
-    
+
     updateProgressBar();
 }
 
@@ -826,62 +836,62 @@ function resetState() {
 
 function selectAnswer(selectedBtn, question) {
     const isCorrect = selectedBtn.dataset.correct === "true";
-    
+    recentAnswers.push(isCorrect);
+    if (recentAnswers.length > 5) recentAnswers.shift(); // Keep last 5 responses
+
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
         score += question.difficulty === "easy" ? 1 : question.difficulty === "medium" ? 2 : 2.5;
-        
-        // Move up in difficulty if answering correctly
-        if (question.difficulty === "easy") {
-            currentDifficulty = "medium";
-        } else if (question.difficulty === "medium") {
-            currentDifficulty = correctAnswers / (currentQuestionIndex + 1) > 0.7 ? "hard" : "medium";
-        }
     } else {
         selectedBtn.classList.add("incorrect");
-        // Move down in difficulty if answering incorrectly
-        if (question.difficulty === "hard") {
-            currentDifficulty = "medium";
-        } else if (question.difficulty === "medium") {
-            currentDifficulty = "easy";
-        }
+
+        // Highlight correct answer
+        Array.from(answerButtons.children).forEach(button => {
+            if (button.dataset.correct === "true") {
+                button.classList.add("correct");
+            }
+        });
     }
+
+    // Disable all buttons after selection
+    Array.from(answerButtons.children).forEach(button => button.disabled = true);
+
+    // Adaptive difficulty based on last 5 answers
+    let correctCount = recentAnswers.filter(Boolean).length;
+    if (correctCount >= 4) currentDifficulty = "hard";
+    else if (correctCount >= 2) currentDifficulty = "medium";
+    else currentDifficulty = "easy";
+
+    function showScore() { 
+        resetState();
     
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
+        let numEasy = usedQuestions.filter(q => q.difficulty === "easy").length;
+        let numMedium = usedQuestions.filter(q => q.difficulty === "medium").length;
+        let numHard = usedQuestions.filter(q => q.difficulty === "hard").length;
     
-    nextButton.style.display = "block";
-}
-
-function showScore() { 
-    resetState();
-
-    let numEasy = usedQuestions.filter(q => q.difficulty === "easy").length;
-    let numMedium = usedQuestions.filter(q => q.difficulty === "medium").length;
-    let numHard = usedQuestions.filter(q => q.difficulty === "hard").length;
-
-    let maxPossibleScore = (numEasy * 1) + (numMedium * 2) + (numHard * 2.5);
-    let rawScore = score;
-
-    let mathScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
-    let readingScore = localStorage.getItem("readingScore") || 200;
-    let totalSATScore = parseInt(readingScore) + mathScore;
-
-    questionElement.innerHTML = `
-        <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
-        <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
-        <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>
-    `;
-
-    nextButton.innerHTML = "Finish";
-    nextButton.style.display = "block";
-    document.getElementById("progress-bar").style.width = "100%";
-}
+        // Maximum possible score based on selected questions
+        let maxPossibleScore = (numEasy * 1) + (numMedium * 2) + (numHard * 2.5);
+        let rawScore = score;
+    
+        // Convert raw score into a scaled SAT score (200–800)
+        let readingScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+        
+        // Ensure score is within SAT range (200-800)
+        readingScore = Math.min(800, Math.max(200, readingScore));
+    
+        // Store reading score in local storage for Math section
+        localStorage.setItem("readingScore", readingScore);
+    
+        questionElement.innerHTML = `
+            <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
+            <p>Next up: Math section!</p>
+        `;
+    
+        nextButton.innerHTML = "Proceed to Math";
+        nextButton.style.display = "block";
+        document.getElementById("progress-bar").style.width = "100%";
+    }
 
 function handleNextButton() {
     currentQuestionIndex++;

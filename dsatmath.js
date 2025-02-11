@@ -627,29 +627,30 @@ let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
 let currentDifficulty = "medium";
-let totalQuestions = 44; // Ensure exactly 44 questions
 let usedQuestions = [];
+let recentAnswers = [];
+const totalQuestions = 44;
 
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
     usedQuestions = [];
+    recentAnswers = [];
     nextButton.innerHTML = "Next";
-    selectQuestions();
-    showQuestion();
+    showQuestion(selectNextQuestion());
 }
 
-function selectQuestions() {
-    let easyQs = questions.filter(q => q.difficulty === "easy");
-    let mediumQs = questions.filter(q => q.difficulty === "medium");
-    let hardQs = questions.filter(q => q.difficulty === "hard");
+function selectNextQuestion() {
+    let questionPool = questions.filter(q => q.difficulty === currentDifficulty && !usedQuestions.includes(q));
+    
+    if (questionPool.length === 0) {
+        questionPool = questions.filter(q => !usedQuestions.includes(q)); // Fallback if difficulty pool is empty
+    }
 
-    usedQuestions = [
-        ...getRandomQuestions(easyQs, Math.min(14, easyQs.length)),  
-        ...getRandomQuestions(mediumQs, Math.min(15, mediumQs.length)),  
-        ...getRandomQuestions(hardQs, Math.min(15, hardQs.length))    
-    ];
+    let nextQuestion = getRandomQuestions(questionPool, 1)[0]; 
+    usedQuestions.push(nextQuestion);
+    return nextQuestion;
 }
 
 function getRandomQuestions(questionSet, num) {
@@ -657,7 +658,7 @@ function getRandomQuestions(questionSet, num) {
     return shuffled.slice(0, num);
 }
 
-function showQuestion() {
+function showQuestion(question) {
     resetState();
 
     if (currentQuestionIndex >= totalQuestions) {
@@ -665,10 +666,9 @@ function showQuestion() {
         return;
     }
 
-    let currentQuestion = usedQuestions[currentQuestionIndex]; // Use preselected questions
-    questionElement.innerHTML = currentQuestion.question;
+    questionElement.innerHTML = question.question;
     
-    currentQuestion.answers.forEach(answer => {
+    question.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
@@ -676,7 +676,7 @@ function showQuestion() {
         if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
-        button.addEventListener("click", () => selectAnswer(button, currentQuestion));
+        button.addEventListener("click", () => selectAnswer(button, question));
     });
 
     updateProgressBar();
@@ -688,8 +688,6 @@ function resetState() {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
-
-let recentAnswers = [];
 
 function selectAnswer(selectedBtn, question) {
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -703,20 +701,18 @@ function selectAnswer(selectedBtn, question) {
     } else {
         selectedBtn.classList.add("incorrect");
 
-        // Highlight the correct answer when the user selects the wrong one
+        // Highlight the correct answer
         Array.from(answerButtons.children).forEach(button => {
             if (button.dataset.correct === "true") {
-                button.classList.add("correct"); // ✅ Highlight correct answer
+                button.classList.add("correct");
             }
         });
     }
 
     // Disable all buttons after selection
-    Array.from(answerButtons.children).forEach(button => {
-        button.disabled = true;
-    });
+    Array.from(answerButtons.children).forEach(button => button.disabled = true);
 
-    // Difficulty adjustment logic (but it does not affect this quiz run)
+    // Adjust difficulty for next question
     let correctCount = recentAnswers.filter(Boolean).length;
     if (correctCount >= 4) currentDifficulty = "hard";
     else if (correctCount >= 2) currentDifficulty = "medium";
@@ -732,10 +728,9 @@ function showScore() {
     let numMedium = usedQuestions.filter(q => q.difficulty === "medium").length;
     let numHard = usedQuestions.filter(q => q.difficulty === "hard").length;
 
-    let maxPossibleScore = (numEasy * 1) + (numMedium * 2) + (numHard * 2.5);
+    let expectedMaxScore = (14 * 1) + (15 * 2) + (15 * 2.5);
     let rawScore = score;
-
-    let mathScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+    let mathScore = Math.round((rawScore / expectedMaxScore) * 600 + 200);
     let readingScore = localStorage.getItem("readingScore") || 200;
     let totalSATScore = parseInt(readingScore) + mathScore;
 
@@ -753,11 +748,12 @@ function showScore() {
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < totalQuestions) {
-        showQuestion();
+        showQuestion(selectNextQuestion());
     } else {
         showScore();
     }
 }
+
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
     let progress = (currentQuestionIndex / totalQuestions) * 100;
@@ -765,7 +761,7 @@ function updateProgressBar() {
 }
 
 nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < totalQuestions) {
         handleNextButton();
     } else {
         homelink();
