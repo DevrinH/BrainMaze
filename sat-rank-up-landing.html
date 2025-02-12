@@ -12,13 +12,12 @@
    <script>
     document.addEventListener("DOMContentLoaded", function () {
         let level1Score = localStorage.getItem("level1Score");
+        let level2Unlocked = localStorage.getItem("level2Unlocked");
 
-        if (level1Score !== null) {
-            let scoreValue = parseInt(level1Score);
-            
-            if (scoreValue >= 75) {
-                document.getElementById("level-2").disabled = false; // Enable button
-            }
+        // If the user ever got 75%+, keep Level 2 unlocked
+        if (level2Unlocked === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
+            document.getElementById("level-2").disabled = false; // Enable Level 2 button
+            localStorage.setItem("level2Unlocked", "true"); // Store that Level 2 is unlocked
         }
     });
 </script>
