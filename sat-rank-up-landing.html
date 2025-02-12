@@ -13,8 +13,12 @@
     document.addEventListener("DOMContentLoaded", function () {
         let level1Score = localStorage.getItem("level1Score");
 
-        if (level1Score !== null && parseInt(level1Score) >= 80) {
-            document.getElementById("level-2").disabled = false; // Enable button
+        if (level1Score !== null) {
+            let scoreValue = parseInt(level1Score);
+            
+            if (scoreValue >= 75) {
+                document.getElementById("level-2").disabled = false; // Enable button
+            }
         }
     });
 </script>
