@@ -163,7 +163,7 @@ function showScore() {
 
     // Create "Continue Anyway" Button
     const continueButton = document.createElement("button");
-    continueButton.innerHTML = "Continue Anyway";
+    continueButton.innerHTML = "Continue";
     continueButton.classList.add("btn");
     continueButton.onclick = () => ranklink(); // Move to the next section
 
@@ -214,7 +214,7 @@ nextButton.addEventListener("click", ()=>{
         
     }else{
         localStorage.setItem("level1Score", Math.round((score / questions.length) * 100));
-        mathlink(); 
+        ranklink(); 
     }
 });
 
