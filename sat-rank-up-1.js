@@ -147,19 +147,30 @@ function showScore() {
     let percentageScore = Math.round((score / questions.length) * 100); // ✅ Rounds to the nearest whole number
 
     // Save percentage score in localStorage
-    localStorage.setItem("level1Score", percentageScore);
+    localStorage.setItem("readingScore", percentageScore);
 
     if (percentageScore >= 75) {
-        questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>✅ Congratulations! You can move on to the next section.`;
-        nextButton.innerHTML = "Continue";
-        nextButton.onclick = () => mathlink(); // Proceed to the next section
+        questionElement.innerHTML = `🎉 Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>✅ Great job! You can move on to the next section.`;
     } else {
-        questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>❌ You need at least 75% to continue.<br>🔁 Try again!`;
-        nextButton.innerHTML = "Try Again";
-        nextButton.onclick = () => startQuiz(); // Restart the quiz
+        questionElement.innerHTML = `❌ Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>⚠️ You need at least 75% to move on.<br>Would you like to try again or continue anyway?`;
     }
 
-    nextButton.style.display = "block";
+    // Create "Try Again" Button
+    const tryAgainButton = document.createElement("button");
+    tryAgainButton.innerHTML = "Try Again";
+    tryAgainButton.classList.add("btn");
+    tryAgainButton.onclick = () => startQuiz(); // Restart the quiz
+
+    // Create "Continue Anyway" Button
+    const continueButton = document.createElement("button");
+    continueButton.innerHTML = "Continue Anyway";
+    continueButton.classList.add("btn");
+    continueButton.onclick = () => ranklink(); // Move to the next section
+
+    // Display buttons
+    answerButtons.appendChild(tryAgainButton);
+    answerButtons.appendChild(continueButton);
+    
     document.getElementById("progress-bar").style.width = "100%";
 }
 
@@ -180,7 +191,7 @@ function endtimer(){
         console.log("nada")
     }
 }
-function mathlink(){
+function ranklink(){
 
     location.href = "https://www.brainjelli.com/sat-rank-up-landing.html";
 
