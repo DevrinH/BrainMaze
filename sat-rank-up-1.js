@@ -147,7 +147,7 @@ function showScore() {
     let percentageScore = Math.round((score / questions.length) * 100); // ✅ Rounds to the nearest whole number
 
     // Save percentage score in localStorage
-    localStorage.setItem("readingScore", percentageScore);
+    localStorage.setItem("level1Score", percentageScore);
 
     if (percentageScore >= 75) {
         questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>✅ Congratulations! You can move on to the next section.`;
