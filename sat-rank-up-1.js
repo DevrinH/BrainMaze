@@ -19,13 +19,7 @@ function updateCountdown() {
     }
 }
 
-// End quiz when timer runs out
-function endQuiz() {
-    resetState();
-    showScore();
-}
-
-// Automatically stop test after 64 minutes
+// Automatically stop test after 8 minutes
 setTimeout(endQuiz, 480000);
 
 updateCountdown();
@@ -34,10 +28,10 @@ const questions = [
     {
         question: "Q1",
         answers: [
-            { text: "for having a life cycle that extends for as long as seventeen years before emerging from underground ", correct: false},
-            { text: "because its life cycle extends as long as seventeen years before it emerges from underground", correct: false},
-            { text: "in that its life cycle, extending for as long as seventeen years, ends with it emerging from underground", correct: false},
-            { text: "because it has a life cycle that extends up to seventeen years before emerging from underground", correct: true},
+            { text: "Wrong Answer", correct: false},
+            { text: "Right Answer", correct: true},
+            { text: "Wrong Answer", correct: false},
+            { text: "Wrong Answer", correct: false}
         ],
         type: "writing",
         difficulty: "hard"
@@ -45,43 +39,10 @@ const questions = [
     {
         question: "Q2?",
         answers: [
-            { text: "pointing out the lack of accountability among those responsible for oversight ", correct: false},
-            { text: "pointed out the lack of accountability among those responsible for oversight", correct: true},
-            { text: "in addition, it pointed out how there was a lack of accountability among those responsible for oversight", correct: false},
-            { text: "pointed out that a lack of accountability existed among those responsible for oversight", correct: false},
-        ],
-        type: "writing",
-        difficulty: "hard"
-    },
-    {
-        question: "Q3",
-        answers: [
-            { text: "for having a life cycle that extends for as long as seventeen years before emerging from underground ", correct: false},
-            { text: "because its life cycle extends as long as seventeen years before it emerges from underground", correct: false},
-            { text: "in that its life cycle, extending for as long as seventeen years, ends with it emerging from underground", correct: false},
-            { text: "because it has a life cycle that extends up to seventeen years before emerging from underground", correct: true},
-        ],
-        type: "writing",
-        difficulty: "hard"
-    },
-    {
-        question: "Q4?",
-        answers: [
-            { text: "pointing out the lack of accountability among those responsible for oversight ", correct: false},
-            { text: "pointed out the lack of accountability among those responsible for oversight", correct: true},
-            { text: "in addition, it pointed out how there was a lack of accountability among those responsible for oversight", correct: false},
-            { text: "pointed out that a lack of accountability existed among those responsible for oversight", correct: false},
-        ],
-        type: "writing",
-        difficulty: "hard"
-    },
-    {
-        question: "Q5?",
-        answers: [
-            { text: "pointing out the lack of accountability among those responsible for oversight ", correct: false},
-            { text: "pointed out the lack of accountability among those responsible for oversight", correct: true},
-            { text: "in addition, it pointed out how there was a lack of accountability among those responsible for oversight", correct: false},
-            { text: "pointed out that a lack of accountability existed among those responsible for oversight", correct: false},
+            { text: "Wrong Answer", correct: false},
+            { text: "Right Answer", correct: true},
+            { text: "Wrong Answer", correct: false},
+            { text: "Wrong Answer", correct: false}
         ],
         type: "writing",
         difficulty: "hard"
@@ -120,18 +81,19 @@ function showQuestion() {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
+        button.addEventListener("click", selectAnswer);
         answerButtons.appendChild(button);
+
         if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
-        button.addEventListener("click", selectAnswer);
     });
 
     updateProgressBar();
 }
 
 function resetState() {
-    nextButton.style.display = "none";
+    nextButton.style.display = "none"; // Hide "Next" button until an answer is selected
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -149,6 +111,7 @@ function selectAnswer(e) {
         selectedBtn.classList.add("incorrect");
     }
 
+    // Show correct answer after selection
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
@@ -156,7 +119,7 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    nextButton.style.display = "block";
+    nextButton.style.display = "block"; // Show "Next" button after answering
 }
 
 function showScore() {
@@ -195,6 +158,7 @@ function updateProgressBar() {
     progressBar.style.width = progress + "%";
 }
 
+// ✅ FIX: Now, the next button properly advances the quiz.
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < selectedQuestions.length) {
         handleNextButton();
