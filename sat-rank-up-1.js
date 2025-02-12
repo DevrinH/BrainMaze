@@ -147,7 +147,7 @@ function showScore() {
     let percentageScore = Math.round((score / questions.length) * 100); // ✅ Rounds to the nearest whole number
 
     // Save percentage score in localStorage
-    localStorage.setItem("readingScore", percentageScore);
+    localStorage.setItem("level1Score", percentageScore);
 
     if (percentageScore >= 75) {
         questionElement.innerHTML = `🎉 Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>✅ Great job! You can move on to the next section.`;
@@ -213,7 +213,7 @@ nextButton.addEventListener("click", ()=>{
         handleNextButton();
         
     }else{
-        localStorage.setItem("level1Score", score); 
+        localStorage.setItem("level1Score", Math.round((score / questions.length) * 100));
         mathlink(); 
     }
 });
