@@ -146,13 +146,23 @@ function showScore() {
     resetState();
     let percentageScore = Math.round((score / questions.length) * 100); // ✅ Rounds to the nearest whole number
 
-    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentageScore}%)!`;
-    nextButton.innerHTML = "Continue";
+    // Save percentage score in localStorage
+    localStorage.setItem("readingScore", percentageScore);
+
+    if (percentageScore >= 75) {
+        questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>✅ Congratulations! You can move on to the next section.`;
+        nextButton.innerHTML = "Continue";
+        nextButton.onclick = () => mathlink(); // Proceed to the next section
+    } else {
+        questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>❌ You need at least 75% to continue.<br>🔁 Try again!`;
+        nextButton.innerHTML = "Try Again";
+        nextButton.onclick = () => startQuiz(); // Restart the quiz
+    }
+
     nextButton.style.display = "block";
-    
-    // Set progress bar to 100% when finished
     document.getElementById("progress-bar").style.width = "100%";
 }
+
 function handleNextButton(){
     currentQuestionIndex++;
     if(currentQuestionIndex < questions.length && time > 0){
@@ -172,7 +182,7 @@ function endtimer(){
 }
 function mathlink(){
 
-    location.href = "https://www.brainjelli.com/math.html";
+    location.href = "https://www.brainjelli.com/sat-rank-up-landing.html";
 
 }
 
@@ -192,7 +202,7 @@ nextButton.addEventListener("click", ()=>{
         handleNextButton();
         
     }else{
-        localStorage.setItem("readingScore", score); 
+        localStorage.setItem("level1Score", score); 
         mathlink(); 
     }
 });

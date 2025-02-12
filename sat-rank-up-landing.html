@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>  
+   <title>satlandingpage</title>
+   <meta name="viewport" content="width=device-width, initial-scale=0\1.0" />  
+   <link href="https://www.brainjelli.com/main.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+
+
+
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let level1Score = localStorage.getItem("level1Score");
+
+        if (level1Score !== null && parseInt(level1Score) >= 80) {
+            document.getElementById("level-2").disabled = false; // Enable button
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+   <body>
+  <div class="header">
+   <header>
+  
+    <a href="https://www.brainjelli.com/">
+      <img src="BrainJelliLOGO.png" height="170">
+     </a>
+   <div class="wrapper">
+
+  </header>
+
+  <nav>
+    <form>
+       <div class="search">
+          <span class="search-icon material-symbols-outlined">search</span>
+          <input class="search-input" type="search" style="color:rgb(255, 255, 255);"placeholder="Search for a test..." >
+       </div>
+    </form>
+ </nav>
+
+ <div>
+
+    <h1 class="satprep">SAT Rank up</h1>
+    <p class="aboutsat"> Each level consists of reading, writing, and math. Each level gets harder as you go. Challenege yourself and see how far you can go. 
+     </p>
+
+  </div>
+
+  <div class="testlessonscontainer">
+
+  <h2 class="makebungee">SAT Level Modules</h2>
+  <br/>
+
+
+
+////level 1
+
+  <div class="container" >
+    <div class="satplacement" >
+          <button class="satbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-test.html'">1</button>
+    </div>
+
+    <div class="satdesc">
+          <p class="pbungee"> <p>
+    </div>
+</div>
+
+/////level 2
+
+<div class="container" >
+  <div class="satplacement" >
+        <button id="level-2" class="dsatbutton" type="button" onclick="location.href='https://www.brainjelli.com/dsat.html'">2</button>
+  </div>
+
+  <div class="satdesc">
+        <p class="pbungee">  <p>
+  </div>
+</div>
+
+
+////level 3
+
+
+  <div class="container">
+        <div>
+       <button class="satbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-untimed.html'">SAT</button>
+       </div>
+       <div class="satdesc">
+        <p class="pbungee">Untimed SAT Prep Test </p><p>Non-timed SAT practice test. Wrong answers and explanations will be shown.</p>
+           </div>
+  </div>
+
+  <div class="container">
+    <div>
+   <button class="satbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-just-reading-1.html'">SAT</button>
+   </div>
+   <div class="satdesc">
+    <p class="pbungee">Timed SAT (just Reading) </p><p>Timed SAT practice test. Wrong answers will be shown.</p>
+       </div>
+</div>
+
+<div class="container">
+  <div>
+ <button class="satbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-just-math-1.html'">SAT</button>
+ </div>
+ <div class="satdesc">
+  <p class="pbungee">Timed SAT (just math) </p><p>Timed SAT practice test. Wrong answers will be shown.</p>
+     </div>
+</div>
+
+<div class="container">
+  <div>
+ <button class="satbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-vocab-multi-1.html'">SAT</button>
+ </div>
+ <div class="satdesc">
+  <p class="pbungee">Multiple Choice Vocab test</p><p>Test your vocabulary knowledge.</p>
+     </div>
+</div>
+
+  <div class="container">
+    <div>
+   <button class="satbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-vocab'">SAT</button>
+   </div>
+   <div class="satdesc">
+    <p class="pbungee">Vocabulary</p> <p>Flashcards of the most common SAT words.      </p>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+
