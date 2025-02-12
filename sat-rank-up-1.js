@@ -88,54 +88,17 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
-let correctAnswers = 0;
-let selectedQuestions = [];
 
-function startQuiz() {
+function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
-    correctAnswers = 0;
-
-    // Select 54 questions (ordered Easy → Medium → Hard)
-    selectedQuestions = selectRandomQuestions(questions, 18, 18, 18);
-
     nextButton.innerHTML = "Next";
     showQuestion();
 }
 
-function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
-    // Separate questions by difficulty
-    const easyQuestions = questions.filter(q => q.difficulty === "easy");
-    const mediumQuestions = questions.filter(q => q.difficulty === "medium");
-    const hardQuestions = questions.filter(q => q.difficulty === "hard");
-
-    // Further separate by type (reading/writing)
-    const easyReading = easyQuestions.filter(q => q.type === "reading");
-    const easyWriting = easyQuestions.filter(q => q.type === "writing");
-
-    const mediumReading = mediumQuestions.filter(q => q.type === "reading");
-    const mediumWriting = mediumQuestions.filter(q => q.type === "writing");
-
-    const hardReading = hardQuestions.filter(q => q.type === "reading");
-    const hardWriting = hardQuestions.filter(q => q.type === "writing");
-
-    // Function to get random questions
-    function getRandom(arr, num) {
-        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
-    }
-
-    // Select 9 reading and 9 writing questions for each difficulty level
-    const selectedEasy = [...getRandom(easyReading, numEasy / 2), ...getRandom(easyWriting, numEasy / 2)];
-    const selectedMedium = [...getRandom(mediumReading, numMedium / 2), ...getRandom(mediumWriting, numMedium / 2)];
-    const selectedHard = [...getRandom(hardReading, numHard / 2), ...getRandom(hardWriting, numHard / 2)];
-
-    // Return ordered questions (Easy → Medium → Hard)
-    return [...selectedEasy, ...selectedMedium, ...selectedHard];
-}
-
 function showQuestion() {
     resetState();
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
@@ -150,92 +113,89 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
 
-    updateProgressBar();
+    updateProgressBar(); // Update progress bar
 }
 
-function resetState() {
+
+function resetState(){
     nextButton.style.display = "none";
-    while (answerButtons.firstChild) {
+    while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
 
-function selectAnswer(e) {
+function selectAnswer(e){
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    let questionDifficulty = selectedQuestions[currentQuestionIndex].difficulty;
-
-    if (isCorrect) {
+    if(isCorrect){
         selectedBtn.classList.add("correct");
-        correctAnswers++;
-
-        // Fixed weighted scoring based on difficulty (NO scaling)
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
-        }
-    } else {
+        score++;
+    }else{
         selectedBtn.classList.add("incorrect");
     }
-
     Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
+        if(button.dataset.correct === "true"){
             button.classList.add("correct");
         }
         button.disabled = true;
     });
-
     nextButton.style.display = "block";
 }
 
 function showScore() {
-    clearInterval(refreshIntervalId); // ✅ Stops the countdown when test is completed early
     resetState();
+    let percentageScore = Math.round((score / questions.length) * 100); // ✅ Rounds to the nearest whole number
 
-    let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3); // 18 easy, 18 medium, 18 hard
-    let rawScore = score;
-
-    // Convert raw score to SAT scaled score (approximation)
-    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
-
-    // Store in local storage for use in other sections
-    localStorage.setItem("readingScore", scaledScore);
-
-    questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
+    questionElement.innerHTML = `Score: ${score} out of ${questions.length} (${percentageScore}%)!`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
-
+    
+    // Set progress bar to 100% when finished
     document.getElementById("progress-bar").style.width = "100%";
 }
-
-function handleNextButton() {
+function handleNextButton(){
     currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) { // ✅ FIXED: Now uses selectedQuestions
+    if(currentQuestionIndex < questions.length && time > 0){
         showQuestion();
-    } else {
+    }else{
         showScore();
+        endtimer();
+        clearInterval(refreshIntervalId);
     }
+}
+
+function endtimer(){
+    if(currentQuestionIndex === 3){
+        
+        console.log("nada")
+    }
+}
+function mathlink(){
+
+    location.href = "https://www.brainjelli.com/math.html";
+
 }
 
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
-    let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
     progressBar.style.width = progress + "%";
 }
 
-nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < selectedQuestions.length) { // ✅ FIXED: Now uses selectedQuestions
+
+
+
+
+
+nextButton.addEventListener("click", ()=>{
+    if(currentQuestionIndex < questions.length && time > 0){
         handleNextButton();
-    } else {
-        mathlink();
+        
+    }else{
+        localStorage.setItem("readingScore", score); 
+        mathlink(); 
     }
 });
 
-function mathlink() {
-    location.href = "https://www.brainjelli.com/math.html";
-}
 
 startQuiz();
