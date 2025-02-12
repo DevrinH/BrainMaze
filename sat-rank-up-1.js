@@ -208,13 +208,19 @@ function updateProgressBar() {
 
 
 
-nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length && time > 0){
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length && time > 0) {
         handleNextButton();
-        
-    }else{
-        localStorage.setItem("level1Score", Math.round((score / questions.length) * 100));
-        ranklink(); 
+    } else {
+        let percentageScore = Math.round((score / questions.length) * 100);
+        localStorage.setItem("level1Score", percentageScore); // Save Level 1 score
+
+        // Check if the user qualifies to unlock Level 2
+        if (percentageScore >= 75) {
+            localStorage.setItem("level2Unlocked", "true"); // Unlock Level 2 permanently
+        }
+
+        ranklink(); // Move to the next page
     }
 });
 
