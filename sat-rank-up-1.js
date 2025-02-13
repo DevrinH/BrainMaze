@@ -33,7 +33,7 @@ updateCountdown();
 
 const questions = [
     {
-        question: "QThe museum, which houses ancient artifacts from various civilizations, attract thousands of visitors every year.<br/>Which choice best corrects the underlined portion?",
+        question: "The museum, which houses ancient artifacts from various civilizations, attract thousands of visitors every year.<br/>Which choice best corrects the underlined portion?",
         answers: [
             { text: "attract", correct: false },
             { text: "attracts", correct: true },
