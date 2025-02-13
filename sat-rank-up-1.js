@@ -75,7 +75,7 @@ const questions = [
         ],
         type: "reading",
         difficulty: "easy"
-    }
+    },
     {
         question: "The scientist's theory was initially met with skepticism, but over time, the evidence became incontrovertible.<br/>In this context, 'incontrovertible' most nearly means:",
         answers: [
@@ -86,50 +86,51 @@ const questions = [
         ],
         type: "reading",
         difficulty: "easy"
-    }    {
-        question: "Q4",
+    },    
+    {
+        question: "Lena carefully wrapped the gift in bright paper, tied a ribbon around it, and wrote a heartfelt note before placing it on the table with a smile.",
         answers: [
-            { text: "", correct: true },
-            { text: "", correct: false },
-            { text: "", correct: false },
-            { text: "", correct: false },
+            { text: "She is excited about giving the gift.", correct: true },
+            { text: "She is unsure about whether the gift is appropriate.", correct: false },
+            { text: "She regrets buying the gift.", correct: false },
+            { text: "She is worried the recipient won’t like the gift.", correct: false },
         ],
         type: "reading",
         difficulty: "easy"
-    }    {
-        question: "Q4",
+    },    
+    {
+        question: "What is the value of x in the equation 3x + 5 = 14?",
         answers: [
-            { text: "", correct: true },
-            { text: "", correct: false },
-            { text: "", correct: false },
-            { text: "", correct: false },
+            { text: "2", correct: false },
+            { text: "3", correct: false },
+            { text: "4", correct: true },
+            { text: "5", correct: false },
         ],
-        type: "reading",
+        type: "math",
         difficulty: "easy"
-    }    {
-        question: "Q4",
+    },
+    {
+        question: "A store is offering a 20% discount on a jacket that originally costs $50. What is the sale price of the jacket?",
         answers: [
-            { text: "", correct: true },
-            { text: "", correct: false },
-            { text: "", correct: false },
-            { text: "", correct: false },
+            { text: "$30", correct: false },
+            { text: "$35", correct: false },
+            { text: "$40", correct: true },
+            { text: "$45", correct: false },
         ],
-        type: "reading",
+        type: "math",
         difficulty: "easy"
-    }    {
-        question: "Q4",
+    },
+    {
+        question: "A rectangle has a length of 8 units and a width of 5 units. What is its area?",
         answers: [
-            { text: "", correct: true },
-            { text: "", correct: false },
-            { text: "", correct: false },
-            { text: "", correct: false },
+            { text: "13 square units", correct: false },
+            { text: "30 square units", correct: false },
+            { text: "40 square units", correct: true },
+            { text: "80 square units", correct: false },
         ],
-        type: "reading",
+        type: "math",
         difficulty: "easy"
     }
-
- 
-
 ];
 
 const questionElement = document.getElementById("question");
