@@ -11,46 +11,27 @@
 
    <script>
 document.addEventListener("DOMContentLoaded", function () {
-        let level1Score = localStorage.getItem("level1Score");
-        let level2Unlocked = localStorage.getItem("level2Unlocked");
+    let level1Score = localStorage.getItem("level1Score");
+    let level2Score = localStorage.getItem("level2Score");
 
-        // If the user ever got 75%+, keep Level 2 unlocked
-        if (level2Unlocked === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
-            document.getElementById("level-2").disabled = false; // Enable Level 2 button
-            localStorage.setItem("level2Unlocked", "true"); // Store that Level 2 is unlocked
-        }
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        let level2Score = localStorage.getItem("level2Score");
-        let level3Unlocked = localStorage.getItem("level3Unlocked");
+    // Unlock Level 2 if Level 1 score was ever 75%+
+    if (localStorage.getItem("level2Unlocked") === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
+        document.getElementById("level-2").disabled = false;
+        localStorage.setItem("level2Unlocked", "true");
+    }
 
-        // If the user ever got 75%+, keep Level 2 unlocked
-        if (level3Unlocked === "true" || (level2Score !== null && parseInt(level2Score) >= 75)) {
-            document.getElementById("level-3").disabled = false; // Enable Level 2 button
-            localStorage.setItem("level3Unlocked", "true"); // Store that Level 2 is unlocked
-        }
-    });
-
-    document.getElementById("restart-progress").addEventListener("click", function () {
-    // Clear all level progress from localStorage
-    localStorage.removeItem("level1Score");
-    localStorage.removeItem("level2Score");
-    localStorage.removeItem("level3Score");
-    localStorage.removeItem("level2Unlocked");
-    localStorage.removeItem("level3Unlocked");
-
-    // Reset button states to locked
-    let levels = [2, 3, 4, 5, 6, 7]; 
-    levels.forEach(level => {
-        let button = document.getElementById(`level-${level}`);
-        if (button) {
-            button.disabled = true;  // Disable level buttons
-            button.classList.add("locked"); // Add fade effect
-        }
-    });
-
-    alert("Progress has been reset!");
+    // Unlock Level 3 if Level 2 score was ever 75%+
+    if (localStorage.getItem("level3Unlocked") === "true" || (level2Score !== null && parseInt(level2Score) >= 75)) {
+        document.getElementById("level-3").disabled = false;
+        localStorage.setItem("level3Unlocked", "true");
+    }
+        // Unlock Level 4 if Level 2 score was ever 75%+
+        if (localStorage.getItem("level4Unlocked") === "true" || (level3Score !== null && parseInt(level3Score) >= 75)) {
+        document.getElementById("level-4").disabled = false;
+        localStorage.setItem("level4Unlocked", "true");
+    }
 });
+
 
 </script>
 
