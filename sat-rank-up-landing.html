@@ -10,19 +10,21 @@
 
 
    <script>
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     let levels = [2, 3, 4, 5, 6, 7]; // Add all level numbers
+
     levels.forEach(level => {
         let unlocked = localStorage.getItem(`level${level}Unlocked`);
         let button = document.getElementById(`level-${level}`);
         
         if (unlocked === "true") {
             button.disabled = false;  // Enable button
+            button.classList.remove("locked"); // Remove fade effect
         } else {
             button.classList.add("locked"); // Apply fading effect
         }
     });
-});
+
     // Unlock Level 2 if Level 1 score was ever 75%+
     let level1Score = localStorage.getItem("level1Score");
     if (localStorage.getItem("level2Unlocked") === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
@@ -32,10 +34,13 @@
 
     // Unlock Level 3 if Level 2 score was ever 75%+
     let level2Score = localStorage.getItem("level2Score");
-    if (localStorage.getItem("level3Unlocked") === "true" || (level2Score !== null && parseInt(level2Score) >= 75)) {
+    let level2Unlocked = localStorage.getItem("level2Unlocked");
+
+    if (localStorage.getItem("level3Unlocked") === "true" || (level2Unlocked === "true" && level2Score !== null && parseInt(level2Score) >= 75)) {
         localStorage.setItem("level3Unlocked", "true"); // Ensure it's permanently stored
         document.getElementById("level-3").disabled = false; // Enable Level 3 button
     }
+});
 
 </script>
 
