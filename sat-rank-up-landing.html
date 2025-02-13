@@ -33,13 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Unlock Level 3 if Level 2 score was ever 75%+
-    document.addEventListener("DOMContentLoaded", function () {
-    let level3Unlocked = localStorage.getItem("level3Unlocked");
-
-    if (level3Unlocked === "true") {
-        document.getElementById("level-3").disabled = false; // Enable Level 3 button
+    let level2Score = localStorage.getItem("level2Score");
+    if (localStorage.getItem("level3Unlocked") === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
+        localStorage.setItem("level3Unlocked", "true"); // Ensure it's permanently stored
+        document.getElementById("level-3").disabled = false; // Enable Level 2 button
     }
-});
 
 </script>
 
