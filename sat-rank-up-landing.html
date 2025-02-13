@@ -11,35 +11,34 @@
 
    <script>
 document.addEventListener("DOMContentLoaded", function () {
-        let level1Score = localStorage.getItem("level1Score");
-        let level2Unlocked = localStorage.getItem("level2Unlocked");
+    let level1Score = localStorage.getItem("level1Score");
+    let level2Unlocked = localStorage.getItem("level2Unlocked");
 
-        // If the user ever got 75%+, keep Level 2 unlocked
-        if (level2Unlocked === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
-            document.getElementById("level-2").disabled = false; // Enable Level 2 button
-            localStorage.setItem("level2Unlocked", "true"); // Store that Level 2 is unlocked
-        }
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        let level2Score = localStorage.getItem("level2Score");
-        let level3Unlocked = localStorage.getItem("level3Unlocked");
+    console.log("Level 1 Score:", level1Score); // Debugging
 
-        // If the user ever got 75%+, keep Level 2 unlocked
-        if (level3Unlocked === "true" || (level2Score !== null && parseInt(level2Score) >= 75)) {
-            document.getElementById("level-3").disabled = false; // Enable Level 2 button
-            localStorage.setItem("level3Unlocked", "true"); // Store that Level 2 is unlocked
+    if (level2Unlocked === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
+        let level2Button = document.getElementById("level-2");
+        if (level2Button) {
+            level2Button.disabled = false;
+            localStorage.setItem("level2Unlocked", "true");
         }
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        let level3Score = localStorage.getItem("level3Score");
-        let level4Unlocked = localStorage.getItem("level4Unlocked");
+    }
+});
 
-        // If the user ever got 75%+, keep Level 2 unlocked
-        if (level4Unlocked === "true" || (level3Score !== null && parseInt(level3Score) >= 75)) {
-            document.getElementById("level-4").disabled = false; // Enable Level 2 button
-            localStorage.setItem("level4Unlocked", "true"); // Store that Level 2 is unlocked
+document.addEventListener("DOMContentLoaded", function () {
+    let level2Score = localStorage.getItem("level2Score");
+    let level3Unlocked = localStorage.getItem("level3Unlocked");
+
+    console.log("Level 2 Score:", level2Score); // Debugging
+
+    if (level3Unlocked === "true" || (level2Score !== null && parseInt(level2Score) >= 75)) {
+        let level3Button = document.getElementById("level-3");
+        if (level3Button) {
+            level3Button.disabled = false;
+            localStorage.setItem("level3Unlocked", "true");
         }
-    });
+    }
+});
 
 </script>
 
