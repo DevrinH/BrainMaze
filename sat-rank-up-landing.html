@@ -34,19 +34,16 @@
         }
     });
     document.addEventListener("DOMContentLoaded", function () {
-    let level3Unlocked = localStorage.getItem("level3Unlocked");
+        let level2Score = localStorage.getItem("level2Score");
+        let level3Unlocked = localStorage.getItem("level3Unlocked");
 
-    if (level3Unlocked === "true") {
-        document.getElementById("level-3").disabled = false; // Enable Level 3 button
-    }
-});
-document.addEventListener("DOMContentLoaded", function () {
-    let level4Unlocked = localStorage.getItem("level4Unlocked");
+        // If the user ever got 75%+, keep Level 3 unlocked
+        if (level2Unlocked === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
+            document.getElementById("level-3").disabled = false; // Enable Level 2 button
+            localStorage.setItem("level3Unlocked", "true"); // Store that Level 2 is unlocked
+        }
+    });
 
-    if (level4Unlocked === "true") {
-        document.getElementById("level-4").disabled = false; // Enable Level 3 button
-    }
-});
 </script>
 
 
