@@ -23,26 +23,19 @@
         }
     });
 });
-    document.addEventListener("DOMContentLoaded", function () {
-        let level1Score = localStorage.getItem("level1Score");
-        let level2Unlocked = localStorage.getItem("level2Unlocked");
+    // Unlock Level 2 if Level 1 score was ever 75%+
+    let level1Score = localStorage.getItem("level1Score");
+    if (localStorage.getItem("level2Unlocked") === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
+        localStorage.setItem("level2Unlocked", "true"); // Ensure it's permanently stored
+        document.getElementById("level-2").disabled = false; // Enable Level 2 button
+    }
 
-        // If the user ever got 75%+, keep Level 2 unlocked
-        if (level2Unlocked === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
-            document.getElementById("level-2").disabled = false; // Enable Level 2 button
-            localStorage.setItem("level2Unlocked", "true"); // Store that Level 2 is unlocked
-        }
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        let level2Score = localStorage.getItem("level2Score");
-        let level3Unlocked = localStorage.getItem("level3Unlocked");
-
-        // If the user ever got 75%+, keep Level 3 unlocked
-        if (level2Unlocked === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
-            document.getElementById("level-3").disabled = false; // Enable Level 2 button
-            localStorage.setItem("level3Unlocked", "true"); // Store that Level 2 is unlocked
-        }
-    });
+    // Unlock Level 3 if Level 2 score was ever 75%+
+    let level2Score = localStorage.getItem("level2Score");
+    if (localStorage.getItem("level3Unlocked") === "true" || (level2Score !== null && parseInt(level2Score) >= 75)) {
+        localStorage.setItem("level3Unlocked", "true"); // Ensure it's permanently stored
+        document.getElementById("level-3").disabled = false; // Enable Level 3 button
+    }
 
 </script>
 
@@ -114,7 +107,7 @@
 
   <div class="container">
         <div>
-       <button id="level-3" disabled class="levelbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-untimed.html'">3</button>
+       <button id="level-3" disabled class="levelbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-test-3.html'">3</button>
        </div>
        <div class="satdesc">
         <p class="pbungee">Level-3 </p><p>Difficulty level: Easy</p>
