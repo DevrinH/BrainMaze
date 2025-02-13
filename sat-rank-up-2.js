@@ -258,27 +258,19 @@ function updateProgressBar() {
 
 
 
-
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length && time > 0) {
         handleNextButton();
     } else {
         let percentageScore = Math.round((score / questions.length) * 100);
-        
-        // Ensure score is saved before moving to the next level
-        localStorage.setItem("level2Score", percentageScore);
-        console.log("Level 2 Score Saved:", percentageScore); // Debugging check
+        localStorage.setItem("level2Score", percentageScore); // Save Level 2 score
 
-        // Unlock Level 3 if score is 75% or higher
+        // Check if the user qualifies to unlock Level 3
         if (percentageScore >= 75) {
-            localStorage.setItem("level3Unlocked", "true");
-            console.log("Level 3 Unlocked!"); // Debugging check
+            localStorage.setItem("level3Unlocked", "true"); // Unlock Level 3 permanently
         }
 
-        // Delay redirection slightly to ensure localStorage is updated
-        setTimeout(() => {
-            ranklink();
-        }, 500); // 0.5 second delay to allow storage to save
+        ranklink(); // Move to the next page
     }
 });
 
