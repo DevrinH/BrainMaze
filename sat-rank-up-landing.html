@@ -54,7 +54,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    function unlockLevel(level, requiredScore) {
+        let score = localStorage.getItem(`level${level - 1}Score`);
+        let unlocked = localStorage.getItem(`level${level}Unlocked`);
 
+        if (unlocked === "true" || (score !== null && parseInt(score) >= requiredScore)) {
+            let button = document.getElementById(`level-${level}`);
+            if (button) {
+                button.disabled = false;
+                localStorage.setItem(`level${level}Unlocked`, "true");
+            }
+        }
+    }
+
+    // Unlock levels based on scores
+    unlockLevel(2, 75);
+    unlockLevel(3, 75);
+    unlockLevel(4, 75);
+    unlockLevel(5, 75);
+    unlockLevel(6, 75);
+    unlockLevel(7, 75);
+
+    // Reset Progress Button
+    document.getElementById("restart-progress").addEventListener("click", function () {
+        if (confirm("Are you sure you want to reset all progress?")) {
+            localStorage.clear(); // Clear all stored progress
+            location.reload(); // Reload the page to reset buttons
+        }
+    });
+});
 </script>
 
 
