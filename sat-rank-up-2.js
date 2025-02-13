@@ -33,100 +33,100 @@ updateCountdown();
 
 const questions = [
     {
-        question: "QThe museum, which houses ancient artifacts from various civilizations, attract thousands of visitors every year.<br/>Which choice best corrects the underlined portion?",
+        question: "The group of students ___ planning a trip to the museum next week.",
         answers: [
-            { text: "attract", correct: false },
-            { text: "attracts", correct: true },
-            { text: "have attracted", correct: false },
-            { text: " are attracting", correct: false },
+            { text: "are", correct: false },
+            { text: "is", correct: true },
+            { text: "were", correct: false },
+            { text: "have been", correct: false },
+        ],
+        type: "writing",
+        difficulty: "easy"
+    },
+    {
+        question: "After the storm, the hikers had to find an ___ route because their usual path was blocked.",
+        answers: [
+            { text: "alternative", correct: true },
+            { text: "alternating", correct: false },
+            { text: "alternate", correct: false },
+            { text: "alteration", correct: false },
+        ],
+        type: "writing",
+        difficulty: "easy"
+    },
+    {
+        question: 'The scientist conducted an experiment in order to test out a new hypothesis. Which choice best improves the sentence?',
+        answers: [
+            { text: "The scientist conducted an experiment for testing out a new hypothesis.", correct: false },
+            { text: "The scientist did an experiment to test a new hypothesis.", correct: false },
+            { text: "The scientist conducted an experiment to test a new hypothesis.", correct: true },
+            { text: "The scientist performed an experiment in order to test out a new hypothesis.", correct: false },
+        ],
+        type: "writing",
+        difficulty: "easy"
+    },
+    {
+        question: "What is the main idea of the passage? 'Marie Curie’s groundbreaking research on radioactivity not only earned her two Nobel Prizes but also paved the way for advancements in medicine and energy. Her discoveries laid the foundation for modern cancer treatments and nuclear power generation.'",
+        answers: [
+            { text: "Marie Curie won two Nobel Prizes but faced many challenges.", correct: false },
+            { text: "Marie Curie’s research significantly impacted medicine and energy.", correct: true },
+            { text: "The dangers of radioactivity were unknown during Marie Curie’s time.", correct: false },
+            { text: "Marie Curie was the only scientist working on radioactivity.", correct: false },
         ],
         type: "reading",
         difficulty: "easy"
     },
     {
-        question: "She was so engrossed in her book that she barely noticed when someone set next to her on the bench.<br/>Which choice best corrects the underlined portion?",
+        question: "In this context, 'acquiesced' most nearly means: 'Despite his initial reluctance, James ultimately acquiesced to his friend’s request to join the debate team.'",
         answers: [
-            { text: "set", correct: false },
-            { text: "sat", correct: true },
-            { text: "has set", correct: false },
-            { text: "sits", correct: false },
+            { text: "refused", correct: false },
+            { text: "agreed", correct: true },
+            { text: "suggested", correct: false },
+            { text: "criticized", correct: false },
         ],
         type: "reading",
         difficulty: "easy"
     },
     {
-        question: "In order to successfully complete the project, the team must cooperate together and communicate effectively.<br/>Which choice best corrects the underlined portion?",
+        question: "What can be inferred about Sarah? 'As she stood at the edge of the diving board, Sarah took a deep breath, her hands trembling slightly. Below, the water shimmered in the sunlight, both inviting and intimidating.'",
         answers: [
-            { text: " cooperate and communicate effectively", correct: true },
-            { text: "cooperate together and talk efficiently", correct: false },
-            { text: "cooperate alongside one another and communicate effectively", correct: false },
-            { text: "cooperating together and communicating effectively", correct: false },
+            { text: "She is an experienced diver.", correct: false },
+            { text: "She is nervous about jumping.", correct: true },
+            { text: "She prefers swimming to diving.", correct: false },
+            { text: "She is afraid of the water.", correct: false },
         ],
         type: "reading",
         difficulty: "easy"
     },
     {
-        question: "Bees play a crucial role in pollination, transferring pollen between flowers to facilitate plant reproduction. Without bees, many crops would struggle to produce fruit, leading to significant food shortages.<br/>What is the main idea of the passage?",
-        answers: [
-            { text: "Bees are dangerous insects that harm crops.", correct: false },
-            { text: "Bees are essential for plant reproduction and food production.", correct: true },
-            { text: "Many plants can reproduce without pollination.", correct: false },
-            { text: "Bees only pollinate flowers in specific regions.", correct: false },
-        ],
-        type: "reading",
-        difficulty: "easy"
-    },
-    {
-        question: "The scientist's theory was initially met with skepticism, but over time, the evidence became incontrovertible.<br/>In this context, 'incontrovertible' most nearly means:",
-        answers: [
-            { text: "debatable", correct: false },
-            { text: "debatable", correct: true },
-            { text: "complicated", correct: false },
-            { text: "confusing", correct: false },
-        ],
-        type: "reading",
-        difficulty: "easy"
-    },    
-    {
-        question: "Lena carefully wrapped the gift in bright paper, tied a ribbon around it, and wrote a heartfelt note before placing it on the table with a smile.",
-        answers: [
-            { text: "She is excited about giving the gift.", correct: true },
-            { text: "She is unsure about whether the gift is appropriate.", correct: false },
-            { text: "She regrets buying the gift.", correct: false },
-            { text: "She is worried the recipient won’t like the gift.", correct: false },
-        ],
-        type: "reading",
-        difficulty: "easy"
-    },    
-    {
-        question: "What is the value of x in the equation 3x + 5 = 14?",
+        question: "What is the value of x in the equation 4x - 6 = 10?",
         answers: [
             { text: "2", correct: false },
             { text: "3", correct: false },
-            { text: "4", correct: true },
-            { text: "5", correct: false },
+            { text: "4", correct: false },
+            { text: "5", correct: true },
         ],
         type: "math",
         difficulty: "easy"
     },
     {
-        question: "A store is offering a 20% discount on a jacket that originally costs $50. What is the sale price of the jacket?",
+        question: "If 2/3 of a number is 12, what is the number?",
         answers: [
-            { text: "$30", correct: false },
-            { text: "$35", correct: false },
-            { text: "$40", correct: true },
-            { text: "$45", correct: false },
+            { text: "16", correct: false },
+            { text: "18", correct: true },
+            { text: "20", correct: false },
+            { text: "24", correct: false },
         ],
         type: "math",
         difficulty: "easy"
     },
     {
-        question: "A rectangle has a length of 8 units and a width of 5 units. What is its area?",
+        question: "A triangle has a base of 10 units and a height of 6 units. What is its area?",
         answers: [
-            { text: "13 square units", correct: false },
-            { text: "30 square units", correct: false },
-            { text: "40 square units", correct: true },
-            { text: "80 square units", correct: false },
+            { text: "20 square units", correct: false },
+            { text: "30 square units", correct: true },
+            { text: "40 square units", correct: false },
+            { text: "60 square units", correct: false },
         ],
         type: "math",
         difficulty: "easy"
