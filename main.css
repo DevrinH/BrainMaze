@@ -211,6 +211,12 @@ footer{
   font-size: 11px;
   color: white;
 }
+.levelbutton:disabled {
+  background-color: #999; /* Gray for locked levels */
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 
 .levelbutton{
   background-image: linear-gradient(#ff831d, #ff42e6);
@@ -230,12 +236,6 @@ footer{
   margin-bottom: 25px;
 }
 
-.levelbutton:disabled {
-  background-color: #999; /* Gray for locked levels */
-  color: #666;
-  cursor: not-allowed;
-  opacity: 0.5;
-}
 
 
 .satbutton{
