@@ -20,6 +20,13 @@
             localStorage.setItem("level2Unlocked", "true"); // Store that Level 2 is unlocked
         }
     });
+    document.addEventListener("DOMContentLoaded", function () {
+    let level3Unlocked = localStorage.getItem("level3Unlocked");
+
+    if (level3Unlocked === "true") {
+        document.getElementById("level-3").disabled = false; // Enable Level 3 button
+    }
+});
 </script>
 
 
@@ -82,7 +89,7 @@
 
 <div class="container" >
   <div class="satplacement" >
-        <button id="level-2" disabled class="dsatbutton" type="button" onclick="location.href='https://www.brainjelli.com/dsat.html'">2</button>
+        <button id="level-2" disabled class="levelbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-2.html'">2</button>
   </div>
 
   <div class="satdesc">
@@ -96,7 +103,7 @@
 
   <div class="container">
         <div>
-       <button class="satbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-untimed.html'">SAT</button>
+       <button id="level-3" disabled class="satbutton" type="button" onclick="location.href='https://www.brainjelli.com/sat-untimed.html'">SAT</button>
        </div>
        <div class="satdesc">
         <p class="pbungee">Untimed SAT Prep Test </p><p>Non-timed SAT practice test. Wrong answers and explanations will be shown.</p>
