@@ -36,6 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let level2Score = localStorage.getItem("level2Score");
     let level2Unlocked = localStorage.getItem("level2Unlocked");
 
+    console.log("Level 2 Score:", level2Score);
+    console.log("Level 2 Unlocked:", level2Unlocked);
+
     if (localStorage.getItem("level3Unlocked") === "true" || (level2Unlocked === "true" && level2Score !== null && parseInt(level2Score) >= 75)) {
         localStorage.setItem("level3Unlocked", "true"); // Ensure it's permanently stored
         document.getElementById("level-3").disabled = false; // Enable Level 3 button
