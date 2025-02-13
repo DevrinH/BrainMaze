@@ -33,50 +33,100 @@ updateCountdown();
 
 const questions = [
     {
-        question: "Q1",
+        question: "QThe museum, which houses ancient artifacts from various civilizations, attract thousands of visitors every year.<br/>Which choice best corrects the underlined portion?",
         answers: [
-            { text: "Some bird species are capable of navigating vast distances without any visual guidance.", correct: false },
-            { text: "Scientists have discovered that birds use Earth’s magnetic field to navigate long migrations.", correct: true },
-            { text: "Bird migration patterns are unpredictable and vary based on seasonal factors.", correct: false },
-            { text: "Birds use special proteins in their eyes to see at night and avoid getting lost.", correct: false },
+            { text: "attract", correct: false },
+            { text: "attracts", correct: true },
+            { text: "have attracted", correct: false },
+            { text: " are attracting", correct: false },
         ],
         type: "reading",
         difficulty: "easy"
     },
     {
-        question: "Q2",
+        question: "She was so engrossed in her book that she barely noticed when someone set next to her on the bench.<br/>Which choice best corrects the underlined portion?",
         answers: [
-            { text: "She is overwhelmed by the beauty of the ballroom and struggles to contain her excitement.", correct: false },
-            { text: "She feels out of place despite having anticipated this moment for a long time.", correct: true },
-            { text: "She is intimidated by the other guests and decides to leave before entering the ballroom.", correct: false },
-            { text: "She is eager to impress others and makes a confident entrance into the event.", correct: false },
+            { text: "set", correct: false },
+            { text: "sat", correct: true },
+            { text: "has set", correct: false },
+            { text: "sits", correct: false },
         ],
         type: "reading",
         difficulty: "easy"
     },
     {
-        question: "Q3",
+        question: "In order to successfully complete the project, the team must cooperate together and communicate effectively.<br/>Which choice best corrects the underlined portion?",
         answers: [
-            { text: "Green spaces in cities contribute to environmental and social well-being, but they face competition from urban development.", correct: true },
-            { text: "City residents should prioritize parks and gardens over commercial expansion.", correct: false },
-            { text: "Urban development should be halted to preserve more land for parks and gardens.", correct: false },
-            { text: "Parks are primarily designed to reduce air pollution rather than serve a social purpose.", correct: false },
+            { text: " cooperate and communicate effectively", correct: true },
+            { text: "cooperate together and talk efficiently", correct: false },
+            { text: "cooperate alongside one another and communicate effectively", correct: false },
+            { text: "cooperating together and communicating effectively", correct: false },
         ],
         type: "reading",
         difficulty: "easy"
     },
     {
-        question: "Q4",
+        question: "Bees play a crucial role in pollination, transferring pollen between flowers to facilitate plant reproduction. Without bees, many crops would struggle to produce fruit, leading to significant food shortages.<br/>What is the main idea of the passage?",
         answers: [
-            { text: "Streetcars initially shaped urban expansion but later declined due to the popularity of automobiles.", correct: true },
-            { text: "The decline of streetcars in the 20th century was due to a lack of public interest in public transportation.", correct: false },
-            { text: "Modern cities have rejected streetcars in favor of more efficient transportation systems.", correct: false },
-            { text: "Electric streetcars were not widely used in the 20th century and only gained popularity recently.", correct: false },
+            { text: "Bees are dangerous insects that harm crops.", correct: false },
+            { text: "Bees are essential for plant reproduction and food production.", correct: true },
+            { text: "Many plants can reproduce without pollination.", correct: false },
+            { text: "Bees only pollinate flowers in specific regions.", correct: false },
         ],
         type: "reading",
         difficulty: "easy"
     }
-
+    {
+        question: "The scientist's theory was initially met with skepticism, but over time, the evidence became incontrovertible.<br/>In this context, 'incontrovertible' most nearly means:",
+        answers: [
+            { text: "debatable", correct: false },
+            { text: "debatable", correct: true },
+            { text: "complicated", correct: false },
+            { text: "confusing", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    }    {
+        question: "Q4",
+        answers: [
+            { text: "", correct: true },
+            { text: "", correct: false },
+            { text: "", correct: false },
+            { text: "", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    }    {
+        question: "Q4",
+        answers: [
+            { text: "", correct: true },
+            { text: "", correct: false },
+            { text: "", correct: false },
+            { text: "", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    }    {
+        question: "Q4",
+        answers: [
+            { text: "", correct: true },
+            { text: "", correct: false },
+            { text: "", correct: false },
+            { text: "", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    }    {
+        question: "Q4",
+        answers: [
+            { text: "", correct: true },
+            { text: "", correct: false },
+            { text: "", correct: false },
+            { text: "", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy"
+    }
 
  
 
