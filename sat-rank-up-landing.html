@@ -31,12 +31,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    document.getElementById("reset-progress").addEventListener("click", function () {
-    if (confirm("Are you sure you want to reset your progress? This action cannot be undone.")) {
-        localStorage.removeItem("level1Score");
-        localStorage.removeItem("level2Unlocked"); // Remove Level 2 unlock status
-        location.reload(); // Reload the page to reflect changes
-    }
+    document.getElementById("restart-progress").addEventListener("click", function () {
+    // Clear all level progress from localStorage
+    localStorage.removeItem("level1Score");
+    localStorage.removeItem("level2Score");
+    localStorage.removeItem("level3Score");
+    localStorage.removeItem("level2Unlocked");
+    localStorage.removeItem("level3Unlocked");
+
+    // Reset button states to locked
+    let levels = [2, 3, 4, 5, 6, 7]; 
+    levels.forEach(level => {
+        let button = document.getElementById(`level-${level}`);
+        if (button) {
+            button.disabled = true;  // Disable level buttons
+            button.classList.add("locked"); // Add fade effect
+        }
+    });
+
+    alert("Progress has been reset!");
 });
 
 </script>
@@ -158,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 
 
-<button id="reset-progress" class="btn">Reset Progress</button>
+<button id="restart-progress" class="btn">Reset Progress</button>
 
 
 
