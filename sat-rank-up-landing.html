@@ -21,6 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("level2Unlocked", "true"); // Store that Level 2 is unlocked
         }
     });
+    document.addEventListener("DOMContentLoaded", function () {
+        let level2Score = localStorage.getItem("level2Score");
+        let level3Unlocked = localStorage.getItem("level3Unlocked");
+
+        // If the user ever got 75%+, keep Level 2 unlocked
+        if (level2Unlocked === "true" || (level1Score !== null && parseInt(level1Score) >= 75)) {
+            document.getElementById("level-3").disabled = false; // Enable Level 2 button
+            localStorage.setItem("level3Unlocked", "true"); // Store that Level 2 is unlocked
+        }
+    });
     
 
 </script>
