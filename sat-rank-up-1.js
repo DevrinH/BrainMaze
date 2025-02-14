@@ -80,7 +80,7 @@ const questions = [
         question: "The scientist's theory was initially met with skepticism, but over time, the evidence became incontrovertible.<br/>In this context, 'incontrovertible' most nearly means:",
         answers: [
             { text: "debatable", correct: false },
-            { text: "debatable", correct: true },
+            { text: "undeniable", correct: true },
             { text: "complicated", correct: false },
             { text: "confusing", correct: false },
         ],
@@ -102,8 +102,8 @@ const questions = [
         question: "What is the value of x in the equation 3x + 5 = 14?",
         answers: [
             { text: "2", correct: false },
-            { text: "3", correct: false },
-            { text: "4", correct: true },
+            { text: "3", correct: true },
+            { text: "4", correct: false },
             { text: "5", correct: false },
         ],
         type: "math",
