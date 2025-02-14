@@ -42,16 +42,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 document.addEventListener("DOMContentLoaded", function () {
-    let level3Score = localStorage.getItem("level3Score");
-    let level4Unlocked = localStorage.getItem("level4Unlocked");
+    let level4Score = localStorage.getItem("level4Score");
+    let level5Unlocked = localStorage.getItem("level5Unlocked");
 
-    console.log("Level 3 Score:", level3Score); // Debugging
+    console.log("Level 4 Score:", level3Score); // Debugging
 
-    if (level4Unlocked === "true" || (level3Score !== null && parseInt(level3Score) >= 75)) {
-        let level4Button = document.getElementById("level-4");
-        if (level4Button) {
-            level4Button.disabled = false;
-            localStorage.setItem("level4Unlocked", "true");
+    if (level4Unlocked === "true" || (level4Score !== null && parseInt(level4Score) >= 75)) {
+        let level5Button = document.getElementById("level-5");
+        if (level5Button) {
+            level5Button.disabled = false;
+            localStorage.setItem("level5Unlocked", "true");
         }
     }
 });
