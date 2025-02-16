@@ -73,20 +73,150 @@ const questionsData = {
         { question: "A rectangular garden has a length of 12 feet and a width of 5 feet. What is its area?", options: ["17 square feet", "24 square feet", "60 square feet","120 square feet"], answer: "60 square feet" },
         { question: "A book originally costs $30 and is on sale for 25% off. What is the sale price?", options: ["$20", "$22.50", "$25","$27"], answer: "$22.50" },
     ],
-    4: [
-        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
-        { question: "What is 9 + 6?", options: ["14", "15", "16"], answer: "15" }
-    ],
-    5: [
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    4: [ 
+        // Writing Questions
+        { 
+            question: "Which choice best maintains the sentence’s style and tone?\nThe scientist conducted an experiment to investigate the **stuff** found in ocean water.",
+            options: ["A) stuff", "B) substances", "C) junk", "D) gunk"],
+            answer: "B"
+        },
+        { 
+            question: "Which choice best combines the sentences?\nThe dog was barking. It saw a squirrel in the yard.",
+            options: [
+                "A) The dog, barking, saw a squirrel in the yard.",
+                "B) The dog was barking because it saw a squirrel in the yard.",
+                "C) The dog, seeing a squirrel in the yard, it was barking.",
+                "D) The dog saw a squirrel in the yard and it barking."
+            ],
+            answer: "B"
+        },
+        { 
+            question: "Which option corrects the error in the following sentence?\nNeither of the candidates **are** prepared for the debate.",
+            options: ["A) No change", "B) is", "C) were", "D) have been"],
+            answer: "B"
+        },
+        
+        // Reading Questions
+        { 
+            question: "Based on the passage, what is the main purpose of the first paragraph?",
+            options: [
+                "A) To introduce a character's dilemma",
+                "B) To provide background information",
+                "C) To summarize the entire passage",
+                "D) To describe a setting in detail"
+            ],
+            answer: "A"
+        },
+        { 
+            question: "Which choice best supports the idea that the protagonist is feeling uncertain?",
+            options: [
+                "A) 'He stepped forward confidently, ready for the challenge.'",
+                "B) 'She hesitated at the door, her hand hovering over the handle.'",
+                "C) 'The town was quiet, its streets empty and calm.'",
+                "D) 'They laughed as they walked together down the path.'"
+            ],
+            answer: "B"
+        },
+        { 
+            question: "What can be inferred about the author’s tone in the passage?",
+            options: [
+                "A) Sarcastic", 
+                "B) Neutral", 
+                "C) Nostalgic", 
+                "D) Excited"
+            ],
+            answer: "C"
+        },
+        
+        // Math Questions
+        { 
+            question: "If 3x + 5 = 20, what is the value of x?",
+            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+            answer: "A"
+        },
+        { 
+            question: "A rectangle has a length of 10 and a width of 4. What is its perimeter?",
+            options: ["A) 28", "B) 30", "C) 36", "D) 40"],
+            answer: "A"
+        },
+        { 
+            question: "The function f(x) = 2x^2 - 3x + 4 is evaluated at x = 3. What is f(3)?",
+            options: ["A) 13", "B) 16", "C) 19", "D) 22"],
+            answer: "A"
+        }
+    ]
+    ,
+    5: [ 
+        // Writing Questions
+        { 
+            question: "Which choice best maintains the sentence’s clarity and precision?\nThe scientist conducted an experiment to observe the **things** that influence plant growth.",
+            options: ["A) things", "B) factors", "C) stuff", "D) elements"],
+            answer: "B"
+        },
+        { 
+            question: "Which choice best combines the sentences?\nThe cat was asleep. The loud noise woke it up.",
+            options: [
+                "A) The cat, asleep, woke up because of the loud noise.",
+                "B) The cat was asleep, but it woke up due to the loud noise.",
+                "C) The cat was asleep, it woke up when hearing a loud noise.",
+                "D) The loud noise woke the cat up while it was asleep."
+            ],
+            answer: "B"
+        },
+        { 
+            question: "Which option corrects the error in the following sentence?\nEach of the players **have** a unique skill set.",
+            options: ["A) No change", "B) has", "C) were", "D) are"],
+            answer: "B"
+        },
+        
+        // Reading Questions
+        { 
+            question: "What is the main idea of the passage's first paragraph?",
+            options: [
+                "A) It introduces a conflict.",
+                "B) It provides historical context.",
+                "C) It summarizes the main argument.",
+                "D) It describes the protagonist’s emotions."
+            ],
+            answer: "A"
+        },
+        { 
+            question: "Which choice best supports the idea that the character is feeling nervous?",
+            options: [
+                "A) 'She smiled brightly, waving to her friends.'",
+                "B) 'He tapped his foot rapidly and glanced around the room.'",
+                "C) 'The sun set slowly, casting long shadows across the field.'",
+                "D) 'They ran quickly, laughing as they went.'"
+            ],
+            answer: "B"
+        },
+        { 
+            question: "Which word best describes the tone of the passage?",
+            options: [
+                "A) Hopeful", 
+                "B) Melancholy", 
+                "C) Indifferent", 
+                "D) Enthusiastic"
+            ],
+            answer: "B"
+        },
+        
+        // Math Questions
+        { 
+            question: "Solve for x: 4x - 7 = 21",
+            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+            answer: "C"
+        },
+        { 
+            question: "A triangle has side lengths of 5 and 12. If the hypotenuse is 13, what type of triangle is it?",
+            options: ["A) Acute", "B) Right", "C) Obtuse", "D) Equilateral"],
+            answer: "B"
+        },
+        { 
+            question: "The function g(x) = 3x^2 - 4x + 5 is evaluated at x = 2. What is g(2)?",
+            options: ["A) 7", "B) 9", "C) 11", "D) 13"],
+            answer: "B"
+        }
     ],
     6: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
