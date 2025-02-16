@@ -138,3 +138,63 @@ nextButton.addEventListener("click", ()=>{
 startQuiz();
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const searchBox = document.getElementById("search-box");
+    const suggestionsList = document.getElementById("search-suggestions");
+
+    const tests = {
+        "SAT": "https://www.brainjelli.com/satlandingpage",
+        "ACT": "https://devrinh.github.io/BrainMaze/sat",
+        "GED": "https://devrinh.github.io/BrainMaze/sat"
+    };
+
+    searchBox.addEventListener("input", function () {
+        let query = searchBox.value.trim().toLowerCase();
+        suggestionsList.innerHTML = "";
+
+        if (query.length === 0) {
+            suggestionsList.style.display = "none";
+            return;
+        }
+
+        let matches = Object.keys(tests).filter(test => test.toLowerCase().includes(query));
+        
+        if (matches.length > 0) {
+            suggestionsList.style.display = "block";
+            matches.forEach(match => {
+                let li = document.createElement("li");
+                li.textContent = match;
+                li.addEventListener("click", function () {
+                    window.location.href = tests[match];
+                });
+                suggestionsList.appendChild(li);
+            });
+        } else {
+            suggestionsList.style.display = "none";
+        }
+    });
+
+    searchBox.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            let query = searchBox.value.trim().toLowerCase();
+            handleSearch(query);
+        }
+    });
+
+    function handleSearch(query) {
+        for (let key in tests) {
+            if (query.includes(key.toLowerCase())) {
+                window.location.href = tests[key];
+                return;
+            }
+        }
+        alert("Test not found. Try 'SAT', 'ACT', or 'GED'.");
+    }
+
+    document.addEventListener("click", function (e) {
+        if (!searchBox.contains(e.target) && !suggestionsList.contains(e.target)) {
+            suggestionsList.style.display = "none";
+        }
+    });
+});
