@@ -656,10 +656,11 @@ font-family: "Bungee";
 input, textarea {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
+  margin-top: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  font-family: "Montserrat-SemiBold";
 }
 
 /* Make the form elements responsive */
