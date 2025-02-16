@@ -123,19 +123,21 @@ text-align: center;
   margin-right: auto;
 }
 
-.search-input{
+.search-input {
   font-size: 16px;
   font-family: 'Lexend', sans-serif;
   margin-left: 14px;
   outline: none;
   border: none;
-  background: transparent;
+  background: white; /* Change from transparent to white */
   width: 300px;
-  color:#000000;
+  color: #000000; /* Ensure text appears in black */
+  z-index: 10; /* Ensure input is above other elements */
 }
 
-.search-input::placeholder{
-  color:black;
+.search-input::placeholder {
+  color: black;
+  opacity: 0.6; /* Ensures the placeholder is visible */
 }
 
 
