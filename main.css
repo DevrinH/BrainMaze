@@ -131,6 +131,7 @@ text-align: center;
   border: none;
   background: transparent;
   width: 300px;
+  color:#000000;
 }
 
 .search-input::placeholder{
