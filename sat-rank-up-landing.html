@@ -49,54 +49,72 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const totalLevels = 55; // Change this if you add more levels
-            const levelContainer = document.getElementById("level-container");
+document.addEventListener("DOMContentLoaded", function () {
+    const totalLevels = 55; // Change this if you add more levels
+    const levelContainer = document.getElementById("level-container");
 
-            for (let i = 1; i <= totalLevels; i++) {
-                // Create the level button
-                let button = document.createElement("button");
-                button.classList.add("levelbutton");
-                button.setAttribute("data-level", i);
-                button.textContent = i;
+    // Define level titles at certain breakpoints
+    const levelTitles = {
+        1: "Beginner",
+        11: "Intermediate 1",
+        21: "Intermediate 2",
+        31: "Advanced 1",
+        41: "Advanced 2",
+        51: "Expert"
+    };
 
-                // Check if the level is unlocked
-                if (localStorage.getItem(`level${i}Unlocked`) !== "true" && i !== 1) {
-                    button.setAttribute("disabled", "true"); // Lock the level (except Level 1)
-                }
+    for (let i = 1; i <= totalLevels; i++) {
+        // Check if a title needs to be inserted
+        if (levelTitles[i]) {
+            let title = document.createElement("h2");
+            title.classList.add("makebungee");
+            title.textContent = levelTitles[i];
+            levelContainer.appendChild(title);
+        }
 
-                // Redirect to the test page when clicked
-                button.addEventListener("click", function () {
-                    localStorage.setItem("currentLevel", i);
-                    window.location.href = "sat-rank-up-test.html";
-                });
+        // Create the level button
+        let button = document.createElement("button");
+        button.classList.add("levelbutton");
+        button.setAttribute("data-level", i);
+        button.textContent = i;
 
-                // Create a container for each button + description
-                let container = document.createElement("div");
-                container.classList.add("container");
+        // Check if the level is unlocked
+        if (localStorage.getItem(`level${i}Unlocked`) !== "true" && i !== 1) {
+            button.setAttribute("disabled", "true"); // Lock the level (except Level 1)
+        }
 
-                let desc = document.createElement("div");
-                desc.classList.add("satdesc");
-                desc.innerHTML = `<p class="pbungee">Level-${i}</p><p>Difficulty: ${i <= 10 ? "Easy" : i <= 30 ? "Medium" : "Hard"}</p>`;
-
-                let placement = document.createElement("div");
-                placement.classList.add("satplacement");
-                placement.appendChild(button);
-
-                container.appendChild(placement);
-                container.appendChild(desc);
-                levelContainer.appendChild(container);
-            }
-
-            // Reset Progress Functionality
-            document.getElementById("reset-progress").addEventListener("click", function () {
-                if (confirm("Are you sure you want to reset your progress? This cannot be undone!")) {
-                    localStorage.clear(); // Clear all saved levels
-                    localStorage.setItem("level1Unlocked", "true"); // Keep Level 1 unlocked
-                    location.reload(); // Reload the page to update UI
-                }
-            });
+        // Redirect to the test page when clicked
+        button.addEventListener("click", function () {
+            localStorage.setItem("currentLevel", i);
+            window.location.href = "sat-rank-up-test.html";
         });
+
+        // Create a container for each button + description
+        let container = document.createElement("div");
+        container.classList.add("container");
+
+        let desc = document.createElement("div");
+        desc.classList.add("satdesc");
+        desc.innerHTML = `<p class="pbungee">Level-${i}</p><p>Difficulty: ${i <= 10 ? "Easy" : i <= 30 ? "Medium" : "Hard"}</p>`;
+
+        let placement = document.createElement("div");
+        placement.classList.add("satplacement");
+        placement.appendChild(button);
+
+        container.appendChild(placement);
+        container.appendChild(desc);
+        levelContainer.appendChild(container);
+    }
+
+    // Reset Progress Functionality
+    document.getElementById("reset-progress").addEventListener("click", function () {
+        if (confirm("Are you sure you want to reset your progress? This cannot be undone!")) {
+            localStorage.clear(); // Clear all saved levels
+            localStorage.setItem("level1Unlocked", "true"); // Keep Level 1 unlocked
+            location.reload(); // Reload the page to update UI
+        }
+    });
+});
     </script>
 
     <footer>
