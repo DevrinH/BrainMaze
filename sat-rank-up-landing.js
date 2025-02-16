@@ -151,6 +151,7 @@ function showScore() {
     tryAgainButton.innerHTML = "Try Again";
     tryAgainButton.classList.add("btn");
     tryAgainButton.onclick = () => startQuiz();
+    updateCountdown();
 
     // Create "Continue Anyway" Button
     const continueButton = document.createElement("button");
