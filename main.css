@@ -672,14 +672,13 @@ padding-top: 10px;
     margin-top: 20px;
         }
 
-        .satprep {
+.satprep {
 color: white;
 font-family: "Bungee";
-margin-top: 55px;
 text-align: center;
 margin: auto;
-
-        }
+margin-top: 50px;
+}
 
         .makebungee {
 font-family: "Bungee";
