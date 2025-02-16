@@ -669,3 +669,10 @@ input, textarea {
      flex-direction: column; /* Stack inputs on small screens */
   }
 }
+
+.submit{
+
+  margin: auto;
+
+  
+}
