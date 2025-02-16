@@ -139,7 +139,7 @@ startQuiz();
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const searchBox = document.getElementById("search-box");
+    const searchBox = document.querySelector(".search-input"); 
     const suggestionsList = document.getElementById("search-suggestions");
 
     const tests = {
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     searchBox.addEventListener("input", function () {
-        let query = searchBox.value.trim().toLowerCase();
+        this.style.color = "#000000";  // Force text color on input event
         suggestionsList.innerHTML = "";
 
         if (query.length === 0) {
