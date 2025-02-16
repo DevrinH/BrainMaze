@@ -80,7 +80,7 @@ const questionsData = {
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
     ],
-    5: [
+    6: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
@@ -90,7 +90,7 @@ const questionsData = {
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
     ],
-    5: [
+    7: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
@@ -100,7 +100,7 @@ const questionsData = {
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
     ],
-    5: [
+    8: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
@@ -110,7 +110,7 @@ const questionsData = {
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
     ],
-    5: [
+    9: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
@@ -120,7 +120,7 @@ const questionsData = {
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
     ],
-    5: [
+    10: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
@@ -130,7 +130,7 @@ const questionsData = {
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
     ],
-    5: [
+    11: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
