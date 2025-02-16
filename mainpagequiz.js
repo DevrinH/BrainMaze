@@ -165,13 +165,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 let li = document.createElement("li");
                 li.textContent = match;
 
-                // Keep the cursor in the input field when clicking
+                // Keep cursor in input and allow typing
                 li.addEventListener("mousedown", function (event) {
-                    event.preventDefault();  // Prevents losing focus
-                    searchBox.value = match;
-                    suggestionsList.style.display = "none";
-                    searchBox.focus(); // Keeps cursor in the input
-                    setTimeout(() => window.location.href = tests[match], 300);
+                    event.preventDefault();  // Prevent losing focus
+                    searchBox.value = match; // Update input value
+                    searchBox.focus(); // Keep cursor visible
+                });
+
+                li.addEventListener("click", function () {
+                    window.location.href = tests[match]; // Redirect after selection
                 });
 
                 suggestionsList.appendChild(li);
