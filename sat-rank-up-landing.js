@@ -1,13 +1,30 @@
 const questionsData = {
     1: [
-        { question: "What is 2 + 2?", options: ["3", "4", "5"], answer: "4" },
-        { question: "What is 5 + 3?", options: ["7", "8", "9"], answer: "8" }
+        { question: "The museum, which houses ancient artifacts from various civilizations, attract thousands of visitors every year.<br/>Which choice best corrects the underlined portion?", options: ["atracts", "attract", "have attracted", "are attracting"], answer: "attracts" },
+        { question: "She was so engrossed in her book that she barely noticed when someone set next to her on the bench.<br/>Which choice best corrects the underlined portion?", options: ["set", "has set", "sits", "sat"], answer: "sat" },
+        { question: "In order to successfully complete the project, the team must cooperate together and communicate effectively.<br/>Which choice best corrects the underlined portion?", options: ["cooperate together and talk efficiently", "cooperate alongside one another and communicate effectively", "cooperating together and communicating effectively","cooperate and communicate effectively"], answer: "cooperate and communicate effectively" },
+        { question: "Bees play a crucial role in pollination, transferring pollen between flowers to facilitate plant reproduction. Without bees, many crops would struggle to produce fruit, leading to significant food shortages.<br/>What is the main idea of the passage?", options: ["Bees are dangerous insects that harm crops.", "Bees are essential for plant reproduction and food production.","Many plants can reproduce without pollination.", "Bees only pollinate flowers in specific regions."], answer: "Bees are essential for plant reproduction and food production.",  },
+        { question: "The scientist's theory was initially met with skepticism, but over time, the evidence became incontrovertible.<br/>In this context, 'incontrovertible' most nearly means:", options: ["debatable", "complicated", "undeniable","confusing"], answer: "undeniable" },
+        { question: "Lena carefully wrapped the gift in bright paper, tied a ribbon around it, and wrote a heartfelt note before placing it on the table with a smile.", options: ["She is unsure about whether the gift is appropriate.", "She regrets buying the gift.", "She is worried the recipient won’t like the gift.","She is excited about giving the gift."], answer: "She is excited about giving the gift." },
+        { question: "What is the value of x in the equation 3x + 5 = 14?", options: ["2", "3", "4","5"], answer: "3" },
+        { question: "A store is offering a 20% discount on a jacket that originally costs $50. What is the sale price of the jacket?", options: ["$30", "35", "$40","$45"], answer: "$40" },
+        { question: "A rectangle has a length of 8 units and a width of 5 units. What is its area?", options: ["13 square units", "30 square units", "40 square units","80 square units"], answer:  "40 square units" }
+        
+        
     ],
     2: [
         { question: "What is 10 - 2?", options: ["6", "8", "9"], answer: "8" },
         { question: "What is 4 x 3?", options: ["11", "12", "13"], answer: "12" }
     ],
     3: [
+        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
+        { question: "What is 9 + 6?", options: ["14", "15", "16"], answer: "15" }
+    ],
+    4: [
+        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
+        { question: "What is 9 + 6?", options: ["14", "15", "16"], answer: "15" }
+    ],
+    5: [
         { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
         { question: "What is 9 + 6?", options: ["14", "15", "16"], answer: "15" }
     ]
