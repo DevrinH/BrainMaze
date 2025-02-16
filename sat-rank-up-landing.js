@@ -46,8 +46,16 @@ const questionsData = {
         
     ],
     2: [
-        { question: "What is 10 - 2?", options: ["6", "8", "9"], answer: "8" },
-        { question: "What is 4 x 3?", options: ["11", "12", "13"], answer: "12" }
+        { question: "The group of students ___ planning a trip to the museum next week.", options: ["is","are", "were", "have been"], answer: "is" },
+        { question: "After the storm, the hikers had to find an ___ route because their usual path was blocked.", options: ["alternating", "alternate","alteration", "alternative"], answer: "alternative" },
+        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
+        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
+        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
+        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
+        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
+        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
+        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
+        
     ],
     3: [
         { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
