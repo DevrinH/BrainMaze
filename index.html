@@ -199,23 +199,34 @@
    <p class="sans">We'd love to hear your feedback! Please fill out the form below.</p>
    
    <div class="lessoncontainer">
-   <form action="https://formsubmit.co/devrin.hoefer@gmail.com" method="POST">
-      <input type="hidden" name="_next" value="https://www.brainjelli.com/thank-you">
-      <input type="hidden" name="_captcha" value="false">
-      
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
-      
-      <button type="submit">Submit</button>
-   </form>
+      <form action="https://formsubmit.co/devrin.hoefer@gmail.com" method="POST">
+         <input type="hidden" name="_next" value="https://www.brainjelli.com/thank-you">
+         <input type="hidden" name="_captcha" value="false">
+
+         <!-- Name & Email Side by Side -->
+         <div class="form-row">
+            <div class="form-group">
+               <label for="name">Name:</label>
+               <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+               <label for="email">Email:</label>
+               <input type="email" id="email" name="email" required>
+            </div>
+         </div>
+
+         <!-- Message Below -->
+         <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+         </div>
+
+         <button class="submit" type="submit">Submit</button>
+      </form>
+   </div>
 </div>
-</div>
+
 <footer>
    <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
 </footer>
