@@ -164,9 +164,16 @@ document.addEventListener("DOMContentLoaded", function () {
             matches.forEach(match => {
                 let li = document.createElement("li");
                 li.textContent = match;
-                li.addEventListener("click", function () {
-                    window.location.href = tests[match];
+
+                // Keep the cursor in the input field when clicking
+                li.addEventListener("mousedown", function (event) {
+                    event.preventDefault();  // Prevents losing focus
+                    searchBox.value = match;
+                    suggestionsList.style.display = "none";
+                    searchBox.focus(); // Keeps cursor in the input
+                    setTimeout(() => window.location.href = tests[match], 300);
                 });
+
                 suggestionsList.appendChild(li);
             });
         } else {
