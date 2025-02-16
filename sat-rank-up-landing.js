@@ -23,6 +23,11 @@ function updateCountdown() {
 function endQuiz() {
     resetState();  // Removes answer buttons
     showScore();   // Shows final score immediately
+    
+    // Ensure the "Next" button is visible for retry/continue
+    nextButton.style.display = "block";  
+    nextButton.innerHTML = "Try Again";  // Change button text for clarity
+    nextButton.addEventListener("click", startQuiz); // Restart quiz when clicked
 }
 
 // Automatically end test after 64 minutes (3,840,000 ms)
@@ -66,8 +71,74 @@ const questionsData = {
         { question: "What is 9 + 6?", options: ["14", "15", "16"], answer: "15" }
     ],
     5: [
-        { question: "What is 16 / 4?", options: ["3", "4", "5"], answer: "4" },
-        { question: "What is 9 + 6?", options: ["14", "15", "16"], answer: "15" }
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    ],
+    5: [
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    ],
+    5: [
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    ],
+    5: [
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    ],
+    5: [
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    ],
+    5: [
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    ],
+    5: [
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
+        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
     ]
 };
 
