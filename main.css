@@ -256,7 +256,7 @@ footer{
   padding: 3px;
   border-width: 3px;
   border-color: black;
-  font-size: 37px;
+  font-size: 33px;
   font-family: "Bungee";
   border-radius: 12px;
   display: block;
@@ -724,5 +724,5 @@ input, textarea {
 
 .message{
 
-  margin-top: 5px;
+  margin-top: 15px;
 }
