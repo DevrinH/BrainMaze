@@ -609,7 +609,7 @@ width: 100%;
   background: #c890fd;
   color: #ffffff;
   box-shadow: 2px 2px black;
-  width: 96px;
+  width: 115px;
   height: 70px;
   padding: 3px;
   border-width: 3px;
@@ -622,6 +622,7 @@ width: 100%;
   margin: auto;
   transition: all 0.3s;
   margin-bottom: 25px;
+  margin-top:10px;
 }
 
 .margin{
