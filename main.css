@@ -247,7 +247,23 @@ footer{
 }
 
 
-
+.satchallengebutton{
+  background-image: linear-gradient(#ff831d, #ff42e6);
+  color: #ffffff;
+  box-shadow: 2px 2px black;
+  width: 77px;
+  height: 77px;
+  padding: 3px;
+  border-width: 3px;
+  border-color: black;
+  font-size: 37px;
+  font-family: "Bungee";
+  border-radius: 12px;
+  display: block;
+  text-align: center;
+  transition: all 0.3s;
+  margin-bottom: 25px;
+}
 .satbutton{
   background-image:linear-gradient(#8abbcf, #0b85b9);
   color: #ffffff;
