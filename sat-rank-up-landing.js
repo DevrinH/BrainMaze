@@ -1,3 +1,36 @@
+const startingMinutes = 8;
+const countdownEl = document.getElementById('countdown');
+
+let time = startingMinutes * 60; // No need for "+1", ensures exactly 64 minutes
+let refreshIntervalId = setInterval(updateCountdown, 1000);
+
+function updateCountdown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    
+    countdownEl.innerHTML = `${minutes} : ${seconds}`;
+
+    if (time === 0) { 
+        clearInterval(refreshIntervalId);
+        endQuiz();  // ✅ Stops quiz when timer hits zero
+    } else {
+        time--; 
+    }
+}
+
+// Function to handle quiz timeout
+function endQuiz() {
+    resetState();  // Removes answer buttons
+    showScore();   // Shows final score immediately
+}
+
+// Automatically end test after 64 minutes (3,840,000 ms)
+setTimeout(endQuiz, 480000);
+
+updateCountdown();
+
+
 const questionsData = {
     1: [
         { question: "The museum, which houses ancient artifacts from various civilizations, attract thousands of visitors every year.<br/>Which choice best corrects the underlined portion?", options: ["atracts", "attract", "have attracted", "are attracting"], answer: "attracts" },
