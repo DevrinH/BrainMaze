@@ -77,7 +77,7 @@ const questionsData = {
         { 
             question: "Which choice best maintains the sentence’s style and tone?\nThe scientist conducted an experiment to investigate the **stuff** found in ocean water.",
             options: ["A) stuff", "B) substances", "C) junk", "D) gunk"],
-            answer: "B"
+            answer: "B) substances"
         },
         { 
             question: "Which choice best combines the sentences?\nThe dog was barking. It saw a squirrel in the yard.",
