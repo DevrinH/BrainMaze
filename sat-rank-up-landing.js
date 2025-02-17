@@ -29,7 +29,6 @@ function endQuiz() {
     nextButton.innerHTML = "Try Again";  // Change button text for clarity
     nextButton.addEventListener("click", startQuiz); // Restart quiz when clicked
 }
-
 // Automatically end test after 64 minutes (3,840,000 ms)
 setTimeout(endQuiz, 480000);
 
