@@ -430,26 +430,142 @@ const questionsData = {
             answer: "C) 15"
         }
     ],
-    9: [
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
-    ],
-    10: [
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
-    ],
+    9:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe new policy will take effect **in the near future** and impact all employees.",
+            options: ["A) in the near future", "B) soon", "C) at a later date", "D) No change"],
+            answer: "B) soon"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nEach of the students **were** given a chance to present their projects.",
+            options: ["A) were", "B) was", "C) have been", "D) No change"],
+            answer: "B) was"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nThe reason why she left early was because she was feeling ill.",
+            options: ["A) The reason why", "B) Because", "C) Due to the fact that", "D) No change"],
+            answer: "B) Because"
+        },
+        
+        // Reading Questions
+        {  
+            question: "What is the main argument of the passage?",
+            options: [
+                "A) That modern technology improves daily life.",
+                "B) That traditional values are no longer important.",
+                "C) That historical events should not be forgotten.",
+                "D) That scientific research requires government funding."
+            ],
+            answer: "A) That modern technology improves daily life."
+        },
+        {  
+            question: "Which sentence best supports the author's claim about space exploration?",
+            options: [
+                "A) Space exploration is expensive and difficult.",
+                "B) Discoveries in space have led to advancements in medicine and technology.",
+                "C) Many people dream of becoming astronauts.",
+                "D) Space agencies employ thousands of scientists."
+            ],
+            answer: "B) Discoveries in space have led to advancements in medicine and technology."
+        },
+        {  
+            question: "What can be inferred about the character’s actions in the passage?",
+            options: [
+                "A) They were driven by personal ambition.",
+                "B) They were influenced by a mentor.",
+                "C) They were entirely spontaneous.",
+                "D) They were based on misinformation."
+            ],
+            answer: "A) They were driven by personal ambition."
+        },
+        
+        // Math Questions
+        {  
+            question: "If 5x - 7 = 18, what is the value of x?",
+            options: ["A) 3", "B) 4", "C) 5", "D) 6"],
+            answer: "C) 5"
+        },
+        {  
+            question: "A square has a side length of 8. What is its area?",
+            options: ["A) 48", "B) 56", "C) 64", "D) 72"],
+            answer: "C) 64"
+        },
+        {  
+            question: "If h(x) = x^2 - 6x + 9, what is h(4)?",
+            options: ["A) 1", "B) 2", "C) 3", "D) 4"],
+            answer: "A) 1"
+        }
+    ]
+    ,
+    10:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe manager will evaluate the proposals **at this point in time** before making a decision.",
+            options: ["A) at this point in time", "B) now", "C) eventually", "D) No change"],
+            answer: "B) now"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nNeither the students nor the teacher **were** prepared for the sudden announcement.",
+            options: ["A) were", "B) was", "C) have been", "D) No change"],
+            answer: "B) was"
+        },
+        {  
+            question: "Which revision improves the sentence's conciseness?\nIn spite of the fact that he was late, he still managed to complete the exam.",
+            options: ["A) In spite of the fact that", "B) Despite", "C) Although", "D) No change"],
+            answer: "B) Despite"
+        },
+    
+        // Reading Questions
+        {  
+            question: "What is the author's primary argument in the passage?",
+            options: [
+                "A) That global warming is a hoax.",
+                "B) That renewable energy is vital for sustainability.",
+                "C) That ancient civilizations had advanced technology.",
+                "D) That modern architecture lacks creativity."
+            ],
+            answer: "B) That renewable energy is vital for sustainability."
+        },
+        {  
+            question: "Which statement best supports the author's claim about the importance of education?",
+            options: [
+                "A) Education helps individuals secure better job opportunities.",
+                "B) Many people prefer online courses over traditional classrooms.",
+                "C) Schools should increase their extracurricular activities.",
+                "D) Learning a new language is beneficial."
+            ],
+            answer: "A) Education helps individuals secure better job opportunities."
+        },
+        {  
+            question: "What can be inferred about the protagonist’s decision in the passage?",
+            options: [
+                "A) It was made under social pressure.",
+                "B) It was purely accidental.",
+                "C) It was driven by a deep understanding of the situation.",
+                "D) It was based on outdated information."
+            ],
+            answer: "C) It was driven by a deep understanding of the situation."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 4x + 7 = 31, what is the value of x?",
+            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+            answer: "B) 6"
+        },
+        {  
+            question: "A triangle has sides of length 6, 8, and 10. What type of triangle is it?",
+            options: ["A) Equilateral", "B) Isosceles", "C) Right", "D) Scalene"],
+            answer: "C) Right"
+        },
+        {  
+            question: "If f(x) = 2x^2 - 3x + 5, what is f(3)?",
+            options: ["A) 14", "B) 15", "C) 16", "D) 17"],
+            answer: "A) 14"
+        }
+    ]
+    ,
     11: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
