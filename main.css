@@ -276,8 +276,8 @@ footer{
   padding: 3px;
   border-width: 3px;
   border-color: black;
-  font-size: 31px;
-  font-family: sans-serif;
+  font-size: 33px;
+  font-family: "Bungee";
   border-radius: 12px;
   display: block;
   text-align: center;
@@ -293,8 +293,8 @@ footer{
   padding: 3px;
   border-width: 3px;
   border-color: black;
-  font-size: 24px;
-  font-family: sans-serif;
+  font-size: 33px;
+  font-family: "Bungee";
   border-radius: 12px;
   display: block;
   text-align: center;
@@ -311,7 +311,8 @@ footer{
   padding: 3px;
   border-width: 3px;
   border-color: black;
-  font-size: 31px;
+  font-size: 33px;
+  font-family: "Bungee";
   border-radius: 12px;
   display: block;
   text-align: center;
@@ -328,7 +329,8 @@ footer{
   padding: 3px;
   border-width: 3px;
   border-color: black;
-  font-size: 31px;
+  font-size: 33px;
+  font-family: "Bungee";
   border-radius: 12px;
   display: block;
   text-align: center;
