@@ -22,15 +22,9 @@ function updateCountdown() {
 
 // Function to handle quiz timeout
 function endQuiz() {
-    resetState();  // Clear previous questions and buttons
-    showScore();   // Display final score
-
-    // ✅ Ensure "Next" button is properly shown
-    nextButton.style.display = "block";  
-    nextButton.textContent = "Try Again";  
-    nextButton.onclick = restartQuiz;  // Restart the quiz when clicked
+    clearInterval(refreshIntervalId); // Stop the timer
+    showScore();   // ✅ Show the score when time runs out}
 }
-
 // Function to restart the quiz
 function restartQuiz() {
     time = startingMinutes * 60;  // Reset timer
@@ -43,7 +37,10 @@ function restartQuiz() {
 }
 
 // Automatically end test after 8 minutes
-setTimeout(endQuiz, 480000);
+setTimeout(() => {
+    clearInterval(refreshIntervalId);
+    endQuiz();
+}, 480000);
 
 updateCountdown();
 
@@ -364,37 +361,36 @@ function selectAnswer(e) {
 }
 
 function showScore() {
-    resetState();
-    let percentageScore = Math.round((score / questions.length) * 100); // Calculate percentage score
-    localStorage.setItem(`level${currentLevel}Score`, percentageScore); // Save dynamically per level
+    resetState(); // ✅ Clears the previous question before adding buttons
+
+    let percentageScore = Math.round((score / questions.length) * 100); 
+    localStorage.setItem(`level${currentLevel}Score`, percentageScore);
 
     if (percentageScore >= 75) {
         questionElement.innerHTML = `🎉 Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>✅ Great job! You can move on to the next section.`;
-        localStorage.setItem(`level${currentLevel + 1}Unlocked`, "true"); // Unlock next level
+        localStorage.setItem(`level${currentLevel + 1}Unlocked`, "true");
     } else {
         questionElement.innerHTML = `❌ Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>⚠️ You need at least 75% to move on.<br>Would you like to try again or continue anyway?`;
     }
 
-    // Create "Try Again" Button
+    // ✅ Create "Try Again" Button
     const tryAgainButton = document.createElement("button");
     tryAgainButton.innerHTML = "Try Again";
     tryAgainButton.classList.add("btn");
     tryAgainButton.onclick = () => startQuiz();
-    updateCountdown();
 
-    // Create "Continue Anyway" Button
+    // ✅ Create "Continue Anyway" Button
     const continueButton = document.createElement("button");
     continueButton.innerHTML = "Continue";
     continueButton.classList.add("btn");
     continueButton.onclick = () => location.href = "https://www.brainjelli.com/sat-rank-up-landing.html";
 
-    // Display buttons
+    // ✅ Append buttons AFTER clearing state
     answerButtons.appendChild(tryAgainButton);
     answerButtons.appendChild(continueButton);
-    
+
     document.getElementById("progress-bar").style.width = "100%";
 }
-
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
