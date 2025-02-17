@@ -1,9 +1,14 @@
 const startingMinutes = 8;
 const countdownEl = document.getElementById('countdown');
 
-
 let time = startingMinutes * 60;
-let refreshIntervalId = setInterval(updateCountdown, 1000);
+let refreshIntervalId; // Declare interval ID globally
+let quizEnded = false; // Prevents multiple calls
+
+function startTimer() {
+    clearInterval(refreshIntervalId); // Ensure no duplicate intervals
+    refreshIntervalId = setInterval(updateCountdown, 1000);
+}
 
 function updateCountdown() {
     const minutes = Math.floor(time / 60);
@@ -12,7 +17,7 @@ function updateCountdown() {
     
     countdownEl.innerHTML = `${minutes} : ${seconds}`;
 
-    if (time === 0) { 
+    if (time <= 0) { 
         clearInterval(refreshIntervalId);
         endQuiz();
     } else {
@@ -20,30 +25,28 @@ function updateCountdown() {
     }
 }
 
-// Function to handle quiz timeout
 function endQuiz() {
-    clearInterval(refreshIntervalId); // Stop the timer
-    showScore();   // ✅ Show the score when time runs out}
+    if (quizEnded) return; // Prevent multiple calls
+    quizEnded = true;
+
+    clearInterval(refreshIntervalId);
+    showScore();
 }
-// Function to restart the quiz
+
 function restartQuiz() {
+    quizEnded = false; // Reset flag
     time = startingMinutes * 60;  // Reset timer
     currentQuestionIndex = 0;
     score = 0;
     userAnswers = [];
     nextButton.style.display = "none"; // Hide the button after clicking
     fetchQuestions();  // Reload questions
-    updateCountdown(); // Restart countdown
+    startTimer(); // ✅ Restart timer properly
 }
 
-// Automatically end test after 8 minutes
-setTimeout(() => {
-    clearInterval(refreshIntervalId);
-    endQuiz();
-}, 480000);
-
+// ✅ Start timer when quiz loads
+startTimer();
 updateCountdown();
-
 
 const questionsData = {
     1: [
@@ -357,16 +360,20 @@ const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 
+let quizTimeout; // Declare outside function so it can be cleared
+
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
 
-    // Reset timer
-    clearInterval(refreshIntervalId); // Stop previous interval
+    clearInterval(refreshIntervalId); // Stop any existing timer
+    clearTimeout(quizTimeout); // ✅ Clear any previous timeout
+
     time = startingMinutes * 60; // Reset time
     refreshIntervalId = setInterval(updateCountdown, 1000); // Restart timer
 
+    quizTimeout = setTimeout(endQuiz, time * 1000); // ✅ Set timeout dynamically
     showQuestion();
 }
 
