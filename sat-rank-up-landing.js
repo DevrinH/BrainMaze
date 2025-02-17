@@ -28,10 +28,9 @@ function updateCountdown() {
 }
 
 function endQuiz() {
-    if (quizEnded) return; // Prevent multiple calls
-    quizEnded = true;
-    
+    console.log("Quiz ended."); // Debugging log
     clearInterval(refreshIntervalId);
+    clearTimeout(quizTimeout); // ✅ Ensure timeout is cleared on manual ending
     showScore();
 }
 
@@ -474,18 +473,22 @@ const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 
-let quizTimeout; // Declare globally to allow clearing
+let quizTimeout; // Declare globally
 
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
 
-    clearInterval(refreshIntervalId); // Stop any existing timer
-    clearTimeout(quizTimeout); // ✅ Clear any previous timeout
+    clearInterval(refreshIntervalId); // Stop any existing countdown
+    clearTimeout(quizTimeout); // ✅ Clear any existing timeout to prevent conflicts
 
-    time = startingMinutes * 60; // Reset time
-    quizTimeout = setTimeout(endQuiz, time * 1000); // ✅ Set timeout dynamically
+    time = startingMinutes * 60; // Reset timer
+
+    quizTimeout = setTimeout(() => { 
+        console.log("Time's up! Ending quiz.");
+        endQuiz(); 
+    }, time * 1000); // ✅ Set timeout dynamically each time
 
     refreshIntervalId = setInterval(updateCountdown, 1000); // Restart countdown
     showQuestion();
