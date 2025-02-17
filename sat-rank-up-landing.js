@@ -7,9 +7,18 @@ let quizEnded = false; // Prevents multiple calls
 
 function startTimer() {
     clearInterval(refreshIntervalId); // ✅ Clears any existing interval before starting a new one
+    clearTimeout(quizTimeout); // ✅ Clear previous timeout to prevent multiple triggers
+
     quizEnded = false; // ✅ Reset flag when the quiz restarts
     time = startingMinutes * 60; // ✅ Reset timer correctly
-    refreshIntervalId = setInterval(updateCountdown, 1000);
+
+    refreshIntervalId = setInterval(updateCountdown, 1000); // Restart countdown
+
+    // ✅ Set a fresh timeout for ending the quiz
+    quizTimeout = setTimeout(() => {
+        console.log("Time's up! Ending quiz."); 
+        endQuiz();
+    }, time * 1000);
 }
 
 function updateCountdown() {
