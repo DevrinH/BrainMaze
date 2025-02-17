@@ -7,18 +7,9 @@ let quizEnded = false; // Prevents multiple calls
 
 function startTimer() {
     clearInterval(refreshIntervalId); // ✅ Clears any existing interval before starting a new one
-    clearTimeout(quizTimeout); // ✅ Clear previous timeout to prevent multiple triggers
-
     quizEnded = false; // ✅ Reset flag when the quiz restarts
     time = startingMinutes * 60; // ✅ Reset timer correctly
-
-    refreshIntervalId = setInterval(updateCountdown, 1000); // Restart countdown
-
-    // ✅ Set a fresh timeout for ending the quiz
-    quizTimeout = setTimeout(() => {
-        console.log("Time's up! Ending quiz."); 
-        endQuiz();
-    }, time * 1000);
+    refreshIntervalId = setInterval(updateCountdown, 1000);
 }
 
 function updateCountdown() {
@@ -473,7 +464,7 @@ const questionsData = {
 
 // Get the current level from localStorage (default to 1 if not set)
 const currentLevel = parseInt(localStorage.getItem("currentLevel")) || 1;
-const questions = questionsData[currentLevel]; // Load questions for the current level
+const questions = questionsData[currentLevel]; 
 
 const questionElement = document.getElementById("question"); 
 const answerButtons = document.getElementById("answer-buttons");
@@ -484,23 +475,25 @@ let score = 0;
 
 let quizTimeout; // Declare globally
 
+
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
 
-    clearInterval(refreshIntervalId); // Stop any existing countdown
-    clearTimeout(quizTimeout); // ✅ Clear any existing timeout to prevent conflicts
+    clearInterval(refreshIntervalId); // ✅ Clear any existing timer
+    clearTimeout(quizTimeout); // ✅ Prevent multiple quiz timeouts
 
-    time = startingMinutes * 60; // Reset timer
+    time = startingMinutes * 60; // ✅ Reset timer
+    refreshIntervalId = setInterval(updateCountdown, 1000); // ✅ Restart countdown
 
-    quizTimeout = setTimeout(() => { 
-        console.log("Time's up! Ending quiz.");
-        endQuiz(); 
-    }, time * 1000); // ✅ Set timeout dynamically each time
+    // ✅ Ensure questions exist before calling showQuestion
+    if (!questions || questions.length === 0) {
+        console.error("No questions found for this level!");
+        return;
+    }
 
-    refreshIntervalId = setInterval(updateCountdown, 1000); // Restart countdown
-    showQuestion();
+    showQuestion(); // ✅ Show first question after restart
 }
 
 function showQuestion() {
