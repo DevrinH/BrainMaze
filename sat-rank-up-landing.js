@@ -227,15 +227,72 @@ const questionsData = {
             answer: "B) 9"
         }
     ],
-    6: [
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    6: [ 
+        // Writing Questions
+        { 
+            question: "Which choice best improves the clarity of the sentence?\nThe manager explained the policy to the employees **in a way that was clear and easy to understand**.",
+            options: ["A) in a way that was clear and easy to understand", "B) clearly and understandably", "C) in an understandable and clear way", "D) in a manner that was both clear and understandable"],
+            answer: "B) clearly and understandably"
+        },
+        { 
+            question: "Which option correctly uses a semicolon?\nThe concert was amazing; the band played all their best songs.",
+            options: ["A) No change", "B) The concert was amazing, the band played all their best songs.", "C) The concert was amazing; and the band played all their best songs.", "D) The concert was amazing the band played all their best songs."],
+            answer: "A) No change"
+        },
+        { 
+            question: "Which revision improves the sentence's conciseness?\nAt this point in time, the company is experiencing growth.",
+            options: ["A) No change", "B) The company is currently experiencing growth.", "C) The company is growing.", "D) The company, at this time, is growing."],
+            answer: "C) The company is growing."
+        },
+        
+        // Reading Questions
+        { 
+            question: "What is the author’s primary purpose in the passage?",
+            options: [
+                "A) To entertain the reader with a fictional story.",
+                "B) To inform the reader about a historical event.",
+                "C) To persuade the reader to adopt a viewpoint.",
+                "D) To describe a scientific process."
+            ],
+            answer: "B) To inform the reader about a historical event."
+        },
+        { 
+            question: "Which sentence best supports the claim that technology has improved communication?",
+            options: [
+                "A) Many people use smartphones daily.",
+                "B) Emails allow people to communicate instantly across the globe.",
+                "C) Some prefer handwritten letters over digital messages.",
+                "D) Reading books is a great way to gain knowledge."
+            ],
+            answer: "B) Emails allow people to communicate instantly across the globe."
+        },
+        { 
+            question: "Based on the passage, what can be inferred about the protagonist’s decision?",
+            options: [
+                "A) It was made impulsively.",
+                "B) It was carefully considered.",
+                "C) It was influenced by external pressure.",
+                "D) It was entirely unexpected."
+            ],
+            answer: "B) It was carefully considered."
+        },
+        
+        // Math Questions
+        { 
+            question: "Solve for x: 5x + 3 = 18",
+            options: ["A) 3", "B) 4", "C) 5", "D) 6"],
+            answer: "A) 3"
+        },
+        { 
+            question: "A rectangle has a length of 10 and a width of 4. What is its area?",
+            options: ["A) 20", "B) 30", "C) 40", "D) 50"],
+            answer: "C) 40"
+        },
+        { 
+            question: "If f(x) = 2x^2 - 3x + 4, what is f(3)?",
+            options: ["A) 13", "B) 16", "C) 19", "D) 22"],
+            answer: "A) 13"
+        }
     ],
     7: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
