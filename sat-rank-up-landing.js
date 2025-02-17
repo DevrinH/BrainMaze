@@ -163,7 +163,7 @@ const questionsData = {
         { 
             question: "Which choice best maintains the sentence’s clarity and precision?\nThe scientist conducted an experiment to observe the **things** that influence plant growth.",
             options: ["A) things", "B) factors", "C) stuff", "D) elements"],
-            answer: "B"
+            answer: "B) factors"
         },
         { 
             question: "Which choice best combines the sentences?\nThe cat was asleep. The loud noise woke it up.",
@@ -173,12 +173,12 @@ const questionsData = {
                 "C) The cat was asleep, it woke up when hearing a loud noise.",
                 "D) The loud noise woke the cat up while it was asleep."
             ],
-            answer: "B"
+            answer: "B) The cat was asleep, but it woke up due to the loud noise."
         },
         { 
             question: "Which option corrects the error in the following sentence?\nEach of the players **have** a unique skill set.",
             options: ["A) No change", "B) has", "C) were", "D) are"],
-            answer: "B"
+            answer: "B) has"
         },
         
         // Reading Questions
@@ -190,7 +190,7 @@ const questionsData = {
                 "C) It summarizes the main argument.",
                 "D) It describes the protagonist’s emotions."
             ],
-            answer: "A"
+            answer: "A) It introduces a conflict."
         },
         { 
             question: "Which choice best supports the idea that the character is feeling nervous?",
@@ -200,7 +200,7 @@ const questionsData = {
                 "C) 'The sun set slowly, casting long shadows across the field.'",
                 "D) 'They ran quickly, laughing as they went.'"
             ],
-            answer: "B"
+            answer: "B) 'He tapped his foot rapidly and glanced around the room.'"
         },
         { 
             question: "Which word best describes the tone of the passage?",
@@ -210,24 +210,24 @@ const questionsData = {
                 "C) Indifferent", 
                 "D) Enthusiastic"
             ],
-            answer: "B"
+            answer: "B) Melancholy"
         },
         
         // Math Questions
         { 
             question: "Solve for x: 4x - 7 = 21",
             options: ["A) 5", "B) 6", "C) 7", "D) 8"],
-            answer: "C"
+            answer: "C) 7"
         },
         { 
             question: "A triangle has side lengths of 5 and 12. If the hypotenuse is 13, what type of triangle is it?",
             options: ["A) Acute", "B) Right", "C) Obtuse", "D) Equilateral"],
-            answer: "B"
+            answer: "B) Right"
         },
         { 
             question: "The function g(x) = 3x^2 - 4x + 5 is evaluated at x = 2. What is g(2)?",
             options: ["A) 7", "B) 9", "C) 11", "D) 13"],
-            answer: "B"
+            answer: "B) 9"
         }
     ],
     6: [
