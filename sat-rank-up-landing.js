@@ -43,7 +43,7 @@ function restartQuiz() {
 }
 
 // Automatically end test after 8 minutes
-setTimeout(endQuiz, 480000);
+setTimeout(endQuiz, 10000);
 
 updateCountdown();
 
@@ -105,7 +105,7 @@ const questionsData = {
         { 
             question: "Which option corrects the error in the following sentence?\nNeither of the candidates **are** prepared for the debate.",
             options: ["A) No change", "B) is", "C) were", "D) have been"],
-            answer: "B"
+            answer: "B) is"
         },
         
         // Reading Questions
@@ -117,7 +117,7 @@ const questionsData = {
                 "C) To summarize the entire passage",
                 "D) To describe a setting in detail"
             ],
-            answer: "A"
+            answer: "A) To introduce a character's dilemma"
         },
         { 
             question: "Which choice best supports the idea that the protagonist is feeling uncertain?",
@@ -127,7 +127,7 @@ const questionsData = {
                 "C) 'The town was quiet, its streets empty and calm.'",
                 "D) 'They laughed as they walked together down the path.'"
             ],
-            answer: "B"
+            answer: "B) 'She hesitated at the door, her hand hovering over the handle.'"
         },
         { 
             question: "What can be inferred about the author’s tone in the passage?",
@@ -137,24 +137,24 @@ const questionsData = {
                 "C) Nostalgic", 
                 "D) Excited"
             ],
-            answer: "C"
+            answer: "C) Nostalgic"
         },
         
         // Math Questions
         { 
             question: "If 3x + 5 = 20, what is the value of x?",
             options: ["A) 5", "B) 6", "C) 7", "D) 8"],
-            answer: "A"
+            answer: "A) 5"
         },
         { 
             question: "A rectangle has a length of 10 and a width of 4. What is its perimeter?",
             options: ["A) 28", "B) 30", "C) 36", "D) 40"],
-            answer: "A"
+            answer: "A) 28"
         },
         { 
             question: "The function f(x) = 2x^2 - 3x + 4 is evaluated at x = 3. What is f(3)?",
             options: ["A) 13", "B) 16", "C) 19", "D) 22"],
-            answer: "A"
+            answer: "A) 13"
         }
     ]
     ,
