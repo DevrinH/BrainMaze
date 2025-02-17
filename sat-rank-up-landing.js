@@ -2,11 +2,13 @@ const startingMinutes = 8;
 const countdownEl = document.getElementById('countdown');
 
 let time = startingMinutes * 60;
-let refreshIntervalId; // Declare interval ID globally
+let refreshIntervalId;
 let quizEnded = false; // Prevents multiple calls
 
 function startTimer() {
-    clearInterval(refreshIntervalId); // Ensure no duplicate intervals
+    clearInterval(refreshIntervalId); // ✅ Clears any existing interval before starting a new one
+    quizEnded = false; // ✅ Reset flag when the quiz restarts
+    time = startingMinutes * 60; // ✅ Reset timer correctly
     refreshIntervalId = setInterval(updateCountdown, 1000);
 }
 
@@ -28,25 +30,22 @@ function updateCountdown() {
 function endQuiz() {
     if (quizEnded) return; // Prevent multiple calls
     quizEnded = true;
-
+    
     clearInterval(refreshIntervalId);
     showScore();
 }
 
 function restartQuiz() {
-    quizEnded = false; // Reset flag
-    time = startingMinutes * 60;  // Reset timer
+    startTimer(); // ✅ Restart timer properly
     currentQuestionIndex = 0;
     score = 0;
     userAnswers = [];
     nextButton.style.display = "none"; // Hide the button after clicking
     fetchQuestions();  // Reload questions
-    startTimer(); // ✅ Restart timer properly
 }
 
 // ✅ Start timer when quiz loads
 startTimer();
-updateCountdown();
 
 const questionsData = {
     1: [
@@ -297,25 +296,140 @@ const questionsData = {
             answer: "A) 13"
         }
     ],
-    7: [
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
-    ],
-    8: [
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    7:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe scientist conducted an experiment **that was testing** the effects of temperature on plant growth.",
+            options: ["A) that was testing", "B) testing", "C) which tested", "D) No change"],
+            answer: "B) testing"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nNeither of the solutions **are** effective in solving the issue.",
+            options: ["A) are", "B) have been", "C) is", "D) were"],
+            answer: "C) is"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nDue to the fact that we arrived late, we missed the beginning of the movie.",
+            options: ["A) Due to the fact that", "B) Because", "C) Owing to the fact that", "D) On account of the fact that"],
+            answer: "B) Because"
+        },
+        
+        // Reading Questions
+        {  
+            question: "What is the main purpose of the passage?",
+            options: [
+                "A) To argue against a popular belief.",
+                "B) To explain a complex process.",
+                "C) To narrate a personal experience.",
+                "D) To analyze a historical event."
+            ],
+            answer: "B) To explain a complex process."
+        },
+        {  
+            question: "Which statement best supports the author's claim about climate change?",
+            options: [
+                "A) The Earth's climate has changed throughout history.",
+                "B) Many scientists believe climate change is a pressing issue.",
+                "C) Rising global temperatures have been linked to increased natural disasters.",
+                "D) Some people deny the existence of climate change."
+            ],
+            answer: "C) Rising global temperatures have been linked to increased natural disasters."
+        },
+        {  
+            question: "What can be inferred about the character's decision in the passage?",
+            options: [
+                "A) It was influenced by fear.",
+                "B) It was a result of careful planning.",
+                "C) It was made under pressure.",
+                "D) It was entirely spontaneous."
+            ],
+            answer: "B) It was a result of careful planning."
+        },
+        
+        // Math Questions
+        {  
+            question: "If 3x - 5 = 16, what is the value of x?",
+            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+            answer: "C) 7"
+        },
+        {  
+            question: "A triangle has sides of length 5, 12, and 13. What is its area?",
+            options: ["A) 25", "B) 30", "C) 35", "D) 40"],
+            answer: "B) 30"
+        },
+        {  
+            question: "If g(x) = x^2 - 4x + 7, what is g(5)?",
+            options: ["A) 12", "B) 13", "C) 14", "D) 15"],
+            answer: "A) 12"
+        }
+    ]
+    ,
+    8: [  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe manager explained the policy **in a way that was clear and easy to understand** to the employees.",
+            options: ["A) in a way that was clear and easy to understand", "B) clearly and understandably", "C) with clarity and ease of understanding", "D) No change"],
+            answer: "B) clearly and understandably"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nEach of the team members **have** a role in the project.",
+            options: ["A) have", "B) has", "C) having", "D) had"],
+            answer: "B) has"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nIn spite of the fact that he was late, he was still allowed to take the test.",
+            options: ["A) In spite of the fact that", "B) Although", "C) Due to the fact that", "D) Despite of the fact that"],
+            answer: "B) Although"
+        },
+        
+        // Reading Questions
+        {  
+            question: "What is the main idea of the passage?",
+            options: [
+                "A) To criticize a common misconception.",
+                "B) To provide insight into a scientific discovery.",
+                "C) To share a personal perspective on a historical event.",
+                "D) To describe the challenges of technological advancement."
+            ],
+            answer: "B) To provide insight into a scientific discovery."
+        },
+        {  
+            question: "Which sentence best supports the author's argument about renewable energy?",
+            options: [
+                "A) Solar panels require sunlight to generate power.",
+                "B) The transition to renewable energy has economic benefits.",
+                "C) Many people are unaware of how wind turbines work.",
+                "D) Fossil fuels have been used for centuries."
+            ],
+            answer: "B) The transition to renewable energy has economic benefits."
+        },
+        {  
+            question: "What can be inferred about the protagonist’s decision in the passage?",
+            options: [
+                "A) It was motivated by a sense of duty.",
+                "B) It was made impulsively.",
+                "C) It was encouraged by external pressure.",
+                "D) It was entirely accidental."
+            ],
+            answer: "A) It was motivated by a sense of duty."
+        },
+        
+        // Math Questions
+        {  
+            question: "If 4x + 3 = 19, what is the value of x?",
+            options: ["A) 3", "B) 4", "C) 5", "D) 6"],
+            answer: "C) 4"
+        },
+        {  
+            question: "A circle has a radius of 7. What is its area? (Use \u03C0 ≈ 3.14)",
+            options: ["A) 144.13", "B) 153.86", "C) 156.24", "D) 162.50"],
+            answer: "B) 153.86"
+        },
+        {  
+            question: "If f(x) = 2x^2 - 3x + 4, what is f(3)?",
+            options: ["A) 13", "B) 14", "C) 15", "D) 16"],
+            answer: "C) 15"
+        }
     ],
     9: [
         { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
