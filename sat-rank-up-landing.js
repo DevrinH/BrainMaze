@@ -1,7 +1,8 @@
 const startingMinutes = 8;
 const countdownEl = document.getElementById('countdown');
 
-let time = startingMinutes * 60; // No need for "+1", ensures exactly 64 minutes
+
+let time = startingMinutes * 60;
 let refreshIntervalId = setInterval(updateCountdown, 1000);
 
 function updateCountdown() {
@@ -13,7 +14,7 @@ function updateCountdown() {
 
     if (time === 0) { 
         clearInterval(refreshIntervalId);
-        endQuiz();  // ✅ Stops quiz when timer hits zero
+        endQuiz();
     } else {
         time--; 
     }
@@ -21,15 +22,27 @@ function updateCountdown() {
 
 // Function to handle quiz timeout
 function endQuiz() {
-    resetState();  // Removes answer buttons
-    showScore();   // Shows final score immediately
-    
-    // Ensure the "Next" button is visible for retry/continue
+    resetState();  // Clear previous questions and buttons
+    showScore();   // Display final score
+
+    // ✅ Ensure "Next" button is properly shown
     nextButton.style.display = "block";  
-    nextButton.innerHTML = "Try Again";  // Change button text for clarity
-    nextButton.addEventListener("click", startQuiz); // Restart quiz when clicked
+    nextButton.textContent = "Try Again";  
+    nextButton.onclick = restartQuiz;  // Restart the quiz when clicked
 }
-// Automatically end test after 64 minutes (3,840,000 ms)
+
+// Function to restart the quiz
+function restartQuiz() {
+    time = startingMinutes * 60;  // Reset timer
+    currentQuestionIndex = 0;
+    score = 0;
+    userAnswers = [];
+    nextButton.style.display = "none"; // Hide the button after clicking
+    fetchQuestions();  // Reload questions
+    updateCountdown(); // Restart countdown
+}
+
+// Automatically end test after 8 minutes
 setTimeout(endQuiz, 480000);
 
 updateCountdown();
