@@ -474,7 +474,7 @@ const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 
-let quizTimeout; // Declare outside function so it can be cleared
+let quizTimeout; // Declare globally to allow clearing
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -485,9 +485,9 @@ function startQuiz() {
     clearTimeout(quizTimeout); // ✅ Clear any previous timeout
 
     time = startingMinutes * 60; // Reset time
-    refreshIntervalId = setInterval(updateCountdown, 1000); // Restart timer
-
     quizTimeout = setTimeout(endQuiz, time * 1000); // ✅ Set timeout dynamically
+
+    refreshIntervalId = setInterval(updateCountdown, 1000); // Restart countdown
     showQuestion();
 }
 
