@@ -43,7 +43,7 @@ function restartQuiz() {
 }
 
 // Automatically end test after 8 minutes
-setTimeout(endQuiz, 10000);
+setTimeout(endQuiz, 480000);
 
 updateCountdown();
 
