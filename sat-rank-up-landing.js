@@ -83,420 +83,416 @@ const questionsData = {
         { question: "A rectangular garden has a length of 12 feet and a width of 5 feet. What is its area?", options: ["17 square feet", "24 square feet", "60 square feet","120 square feet"], answer: "60 square feet" },
         { question: "A book originally costs $30 and is on sale for 25% off. What is the sale price?", options: ["$20", "$22.50", "$25","$27"], answer: "$22.50" },
     ],
-    4: [ 
+    4:[  
         // Writing Questions
-        { 
-            question: "Which choice best maintains the sentence’s style and tone?\nThe scientist conducted an experiment to investigate the **stuff** found in ocean water.",
-            options: ["A) stuff", "B) substances", "C) junk", "D) gunk"],
-            answer: "B) substances"
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nShe completed the project **in an efficient and effective way**.",
+            options: ["A) in an efficient and effective way", "B) efficiently and effectively", "C) in a manner that was both efficient and effective", "D) No change"],
+            answer: "B) efficiently and effectively"
         },
-        { 
-            question: "Which choice best combines the sentences?\nThe dog was barking. It saw a squirrel in the yard.",
-            options: [
-                "A) The dog, barking, saw a squirrel in the yard.",
-                "B) The dog was barking because it saw a squirrel in the yard.",
-                "C) The dog, seeing a squirrel in the yard, it was barking.",
-                "D) The dog saw a squirrel in the yard and it barking."
-            ],
-            answer: "B) The dog was barking because it saw a squirrel in the yard."
-        },
-        { 
-            question: "Which option corrects the error in the following sentence?\nNeither of the candidates **are** prepared for the debate.",
-            options: ["A) No change", "B) is", "C) were", "D) have been"],
+        {  
+            question: "Which option corrects the grammatical error?\nThe team **are** preparing for the big game.",
+            options: ["A) are", "B) is", "C) have been", "D) No change"],
             answer: "B) is"
         },
-        
+        {  
+            question: "Which revision improves sentence conciseness?\nThe reason that she applied for the scholarship was because she needed financial aid.",
+            options: ["A) The reason that", "B) Because", "C) Due to the fact that", "D) No change"],
+            answer: "B) Because"
+        },
+    
         // Reading Questions
-        { 
-            question: "Based on the passage, what is the main purpose of the first paragraph?",
+        {  
+            question: "Passage: Regular reading can enhance vocabulary and improve comprehension skills. Studies suggest that individuals who read frequently perform better on tests and have a broader knowledge base.\n\nWhat is the main idea of the passage?",
             options: [
-                "A) To introduce a character's dilemma",
-                "B) To provide background information",
-                "C) To summarize the entire passage",
-                "D) To describe a setting in detail"
+                "A) Reading regularly can improve vocabulary and comprehension.",
+                "B) Reading is only beneficial for test-taking.",
+                "C) Knowledge is gained solely through books.",
+                "D) Vocabulary improvement is unrelated to reading."
             ],
-            answer: "A) To introduce a character's dilemma"
+            answer: "A) Reading regularly can improve vocabulary and comprehension."
         },
-        { 
-            question: "Which choice best supports the idea that the protagonist is feeling uncertain?",
+        {  
+            question: "Passage: A healthy diet includes a variety of nutrients, such as vitamins and minerals, that help the body function properly. Eating balanced meals promotes overall well-being.\n\nWhich statement best supports the author’s claim?",
             options: [
-                "A) 'He stepped forward confidently, ready for the challenge.'",
-                "B) 'She hesitated at the door, her hand hovering over the handle.'",
-                "C) 'The town was quiet, its streets empty and calm.'",
-                "D) 'They laughed as they walked together down the path.'"
+                "A) A healthy diet consists of essential nutrients.",
+                "B) Only certain foods contain nutrients.",
+                "C) Meals should consist solely of vitamins.",
+                "D) Minerals are not necessary for health."
             ],
-            answer: "B) 'She hesitated at the door, her hand hovering over the handle.'"
+            answer: "A) A healthy diet consists of essential nutrients."
         },
-        { 
-            question: "What can be inferred about the author’s tone in the passage?",
+        {  
+            question: "Passage: The young musician practiced for hours every day. Eventually, she became proficient and was invited to perform at a concert.\n\nWhat can be inferred about the musician?",
             options: [
-                "A) Sarcastic", 
-                "B) Neutral", 
-                "C) Nostalgic", 
-                "D) Excited"
+                "A) She worked hard to improve her skills.",
+                "B) She disliked practicing.",
+                "C) She avoided performances.",
+                "D) Her skills did not improve despite practice."
             ],
-            answer: "C) Nostalgic"
+            answer: "A) She worked hard to improve her skills."
         },
-        
+    
         // Math Questions
-        { 
-            question: "If 3x + 5 = 20, what is the value of x?",
-            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
-            answer: "A) 5"
+        {  
+            question: "If 2x + 5 = 13, what is the value of x?",
+            options: ["A) 3", "B) 4", "C) 5", "D) 6"],
+            answer: "B) 4"
         },
-        { 
-            question: "A rectangle has a length of 10 and a width of 4. What is its perimeter?",
-            options: ["A) 28", "B) 30", "C) 36", "D) 40"],
-            answer: "A) 28"
+        {  
+            question: "A triangle has a base of 10 and a height of 6. What is its area?",
+            options: ["A) 30", "B) 40", "C) 50", "D) 60"],
+            answer: "A) 30"
         },
-        { 
-            question: "The function f(x) = 2x^2 - 3x + 4 is evaluated at x = 3. What is f(3)?",
-            options: ["A) 13", "B) 16", "C) 19", "D) 22"],
-            answer: "A) 13"
+        {  
+            question: "If f(x) = x^2 - 2x + 1, what is f(3)?",
+            options: ["A) 2", "B) 3", "C) 4", "D) 5"],
+            answer: "A) 4"
+        }
+    ]
+    
+    ,
+    5:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe teacher gave instructions **in a clear and concise manner** so that all students understood.",
+            options: ["A) in a clear and concise manner", "B) clearly and concisely", "C) in an extremely clear way", "D) No change"],
+            answer: "B) clearly and concisely"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nThe group of friends **was** excited for the trip.",
+            options: ["A) was", "B) were", "C) have been", "D) No change"],
+            answer: "D) No change"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nShe made the decision to leave the party early because she was feeling tired.",
+            options: ["A) made the decision to", "B) decided to", "C) came to the conclusion to", "D) No change"],
+            answer: "B) decided to"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Exercise has numerous benefits, including improved cardiovascular health and increased energy levels. Many studies suggest that regular physical activity can also boost mental well-being.\n\nWhat is the main idea of the passage?",
+            options: [
+                "A) Exercise has multiple benefits, including physical and mental health improvements.",
+                "B) Exercise is only beneficial for cardiovascular health.",
+                "C) Energy levels decrease with physical activity.",
+                "D) Mental well-being does not improve with exercise."
+            ],
+            answer: "A) Exercise has multiple benefits, including physical and mental health improvements."
+        },
+        {  
+            question: "Passage: A balanced diet consists of various nutrients, including proteins, carbohydrates, and fats. Eating a variety of foods helps ensure that the body gets all the essential vitamins and minerals it needs.\n\nWhich statement best supports the author’s claim?",
+            options: [
+                "A) A balanced diet provides essential nutrients.",
+                "B) Only proteins are necessary for a healthy diet.",
+                "C) Carbohydrates should be avoided.",
+                "D) Vitamins and minerals are not important for health."
+            ],
+            answer: "A) A balanced diet provides essential nutrients."
+        },
+        {  
+            question: "Passage: The young artist practiced painting every day. Over time, her skills improved, and she started showcasing her work at local galleries.\n\nWhat can be inferred about the artist?",
+            options: [
+                "A) She worked hard to improve her painting skills.",
+                "B) She disliked painting.",
+                "C) She never showcased her artwork.",
+                "D) Her skills remained the same despite practicing."
+            ],
+            answer: "A) She worked hard to improve her painting skills."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 3x + 8 = 17, what is the value of x?",
+            options: ["A) 2", "B) 3", "C) 4", "D) 5"],
+            answer: "B) 3"
+        },
+        {  
+            question: "A rectangle has a length of 12 and a width of 5. What is its area?",
+            options: ["A) 50", "B) 55", "C) 60", "D) 65"],
+            answer: "A) 50"
+        },
+        {  
+            question: "If g(x) = x^2 - 4x + 3, what is g(3)?",
+            options: ["A) 0", "B) 1", "C) 2", "D) 3"],
+            answer: "B) 2"
         }
     ]
     ,
-    5: [ 
+    6:[  
         // Writing Questions
-        { 
-            question: "Which choice best maintains the sentence’s clarity and precision?\nThe scientist conducted an experiment to observe the **things** that influence plant growth.",
-            options: ["A) things", "B) factors", "C) stuff", "D) elements"],
-            answer: "B) factors"
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe manager will review the proposal **at this moment in time** before making a decision.",
+            options: ["A) at this moment in time", "B) now", "C) eventually", "D) No change"],
+            answer: "B) now"
         },
-        { 
-            question: "Which choice best combines the sentences?\nThe cat was asleep. The loud noise woke it up.",
-            options: [
-                "A) The cat, asleep, woke up because of the loud noise.",
-                "B) The cat was asleep, but it woke up due to the loud noise.",
-                "C) The cat was asleep, it woke up when hearing a loud noise.",
-                "D) The loud noise woke the cat up while it was asleep."
-            ],
-            answer: "B) The cat was asleep, but it woke up due to the loud noise."
+        {  
+            question: "Which option corrects the grammatical error?\nNeither of the players **are** ready for the game.",
+            options: ["A) are", "B) is", "C) were", "D) No change"],
+            answer: "B) is"
         },
-        { 
-            question: "Which option corrects the error in the following sentence?\nEach of the players **have** a unique skill set.",
-            options: ["A) No change", "B) has", "C) were", "D) are"],
-            answer: "B) has"
+        {  
+            question: "Which revision improves sentence conciseness?\nHe made a decision that was completely unexpected.",
+            options: ["A) made a decision that was", "B) decided", "C) came to the conclusion that was", "D) No change"],
+            answer: "B) decided"
         },
-        
+    
         // Reading Questions
-        { 
-            question: "What is the main idea of the passage's first paragraph?",
+        {  
+            question: "Passage: Renewable energy sources, such as wind and solar power, are becoming more popular as alternatives to fossil fuels. Many countries are investing in clean energy to reduce carbon emissions.\n\nWhat is the main idea of the passage?",
             options: [
-                "A) It introduces a conflict.",
-                "B) It provides historical context.",
-                "C) It summarizes the main argument.",
-                "D) It describes the protagonist’s emotions."
+                "A) Renewable energy is gaining popularity and reducing carbon emissions.",
+                "B) Fossil fuels are better than renewable energy sources.",
+                "C) Wind power is the best form of renewable energy.",
+                "D) Solar power is unreliable."
             ],
-            answer: "A) It introduces a conflict."
+            answer: "A) Renewable energy is gaining popularity and reducing carbon emissions."
         },
-        { 
-            question: "Which choice best supports the idea that the character is feeling nervous?",
+        {  
+            question: "Passage: Studies show that students who read frequently develop stronger analytical skills. Reading helps expand vocabulary and enhances critical thinking abilities.\n\nWhich statement best supports the author's claim?",
             options: [
-                "A) 'She smiled brightly, waving to her friends.'",
-                "B) 'He tapped his foot rapidly and glanced around the room.'",
-                "C) 'The sun set slowly, casting long shadows across the field.'",
-                "D) 'They ran quickly, laughing as they went.'"
+                "A) Reading improves vocabulary and analytical skills.",
+                "B) Some people do not enjoy reading.",
+                "C) Students should read only academic texts.",
+                "D) Watching movies is better than reading."
             ],
-            answer: "B) 'He tapped his foot rapidly and glanced around the room.'"
+            answer: "A) Reading improves vocabulary and analytical skills."
         },
-        { 
-            question: "Which word best describes the tone of the passage?",
+        {  
+            question: "Passage: The scientist hesitated before announcing her discovery. She wanted to verify her results to ensure accuracy.\n\nWhat can be inferred about the scientist?",
             options: [
-                "A) Hopeful", 
-                "B) Melancholy", 
-                "C) Indifferent", 
-                "D) Enthusiastic"
+                "A) She is careless about accuracy.",
+                "B) She values precision in her work.",
+                "C) She is eager to share her findings immediately.",
+                "D) She does not trust scientific methods."
             ],
-            answer: "B) Melancholy"
+            answer: "B) She values precision in her work."
         },
-        
+    
         // Math Questions
-        { 
-            question: "Solve for x: 4x - 7 = 21",
-            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
-            answer: "C) 7"
+        {  
+            question: "If 4x + 7 = 19, what is the value of x?",
+            options: ["A) 2", "B) 3", "C) 4", "D) 5"],
+            answer: "B) 3"
         },
-        { 
-            question: "A triangle has side lengths of 5 and 12. If the hypotenuse is 13, what type of triangle is it?",
-            options: ["A) Acute", "B) Right", "C) Obtuse", "D) Equilateral"],
-            answer: "B) Right"
+        {  
+            question: "A triangle has a base of 10 and a height of 6. What is its area?",
+            options: ["A) 30", "B) 40", "C) 50", "D) 60"],
+            answer: "A) 30"
         },
-        { 
-            question: "The function g(x) = 3x^2 - 4x + 5 is evaluated at x = 2. What is g(2)?",
-            options: ["A) 7", "B) 9", "C) 11", "D) 13"],
-            answer: "B) 9"
+        {  
+            question: "If f(x) = x^2 - 5x + 6, what is f(2)?",
+            options: ["A) 0", "B) 1", "C) 2", "D) 3"],
+            answer: "B) 2"
         }
-    ],
-    6: [ 
-        // Writing Questions
-        { 
-            question: "Which choice best improves the clarity of the sentence?\nThe manager explained the policy to the employees **in a way that was clear and easy to understand**.",
-            options: ["A) in a way that was clear and easy to understand", "B) clearly and understandably", "C) in an understandable and clear way", "D) in a manner that was both clear and understandable"],
-            answer: "B) clearly and understandably"
-        },
-        { 
-            question: "Which option correctly uses a semicolon?\nThe concert was amazing; the band played all their best songs.",
-            options: ["A) No change", "B) The concert was amazing, the band played all their best songs.", "C) The concert was amazing; and the band played all their best songs.", "D) The concert was amazing the band played all their best songs."],
-            answer: "A) No change"
-        },
-        { 
-            question: "Which revision improves the sentence's conciseness?\nAt this point in time, the company is experiencing growth.",
-            options: ["A) No change", "B) The company is currently experiencing growth.", "C) The company is growing.", "D) The company, at this time, is growing."],
-            answer: "C) The company is growing."
-        },
-        
-        // Reading Questions
-        { 
-            question: "What is the author’s primary purpose in the passage?",
-            options: [
-                "A) To entertain the reader with a fictional story.",
-                "B) To inform the reader about a historical event.",
-                "C) To persuade the reader to adopt a viewpoint.",
-                "D) To describe a scientific process."
-            ],
-            answer: "B) To inform the reader about a historical event."
-        },
-        { 
-            question: "Which sentence best supports the claim that technology has improved communication?",
-            options: [
-                "A) Many people use smartphones daily.",
-                "B) Emails allow people to communicate instantly across the globe.",
-                "C) Some prefer handwritten letters over digital messages.",
-                "D) Reading books is a great way to gain knowledge."
-            ],
-            answer: "B) Emails allow people to communicate instantly across the globe."
-        },
-        { 
-            question: "Based on the passage, what can be inferred about the protagonist’s decision?",
-            options: [
-                "A) It was made impulsively.",
-                "B) It was carefully considered.",
-                "C) It was influenced by external pressure.",
-                "D) It was entirely unexpected."
-            ],
-            answer: "B) It was carefully considered."
-        },
-        
-        // Math Questions
-        { 
-            question: "Solve for x: 5x + 3 = 18",
-            options: ["A) 3", "B) 4", "C) 5", "D) 6"],
-            answer: "A) 3"
-        },
-        { 
-            question: "A rectangle has a length of 10 and a width of 4. What is its area?",
-            options: ["A) 20", "B) 30", "C) 40", "D) 50"],
-            answer: "C) 40"
-        },
-        { 
-            question: "If f(x) = 2x^2 - 3x + 4, what is f(3)?",
-            options: ["A) 13", "B) 16", "C) 19", "D) 22"],
-            answer: "A) 13"
-        }
-    ],
+    ]
+    ,
     7:[  
         // Writing Questions
         {  
-            question: "Which choice best improves the clarity of the sentence?\nThe scientist conducted an experiment **that was testing** the effects of temperature on plant growth.",
-            options: ["A) that was testing", "B) testing", "C) which tested", "D) No change"],
-            answer: "B) testing"
+            question: "Which choice best improves the clarity of the sentence?\nThe committee will make a decision **at this point in time**, considering all available information.",
+            options: ["A) at this point in time", "B) now", "C) at a future date", "D) No change"],
+            answer: "B) now"
         },
         {  
-            question: "Which option corrects the grammatical error?\nNeither of the solutions **are** effective in solving the issue.",
-            options: ["A) are", "B) have been", "C) is", "D) were"],
-            answer: "C) is"
+            question: "Which option corrects the grammatical error?\nThe team **has** completed their assignments ahead of schedule.",
+            options: ["A) has", "B) have", "C) is", "D) No change"],
+            answer: "B) have"
         },
         {  
-            question: "Which revision improves sentence conciseness?\nDue to the fact that we arrived late, we missed the beginning of the movie.",
-            options: ["A) Due to the fact that", "B) Because", "C) Owing to the fact that", "D) On account of the fact that"],
+            question: "Which revision improves sentence conciseness?\nDue to the fact that he was late, he missed the introduction.",
+            options: ["A) Due to the fact that", "B) Because", "C) Owing to", "D) No change"],
             answer: "B) Because"
         },
-        
+    
         // Reading Questions
         {  
-            question: "What is the main purpose of the passage?",
+            question: "Passage: As cities expand, green spaces become more limited. Many researchers argue that urban parks play a crucial role in maintaining biodiversity and improving mental well-being.\n\nWhat is the main idea of the passage?",
             options: [
-                "A) To argue against a popular belief.",
-                "B) To explain a complex process.",
-                "C) To narrate a personal experience.",
-                "D) To analyze a historical event."
+                "A) Urban parks are important for biodiversity and well-being.",
+                "B) Cities should not expand further.",
+                "C) Green spaces are not necessary in cities.",
+                "D) Urban development has no impact on nature."
             ],
-            answer: "B) To explain a complex process."
+            answer: "A) Urban parks are important for biodiversity and well-being."
         },
         {  
-            question: "Which statement best supports the author's claim about climate change?",
+            question: "Passage: Scientists studying ocean currents have discovered that changes in water temperature affect marine life. Many species migrate earlier than usual, disrupting ecosystems.\n\nWhich statement best supports the author’s claim about ocean temperature changes?",
             options: [
-                "A) The Earth's climate has changed throughout history.",
-                "B) Many scientists believe climate change is a pressing issue.",
-                "C) Rising global temperatures have been linked to increased natural disasters.",
-                "D) Some people deny the existence of climate change."
+                "A) Warmer waters cause some species to migrate earlier.",
+                "B) Marine life is not affected by temperature changes.",
+                "C) Ocean currents do not impact ecosystems.",
+                "D) Migration patterns remain unchanged."
             ],
-            answer: "C) Rising global temperatures have been linked to increased natural disasters."
+            answer: "A) Warmer waters cause some species to migrate earlier."
         },
         {  
-            question: "What can be inferred about the character's decision in the passage?",
+            question: "Passage: The young artist hesitated before displaying her painting. She worried about how others would react but knew she had to take a chance.\n\nWhat can be inferred about the artist’s feelings?",
             options: [
-                "A) It was influenced by fear.",
-                "B) It was a result of careful planning.",
-                "C) It was made under pressure.",
-                "D) It was entirely spontaneous."
+                "A) She is confident in her artwork.",
+                "B) She is uncertain but willing to take a risk.",
+                "C) She does not care about others' opinions.",
+                "D) She regrets creating the painting."
             ],
-            answer: "B) It was a result of careful planning."
+            answer: "B) She is uncertain but willing to take a risk."
         },
-        
+    
         // Math Questions
         {  
-            question: "If 3x - 5 = 16, what is the value of x?",
-            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
-            answer: "C) 7"
-        },
-        {  
-            question: "A triangle has sides of length 5, 12, and 13. What is its area?",
-            options: ["A) 25", "B) 30", "C) 35", "D) 40"],
-            answer: "B) 30"
-        },
-        {  
-            question: "If g(x) = x^2 - 4x + 7, what is g(5)?",
-            options: ["A) 12", "B) 13", "C) 14", "D) 15"],
-            answer: "A) 12"
-        }
-    ]
-    ,
-    8: [  
-        // Writing Questions
-        {  
-            question: "Which choice best improves the clarity of the sentence?\nThe manager explained the policy **in a way that was clear and easy to understand** to the employees.",
-            options: ["A) in a way that was clear and easy to understand", "B) clearly and understandably", "C) with clarity and ease of understanding", "D) No change"],
-            answer: "B) clearly and understandably"
-        },
-        {  
-            question: "Which option corrects the grammatical error?\nEach of the team members **have** a role in the project.",
-            options: ["A) have", "B) has", "C) having", "D) had"],
-            answer: "B) has"
-        },
-        {  
-            question: "Which revision improves sentence conciseness?\nIn spite of the fact that he was late, he was still allowed to take the test.",
-            options: ["A) In spite of the fact that", "B) Although", "C) Due to the fact that", "D) Despite of the fact that"],
-            answer: "B) Although"
-        },
-        
-        // Reading Questions
-        {  
-            question: "What is the main idea of the passage?",
-            options: [
-                "A) To criticize a common misconception.",
-                "B) To provide insight into a scientific discovery.",
-                "C) To share a personal perspective on a historical event.",
-                "D) To describe the challenges of technological advancement."
-            ],
-            answer: "B) To provide insight into a scientific discovery."
-        },
-        {  
-            question: "Which sentence best supports the author's argument about renewable energy?",
-            options: [
-                "A) Solar panels require sunlight to generate power.",
-                "B) The transition to renewable energy has economic benefits.",
-                "C) Many people are unaware of how wind turbines work.",
-                "D) Fossil fuels have been used for centuries."
-            ],
-            answer: "B) The transition to renewable energy has economic benefits."
-        },
-        {  
-            question: "What can be inferred about the protagonist’s decision in the passage?",
-            options: [
-                "A) It was motivated by a sense of duty.",
-                "B) It was made impulsively.",
-                "C) It was encouraged by external pressure.",
-                "D) It was entirely accidental."
-            ],
-            answer: "A) It was motivated by a sense of duty."
-        },
-        
-        // Math Questions
-        {  
-            question: "If 4x + 3 = 19, what is the value of x?",
-            options: ["A) 3", "B) 4", "C) 5", "D) 6"],
-            answer: "C) 4"
-        },
-        {  
-            question: "A circle has a radius of 7. What is its area? (Use \u03C0 ≈ 3.14)",
-            options: ["A) 144.13", "B) 153.86", "C) 156.24", "D) 162.50"],
-            answer: "B) 153.86"
-        },
-        {  
-            question: "If f(x) = 2x^2 - 3x + 4, what is f(3)?",
-            options: ["A) 13", "B) 14", "C) 15", "D) 16"],
-            answer: "C) 15"
-        }
-    ],
-    9:[  
-        // Writing Questions
-        {  
-            question: "Which choice best improves the clarity of the sentence?\nThe new policy will take effect **in the near future** and impact all employees.",
-            options: ["A) in the near future", "B) soon", "C) at a later date", "D) No change"],
-            answer: "B) soon"
-        },
-        {  
-            question: "Which option corrects the grammatical error?\nEach of the students **were** given a chance to present their projects.",
-            options: ["A) were", "B) was", "C) have been", "D) No change"],
-            answer: "B) was"
-        },
-        {  
-            question: "Which revision improves sentence conciseness?\nThe reason why she left early was because she was feeling ill.",
-            options: ["A) The reason why", "B) Because", "C) Due to the fact that", "D) No change"],
-            answer: "B) Because"
-        },
-        
-        // Reading Questions
-        {  
-            question: "What is the main argument of the passage?",
-            options: [
-                "A) That modern technology improves daily life.",
-                "B) That traditional values are no longer important.",
-                "C) That historical events should not be forgotten.",
-                "D) That scientific research requires government funding."
-            ],
-            answer: "A) That modern technology improves daily life."
-        },
-        {  
-            question: "Which sentence best supports the author's claim about space exploration?",
-            options: [
-                "A) Space exploration is expensive and difficult.",
-                "B) Discoveries in space have led to advancements in medicine and technology.",
-                "C) Many people dream of becoming astronauts.",
-                "D) Space agencies employ thousands of scientists."
-            ],
-            answer: "B) Discoveries in space have led to advancements in medicine and technology."
-        },
-        {  
-            question: "What can be inferred about the character’s actions in the passage?",
-            options: [
-                "A) They were driven by personal ambition.",
-                "B) They were influenced by a mentor.",
-                "C) They were entirely spontaneous.",
-                "D) They were based on misinformation."
-            ],
-            answer: "A) They were driven by personal ambition."
-        },
-        
-        // Math Questions
-        {  
-            question: "If 5x - 7 = 18, what is the value of x?",
+            question: "If 3x + 4 = 19, what is the value of x?",
             options: ["A) 3", "B) 4", "C) 5", "D) 6"],
             answer: "C) 5"
         },
         {  
-            question: "A square has a side length of 8. What is its area?",
-            options: ["A) 48", "B) 56", "C) 64", "D) 72"],
-            answer: "C) 64"
+            question: "A rectangle has a length of 12 and a width of 5. What is its area?",
+            options: ["A) 50", "B) 55", "C) 60", "D) 65"],
+            answer: "A) 50"
         },
         {  
-            question: "If h(x) = x^2 - 6x + 9, what is h(4)?",
-            options: ["A) 1", "B) 2", "C) 3", "D) 4"],
-            answer: "A) 1"
+            question: "If g(x) = x^2 - 4x + 5, what is g(3)?",
+            options: ["A) 2", "B) 3", "C) 4", "D) 5"],
+            answer: "B) 2"
         }
     ]
+    
+    ,
+    8:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe manager decided to schedule the meeting **at this particular point in time**, ensuring everyone could attend.",
+            options: ["A) at this particular point in time", "B) now", "C) at some point", "D) No change"],
+            answer: "B) now"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nNeither of the candidates **are** qualified for the position.",
+            options: ["A) are", "B) is", "C) were", "D) No change"],
+            answer: "B) is"
+        },
+        {  
+            question: "Which revision improves the sentence’s conciseness?\nIn order to successfully complete the project, the team must collaborate effectively.",
+            options: ["A) In order to", "B) To", "C) For the purpose of", "D) No change"],
+            answer: "B) To"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Over the years, renewable energy sources such as solar and wind power have become more accessible. As technology advances, these sources are expected to replace traditional fossil fuels, reducing environmental damage.\n\nWhat is the main idea of the passage?",
+            options: [
+                "A) Renewable energy is becoming more accessible and may replace fossil fuels.",
+                "B) Fossil fuels are not harmful to the environment.",
+                "C) Renewable energy is too expensive to be widely used.",
+                "D) Technology has had little impact on renewable energy."
+            ],
+            answer: "A) Renewable energy is becoming more accessible and may replace fossil fuels."
+        },
+        {  
+            question: "Passage: The author describes the impact of social media on communication, emphasizing how it has altered the way people interact. While some believe social media enhances connectivity, others argue that it weakens genuine relationships.\n\nWhich statement best supports the author’s discussion of social media’s impact?",
+            options: [
+                "A) Social media increases connectivity but may weaken personal relationships.",
+                "B) People do not use social media frequently.",
+                "C) Social media has no effect on communication.",
+                "D) Everyone agrees that social media is beneficial."
+            ],
+            answer: "A) Social media increases connectivity but may weaken personal relationships."
+        },
+        {  
+            question: "Passage: The scientist hesitated before announcing her findings. She knew her research would challenge widely accepted theories, but she was determined to share the truth.\n\nWhat can be inferred about the scientist’s feelings?",
+            options: [
+                "A) She is confident and eager to share her findings.",
+                "B) She is nervous but committed to presenting her research.",
+                "C) She is indifferent about her discovery.",
+                "D) She does not believe in her own research.",
+            ],
+            answer: "B) She is nervous but committed to presenting her research."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 4x - 5 = 19, what is the value of x?",
+            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+            answer: "D) 6"
+        },
+        {  
+            question: "A triangle has a base of 10 and a height of 7. What is its area?",
+            options: ["A) 35", "B) 40", "C) 45", "D) 50"],
+            answer: "A) 35"
+        },
+        {  
+            question: "If f(x) = x^2 - 3x + 4, what is f(6)?",
+            options: ["A) 22", "B) 25", "C) 28", "D) 31"],
+            answer: "C) 28"
+        }
+    ]
+    ,
+    9:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe scientist presented her findings **at this moment in time**, explaining the significance of her discovery.",
+            options: ["A) at this moment in time", "B) now", "C) eventually", "D) No change"],
+            answer: "B) now"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nEither the manager or the employees **is** responsible for closing the store.",
+            options: ["A) is", "B) are", "C) have been", "D) No change"],
+            answer: "B) are"
+        },
+        {  
+            question: "Which revision improves the sentence's conciseness?\nDue to the fact that she was exhausted, she decided to leave early.",
+            options: ["A) Due to the fact that", "B) Because", "C) Since", "D) No change"],
+            answer: "B) Because"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Over the past decade, the shift to digital communication has transformed the way people interact. Emails, text messages, and video calls have replaced traditional letters and face-to-face meetings. While these advancements improve efficiency, some argue they reduce the depth of human connection.\n\nWhat is the primary argument of the passage?",
+            options: [
+                "A) Digital communication is more efficient but may weaken human connections.",
+                "B) Traditional letters are still widely used today.",
+                "C) Video calls are the most effective form of communication.",
+                "D) Face-to-face meetings are no longer necessary."
+            ],
+            answer: "A) Digital communication is more efficient but may weaken human connections."
+        },
+        {  
+            question: "Passage: In recent years, urban gardening has gained popularity as more people seek sustainable food sources. Community gardens provide fresh produce while fostering social connections among neighbors. Experts suggest that urban gardening can help address food insecurity and improve city landscapes.\n\nWhich statement best supports the author's claim about urban gardening?",
+            options: [
+                "A) It helps improve local food security and fosters community bonds.",
+                "B) It is an expensive hobby that only benefits the wealthy.",
+                "C) It requires advanced gardening skills.",
+                "D) It has little impact on city environments."
+            ],
+            answer: "A) It helps improve local food security and fosters community bonds."
+        },
+        {  
+            question: "Passage: The explorer hesitated at the mouth of the cave, listening carefully. The map had indicated hidden dangers, but nothing in his experience could prepare him for what lay ahead. Taking a deep breath, he stepped inside, determined to uncover the cave’s secrets.\n\nWhat can be inferred about the explorer’s mindset?",
+            options: [
+                "A) He is fearful and unwilling to proceed.",
+                "B) He is hesitant but determined to continue.",
+                "C) He is overconfident and careless.",
+                "D) He has no knowledge of potential dangers."
+            ],
+            answer: "B) He is hesitant but determined to continue."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 3x - 4 = 17, what is the value of x?",
+            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+            answer: "C) 7"
+        },
+        {  
+            question: "A rectangle has a length of 12 and a width of 5. What is its area?",
+            options: ["A) 50", "B) 55", "C) 60", "D) 65"],
+            answer: "A) 50"
+        },
+        {  
+            question: "If g(x) = x^2 - 4x + 6, what is g(5)?",
+            options: ["A) 11", "B) 12", "C) 13", "D) 14"],
+            answer: "B) 11"
+        }
+    ]
+    
     ,
     10:[  
         // Writing Questions
@@ -518,7 +514,7 @@ const questionsData = {
     
         // Reading Questions
         {  
-            question: "What is the author's primary argument in the passage?",
+            question: "Passage: In recent years, the world has seen a growing shift toward renewable energy sources. Solar panels, wind turbines, and hydroelectric power are becoming more widespread, reducing dependence on fossil fuels. Researchers argue that this transition is crucial for combating climate change and ensuring a sustainable future.\n\nWhat is the author's primary argument in the passage?",
             options: [
                 "A) That global warming is a hoax.",
                 "B) That renewable energy is vital for sustainability.",
@@ -528,7 +524,7 @@ const questionsData = {
             answer: "B) That renewable energy is vital for sustainability."
         },
         {  
-            question: "Which statement best supports the author's claim about the importance of education?",
+            question: "Passage: Education has long been considered the foundation for personal and societal growth. Studies show that individuals with higher levels of education tend to earn more, experience lower unemployment rates, and contribute more effectively to their communities. In addition, access to quality education helps bridge economic and social inequalities.\n\nWhich statement best supports the author's claim about the importance of education?",
             options: [
                 "A) Education helps individuals secure better job opportunities.",
                 "B) Many people prefer online courses over traditional classrooms.",
@@ -538,7 +534,7 @@ const questionsData = {
             answer: "A) Education helps individuals secure better job opportunities."
         },
         {  
-            question: "What can be inferred about the protagonist’s decision in the passage?",
+            question: "Passage: The protagonist stood at the crossroads, glancing at the map in their hands. Every choice led to a different future, yet deep down, they already knew the right path. With a determined breath, they took the first step forward, fully aware of the challenges ahead but confident in their decision.\n\nWhat can be inferred about the protagonist’s decision in the passage?",
             options: [
                 "A) It was made under social pressure.",
                 "B) It was purely accidental.",
@@ -566,16 +562,351 @@ const questionsData = {
         }
     ]
     ,
-    11: [
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" },
-        { question: "Q", options: ["A", "A", "A","A"], answer: "A" }
+    11:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe committee made a decision that was both final and unchangeable.",
+            options: ["A) final and unchangeable", "B) definitive", "C) final in nature and not subject to change", "D) No change"],
+            answer: "B) definitive"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nNeither of the solutions **are** effective in addressing the issue.",
+            options: ["A) are", "B) is", "C) have been", "D) No change"],
+            answer: "B) is"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nDue to the fact that the storm was approaching, the event was postponed.",
+            options: ["A) Due to the fact that", "B) Because", "C) In light of the approaching storm", "D) No change"],
+            answer: "B) Because"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Advances in artificial intelligence are transforming various industries, from healthcare to finance. Many experts argue that AI will significantly enhance productivity, while others caution against potential ethical concerns.\n\nWhat is the main idea of the passage?",
+            options: [
+                "A) AI is limited in its applications.",
+                "B) AI has both benefits and potential drawbacks.",
+                "C) AI is primarily used in healthcare.",
+                "D) AI has already replaced most human jobs."
+            ],
+            answer: "B) AI has both benefits and potential drawbacks."
+        },
+        {  
+            question: "Passage: Renewable energy sources, such as solar and wind power, have gained popularity due to their sustainability. Governments worldwide are investing in these technologies to reduce dependence on fossil fuels and combat climate change.\n\nWhich statement best supports the author’s claim?",
+            options: [
+                "A) Renewable energy is more expensive than fossil fuels.",
+                "B) Governments are increasing funding for solar and wind power.",
+                "C) Fossil fuels remain the most reliable source of energy.",
+                "D) Solar panels work only in sunny conditions."
+            ],
+            answer: "B) Governments are increasing funding for solar and wind power."
+        },
+        {  
+            question: "Passage: After years of research, scientists successfully developed a vaccine that significantly reduces the spread of a deadly virus. The breakthrough is expected to save millions of lives worldwide.\n\nWhat can be inferred from the passage?",
+            options: [
+                "A) The vaccine will completely eradicate the virus.",
+                "B) The vaccine was developed without extensive research.",
+                "C) The vaccine is expected to have a major impact on public health.",
+                "D) The vaccine has not yet been tested."
+            ],
+            answer: "C) The vaccine is expected to have a major impact on public health."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 3x - 7 = 20, what is the value of x?",
+            options: ["A) 8", "B) 9", "C) 10", "D) 11"],
+            answer: "B) 9"
+        },
+        {  
+            question: "A circle has a radius of 5. What is its area? (Use π ≈ 3.14)",
+            options: ["A) 25", "B) 31.4", "C) 78.5", "D) 100"],
+            answer: "C) 78.5"
+        },
+        {  
+            question: "If g(x) = 2x^2 - 5x + 3, what is g(4)?",
+            options: ["A) 19", "B) 21", "C) 25", "D) 27"],
+            answer: "A) 19"
+        }
+    ],
+    12:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe scientist conducted an experiment that was both thorough and complete.",
+            options: ["A) thorough and complete", "B) comprehensive", "C) exhaustive in nature and fully detailed", "D) No change"],
+            answer: "B) comprehensive"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nEach of the students **have** submitted their assignments on time.",
+            options: ["A) have", "B) has", "C) were", "D) No change"],
+            answer: "B) has"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nIn order to successfully complete the project, the team needed to work together collaboratively.",
+            options: ["A) In order to", "B) To", "C) For the purpose of", "D) No change"],
+            answer: "B) To"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: The rapid development of electric vehicles (EVs) has sparked a debate about their long-term impact. While proponents highlight reduced emissions and energy efficiency, critics argue that battery disposal and electricity production still pose environmental concerns.\n\nWhat is the main idea of the passage?",
+            options: [
+                "A) EVs are the ultimate solution to environmental issues.",
+                "B) EVs have both advantages and environmental challenges.",
+                "C) EVs are not practical for widespread use.",
+                "D) Battery production is the only concern for EVs."
+            ],
+            answer: "B) EVs have both advantages and environmental challenges."
+        },
+        {  
+            question: "Passage: Historical records indicate that early civilizations developed written language to facilitate trade, record events, and communicate laws. Archaeologists have discovered inscriptions that provide insights into these societies' social structures and daily lives.\n\nWhich statement best supports the author’s claim?",
+            options: [
+                "A) Written language was primarily used for artistic expression.",
+                "B) Archaeological findings reveal written records of trade and laws.",
+                "C) Early civilizations had no use for written communication.",
+                "D) Laws were communicated only through oral traditions."
+            ],
+            answer: "B) Archaeological findings reveal written records of trade and laws."
+        },
+        {  
+            question: "Passage: Recent studies on sleep patterns indicate that teenagers require more sleep than previously thought. Researchers suggest that later school start times could improve academic performance and overall well-being.\n\nWhat can be inferred from the passage?",
+            options: [
+                "A) Teenagers currently get enough sleep.",
+                "B) School schedules may not align with teenagers' biological needs.",
+                "C) Academic performance is not affected by sleep.",
+                "D) Researchers believe school should start earlier."
+            ],
+            answer: "B) School schedules may not align with teenagers' biological needs."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 5x + 3 = 28, what is the value of x?",
+            options: ["A) 4", "B) 5", "C) 6", "D) 7"],
+            answer: "B) 5"
+        },
+        {  
+            question: "A right triangle has legs of length 6 and 8. What is the length of the hypotenuse?",
+            options: ["A) 10", "B) 12", "C) 14", "D) 16"],
+            answer: "A) 10"
+        },
+        {  
+            question: "If f(x) = x^2 - 4x + 7, what is f(3)?",
+            options: ["A) 2", "B) 4", "C) 6", "D) 8"],
+            answer: "D) 8"
+        }
+    ],
+    13:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe researchers conducted a study that was both comprehensive and all-encompassing.",
+            options: ["A) comprehensive and all-encompassing", "B) thorough", "C) extensive in nature and fully detailed", "D) No change"],
+            answer: "B) thorough"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nEither of the solutions **were** viable options for the project.",
+            options: ["A) were", "B) was", "C) have been", "D) No change"],
+            answer: "B) was"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nOwing to the fact that the deadline was approaching, the team worked quickly.",
+            options: ["A) Owing to the fact that", "B) Because", "C) Due to the fact that", "D) No change"],
+            answer: "B) Because"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: The increasing reliance on automation in industries such as manufacturing and logistics has led to concerns about job displacement. While automation improves efficiency, some experts warn that it may also reduce employment opportunities for workers in certain sectors.\n\nWhat is the main idea of the passage?",
+            options: [
+                "A) Automation has no impact on employment.",
+                "B) Automation increases efficiency but raises employment concerns.",
+                "C) Automation is unnecessary in modern industries.",
+                "D) Workers are adapting to automation without difficulty."
+            ],
+            answer: "B) Automation increases efficiency but raises employment concerns."
+        },
+        {  
+            question: "Passage: Studies on urban planning suggest that cities designed with green spaces and pedestrian-friendly areas contribute to improved mental health and lower stress levels among residents. Researchers advocate for integrating parks and walkable streets into urban developments.\n\nWhich statement best supports the author’s claim?",
+            options: [
+                "A) Urban areas should prioritize commercial expansion.",
+                "B) Parks and walkable streets promote well-being.",
+                "C) Cars are the primary mode of transportation in cities.",
+                "D) High-rise buildings contribute to population growth."
+            ],
+            answer: "B) Parks and walkable streets promote well-being."
+        },
+        {  
+            question: "Passage: Renewable energy sources such as wind and solar power have become increasingly viable alternatives to fossil fuels. Many governments are investing in these technologies to reduce carbon emissions and promote sustainability.\n\nWhat can be inferred from the passage?",
+            options: [
+                "A) Fossil fuels are more sustainable than renewable energy.",
+                "B) Governments see renewable energy as a key to sustainability.",
+                "C) Wind and solar power are inefficient energy sources.",
+                "D) Renewable energy is no longer being developed."
+            ],
+            answer: "B) Governments see renewable energy as a key to sustainability."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 4x - 7 = 21, what is the value of x?",
+            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+            answer: "D) 7"
+        },
+        {  
+            question: "A rectangle has a length of 12 and a width of 9. What is its perimeter?",
+            options: ["A) 30", "B) 42", "C) 48", "D) 54"],
+            answer: "C) 42"
+        },
+        {  
+            question: "If h(x) = 3x^2 - 2x + 4, what is h(2)?",
+            options: ["A) 10", "B) 12", "C) 14", "D) 16"],
+            answer: "C) 14"
+        }
+    ],
+    14:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe scientist conducted an experiment that was both new and unprecedented.",
+            options: ["A) new and unprecedented", "B) innovative", "C) novel and unlike any before", "D) No change"],
+            answer: "B) innovative"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nEach of the students **have** completed their assignments.",
+            options: ["A) have", "B) has", "C) had", "D) No change"],
+            answer: "B) has"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nDespite the fact that she was tired, she continued to work on the project.",
+            options: ["A) Despite the fact that", "B) Although", "C) Because she was tired", "D) No change"],
+            answer: "B) Although"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Advances in space exploration have led to the discovery of planets with conditions that may support life. Scientists continue to search for evidence of extraterrestrial organisms.\n\nWhat is the main idea of the passage?",
+            options: [
+                "A) Space exploration is a waste of resources.",
+                "B) Scientists are interested in finding extraterrestrial life.",
+                "C) No planets beyond Earth can support life.",
+                "D) Space travel is dangerous and expensive."
+            ],
+            answer: "B) Scientists are interested in finding extraterrestrial life."
+        },
+        {  
+            question: "Passage: Electric cars are becoming increasingly popular due to their environmental benefits and cost savings on fuel. However, concerns remain about battery disposal and charging infrastructure.\n\nWhich statement best supports the author’s claim?",
+            options: [
+                "A) Electric cars are more expensive than gasoline cars.",
+                "B) Charging stations are being built to support electric vehicles.",
+                "C) Most people prefer traditional cars.",
+                "D) Electric cars are slower than gasoline cars."
+            ],
+            answer: "B) Charging stations are being built to support electric vehicles."
+        },
+        {  
+            question: "Passage: After years of technological advancements, scientists have developed a new form of solar panel that is significantly more efficient than previous models. The innovation is expected to revolutionize renewable energy.\n\nWhat can be inferred from the passage?",
+            options: [
+                "A) The new solar panel technology will replace all other energy sources.",
+                "B) The new solar panel technology will improve energy efficiency.",
+                "C) Scientists no longer need to research solar power.",
+                "D) The new solar panels are too expensive to be practical."
+            ],
+            answer: "B) The new solar panel technology will improve energy efficiency."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 5x - 8 = 27, what is the value of x?",
+            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+            answer: "C) 7"
+        },
+        {  
+            question: "A cylinder has a radius of 3 and a height of 10. What is its volume? (Use π ≈ 3.14)",
+            options: ["A) 282.6", "B) 94.2", "C) 113.1", "D) 314"],
+            answer: "A) 282.6"
+        },
+        {  
+            question: "If f(x) = x^2 - 4x + 6, what is f(5)?",
+            options: ["A) 11", "B) 13", "C) 15", "D) 17"],
+            answer: "B) 11"
+        }
+    ],
+    15:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe manager attempted to try a new approach to increase efficiency.",
+            options: ["A) attempted to try", "B) tried", "C) made an attempt to try", "D) No change"],
+            answer: "B) tried"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nNeither of the answers **are** correct.",
+            options: ["A) are", "B) is", "C) were", "D) No change"],
+            answer: "B) is"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nIn light of the fact that she was late, she missed the meeting.",
+            options: ["A) In light of the fact that", "B) Since", "C) Due to the fact that", "D) No change"],
+            answer: "B) Since"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Scientists studying marine life have discovered that certain deep-sea creatures have adapted to extreme conditions by developing bioluminescence. This ability allows them to attract prey and communicate in the dark depths of the ocean.\n\nWhat is the primary purpose of the passage?",
+            options: [
+                "A) To argue against the use of artificial lighting in deep-sea exploration.",
+                "B) To describe how some marine creatures use bioluminescence.",
+                "C) To explain the dangers of deep-sea habitats.",
+                "D) To compare deep-sea and surface-level marine life."
+            ],
+            answer: "B) To describe how some marine creatures use bioluminescence."
+        },
+        {  
+            question: "Passage: Urban planners are increasingly focusing on designing cities that prioritize pedestrian and cyclist accessibility. Studies suggest that walkable cities lead to improved public health, reduced traffic congestion, and lower pollution levels.\n\nWhich statement best supports the author’s claim?",
+            options: [
+                "A) Cities with more cars have fewer accidents.",
+                "B) Walkable cities tend to have lower obesity rates.",
+                "C) Cyclists are more likely to be injured in traffic.",
+                "D) Public transportation is declining in many cities."
+            ],
+            answer: "B) Walkable cities tend to have lower obesity rates."
+        },
+        {  
+            question: "Passage: Advances in battery technology have significantly extended the lifespan and efficiency of electric vehicles. With improved energy storage capabilities, modern electric cars can travel longer distances on a single charge than ever before.\n\nWhat can be inferred from the passage?",
+            options: [
+                "A) Electric vehicles are now cheaper than gasoline cars.",
+                "B) Battery technology continues to improve over time.",
+                "C) Gasoline cars are becoming obsolete.",
+                "D) Electric vehicles no longer require charging stations."
+            ],
+            answer: "B) Battery technology continues to improve over time."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 3x + 7 = 25, what is the value of x?",
+            options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+            answer: "A) 5"
+        },
+        {  
+            question: "A sphere has a radius of 4. What is its volume? (Use \u03C0 \u2248 3.14 and formula V = 4/3 \u03C0r^3)",
+            options: ["A) 267.95", "B) 201.06", "C) 150.72", "D) 268.08"],
+            answer: "A) 267.95"
+        },
+        {  
+            question: "If g(x) = 2x^2 - 3x + 4, what is g(3)?",
+            options: ["A) 19", "B) 20", "C) 21", "D) 22"],
+            answer: "C) 21"
+        }
     ]
+    
+    
+
+
+
+
+
+
+
+
 };
 
 // Get the current level from localStorage (default to 1 if not set)
