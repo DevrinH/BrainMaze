@@ -88,7 +88,7 @@ const questionsData = {
                 "C) The dog, seeing a squirrel in the yard, it was barking.",
                 "D) The dog saw a squirrel in the yard and it barking."
             ],
-            answer: "B"
+            answer: "B) The dog was barking because it saw a squirrel in the yard."
         },
         { 
             question: "Which option corrects the error in the following sentence?\nNeither of the candidates **are** prepared for the debate.",
