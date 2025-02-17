@@ -732,6 +732,15 @@ font-family: "Montserrat-SemiBold";
   margin-top: 15px;
 }
 
+.email{
+  font-family: "Montserrat-SemiBold";
+
+}
+
+.name{
+  font-family: "Montserrat-SemiBold";
+
+}
 .suggestions-list {
   position: absolute;
   background: white;
