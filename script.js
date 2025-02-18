@@ -205,7 +205,7 @@ const questions = [
     {
         question: "Throughout history, societies have struggled to define the role of government in regulating economic activity. Some argue that government intervention is necessary to correct market failures and ensure stability, while others believe that free markets function best without interference. The Great Depression of the 1930s led to increased regulation, but in later decades, economic policies shifted toward deregulation, reflecting an ongoing debate about the balance between government control and economic freedom.<br/><br/>Question: <br/>Which choice best states the central idea of the passage?",
         answers: [
-            { text: "The Great Depression led to the first instance of government intervention in the economy.", correct: false},
+            { text: "The Great Depression led to many instances of government intervention in the economy.", correct: false},
             { text: "Economic policies change over time as societies debate the role of government in markets.", correct: true},
             { text: "Free markets have consistently been more successful than regulated economies.", correct: false},
             { text: "Government intervention always leads to economic stability.", correct: false},
