@@ -285,7 +285,7 @@ footer{
   margin-bottom: 25px;
 }
 .vocabsatbutton{
-  background-image:linear-gradient(#09bd45, #0b85b9);
+  background-image:linear-gradient(#09bd45, #c930f0);
   color: #ffffff;
   box-shadow: 2px 2px black;
   width: 77px;
@@ -310,7 +310,7 @@ footer{
   padding: 3px;
   border-width: 3px;
   border-color: black;
-  font-size: 28px;
+  font-size: 22px;
   font-family: "Bungee";
   border-radius: 12px;
   display: block;
