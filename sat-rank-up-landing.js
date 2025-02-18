@@ -1005,6 +1005,7 @@ function showScore() {
             spread: 70,
             origin: { y: 0.6 }
           });
+          confetti();
     } else {
         questionElement.innerHTML = `❌ Score: ${score} out of ${questions.length} (${percentageScore}%)!<br>⚠️ You need at least 75% to move on.<br>Would you like to try again or continue anyway?`;
     }
