@@ -1318,7 +1318,75 @@ const questionsData = {
             options: ["A) 16", "B) 17", "C) 18", "D) 19"],
             answer: "B) 17"
         }
+    ],
+    22:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity and conciseness of the sentence?\nThe scientist conducted an experiment in order to test the hypothesis, which was proposed earlier.",
+            options: ["A) conducted an experiment in order to test the hypothesis, which was proposed earlier.", "B) tested the hypothesis through an experiment that had been proposed earlier.", "C) conducted an experiment to test the previously proposed hypothesis.", "D) No change"],
+            answer: "C) conducted an experiment to test the previously proposed hypothesis."
+        },
+        {  
+            question: "Which revision corrects the error in subject-verb agreement?\nThe team of researchers **were** analyzing the data for inconsistencies.",
+            options: ["A) were", "B) was", "C) have been", "D) No change"],
+            answer: "B) was"
+        },
+        {  
+            question: "Which option corrects the misplaced modifier?\nWalking through the museum, the paintings seemed almost lifelike to the visitors.",
+            options: ["A) Walking through the museum, the paintings seemed almost lifelike to the visitors.", "B) The paintings seemed almost lifelike to the visitors walking through the museum.", "C) The visitors walking through the museum found the paintings almost lifelike.", "D) No change"],
+            answer: "C) The visitors walking through the museum found the paintings almost lifelike."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: The discovery of gravitational waves revolutionized our understanding of astrophysics. Scientists had long theorized their existence, but it wasn't until 2015 that an observatory successfully detected these ripples in spacetime, confirming Einstein’s century-old predictions. The detection opened new avenues for exploring cosmic events such as black hole mergers.\n\nWhat was the significance of the discovery of gravitational waves?",
+            options: [
+                "A) It disproved Einstein’s theories about relativity.",
+                "B) It provided direct evidence supporting gravitational wave theories.",
+                "C) It led to the immediate colonization of other planets.",
+                "D) It proved that black holes do not exist."
+            ],
+            answer: "B) It provided direct evidence supporting gravitational wave theories."
+        },
+        {  
+            question: "Passage: The industrial revolution brought about an era of rapid technological advancement and economic growth. However, the shift from agrarian to industrial societies also introduced numerous social challenges, including poor working conditions, child labor, and widening economic disparities. Reform movements arose to address these issues, advocating for labor rights and fair wages.\n\nWhat is the main purpose of the passage?",
+            options: [
+                "A) To describe how industrialization improved economic equality.",
+                "B) To explain both the benefits and challenges of the industrial revolution.",
+                "C) To argue against technological advancement in industry.",
+                "D) To propose solutions for future economic growth."
+            ],
+            answer: "B) To explain both the benefits and challenges of the industrial revolution."
+        },
+        {  
+            question: "Passage: Biologists have discovered a species of tree that thrives in high-salinity environments, where most plants struggle to survive. This unique adaptation allows the tree to absorb and filter salt, maintaining a balance that supports its growth. Scientists believe studying these trees could lead to advancements in agricultural practices for arid regions.\n\nWhat can be inferred about the significance of these trees?",
+            options: [
+                "A) They are the only trees capable of surviving in saltwater.",
+                "B) Their adaptations may provide insights into improving agriculture in dry areas.",
+                "C) They thrive by absorbing water from nearby freshwater sources.",
+                "D) They are being genetically modified to grow in deserts."
+            ],
+            answer: "B) Their adaptations may provide insights into improving agriculture in dry areas."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 3x + 5 = 2x + 11, what is the value of x?",
+            options: ["A) 6", "B) 5", "C) 4", "D) 3"],
+            answer: "B) 5"
+        },
+        {  
+            question: "A right triangle has legs of length 8 and 15. What is the length of the hypotenuse?",
+            options: ["A) 17", "B) 18", "C) 20", "D) 22"],
+            answer: "A) 17"
+        },
+        {  
+            question: "A function f(x) is defined as f(x) = 2x^2 - 5x + 3. What is f(4)?",
+            options: ["A) 19", "B) 21", "C) 23", "D) 25"],
+            answer: "C) 23"
+        }
     ]
+    
     
     
     
