@@ -896,7 +896,433 @@ const questionsData = {
             options: ["A) 19", "B) 20", "C) 21", "D) 22"],
             answer: "C) 21"
         }
+    ],
+    16:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe scientist conducted an experiment in order to determine the results.",
+            options: ["A) conducted an experiment in order to", "B) experimented to", "C) conducted an experiment to", "D) No change"],
+            answer: "C) conducted an experiment to"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nEach of the students **have** completed their assignments.",
+            options: ["A) have", "B) has", "C) were", "D) No change"],
+            answer: "B) has"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nDespite the fact that she was exhausted, she continued working.",
+            options: ["A) Despite the fact that", "B) Even though", "C) Due to the fact that", "D) No change"],
+            answer: "B) Even though"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: A recent study suggests that regular exercise not only improves physical health but also enhances cognitive function. Researchers found that individuals who engage in moderate aerobic activity multiple times per week perform better on memory tests and exhibit increased neural connectivity.\n\nWhat is the primary purpose of the passage?",
+            options: [
+                "A) To argue that exercise should be mandatory for students.",
+                "B) To highlight the mental benefits of physical activity.",
+                "C) To compare different types of exercise routines.",
+                "D) To explain how memory works in the brain."
+            ],
+            answer: "B) To highlight the mental benefits of physical activity."
+        },
+        {  
+            question: "Passage: As cities continue to grow, many urban planners are advocating for the expansion of green spaces. Studies indicate that access to parks and natural environments reduces stress, improves air quality, and fosters social interaction.\n\nWhich statement best supports the author’s claim?",
+            options: [
+                "A) Green spaces can sometimes be expensive to maintain.",
+                "B) People living near parks report higher happiness levels.",
+                "C) City populations are increasing at an unprecedented rate.",
+                "D) Some cities have fewer parks than others."
+            ],
+            answer: "B) People living near parks report higher happiness levels."
+        },
+        {  
+            question: "Passage: Advances in renewable energy technology have made solar and wind power more efficient and cost-effective. As a result, more governments and businesses are investing in sustainable energy sources to reduce reliance on fossil fuels.\n\nWhat can be inferred from the passage?",
+            options: [
+                "A) Fossil fuels are no longer used anywhere in the world.",
+                "B) Renewable energy sources are becoming more popular.",
+                "C) Wind power is more effective than solar power.",
+                "D) Businesses are avoiding sustainable energy sources."
+            ],
+            answer: "B) Renewable energy sources are becoming more popular."
+        },
+    
+        // Math Questions
+        {  
+            question: "Solve for x: 4x - 5 = 19.",
+            options: ["A) 6", "B) 5", "C) 7", "D) 8"],
+            answer: "A) 6"
+        },
+        {  
+            question: "A right triangle has legs of lengths 6 and 8. What is the length of the hypotenuse?",
+            options: ["A) 10", "B) 12", "C) 14", "D) 16"],
+            answer: "A) 10"
+        },
+        {  
+            question: "If f(x) = x^2 - 4x + 7, what is f(5)?",
+            options: ["A) 12", "B) 13", "C) 14", "D) 15"],
+            answer: "B) 12"
+        }
+    ],
+    17:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity and conciseness of the sentence?\nThe committee has reached a decision that is final and cannot be changed.",
+            options: ["A) has reached a final decision", "B) has made a decision that is final", "C) has reached a decision which is final", "D) No change"],
+            answer: "A) has reached a final decision"
+        },
+        {  
+            question: "Which option corrects the error in subject-verb agreement?\nNeither the manager nor the employees **is** responsible for the scheduling conflict.",
+            options: ["A) is", "B) are", "C) was", "D) No change"],
+            answer: "B) are"
+        },
+        {  
+            question: "Which revision best improves sentence structure and logical flow?\nNot only did the scientist conduct extensive research, but she also conducted detailed analyses.",
+            options: [
+                "A) Not only did the scientist conduct extensive research, but also detailed analyses.",
+                "B) The scientist conducted extensive research and also detailed analyses.",
+                "C) The scientist conducted both extensive research and detailed analyses.",
+                "D) No change"
+            ],
+            answer: "C) The scientist conducted both extensive research and detailed analyses."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: In a groundbreaking discovery, researchers have identified a species of bacteria that can break down plastic at a significantly faster rate than previously known organisms. These bacteria secrete enzymes that accelerate the decomposition process, offering a potential solution to plastic waste accumulation.\n\nWhich choice best describes the main idea of the passage?",
+            options: [
+                "A) A newly discovered bacteria may help reduce plastic waste.",
+                "B) Scientists are concerned about the spread of bacteria in landfills.",
+                "C) Plastic waste is increasing at an alarming rate.",
+                "D) The decomposition of plastic releases harmful chemicals."
+            ],
+            answer: "A) A newly discovered bacteria may help reduce plastic waste."
+        },
+        {  
+            question: "Passage: The 19th-century poet Emily Dickinson was known for her reclusive nature, yet her poetry reflects deep engagement with themes of love, nature, and mortality. Though only a few of her poems were published during her lifetime, she is now regarded as one of the most influential American poets.\n\nWhich statement is best supported by the passage?",
+            options: [
+                "A) Emily Dickinson published numerous poems during her lifetime.",
+                "B) Emily Dickinson’s poetry was not well-received after her death.",
+                "C) Despite her seclusion, Dickinson’s poetry explored profound themes.",
+                "D) Most of Dickinson’s poetry was written in collaboration with others."
+            ],
+            answer: "C) Despite her seclusion, Dickinson’s poetry explored profound themes."
+        },
+        {  
+            question: "Passage: Many marine species rely on coral reefs for food and shelter. However, rising ocean temperatures are causing widespread coral bleaching, which weakens the reefs and threatens marine biodiversity. Scientists are developing strategies to protect and restore coral populations to ensure the survival of these ecosystems.\n\nWhich conclusion is best supported by the passage?",
+            options: [
+                "A) Marine species can survive without coral reefs.",
+                "B) Rising ocean temperatures have no effect on marine biodiversity.",
+                "C) Scientists are taking action to combat coral bleaching.",
+                "D) Coral reefs are not essential to ocean ecosystems."
+            ],
+            answer: "C) Scientists are taking action to combat coral bleaching."
+        },
+    
+        // Math Questions
+        {  
+            question: "If (x - 3)(x + 5) = 0, what are the possible values of x?",
+            options: ["A) -3 and 5", "B) 3 and -5", "C) -3 and -5", "D) 3 and 5"],
+            answer: "B) 3 and -5"
+        },
+        {  
+            question: "A circle has a diameter of 10. What is the area of the circle? (Use π ≈ 3.14)",
+            options: ["A) 31.4", "B) 50", "C) 78.5", "D) 100"],
+            answer: "C) 78.5"
+        },
+        {  
+            question: "A train travels 120 miles in 3 hours at a constant speed. At this rate, how far will the train travel in 5 hours?",
+            options: ["A) 180 miles", "B) 200 miles", "C) 220 miles", "D) 240 miles"],
+            answer: "B) 200 miles"
+        }
+    ],
+    18:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the sentence's clarity and conciseness?\nThe book, which was written by an anonymous author, quickly became a bestseller.",
+            options: ["A) The book, which was anonymously written,", "B) The book, which an anonymous author wrote,", "C) The book, written by an anonymous author,", "D) No change"],
+            answer: "C) The book, written by an anonymous author,"  
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nNeither of the solutions **were** effective in solving the issue.",
+            options: ["A) were", "B) was", "C) had been", "D) No change"],
+            answer: "B) was"  
+        },
+        {  
+            question: "Which revision best maintains parallel structure?\nThe professor was known for his engaging lectures, clear explanations, and he inspired students.",
+            options: ["A) and he inspired students", "B) and for inspiring students", "C) along with his ability to inspire students", "D) No change"],
+            answer: "B) and for inspiring students"  
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Scientists studying the migration patterns of monarch butterflies have discovered that these insects rely on the Earth’s magnetic field to navigate thousands of miles. The findings suggest that monarchs possess a biological compass, helping them travel consistently to their wintering grounds.\n\nWhat is the main purpose of the passage?",
+            options: [
+                "A) To explain how monarch butterflies use environmental cues to migrate.",
+                "B) To argue that monarch butterfly populations are declining due to climate change.",
+                "C) To compare the migration patterns of different butterfly species.",
+                "D) To challenge the idea that butterflies migrate at all."
+            ],
+            answer: "A) To explain how monarch butterflies use environmental cues to migrate."
+        },
+        {  
+            question: "Passage: Throughout history, engineers have looked to nature for inspiration. One example is the development of self-cleaning surfaces, inspired by the lotus leaf’s ability to repel water and dirt. This biomimicry has led to innovative coatings used on buildings and clothing.\n\nWhich statement best supports the passage’s main idea?",
+            options: [
+                "A) Engineers have always struggled to create durable materials.",
+                "B) The lotus leaf’s self-cleaning ability has influenced modern technology.",
+                "C) Natural materials are more effective than synthetic ones.",
+                "D) Some buildings require frequent cleaning due to environmental factors."
+            ],
+            answer: "B) The lotus leaf’s self-cleaning ability has influenced modern technology."
+        },
+        {  
+            question: "Passage: The introduction of electric vehicles (EVs) has been a major step toward reducing carbon emissions. However, some critics argue that the environmental impact of battery production offsets these benefits. Recent studies suggest that advancements in battery recycling could significantly reduce this issue.\n\nWhat can be inferred from the passage?",
+            options: [
+                "A) Electric vehicles are worse for the environment than gasoline-powered cars.",
+                "B) Improvements in battery technology may enhance EV sustainability.",
+                "C) Battery production has no negative environmental impact.",
+                "D) Gasoline-powered cars are becoming obsolete."
+            ],
+            answer: "B) Improvements in battery technology may enhance EV sustainability."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 2x + 3 = 5x - 7, what is the value of x?",
+            options: ["A) 2", "B) 3", "C) 4", "D) 5"],
+            answer: "A) 2"  
+        },
+        {  
+            question: "A rectangular prism has a length of 8 cm, a width of 5 cm, and a height of 10 cm. What is its volume?",
+            options: ["A) 300 cm^3", "B) 400 cm^3", "C) 500 cm^3", "D) 600 cm^3"],
+            answer: "C) 400 cm^3"  
+        },
+        {  
+            question: "If f(x) = x^2 - 6x + 9, what is the minimum value of f(x)?",
+            options: ["A) 0", "B) 1", "C) 3", "D) 9"],
+            answer: "A) 0"  
+        }
+    ],
+    19:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity of the sentence?\nThe committee discussed the proposal and made a decision to approve it.",
+            options: ["A) discussed the proposal and made a decision to", "B) discussed and decided to", "C) had a discussion about the proposal and made a decision to", "D) No change"],
+            answer: "B) discussed and decided to"
+        },
+        {  
+            question: "Which option corrects the grammatical error?\nNeither of the solutions **are** viable given the budget constraints.",
+            options: ["A) are", "B) is", "C) were", "D) No change"],
+            answer: "B) is"
+        },
+        {  
+            question: "Which revision improves sentence conciseness?\nIn light of the fact that the deadline was approaching, the team worked faster.",
+            options: ["A) In light of the fact that", "B) Since", "C) Due to the fact that", "D) No change"],
+            answer: "B) Since"
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Scientists have discovered a new species of deep-sea fish that emits its own light through bioluminescence. The fish uses this ability to attract prey and communicate with others of its kind.\n\nWhat is the primary function of the fish’s bioluminescence?",
+            options: [
+                "A) To warm its body in cold water.",
+                "B) To assist in its movement through the depths.",
+                "C) To attract prey and communicate.",
+                "D) To camouflage itself from predators."
+            ],
+            answer: "C) To attract prey and communicate."
+        },
+        {  
+            question: "Passage: Economic analysts suggest that technological advancements in automation will continue to replace manual labor in several industries. However, they argue that new job opportunities in emerging fields will offset potential job losses.\n\nWhich statement best reflects the author’s point of view?",
+            options: [
+                "A) Automation will lead to mass unemployment with no benefits.",
+                "B) Emerging industries will create jobs to counteract losses.",
+                "C) Governments should ban automation to preserve jobs.",
+                "D) The manual labor industry will remain unaffected."
+            ],
+            answer: "B) Emerging industries will create jobs to counteract losses."
+        },
+        {  
+            question: "Passage: Research has shown that spending time in nature can significantly reduce stress levels. A study found that individuals who took daily walks in parks exhibited lower levels of cortisol, a hormone associated with stress, compared to those who remained in urban environments.\n\nWhat conclusion can be drawn from the passage?",
+            options: [
+                "A) Walking in parks has no effect on stress levels.",
+                "B) Spending time in nature may reduce stress levels.",
+                "C) Urban environments are healthier than parks.",
+                "D) Cortisol is unrelated to stress."
+            ],
+            answer: "B) Spending time in nature may reduce stress levels."
+        },
+    
+        // Math Questions
+        {  
+            question: "Solve for x: 5x - 7 = 3x + 9.",
+            options: ["A) 8", "B) 7", "C) 9", "D) 10"],
+            answer: "A) 8"
+        },
+        {  
+            question: "A circle has a radius of 6. What is its circumference? (Use π = 3.14)",
+            options: ["A) 18.84", "B) 37.68", "C) 28.26", "D) 12.56"],
+            answer: "B) 37.68"
+        },
+        {  
+            question: "If g(x) = 2x^2 - 3x + 4, what is g(3)?",
+            options: ["A) 13", "B) 16", "C) 17", "D) 18"],
+            answer: "A) 13"
+        }
+    ],
+    20:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity and conciseness of the sentence?\nThe scientist conducted an experiment in order to be able to determine the effects of temperature changes on enzyme activity.",
+            options: [
+                "A) conducted an experiment in order to be able to determine",
+                "B) conducted an experiment to determine",
+                "C) was able to conduct an experiment to determine",
+                "D) No change"
+            ],
+            answer: "B) conducted an experiment to determine"
+        },
+        {  
+            question: "Which option correctly maintains parallel structure?\nThe new policy aims to promote efficiency, ensuring productivity, and reducing waste.",
+            options: [
+                "A) ensuring productivity, and reducing waste.",
+                "B) to ensure productivity and reduce waste.",
+                "C) for ensuring productivity while reducing waste.",
+                "D) No change"
+            ],
+            answer: "B) to ensure productivity and reduce waste."
+        },
+        {  
+            question: "Which revision corrects the misplaced modifier?\nRunning through the park, the fallen leaves crunched under Sarah’s feet.",
+            options: [
+                "A) Running through the park, the fallen leaves crunched under Sarah’s feet.",
+                "B) Running through the park, Sarah’s feet crunched the fallen leaves.",
+                "C) As Sarah ran through the park, the fallen leaves crunched under her feet.",
+                "D) The fallen leaves crunched under Sarah’s feet as she ran through the park."
+            ],
+            answer: "D) The fallen leaves crunched under Sarah’s feet as she ran through the park."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Recent research on sleep patterns suggests that irregular sleep schedules can significantly impact cognitive function. Scientists found that participants with inconsistent bedtimes performed worse on memory and problem-solving tasks than those with regular sleep schedules.\n\nWhat can be inferred from the passage?",
+            options: [
+                "A) Sleeping more than 8 hours improves memory and problem-solving skills.",
+                "B) Irregular sleep schedules may negatively affect cognitive function.",
+                "C) People who wake up early are naturally better problem solvers.",
+                "D) Memory performance is unrelated to sleep patterns."
+            ],
+            answer: "B) Irregular sleep schedules may negatively affect cognitive function."
+        },
+        {  
+            question: "Passage: Archaeological findings indicate that ancient civilizations developed complex trade networks far earlier than previously believed. Artifacts originating from distant regions suggest that goods such as spices, textiles, and metals were exchanged over vast distances.\n\nWhich statement best summarizes the main idea of the passage?",
+            options: [
+                "A) Ancient civilizations rarely engaged in trade.",
+                "B) Trade networks in ancient times were limited to local regions.",
+                "C) Evidence suggests ancient civilizations had extensive trade routes.",
+                "D) Only modern civilizations have developed widespread trade networks."
+            ],
+            answer: "C) Evidence suggests ancient civilizations had extensive trade routes."
+        },
+        {  
+            question: "Passage: While many assume that creativity is an innate talent, recent studies show that it can be cultivated through practice. Experts argue that engaging in activities such as brainstorming, experimenting with new ideas, and taking creative risks can enhance one's creative abilities over time.\n\nWhat is the main claim of the passage?",
+            options: [
+                "A) Creativity is an inherited trait that cannot be developed.",
+                "B) People can improve their creativity through deliberate practice.",
+                "C) Brainstorming is the only effective method for increasing creativity.",
+                "D) Creative risks often lead to failure rather than success."
+            ],
+            answer: "B) People can improve their creativity through deliberate practice."
+        },
+    
+        // Math Questions
+        {  
+            question: "If f(x) = 3x² - 4x + 5, what is f(2)?",
+            options: ["A) 9", "B) 10", "C) 11", "D) 12"],
+            answer: "C) 11"
+        },
+        {  
+            question: "A right triangle has legs of length 7 and 24. What is the length of the hypotenuse?",
+            options: ["A) 25", "B) 26", "C) 23", "D) 24"],
+            answer: "A) 25"
+        },
+        {  
+            question: "The sum of two numbers is 30, and their product is 216. What is the larger number?",
+            options: ["A) 12", "B) 15", "C) 18", "D) 20"],
+            answer: "B) 18"
+        }
+    ],
+    21:[  
+        // Writing Questions
+        {  
+            question: "Which revision best improves the sentence's conciseness and clarity?\nDespite the fact that the experiment had failed, the researchers proceeded with their analysis.",
+            options: ["A) Despite the fact that", "B) Even though", "C) Because", "D) No change"],
+            answer: "B) Even though"
+        },
+        {  
+            question: "Which option correctly addresses the misplaced modifier in the sentence?\nWalking through the museum, the ancient artifacts fascinated Maria.",
+            options: ["A) Walking through the museum, the ancient artifacts fascinated Maria.", "B) Walking through the museum, Maria was fascinated by the ancient artifacts.", "C) The ancient artifacts fascinated Maria, walking through the museum.", "D) No change"],
+            answer: "B) Walking through the museum, Maria was fascinated by the ancient artifacts."
+        },
+        {  
+            question: "Which choice best corrects the sentence's logical inconsistency?\nHardly anyone failed the exam, but the teacher was disappointed with the overall scores.",
+            options: ["A) Hardly anyone failed the exam, but the teacher was disappointed with the overall scores.", "B) Almost everyone failed the exam, but the teacher was disappointed with the overall scores.", "C) The teacher was disappointed with the overall scores, though hardly anyone failed the exam.", "D) No change"],
+            answer: "C) The teacher was disappointed with the overall scores, though hardly anyone failed the exam."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: In a landmark study, cognitive scientists found that decision-making is significantly influenced by emotions rather than logic. Participants were asked to choose between two financial options, one framed as a potential loss and the other as a gain. Despite identical expected values, most participants avoided loss, demonstrating the power of psychological framing.\n\nWhat is the primary conclusion of the study?",
+            options: [
+                "A) People always act rationally when making financial decisions.",
+                "B) Emotions can heavily influence decision-making.",
+                "C) Expected values are more important than framing effects.",
+                "D) Financial choices are purely logical."
+            ],
+            answer: "B) Emotions can heavily influence decision-making."
+        },
+        {  
+            question: "Passage: Historian Angela Thompson argues that the Industrial Revolution, rather than fostering innovation, actually slowed technological progress due to centralized production methods. However, other historians suggest that the period saw an unprecedented rise in mechanization.\n\nWhich choice best describes the relationship between the two viewpoints?",
+            options: [
+                "A) They completely contradict one another.",
+                "B) They present differing perspectives on the impact of the Industrial Revolution.",
+                "C) They agree that technological innovation was rapid.",
+                "D) They suggest that mechanization had no effect on industrialization."
+            ],
+            answer: "B) They present differing perspectives on the impact of the Industrial Revolution."
+        },
+        {  
+            question: "Passage: The philosopher John Stuart Mill maintained that the freedom of the individual should be preserved at all costs, as long as it does not harm others. However, his critics argue that complete personal liberty can lead to societal instability.\n\nWhat is the author’s stance on Mill’s philosophy?",
+            options: [
+                "A) The author agrees with Mill’s critics.",
+                "B) The author presents both viewpoints without taking a side.",
+                "C) The author strongly supports Mill’s argument.",
+                "D) The author argues that freedom should have no restrictions."
+            ],
+            answer: "B) The author presents both viewpoints without taking a side."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 3^(x+1) = 27, what is the value of x?",
+            options: ["A) 1", "B) 2", "C) 3", "D) 4"],
+            answer: "B) 2"
+        },
+        {  
+            question: "A function f(x) is defined as f(x) = 2x^2 - 5x + 3. What is the minimum value of f(x)?",
+            options: ["A) -2.25", "B) -1.75", "C) -0.5", "D) -3.25"],
+            answer: "A) -2.25"
+        },
+        {  
+            question: "A right triangle has legs of lengths 8 and 15. What is the length of the hypotenuse?",
+            options: ["A) 16", "B) 17", "C) 18", "D) 19"],
+            answer: "B) 17"
+        }
     ]
+    
+    
+    
+    
     
     
 
