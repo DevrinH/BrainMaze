@@ -96,7 +96,7 @@ const questions = [
             { text: "The environmental benefits of electric vehicles are widely accepted and undisputed.", correct: false },
         ],
         type: "reading",
-        difficulty: "meeasydium"
+        difficulty: "easy"
     },
 
     {
@@ -230,7 +230,7 @@ const questions = [
             { text: "Sleep deprivation can negatively impact cognitive function and learning.", correct: true},
             { text: "People who sleep more tend to be more intelligent than those who sleep less.", correct: false},
             { text: "Short naps during the day are more beneficial than a full night’s sleep.", correct: false},
-            { text: "The purpose of sleep is primarily to help regulate emotions.", correct: false},
+            { text: "The purpose of sleep is primarily to help regulate emotions and brain activity.", correct: false},
         ],
         type: "reading",
         difficulty: "medium"
@@ -252,7 +252,7 @@ const questions = [
             { text: "Archaeological discoveries have helped decode ancient languages and broaden historical knowledge.", correct: true},
             { text: "Most ancient civilizations remain entirely unknown due to the limitations of archaeology.", correct: false},
             { text: "The study of archaeology is only useful when examining well-preserved artifacts.", correct: false},
-            { text: "Historians have learned everything they need to know about ancient civilizations.", correct: false},
+            { text: "Historians have learned a great deal about ancient civilizations through archology.", correct: false},
         ],
         type: "reading",
         difficulty: "medium"
