@@ -2914,7 +2914,834 @@ const questionsData = {
         options: ["A) 18", "B) 19", "C) 20", "D) 21"],
         answer: "B) 19"
     }
+],
+41:[  
+    // Writing Questions
+    {  
+        question: "Which choice best eliminates redundancy while maintaining the original meaning?\nThe scientist’s discovery was new and innovative, paving the way for future advancements.",
+        options: [
+            "A) The scientist’s discovery was innovative, paving the way for future advancements.", 
+            "B) The scientist’s discovery was new, paving the way for future advancements.", 
+            "C) The scientist’s discovery was both new and groundbreaking, paving the way for future advancements.", 
+            "D) No change"
+        ],
+        answer: "A) The scientist’s discovery was innovative, paving the way for future advancements."
+    },
+    {  
+        question: "Which revision improves conciseness without changing the meaning?\nIn order to gain access to the restricted area, one must first obtain prior approval.",
+        options: [
+            "A) To access the restricted area, one must first obtain approval.", 
+            "B) To access the restricted area, prior approval must first be obtained.", 
+            "C) One must get prior approval to gain access to the restricted area.", 
+            "D) No change"
+        ],
+        answer: "A) To access the restricted area, one must first obtain approval."
+    },
+    {  
+        question: "Which choice corrects the modifier placement error?\nWalking into the room, the aroma of fresh coffee was immediately noticeable.",
+        options: [
+            "A) The aroma of fresh coffee was immediately noticeable upon walking into the room.", 
+            "B) Walking into the room, one could immediately notice the aroma of fresh coffee.", 
+            "C) Walking into the room, there was an immediate aroma of fresh coffee.", 
+            "D) No change"
+        ],
+        answer: "B) Walking into the room, one could immediately notice the aroma of fresh coffee."
+    },
+
+    // Reading Questions
+    {  
+        question: "Passage: Climate models suggest that ocean currents play a crucial role in regulating global temperatures. Some scientists believe that disruptions to these currents could accelerate climate change, while others argue that their impact remains uncertain. The debate continues as researchers gather more data.\n\nWhich choice best summarizes the central idea of the passage?",
+        options: [
+            "A) Scientists are studying how ocean currents influence climate change.", 
+            "B) The relationship between ocean currents and climate change is still debated.", 
+            "C) Disruptions in ocean currents are the primary cause of climate change.", 
+            "D) Some scientists believe ocean currents may have no effect on climate change."
+        ],
+        answer: "B) The relationship between ocean currents and climate change is still debated."
+    },
+    {  
+        question: "Passage: Throughout history, literature has served as both a reflection of society and a means of influencing it. Authors often embed social critiques in their works, addressing issues ranging from political corruption to human rights. While some literature directly challenges societal norms, other works subtly prompt readers to question the status quo.\n\nWhich choice best captures the passage’s main idea?",
+        options: [
+            "A) Literature often reflects societal issues and can shape public perception.", 
+            "B) Authors use literature as a tool to criticize political corruption.", 
+            "C) The primary purpose of literature is to influence social change.", 
+            "D) Some books challenge norms, while others are purely entertainment."
+        ],
+        answer: "A) Literature often reflects societal issues and can shape public perception."
+    },
+    {  
+        question: "Passage: Advances in artificial intelligence have transformed many industries, but some experts warn that unchecked AI development poses risks. While automation improves efficiency, concerns about job displacement and ethical dilemmas persist. The question of how to balance innovation with responsibility remains at the forefront of technological discussions.\n\nWhich of the following best expresses the passage’s primary argument?",
+        options: [
+            "A) AI development brings both opportunities and risks that must be managed.", 
+            "B) AI technology is beneficial but could eliminate jobs.", 
+            "C) Ethical concerns surrounding AI are often exaggerated.", 
+            "D) The growth of AI is unstoppable and should not be restricted."
+        ],
+        answer: "A) AI development brings both opportunities and risks that must be managed."
+    },
+
+    // Math Questions
+    {  
+        question: "If 4(2x - 3) = 5x + 9, what is the value of x?",
+        options: ["A) 7", "B) 8", "C) 9", "D) 10"],
+        answer: "C) 9"
+    },
+    {  
+        question: "A cylinder has a radius of 4 and a height of 10. What is its volume? (Use \u03C0 = 3.14)",
+        options: ["A) 502.4", "B) 510.6", "C) 515.2", "D) 520.8"],
+        answer: "A) 502.4"
+    },
+    {  
+        question: "The function h(x) = x² - 6x + 8 is given. What is h(5)?",
+        options: ["A) 2", "B) 3", "C) 4", "D) 5"],
+        answer: "B) 3"
+    }
+],
+42:[  
+    // Writing Questions
+    {  
+        question: "Which choice best improves clarity and conciseness?\nThe committee members reached a unanimous agreement that the proposal should be approved.",
+        options: [
+            "A) The committee members reached an agreement that the proposal should be approved.", 
+            "B) The committee unanimously agreed that the proposal should be approved.", 
+            "C) The committee members all unanimously agreed to approve the proposal.", 
+            "D) No change"
+        ],
+        answer: "B) The committee unanimously agreed that the proposal should be approved."
+    },
+    {  
+        question: "Which revision corrects the misplaced modifier?\nCovered in thick snow, the hikers struggled to find the trail.",
+        options: [
+            "A) The hikers struggled to find the trail, covered in thick snow.", 
+            "B) Covered in thick snow, the trail was difficult for the hikers to find.", 
+            "C) The hikers, covered in thick snow, struggled to find the trail.", 
+            "D) No change"
+        ],
+        answer: "C) The hikers, covered in thick snow, struggled to find the trail."
+    },
+    {  
+        question: "Which sentence maintains proper parallel structure?\nShe enjoys hiking, reading, and to play the piano.",
+        options: [
+            "A) She enjoys hiking, reading, and playing the piano.", 
+            "B) She enjoys to hike, read, and to play the piano.", 
+            "C) She enjoys hiking, to read, and playing the piano.", 
+            "D) No change"
+        ],
+        answer: "A) She enjoys hiking, reading, and playing the piano."
+    },
+
+    // Reading Questions
+    {  
+        question: "Passage: Advances in renewable energy technology have significantly reduced the cost of solar and wind power. Some researchers argue that these advancements could make fossil fuels obsolete, while others caution that challenges in energy storage and infrastructure still remain. The debate continues as governments and industries adapt to the changing energy landscape.\n\nWhich choice best summarizes the central idea of the passage?",
+        options: [
+            "A) Renewable energy technology has advanced, but challenges remain.", 
+            "B) Solar and wind power are now more affordable than fossil fuels.", 
+            "C) Energy storage is the main obstacle preventing the adoption of renewable energy.", 
+            "D) The future of renewable energy depends entirely on government policies."
+        ],
+        answer: "A) Renewable energy technology has advanced, but challenges remain."
+    },
+    {  
+        question: "Passage: The Renaissance period was marked by a resurgence of art, science, and philosophy. Thinkers such as Leonardo da Vinci and Galileo Galilei challenged existing beliefs, leading to breakthroughs in various fields. While some scholars see the Renaissance as an age of enlightenment, others argue that it was limited in its impact on the lower classes.\n\nWhich statement best reflects the passage’s main idea?",
+        options: [
+            "A) The Renaissance led to intellectual advancements, but its effects were not universally experienced.", 
+            "B) The Renaissance was a period of scientific progress that changed the world forever.", 
+            "C) Renaissance thinkers sought to challenge political authority through their discoveries.", 
+            "D) The Renaissance primarily benefited the wealthy and had little effect on society as a whole."
+        ],
+        answer: "A) The Renaissance led to intellectual advancements, but its effects were not universally experienced."
+    },
+    {  
+        question: "Passage: Marine biologists have long studied the communication patterns of dolphins. Recent research suggests that dolphins may use a form of complex language, with unique whistles assigned to individual members of their group. While some scientists believe this represents true linguistic ability, others argue that it is simply a sophisticated form of animal signaling.\n\nWhich choice best captures the central argument of the passage?",
+        options: [
+            "A) Dolphins may have their own language, but scientists are still debating this claim.", 
+            "B) Dolphin communication is more advanced than that of any other species.", 
+            "C) Scientists have proven that dolphins possess true linguistic ability.", 
+            "D) Dolphins rely primarily on body language rather than vocalizations."
+        ],
+        answer: "A) Dolphins may have their own language, but scientists are still debating this claim."
+    },
+
+    // Math Questions
+    {  
+        question: "If 3(2x - 4) = 5x + 6, what is the value of x?",
+        options: ["A) 2", "B) 3", "C) 4", "D) 5"],
+        answer: "B) 3"
+    },
+    {  
+        question: "A sphere has a radius of 5. What is its volume? (Use \u03C0 = 3.14, and volume formula V = 4/3πr³)",
+        options: ["A) 510.6", "B) 514.3", "C) 523.3", "D) 526.4"],
+        answer: "C) 523.3"
+    },
+    {  
+        question: "The function g(x) = 2x² - 5x + 3 is given. What is g(4)?",
+        options: ["A) 15", "B) 17", "C) 19", "D) 21"],
+        answer: "B) 17"
+    }
+],
+43:[  
+    // Writing Questions
+    {  
+        question: "Which choice best improves clarity and conciseness?\nAt this point in time, scientists are currently researching ways to improve battery efficiency in electric vehicles.",
+        options: [
+            "A) At this point in time, scientists are currently researching ways to improve battery efficiency in electric vehicles.", 
+            "B) Scientists are researching ways to improve battery efficiency in electric vehicles.", 
+            "C) At this moment, scientists are researching and looking for ways to improve battery efficiency.", 
+            "D) No change"
+        ],
+        answer: "B) Scientists are researching ways to improve battery efficiency in electric vehicles."
+    },
+    {  
+        question: "Which sentence corrects the misplaced modifier?\nRunning late, the traffic jam made it impossible for Jake to arrive on time.",
+        options: [
+            "A) Running late, the traffic jam made it impossible for Jake to arrive on time.", 
+            "B) The traffic jam, running late, made it impossible for Jake to arrive on time.", 
+            "C) Running late, Jake found it impossible to arrive on time due to the traffic jam.", 
+            "D) No change"
+        ],
+        answer: "C) Running late, Jake found it impossible to arrive on time due to the traffic jam."
+    },
+    {  
+        question: "Which sentence maintains parallel structure?\nThe new program focuses on teaching students how to write effectively, to think critically, and developing problem-solving skills.",
+        options: [
+            "A) teaching students how to write effectively, to think critically, and developing problem-solving skills.", 
+            "B) teaching students how to write effectively, think critically, and develop problem-solving skills.", 
+            "C) to teach students how to write effectively, think critically, and developing problem-solving skills.", 
+            "D) No change"
+        ],
+        answer: "B) teaching students how to write effectively, think critically, and develop problem-solving skills."
+    },
+
+    // Reading Questions
+    {  
+        question: "Passage: In the past decade, advancements in artificial intelligence have transformed various industries. While some experts celebrate AI’s potential to streamline tasks and enhance efficiency, others warn about the ethical implications, particularly concerning privacy and job displacement. The discussion continues as policymakers attempt to establish guidelines for responsible AI development.\n\nWhich choice best captures the main idea of the passage?",
+        options: [
+            "A) AI is revolutionizing industries, but concerns about ethics remain.", 
+            "B) AI has completely replaced human labor in various industries.", 
+            "C) Ethical concerns outweigh the benefits of AI in modern society.", 
+            "D) Policymakers have successfully addressed all issues regarding AI."
+        ],
+        answer: "A) AI is revolutionizing industries, but concerns about ethics remain."
+    },
+    {  
+        question: "Passage: The Great Depression of the 1930s was a period of severe economic hardship that affected millions worldwide. Governments responded with various policies, some of which successfully alleviated economic suffering, while others had unintended consequences. Economists continue to debate which strategies were most effective in fostering recovery.\n\nWhich choice best summarizes the passage?",
+        options: [
+            "A) The Great Depression led to global economic hardship, prompting diverse government responses.", 
+            "B) Government interventions during the Great Depression were ineffective and worsened the crisis.", 
+            "C) The Great Depression was the first economic downturn to be caused by government policies.", 
+            "D) Economists universally agree on the best approach to handling economic crises."
+        ],
+        answer: "A) The Great Depression led to global economic hardship, prompting diverse government responses."
+    },
+    {  
+        question: "Passage: Over the years, studies have suggested that consuming a balanced diet rich in fruits and vegetables leads to improved health outcomes. However, some researchers argue that individual dietary needs vary widely based on genetics, lifestyle, and medical conditions. While nutrition guidelines provide general recommendations, they may not be universally applicable.\n\nWhich statement best reflects the passage’s argument?",
+        options: [
+            "A) A balanced diet is generally beneficial, but individual needs may differ.", 
+            "B) Eating fruits and vegetables guarantees good health for everyone.", 
+            "C) Genetics play no role in how a person responds to different diets.", 
+            "D) Nutrition guidelines are unnecessary since every person has different needs."
+        ],
+        answer: "A) A balanced diet is generally beneficial, but individual needs may differ."
+    },
+
+    // Math Questions
+    {  
+        question: "If 4(2x - 3) = 5x + 9, what is the value of x?",
+        options: ["A) 4", "B) 5", "C) 6", "D) 7"],
+        answer: "B) 5"
+    },
+    {  
+        question: "A cylinder has a radius of 3 and a height of 10. What is its volume? (Use \u03C0 = 3.14, and volume formula V = πr²h)",
+        options: ["A) 278.4", "B) 282.6", "C) 289.2", "D) 301.4"],
+        answer: "A) 278.4"
+    },
+    {  
+        question: "The function h(x) = 4x² - 7x + 6 is given. What is h(5)?",
+        options: ["A) 73", "B) 78", "C) 79", "D) 82"],
+        answer: "B) 78"
+    }
+],
+44:[  
+    // Writing Questions
+    {  
+        question: "Which choice best improves clarity and conciseness?\nDue to the fact that the project was behind schedule, the team made the decision to work overtime.",
+        options: [
+            "A) Due to the fact that the project was behind schedule, the team made the decision to work overtime.", 
+            "B) Because the project was behind schedule, the team decided to work overtime.", 
+            "C) Since the project was behind schedule, the team chose to work overtime.", 
+            "D) No change"
+        ],
+        answer: "B) Because the project was behind schedule, the team decided to work overtime."
+    },
+    {  
+        question: "Which revision corrects the verb tense shift?\nBy the time the meeting starts, James was already presenting his report.",
+        options: [
+            "A) By the time the meeting starts, James was already presenting his report.", 
+            "B) By the time the meeting started, James was already presenting his report.", 
+            "C) By the time the meeting starts, James will have already been presenting his report.", 
+            "D) No change"
+        ],
+        answer: "C) By the time the meeting starts, James will have already been presenting his report."
+    },
+    {  
+        question: "Which sentence correctly maintains parallel structure?\nThe job candidate was confident in his ability to write effectively, communicate clearly, and that he could work well under pressure.",
+        options: [
+            "A) to write effectively, communicate clearly, and that he could work well under pressure.", 
+            "B) to write effectively, to communicate clearly, and to work well under pressure.", 
+            "C) writing effectively, communicating clearly, and working well under pressure.", 
+            "D) No change"
+        ],
+        answer: "B) to write effectively, to communicate clearly, and to work well under pressure."
+    },
+
+    // Reading Questions
+    {  
+        question: "Passage: Advances in medical research have significantly increased the human lifespan. However, some scientists argue that extending longevity brings ethical dilemmas, such as overpopulation and resource distribution. Others contend that increasing lifespan enhances the quality of life and allows for more contributions to society. The debate continues as medical breakthroughs push boundaries further.\n\nWhich choice best summarizes the passage?",
+        options: [
+            "A) Medical advancements have extended human life but raise ethical concerns.", 
+            "B) Scientists agree that increasing lifespan benefits society.", 
+            "C) The debate on lifespan extension focuses only on economic impacts.", 
+            "D) New research suggests humans may soon achieve immortality."
+        ],
+        answer: "A) Medical advancements have extended human life but raise ethical concerns."
+    },
+    {  
+        question: "Passage: The development of renewable energy sources has transformed the global energy landscape. Solar, wind, and hydroelectric power are being adopted at an increasing rate. However, challenges remain, such as energy storage limitations and infrastructure costs. Researchers continue to explore solutions to make renewable energy more efficient and widespread.\n\nWhat is the primary purpose of the passage?",
+        options: [
+            "A) To argue that renewable energy will completely replace fossil fuels.", 
+            "B) To highlight both the benefits and challenges of renewable energy.", 
+            "C) To suggest that renewable energy sources are too costly to implement widely.", 
+            "D) To explain why renewable energy cannot meet global demands."
+        ],
+        answer: "B) To highlight both the benefits and challenges of renewable energy."
+    },
+    {  
+        question: "Passage: Throughout history, great inventions have often been met with skepticism. The telephone, for example, was once dismissed as impractical. Similarly, early computers were considered too complex for widespread use. Today, artificial intelligence faces similar doubts, yet it continues to develop rapidly, raising questions about its future role in society.\n\nWhich statement best reflects the passage’s main idea?",
+        options: [
+            "A) Groundbreaking inventions often face doubt before becoming widely accepted.", 
+            "B) Early computers were more widely accepted than the telephone.", 
+            "C) Artificial intelligence is the most important invention in history.", 
+            "D) Skepticism has prevented many inventions from being successful."
+        ],
+        answer: "A) Groundbreaking inventions often face doubt before becoming widely accepted."
+    },
+
+    // Math Questions
+    {  
+        question: "If 3(2x - 5) = 4x + 9, what is the value of x?",
+        options: ["A) 4", "B) 5", "C) 6", "D) 7"],
+        answer: "A) 4"
+    },
+    {  
+        question: "A right triangle has legs of 8 and 15. What is the length of the hypotenuse?",
+        options: ["A) 16", "B) 17", "C) 18", "D) 19"],
+        answer: "B) 17"
+    },
+    {  
+        question: "The function g(x) = 2x² - 5x + 3 is given. What is g(4)?",
+        options: ["A) 15", "B) 17", "C) 19", "D) 21"],
+        answer: "C) 19"
+    }
+],
+45:[  
+    // Writing Questions
+    {  
+        question: "Which choice best improves clarity and conciseness?\nThe scientist conducted an experiment in order to determine the results of the study.",
+        options: [
+            "A) The scientist conducted an experiment in order to determine the results of the study.", 
+            "B) The scientist experimented to determine the study’s results.", 
+            "C) The scientist performed an experiment to analyze the study’s results.", 
+            "D) No change"
+        ],
+        answer: "B) The scientist experimented to determine the study’s results."
+    },
+    {  
+        question: "Which option corrects the misplaced modifier?\nHoping to catch the train, the station was reached just in time by Sarah.",
+        options: [
+            "A) Hoping to catch the train, the station was reached just in time by Sarah.", 
+            "B) Hoping to catch the train, Sarah reached the station just in time.", 
+            "C) Sarah, hoping to catch the train, was able to reach the station just in time.", 
+            "D) No change"
+        ],
+        answer: "B) Hoping to catch the train, Sarah reached the station just in time."
+    },
+    {  
+        question: "Which revision maintains proper subject-verb agreement?\nThe collection of rare books are displayed in the museum’s main hall.",
+        options: [
+            "A) The collection of rare books are displayed in the museum’s main hall.", 
+            "B) The collection of rare books is displayed in the museum’s main hall.", 
+            "C) The rare books collection are displayed in the museum’s main hall.", 
+            "D) No change"
+        ],
+        answer: "B) The collection of rare books is displayed in the museum’s main hall."
+    },
+
+    // Reading Questions (SUPER MEAN 😈)
+    {  
+        question: "Passage: Advances in space exploration have led to the discovery of exoplanets—planets outside our solar system. While some scientists believe these planets could harbor life, others argue that current technology limits our ability to determine habitability with certainty. Despite these challenges, research continues to push the boundaries of what we know about the universe.\n\nWhich choice best summarizes the passage?",
+        options: [
+            "A) The discovery of exoplanets has fueled debates about their potential to sustain life.", 
+            "B) Scientists believe exoplanets could harbor life, but technological limitations prevent definitive conclusions.", 
+            "C) Advances in space exploration have expanded our knowledge of the universe, particularly regarding exoplanets.", 
+            "D) Researchers are confident that exoplanets can support life, despite current technological challenges."
+        ],
+        answer: "B) Scientists believe exoplanets could harbor life, but technological limitations prevent definitive conclusions."
+    },
+    {  
+        question: "Passage: The Industrial Revolution brought unprecedented technological advancements, transforming economies worldwide. However, the rapid shift from agrarian to industrial societies created significant social and economic disparities. While some benefited from increased production and wealth, many workers faced harsh conditions and low wages, leading to widespread labor movements.\n\nWhat is the main idea of the passage?",
+        options: [
+            "A) The Industrial Revolution improved economies but also widened social inequalities.", 
+            "B) Technological advancements in the Industrial Revolution led to economic prosperity and labor movements.", 
+            "C) The shift from agrarian to industrial societies created both opportunities and challenges.", 
+            "D) While the Industrial Revolution led to economic growth, it also resulted in exploitation of workers."
+        ],
+        answer: "C) The shift from agrarian to industrial societies created both opportunities and challenges."
+    },
+    {  
+        question: "Passage: Climate scientists have long studied the effects of rising temperatures on ecosystems. As global temperatures increase, species migration patterns shift, and some habitats become uninhabitable. While some argue that adaptation is possible, others emphasize the urgency of reducing greenhouse gas emissions to mitigate long-term consequences.\n\nWhich of the following best captures the passage’s argument?",
+        options: [
+            "A) Climate change affects ecosystems by altering migration patterns and making some habitats uninhabitable.", 
+            "B) Rising global temperatures have led to significant changes in species behavior and habitat conditions.", 
+            "C) While species may adapt to climate change, reducing greenhouse gas emissions is necessary to prevent severe consequences.", 
+            "D) Scientists are divided on whether species can adapt to climate change or whether action is needed."
+        ],
+        answer: "C) While species may adapt to climate change, reducing greenhouse gas emissions is necessary to prevent severe consequences."
+    },
+
+    // Math Questions
+    {  
+        question: "If 4(2x - 3) = 5x + 7, what is the value of x?",
+        options: ["A) 5", "B) 6", "C) 7", "D) 8"],
+        answer: "B) 6"
+    },
+    {  
+        question: "A right triangle has legs of 9 and 12. What is the length of the hypotenuse?",
+        options: ["A) 14", "B) 15", "C) 16", "D) 17"],
+        answer: "B) 15"
+    },
+    {  
+        question: "The function h(x) = 3x² - 7x + 4 is given. What is h(5)?",
+        options: ["A) 48", "B) 50", "C) 52", "D) 54"],
+        answer: "A) 48"
+    }
+],
+46:[  
+    // Writing Questions
+    {  
+        question: "Which choice best improves the clarity and conciseness of the sentence?\nThe committee made a decision to approve the new policy after much deliberation.",
+        options: [
+            "A) The committee made a decision to approve the new policy after much deliberation.", 
+            "B) The committee decided to approve the new policy after deliberation.", 
+            "C) The committee reached a decision to approve the new policy after much thought.", 
+            "D) No change"
+        ],
+        answer: "B) The committee decided to approve the new policy after deliberation."
+    },
+    {  
+        question: "Which sentence correctly fixes the dangling modifier?\nWalking through the museum, the ancient sculptures fascinated Lisa.",
+        options: [
+            "A) Walking through the museum, the ancient sculptures fascinated Lisa.", 
+            "B) While Lisa was walking through the museum, the ancient sculptures fascinated her.", 
+            "C) Walking through the museum, Lisa was fascinated by the ancient sculptures.", 
+            "D) No change"
+        ],
+        answer: "C) Walking through the museum, Lisa was fascinated by the ancient sculptures."
+    },
+    {  
+        question: "Which revision corrects the parallelism error?\nThe new program aims to reduce waste, increasing efficiency, and to promote sustainability.",
+        options: [
+            "A) The new program aims to reduce waste, increasing efficiency, and to promote sustainability.", 
+            "B) The new program aims to reduce waste, increase efficiency, and promote sustainability.", 
+            "C) The new program aims to reduce waste while increasing efficiency and to promote sustainability.", 
+            "D) No change"
+        ],
+        answer: "B) The new program aims to reduce waste, increase efficiency, and promote sustainability."
+    },
+
+    // Reading Questions (Another Mean Set 😈)
+    {  
+        question: "Passage: The decline of bee populations has raised concerns about food security. Bees play a crucial role in pollinating crops, and their decline is linked to habitat loss, pesticide use, and climate change. Some scientists advocate for conservation programs, while others believe technological solutions, such as robotic pollinators, may be necessary.\n\nWhich choice best captures the central idea of the passage?",
+        options: [
+            "A) The decline of bee populations threatens food security, requiring either conservation or technological solutions.", 
+            "B) Scientists debate whether bee population decline should be addressed with conservation efforts or alternative pollination methods.", 
+            "C) Habitat loss, pesticide use, and climate change have contributed to the decline of bee populations, prompting conservation efforts.", 
+            "D) The loss of bees is a major environmental issue, though technological advances may help counteract its effects."
+        ],
+        answer: "A) The decline of bee populations threatens food security, requiring either conservation or technological solutions."
+    },
+    {  
+        question: "Passage: The development of antibiotics revolutionized medicine, drastically reducing deaths from bacterial infections. However, overuse has led to the emergence of antibiotic-resistant bacteria, creating a major public health concern. Some experts argue that stricter prescription regulations are necessary, while others emphasize the need for new drug development.\n\nWhat is the main takeaway from the passage?",
+        options: [
+            "A) The effectiveness of antibiotics has diminished due to bacterial resistance, leading to debate over solutions.", 
+            "B) Antibiotic-resistant bacteria pose a significant health risk, prompting discussions on regulation and new drug research.", 
+            "C) While antibiotics have historically reduced deaths, they are becoming less effective due to resistance.", 
+            "D) Stricter prescription regulations and new drug development are both potential ways to address antibiotic resistance."
+        ],
+        answer: "B) Antibiotic-resistant bacteria pose a significant health risk, prompting discussions on regulation and new drug research."
+    },
+    {  
+        question: "Passage: Artificial intelligence (AI) has transformed industries by automating complex tasks. While some view AI as a tool that enhances productivity and innovation, others warn about its impact on job markets. As AI systems become more sophisticated, discussions about ethical implications and workforce shifts are increasing.\n\nWhich statement best summarizes the passage?",
+        options: [
+            "A) AI is revolutionizing industries by automating tasks, though its impact on jobs is uncertain.", 
+            "B) While AI enhances productivity, concerns exist regarding its influence on employment and ethics.", 
+            "C) AI’s rapid development is creating both opportunities and challenges in various industries.", 
+            "D) The ethical concerns surrounding AI outweigh its potential benefits in the workforce."
+        ],
+        answer: "B) While AI enhances productivity, concerns exist regarding its influence on employment and ethics."
+    },
+
+    // Math Questions
+    {  
+        question: "If 3(2x - 5) = 4x + 7, what is the value of x?",
+        options: ["A) 6", "B) 7", "C) 8", "D) 9"],
+        answer: "A) 6"
+    },
+    {  
+        question: "A square has a diagonal of 10. What is the length of one of its sides?",
+        options: ["A) 5", "B) 5√2", "C) 6", "D) 6√2"],
+        answer: "B) 5√2"
+    },
+    {  
+        question: "The function g(x) = 4x² - 6x + 3 is given. What is g(4)?",
+        options: ["A) 38", "B) 40", "C) 42", "D) 44"],
+        answer: "A) 38"
+    }
+],
+47:[  
+    // Writing Questions (Designed to Punish Careless Mistakes)
+    {  
+        question: "Which choice best improves the sentence for conciseness and clarity?\nThe scientists conducted an experiment that was designed to test the effectiveness of the new drug.",
+        options: [
+            "A) The scientists conducted an experiment that was designed to test the effectiveness of the new drug.", 
+            "B) The scientists conducted an experiment testing the drug’s effectiveness.", 
+            "C) The scientists tested the effectiveness of the new drug through an experiment.", 
+            "D) No change"
+        ],
+        answer: "B) The scientists conducted an experiment testing the drug’s effectiveness."
+    },
+    {  
+        question: "Which revision corrects the misplaced modifier?\nExhausted after a long day, the couch was the perfect place for Jason to relax.",
+        options: [
+            "A) Exhausted after a long day, the couch was the perfect place for Jason to relax.", 
+            "B) The couch was the perfect place for Jason to relax after a long day of exhaustion.", 
+            "C) Jason, exhausted after a long day, found the couch the perfect place to relax.", 
+            "D) No change"
+        ],
+        answer: "C) Jason, exhausted after a long day, found the couch the perfect place to relax."
+    },
+    {  
+        question: "Which choice correctly maintains parallel structure?\nThe software engineer’s responsibilities include writing code, debugging errors, and to optimize system performance.",
+        options: [
+            "A) writing code, debugging errors, and to optimize system performance.", 
+            "B) writing code, debugging errors, and optimizing system performance.", 
+            "C) writing code, debugging errors, and optimizing performance within the system.", 
+            "D) No change"
+        ],
+        answer: "B) writing code, debugging errors, and optimizing system performance."
+    },
+
+    // Reading Questions (Pure Evil 😈)
+    {  
+        question: "Passage: The Great Barrier Reef, one of the world’s most biodiverse ecosystems, has faced severe coral bleaching due to rising ocean temperatures. Scientists have debated whether direct intervention—such as coral farming—can help restore damaged areas. Others argue that broader efforts to combat climate change are the only long-term solution.\n\nWhich statement best captures the main argument of the passage?",
+        options: [
+            "A) The Great Barrier Reef’s biodiversity is at risk due to climate change, sparking debates over solutions.", 
+            "B) The Great Barrier Reef is experiencing coral bleaching, with scientists divided over intervention methods.", 
+            "C) Rising ocean temperatures have harmed the Great Barrier Reef, leading to discussions about restoration strategies.", 
+            "D) Some scientists believe coral farming could save the Great Barrier Reef, while others emphasize climate change solutions."
+        ],
+        answer: "A) The Great Barrier Reef’s biodiversity is at risk due to climate change, sparking debates over solutions."
+    },
+    {  
+        question: "Passage: The advent of electric vehicles (EVs) has prompted discussions about their environmental impact. While EVs produce fewer emissions than gasoline-powered cars, concerns exist regarding the mining of lithium for batteries. Some experts advocate for stronger recycling programs to reduce environmental damage.\n\nWhat is the passage’s primary claim?",
+        options: [
+            "A) Electric vehicles are more environmentally friendly than gasoline-powered cars but have drawbacks.", 
+            "B) Although electric vehicles lower emissions, concerns about lithium mining have led to debates on sustainability.", 
+            "C) While electric vehicles reduce emissions, experts debate whether lithium mining offsets their benefits.", 
+            "D) The push for electric vehicles has raised concerns about the sustainability of battery production."
+        ],
+        answer: "B) Although electric vehicles lower emissions, concerns about lithium mining have led to debates on sustainability."
+    },
+    {  
+        question: "Passage: Research on sleep cycles suggests that maintaining a consistent bedtime can improve cognitive function. Studies indicate that erratic sleep schedules contribute to memory problems and reduced focus. Despite this, many people sacrifice sleep for work or entertainment.\n\nWhich of the following best summarizes the author’s viewpoint?",
+        options: [
+            "A) Inconsistent sleep patterns negatively impact cognitive function and focus.", 
+            "B) While sleep consistency is beneficial, many people still prioritize other activities.", 
+            "C) Maintaining a stable sleep schedule improves brain function, though many ignore this advice.", 
+            "D) Sleep deprivation is a growing problem, though research suggests it can be managed with proper habits."
+        ],
+        answer: "C) Maintaining a stable sleep schedule improves brain function, though many ignore this advice."
+    },
+
+    // Math Questions (Trickiest Yet 🚨)
+    {  
+        question: "If 4x + 3 = 19, what is the value of x?",
+        options: ["A) 4", "B) 5", "C) 6", "D) 7"],
+        answer: "B) 4"
+    },
+    {  
+        question: "A right triangle has legs of length 9 and 12. What is the length of the hypotenuse?",
+        options: ["A) 15", "B) 14", "C) 16", "D) 17"],
+        answer: "A) 15"
+    },
+    {  
+        question: "The function f(x) = 2x² - 3x + 4 is given. What is f(5)?",
+        options: ["A) 42", "B) 43", "C) 44", "D) 45"],
+        answer: "C) 44"
+    }
+],
+48:[  
+    // Writing Questions (Careless Mistakes = Instant Wrong)
+    {  
+        question: "Which revision best improves conciseness and clarity?\nThe company made the decision to expand internationally in order to increase revenue.",
+        options: [
+            "A) The company made the decision to expand internationally in order to increase revenue.", 
+            "B) The company decided to expand internationally to increase revenue.", 
+            "C) The company made a decision to expand internationally for increased revenue.", 
+            "D) No change"
+        ],
+        answer: "B) The company decided to expand internationally to increase revenue."
+    },
+    {  
+        question: "Which choice correctly fixes the subject-verb agreement error?\nNeither the employees nor the manager were available for the meeting.",
+        options: [
+            "A) Neither the employees nor the manager were available for the meeting.", 
+            "B) Neither the employees nor the manager was available for the meeting.", 
+            "C) Neither the employees nor the manager have been available for the meeting.", 
+            "D) No change"
+        ],
+        answer: "B) Neither the employees nor the manager was available for the meeting."
+    },
+    {  
+        question: "Which choice maintains parallel structure?\nThe job requires strong communication skills, the ability to work under pressure, and that one is adaptable.",
+        options: [
+            "A) strong communication skills, the ability to work under pressure, and that one is adaptable.", 
+            "B) strong communication skills, working under pressure, and that one is adaptable.", 
+            "C) strong communication skills, the ability to work under pressure, and adaptability.", 
+            "D) No change"
+        ],
+        answer: "C) strong communication skills, the ability to work under pressure, and adaptability."
+    },
+
+    // Reading Questions (Every Answer Seems Right 😈)
+    {  
+        question: "Passage: The Amazon rainforest, home to millions of species, plays a crucial role in regulating Earth’s climate. However, rapid deforestation due to agriculture and logging has led to concerns about biodiversity loss and increased carbon emissions. Scientists warn that unless deforestation slows, the rainforest could reach an irreversible tipping point.\n\nWhich statement best captures the passage’s central idea?",
+        options: [
+            "A) The Amazon rainforest is vital to Earth's climate and is threatened by deforestation.", 
+            "B) Rapid deforestation in the Amazon has caused concern over biodiversity and carbon emissions.", 
+            "C) Scientists warn that continued deforestation may lead to an irreversible tipping point.", 
+            "D) The Amazon’s deforestation is primarily due to agriculture and logging, raising environmental concerns."
+        ],
+        answer: "A) The Amazon rainforest is vital to Earth's climate and is threatened by deforestation."
+    },
+    {  
+        question: "Passage: Artificial intelligence (AI) is transforming industries, from healthcare to finance. While some experts praise AI’s efficiency, others caution that increased reliance on automation could lead to job displacement and ethical dilemmas. The debate continues as technology advances rapidly.\n\nWhat is the passage’s primary claim?",
+        options: [
+            "A) AI is revolutionizing multiple industries but raises concerns about job displacement.", 
+            "B) While AI increases efficiency, it also presents ethical and employment challenges.", 
+            "C) The rapid advancement of AI has sparked discussions about its risks and benefits.", 
+            "D) AI’s growing presence in industries like healthcare and finance has led to ethical debates."
+        ],
+        answer: "C) The rapid advancement of AI has sparked discussions about its risks and benefits."
+    },
+    {  
+        question: "Passage: Research indicates that people who exercise regularly tend to have improved cognitive function. Studies suggest that aerobic activities, such as running and swimming, enhance memory and concentration. Despite these findings, many individuals struggle to maintain a consistent exercise routine.\n\nWhich statement best summarizes the passage’s argument?",
+        options: [
+            "A) Regular exercise is linked to improved cognitive function, but many fail to maintain it.", 
+            "B) Studies show that aerobic activities help improve memory and concentration.", 
+            "C) Although exercise enhances cognition, people often do not adhere to a routine.", 
+            "D) Research suggests that running and swimming specifically contribute to mental sharpness."
+        ],
+        answer: "A) Regular exercise is linked to improved cognitive function, but many fail to maintain it."
+    },
+
+    // Math Questions (Time to Make a Tiny Mistake? Too Bad. 🚨)
+    {  
+        question: "If 3x - 7 = 2x + 5, what is the value of x?",
+        options: ["A) 10", "B) 12", "C) 8", "D) 7"],
+        answer: "D) 12"
+    },
+    {  
+        question: "A rectangle has a length of 8 and a width of 6. What is its diagonal length?",
+        options: ["A) 10", "B) 12", "C) 14", "D) 8√2"],
+        answer: "A) 10"
+    },
+    {  
+        question: "The function g(x) = x² - 5x + 6 is given. What is g(4)?",
+        options: ["A) 2", "B) 3", "C) 4", "D) 5"],
+        answer: "A) 2"
+    }
+],
+49:[  
+    // Writing Questions (Subtle Traps Everywhere)
+    {  
+        question: "Which revision best improves clarity and conciseness?\nDue to the fact that the meeting ran longer than expected, the team had to reschedule the client presentation.",
+        options: [
+            "A) Due to the fact that the meeting ran longer than expected, the team had to reschedule the client presentation.", 
+            "B) Because the meeting ran long, the team rescheduled the client presentation.", 
+            "C) The meeting ran longer than expected, leading to the rescheduling of the client presentation.", 
+            "D) No change"
+        ],
+        answer: "B) Because the meeting ran long, the team rescheduled the client presentation."
+    },
+    {  
+        question: "Which sentence correctly fixes the modifier placement error?\nWalking down the street, the bakery smelled delicious to Lisa.",
+        options: [
+            "A) Walking down the street, the bakery smelled delicious to Lisa.", 
+            "B) Walking down the street, Lisa smelled the delicious bakery.", 
+            "C) The bakery smelled delicious to Lisa as she walked down the street.", 
+            "D) No change"
+        ],
+        answer: "C) The bakery smelled delicious to Lisa as she walked down the street."
+    },
+    {  
+        question: "Which choice maintains parallel structure?\nThe professor’s lecture was engaging, informative, and he was also humorous.",
+        options: [
+            "A) engaging, informative, and he was also humorous.", 
+            "B) engaging, informative, and humorous.", 
+            "C) engaging and informative, and he was humorous.", 
+            "D) No change"
+        ],
+        answer: "B) engaging, informative, and humorous."
+    },
+
+    // Reading Questions (All Answers Feel Right 😈)
+    {  
+        question: "Passage: As electric vehicles (EVs) become more common, experts debate their overall environmental impact. While EVs produce zero emissions while driving, battery production and electricity generation still contribute to pollution. Despite this, advocates argue that widespread EV adoption will significantly reduce carbon emissions over time.\n\nWhat is the passage’s primary claim?",
+        options: [
+            "A) EVs produce no emissions, but their production still causes pollution.", 
+            "B) While EVs have environmental downsides, they ultimately reduce emissions.", 
+            "C) EV battery production and electricity use raise concerns about pollution.", 
+            "D) Experts continue to debate the true environmental impact of EVs."
+        ],
+        answer: "B) While EVs have environmental downsides, they ultimately reduce emissions."
+    },
+    {  
+        question: "Passage: The ancient city of Pompeii, buried by a volcanic eruption in 79 AD, provides remarkable insights into Roman life. Archaeologists have uncovered well-preserved homes, shops, and artwork that reveal details of daily activities, social structure, and even cuisine. The sudden disaster paradoxically preserved a snapshot of history, offering scholars an unprecedented look into the past.\n\nWhich answer best captures the passage’s main idea?",
+        options: [
+            "A) Pompeii’s destruction has given modern historians an insight into Roman life.", 
+            "B) Archaeologists have uncovered artifacts that detail Pompeii’s daily activities.", 
+            "C) The volcanic eruption of 79 AD preserved Pompeii’s historical artifacts.", 
+            "D) Pompeii provides insight into Roman civilization through its well-preserved ruins."
+        ],
+        answer: "D) Pompeii provides insight into Roman civilization through its well-preserved ruins."
+    },
+    {  
+        question: "Passage: Scientific studies suggest that sleep deprivation can negatively impact memory, concentration, and decision-making. Despite this, many people continue to prioritize work and social activities over sleep. Experts warn that chronic sleep loss may contribute to long-term cognitive decline.\n\nWhich choice best summarizes the passage’s argument?",
+        options: [
+            "A) Sleep deprivation affects memory and concentration but remains common.", 
+            "B) Studies indicate that inadequate sleep leads to cognitive impairment.", 
+            "C) Experts warn that poor sleep habits may have long-term effects.", 
+            "D) Many people prioritize work and social activities over sleep, harming cognition."
+        ],
+        answer: "C) Experts warn that poor sleep habits may have long-term effects."
+    },
+
+    // Math Questions (Tiny Mistakes = Instant Failure 😈)
+    {  
+        question: "Solve for x: 4x - 9 = 3x + 7.",
+        options: ["A) 16", "B) 14", "C) 12", "D) 10"],
+        answer: "D) 16"
+    },
+    {  
+        question: "A triangle has sides of length 7, 24, and 25. What is its area?",
+        options: ["A) 70", "B) 80", "C) 84", "D) 90"],
+        answer: "C) 84"
+    },
+    {  
+        question: "If f(x) = 2x² - 3x + 4, what is f(5)?",
+        options: ["A) 39", "B) 41", "C) 43", "D) 45"],
+        answer: "B) 41"
+    }
+],
+50:[  
+    // Writing Questions – Subtle grammar & conciseness traps 😈
+    {  
+        question: "Which revision best improves clarity and conciseness?\nConsidering the fact that the committee had already reached a decision, further discussion on the matter was unnecessary.",
+        options: [
+            "A) Considering the fact that the committee had already reached a decision, further discussion on the matter was unnecessary.", 
+            "B) Since the committee had reached a decision, further discussion was unnecessary.", 
+            "C) Given that the committee already made a decision, discussing it further wasn’t needed.", 
+            "D) No change"
+        ],
+        answer: "B) Since the committee had reached a decision, further discussion was unnecessary."
+    },
+    {  
+        question: "Which choice corrects the dangling modifier?\nWalking into the room, the sound of laughter filled the air.",
+        options: [
+            "A) Walking into the room, the sound of laughter filled the air.", 
+            "B) Walking into the room, I heard the sound of laughter fill the air.", 
+            "C) The sound of laughter filled the air as I walked into the room.", 
+            "D) No change"
+        ],
+        answer: "B) Walking into the room, I heard the sound of laughter fill the air."
+    },
+    {  
+        question: "Which option fixes the faulty parallelism?\nThe project requires creativity, problem-solving, and to have strong communication skills.",
+        options: [
+            "A) The project requires creativity, problem-solving, and to have strong communication skills.", 
+            "B) The project requires being creative, solving problems, and strong communication skills.", 
+            "C) The project requires creativity, problem-solving, and strong communication skills.", 
+            "D) No change"
+        ],
+        answer: "C) The project requires creativity, problem-solving, and strong communication skills."
+    },
+
+    // Reading Questions – All answers feel correct 😈
+    {  
+        question: "Passage: Advances in artificial intelligence (AI) are transforming industries, from healthcare to finance. While AI-driven automation increases efficiency, concerns remain about job displacement and ethical decision-making in AI systems. Experts emphasize the need for regulations to balance technological benefits with social responsibility.\n\nWhat is the primary purpose of the passage?",
+        options: [
+            "A) To explain how AI increases efficiency while presenting certain risks.", 
+            "B) To argue that AI automation should be strictly regulated.", 
+            "C) To highlight the ethical and economic effects of AI advancements.", 
+            "D) To discuss the impact of AI on both job markets and ethical concerns."
+        ],
+        answer: "C) To highlight the ethical and economic effects of AI advancements."
+    },
+    {  
+        question: "Passage: In the late 1800s, Nikola Tesla and Thomas Edison engaged in a fierce rivalry over electrical power systems. Tesla promoted alternating current (AC), arguing that it was more efficient for long-distance transmission, while Edison defended direct current (DC), claiming it was safer. Ultimately, AC gained widespread adoption, shaping the future of electricity distribution.\n\nWhich choice best captures the passage’s central idea?",
+        options: [
+            "A) Tesla and Edison’s rivalry was centered on the debate between AC and DC power.", 
+            "B) AC was ultimately favored over DC due to its efficiency for long-distance use.", 
+            "C) Edison’s promotion of DC power was based on safety concerns.", 
+            "D) The competition between AC and DC power had a lasting impact on electricity distribution."
+        ],
+        answer: "D) The competition between AC and DC power had a lasting impact on electricity distribution."
+    },
+    {  
+        question: "Passage: Studies indicate that regular physical exercise improves cognitive function. Researchers have found that aerobic exercise, in particular, enhances memory retention and problem-solving skills. Despite this, many individuals fail to meet recommended exercise guidelines, often citing time constraints.\n\nWhich choice best summarizes the passage’s argument?",
+        options: [
+            "A) Aerobic exercise enhances cognitive function, but many people do not engage in enough of it.", 
+            "B) Exercise improves memory retention and problem-solving skills.", 
+            "C) Time constraints prevent many individuals from benefiting from aerobic exercise.", 
+            "D) Research suggests that aerobic exercise is crucial for mental sharpness."
+        ],
+        answer: "A) Aerobic exercise enhances cognitive function, but many people do not engage in enough of it."
+    },
+
+    // Math Questions – Multi-step and tricky answers 😈
+    {  
+        question: "Solve for x: 3(2x - 4) = 5x + 8.",
+        options: ["A) 8", "B) 10", "C) 12", "D) 14"],
+        answer: "B) 10"
+    },
+    {  
+        question: "A right triangle has legs of length 9 and 12. What is its hypotenuse?",
+        options: ["A) 14", "B) 15", "C) 16", "D) 18"],
+        answer: "B) 15"
+    },
+    {  
+        question: "If g(x) = x² - 5x + 6, what is g(4)?",
+        options: ["A) 2", "B) 4", "C) 6", "D) 8"],
+        answer: "A) 2"
+    }
 ]
+
+
+
+
+
+
+
 
 
 
