@@ -3734,31 +3734,477 @@ const questionsData = {
         options: ["A) 2", "B) 4", "C) 6", "D) 8"],
         answer: "A) 2"
     }
+],
+51:[  
+    // Writing Questions
+    {  
+        question: "Which revision best maintains conciseness while preserving meaning?\nThe scientist, who was widely respected for her groundbreaking research, made an important and significant discovery that changed the field forever.",
+        options: [
+            "A) The widely respected scientist made a significant discovery that changed the field.",
+            "B) The scientist was widely respected and made an important discovery that changed the field forever.",
+            "C) The groundbreaking scientist made an important and significant discovery that had lasting effects on the field.",
+            "D) The scientist, widely respected, made a groundbreaking discovery that changed the field forever."
+        ],
+        answer: "A) The widely respected scientist made a significant discovery that changed the field."
+    },
+    {  
+        question: "Which option correctly eliminates redundancy while keeping the meaning?\nThe committee members collaborated together to reach a mutual agreement that satisfied everyone.",
+        options: [
+            "A) The committee members collaborated to reach a mutual agreement.",
+            "B) The members of the committee worked together to reach an agreement that satisfied everyone.",
+            "C) The committee collaborated and came to an agreement that satisfied all.",
+            "D) The committee members worked in conjunction to reach an agreement."
+        ],
+        answer: "A) The committee members collaborated to reach a mutual agreement."
+    },
+    {  
+        question: "Which revision best improves clarity and parallel structure?\nThe new policy required employees to submit reports promptly, following guidelines precisely, and they must attend all weekly meetings.",
+        options: [
+            "A) The new policy required employees to submit reports promptly, to follow guidelines precisely, and to attend all weekly meetings.",
+            "B) The new policy required employees to submit reports promptly, following guidelines precisely, and attending all weekly meetings.",
+            "C) The new policy required employees to be prompt in submitting reports, precise in following guidelines, and they must attend all weekly meetings.",
+            "D) The new policy required employees to submit reports promptly, to follow guidelines precisely, and they must attend all weekly meetings."
+        ],
+        answer: "A) The new policy required employees to submit reports promptly, to follow guidelines precisely, and to attend all weekly meetings."
+    },
+
+    // Reading Questions
+    {  
+        question: "Passage: The early 20th century saw a dramatic shift in industrial labor. While mechanization increased efficiency, it also led to growing concerns about worker rights and conditions. Many companies resisted change, arguing that increased wages and safer environments would threaten profits. However, a growing labor movement, supported by economic studies showing that fair wages increased productivity, challenged this notion.\n\nWhich choice best states the main idea of the passage?",
+        options: [
+            "A) Mechanization in the 20th century led to economic prosperity for workers.",
+            "B) The rise of industrial labor movements was primarily driven by worker dissatisfaction.",
+            "C) Companies resisted improving worker conditions, but economic research supported fair wages.",
+            "D) Economic studies played a small role in advocating for fair labor policies."
+        ],
+        answer: "C) Companies resisted improving worker conditions, but economic research supported fair wages."
+    },
+    {  
+        question: "Passage: In his groundbreaking work on genetics, Gregor Mendel identified dominant and recessive traits, yet his research was largely ignored until the early 20th century. His meticulous experiments on pea plants laid the foundation for modern genetics. However, misconceptions persisted, as some scientists misinterpreted his findings to suggest that single genes entirely determined complex traits.\n\nWhat is the author’s perspective on Mendel’s research?",
+        options: [
+            "A) Mendel’s work was fundamental but initially overlooked and sometimes misunderstood.",
+            "B) Mendel’s research was flawed because it failed to account for genetic complexity.",
+            "C) Mendel’s experiments were controversial but gained immediate recognition.",
+            "D) Mendel’s findings were irrelevant until the discovery of DNA."
+        ],
+        answer: "A) Mendel’s work was fundamental but initially overlooked and sometimes misunderstood."
+    },
+    {  
+        question: "Passage: Urban infrastructure has evolved significantly over the last century, incorporating technological advances to optimize efficiency. However, not all innovations have been universally beneficial. The widespread implementation of automated traffic systems, for instance, has led to reduced accidents but also to increased congestion in some metropolitan areas.\n\nWhich statement is best supported by the passage?",
+        options: [
+            "A) All technological advancements in urban planning have been beneficial.",
+            "B) Automated traffic systems have only had positive effects on cities.",
+            "C) Some urban innovations improve safety but create new challenges.",
+            "D) Traffic congestion has significantly decreased due to automation."
+        ],
+        answer: "C) Some urban innovations improve safety but create new challenges."
+    },
+
+    // Math Questions
+    {  
+        question: "If f(x) = 2x² - 3x + 4, what is f(-2)?",
+        options: [
+            "A) 6", 
+            "B) 10", 
+            "C) 14", 
+            "D) 16"
+        ],
+        answer: "C) 14"
+    },
+    {  
+        question: "A right triangle has legs of lengths 7 and 24. What is the length of the hypotenuse?",
+        options: [
+            "A) 25", 
+            "B) 26", 
+            "C) 24√2", 
+            "D) 24.5"
+        ],
+        answer: "A) 25"
+    },
+    {  
+        question: "If (x - 4)(x + 3) = 0, what is the sum of all possible values of x?",
+        options: [
+            "A) -1", 
+            "B) -7", 
+            "C) 1", 
+            "D) 4"
+        ],
+        answer: "A) -1"
+    }
+],
+52:[  
+    // Writing Questions
+    {  
+        question: "Which revision best eliminates wordiness while preserving meaning?\nThe book that she wrote in the span of only six months became an instant bestseller and was very widely praised by many critics.",
+        options: [
+            "A) The book she wrote in six months became a bestseller and received widespread praise.",  
+            "B) The book, written in just six months, was an instant bestseller and praised by critics.",  
+            "C) The book, completed in a short six-month period, became a bestseller and received great acclaim.",  
+            "D) The book she authored in six months was widely praised and became an instant success."  
+        ],
+        answer: "A) The book she wrote in six months became a bestseller and received widespread praise."
+    },
+    {  
+        question: "Which option best corrects the pronoun agreement error?\nEvery employee should complete their timesheet before leaving for the day.",
+        options: [
+            "A) Every employee should complete his or her timesheet before leaving for the day.",  
+            "B) Every employee should complete their timesheets before they leave for the day.",  
+            "C) All employees should complete their timesheets before leaving for the day.",  
+            "D) Every employee should complete its timesheet before leaving for the day."  
+        ],
+        answer: "A) Every employee should complete his or her timesheet before leaving for the day."
+    },
+    {  
+        question: "Which sentence correctly maintains parallel structure?\nThe project manager was responsible for organizing meetings, keeping track of budgets, and to ensure deadlines were met.",
+        options: [
+            "A) The project manager was responsible for organizing meetings, tracking budgets, and ensuring deadlines were met.",  
+            "B) The project manager was responsible for organizing meetings, keeping track of budgets, and ensuring deadlines were met.",  
+            "C) The project manager was responsible for the organizing of meetings, tracking budgets, and to ensure deadlines were met.",  
+            "D) The project manager had the responsibility of organizing meetings, tracking budgets, and deadlines must be met."  
+        ],
+        answer: "B) The project manager was responsible for organizing meetings, keeping track of budgets, and ensuring deadlines were met."
+    },
+
+    // Reading Questions
+    {  
+        question: "Passage: The rapid expansion of artificial intelligence has led to widespread debate. While AI has streamlined processes in industries ranging from healthcare to finance, concerns remain regarding job displacement and ethical implications. Some experts argue that AI should be strictly regulated to prevent unintended consequences, while others maintain that excessive oversight may hinder progress.\n\nWhich choice best captures the central argument of the passage?",
+        options: [
+            "A) AI has greatly benefited industries but also raises concerns about job security and ethics.",  
+            "B) The development of AI is largely positive, but opponents overstate their concerns.",  
+            "C) While AI presents challenges, the benefits outweigh the potential drawbacks.",  
+            "D) AI regulation is necessary to prevent widespread harm, but it must be balanced with innovation."  
+        ],
+        answer: "A) AI has greatly benefited industries but also raises concerns about job security and ethics."
+    },
+    {  
+        question: "Passage: In the late 1800s, Nikola Tesla and Thomas Edison were at the forefront of the battle over electrical power. Edison, advocating for direct current (DC), saw Tesla’s alternating current (AC) as a dangerous alternative. Tesla’s innovations, however, proved to be more practical for large-scale electricity distribution, leading to AC becoming the standard.\n\nWhich choice best summarizes the passage?",
+        options: [
+            "A) Tesla and Edison both contributed to electricity, but AC ultimately became the preferred system.",  
+            "B) Tesla’s AC system won over Edison’s DC because it was safer and more effective.",  
+            "C) Edison opposed Tesla’s AC system, but Tesla's ideas were superior in large-scale energy distribution.",  
+            "D) The debate between AC and DC led to long-term benefits for modern electrical engineering."  
+        ],
+        answer: "A) Tesla and Edison both contributed to electricity, but AC ultimately became the preferred system."
+    },
+    {  
+        question: "Passage: Over the years, studies have shown a strong link between physical activity and mental well-being. Regular exercise has been associated with reduced stress, improved cognitive function, and a lower risk of depression. However, some researchers caution that excessive exercise, particularly in athletes, can sometimes contribute to anxiety and burnout.\n\nWhich conclusion is best supported by the passage?",
+        options: [
+            "A) Exercise is universally beneficial for mental health with no drawbacks.",  
+            "B) Regular exercise generally improves mental well-being but can have risks if excessive.",  
+            "C) Athletes are at risk of mental health issues due to exercise.",  
+            "D) Exercise is linked to mental health benefits, but its effects are largely overstated."  
+        ],
+        answer: "B) Regular exercise generally improves mental well-being but can have risks if excessive."
+    },
+
+    // Math Questions
+    {  
+        question: "If 3x² - 5x - 2 = 0, what is the sum of the solutions for x?",
+        options: [
+            "A) -5/3",  
+            "B) 5/3",  
+            "C) 5",  
+            "D) -5"  
+        ],
+        answer: "C) 5"
+    },
+    {  
+        question: "A rectangle has a length of (2x + 3) and a width of (x - 2). If the area of the rectangle is 35, what is the value of x?",
+        options: [
+            "A) 5",  
+            "B) 7",  
+            "C) 4",  
+            "D) 6"  
+        ],
+        answer: "A) 5"
+    },
+    {  
+        question: "The function g(x) = x² - 4x + 7 is given. What is g(3)?",
+        options: [
+            "A) 4",  
+            "B) 6",  
+            "C) 7",  
+            "D) 8"  
+        ],
+        answer: "D) 8"
+    }
+],
+53:[  
+    // Writing Questions
+    {  
+        question: "Which revision most effectively improves the conciseness of the sentence without changing its meaning?\nThe scientist, who was well-known for her research in genetic modification and had received multiple prestigious awards, continued her work on the revolutionary project.",
+        options: [
+            "A) The well-known scientist, awarded multiple times for genetic research, continued her revolutionary work.",  
+            "B) The scientist, a celebrated genetic researcher with many awards, continued her revolutionary project.",  
+            "C) The scientist, widely recognized for her genetic research, continued her groundbreaking work.",  
+            "D) The scientist, known for genetic research and awards, kept working on her project."  
+        ],
+        answer: "C) The scientist, widely recognized for her genetic research, continued her groundbreaking work."
+    },
+    {  
+        question: "Which sentence best corrects the misplaced modifier?\nExhausted from the long journey, the mountain’s peak seemed impossible to reach for the hikers.",
+        options: [
+            "A) Exhausted from the long journey, the hikers found the mountain’s peak impossible to reach.",  
+            "B) The hikers, exhausted from the long journey, seemed to find the mountain’s peak impossible to reach.",  
+            "C) The mountain’s peak seemed impossible to reach for the exhausted hikers after the long journey.",  
+            "D) The hikers found the mountain’s peak impossible to reach because they were exhausted from the journey."  
+        ],
+        answer: "A) Exhausted from the long journey, the hikers found the mountain’s peak impossible to reach."
+    },
+    {  
+        question: "Which option correctly maintains parallel structure?\nThe athlete was praised for his discipline, endurance, and how he strategized his matches.",
+        options: [
+            "A) The athlete was praised for his discipline, endurance, and strategic thinking during matches.",  
+            "B) The athlete was praised for his discipline, endurance, and for how he strategized his matches.",  
+            "C) The athlete was praised for his discipline, his endurance, and his ability to strategize in matches.",  
+            "D) The athlete was praised for discipline, endurance, and his match strategies."  
+        ],
+        answer: "A) The athlete was praised for his discipline, endurance, and strategic thinking during matches."
+    },
+
+    // Reading Questions
+    {  
+        question: "Passage: In recent years, research into deep-sea ecosystems has uncovered a wealth of previously unknown species. Many of these creatures have evolved unique adaptations to survive in conditions of extreme pressure, limited light, and scarce food. Scientists argue that these discoveries not only expand our understanding of marine biodiversity but may also provide insights into life on other planets.\n\nWhat is the primary purpose of the passage?",
+        options: [
+            "A) To highlight recent discoveries in deep-sea ecosystems and their broader implications.",  
+            "B) To argue that deep-sea research should be prioritized over space exploration.",  
+            "C) To describe the physical adaptations of deep-sea creatures in extreme environments.",  
+            "D) To challenge existing assumptions about where life can exist."  
+        ],
+        answer: "A) To highlight recent discoveries in deep-sea ecosystems and their broader implications."
+    },
+    {  
+        question: "Passage: The advent of digital photography revolutionized the way images are captured, stored, and shared. Unlike film photography, which requires chemical processing and physical storage, digital images can be edited, duplicated, and transmitted instantly. However, some photographers argue that film still holds artistic and archival advantages over its digital counterpart.\n\nWhich choice best summarizes the passage?",
+        options: [
+            "A) Digital photography has largely replaced film, but film remains valued for artistic and archival reasons.",  
+            "B) The rise of digital photography has made film obsolete in most situations.",  
+            "C) While digital photography is convenient, its artistic value is debated among professionals.",  
+            "D) The transition from film to digital photography has led to an irreversible shift in the industry."  
+        ],
+        answer: "A) Digital photography has largely replaced film, but film remains valued for artistic and archival reasons."
+    },
+    {  
+        question: "Passage: Renewable energy sources such as wind and solar power have gained traction as viable alternatives to fossil fuels. However, critics point out that these energy sources are highly dependent on environmental conditions, which can lead to supply inconsistencies. As a result, researchers continue to explore battery storage technologies and grid improvements to address these challenges.\n\nWhich assumption is implicit in the passage?",
+        options: [
+            "A) Renewable energy sources alone cannot fully replace fossil fuels.",  
+            "B) Battery storage solutions will eventually make renewable energy as reliable as fossil fuels.",  
+            "C) Governments should invest more in renewable energy to counteract supply inconsistencies.",  
+            "D) The adoption of renewable energy is largely driven by environmental concerns rather than practicality."  
+        ],
+        answer: "A) Renewable energy sources alone cannot fully replace fossil fuels."
+    },
+
+    // Math Questions
+    {  
+        question: "If 2x² - 7x + 3 = 0, what is the product of the solutions?",
+        options: [
+            "A) 3/2",  
+            "B) -3/2",  
+            "C) 3",  
+            "D) -3"  
+        ],
+        answer: "C) 3"
+    },
+    {  
+        question: "The length of a rectangle is 3 more than twice its width. If the area of the rectangle is 54, what is its width?",
+        options: [
+            "A) 3",  
+            "B) 4",  
+            "C) 6",  
+            "D) 9"  
+        ],
+        answer: "B) 4"
+    },
+    {  
+        question: "The function f(x) = 2x² - 3x + 1 is given. What is f(4)?",
+        options: [
+            "A) 19",  
+            "B) 21",  
+            "C) 23",  
+            "D) 25"  
+        ],
+        answer: "A) 19"
+    }
+],
+54:[  
+    // Writing Questions
+    {  
+        question: "Which choice most effectively improves the clarity and conciseness of the sentence without altering its meaning?\nThe new policy, which was implemented in order to increase efficiency and to reduce unnecessary delays, was met with mixed reactions.",
+        options: [
+            "A) The new policy, implemented to increase efficiency and reduce delays, was met with mixed reactions.",  
+            "B) The policy, which increased efficiency and reduced unnecessary delays, received mixed reactions.",  
+            "C) In order to increase efficiency and reduce unnecessary delays, the new policy was implemented and met with mixed reactions.",  
+            "D) The policy was met with mixed reactions due to its purpose of increasing efficiency and reducing unnecessary delays."  
+        ],
+        answer: "A) The new policy, implemented to increase efficiency and reduce delays, was met with mixed reactions."
+    },
+    {  
+        question: "Which revision corrects the ambiguity in the sentence?\nAfter reviewing the reports, the manager told the employees they needed improvement.",
+        options: [
+            "A) After reviewing the reports, the manager told the employees that their performance needed improvement.",  
+            "B) The manager told the employees, after reviewing the reports, they needed to improve.",  
+            "C) The manager reviewed the reports and told the employees that improvement was needed.",  
+            "D) The reports were reviewed by the manager, who then told the employees improvement was necessary."  
+        ],
+        answer: "A) After reviewing the reports, the manager told the employees that their performance needed improvement."
+    },
+    {  
+        question: "Which option maintains the intended meaning and corrects the misplaced modifier?\nStruggling to stay awake, the professor’s lecture seemed unending to the students.",
+        options: [
+            "A) The professor’s lecture seemed unending to the students, who were struggling to stay awake.",  
+            "B) Struggling to stay awake, the students found the professor’s lecture unending.",  
+            "C) The students, struggling to stay awake, thought the professor’s lecture was unending.",  
+            "D) The professor’s lecture, which seemed unending, made the students struggle to stay awake."  
+        ],
+        answer: "B) Struggling to stay awake, the students found the professor’s lecture unending."
+    },
+
+    // Reading Questions
+    {  
+        question: "Passage: In the late 1800s, Nikola Tesla experimented with wireless electricity transmission, envisioning a future where energy could be distributed globally without wires. Although his work laid the groundwork for modern wireless technology, his vision was never fully realized due to financial and technological limitations at the time.\n\nWhich choice best summarizes the passage?",
+        options: [
+            "A) Tesla's wireless electricity research influenced modern technology but faced financial and technical barriers.",  
+            "B) Tesla successfully developed wireless electricity but was unable to implement it globally.",  
+            "C) Tesla's work on wireless electricity was ahead of its time, and modern researchers continue his experiments today.",  
+            "D) Tesla's discoveries in wireless transmission remain largely theoretical and unproven."  
+        ],
+        answer: "A) Tesla's wireless electricity research influenced modern technology but faced financial and technical barriers."
+    },
+    {  
+        question: "Passage: The rapid expansion of urban areas has led to increased concerns about air quality. Studies have shown that cities with high levels of green spaces experience lower pollution levels and improved public health outcomes. However, implementing widespread green initiatives remains challenging due to space constraints and funding limitations.\n\nWhich statement is most strongly supported by the passage?",
+        options: [
+            "A) Increasing green spaces can improve air quality and public health.",  
+            "B) Cities with fewer green spaces experience greater levels of pollution and disease.",  
+            "C) Funding limitations prevent all cities from developing effective environmental solutions.",  
+            "D) Urban air quality is primarily affected by factors other than green spaces."  
+        ],
+        answer: "A) Increasing green spaces can improve air quality and public health."
+    },
+    {  
+        question: "Passage: Over the years, advancements in artificial intelligence have reshaped the workforce. Automation has replaced many routine tasks, raising concerns about job displacement. However, experts argue that while some jobs are eliminated, AI also creates new opportunities in emerging fields that require specialized skills.\n\nWhich assumption is implicit in the passage?",
+        options: [
+            "A) AI does not entirely replace human workers but shifts the demand for labor.",  
+            "B) AI-driven automation is more beneficial than harmful to the workforce.",  
+            "C) Job displacement due to AI is inevitable and cannot be mitigated.",  
+            "D) Only high-tech industries will see job growth due to AI advancements."  
+        ],
+        answer: "A) AI does not entirely replace human workers but shifts the demand for labor."
+    },
+
+    // Math Questions
+    {  
+        question: "If x and y are real numbers such that x² + y² = 25 and xy = 12, what is the value of (x + y)²?",
+        options: [
+            "A) 49",  
+            "B) 37",  
+            "C) 31",  
+            "D) 29"  
+        ],
+        answer: "B) 37"
+    },
+    {  
+        question: "A circle is inscribed inside a square with side length 8. What is the ratio of the area of the circle to the area of the square? (Use π = 3.14)",
+        options: [
+            "A) 0.50",  
+            "B) 0.62",  
+            "C) 0.79",  
+            "D) 0.85"  
+        ],
+        answer: "C) 0.79"
+    },
+    {  
+        question: "The function f(x) = ax² + bx + c has a vertex at (3, -4). If a = 2, what is the value of b?",
+        options: [
+            "A) -12",  
+            "B) -6",  
+            "C) 6",  
+            "D) 12"  
+        ],
+        answer: "B) -12"
+    }
+],
+55:[  
+    // Writing Questions  
+    {  
+        question: "Which revision best improves the sentence’s conciseness while preserving its meaning?\n\nThe committee, which was composed of several members, met in order to discuss the budget proposal that had been drafted by the finance team.",
+        options: [
+            "A) The committee, composed of several members, met to discuss the finance team’s budget proposal.",
+            "B) The committee, which had several members, met for the purpose of discussing the budget proposal drafted by finance.",
+            "C) The committee, with its various members, convened to have discussions regarding the budget proposal that the finance team had created.",
+            "D) No change"
+        ],
+        answer: "A) The committee, composed of several members, met to discuss the finance team’s budget proposal."
+    },
+    {  
+        question: "Which sentence corrects the misplaced modifier?\n\nWalking down the street, the bakery’s aroma was irresistible to Julia.",
+        options: [
+            "A) Walking down the street, Julia found the bakery’s aroma irresistible.",
+            "B) Julia, while walking down the street, was irresistibly drawn to the bakery’s aroma.",
+            "C) Walking down the street, the aroma of the bakery was irresistible to Julia.",
+            "D) No change"
+        ],
+        answer: "A) Walking down the street, Julia found the bakery’s aroma irresistible."
+    },
+    {  
+        question: "Which revision best maintains parallel structure?\n\nThe professor emphasized that students should take thorough notes, review the material regularly, and they needed to participate in class discussions.",
+        options: [
+            "A) take thorough notes, review the material regularly, and participate in class discussions.",
+            "B) take thorough notes, reviewing the material regularly, and that participation in class discussions was necessary.",
+            "C) taking thorough notes, reviewing the material regularly, and that class discussions were needed.",
+            "D) No change"
+        ],
+        answer: "A) take thorough notes, review the material regularly, and participate in class discussions."
+    },
+
+    // Reading Questions  
+    {  
+        question: "Passage: The economic impact of automation has been a topic of debate among economists for decades. Some argue that technological advancements lead to job displacement, while others suggest they create new opportunities by fostering industries that never previously existed. However, historical data suggests that economies tend to adjust, though not without transitional difficulties.\n\nWhich choice best summarizes the central claim of the passage?",
+        options: [
+            "A) Automation inevitably leads to job displacement and long-term economic decline.",
+            "B) Although automation disrupts industries, economies tend to adapt over time.",
+            "C) Technological advancements in automation have only positive effects on job growth.",
+            "D) Economic adjustments to automation occur instantly without disruption."
+        ],
+        answer: "B) Although automation disrupts industries, economies tend to adapt over time."
+    },
+    {  
+        question: "Passage: A recent study on marine ecosystems has revealed that coral reefs are declining at an alarming rate due to rising ocean temperatures and acidification. Scientists warn that without intervention, marine biodiversity will suffer irreparable damage. Some experts advocate for artificial reef structures, while others stress the importance of reducing carbon emissions to mitigate further damage.\n\nWhich choice best describes the purpose of the passage?",
+        options: [
+            "A) To highlight the potential solutions to coral reef degradation.",
+            "B) To emphasize the role of marine biodiversity in ecosystem stability.",
+            "C) To argue that reducing carbon emissions is the only viable way to save coral reefs.",
+            "D) To provide an overview of the challenges facing coral reefs and possible interventions."
+        ],
+        answer: "D) To provide an overview of the challenges facing coral reefs and possible interventions."
+    },
+    {  
+        question: "Passage: In the late 19th century, as industrialization swept across Europe, many laborers found themselves working long hours under hazardous conditions. This gave rise to the labor movement, which sought fair wages, reasonable hours, and improved workplace safety. While early strikes were often met with resistance, they eventually led to legislative reforms that benefited workers.\n\nWhich inference is best supported by the passage?",
+        options: [
+            "A) Industrialization directly led to improved working conditions for laborers.",
+            "B) The labor movement’s initial efforts were largely unsuccessful.",
+            "C) Workplace safety was prioritized over fair wages in early reforms.",
+            "D) Labor strikes played a crucial role in prompting workplace reforms."
+        ],
+        answer: "D) Labor strikes played a crucial role in prompting workplace reforms."
+    },
+
+    // Math Questions  
+    {  
+        question: "If 3x + 5 = 2(x + 6), what is the value of x?",
+        options: ["A) -7", "B) -5", "C) 1", "D) 7"],
+        answer: "C) 1"
+    },
+    {  
+        question: "A right triangle has legs of length 7 and 24. What is the length of the hypotenuse?",
+        options: ["A) 23", "B) 25", "C) 26", "D) 29"],
+        answer: "B) 25"
+    },
+    {  
+        question: "If f(x) = 2x² - 3x + 4, what is f(5)?",
+        options: ["A) 39", "B) 41", "C) 43", "D) 47"],
+        answer: "B) 41"
+    }
 ]
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-
-
-
-
-
-
-
 
 };
 
