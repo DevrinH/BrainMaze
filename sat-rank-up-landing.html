@@ -75,6 +75,19 @@ document.addEventListener("DOMContentLoaded", function () {
         51: "Expert"
     };
 
+    // ✅ Levels that should be unlocked by default
+    const defaultUnlockedLevels = [1, 11, 21, 31, 41, 51];
+
+    function initializeLevels() {
+        defaultUnlockedLevels.forEach(level => {
+            if (!localStorage.getItem(`level${level}Unlocked`)) {
+                localStorage.setItem(`level${level}Unlocked`, "true");
+            }
+        });
+    }
+
+    initializeLevels(); // ✅ Ensures the correct levels are unlocked on page load
+
     for (let i = 1; i <= totalLevels; i++) {
         // Check if a title needs to be inserted
         if (levelTitles[i]) {
@@ -91,8 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
         button.textContent = i;
 
         // Check if the level is unlocked
-        if (localStorage.getItem(`level${i}Unlocked`) !== "true" && i !== 1) {
-            button.setAttribute("disabled", "true"); // Lock the level (except Level 1)
+        if (localStorage.getItem(`level${i}Unlocked`) !== "true") {
+            button.setAttribute("disabled", "true"); // Lock the level unless it's unlocked
         }
 
         // Redirect to the test page when clicked
@@ -122,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("reset-progress").addEventListener("click", function () {
         if (confirm("Are you sure you want to reset your progress? This cannot be undone!")) {
             localStorage.clear(); // Clear all saved levels
-            localStorage.setItem("level1Unlocked", "true"); // Keep Level 1 unlocked
+            initializeLevels(); // ✅ Keep the correct levels unlocked
             location.reload(); // Reload the page to update UI
         }
     });
