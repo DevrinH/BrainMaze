@@ -1385,6 +1385,468 @@ const questionsData = {
             options: ["A) 19", "B) 21", "C) 23", "D) 25"],
             answer: "C) 23"
         }
+    ],
+    23:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity and conciseness of the sentence?\nThe committee members reached a consensus agreement on the issue after discussing it for several hours.",
+            options: ["A) reached a consensus agreement on the issue after discussing it for several hours.", "B) reached a consensus after several hours of discussion.", "C) agreed on the issue after they had discussed it for several hours.", "D) No change"],
+            answer: "B) reached a consensus after several hours of discussion."
+        },
+        {  
+            question: "Which revision corrects the dangling modifier?\nRunning late for work, the traffic jam was frustrating to Maria.",
+            options: ["A) Running late for work, the traffic jam was frustrating to Maria.", "B) The traffic jam, running late for work, frustrated Maria.", "C) Running late for work, Maria found the traffic jam frustrating.", "D) No change"],
+            answer: "C) Running late for work, Maria found the traffic jam frustrating."
+        },
+        {  
+            question: "Which choice best combines the two sentences?\nThe scientist presented her findings. The audience listened attentively.",
+            options: ["A) The scientist presented her findings while the audience listened attentively.", "B) While the audience listened attentively, the scientist presented her findings.", "C) The scientist, presenting her findings, had the audience listen attentively.", "D) The audience listened attentively when the scientist presented her findings."],
+            answer: "A) The scientist presented her findings while the audience listened attentively."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: The Renaissance period marked a revival of art, science, and literature, driven by a renewed interest in classical antiquity. This era saw the rise of influential figures such as Leonardo da Vinci, Michelangelo, and Galileo, who pushed the boundaries of human knowledge. The printing press, invented by Johannes Gutenberg, played a crucial role in disseminating ideas and fostering intellectual growth.\n\nWhat was one major effect of the invention of the printing press?",
+            options: [
+                "A) It led to the immediate decline of handwritten manuscripts.",
+                "B) It facilitated the rapid spread of knowledge and literacy.",
+                "C) It limited access to scientific discoveries.",
+                "D) It caused a decrease in artistic achievements."
+            ],
+            answer: "B) It facilitated the rapid spread of knowledge and literacy."
+        },
+        {  
+            question: "Passage: In the 19th century, the expansion of the railway system revolutionized travel and trade. Goods that once took weeks to transport could now reach their destinations in days. Additionally, people could explore distant cities with unprecedented ease. However, the rapid industrialization brought environmental consequences, including pollution and deforestation.\n\nWhat is the primary purpose of the passage?",
+            options: [
+                "A) To highlight the environmental drawbacks of railroads.",
+                "B) To explain the economic and societal impact of railroads.",
+                "C) To argue for the preservation of forests against industrial growth.",
+                "D) To describe how railroads eliminated the need for other forms of transportation."
+            ],
+            answer: "B) To explain the economic and societal impact of railroads."
+        },
+        {  
+            question: "Passage: Scientists studying deep-sea ecosystems have discovered hydrothermal vents that support unique forms of life. These vents release mineral-rich water, creating an environment where organisms thrive without sunlight. The presence of chemosynthetic bacteria allows for an entire ecosystem to exist in the depths of the ocean.\n\nWhat can be inferred about hydrothermal vent ecosystems?",
+            options: [
+                "A) They depend on sunlight for energy like surface ecosystems.",
+                "B) They are sustained by chemosynthetic organisms that convert minerals into energy.",
+                "C) They are less biodiverse than other deep-sea environments.",
+                "D) They are primarily inhabited by plant species that adapt to high temperatures."
+            ],
+            answer: "B) They are sustained by chemosynthetic organisms that convert minerals into energy."
+        },
+    
+        // Math Questions
+        {  
+            question: "A store offers a discount of 20% on a jacket originally priced at $75. After the discount, a sales tax of 8% is applied. What is the final price of the jacket?",
+            options: ["A) $64.80", "B) $60.00", "C) $62.40", "D) $65.00"],
+            answer: "A) $64.80"
+        },
+        {  
+            question: "A quadratic function is defined as f(x) = x^2 - 6x + 8. What are the x-intercepts of the function?",
+            options: ["A) (2,0) and (4,0)", "B) (1,0) and (8,0)", "C) (2,0) and (3,0)", "D) (0,0) and (6,0)"],
+            answer: "A) (2,0) and (4,0)"
+        },
+        {  
+            question: "A right circular cone has a base radius of 5 cm and a height of 12 cm. What is the volume of the cone? (Use π ≈ 3.14)",
+            options: ["A) 100.48 cm³", "B) 314.00 cm³", "C) 282.60 cm³", "D) 314.20 cm³"],
+            answer: "C) 282.60 cm³"
+        }
+    ],
+    24:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity and conciseness of the sentence?\nDespite the fact that the company had significant financial challenges, it still managed to expand its operations internationally.",
+            options: ["A) Despite the fact that the company had significant financial challenges, it still managed to expand its operations internationally.", "B) Although the company faced financial challenges, it expanded internationally.", "C) The company had significant financial challenges, yet it still managed to expand operations internationally.", "D) No change"],
+            answer: "B) Although the company faced financial challenges, it expanded internationally."
+        },
+        {  
+            question: "Which revision corrects the pronoun-antecedent agreement error?\nEach student must submit their assignment before Friday.",
+            options: ["A) Each student must submit their assignment before Friday.", "B) Each student must submit his or her assignment before Friday.", "C) All students must submit their assignment before Friday.", "D) No change"],
+            answer: "B) Each student must submit his or her assignment before Friday."
+        },
+        {  
+            question: "Which option corrects the parallelism error?\nThe manager was responsible for organizing meetings, overseeing budgets, and to ensure deadlines were met.",
+            options: ["A) organizing meetings, overseeing budgets, and to ensure deadlines were met.", "B) organizing meetings, overseeing budgets, and ensuring deadlines were met.", "C) to organize meetings, overseeing budgets, and ensuring deadlines were met.", "D) No change"],
+            answer: "B) organizing meetings, overseeing budgets, and ensuring deadlines were met."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Over the past decade, scientists have studied the migration patterns of Arctic terns, small seabirds known for their extraordinary annual journey. These birds travel over 44,000 miles each year, migrating from the Arctic to the Antarctic and back again. The study of their navigation has led to breakthroughs in understanding how animals detect the Earth's magnetic field and use it for orientation.\n\nWhat is the primary purpose of the passage?",
+            options: [
+                "A) To explain how Arctic terns contribute to climate change.",
+                "B) To highlight the navigational abilities of Arctic terns and their scientific significance.",
+                "C) To argue that Arctic terns should be classified as an endangered species.",
+                "D) To describe the genetic adaptations that allow Arctic terns to migrate."
+            ],
+            answer: "B) To highlight the navigational abilities of Arctic terns and their scientific significance."
+        },
+        {  
+            question: "Passage: In the early 20th century, Marie Curie became the first woman to win a Nobel Prize, recognized for her pioneering research on radioactivity. Despite facing significant gender biases in the scientific community, Curie remained committed to her work. Her discoveries led to advancements in medical treatments, particularly in the development of radiation therapy for cancer patients.\n\nWhich choice best describes the author’s perspective on Marie Curie?",
+            options: [
+                "A) The author views Curie’s achievements as impressive despite societal barriers.",
+                "B) The author argues that Curie’s discoveries had minimal real-world impact.",
+                "C) The author believes that Curie’s scientific work overshadowed her personal struggles.",
+                "D) The author focuses on the ethical dilemmas of Curie’s research."
+            ],
+            answer: "A) The author views Curie’s achievements as impressive despite societal barriers."
+        },
+        {  
+            question: "Passage: Urban planners are increasingly incorporating green spaces into city landscapes to improve public health. Research indicates that access to parks and natural environments reduces stress, promotes physical activity, and enhances overall well-being. However, balancing urban expansion with environmental preservation remains a challenge.\n\nWhich of the following is an implicit assumption in the passage?",
+            options: [
+                "A) People who live in cities generally dislike urban environments.",
+                "B) Access to green spaces has no measurable effect on public health.",
+                "C) Urban expansion often comes at the cost of environmental preservation.",
+                "D) Green spaces are unnecessary in densely populated areas."
+            ],
+            answer: "C) Urban expansion often comes at the cost of environmental preservation."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 5x - 3 = 2x + 12, what is the value of x?",
+            options: ["A) 4", "B) 5", "C) 6", "D) 7"],
+            answer: "B) 5"
+        },
+        {  
+            question: "A circle has a radius of 6. What is its circumference? (Use \u03C0 = 3.14)",
+            options: ["A) 18.84", "B) 28.26", "C) 37.68", "D) 42.56"],
+            answer: "C) 37.68"
+        },
+        {  
+            question: "The function f(x) = 3x^2 - 4x + 5 is given. What is f(3)?",
+            options: ["A) 20", "B) 22", "C) 23", "D) 24"],
+            answer: "A) 20"
+        }
+    ],
+    25:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity and conciseness of the sentence?\nThe reason why the committee postponed the meeting was due to the fact that many members were absent.",
+            options: [
+                "A) The reason why the committee postponed the meeting was due to the fact that many members were absent.", 
+                "B) The committee postponed the meeting because many members were absent.", 
+                "C) The reason the committee postponed the meeting was because many members were absent.", 
+                "D) Due to the fact that many members were absent, the committee postponed the meeting."
+            ],
+            answer: "B) The committee postponed the meeting because many members were absent."
+        },
+        {  
+            question: "Which revision corrects the misplaced modifier?\nRunning quickly to catch the bus, my backpack fell off my shoulder.",
+            options: [
+                "A) Running quickly to catch the bus, my backpack fell off my shoulder.", 
+                "B) My backpack fell off my shoulder while running quickly to catch the bus.", 
+                "C) As I ran quickly to catch the bus, my backpack fell off my shoulder.", 
+                "D) My backpack, running quickly to catch the bus, fell off my shoulder."
+            ],
+            answer: "C) As I ran quickly to catch the bus, my backpack fell off my shoulder."
+        },
+        {  
+            question: "Which option corrects the subject-verb agreement error?\nNeither the students nor the teacher were prepared for the sudden fire drill.",
+            options: [
+                "A) Neither the students nor the teacher were prepared for the sudden fire drill.", 
+                "B) Neither the students nor the teacher was prepared for the sudden fire drill.", 
+                "C) Neither the students nor the teacher have been prepared for the sudden fire drill.", 
+                "D) No change."
+            ],
+            answer: "B) Neither the students nor the teacher was prepared for the sudden fire drill."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Scientists studying deep-sea ecosystems have discovered species that thrive in extreme conditions, such as hydrothermal vents, where temperatures can exceed 400°F. These organisms rely on chemosynthesis, a process by which they convert inorganic compounds into energy, instead of relying on sunlight like most life on Earth. Such discoveries challenge existing biological assumptions and open new possibilities for understanding life in extreme environments.\n\nWhat is the main idea of the passage?",
+            options: [
+                "A) Deep-sea organisms demonstrate unique adaptations to survive in extreme conditions.", 
+                "B) Scientists have found that sunlight is unnecessary for all forms of life on Earth.", 
+                "C) Hydrothermal vents may provide new resources for human use.", 
+                "D) Chemosynthesis is the only method by which deep-sea creatures can generate energy."
+            ],
+            answer: "A) Deep-sea organisms demonstrate unique adaptations to survive in extreme conditions."
+        },
+        {  
+            question: "Passage: The invention of the printing press in the 15th century revolutionized the spread of knowledge. Before its introduction, books were painstakingly copied by hand, making them scarce and expensive. The ability to mass-produce written materials allowed for the rapid dissemination of ideas, contributing to movements such as the Renaissance and the Reformation.\n\nWhat can be inferred about the impact of the printing press?",
+            options: [
+                "A) It increased access to knowledge and contributed to significant cultural movements.", 
+                "B) It immediately replaced all handwritten texts.", 
+                "C) It led to a decline in literacy rates due to the oversaturation of books.", 
+                "D) The Renaissance and the Reformation would not have occurred without the printing press."
+            ],
+            answer: "A) It increased access to knowledge and contributed to significant cultural movements."
+        },
+        {  
+            question: "Passage: Over the past century, urbanization has led to rapid population growth in major cities. While this growth has resulted in economic and cultural benefits, it has also placed significant strain on infrastructure and housing. Many governments struggle to balance expansion with sustainability, as overpopulation contributes to traffic congestion, pollution, and inadequate public services.\n\nWhich choice best describes the tone of the passage?",
+            options: [
+                "A) Neutral and analytical, presenting both benefits and challenges of urbanization.", 
+                "B) Strongly critical of urbanization and its negative effects.", 
+                "C) Optimistic about urban growth despite potential drawbacks.", 
+                "D) Persuasive, arguing that governments must take action immediately."
+            ],
+            answer: "A) Neutral and analytical, presenting both benefits and challenges of urbanization."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 3(2x - 4) = 5x + 8, what is the value of x?",
+            options: ["A) 4", "B) 5", "C) 6", "D) 7"],
+            answer: "B) 5"
+        },
+        {  
+            question: "A cylinder has a radius of 4 and a height of 10. What is its volume? (Use π = 3.14)",
+            options: ["A) 125.6", "B) 251.2", "C) 502.4", "D) 628.0"],
+            answer: "C) 502.4"
+        },
+        {  
+            question: "The function g(x) = 2x^2 - 3x + 7 is given. What is g(4)?",
+            options: ["A) 25", "B) 27", "C) 29", "D) 31"],
+            answer: "D) 31"
+        }
+    ],
+    26:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity and conciseness of the sentence?\nThe new policy that was recently implemented by the company is going to take effect next month.",
+            options: [
+                "A) The new policy that was recently implemented by the company is going to take effect next month.", 
+                "B) The company's new policy, recently implemented, will take effect next month.", 
+                "C) The new policy of the company that was recently implemented is set to take effect next month.", 
+                "D) The policy, which was newly implemented, is taking effect next month."
+            ],
+            answer: "B) The company's new policy, recently implemented, will take effect next month."
+        },
+        {  
+            question: "Which option corrects the modifier error?\nWhile reading the novel, the themes of social justice and freedom fascinated Maria.",
+            options: [
+                "A) While reading the novel, the themes of social justice and freedom fascinated Maria.", 
+                "B) While reading the novel, Maria was fascinated by the themes of social justice and freedom.", 
+                "C) While reading the novel, Maria found the themes of social justice and freedom fascinating.", 
+                "D) The themes of social justice and freedom fascinated Maria while she was reading the novel."
+            ],
+            answer: "B) While reading the novel, Maria was fascinated by the themes of social justice and freedom."
+        },
+        {  
+            question: "Which sentence correctly uses parallel structure?\nThe internship program emphasizes developing technical skills, improving communication, and to foster teamwork.",
+            options: [
+                "A) The internship program emphasizes developing technical skills, improving communication, and to foster teamwork.", 
+                "B) The internship program emphasizes developing technical skills, communication improvement, and fostering teamwork.", 
+                "C) The internship program emphasizes developing technical skills, improving communication, and fostering teamwork.", 
+                "D) No change."
+            ],
+            answer: "C) The internship program emphasizes developing technical skills, improving communication, and fostering teamwork."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: In recent years, astronomers have discovered thousands of exoplanets, many of which exist in the 'habitable zone'—a region where conditions may support liquid water. However, the presence of water alone does not guarantee habitability. Factors such as atmospheric composition, radiation levels, and geological activity play crucial roles in determining whether a planet can support life.\n\nWhich of the following best summarizes the central idea of the passage?",
+            options: [
+                "A) The discovery of exoplanets in the habitable zone suggests they are capable of supporting life.", 
+                "B) The presence of water is one of many factors that determine a planet's habitability.", 
+                "C) Scientists have confirmed that many exoplanets contain liquid water.", 
+                "D) The search for habitable planets is primarily focused on water detection."
+            ],
+            answer: "B) The presence of water is one of many factors that determine a planet's habitability."
+        },
+        {  
+            question: "Passage: The 19th-century Industrial Revolution significantly transformed urban centers, increasing both economic productivity and social challenges. While technological advancements led to greater efficiency and mass production, they also contributed to overcrowded living conditions and labor exploitation. As cities grew rapidly, governments struggled to implement regulations that would balance economic growth with public welfare.\n\nWhat is the author’s perspective on the Industrial Revolution?",
+            options: [
+                "A) It brought undeniable benefits but also serious social challenges.", 
+                "B) It was entirely beneficial, leading to economic expansion and innovation.", 
+                "C) It led to economic prosperity but had little effect on social conditions.", 
+                "D) It resulted in widespread suffering with no significant benefits."
+            ],
+            answer: "A) It brought undeniable benefits but also serious social challenges."
+        },
+        {  
+            question: "Passage: Recent studies on sleep patterns indicate that individuals who maintain consistent sleep schedules tend to perform better on cognitive tasks. Disruptions in sleep cycles, such as those caused by irregular work hours or frequent travel, have been linked to decreased memory retention and slower reaction times. Researchers suggest that even minor inconsistencies in sleep habits can accumulate over time, negatively affecting long-term cognitive function.\n\nWhich of the following is an assumption underlying the passage’s argument?",
+            options: [
+                "A) Sleep consistency is more important than sleep duration for cognitive performance.", 
+                "B) Memory retention is not influenced by other lifestyle factors.", 
+                "C) Irregular sleep patterns directly cause cognitive decline.", 
+                "D) Cognitive performance can improve with minor adjustments in sleep habits."
+            ],
+            answer: "A) Sleep consistency is more important than sleep duration for cognitive performance."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 4(3x - 5) = 2x + 22, what is the value of x?",
+            options: ["A) 4", "B) 5", "C) 6", "D) 7"],
+            answer: "C) 6"
+        },
+        {  
+            question: "A triangle has sides of length 6, 8, and 10. What is the area of the triangle?",
+            options: ["A) 24", "B) 30", "C) 40", "D) 48"],
+            answer: "A) 24"
+        },
+        {  
+            question: "The function h(x) = 4x^2 - 5x + 3 is given. What is h(2)?",
+            options: ["A) 7", "B) 9", "C) 11", "D) 13"],
+            answer: "B) 9"
+        }
+    ],
+    27:[  
+        // Writing Questions
+        {  
+            question: "Which choice best improves the clarity and conciseness of the sentence?\nThe scientist conducted an experiment in order to determine the effect that temperature has on reaction rates.",
+            options: [
+                "A) The scientist conducted an experiment in order to determine the effect that temperature has on reaction rates.", 
+                "B) The scientist conducted an experiment to determine the effect of temperature on reaction rates.", 
+                "C) The scientist did an experiment to see how temperature affects reaction rates.", 
+                "D) The scientist experimented to determine the effect temperature has on reaction rates."
+            ],
+            answer: "B) The scientist conducted an experiment to determine the effect of temperature on reaction rates."
+        },
+        {  
+            question: "Which option corrects the misplaced modifier?\nRunning through the park, the sudden rainstorm forced us to find shelter.",
+            options: [
+                "A) Running through the park, the sudden rainstorm forced us to find shelter.", 
+                "B) Running through the park, we were forced to find shelter by the sudden rainstorm.", 
+                "C) While running through the park, the sudden rainstorm made us find shelter.", 
+                "D) The sudden rainstorm, running through the park, forced us to find shelter."
+            ],
+            answer: "B) Running through the park, we were forced to find shelter by the sudden rainstorm."
+        },
+        {  
+            question: "Which choice best maintains parallel structure?\nThe new internship program focuses on improving teamwork, increasing productivity, and to enhance communication skills.",
+            options: [
+                "A) improving teamwork, increasing productivity, and to enhance communication skills.", 
+                "B) improving teamwork, increasing productivity, and enhancing communication skills.", 
+                "C) to improve teamwork, increasing productivity, and enhancing communication skills.", 
+                "D) improving teamwork, productivity increase, and enhancing communication skills."
+            ],
+            answer: "B) improving teamwork, increasing productivity, and enhancing communication skills."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Marine biologists have long been fascinated by the intelligence of octopuses. These cephalopods demonstrate problem-solving abilities, tool use, and even exhibit signs of individual personalities. Recent studies suggest that their intelligence evolved separately from vertebrates, offering insights into the nature of cognition itself.\n\nWhich choice best captures the central idea of the passage?",
+            options: [
+                "A) Octopuses are among the most intelligent marine creatures, capable of using tools and solving problems.", 
+                "B) Scientists study octopus intelligence to understand how different species evolve problem-solving skills.", 
+                "C) The intelligence of octopuses is unique because it evolved separately from vertebrate cognition.", 
+                "D) Octopuses demonstrate cognitive abilities that suggest they have complex thought processes."
+            ],
+            answer: "C) The intelligence of octopuses is unique because it evolved separately from vertebrate cognition."
+        },
+        {  
+            question: "Passage: Advances in battery technology are transforming the renewable energy landscape. Energy storage systems are becoming more efficient, allowing for greater reliance on wind and solar power. While these improvements help stabilize the power grid, challenges such as cost and raw material availability remain significant hurdles to widespread adoption.\n\nWhat is the main idea of the passage?",
+            options: [
+                "A) Battery technology is improving, making renewable energy more reliable.", 
+                "B) Advancements in battery efficiency are increasing the feasibility of renewable energy sources.", 
+                "C) While energy storage is improving, economic and material challenges persist.", 
+                "D) The development of better batteries is crucial to the expansion of wind and solar power."
+            ],
+            answer: "C) While energy storage is improving, economic and material challenges persist."
+        },
+        {  
+            question: "Passage: Historical records indicate that ancient civilizations frequently adjusted their architectural designs in response to climate and environmental factors. The materials used, the orientation of buildings, and even the size of windows were all influenced by the need to regulate temperature and protect against harsh conditions. This adaptability allowed societies to thrive in a variety of environments.\n\nWhat is the passage primarily emphasizing?",
+            options: [
+                "A) Ancient civilizations made architectural choices based on climate considerations.", 
+                "B) Environmental factors played a crucial role in shaping ancient architecture.", 
+                "C) The need for temperature regulation influenced building design in ancient societies.", 
+                "D) Architecture in ancient times was influenced by both climate and available materials."
+            ],
+            answer: "B) Environmental factors played a crucial role in shaping ancient architecture."
+        },
+    
+        // Math Questions
+        {  
+            question: "Solve for x: 2(3x - 4) = 5x + 8",
+            options: ["A) 4", "B) 6", "C) 8", "D) 10"],
+            answer: "A) 4"
+        },
+        {  
+            question: "A rectangle has a length of 12 and a width of 5. What is its diagonal?",
+            options: ["A) 12", "B) 13", "C) 14", "D) 15"],
+            answer: "B) 13"
+        },
+        {  
+            question: "The function g(x) = x² - 6x + 8 is given. What is g(4)?",
+            options: ["A) 2", "B) 4", "C) 6", "D) 8"],
+            answer: "A) 2"
+        }
+    ],
+    28:[  
+        // Writing Questions
+        {  
+            question: "Which revision best eliminates redundancy while maintaining clarity?\nThe team collaborated together on the project to achieve a common goal.",
+            options: [
+                "A) The team collaborated together on the project to achieve a common goal.", 
+                "B) The team collaborated on the project to achieve a common goal.", 
+                "C) The team worked together on the project to achieve a goal.", 
+                "D) No change"
+            ],
+            answer: "B) The team collaborated on the project to achieve a common goal."
+        },
+        {  
+            question: "Which option corrects the verb tense inconsistency?\nWhile the chef prepared the ingredients, she realizes that she had forgotten the main spice.",
+            options: [
+                "A) While the chef prepared the ingredients, she realizes that she had forgotten the main spice.", 
+                "B) While the chef was preparing the ingredients, she realized that she had forgotten the main spice.", 
+                "C) While the chef prepared the ingredients, she had realized that she forgot the main spice.", 
+                "D) While the chef prepared the ingredients, she was realizing that she had forgotten the main spice."
+            ],
+            answer: "B) While the chef was preparing the ingredients, she realized that she had forgotten the main spice."
+        },
+        {  
+            question: "Which choice best maintains parallel structure?\nThe company’s strategy involves reducing waste, increasing efficiency, and to invest in sustainable materials.",
+            options: [
+                "A) reducing waste, increasing efficiency, and to invest in sustainable materials.", 
+                "B) reducing waste, increasing efficiency, and investing in sustainable materials.", 
+                "C) to reduce waste, increase efficiency, and investing in sustainable materials.", 
+                "D) reducing waste, increasing efficiency, and ensuring sustainability."
+            ],
+            answer: "B) reducing waste, increasing efficiency, and investing in sustainable materials."
+        },
+    
+        // Reading Questions
+        {  
+            question: "Passage: Studies on sleep patterns have shown that individuals who maintain consistent sleep schedules tend to have better cognitive performance and emotional regulation. This suggests that quality sleep plays a crucial role in overall mental well-being, regardless of total hours slept. However, disruptions to sleep cycles, even for short periods, can lead to decreased concentration and heightened stress levels.\n\nWhich choice best summarizes the main idea of the passage?",
+            options: [
+                "A) Consistent sleep schedules contribute to improved cognitive function and emotional stability.", 
+                "B) Getting enough hours of sleep is the most important factor in maintaining mental health.", 
+                "C) Sleep disruptions negatively affect mental performance, even if overall sleep hours are sufficient.", 
+                "D) Research shows that individuals who sleep less are more prone to emotional instability."
+            ],
+            answer: "A) Consistent sleep schedules contribute to improved cognitive function and emotional stability."
+        },
+        {  
+            question: "Passage: In the early 20th century, women’s access to higher education was still limited, yet some pioneers managed to break barriers. One such figure, Emily Greene Balch, pursued studies in economics and became an advocate for international peace. Despite resistance from traditional institutions, her work influenced policies on conflict resolution and social reform.\n\nWhich statement best describes the author’s view of Emily Greene Balch?",
+            options: [
+                "A) She overcame societal obstacles to make a lasting impact on global policies.", 
+                "B) Her influence on international peace efforts was significant, but limited to academic circles.", 
+                "C) She challenged traditional institutions but struggled to gain widespread recognition.", 
+                "D) Her economic studies were more impactful than her contributions to international peace."
+            ],
+            answer: "A) She overcame societal obstacles to make a lasting impact on global policies."
+        },
+        {  
+            question: "Passage: As cities expand, urban planners must consider how to balance development with environmental conservation. One approach involves integrating green spaces, which have been shown to improve air quality, reduce urban heat, and promote public health. However, maintaining these spaces requires funding and long-term commitment from local governments.\n\nWhich assumption underlies the author’s argument?",
+            options: [
+                "A) The benefits of green spaces outweigh the costs of maintaining them.", 
+                "B) City residents generally support environmental conservation efforts.", 
+                "C) Green spaces are the primary solution to urban pollution.", 
+                "D) Local governments prioritize funding for public health initiatives."
+            ],
+            answer: "A) The benefits of green spaces outweigh the costs of maintaining them."
+        },
+    
+        // Math Questions
+        {  
+            question: "If 4x - 7 = 2x + 9, what is the value of x?",
+            options: ["A) 6", "B) 8", "C) 7", "D) 5"],
+            answer: "A) 6"
+        },
+        {  
+            question: "A right triangle has legs of length 8 and 15. What is the length of the hypotenuse?",
+            options: ["A) 17", "B) 23", "C) 19", "D) 20"],
+            answer: "A) 17"
+        },
+        {  
+            question: "The function g(x) = 2x² - 5x + 4 is given. What is g(3)?",
+            options: ["A) 10", "B) 11", "C) 13", "D) 14"],
+            answer: "B) 11"
+        }
     ]
     
     
