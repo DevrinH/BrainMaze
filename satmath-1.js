@@ -775,7 +775,7 @@ nextButton.addEventListener("click", () => {
 
 // Function to redirect to home
 function homelink() {
-    location.href = "https://www.brainjelli.com";
+    location.href = "https://www.brainjelli.com/satlandingpage";
 }
 
 // Start the quiz
