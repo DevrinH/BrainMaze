@@ -734,6 +734,9 @@ function showScore() {
     let readingScore = localStorage.getItem("readingScore") || 200;
     let totalSATScore = parseInt(readingScore) + mathScore;
 
+        // Store Math score in local storage
+        localStorage.setItem("mathScore", mathScore);
+
     questionElement.innerHTML = `
         <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
         <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
