@@ -38,6 +38,36 @@
     </form>
  </nav>
 
+ <script>
+  function displayLastScores() {
+      // Retrieve scores from localStorage
+      let lastRWScore = localStorage.getItem("readingScore") || 0;
+      let lastMathScore = localStorage.getItem("mathScore") || 0;
+
+      // Convert scores to numbers
+      lastRWScore = parseInt(lastRWScore, 10);
+      lastMathScore = parseInt(lastMathScore, 10);
+
+      // Calculate total SAT score
+      let totalSATScore = lastRWScore + lastMathScore;
+
+      // Display the scores
+      document.getElementById("last-rw-score").innerText = `Last Reading & Writing Score: ${lastRWScore} / 800`;
+      document.getElementById("last-math-score").innerText = `Last Math Score: ${lastMathScore} / 800`;
+      document.getElementById("total-sat-score").innerText = `Total SAT Score: ${totalSATScore} / 1600`;
+  }
+
+  // Run function on page load
+  window.onload = displayLastScores;
+</script>
+
+<div class="testlessonscontainer">
+  <h2 class="makebungee">Previous SAT scores</h2>
+ <p id="last-rw-score" class="score-display">Loading last Reading & Writing score...</p>
+ <p id="last-math-score" class="score-display">Loading last Math score...</p>
+ <p id="total-sat-score" class="score-display">Loading total SAT score...</p>
+</div>
+
  <div>
 
     <h1 class="satprep">SAT Prep</h1>

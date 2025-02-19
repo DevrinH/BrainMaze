@@ -725,6 +725,9 @@ function showScore() {
     // Convert raw score to SAT scaled score (approximation)
     let mathScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
+    // Store Math score in local storage
+    localStorage.setItem("mathScore", mathScore);
+
     // Retrieve Reading & Writing score from local storage
     let readingScore = localStorage.getItem("readingScore") || 0;
     readingScore = parseInt(readingScore, 10);
@@ -744,7 +747,6 @@ function showScore() {
 
     document.getElementById("progress-bar").style.width = "100%";
 }
-
 // Function to handle "Next" button click
 function handleNextButton() {
     currentQuestionIndex++;
