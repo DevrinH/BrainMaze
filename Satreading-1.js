@@ -667,7 +667,8 @@ function showScore() {
     // Convert raw score to SAT scaled score (approximation)
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-
+    // Store in local storage for use in other sections
+    localStorage.setItem("readingScore", scaledScore);
 
     questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
     nextButton.innerHTML = "Continue";

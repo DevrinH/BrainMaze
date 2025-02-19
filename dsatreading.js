@@ -967,8 +967,8 @@ function showScore() {
     // Ensure score is within SAT range (200-800)
     readingScore = Math.min(800, Math.max(200, readingScore));
 
-    // Store reading score in local storage for Math section
-    localStorage.setItem("readingScore", readingScore);
+    // Store in local storage for use in other sections
+    localStorage.setItem("readingScore", scaledScore);
 
     questionElement.innerHTML = `
         <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
