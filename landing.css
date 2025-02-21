@@ -21,12 +21,43 @@ body {
     position: relative; /* Ensures box-shadow is visible */
   }
 
-header { width: 100%; height: 100px; box-shadow: 0px 4px 5px -1px rgba(0,0,0,0.39); background-color: white; display: flex; align-items: center; padding: 0 20px; /* Spacing inside the header */ } 
-.header-container { width: 100%; /* Full width for proper spacing */ display: flex; justify-content: space-between; /* Pushes logo left, button right */ align-items: center; } 
-.logo { height: 45px; margin-left: 0; /* Ensures it's far left */ } 
-.login-button { background-color: #007bff; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease; } 
-.login-button:hover { background-color: #0056b3; }
+header {
+  width: 100%;
+  height: 100px;
+  box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.39);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px; /* Prevents content from touching the edges */
+}
 
+.header-container {
+  width: 100%;
+  max-width: 1200px; /* Prevents excessive stretching */
+  display: flex;
+  justify-content: space-between; /* Keeps logo left and login right */
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-left: 0; /* Ensures it's fully left */
+}
+
+.login-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
 
 
 
@@ -206,4 +237,13 @@ margin: auto;
     }
 
 }
+@media (max-width: 600px) {
+  .header-container {
+    padding: 0 10px; /* Adds extra space on small screens */
+  }
 
+  .login-button {
+    padding: 8px 16px; /* Slightly smaller button for mobile */
+    font-size: 14px;
+  }
+}
