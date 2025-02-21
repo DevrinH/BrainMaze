@@ -68,7 +68,7 @@ header {
     text-align: center;
     color: #ffffff;
     font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: clamp(0.05rem, 5vw, 3rem); /* Responsive font size */
+    font-size: clamp(0.05rem, 5vw, 1rem); /* Responsive font size */
     background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay */
     padding: 10px 20px; /* Adds spacing */
     border-radius: 10px; /* Optional: Rounds corners */
@@ -107,8 +107,3 @@ height: 1000px;
         height: 1000px;
           }
 
-          @media (min-width: 600px) {
-            .form-row {
-               flex-direction: column; /* Stack inputs on small screens */
-            }
-          }
