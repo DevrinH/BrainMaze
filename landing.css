@@ -74,41 +74,29 @@ header {
     border-radius: 10px; /* Optional: Rounds corners */
   }
 
-.flex-container{
-display: flex;
-margin-top: 25px;
-justify-content: space-evenly;
-}
-
-.left-container{
-
-background-color: rgb(241, 234, 234);
-border-radius: 12px;
-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-width: 400px;
-height: 1000px;
+  .flex-container {
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-evenly;
+    flex-wrap: wrap; /* Allows items to wrap if they don't fit */
   }
-
-  .center-container{
-
+  
+  /* Ensure all containers have the same style */
+  .left-container,
+  .center-container,
+  .right-container {
     background-color: rgb(241, 234, 234);
     border-radius: 12px;
-    box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
     width: 400px;
     height: 1000px;
-      }
-
-      .right-container{
-
-        background-color: rgb(241, 234, 234);
-        border-radius: 12px;
-        box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-        width: 400px;
-        height: 1000px;
-          }
-
-          @media (max-width: 400px) {
-            .form-row {
-               flex-direction: column; /* Stack inputs on small screens */
-            }
-          }
+    margin-bottom: 20px; /* Adds space when stacked */
+  }
+  
+  /* Stack the containers when the screen is smaller */
+  @media (max-width: 1200px) { /* Adjust breakpoint as needed */
+    .flex-container {
+      flex-direction: column;
+      align-items: center; /* Centers stacked items */
+    }
+  }
