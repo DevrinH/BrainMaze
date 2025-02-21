@@ -7,12 +7,11 @@ background-color: rgb(255, 255, 255);
 
 .logo{
 margin: left;
-height: 40px;
+height: 100px;
 
 }
 
 header{
-height: 100vh;
 padding: 70px;
 width: 100%;
 box-shadow: 0px 4px 5px -1px rgba(0,0,0,0.39);
