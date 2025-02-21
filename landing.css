@@ -62,16 +62,21 @@ header {
   /* Position the text over the image */
   .overlay-text {
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Ensures perfect centering */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    color: #ffffff;
+    color: white;
     font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: clamp(0.001rem, 5vw, 1.5rem); /* Responsive font size */
-    background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay */
-    padding: 10px 20px; /* Adds spacing */
-    border-radius: 10px; /* Optional: Rounds corners */
+    font-size: clamp(0.5rem, 4vw, 1.5rem); /* Keeps font readable */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 90%; /* Ensures text box doesn't exceed image */
+    max-width: 100%;
+    box-sizing: border-box; /* Prevents padding from causing overflow */
+    overflow-wrap: break-word; /* Prevents text from overflowing */
+    white-space: normal; /* Ensures text wraps properly */
   }
 
 .center{
