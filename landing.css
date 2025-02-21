@@ -59,10 +59,10 @@ header {
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Ensures perfect centering */
     text-align: center;
-    color: white;
+    color: rgb(11, 2, 37);
     font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: clamp(1.15rem, 5vw, 3rem); /* Responsive font size */
-    background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay */
+    font-size: clamp(1rem, 5vw, 3rem); /* Responsive font size */
+    
     padding: 10px 20px; /* Adds spacing */
     border-radius: 10px; /* Optional: Rounds corners */
   }
