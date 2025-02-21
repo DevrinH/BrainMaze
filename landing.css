@@ -68,8 +68,8 @@ header {
     text-align: center;
     color: #3D1E6D;
     font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: clamp(0.25rem, 5vw, 3rem); /* Responsive font size */
-    
+    font-size: clamp(0.05rem, 5vw, 3rem); /* Responsive font size */
+    background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay */
     padding: 10px 20px; /* Adds spacing */
     border-radius: 10px; /* Optional: Rounds corners */
   }
@@ -107,11 +107,8 @@ height: 1000px;
         height: 1000px;
           }
 
-@media (max-width: 430px){
-.image-container{
-flex-direction: column;
-
-}
-
-
-}
+          @media (max-width: 600px) {
+            .form-row {
+               flex-direction: column; /* Stack inputs on small screens */
+            }
+          }
