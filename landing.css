@@ -1,8 +1,4 @@
-*{
 
-
-
-}
 
 
 @font-face {
@@ -21,17 +17,21 @@ body {
     position: relative; /* Ensures box-shadow is visible */
   }
 
+* {
+  box-sizing: border-box; /* Ensures padding/margin do not cause overflow */
+  margin: 0;
+  padding: 0;
+}
+
 header {
-  width: 100vw; /* Ensures it fits the viewport */
-  max-width: 100%; /* Prevents overflow */
+  width: 100%; /* Prevents overflow issues */
   height: 100px;
-  box-shadow: 0px 4px 5px -1px rgba(0,0,0,0.39);
+  box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.39);
   background-color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 0 20px;
-  overflow-x: hidden; /* Prevents any horizontal overflow */
+  overflow: hidden; /* Prevents overflow */
 }
 
 .header-container {
@@ -43,19 +43,19 @@ header {
 }
 
 .logo {
-  height: 40px;
+  height: 45px;
 }
 
 .login-button {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 10px;
+  padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-left: auto;
+  margin-left: auto; /* Ensures it sticks to the right */
 }
 
 .login-button:hover {
