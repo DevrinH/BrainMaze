@@ -188,3 +188,40 @@ margin: auto;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
 
 }
+
+
+
+/* For screens larger than 1024px (desktops/larger laptops) */
+
+@media screen and (min-width: 1024px) {
+
+    .exam-button {
+
+        font-size: 22px;  /* Increase font size */
+
+        padding: 16px 32px; /* Increase button size */
+
+        border-radius: 16px; /* More rounded corners */
+
+    }
+
+}
+
+
+
+/* For extra-large screens (1440px and above) */
+
+@media screen and (min-width: 1440px) {
+
+    .exam-button {
+
+        font-size: 26px;
+
+        padding: 20px 40px;
+
+        border-radius: 20px;
+
+    }
+
+}
+
