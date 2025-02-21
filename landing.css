@@ -22,27 +22,28 @@ body {
   }
 
 header {
-  width: 100%;
+  width: 100vw; /* Ensures it fits the viewport */
+  max-width: 100%; /* Prevents overflow */
   height: 100px;
   box-shadow: 0px 4px 5px -1px rgba(0,0,0,0.39);
   background-color: white;
   display: flex;
-  justify-content: center; /* Centers the container inside */
+  justify-content: center;
   align-items: center;
-  padding: 0 20px; /* Prevents content from touching the edges */
+  padding: 0 20px;
+  overflow-x: hidden; /* Prevents any horizontal overflow */
 }
 
 .header-container {
   width: 100%;
-  max-width: 1200px; /* Prevents excessive stretching */
+  max-width: 1200px;
   display: flex;
   justify-content: space-between; /* Pushes logo left, login right */
   align-items: center;
 }
 
 .logo {
-  height: 45px;
-  margin-left: 0; /* Ensures it's fully left */
+  height: 40px;
 }
 
 .login-button {
@@ -54,7 +55,7 @@ header {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-left: auto; /* Pushes the button to the right */
+  margin-left: auto;
 }
 
 .login-button:hover {
