@@ -68,16 +68,17 @@ header {
     text-align: center;
     color: white;
     font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: clamp(0.5rem, 4vw, 1.5rem); /* Keeps font readable */
+    font-size: clamp(0.5rem, 4vw, 1.5rem); /* Responsive text size */
     background: rgba(0, 0, 0, 0.5);
     padding: 10px 20px;
     border-radius: 10px;
-    width: 90%; /* Ensures text box doesn't exceed image */
-    max-width: 100%;
+    width: 60%; /* Reduces textbox width */
+    max-width: 500px; /* Prevents excessive stretching */
+    min-width: 250px; /* Ensures it doesn't get too small */
     box-sizing: border-box; /* Prevents padding from causing overflow */
-    overflow-wrap: break-word; /* Prevents text from overflowing */
-    white-space: normal; /* Ensures text wraps properly */
-  }
+    overflow-wrap: break-word;
+    white-space: normal;
+}
 
 .center{
 text-align: center;
@@ -89,8 +90,8 @@ margin: auto;
     font-family: "Montserrat-SemiBold", sans-serif;
     background-image: linear-gradient(#4568dc , #b06ab3);
     border-radius: 12px;
-    height: 45px;
-    width: 100px;
+    height: 65px;
+    width: 200px;
     color: #ffffff;
 
 
