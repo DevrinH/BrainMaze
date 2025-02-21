@@ -30,3 +30,9 @@ header {
  width: 100%;
 
   }
+  .landingimg {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra spacing below inline images */
+    max-width: 100vw; /* Ensures it doesn't exceed viewport width */
+  }
