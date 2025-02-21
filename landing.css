@@ -84,8 +84,8 @@ display: flex;
 background-color: white;
 border-radius: 12px;
 box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-width: 300px;
-height: 600px;
+width: 400px;
+height: 1000px;
   }
 
   .center-container{
@@ -93,8 +93,8 @@ height: 600px;
     background-color: white;
     border-radius: 12px;
     box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-    width: 300px;
-    height: 600px;
+    width: 400px;
+    height: 1000px;
       }
 
       .right-container{
@@ -102,11 +102,11 @@ height: 600px;
         background-color: white;
         border-radius: 12px;
         box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-        width: 300px;
-        height: 600px;
+        width: 400px;
+        height: 1000px;
           }
 
-@media (max-width: 600px){
+@media (max-width: 430px){
 .image-container{
 flex-direction: column;
 
