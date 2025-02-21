@@ -21,12 +21,6 @@ body {
     position: relative; /* Ensures box-shadow is visible */
   }
 
-.logo{
-
-height: 45px;
-
-}
-
 header {
 
   width: 100%;
@@ -39,9 +33,9 @@ header {
 
   display: flex;
 
-  justify-content: center; /* Keeps everything inside centered */
-
   align-items: center;
+
+  padding: 0 20px; /* Adds spacing inside the header */
 
 }
 
@@ -49,37 +43,31 @@ header {
 
 .header-container {
 
-  width: 90%;
-
-  max-width: 1200px; /* Prevents it from stretching too much */
+  width: 100%; /* Ensures it spans the full width */
 
   display: flex;
 
-  justify-content: space-between; /* Pushes items to far left and far right */
+  justify-content: space-between; /* Pushes logo to the left and button to the right */
 
   align-items: center;
 
 }
-.login-button {
 
-  background-color: #007bff; /* Blue button */
 
-  color: white;
 
-  border: none;
+.logo {
 
-  padding: 10px 20px;
+  height: 45px; /* Adjust as needed */
 
-  font-size: 16px;
-
-  border-radius: 5px;
-
-  cursor: pointer;
-
-  transition: background 0.3s ease;
+  margin-left: 0; /* Ensures it stays at the very left */
 
 }
 
+
+
+.login-button {
+
+  background-color: #007bff;
 
 
 .login-button:hover {
