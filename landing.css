@@ -136,3 +136,55 @@ margin: auto;
       max-width: 500px; /* Prevents excessive stretching */
     }
   }
+
+.button-container {
+
+    display: flex;
+
+    gap: 15px;
+
+    justify-content: center;
+
+    padding: 20px;
+
+}
+
+
+
+.exam-button {
+
+    background: white;
+
+    border: 2px solid #ddd;
+
+    color: #333;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    padding: 12px 24px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out;
+
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+.exam-button:hover {
+
+    background: linear-gradient(135deg, #a2d2ff, #ffe5ec);
+
+    border-color: #888;
+
+    color: black;
+
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+
+}
