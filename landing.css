@@ -1,3 +1,10 @@
+*{
+
+
+
+}
+
+
 @font-face {
     font-family: "Montserrat-SemiBold";
     src: url(Montserrat-SemiBold.ttf);
@@ -67,10 +74,43 @@ header {
     border-radius: 10px; /* Optional: Rounds corners */
   }
 
-  .left-container{
+.image-container{
+display: flex;
+
+}
+
+.left-container{
+
 background-color: white;
 border-radius: 12px;
 box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
-width: 100px;
-height: 300px;
+width: 300px;
+height: 600px;
   }
+
+  .center-container{
+
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    width: 300px;
+    height: 600px;
+      }
+
+      .right-container{
+
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+        width: 300px;
+        height: 600px;
+          }
+
+@media (max-width: 600px){
+.image-container{
+flex-direction: column;
+
+}
+
+
+}
