@@ -61,7 +61,7 @@ header {
     text-align: center;
     color: white;
     font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: clamp(1.5rem, 5vw, 3rem); /* Responsive font size */
+    font-size: clamp(1.15rem, 5vw, 3rem); /* Responsive font size */
     background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay */
     padding: 10px 20px; /* Adds spacing */
     border-radius: 10px; /* Optional: Rounds corners */
