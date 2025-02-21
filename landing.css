@@ -45,11 +45,24 @@ header {
     max-width: 100vw; /* Ensures it doesn't exceed viewport width */
   }
 
-  .overlay-text{
-
-text-align: center;
-color: rgb(255, 255, 255);
-font-family: "Montserrat-SemiBold";
-
-
+  .image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  
+  /* Position the text over the image */
+  .overlay-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Ensures perfect centering */
+    text-align: center;
+    color: white;
+    font-family: "Montserrat-SemiBold", sans-serif;
+    font-size: 2rem; /* Adjust for size */
+    background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay */
+    padding: 10px 20px; /* Adds spacing */
+    border-radius: 10px; /* Optional: Rounds corners */
   }
