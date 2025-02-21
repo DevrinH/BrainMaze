@@ -237,13 +237,3 @@ margin: auto;
     }
 
 }
-@media (max-width: 600px) {
-  .header-container {
-    padding: 0 10px; /* Adds extra space on small screens */
-  }
-
-  .login-button {
-    padding: 8px 16px; /* Slightly smaller button for mobile */
-    font-size: 14px;
-  }
-}
