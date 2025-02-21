@@ -27,21 +27,23 @@ header {
   box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.39);
   background-color: white;
   display: flex;
+  justify-content: center; /* Ensures header-container is centered */
   align-items: center;
-  padding: 0 20px; /* Prevents content from touching the edges */
+  padding: 0;
 }
 
 .header-container {
   width: 100%;
   max-width: 1200px; /* Prevents excessive stretching */
   display: flex;
-  justify-content: space-between; /* Keeps logo left and login right */
+  justify-content: space-between; /* Ensures logo is far left, login far right */
   align-items: center;
+  padding: 0 20px; /* Ensures content does not touch screen edges */
 }
 
 .logo {
   height: 40px;
-  margin-left: 0; /* Ensures it's fully left */
+  margin-left: 0; /* Makes sure it’s fully to the left */
 }
 
 .login-button {
@@ -53,6 +55,7 @@ header {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
+  margin-left: auto; /* Pushes the button to the right */
 }
 
 .login-button:hover {
