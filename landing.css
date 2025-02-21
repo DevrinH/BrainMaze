@@ -74,7 +74,7 @@ header {
     border-radius: 10px; /* Optional: Rounds corners */
   }
 
-.image-container{
+.flex-container{
 display: flex;
 margin-top: 25px;
 justify-content: space-evenly;
@@ -107,3 +107,8 @@ height: 1000px;
         height: 1000px;
           }
 
+          @media (max-width: 600px) {
+            .form-row {
+               flex-direction: column; /* Stack inputs on small screens */
+            }
+          }
