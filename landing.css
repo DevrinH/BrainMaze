@@ -95,30 +95,41 @@ margin: auto;
 
 
   }
-
   .flex-container {
     display: flex;
-    margin-top: 25px;
-    justify-content: space-evenly;
-    flex-wrap: wrap; /* Allows items to wrap if they don't fit */
+    justify-content: space-between; /* Ensures spacing between items */
+    align-items: flex-start;
+    gap: 20px; /* Adds spacing between containers */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
   }
   
-  /* Ensure all containers have the same style */
   .left-container,
   .center-container,
   .right-container {
-    background-color: rgb(247, 242, 242);
+    background-color: rgb(241, 234, 234);
     border-radius: 12px;
     box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
-    width: 400px;
-    height: 1000px;
-    margin-bottom: 20px; /* Adds space when stacked */
+    flex: 1; /* Allows them to grow equally */
+    min-width: 300px; /* Prevents them from getting too small */
+    max-width: 900px; /* Controls maximum width */
+    height: auto; /* Adjusts height automatically */
+    padding: 20px; /* Adds spacing inside */
+    transition: all 0.3s ease-in-out; /* Smooth resizing */
   }
   
-  /* Stack the containers when the screen is smaller */
-  @media (max-width: 1200px) { /* Adjust breakpoint as needed */
+  /* Responsive design for stacking on smaller screens */
+  @media (max-width: 900px) {
     .flex-container {
       flex-direction: column;
       align-items: center; /* Centers stacked items */
+    }
+  
+    .left-container,
+    .center-container,
+    .right-container {
+      width: 90%; /* Expands to fit the screen */
+      max-width: 500px; /* Prevents excessive stretching */
     }
   }
