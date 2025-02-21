@@ -68,7 +68,7 @@ header {
     text-align: center;
     color: #ffffff;
     font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: clamp(0.05rem, 5vw, 1.5rem); /* Responsive font size */
+    font-size: clamp(0.001rem, 5vw, 1.5rem); /* Responsive font size */
     background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay */
     padding: 10px 20px; /* Adds spacing */
     border-radius: 10px; /* Optional: Rounds corners */
@@ -102,7 +102,7 @@ margin: auto;
   .left-container,
   .center-container,
   .right-container {
-    background-color: rgb(241, 234, 234);
+    background-color: rgb(247, 242, 242);
     border-radius: 12px;
     box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
     width: 400px;
