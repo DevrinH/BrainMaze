@@ -82,7 +82,7 @@ justify-content: space-evenly;
 
 .left-container{
 
-background-color: white;
+background-color: rgb(241, 234, 234);
 border-radius: 12px;
 box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
 width: 400px;
@@ -91,7 +91,7 @@ height: 1000px;
 
   .center-container{
 
-    background-color: white;
+    background-color: rgb(241, 234, 234);
     border-radius: 12px;
     box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
     width: 400px;
@@ -100,7 +100,7 @@ height: 1000px;
 
       .right-container{
 
-        background-color: white;
+        background-color: rgb(241, 234, 234);
         border-radius: 12px;
         box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
         width: 400px;
