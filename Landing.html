@@ -32,43 +32,72 @@
 <div class="chart-container">
   <div class="bar">
       <div class="bar-label">Area and Perimeter</div>
-      <div class="bar-container"><div class="bar-value red" style="--target-width: 45%">400</div></div>
+      <div class="bar-container"><div class="bar-value red" data-score="400" style="--target-width: 45%"></div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Geometry</div>
-      <div class="bar-container"><div class="bar-value yellow" style="--target-width: 60%">500</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="500" style="--target-width: 60%"></div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Algebra</div>
-      <div class="bar-container"><div class="bar-value yellow" style="--target-width: 75%">600</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="600" style="--target-width: 75%"></div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Trigonometry</div>
-      <div class="bar-container"><div class="bar-value yellow" style="--target-width: 82%">700</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="700" style="--target-width: 82%"></div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Detail Question</div>
-      <div class="bar-container"><div class="bar-value red" style="--target-width: 35%">300</div></div>
+      <div class="bar-container"><div class="bar-value red" data-score="300" style="--target-width: 35%"></div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Words in Context</div>
-      <div class="bar-container"><div class="bar-value yellow" style="--target-width: 62%">500</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="500" style="--target-width: 62%"></div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Inference</div>
-      <div class="bar-container"><div class="bar-value red" style="--target-width: 50%">400</div></div>
+      <div class="bar-container"><div class="bar-value red" data-score="400" style="--target-width: 50%"></div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Supporting Evidence</div>
-      <div class="bar-container"><div class="bar-value yellow" style="--target-width: 70%">600</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="600" style="--target-width: 70%"></div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Big Picture Passage</div>
-      <div class="bar-container"><div class="bar-value green no-grow" style="--target-width: 95%">800</div></div>
+      <div class="bar-container"><div class="bar-value green" data-score="800" style="--target-width: 95%"></div></div>
   </div>
 </div>
-
-
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const bars = document.querySelectorAll(".bar-value");
+      
+      bars.forEach(bar => {
+          const targetWidth = bar.style.getPropertyValue('--target-width');
+          const targetScore = parseInt(bar.getAttribute("data-score"));
+          let currentScore = 0;
+          
+          bar.style.width = targetWidth;
+          
+          const interval = setInterval(() => {
+              if (currentScore < targetScore) {
+                  currentScore += 10;
+                  if (currentScore > targetScore) currentScore = targetScore;
+                  bar.textContent = currentScore;
+                  
+                  if (currentScore <= 400) {
+                      bar.className = "bar-value red";
+                  } else if (currentScore <= 700) {
+                      bar.className = "bar-value yellow";
+                  } else {
+                      bar.className = "bar-value green";
+                  }
+              } else {
+                  clearInterval(interval);
+              }
+          }, 100);
+      });
+  });
+</script>
 
 <p class="center">Lessons that adapt to areas that need to be beefed up! </p>
 
