@@ -103,6 +103,12 @@ font-family: "Montserrat-SemiBold", sans-serif;
 font-size: larger;
 padding: 30px;
 }
+.subject{
+
+  font-family: "Montserrat-SemiBold", sans-serif;
+  align-items: left;
+
+}
 
 h1{
 font-size: 32px;
