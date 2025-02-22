@@ -393,76 +393,7 @@ window.onload = function () {
 
 
 
-<canvas id="satLineChart"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
-<script>
-import { Line } from "react-chartjs-2";
-import { Chart, LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip } from "chart.js";
-import { useEffect, useState } from "react";
 
-Chart.register(LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip);
-
-export default function SATProgressChart() {
-    const [chartData, setChartData] = useState(null);
-
-    useEffect(() => {
-        const dates = ["Jan 1", "Jan 8", "Jan 15", "Jan 22", "Jan 29", "Feb 5", "Feb 12", "Feb 19"];
-        const scores = [400, 600, 750, 900, 1100, 1250, 1400, 1550];
-
-        setChartData({
-            labels: dates,
-            datasets: [
-                {
-                    label: "SAT Score Progression",
-                    data: scores,
-                    borderColor: "#3498db",
-                    borderWidth: 4,
-                    pointRadius: 6,
-                    pointBackgroundColor: "#2980b9",
-                    backgroundColor: "rgba(52, 152, 219, 0.2)",
-                    tension: 0.4 // Makes the line smooth
-                }
-            ]
-        });
-    }, []);
-
-    const options = {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: false // Hide legend for a cleaner look
-            },
-            tooltip: {
-                enabled: true
-            }
-        },
-        scales: {
-            x: {
-                grid: {
-                    display: false // Hide x-axis grid lines
-                }
-            },
-            y: {
-                grid: {
-                    display: false // Hide y-axis grid lines
-                },
-                min: 0,
-                max: 1600,
-                ticks: {
-                    stepSize: 200
-                }
-            }
-        },
-        animation: {
-            duration: 2000,
-            easing: "easeInOutQuad"
-        }
-    };
-
-    return <>{chartData && <Line data={chartData} options={options} />}</>;
-}
-
-</script>
 
 
 
