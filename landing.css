@@ -261,11 +261,10 @@ font-size: larger;
   padding-right: 10px;
 }
 .bar-value {
-  flex-grow: 1;
   height: 20px;
   line-height: 20px;
   padding-left: 5px;
-  text-align: right;
+  text-align: left;
   color: white;
 }
 .red { background-color: #e74c3c; }
