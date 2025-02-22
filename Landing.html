@@ -75,7 +75,7 @@
           const targetWidth = bar.style.getPropertyValue('--target-width');
           const targetScore = parseInt(bar.getAttribute("data-score"));
           let currentScore = 0;
-          let step = targetScore / 100;
+          let step = targetScore / 120; 
           
           bar.style.width = "0%";
           bar.textContent = "0";
@@ -106,12 +106,17 @@
   
   function loopAnimation() {
       animateBars();
-      setInterval(animateBars, 6000);
+      setInterval(() => {
+          document.querySelectorAll(".bar-value").forEach(bar => {
+              bar.style.width = "0%";
+              bar.textContent = "0";
+          });
+          setTimeout(animateBars, 500);
+      }, 7000);
   }
   
   document.addEventListener("DOMContentLoaded", loopAnimation);
 </script>
-
 
 
 
