@@ -97,7 +97,7 @@
       <div class="legend-color reading-gradient"></div> Reading/Writing
   </div>
   <div class="legend-item">
-      <div class="legend-color unfilled-gradient"></div> Unfilled
+      <div class="legend-color unfilled-gradient"></div> Missed
   </div>
 </div>
 
@@ -147,7 +147,7 @@ window.onload = function () {
     new Chart(ctx, {
         type: "doughnut",
         data: {
-            labels: ["Math", "Reading/Writing", "Unfilled"],
+            labels: ["Math", "Reading/Writing", "Missed"],
             datasets: [{
                 data: [mathScore, readingScore, unfilledScore], // Unfilled fills the rest
                 backgroundColor: [gradientMath, gradientReading, gradientUnfilled],
