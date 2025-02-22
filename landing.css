@@ -442,7 +442,7 @@ margin: auto;
 
 
 footer {
-  width: 100%;
+  width: 100vw;
   text-align: center;
   background-image: linear-gradient(#4b1c81, #c890fd);
   color: white;
