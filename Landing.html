@@ -32,39 +32,39 @@
 <div class="chart-container">
   <div class="bar">
       <div class="bar-label">Area and Perimeter</div>
-      <div class="bar-container"><div class="bar-value red" data-score="400" style="--target-width: 45%">0</div></div>
+      <div class="bar-container"><div class="bar-value red" data-score="400" data-width="45%">0</div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Geometry</div>
-      <div class="bar-container"><div class="bar-value yellow" data-score="500" style="--target-width: 60%">0</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="500" data-width="60%">0</div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Algebra</div>
-      <div class="bar-container"><div class="bar-value yellow" data-score="600" style="--target-width: 75%">0</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="600" data-width="75%">0</div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Trigonometry</div>
-      <div class="bar-container"><div class="bar-value yellow" data-score="700" style="--target-width: 82%">0</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="700" data-width="82%">0</div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Detail Question</div>
-      <div class="bar-container"><div class="bar-value red" data-score="300" style="--target-width: 35%">0</div></div>
+      <div class="bar-container"><div class="bar-value red" data-score="300" data-width="35%">0</div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Words in Context</div>
-      <div class="bar-container"><div class="bar-value yellow" data-score="500" style="--target-width: 62%">0</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="500" data-width="62%">0</div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Inference</div>
-      <div class="bar-container"><div class="bar-value red" data-score="400" style="--target-width: 50%">0</div></div>
+      <div class="bar-container"><div class="bar-value red" data-score="400" data-width="50%">0</div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Supporting Evidence</div>
-      <div class="bar-container"><div class="bar-value yellow" data-score="600" style="--target-width: 70%">0</div></div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="600" data-width="70%">0</div></div>
   </div>
   <div class="bar">
       <div class="bar-label">Big Picture Passage</div>
-      <div class="bar-container"><div class="bar-value green" data-score="800" style="--target-width: 95%">0</div></div>
+      <div class="bar-container"><div class="bar-value green" data-score="800" data-width="95%">0</div></div>
   </div>
 </div>
 <script>
@@ -72,15 +72,16 @@
       const bars = document.querySelectorAll(".bar-value");
       
       bars.forEach(bar => {
-          const targetWidth = bar.style.getPropertyValue('--target-width');
+          const targetWidth = bar.getAttribute("data-width");
           const targetScore = parseInt(bar.getAttribute("data-score"));
           let currentScore = 0;
-          let step = targetScore / 120; 
+          let step = targetScore / 100;
           
           bar.style.width = "0%";
           bar.textContent = "0";
           
           setTimeout(() => {
+              bar.style.transition = "width 5s linear";
               bar.style.width = targetWidth;
           }, 100);
           
@@ -104,13 +105,19 @@
       });
   }
   
+  function resetBars() {
+      const bars = document.querySelectorAll(".bar-value");
+      bars.forEach(bar => {
+          bar.style.transition = "none";
+          bar.style.width = "0%";
+          bar.textContent = "0";
+      });
+  }
+  
   function loopAnimation() {
       animateBars();
       setInterval(() => {
-          document.querySelectorAll(".bar-value").forEach(bar => {
-              bar.style.width = "0%";
-              bar.textContent = "0";
-          });
+          resetBars();
           setTimeout(animateBars, 500);
       }, 7000);
   }
