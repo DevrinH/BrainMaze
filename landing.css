@@ -425,7 +425,7 @@ margin: auto;
 .science-gradient { background: linear-gradient(to bottom, #f39c12, #e67e22); }
 .social-gradient { background: linear-gradient(to bottom, #9b59b6, #8e44ad); }
 .english-gradient {
-  background: linear-gradient(to bottom, #ff6b6b, #e63946); /* Example: Red shades */
+  background: linear-gradient(to bottom, #9b59b6, #8e44ad); /* Example: purple shades */
 }
 
 /* SAT & GED Specific Colors */
