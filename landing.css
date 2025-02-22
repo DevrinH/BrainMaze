@@ -285,7 +285,7 @@ font-size: large;
   justify-content: flex-start;
   min-width: 50px;
   width: 0;
-  transition: width 2s linear;
+  transition: width 3s linear;
 }
 .red { background-color: #e74c3c; }
 .yellow { background-color: #f1c40f; }

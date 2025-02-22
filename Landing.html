@@ -75,9 +75,11 @@
           const targetWidth = bar.style.getPropertyValue('--target-width');
           const targetScore = parseInt(bar.getAttribute("data-score"));
           let currentScore = 0;
-          let step = targetScore / 40; 
+          let step = targetScore / 50; 
           
-          bar.style.width = targetWidth;
+          setTimeout(() => {
+              bar.style.width = targetWidth;
+          }, 100);
           
           const interval = setInterval(() => {
               if (currentScore < targetScore) {
@@ -95,7 +97,7 @@
               } else {
                   clearInterval(interval);
               }
-          }, 50);
+          }, 60);
       });
   });
 </script>
