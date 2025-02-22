@@ -75,7 +75,7 @@
           const targetWidth = bar.style.getPropertyValue('--target-width');
           const targetScore = parseInt(bar.getAttribute("data-score"));
           let currentScore = 0;
-          let step = targetScore / 50; 
+          let step = targetScore / 100;
           
           bar.style.width = "0%";
           bar.textContent = "0";
@@ -100,19 +100,17 @@
               } else {
                   clearInterval(interval);
               }
-          }, 60);
+          }, 50);
       });
   }
   
   function loopAnimation() {
       animateBars();
-      setInterval(animateBars, 4000);
+      setInterval(animateBars, 6000);
   }
   
   document.addEventListener("DOMContentLoaded", loopAnimation);
 </script>
-
-<p class="center">Lessons that adapt to areas that need to be beefed up! </p>
 
 
 
