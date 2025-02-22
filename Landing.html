@@ -392,58 +392,76 @@ window.onload = function () {
 </script>
 
 
-<h2>SAT Score Improvement Over Time</h2>
+
 <canvas id="satLineChart"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
 <script>
-    const ctx = document.getElementById('satLineChart').getContext('2d');
-    
-    const dates = [
-        "Jan 1", "Jan 8", "Jan 15", "Jan 22", "Jan 29", "Feb 5", "Feb 12", "Feb 19"
-    ];
-    
-    const scores = [0, 350, 600, 850, 1000, 1250, 1400, 1550];
-    
-    const chart = new Chart(ctx, {
-        type: 'line',
-        data: {
+import { Line } from "react-chartjs-2";
+import { Chart, LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip } from "chart.js";
+import { useEffect, useState } from "react";
+
+Chart.register(LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip);
+
+export default function SATProgressChart() {
+    const [chartData, setChartData] = useState(null);
+
+    useEffect(() => {
+        const dates = ["Jan 1", "Jan 8", "Jan 15", "Jan 22", "Jan 29", "Feb 5", "Feb 12", "Feb 19"];
+        const scores = [400, 600, 750, 900, 1100, 1250, 1400, 1550];
+
+        setChartData({
             labels: dates,
-            datasets: [{
-                label: 'SAT Score',
-                data: scores.map(() => 0), // Start at 0 for animation
-                borderColor: '#3498db',
-                backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                borderWidth: 2,
-                tension: 0.3,
-                pointRadius: 5,
-                pointBackgroundColor: '#3498db'
-            }]
+            datasets: [
+                {
+                    label: "SAT Score Progression",
+                    data: scores,
+                    borderColor: "#3498db",
+                    borderWidth: 4,
+                    pointRadius: 6,
+                    pointBackgroundColor: "#2980b9",
+                    backgroundColor: "rgba(52, 152, 219, 0.2)",
+                    tension: 0.4 // Makes the line smooth
+                }
+            ]
+        });
+    }, []);
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false // Hide legend for a cleaner look
+            },
+            tooltip: {
+                enabled: true
+            }
         },
-        options: {
-            scales: {
-                x: { title: { display: true, text: 'Date' } },
-                y: { 
-                    title: { display: true, text: 'SAT Score' },
-                    min: 0,
-                    max: 1600,
-                    ticks: { stepSize: 200 }
+        scales: {
+            x: {
+                grid: {
+                    display: false // Hide x-axis grid lines
                 }
             },
-            animation: {
-                duration: 3000,
-                easing: 'easeInOutQuad',
-                from: 0,
-                loop: false,
-                onProgress: (animation) => {
-                    let dataset = chart.data.datasets[0];
-                    dataset.data.forEach((_, i) => {
-                        dataset.data[i] = scores[i] * animation.currentStep / animation.numSteps;
-                    });
-                    chart.update();
+            y: {
+                grid: {
+                    display: false // Hide y-axis grid lines
+                },
+                min: 0,
+                max: 1600,
+                ticks: {
+                    stepSize: 200
                 }
             }
+        },
+        animation: {
+            duration: 2000,
+            easing: "easeInOutQuad"
         }
-    });
+    };
+
+    return <>{chartData && <Line data={chartData} options={options} />}</>;
+}
+
 </script>
 
 
