@@ -476,7 +476,7 @@ h3 {
 
 .video-container video {
   width: 90%; /* Makes it responsive */
-  max-width: 640px; /* Prevents excessive stretching */
+  max-width: 1040px; /* Prevents excessive stretching */
   height: auto; /* Maintains aspect ratio */
   display: block;
   border-radius: 12px; /* Optional rounded corners */
