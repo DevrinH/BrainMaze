@@ -101,6 +101,12 @@ text-align: center;
 margin: auto;
 font-family: "Montserrat-SemiBold", sans-serif;
 font-size: larger;
+padding: 30px;
+}
+
+h1{
+font-size: large;
+
 }
 
   .try-it{
@@ -273,6 +279,7 @@ font-size: larger;
   line-height: 20px;
   padding-left: 5px;
   text-align: left;
+  font-family: "Montserrat-SemiBold", sans-serif;
   color: white;
   display: flex;
   align-items: center;
