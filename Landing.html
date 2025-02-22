@@ -68,7 +68,7 @@
   </div>
 </div>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  function animateBars() {
       const bars = document.querySelectorAll(".bar-value");
       
       bars.forEach(bar => {
@@ -76,6 +76,9 @@
           const targetScore = parseInt(bar.getAttribute("data-score"));
           let currentScore = 0;
           let step = targetScore / 50; 
+          
+          bar.style.width = "0%";
+          bar.textContent = "0";
           
           setTimeout(() => {
               bar.style.width = targetWidth;
@@ -99,7 +102,14 @@
               }
           }, 60);
       });
-  });
+  }
+  
+  function loopAnimation() {
+      animateBars();
+      setInterval(animateBars, 4000);
+  }
+  
+  document.addEventListener("DOMContentLoaded", loopAnimation);
 </script>
 
 <p class="center">Lessons that adapt to areas that need to be beefed up! </p>
