@@ -278,7 +278,8 @@ font-size: larger;
   align-items: center;
   justify-content: flex-start;
   min-width: 50px;
-  transition: width 1s ease-in-out;
+  width: 0;
+  animation: growBars 2s infinite alternate;
 }
 .red { background-color: #e74c3c; }
 .yellow { background-color: #f1c40f; }
@@ -286,9 +287,10 @@ font-size: larger;
 
 @keyframes growBars {
   0% { width: 0; }
-  50% { width: calc(var(--target-width) + 50px); }
+  50% { width: calc(var(--target-width) + 20%); }
   100% { width: var(--target-width); }
 }
-.animated-bar:not(.no-grow) {
-  animation: growBars 2s infinite alternate;
+.no-grow {
+  width: var(--target-width) !important;
+  animation: none !important;
 }
