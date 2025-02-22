@@ -364,6 +364,7 @@ margin: auto;
   transform: translate(-50%, -50%);
   font-size: 28px;
   font-weight: bold;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 
 /* Position legend below the chart */
@@ -378,6 +379,7 @@ margin: auto;
   display: flex;
   align-items: center;
   font-size: 14px;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 
 .legend-color {
