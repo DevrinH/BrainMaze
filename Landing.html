@@ -77,10 +77,39 @@
 </div>
 
 <div class="subject-dark">
-<h1>Numerous Test Choices</h1>
+<h1>Prep Tests To See Where You Stand</h1>
 
 </div>
 
+
+<div class="donut-chart-container">
+  <canvas id="donutChart"></canvas>
+  <div class="center-text">1500</div>
+</div>
+
+<script>
+  const ctx = document.getElementById("donutChart").getContext("2d");
+
+  new Chart(ctx, {
+      type: "doughnut",
+      data: {
+          labels: ["Math", "Reading/Writing", "Unfilled"],
+          datasets: [{
+              data: [720, 780, 100], // Math: 720, Reading/Writing: 780, Missing: 100
+              backgroundColor: ["#3498db", "#2ecc71", "#d3d3d3"], // Blue, Green, Light Gray
+              borderWidth: 0
+          }]
+      },
+      options: {
+          cutout: "75%", // Creates the hole in the middle
+          plugins: {
+              legend: {
+                  display: true
+              }
+          }
+      }
+  });
+</script>
 
 <script>
   function animateBars() {
