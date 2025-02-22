@@ -393,6 +393,7 @@ margin: auto;
   align-items: center;
   gap: 8px;
   white-space: nowrap; /* Prevents text from wrapping */
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 
 .legend-color {
@@ -407,6 +408,7 @@ margin: auto;
   text-align: center;
   font-size: 24px;
   font-family: "Montserrat-SemiBold", sans-serif;
+  margin-top: 4px;
 
 }
 
