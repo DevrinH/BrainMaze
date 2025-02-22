@@ -85,6 +85,47 @@
 
 <div class="donut-chart-container">
   <canvas id="donutChart"></canvas>
+  <div class="center-text">655</div> <!-- Example total score -->
+</div>
+
+<!-- Custom legend below the chart -->
+<div class="donut-legend">
+  <div class="legend-item">
+      <div class="legend-color math-gradient"></div> Math
+  </div>
+  <div class="legend-item">
+      <div class="legend-color language-gradient"></div> Reasoning via Language
+  </div>
+  <div class="legend-item">
+      <div class="legend-color science-gradient"></div> Science
+  </div>
+  <div class="legend-item">
+      <div class="legend-color social-gradient"></div> Social Studies
+  </div>
+  <div class="legend-item">
+      <div class="legend-color unfilled-gradient"></div> Unfilled
+  </div>
+</div>
+
+<div class="donut-chart-container">
+  <canvas id="donutChart"></canvas>
+  <div class="center-text">655</div> <!-- Dynamic Total Score -->
+</div>
+
+<!-- Custom Legend Below the Chart -->
+<div class="donut-legend">
+  <div class="legend-item"><div class="legend-color math-gradient"></div> Math</div>
+  <div class="legend-item"><div class="legend-color language-gradient"></div> Reasoning via Language</div>
+  <div class="legend-item"><div class="legend-color science-gradient"></div> Science</div>
+  <div class="legend-item"><div class="legend-color social-gradient"></div> Social Studies</div>
+  <div class="legend-item"><div class="legend-color unfilled-gradient"></div> Unfilled</div>
+</div>
+
+
+
+
+<div class="donut-chart-container">
+  <canvas id="donutChart"></canvas>
   <div class="center-text">1500</div>
 </div>
 
@@ -108,6 +149,83 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 
 <script>
+window.onload = function () {
+    const canvas = document.getElementById("donutChart");
+
+    if (!canvas) {
+        console.error("Canvas element not found!");
+        return;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) {
+        console.error("Failed to get 2D context for canvas!");
+        return;
+    }
+
+    // Register Chart.js plugin
+    Chart.register(ChartDataLabels);
+
+    // Function to create gradient colors
+    function createGradient(ctx, color1, color2) {
+        let gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, color1);
+        gradient.addColorStop(1, color2);
+        return gradient;
+    }
+
+    // Define gradient colors
+    const gradientMath = createGradient(ctx, "#3498db", "#1f77d0");
+    const gradientLanguage = createGradient(ctx, "#2ecc71", "#23a859");
+    const gradientScience = createGradient(ctx, "#f39c12", "#e67e22");
+    const gradientSocialStudies = createGradient(ctx, "#9b59b6", "#8e44ad");
+    const gradientUnfilled = createGradient(ctx, "#d3d3d3", "#bfbfbf");
+
+    // Data values
+    const mathScore = 165;
+    const languageScore = 175;
+    const scienceScore = 155;
+    const socialStudiesScore = 160;
+    const maxScore = 800; // GED total score
+    const unfilledScore = maxScore - (mathScore + languageScore + scienceScore + socialStudiesScore);
+
+    // Update center text with total score
+    document.querySelector(".center-text").innerText = mathScore + languageScore + scienceScore + socialStudiesScore;
+
+    new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["Math", "Language", "Science", "Social Studies", "Missed"],
+            datasets: [{
+                data: [mathScore, languageScore, scienceScore, socialStudiesScore, unfilledScore], 
+                backgroundColor: [gradientMath, gradientLanguage, gradientScience, gradientSocialStudies, gradientUnfilled],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutout: "75%", // Creates the hole in the middle
+            rotation: 180, // Ensures sections start at the bottom center
+            circumference: 360, // Full donut is drawn
+            plugins: {
+                legend: { display: false }, // Hide default legend
+                datalabels: {
+                    color: "white",
+                    font: { size: 14, weight: "bold" },
+                    formatter: (value) => value // Display the actual number (score)
+                }
+            }
+        }
+    });
+};
+
+
+
+
+
+
+
+
 window.onload = function () {
     const canvas = document.getElementById("donutChart");
 
