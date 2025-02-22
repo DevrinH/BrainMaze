@@ -411,6 +411,8 @@ margin: auto;
 .unfilled-gradient {
   background: linear-gradient(45deg, #d3d3d3, #bfbfbf);
 }
+.science-gradient { background: linear-gradient(to bottom, #f39c12, #e67e22); }
+.social-gradient { background: linear-gradient(to bottom, #9b59b6, #8e44ad); }
 
 /* SAT & GED Specific Colors */
 .sat-chart canvas {
