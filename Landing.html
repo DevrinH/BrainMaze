@@ -84,6 +84,14 @@
 
 
 
+    <!-- SAT Donut Chart -->
+    <div class="chart-section">
+      <h2>SAT Score</h2>
+      <div class="donut-chart-container sat-chart">
+          <canvas id="donutChartSAT"></canvas>
+          <div class="center-text" id="satScore">1500</div>
+      </div>
+  </div>
 
   <!-- GED Donut Chart -->
   <div class="chart-section">
@@ -206,6 +214,138 @@
   }
   </script>
   
+
+
+
+
+
+
+
+
+<script>
+window.onload = function () {
+    const canvas = document.getElementById("donutChart");
+
+    if (!canvas) {
+        console.error("Canvas element not found!");
+        return;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) {
+        console.error("Failed to get 2D context for canvas!");
+        return;
+    }
+
+    // Register Chart.js plugin
+    Chart.register(ChartDataLabels);
+
+    // Function to create gradient colors
+    function createGradient(ctx, color1, color2) {
+        let gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, color1);
+        gradient.addColorStop(1, color2);
+        return gradient;
+    }
+
+    // Define gradient colors
+    const gradientMath = createGradient(ctx, "#3498db", "#1f77d0");
+    const gradientReading = createGradient(ctx, "#2ecc71", "#23a859");
+    const gradientUnfilled = createGradient(ctx, "#d3d3d3", "#bfbfbf");
+
+    // Data values
+    const mathScore = 720;
+    const readingScore = 780;
+    const maxScore = 1600;
+    const unfilledScore = maxScore - (mathScore + readingScore); // Remaining portion
+
+    new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["Math", "Reading/Writing", "Missed"],
+            datasets: [{
+                data: [mathScore, readingScore, unfilledScore], // Unfilled fills the rest
+                backgroundColor: [gradientMath, gradientReading, gradientUnfilled],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutout: "75%", // Creates the hole in the middle
+            rotation: 17.5, // Ensures Math & Reading/Writing start at the bottom center
+            circumference: 360, // Full donut is drawn
+            plugins: {
+                legend: { display: false }, // Hide default legend
+                datalabels: {
+                    color: "white",
+                    font: { size: 16, weight: "bold" },
+                    formatter: (value) => value // Display the actual number (score)
+                }
+            }
+        }
+    });
+};
+</script>
+
+
+<script>
+  function animateBars() {
+      const bars = document.querySelectorAll(".bar-value");
+      
+      bars.forEach(bar => {
+          const targetWidth = bar.getAttribute("data-width");
+          const targetScore = parseInt(bar.getAttribute("data-score"));
+          let currentScore = 0;
+          let step = targetScore / 100;
+          
+          bar.style.width = "0%";
+          bar.textContent = "0";
+          
+          setTimeout(() => {
+              bar.style.transition = "width 5s linear";
+              bar.style.width = targetWidth;
+          }, 100);
+          
+          const interval = setInterval(() => {
+              if (currentScore < targetScore) {
+                  currentScore += step;
+                  if (currentScore > targetScore) currentScore = targetScore;
+                  bar.textContent = Math.round(currentScore);
+                  
+                  if (currentScore <= 400) {
+                      bar.className = "bar-value red";
+                  } else if (currentScore <= 700) {
+                      bar.className = "bar-value yellow";
+                  } else {
+                      bar.className = "bar-value green";
+                  }
+              } else {
+                  clearInterval(interval);
+              }
+          }, 50);
+      });
+  }
+  
+  function resetBars() {
+      const bars = document.querySelectorAll(".bar-value");
+      bars.forEach(bar => {
+          bar.style.transition = "none";
+          bar.style.width = "0%";
+          bar.textContent = "0";
+      });
+  }
+  
+  function loopAnimation() {
+      animateBars();
+      setInterval(() => {
+          resetBars();
+          setTimeout(animateBars, 500);
+      }, 7000);
+  }
+  
+  document.addEventListener("DOMContentLoaded", loopAnimation);
+</script>
+
 
 
 
