@@ -350,11 +350,14 @@ margin: auto;
 }
 
 /* Add shadow to the donut chart */
-.donut-chart-container canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2)); /* Shadow effect */
+.donut-chart-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Center the score text */
@@ -409,7 +412,14 @@ margin: auto;
   background: linear-gradient(45deg, #d3d3d3, #bfbfbf);
 }
 
+/* SAT & GED Specific Colors */
+.sat-chart canvas {
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
+}
 
+.ged-chart canvas {
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
+}
 
 
 
