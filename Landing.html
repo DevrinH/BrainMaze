@@ -88,28 +88,55 @@
   <div class="center-text">1500</div>
 </div>
 
-<script>
-  const ctx = document.getElementById("donutChart").getContext("2d");
+<!-- Custom legend below the chart -->
+<div class="donut-legend">
+  <div class="legend-item">
+      <div class="legend-color math-gradient"></div> Math
+  </div>
+  <div class="legend-item">
+      <div class="legend-color reading-gradient"></div> Reading/Writing
+  </div>
+  <div class="legend-item">
+      <div class="legend-color unfilled-gradient"></div> Unfilled
+  </div>
+</div>
 
-  new Chart(ctx, {
-      type: "doughnut",
-      data: {
-          labels: ["Math", "Reading/Writing", "Unfilled"],
-          datasets: [{
-              data: [720, 780, 100], // Math: 720, Reading/Writing: 780, Missing: 100
-              backgroundColor: ["#3498db", "#2ecc71", "#d3d3d3"], // Blue, Green, Light Gray
-              borderWidth: 0
-          }]
-      },
-      options: {
-          cutout: "75%", // Creates the hole in the middle
-          plugins: {
-              legend: {
-                  display: true
-              }
-          }
-      }
-  });
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document.getElementById("donutChart").getContext("2d");
+
+    const gradientMath = ctx.createLinearGradient(0, 0, 0, 300);
+    gradientMath.addColorStop(0, "#3498db");
+    gradientMath.addColorStop(1, "#1f77d0");
+
+    const gradientReading = ctx.createLinearGradient(0, 0, 0, 300);
+    gradientReading.addColorStop(0, "#2ecc71");
+    gradientReading.addColorStop(1, "#23a859");
+
+    const gradientUnfilled = ctx.createLinearGradient(0, 0, 0, 300);
+    gradientUnfilled.addColorStop(0, "#d3d3d3");
+    gradientUnfilled.addColorStop(1, "#bfbfbf");
+
+    new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["Math", "Reading/Writing", "Unfilled"],
+            datasets: [{
+                data: [720, 780, 100],
+                backgroundColor: [gradientMath, gradientReading, gradientUnfilled],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            cutout: "75%",
+            plugins: {
+                legend: { display: false } // Hides default legend
+            }
+        }
+    });
+});
+
 </script>
 
 <script>
