@@ -161,9 +161,9 @@ color:#1e0144
   .center-container,
   .right-container {
     min-height: 500px; /* Adjust as needed */
-    background-color: rgb(241, 234, 234);
+    background-color: rgb(255, 249, 249);
     border-radius: 12px;
-    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     flex: 1; /* Allows them to grow equally */
     min-width: 300px; /* Prevents them from getting too small */
     max-width: 900px; /* Controls maximum width */
