@@ -241,3 +241,27 @@ font-size: larger;
     }
 
 }
+
+.chart-container {
+  width: 600px;
+  margin: 50px auto;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+.bar-label {
+  width: 150px;
+  text-align: right;
+  margin-right: 10px;
+}
+.bar-value {
+  height: 20px;
+  text-align: right;
+  color: white;
+  padding-right: 5px;
+}
+.red { background-color: #e74c3c; }
+.yellow { background-color: #f1c40f; }
+.green { background-color: #2ecc71; }
