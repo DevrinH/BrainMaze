@@ -308,6 +308,7 @@ margin-top: 30px;
   min-width: 50px;
   width: 0;
   transition: width 5s linear;
+  border-radius: 12px; /* Adjust the value for more or less rounding */
 }
 .red { background-color: #e74c3c; }
 .yellow { background-color: #f1c40f; }
