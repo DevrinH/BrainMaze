@@ -106,6 +106,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const ctx = document.getElementById("donutChart").getContext("2d");
 
+    // Create gradient colors for sections
     const gradientMath = ctx.createLinearGradient(0, 0, 0, 300);
     gradientMath.addColorStop(0, "#3498db");
     gradientMath.addColorStop(1, "#1f77d0");
@@ -118,6 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
     gradientUnfilled.addColorStop(0, "#d3d3d3");
     gradientUnfilled.addColorStop(1, "#bfbfbf");
 
+    Chart.register(ChartDataLabels); // Register the plugin for data labels
+
     new Chart(ctx, {
         type: "doughnut",
         data: {
@@ -129,9 +132,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }]
         },
         options: {
-            cutout: "75%",
+            cutout: "75%", // Creates the hole in the middle
             plugins: {
-                legend: { display: false } // Hides default legend
+                legend: { display: false }, // Hide default legend
+                datalabels: {
+                    color: "white",
+                    font: { size: 16, weight: "bold" },
+                    formatter: (value) => value, // Display the actual number (score)
+                }
             }
         }
     });
