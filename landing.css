@@ -246,6 +246,8 @@ font-size: larger;
   width: 90%;
   max-width: 1200px;
   margin: 50px auto;
+  display: flex;
+  flex-direction: column;
 }
 .bar {
   display: flex;
@@ -254,13 +256,16 @@ font-size: larger;
   width: 100%;
 }
 .bar-label {
-  min-width: 200px;
-  max-width: 200px;
+  width: 200px;
   text-align: right;
-  display: flex;
-  justify-content: flex-end;
   padding-right: 10px;
   font-family: "Montserrat-SemiBold", sans-serif;
+  white-space: nowrap;
+}
+.bar-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 .bar-value {
   height: 20px;
