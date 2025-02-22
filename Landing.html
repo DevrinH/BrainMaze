@@ -122,10 +122,10 @@ window.onload = function () {
         return;
     }
 
-    // Ensure Chart.js plugin is correctly registered
+    // Register Chart.js plugin
     Chart.register(ChartDataLabels);
 
-    // Create gradient colors within chart rendering to avoid potential errors
+    // Function to create gradient colors
     function createGradient(ctx, color1, color2) {
         let gradient = ctx.createLinearGradient(0, 0, 0, 300);
         gradient.addColorStop(0, color1);
@@ -138,18 +138,27 @@ window.onload = function () {
     const gradientReading = createGradient(ctx, "#2ecc71", "#23a859");
     const gradientUnfilled = createGradient(ctx, "#d3d3d3", "#bfbfbf");
 
+    // Data values
+    const mathScore = 720;
+    const readingScore = 780;
+    const maxScore = 1600;
+    const totalFilled = mathScore + readingScore;
+    const unfilledScore = maxScore - totalFilled; // Empty space
+
     new Chart(ctx, {
         type: "doughnut",
         data: {
             labels: ["Math", "Reading/Writing", "Unfilled"],
             datasets: [{
-                data: [720, 780, 100],
+                data: [mathScore, readingScore, unfilledScore],
                 backgroundColor: [gradientMath, gradientReading, gradientUnfilled],
                 borderWidth: 0
             }]
         },
         options: {
             cutout: "75%", // Creates the hole in the middle
+            rotation: 90, // Start at the bottom center
+            circumference: (totalFilled / maxScore) * 360, // Fill only the scored portion
             plugins: {
                 legend: { display: false }, // Hide default legend
                 datalabels: {
