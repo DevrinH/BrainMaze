@@ -249,8 +249,7 @@ font-size: larger;
 .bar {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 100%;
+  margin: 8px 0;
 }
 .bar-label {
   width: 150px;
@@ -258,10 +257,10 @@ font-size: larger;
   margin-right: 10px;
 }
 .bar-value {
-  flex-grow: 1;
   height: 20px;
-  line-height: 20px;
-  padding-left: 5px;
+  text-align: right;
+  color: white;
+  padding-right: 5px;
 }
 .red { background-color: #e74c3c; }
 .yellow { background-color: #f1c40f; }
