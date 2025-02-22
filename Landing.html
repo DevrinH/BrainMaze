@@ -142,23 +142,22 @@ window.onload = function () {
     const mathScore = 720;
     const readingScore = 780;
     const maxScore = 1600;
-    const totalFilled = mathScore + readingScore;
-    const unfilledScore = maxScore - totalFilled; // Empty space
+    const unfilledScore = maxScore - (mathScore + readingScore); // Remaining portion
 
     new Chart(ctx, {
         type: "doughnut",
         data: {
             labels: ["Math", "Reading/Writing", "Unfilled"],
             datasets: [{
-                data: [mathScore, readingScore, unfilledScore],
+                data: [mathScore, readingScore, unfilledScore], // Unfilled fills the rest
                 backgroundColor: [gradientMath, gradientReading, gradientUnfilled],
                 borderWidth: 0
             }]
         },
         options: {
             cutout: "75%", // Creates the hole in the middle
-            rotation: 90, // Start at the bottom center
-            circumference: (totalFilled / maxScore) * 360, // Fill only the scored portion
+            rotation: 270, // Ensures Math & Reading/Writing start at the bottom center
+            circumference: 360, // Full donut is drawn
             plugins: {
                 legend: { display: false }, // Hide default legend
                 datalabels: {
