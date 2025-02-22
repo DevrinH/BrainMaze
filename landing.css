@@ -244,7 +244,7 @@ font-size: larger;
 
 .chart-container {
   width: 90%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 50px auto;
 }
 .bar {
@@ -259,6 +259,7 @@ font-size: larger;
   display: flex;
   justify-content: flex-end;
   padding-right: 10px;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 .bar-value {
   height: 20px;
