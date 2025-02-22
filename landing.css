@@ -259,12 +259,12 @@ margin-top: 30px;
 
     }
 
-.sat-subjects{
-  font-family: "Montserrat-SemiBold", sans-serif;
-
-
-
-}
+    .subject {
+      width: 200px; /* Same as .bar-label width */
+      text-align: right; /* Align text like bar labels */
+      padding-right: 10px; /* Match padding */
+      font-family: "Montserrat-SemiBold", sans-serif;
+  }
 
 
 }
