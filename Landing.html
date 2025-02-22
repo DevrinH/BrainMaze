@@ -333,6 +333,64 @@ window.onload = function () {
 </script>
 
 
+<script>
+  function animateBars() {
+      const bars = document.querySelectorAll(".bar-value");
+      
+      bars.forEach(bar => {
+          const targetWidth = bar.getAttribute("data-width");
+          const targetScore = parseInt(bar.getAttribute("data-score"));
+          let currentScore = 0;
+          let step = targetScore / 100;
+          
+          bar.style.width = "0%";
+          bar.textContent = "0";
+          
+          setTimeout(() => {
+              bar.style.transition = "width 5s linear";
+              bar.style.width = targetWidth;
+          }, 100);
+          
+          const interval = setInterval(() => {
+              if (currentScore < targetScore) {
+                  currentScore += step;
+                  if (currentScore > targetScore) currentScore = targetScore;
+                  bar.textContent = Math.round(currentScore);
+                  
+                  if (currentScore <= 400) {
+                      bar.className = "bar-value red";
+                  } else if (currentScore <= 700) {
+                      bar.className = "bar-value yellow";
+                  } else {
+                      bar.className = "bar-value green";
+                  }
+              } else {
+                  clearInterval(interval);
+              }
+          }, 50);
+      });
+  }
+  
+  function resetBars() {
+      const bars = document.querySelectorAll(".bar-value");
+      bars.forEach(bar => {
+          bar.style.transition = "none";
+          bar.style.width = "0%";
+          bar.textContent = "0";
+      });
+  }
+  
+  function loopAnimation() {
+      animateBars();
+      setInterval(() => {
+          resetBars();
+          setTimeout(animateBars, 500);
+      }, 7000);
+  }
+  
+  document.addEventListener("DOMContentLoaded", loopAnimation);
+</script>
+
 
 
 
