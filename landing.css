@@ -390,6 +390,13 @@ margin: auto;
   border-radius: 50%;
 }
 
+.exam{
+  align-items: center;
+  font-size: 14px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+
+}
+
 /* Apply gradient colors */
 .math-gradient {
   background: linear-gradient(45deg, #3498db, #1f77d0);
