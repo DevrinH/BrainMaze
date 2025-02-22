@@ -465,3 +465,8 @@ h3 {
 
 
 
+
+canvas {
+  max-width: 800px;
+  margin: auto;
+}
