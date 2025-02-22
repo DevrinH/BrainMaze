@@ -470,3 +470,18 @@ canvas {
   max-width: 800px;
   margin: auto;
 }
+.video-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically if needed */
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto; /* Centers the container itself */
+}
+
+.video-container video {
+  width: 100%; /* Makes the video responsive */
+  height: auto; /* Keeps aspect ratio */
+  display: block;
+  border-radius: 12px; /* Optional: Adds rounded corners */
+}
