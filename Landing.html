@@ -102,24 +102,41 @@
 </div>
 
 
+<!-- Load Chart.js and Plugin -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const ctx = document.getElementById("donutChart").getContext("2d");
+window.onload = function () {
+    const canvas = document.getElementById("donutChart");
 
-    // Create gradient colors for sections
-    const gradientMath = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientMath.addColorStop(0, "#3498db");
-    gradientMath.addColorStop(1, "#1f77d0");
+    if (!canvas) {
+        console.error("Canvas element not found!");
+        return;
+    }
 
-    const gradientReading = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientReading.addColorStop(0, "#2ecc71");
-    gradientReading.addColorStop(1, "#23a859");
+    const ctx = canvas.getContext("2d");
 
-    const gradientUnfilled = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientUnfilled.addColorStop(0, "#d3d3d3");
-    gradientUnfilled.addColorStop(1, "#bfbfbf");
+    if (!ctx) {
+        console.error("Failed to get 2D context for canvas!");
+        return;
+    }
 
-    Chart.register(ChartDataLabels); // Register the plugin for data labels
+    // Ensure Chart.js plugin is correctly registered
+    Chart.register(ChartDataLabels);
+
+    // Create gradient colors within chart rendering to avoid potential errors
+    function createGradient(ctx, color1, color2) {
+        let gradient = ctx.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, color1);
+        gradient.addColorStop(1, color2);
+        return gradient;
+    }
+
+    // Define gradient colors
+    const gradientMath = createGradient(ctx, "#3498db", "#1f77d0");
+    const gradientReading = createGradient(ctx, "#2ecc71", "#23a859");
+    const gradientUnfilled = createGradient(ctx, "#d3d3d3", "#bfbfbf");
 
     new Chart(ctx, {
         type: "doughnut",
@@ -138,14 +155,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 datalabels: {
                     color: "white",
                     font: { size: 16, weight: "bold" },
-                    formatter: (value) => value, // Display the actual number (score)
+                    formatter: (value) => value // Display the actual number (score)
                 }
             }
         }
     });
-});
-
+};
 </script>
+
 
 <script>
   function animateBars() {
