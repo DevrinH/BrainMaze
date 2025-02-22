@@ -149,28 +149,32 @@ color:#1e0144
   }
   .flex-container {
     display: flex;
-    justify-content: space-between; /* Ensures spacing between items */
+    justify-content: space-between; /* Keeps containers spaced properly */
     align-items: flex-start;
-    gap: 20px; /* Adds spacing between containers */
+    gap: 20px; /* Adds space between charts */
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
-  }
-  
-  .left-container,
-  .center-container,
-  .right-container {
-    min-height: 500px; /* Adjust as needed */
+    flex-wrap: wrap; /* Prevents overflow if needed */
+}
+
+.left-container,
+.center-container,
+.right-container {
+    min-height: 500px; 
     background-color: rgb(255, 249, 249);
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    flex: 1; /* Allows them to grow equally */
-    min-width: 300px; /* Prevents them from getting too small */
-    max-width: 900px; /* Controls maximum width */
-    max-height: 1000px;
-    padding: 20px; /* Adds spacing inside */
-    transition: all 0.3s ease-in-out; /* Smooth resizing */
-  }
+    flex: 1; 
+    min-width: 300px;
+    max-width: 900px;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Ensures internal elements stack properly */
+    align-items: center; /* Centers content */
+    overflow: hidden; /* Prevents legends from escaping */
+}
   
   /* Responsive design for stacking on smaller screens */
   @media (max-width: 900px) {
@@ -372,25 +376,30 @@ margin: auto;
 }
 
 /* Position legend below the chart */
+/* Ensures legends stay inside the flex boxes */
 .donut-legend {
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  flex-wrap: wrap; /* Ensures legends don't overflow */
+  justify-content: center; /* Centers legends */
+  align-items: center;
+  max-width: 100%; /* Prevents overflow */
+  gap: 10px;
   margin-top: 15px;
+  padding: 10px;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  font-size: 14px;
-  font-family: "Montserrat-SemiBold", sans-serif;
+  gap: 8px;
+  white-space: nowrap; /* Prevents text from wrapping */
 }
 
 .legend-color {
-  width: 14px;
-  height: 14px;
-  margin-right: 5px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
+  display: inline-block;
 }
 
 .exam{
