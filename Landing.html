@@ -88,88 +88,87 @@
 
   <!-- GED Donut Chart -->
   <div class="left-container">
-  <div class="chart-section">
-      
+    <div class="chart-section">
       <div class="donut-chart-container ged-chart">
-          <canvas id="donutChartGED"></canvas>
-          <div class="center-text" id="gedScore">655</div>
+        <canvas id="donutChartGED"></canvas>
+        <div class="center-text" id="gedScore">655</div>
       </div>
-  </div>
-  <script src="gedChart.js"></script>
+    </div>
+    <script src="gedChart.js"></script>
 
-  <div class="exam">GED</div>
-<div class="donut-legend">
-    <div class="legend-item">
+    <!-- GED Legend (Moved Inside left-container) -->
+    <div class="exam">GED</div>
+    <div class="donut-legend">
+      <div class="legend-item">
         <div class="legend-color math-gradient"></div> Math
-    </div>
-    <div class="legend-item">
+      </div>
+      <div class="legend-item">
         <div class="legend-color reading-gradient"></div> Language
-    </div>
-    <div class="legend-item">
+      </div>
+      <div class="legend-item">
         <div class="legend-color science-gradient"></div> Science
-    </div>
-    <div class="legend-item">
+      </div>
+      <div class="legend-item">
         <div class="legend-color social-gradient"></div> Social Studies
-    </div>
-    <div class="legend-item">
+      </div>
+      <div class="legend-item">
         <div class="legend-color unfilled-gradient"></div> Missed
+      </div>
     </div>
-</div>
-</div>
+  </div>
 
+  <!-- SAT Donut Chart -->
+  <div class="center-container">
+    <div class="donut-chart-container">
+      <canvas id="donutChart"></canvas>
+      <div class="center-text">1500</div>
+    </div>
 
-    <!-- SAT Donut Chart -->
-<div class="center-container">
-<div class="donut-chart-container">
-  <canvas id="donutChart"></canvas>
-  <div class="center-text">1500</div>
-</div>
+    <!-- SAT Legend (Moved Inside center-container) -->
+    <div class="exam">SAT</div>
+    <div class="donut-legend">
+      <div class="legend-item">
+        <div class="legend-color math-gradient"></div> Math
+      </div>
+      <div class="legend-item">
+        <div class="legend-color reading-gradient"></div> Reading/Writing
+      </div>
+      <div class="legend-item">
+        <div class="legend-color unfilled-gradient"></div> Missed
+      </div>
+    </div>
+  </div>
 
-<!-- Custom legend below the chart -->
- <div class="exam">SAT</div>
-<div class="donut-legend">
-  <div class="legend-item">
-      <div class="legend-color math-gradient"></div> Math
-  </div>
-  <div class="legend-item">
-      <div class="legend-color reading-gradient"></div> Reading/Writing
-  </div>
-  <div class="legend-item">
-      <div class="legend-color unfilled-gradient"></div> Missed
-  </div>
-</div>
-</div>
+  <!-- ACT Donut Chart -->
+  <div class="right-container">
+    <div class="chart-section">
+      <div class="donut-chart-container act-chart">
+        <canvas id="donutChartACT"></canvas>
+        <div class="center-text" id="actScore">30</div>
+      </div>
+    </div>
+    <script src="act-chart.js"></script>
 
-<!-- ACT Donut Chart -->
-<div class="right-container">
-<div class="chart-section">
- 
-  <div class="donut-chart-container act-chart">
-      <canvas id="donutChartACT"></canvas>
-      <div class="center-text" id="actScore">30</div>
+    <!-- ACT Legend (Moved Inside right-container) -->
+    <div class="exam">ACT</div>
+    <div class="donut-legend">
+      <div class="legend-item">
+        <div class="legend-color math-gradient"></div> Math
+      </div>
+      <div class="legend-item">
+        <div class="legend-color english-gradient"></div> English
+      </div>
+      <div class="legend-item">
+        <div class="legend-color reading-gradient"></div> Reading
+      </div>
+      <div class="legend-item">
+        <div class="legend-color science-gradient"></div> Science
+      </div>
+      <div class="legend-item">
+        <div class="legend-color unfilled-gradient"></div> Missed
+      </div>
+    </div>
   </div>
-</div>
-<script src="act-chart.js"></script>
-<!-- ACT Legend -->
-<div class="exam">ACT</div>
-<div class="donut-legend">
-  <div class="legend-item">
-      <div class="legend-color math-gradient"></div> Math
-  </div>
-  <div class="legend-item">
-      <div class="legend-color english-gradient"></div> English
-  </div>
-  <div class="legend-item">
-      <div class="legend-color reading-gradient"></div> Reading
-  </div>
-  <div class="legend-item">
-      <div class="legend-color science-gradient"></div> Science
-  </div>
-  <div class="legend-item">
-      <div class="legend-color unfilled-gradient"></div> Missed
-  </div>
-</div>
-</div>
 
 </div>
 
