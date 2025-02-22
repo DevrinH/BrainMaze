@@ -465,19 +465,18 @@ h3 {
 
 
 
-
 .video-container {
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically if needed */
-  width: 100%; 
-  margin: 20px auto; /* Adds spacing */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px auto;
 }
 
 .video-container video {
-  width: 90%; /* Makes it responsive */
-  max-width: 1040px; /* Prevents excessive stretching */
-  height: auto; /* Maintains aspect ratio */
+  width: 90%;
+  max-width: 1040px;
+  height: auto;
   display: block;
-  border-radius: 12px; /* Optional rounded corners */
+  border-radius: 12px;
 }
