@@ -279,18 +279,12 @@ font-size: larger;
   justify-content: flex-start;
   min-width: 50px;
   width: 0;
-  animation: growBars 2s infinite alternate;
+  transition: width 2s linear;
 }
 .red { background-color: #e74c3c; }
 .yellow { background-color: #f1c40f; }
 .green { background-color: #2ecc71; }
 
-@keyframes growBars {
-  0% { width: 0; }
-  50% { width: calc(var(--target-width) + 20%); }
-  100% { width: var(--target-width); }
-}
 .no-grow {
   width: var(--target-width) !important;
-  animation: none !important;
 }
