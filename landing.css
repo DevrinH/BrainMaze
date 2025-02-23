@@ -480,3 +480,9 @@ h3 {
   display: block;
   border-radius: 12px;
 }
+.img{
+align-items: center;
+margin: 0 auto;
+text-align: center;
+
+}
