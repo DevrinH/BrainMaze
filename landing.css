@@ -480,10 +480,14 @@ h3 {
   display: block;
   border-radius: 12px;
 }
-.img{
-align-items: center;
-margin: 0 auto;
-text-align: center;
-width: 100%;
+.img-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center (if parent has height) */
+  text-align: center; /* For inline elements */
+}
 
+.img {
+  display: block; /* Removes extra spacing below the image */
+  margin: 0 auto; /* Centers inside a block */
 }
