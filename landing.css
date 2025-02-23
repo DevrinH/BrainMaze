@@ -499,4 +499,5 @@ h3 {
   display: flex;
   column-gap: 10px; /* Adjust the spacing between images */
   align-items: center; /* Align images vertically */
+  justify-content: center;
 }
