@@ -71,7 +71,7 @@ function createDonutChart(canvasId, scoreId, ...scores) {
         },
         options: {
             cutout: "75%", // Creates the hole in the middle
-            rotation: 180, // Start at the bottom center
+            rotation: 17.5, // Start at the bottom center
             circumference: 360, // Full donut
             plugins: {
                 legend: { display: false }, // Hide default legend
