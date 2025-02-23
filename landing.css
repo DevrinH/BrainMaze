@@ -492,9 +492,8 @@ h3 {
   margin: 0 auto; /* Centers inside a block */
 }
 
-.social-container{
-display: flex;
-column-gap: 10px;
-
-
+.social-container {
+  display: flex;
+  column-gap: 10px; /* Adjust the spacing between images */
+  align-items: center; /* Align images vertically */
 }
