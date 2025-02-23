@@ -1,18 +1,15 @@
-
-
-
 window.onload = function () {
-    const canvas = document.getElementById("donutChart");
+    const canvas = document.getElementById("donutChartSAT");
 
     if (!canvas) {
-        console.error("Canvas element not found!");
+        console.error("SAT Canvas element not found!");
         return;
     }
 
     const ctx = canvas.getContext("2d");
 
     if (!ctx) {
-        console.error("Failed to get 2D context for canvas!");
+        console.error("Failed to get 2D context for SAT chart!");
         return;
     }
 
