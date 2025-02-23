@@ -491,3 +491,10 @@ h3 {
   display: block; /* Removes extra spacing below the image */
   margin: 0 auto; /* Centers inside a block */
 }
+
+.social-container{
+display: flex;
+column-gap: 10px;
+
+
+}
