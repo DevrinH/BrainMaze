@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         options: {
             cutout: "75%", // Creates the hole in the middle
-            rotation: -90, // Ensures Math & Reading/Writing start at the bottom center
+            rotation: 17.5, // Ensures Math & Reading/Writing start at the bottom center
             circumference: 360, // Full donut is drawn
             plugins: {
                 legend: { display: false }, // Hide default legend
