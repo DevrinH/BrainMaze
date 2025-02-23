@@ -3,14 +3,14 @@
 
 
 
-  // Load charts after the window is fully loaded
-window.onload = function () {
+// Load charts after the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
     // ======== SAT DONUT CHART ========
     createDonutChart("donutChartSAT", "satScore", 720, 780, 1600);
 
     // ======== GED DONUT CHART ========
     createDonutChart("donutChartGED", "gedScore", 165, 175, 155, 160, 800);
-};
+});
 
 // Function to Create Donut Chart
 function createDonutChart(canvasId, scoreId, ...scores) {
