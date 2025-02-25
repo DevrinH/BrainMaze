@@ -332,7 +332,10 @@ margin: auto;
   min-width: 50px;
   width: 0;
   transition: width 5s linear;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
 }
+
 .red { background-image: linear-gradient(to right,#c31432, #ff4e50 ); } 
 .yellow { background-image: linear-gradient(to right,#fc4a1a, #f7b733 ); } 
 .green { background-image: linear-gradient(to right,#a8e063, #56ab2f ); } 
