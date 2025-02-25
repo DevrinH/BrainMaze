@@ -737,6 +737,12 @@ function showScore() {
 
     localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
+    // Debugging logs
+    console.log("Dates:", Object.keys(scoreHistory));
+    console.log("Math Scores:", Object.values(scoreHistory).map(s => s.math));
+    console.log("Reading Scores:", Object.values(scoreHistory).map(s => s.reading));
+    console.log("Total Scores:", Object.values(scoreHistory).map(s => s.total));
+
     // Display the scores
     questionElement.innerHTML = `
         <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
@@ -751,6 +757,7 @@ function showScore() {
     // Update the chart
     updateScoreChart();
 }
+
 
 // Function to handle "Next" button click
 function handleNextButton() {
@@ -785,10 +792,5 @@ function homelink() {
 
 
 
-
-console.log("Dates:", dates);
-console.log("Math Scores:", mathScores);
-console.log("Reading Scores:", readingScores);
-console.log("Total Scores:", totalScores);
 // Start the quiz
 startQuiz();
