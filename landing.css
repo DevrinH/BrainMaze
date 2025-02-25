@@ -302,6 +302,10 @@ margin: auto;
   flex-direction: column;
   background: transparent; /* Ensures no background */
 }
+.chart-container {
+  background: rgba(255, 255, 255, 0); /* Fully transparent */
+}
+
 .bar {
   display: flex;
   align-items: center;
