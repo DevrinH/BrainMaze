@@ -716,26 +716,28 @@ function selectAnswer(e) {
 
 // Function to display the final score
 function showScore() { 
-    clearInterval(refreshIntervalId); // ✅ Stops the countdown when test is completed early
+    clearInterval(refreshIntervalId);
     resetState();
 
-    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3); // 14 easy, 15 medium, 15 hard
+    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
     let rawScore = score;
 
-    // Convert raw score to SAT scaled score (approximation)
     let mathScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
-
-    // Store Math score in local storage
     localStorage.setItem("mathScore", mathScore);
 
-    // Retrieve Reading & Writing score from local storage
     let readingScore = localStorage.getItem("readingScore") || 0;
     readingScore = parseInt(readingScore, 10);
 
-    // Calculate total SAT score
     let totalSATScore = readingScore + mathScore;
 
-    // Display Math, Reading, and Total SAT Score
+    // Store scores with date
+    let today = new Date().toISOString().split("T")[0];
+    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+    scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
+
+    localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+
+    // Display the scores
     questionElement.innerHTML = `
         <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
         <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
@@ -744,9 +746,12 @@ function showScore() {
 
     nextButton.innerHTML = "Finish";
     nextButton.style.display = "block";
-
     document.getElementById("progress-bar").style.width = "100%";
+
+    // Update the chart
+    updateScoreChart();
 }
+
 // Function to handle "Next" button click
 function handleNextButton() {
     currentQuestionIndex++;
