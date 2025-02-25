@@ -783,5 +783,12 @@ function homelink() {
     location.href = "https://www.brainjelli.com/satlandingpage";
 }
 
+
+
+
+console.log("Dates:", dates);
+console.log("Math Scores:", mathScores);
+console.log("Reading Scores:", readingScores);
+console.log("Total Scores:", totalScores);
 // Start the quiz
 startQuiz();
