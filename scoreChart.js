@@ -75,7 +75,7 @@ function updateScoreChart() {
                         stepSize: 100,
                         beginAtZero: true 
                     },
-                    suggestedMax: 1600,
+                    max: 1600,
                     grid: { display: true, color: "lightgray" }
                 }
             },
