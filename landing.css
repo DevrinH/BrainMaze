@@ -287,12 +287,13 @@ color:#1e0144
 
 
 }
-.purple-container{
-width: 100%;
-background-image: linear-gradient(#4b1c81, #c890fd);
-padding: 2px;
-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-margin: auto;
+.purple-container {
+  width: 100%;
+  max-width: 1600px; /* Ensures it doesn't stretch too far */
+  margin: auto;
+  padding: 20px;
+  background-image: linear-gradient(#4b1c81, #c890fd);
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 .chart-container {
   width: 97%;
@@ -321,6 +322,7 @@ margin: auto;
   display: flex;
   align-items: center;
   overflow: hidden;
+  max-width: 100%; /* Prevents bars from exceeding container */
 }
 .bar-value {
   height: 50px;
@@ -333,11 +335,14 @@ margin: auto;
   align-items: center;
   justify-content: flex-start;
   min-width: 50px;
+  max-width: 100%; /* Ensures the bar does not exceed its parent */
   width: 0;
   transition: width 5s linear;
   border-radius: 12px; /* Adjust the value for more or less rounding */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
+  overflow: hidden; /* Prevents content overflow */
 }
+
 .red { background-image: linear-gradient(to right,#c31432, #ff4e50 ); } 
 .yellow { background-image: linear-gradient(to right,#fc4a1a, #f7b733 ); } 
 .green { background-image: linear-gradient(to right,#a8e063, #56ab2f ); } 
