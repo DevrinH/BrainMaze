@@ -1,18 +1,24 @@
-// Function to update the score graph
+document.addEventListener("DOMContentLoaded", function () {
+    updateScoreGraph();
+});
+
 function updateScoreGraph() {
-    let ctx = document.getElementById("scoreChart").getContext("2d");
+    let canvas = document.getElementById("scoreChart");
+    if (!canvas) {
+        console.error("Canvas element not found!");
+        return;
+    }
+
+    let ctx = canvas.getContext("2d");
 
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    
-    let dates = Object.keys(scoreHistory).sort(); // Get all dates sorted
-    let scores = dates.map(date => scoreHistory[date]); // Get scores in order
+    let dates = Object.keys(scoreHistory).sort();
+    let scores = dates.map(date => scoreHistory[date]);
 
-    // Destroy existing chart instance if it exists
     if (window.scoreChartInstance) {
         window.scoreChartInstance.destroy();
     }
 
-    // Create new chart
     window.scoreChartInstance = new Chart(ctx, {
         type: "line",
         data: {
@@ -31,11 +37,8 @@ function updateScoreGraph() {
             maintainAspectRatio: false,
             scales: {
                 x: { title: { display: true, text: "Date" } },
-                y: { title: { display: true, text: "Score" }, beginAtZero: false, min: 200, max: 800 }
+                y: { title: { display: true, text: "Score" }, min: 200, max: 800 }
             }
         }
     });
 }
-
-// Call this when the page loads to show existing data
-updateScoreGraph();
