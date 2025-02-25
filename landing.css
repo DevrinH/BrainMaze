@@ -504,16 +504,20 @@ h3 {
 /* Center the chart and make it responsive */
 #scoreChart {
   width: 100% !important;
-  height: auto !important;
+  height: 400px !important; /* Set a fixed height */
 }
 
 /* Style the chart container */
 .chart-container {
   width: 100%;
-  max-width: 1200px; /* Adjust max width as needed */
-  margin: 20px auto; /* Center the graph */
+  max-width: 1200px;
+  height: 450px; /* Ensure the container has height */
+  margin: 20px auto;
   padding: 10px;
-  background: #f9f9f9; /* Light gray background */
+  background: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
