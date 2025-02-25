@@ -21,10 +21,19 @@ function updateScoreChart() {
         totalScores = [NaN];
     }
 
+    // ✅ Limit x-axis to 10 evenly spaced labels
+    function getLimitedLabels(dates, maxLabels) {
+        if (dates.length <= maxLabels) return dates;
+        let step = Math.ceil(dates.length / maxLabels);
+        return dates.filter((_, index) => index % step === 0 || index === dates.length - 1);
+    }
+
+    let limitedDates = getLimitedLabels(dates, 10);
+
     window.scoreChart = new Chart(ctx, {
         type: "line",
         data: {
-            labels: dates,
+            labels: dates,  // Keep full dataset
             datasets: [
                 {
                     label: "Math Score",
@@ -60,7 +69,14 @@ function updateScoreChart() {
                         color: "black",
                         font: { size: 14 }
                     },
-                    ticks: { color: "black" },
+                    ticks: {
+                        color: "black",
+                        autoSkip: false,
+                        maxTicksLimit: 10, // ✅ Only show 10 labels
+                        callback: function(value, index, values) {
+                            return limitedDates.includes(this.getLabelForValue(value)) ? this.getLabelForValue(value) : "";
+                        }
+                    },
                     grid: { display: true, color: "lightgray" }
                 },
                 y: {
@@ -81,7 +97,7 @@ function updateScoreChart() {
             },
             plugins: {
                 legend: {
-                    display: true, // Ensure legend is always shown
+                    display: true,
                     labels: { color: "black" }
                 }
             }
@@ -89,6 +105,5 @@ function updateScoreChart() {
     });
 }
 
-// ✅ Fix: Ensure script runs after page loads
+// ✅ Ensure script runs after page loads
 document.addEventListener("DOMContentLoaded", updateScoreChart);
-
