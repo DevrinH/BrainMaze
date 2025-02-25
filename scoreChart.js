@@ -2,14 +2,22 @@ function updateScoreChart() {
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
 
     let dates = Object.keys(scoreHistory).sort();
-    let mathScores = dates.map(date => scoreHistory[date].math);
-    let readingScores = dates.map(date => scoreHistory[date].reading);
-    let totalScores = dates.map(date => scoreHistory[date].total);
+    let mathScores = dates.map(date => scoreHistory[date]?.math || null);
+    let readingScores = dates.map(date => scoreHistory[date]?.reading || null);
+    let totalScores = dates.map(date => scoreHistory[date]?.total || null);
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
 
     if (window.scoreChart) {
         window.scoreChart.destroy(); // Destroy previous chart instance
+    }
+
+    // Ensure the chart shows something even if there is no data yet
+    if (dates.length === 0) {
+        dates = ["Placeholder"]; // Prevent empty labels
+        mathScores = [null]; // Empty dataset
+        readingScores = [null];
+        totalScores = [null];
     }
 
     window.scoreChart = new Chart(ctx, {
@@ -84,6 +92,7 @@ function updateScoreChart() {
             },
             plugins: {
                 legend: {
+                    display: true, // Ensure legend is always shown
                     labels: {
                         color: "black"
                     }
