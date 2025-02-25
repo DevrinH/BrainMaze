@@ -501,3 +501,19 @@ h3 {
   align-items: center; /* Align images vertically */
   justify-content: center;
 }
+/* Center the chart and make it responsive */
+#scoreChart {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Style the chart container */
+.chart-container {
+  width: 100%;
+  max-width: 700px; /* Adjust max width as needed */
+  margin: 20px auto; /* Center the graph */
+  padding: 10px;
+  background: #f9f9f9; /* Light gray background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
