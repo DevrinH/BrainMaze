@@ -303,7 +303,9 @@ margin: auto;
   flex-direction: column;
   background: transparent; /* Ensures no background */
 }
-
+.chart-container {
+  background: rgba(255, 255, 255, 0); /* Fully transparent */
+}
 
 .bar {
   display: flex;
@@ -509,18 +511,3 @@ h3 {
   max-height: 500px;
 }
 
-/* Style the chart container */
-.chart-container {
-  font-family: "Montserrat-SemiBold", sans-serif;
-  width: 100%;
-  max-width: 1200px;
-  height: 450px;
-  margin: 20px auto;
-  padding: 10px;
-  background: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
