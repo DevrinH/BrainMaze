@@ -298,8 +298,9 @@ margin: auto;
   width: 90%;
   max-width: 1200px;
   margin: 50px auto;
-  display: flex;
+  display: none;
   flex-direction: column;
+  background: transparent; /* Ensures no background */
 }
 .bar {
   display: flex;
