@@ -994,7 +994,8 @@ function showScore() {
     // Save reading score before redirecting
     localStorage.setItem("readingScore", scaledScore);
 
-    let today = new Date().toISOString().split("T")[0];
+    let today = new Date().toLocaleDateString("en-CA"); // Local timezone, formatted as YYYY-MM-DD
+
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
     scoreHistory[today] = scaledScore;
     localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));

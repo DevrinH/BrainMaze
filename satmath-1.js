@@ -731,7 +731,7 @@ function showScore() {
     let totalSATScore = readingScore + mathScore;
 
     // Store scores with date
-    let today = new Date().toISOString().split("T")[0];
+    let today = new Date().toLocaleDateString("en-CA"); // Local timezone, formatted as YYYY-MM-DD
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
     scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
 
