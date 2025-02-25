@@ -7,7 +7,7 @@ function updateScoreChart() {
     let totalScores = dates.map(date => scoreHistory[date].total);
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
-    
+
     if (window.scoreChart) {
         window.scoreChart.destroy(); // Destroy previous chart instance
     }
@@ -44,13 +44,54 @@ function updateScoreChart() {
             responsive: true,
             maintainAspectRatio: false,
             scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "Date",
+                        color: "black",
+                        font: {
+                            size: 14
+                        }
+                    },
+                    ticks: {
+                        color: "black"
+                    },
+                    grid: {
+                        display: true,
+                        color: "lightgray"
+                    }
+                },
                 y: {
+                    title: {
+                        display: true,
+                        text: "SAT Score",
+                        color: "black",
+                        font: {
+                            size: 14
+                        }
+                    },
+                    ticks: {
+                        color: "black",
+                        stepSize: 100
+                    },
                     beginAtZero: true,
-                    max: 1600
+                    suggestedMax: 1600,
+                    grid: {
+                        display: true,
+                        color: "lightgray"
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: "black"
+                    }
                 }
             }
         }
     });
 }
+
 // Ensure the chart updates on page load
 document.addEventListener("DOMContentLoaded", updateScoreChart);
