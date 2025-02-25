@@ -989,16 +989,13 @@ function showScore() {
 
     let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
     let rawScore = score;
-
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-    // Get today's date as YYYY-MM-DD
+    // Save reading score before redirecting
+    localStorage.setItem("readingScore", scaledScore);
+
     let today = new Date().toISOString().split("T")[0];
-
-    // Retrieve past scores
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-
-    // Update the latest score for today
     scoreHistory[today] = scaledScore;
     localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
@@ -1007,8 +1004,6 @@ function showScore() {
     nextButton.style.display = "block";
 
     document.getElementById("progress-bar").style.width = "100%";
-
-    // Update the graph
     updateScoreGraph();
 }
 
