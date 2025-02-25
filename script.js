@@ -984,23 +984,32 @@ function selectAnswer(e) {
 }
 
 function showScore() {
-    clearInterval(refreshIntervalId); // ✅ Stops the countdown when test is completed early
+    clearInterval(refreshIntervalId);
     resetState();
 
-    let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3); // 18 easy, 18 medium, 18 hard
+    let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
     let rawScore = score;
 
-    // Convert raw score to SAT scaled score (approximation)
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-    // Store in local storage for use in other sections
-    localStorage.setItem("readingScore", scaledScore);
+    // Get today's date as YYYY-MM-DD
+    let today = new Date().toISOString().split("T")[0];
+
+    // Retrieve past scores
+    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+
+    // Update the latest score for today
+    scoreHistory[today] = scaledScore;
+    localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
     questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
 
     document.getElementById("progress-bar").style.width = "100%";
+
+    // Update the graph
+    updateScoreGraph();
 }
 
 function handleNextButton() {
