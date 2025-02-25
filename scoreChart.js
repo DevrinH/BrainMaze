@@ -10,9 +10,9 @@ function updateScoreGraph() {
     let dates = Object.keys(scoreHistory).sort();
     let scores = dates.map(date => scoreHistory[date]);
 
-    // If there is no data, show a placeholder chart with a message
+    // If there is no data, create an empty dataset with only the axes
     if (dates.length === 0) {
-        dates = ["No Data"];
+        dates = [" "];  // Placeholder to show the X-axis
         scores = [null]; // Empty dataset
     }
 
@@ -30,22 +30,28 @@ function updateScoreGraph() {
                 borderColor: "blue",
                 backgroundColor: "rgba(0, 0, 255, 0.1)",
                 borderWidth: 2,
-                fill: true
+                fill: true,
+                pointRadius: 0, // Hide points when no data
+                borderDash: dates.length === 1 ? [5, 5] : [] // Dashed line if empty
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                x: { title: { display: true, text: "Date" } },
+                x: {
+                    title: { display: true, text: "Date" },
+                    grid: { display: true }
+                },
                 y: { 
                     title: { display: true, text: "Score" }, 
                     min: 200, 
-                    max: 800
+                    max: 800,
+                    grid: { display: true }
                 }
             },
             plugins: {
-                legend: { display: dates.length > 1 } // Hide legend if no data
+                legend: { display: false } // Hide legend if no data
             }
         }
     });
