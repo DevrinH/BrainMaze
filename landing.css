@@ -296,11 +296,12 @@ color:#1e0144
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 .chart-container {
-  width: 97%;
-  max-width: 1600px;
-  margin: 50px auto;
+  width: 100%; /* Instead of 97% */
+  max-width: 1200px; /* Reduce max-width so it doesn’t go beyond the container */
+  margin: auto; /* Centers it */
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Prevents overflow */
 }
 .bar {
   display: flex;
@@ -321,9 +322,11 @@ color:#1e0144
   flex-grow: 1;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  max-width: 100%; /* Prevents bars from exceeding container */
+  overflow: hidden; /* Hides overflowing content */
+  max-width: 100%; /* Ensures bars don’t grow past this */
+  position: relative;
 }
+
 .bar-value {
   height: 50px;
   line-height: 20px;
