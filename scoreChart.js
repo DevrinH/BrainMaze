@@ -10,10 +10,10 @@ function updateScoreGraph() {
     let dates = Object.keys(scoreHistory).sort();
     let scores = dates.map(date => scoreHistory[date]);
 
-    // Ensure the chart still shows X and Y axes even when empty
+    // Ensure chart is not empty by adding placeholder values
     if (dates.length === 0) {
-        dates = ["(No Data)"]; // Placeholder label
-        scores = [null]; // Forces Y-axis to render
+        dates = ["Example Date"]; // Placeholder label
+        scores = [400]; // Default example score to force Y-axis to render
     }
 
     if (window.scoreChartInstance) {
@@ -31,8 +31,8 @@ function updateScoreGraph() {
                 backgroundColor: "rgba(0, 0, 255, 0.1)",
                 borderWidth: 2,
                 fill: true,
-                pointRadius: 3, // Show data points when available
-                borderDash: scores.includes(null) ? [5, 5] : [] // Dashed line if empty
+                pointRadius: dates[0] === "Example Date" ? 0 : 3, // Hide points for placeholder
+                borderDash: dates[0] === "Example Date" ? [5, 5] : [] // Dashed line for placeholder
             }]
         },
         options: {
@@ -42,7 +42,7 @@ function updateScoreGraph() {
                 x: {
                     title: { display: true, text: "Date" },
                     grid: { display: true },
-                    ticks: { display: true } // Always show X-axis labels
+                    ticks: { display: true }
                 },
                 y: {
                     title: { display: true, text: "Score" },
@@ -53,8 +53,8 @@ function updateScoreGraph() {
                 }
             },
             plugins: {
-                legend: { display: true }, // Keep legend for "SAT Score Progress"
-                tooltip: { enabled: true } // Show tooltips on hover
+                legend: { display: true },
+                tooltip: { enabled: true }
             }
         }
     });
