@@ -312,6 +312,7 @@ margin: auto;
   text-align: right;
   padding-right: 10px;
   font-family: "Montserrat-SemiBold", sans-serif;
+  color: white;
   white-space: nowrap;
 }
 .bar-container {
@@ -326,6 +327,7 @@ margin: auto;
   padding-left: 5px;
   text-align: left;
   color: white;
+  font-family: "Montserrat-SemiBold", sans-serif;
   display: flex;
   align-items: center;
   justify-content: flex-start;
