@@ -8,14 +8,15 @@ function updateScoreChart() {
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
 
-    if (window.scoreChart) {
-        window.scoreChart.destroy(); // Destroy previous chart instance
+    // ✅ Fix: Check if chart exists before destroying it
+    if (window.scoreChart && typeof window.scoreChart.destroy === "function") {
+        window.scoreChart.destroy(); 
     }
 
-    // Ensure the chart shows something even if there is no data yet
+    // ✅ Fix: Ensure chart has labels even if no data exists
     if (dates.length === 0) {
-        dates = ["No Data"]; // Prevent empty labels
-        mathScores = [NaN]; // Empty dataset but ensures axis render
+        dates = ["No Data"];
+        mathScores = [NaN];
         readingScores = [NaN];
         totalScores = [NaN];
     }
@@ -57,50 +58,37 @@ function updateScoreChart() {
                         display: true,
                         text: "Date",
                         color: "black",
-                        font: {
-                            size: 14
-                        }
+                        font: { size: 14 }
                     },
-                    ticks: {
-                        color: "black"
-                    },
-                    grid: {
-                        display: true,
-                        color: "lightgray"
-                    }
+                    ticks: { color: "black" },
+                    grid: { display: true, color: "lightgray" }
                 },
                 y: {
                     title: {
                         display: true,
                         text: "SAT Score",
                         color: "black",
-                        font: {
-                            size: 14
-                        }
+                        font: { size: 14 }
                     },
                     ticks: {
                         color: "black",
                         stepSize: 100,
-                        beginAtZero: true // Move this inside ticks
+                        beginAtZero: true 
                     },
                     suggestedMax: 1600,
-                    grid: {
-                        display: true,
-                        color: "lightgray"
-                    }
+                    grid: { display: true, color: "lightgray" }
                 }
             },
             plugins: {
                 legend: {
                     display: true, // Ensure legend is always shown
-                    labels: {
-                        color: "black"
-                    }
+                    labels: { color: "black" }
                 }
             }
         }
     });
 }
 
-// Ensure the chart updates on page load
+// ✅ Fix: Ensure script runs after page loads
 document.addEventListener("DOMContentLoaded", updateScoreChart);
+
