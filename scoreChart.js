@@ -1,3 +1,7 @@
+window.onload = function () {
+    updateScoreGraph();
+};
+
 function updateScoreGraph() {
     let canvas = document.getElementById("scoreChart");
     if (!canvas) {
@@ -10,7 +14,7 @@ function updateScoreGraph() {
     let dates = Object.keys(scoreHistory).sort();
     let scores = dates.map(date => scoreHistory[date]);
 
-    // Ensure chart is not empty by adding placeholder values
+    // Ensure the chart is not empty by adding placeholder values
     if (dates.length === 0) {
         dates = ["Example Date"]; // Placeholder label
         scores = [400]; // Default example score to force Y-axis to render
