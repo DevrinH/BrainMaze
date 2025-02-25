@@ -10,10 +10,10 @@ function updateScoreGraph() {
     let dates = Object.keys(scoreHistory).sort();
     let scores = dates.map(date => scoreHistory[date]);
 
-    // If there is no data, create an empty dataset with only the axes
+    // Ensure the chart still shows X and Y axes even when empty
     if (dates.length === 0) {
-        dates = [" "];  // Placeholder to show the X-axis
-        scores = [null]; // Empty dataset
+        dates = ["(No Data)"]; // Placeholder label
+        scores = [null]; // Forces Y-axis to render
     }
 
     if (window.scoreChartInstance) {
@@ -31,8 +31,8 @@ function updateScoreGraph() {
                 backgroundColor: "rgba(0, 0, 255, 0.1)",
                 borderWidth: 2,
                 fill: true,
-                pointRadius: 0, // Hide points when no data
-                borderDash: dates.length === 1 ? [5, 5] : [] // Dashed line if empty
+                pointRadius: 3, // Show data points when available
+                borderDash: scores.includes(null) ? [5, 5] : [] // Dashed line if empty
             }]
         },
         options: {
@@ -41,17 +41,20 @@ function updateScoreGraph() {
             scales: {
                 x: {
                     title: { display: true, text: "Date" },
-                    grid: { display: true }
+                    grid: { display: true },
+                    ticks: { display: true } // Always show X-axis labels
                 },
-                y: { 
-                    title: { display: true, text: "Score" }, 
-                    min: 200, 
+                y: {
+                    title: { display: true, text: "Score" },
+                    min: 200,
                     max: 800,
-                    grid: { display: true }
+                    grid: { display: true },
+                    ticks: { display: true }
                 }
             },
             plugins: {
-                legend: { display: false } // Hide legend if no data
+                legend: { display: true }, // Keep legend for "SAT Score Progress"
+                tooltip: { enabled: true } // Show tooltips on hover
             }
         }
     });
