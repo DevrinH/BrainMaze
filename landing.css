@@ -296,15 +296,14 @@ margin: auto;
 }
 .chart-container {
   width: 90%;
+  background-color: #0056b3;
   max-width: 1200px;
   margin: 50px auto;
   display: none;
   flex-direction: column;
   background: transparent; /* Ensures no background */
 }
-.chart-container {
-  background: rgba(255, 255, 255, 0); /* Fully transparent */
-}
+
 
 .bar {
   display: flex;
