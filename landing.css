@@ -295,11 +295,11 @@ box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rg
 margin: auto;
 }
 .chart-container {
-  width: 97%;
-  max-width: 1600px;
+  width: 90%;
+  max-width: 1200px;
   margin: 50px auto;
-  display: none;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .bar {
   display: flex;
@@ -312,9 +312,7 @@ margin: auto;
   text-align: right;
   padding-right: 10px;
   font-family: "Montserrat-SemiBold", sans-serif;
-  color: #ffffff;
   white-space: nowrap;
-  font-size: clamp(14px, 2vw, 18px); /* Adjust between 12px and 18px based on viewport width */
 }
 .bar-container {
   flex-grow: 1;
@@ -323,11 +321,10 @@ margin: auto;
   overflow: hidden;
 }
 .bar-value {
-  height: 50px;
+  height: 20px;
   line-height: 20px;
   padding-left: 5px;
   text-align: left;
-  font-family: "Montserrat-SemiBold", sans-serif;
   color: white;
   display: flex;
   align-items: center;
@@ -335,8 +332,6 @@ margin: auto;
   min-width: 50px;
   width: 0;
   transition: width 5s linear;
-  border-radius: 12px; /* Adjust the value for more or less rounding */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
 }
 .red { background-image: linear-gradient(to right,#c31432, #ff4e50 ); } 
 .yellow { background-image: linear-gradient(to right,#fc4a1a, #f7b733 ); } 
