@@ -40,21 +40,21 @@ function updateScoreChart() {
                     data: mathScores,
                     borderColor: "blue",
                     backgroundColor: "rgba(0, 0, 255, 0.2)",
-                    fill: true
+                    fill: false
                 },
                 {
                     label: "Reading & Writing Score",
                     data: readingScores,
                     borderColor: "green",
                     backgroundColor: "rgba(0, 255, 0, 0.2)",
-                    fill: true
+                    fill: false
                 },
                 {
                     label: "Total Score",
                     data: totalScores,
                     borderColor: "red",
                     backgroundColor: "rgba(255, 0, 0, 0.2)",
-                    fill: true
+                    fill: false
                 }
             ]
         },
