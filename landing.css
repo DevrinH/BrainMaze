@@ -236,26 +236,18 @@ color:#1e0144
 
 }
 .exam-button-small {
-
-  background: white;
-
-  border: 2px solid #ddd;
-
-  color: #333;
-
-  font-size: 18px;
-
-  font-weight: bold;
-
-  padding: 8px 16px;
-
-  border-radius: 12px;
-
-  cursor: pointer;
-
-  transition: all 0.3s ease-in-out;
-
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+background: white;
+border: 2px solid #ddd;
+color: #333;
+font-size: 18px;
+font-weight: bold;
+padding: 8px 16px;
+border-radius: 12px;
+cursor: pointer;
+transition: all 0.3s ease-in-out;
+box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+margin-top: 6px;
+margin-bottom: 6px;
 
 }
 
