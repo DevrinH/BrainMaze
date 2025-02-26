@@ -132,23 +132,46 @@
 <div class="left-container">
 <script>
     function updateLastScoreChart() {
-        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    
-        // Get the latest date from history
-        let dates = Object.keys(scoreHistory).sort();
-        let lastDate = dates[dates.length - 1]; // Get the most recent date
-    
-        let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
-        let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
-        let lastTotal = lastMath + lastReading; // Sum of last recorded scores
-    
-        let ctx = document.getElementById("lastScoreChart").getContext("2d");
-    
-        // ✅ Fix: Check if chart exists before destroying it
-        if (window.lastScoreChart && typeof window.lastScoreChart.destroy === "function") {
-            window.lastScoreChart.destroy(); 
-        }
-    
+    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+
+    let dates = Object.keys(scoreHistory).sort();
+    let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+
+    let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+    let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
+    let lastTotal = lastMath + lastReading;
+
+    let ctx = document.getElementById("lastScoreChart").getContext("2d");
+
+    // ✅ Fix: Destroy previous chart if it exists
+    if (window.lastScoreChart && typeof window.lastScoreChart.destroy === "function") {
+        window.lastScoreChart.destroy();
+    }
+
+    if (lastTotal === 0) {
+        // ✅ No previous test taken → Show placeholder chart
+        window.lastScoreChart = new Chart(ctx, {
+            type: "doughnut",
+            data: {
+                labels: ["No Data"],
+                datasets: [{
+                    data: [1],
+                    backgroundColor: ["gray"],
+                    borderColor: ["white"],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                }
+            }
+        });
+    } else {
+        // ✅ Show actual last test score chart
         window.lastScoreChart = new Chart(ctx, {
             type: "doughnut",
             data: {
@@ -156,7 +179,7 @@
                 datasets: [{
                     data: [lastMath, lastReading],
                     backgroundColor: ["blue", "green"],
-                    borderColor: ["white", "white"],
+                    borderColor: ["white"],
                     borderWidth: 2
                 }]
             },
@@ -174,9 +197,11 @@
             }
         });
     }
-    
-    // ✅ Ensure script runs after page loads
-    document.addEventListener("DOMContentLoaded", updateLastScoreChart);
+}
+
+// ✅ Ensure script runs after page loads
+document.addEventListener("DOMContentLoaded", updateLastScoreChart);
+
     </script>
 </div>    
 
