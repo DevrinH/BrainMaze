@@ -522,17 +522,18 @@ h3 {
   flex: 1; 
   min-width: 300px;
   max-width: 900px;
+  padding: 20px;
   margin: 0; /* Remove extra margin */
-  
+  padding: 20px 0; /* Add padding instead */
   display: block;
-
+width: 96%;
 
 
 
 margin-bottom: 1px;  
 padding-bottom: 10px;
 margin: 50px auto 0;
-
+margin-bottom: 10px;
 padding-left: 10px;
 padding-right: 10px;
 }
