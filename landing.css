@@ -567,6 +567,8 @@ padding-right: 10px;
     font-style: "Montserrat-ExtraBold";
     height: max-content;
     color: #000000;
+    margin-top: 3px;
+    margin-bottom: 3px;
     }
  .pbungee{
       font-family: "Montserrat-SemiBold";
