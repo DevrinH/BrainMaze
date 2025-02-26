@@ -9,6 +9,13 @@
   }
 
 
+
+  @font-face {
+    font-family: "Montserrat-ExtraBold";
+    src: url(Montserrat-ExtraBold.ttf);
+  
+    
+  }
 body {
     margin: 0;
     padding: 0;
