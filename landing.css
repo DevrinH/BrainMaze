@@ -522,12 +522,17 @@ h3 {
   flex: 1; 
   min-width: 300px;
   max-width: 900px;
-  padding: 20px;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column; /* Ensures internal elements stack properly */
-  align-items: center; /* Centers content */
-  overflow: hidden; 
+  margin: 0; /* Remove extra margin */
+  
+  display: block;
+
+
+
+
+margin-bottom: 1px;  
+padding-bottom: 10px;
+margin: 50px auto 0;
+
 padding-left: 10px;
 padding-right: 10px;
 }
