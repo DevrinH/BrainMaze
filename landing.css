@@ -515,22 +515,25 @@ h3 {
 }
 
 .testlessonscontainer{
+  min-height: 500px; 
+  background-color: rgb(255, 249, 249);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex: 1; 
+  min-width: 300px;
+  max-width: 900px;
+  padding: 20px;
   margin: 0; /* Remove extra margin */
   padding: 20px 0; /* Add padding instead */
   display: block;
-width: 96%;
-max-width: 800px;
-background-color: white;
-border-radius: 15px;
-padding-top: 10px;
-border-width: 5px;
-border-color: #000000;
-padding-bottom: 30px;
-box-shadow: 4px 4px #000000; 
+
+
+
+
 margin-bottom: 1px;  
 padding-bottom: 10px;
 margin: 50px auto 0;
-margin-bottom: 10px;
+
 padding-left: 10px;
 padding-right: 10px;
 }
