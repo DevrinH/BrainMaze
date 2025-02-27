@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 {
                     label: "Math",
                     data: [lastMath],
-                    backgroundColor: "#9b59b6", // Purple
+                    backgroundColor: "#3498db", // Blue
                     stack: "total"
                 },
                 {
@@ -207,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 x: {
                     stacked: true,
                     max: maxScore,
+                    ticks: { stepSize: 400 },
                     display: false // Hide x-axis grid
                 },
                 y: {
@@ -222,19 +223,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     align: "center",
                     color: "white",
                     font: { size: 14, weight: "bold" },
-                    formatter: (value, context) => {
-                        if (value > 0) {
-                            let labels = ["Reading/Writing", "Math", "Missed"];
-                            return `${value} ${labels[context.dataIndex]}`;
-                        }
-                        return "";
-                    }
+                    formatter: (value) => (value > 0 ? value : "")
                 }
             }
         },
         plugins: [ChartDataLabels]
     });
 });
+</script>
+
+<style>
+.chart-container-bar {
+    width: 50%; /* Only half of the screen width */
+    max-width: 600px;
+    height: 50px; /* Thinner bar */
+    margin: auto;
+}
     </script>
 
 
