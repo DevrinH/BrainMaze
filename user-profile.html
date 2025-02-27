@@ -142,12 +142,8 @@
 </div>
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("lastScoreBarChart");
-    const mathScoreText = document.getElementById("mathScore");
-    const readingScoreText = document.getElementById("readingScore");
-    const missedScoreText = document.getElementById("missedScore");
 
     if (!canvas) {
         console.error("Last Score Bar Chart element not found!");
@@ -172,11 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const maxScore = 1600;
     const unfilledScore = maxScore - lastTotal; // Remaining portion
 
-    // Update section scores inside the bar
-    mathScoreText.textContent = lastMath;
-    readingScoreText.textContent = lastReading;
-    missedScoreText.textContent = unfilledScore;
-
     // Destroy previous chart if it exists
     if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
         window.lastScoreBarChart.destroy();
@@ -192,22 +183,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     label: "Reading/Writing",
                     data: [lastReading],
                     backgroundColor: "#2ecc71", // Green
-                    stack: "total",
-                    borderRadius: 12
+                    stack: "total"
                 },
                 {
                     label: "Math",
                     data: [lastMath],
                     backgroundColor: "#9b59b6", // Purple
-                    stack: "total",
-                    borderRadius: 12
+                    stack: "total"
                 },
                 {
                     label: "Missed",
                     data: [unfilledScore],
                     backgroundColor: "#d3d3d3", // Gray
-                    stack: "total",
-                    borderRadius: 12
+                    stack: "total"
                 }
             ]
         },
@@ -228,9 +216,23 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             plugins: {
                 legend: { display: false }, // Hide legend
-                tooltip: { enabled: true }
+                tooltip: { enabled: true },
+                datalabels: {
+                    anchor: "center",
+                    align: "center",
+                    color: "white",
+                    font: { size: 14, weight: "bold" },
+                    formatter: (value, context) => {
+                        if (value > 0) {
+                            let labels = ["Reading/Writing", "Math", "Missed"];
+                            return `${value} ${labels[context.dataIndex]}`;
+                        }
+                        return "";
+                    }
+                }
             }
-        }
+        },
+        plugins: [ChartDataLabels]
     });
 });
     </script>
