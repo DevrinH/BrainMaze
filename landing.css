@@ -583,7 +583,7 @@ padding-right: 10px;
   }
   .donut-size {
     width: 100%;
-    max-width: 800px;
+    max-width: 400px;
     height: auto;
     display: flex;
     justify-content: center; /* ✅ Keeps the chart centered */
