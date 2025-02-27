@@ -584,6 +584,7 @@ padding-right: 10px;
 
   .chart-container-bar {
     width: 100%;
-    max-width: 700px;
+    max-width: 800px;
+    height: 80px; /* Controls bar height */
     margin: auto;
 }
