@@ -207,23 +207,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 x: {
                     stacked: true,
                     max: maxScore,
-                    ticks: {
-                        stepSize: 400
-                    }
+                    ticks: { stepSize: 400 },
+                    display: false // Hide x-axis grid
                 },
                 y: {
                     stacked: true,
-                    display: false
+                    display: false // Hide y-axis
                 }
             },
             plugins: {
-                legend: { display: false },
+                legend: { display: false }, // Hide legend
                 tooltip: { enabled: true },
                 datalabels: {
                     anchor: "center",
                     align: "center",
                     color: "white",
-                    font: { size: 18, weight: "bold" },
+                    font: { size: 14, weight: "bold" },
                     formatter: (value) => (value > 0 ? value : "")
                 }
             }
