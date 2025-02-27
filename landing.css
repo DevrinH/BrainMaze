@@ -592,7 +592,7 @@ padding-right: 10px;
 /* Smaller screens (mobile) */
 @media (max-width: 600px) {
     #lastScoreChart {
-        max-width: 200px;
+        max-width: 400px;
     }
 }
 
