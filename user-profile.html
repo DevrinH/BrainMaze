@@ -183,19 +183,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     label: "Reading/Writing",
                     data: [lastReading],
                     backgroundColor: "#2ecc71", // Green
-                    stack: "total"
+                    stack: "total",
+                    borderRadius: 12 // Rounded corners for individual sections
                 },
                 {
                     label: "Math",
                     data: [lastMath],
-                    backgroundColor: "#3498db", // Blue
-                    stack: "total"
+                    backgroundColor: "#9b59b6", // Purple
+                    stack: "total",
+                    borderRadius: 12
                 },
                 {
                     label: "Missed",
                     data: [unfilledScore],
                     backgroundColor: "#d3d3d3", // Gray
-                    stack: "total"
+                    stack: "total",
+                    borderRadius: 12
                 }
             ]
         },
@@ -207,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 x: {
                     stacked: true,
                     max: maxScore,
-                    ticks: { stepSize: 400 },
                     display: false // Hide x-axis grid
                 },
                 y: {
@@ -223,7 +225,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     align: "center",
                     color: "white",
                     font: { size: 14, weight: "bold" },
-                    formatter: (value) => (value > 0 ? value : "")
+                    formatter: (value, context) => {
+                        if (value > 0) {
+                            let labels = ["Reading/Writing", "Math", "Missed"];
+                            return `${value} ${labels[context.dataIndex]}`;
+                        }
+                        return "";
+                    }
                 }
             }
         },
