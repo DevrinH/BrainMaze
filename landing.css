@@ -583,7 +583,7 @@ padding-right: 10px;
   }
   .donut-size {
     width: 100%;
-    max-width: 400px;
+   
     height: auto;
     display: flex;
     justify-content: center;
@@ -592,8 +592,4 @@ padding-right: 10px;
     position: relative;
 }
 
-canvas {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
+
