@@ -212,14 +212,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         stepSize: 400
                     },
                     grid: {
-                        display: false // Remove x-axis grid lines
+                        display: false,
+                        drawBorder: false,
+                        drawOnChartArea: false
                     }
                 },
                 y: {
                     stacked: true,
                     display: false,
                     grid: {
-                        display: false // Remove y-axis grid lines
+                        display: false,
+                        drawBorder: false,
+                        drawOnChartArea: false
                     }
                 }
             },
@@ -238,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
         plugins: [ChartDataLabels]
     });
 });
+
 
     </script>
 
