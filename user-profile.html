@@ -24,9 +24,12 @@
         </div> 
     </header>
 <h1 class="title">Progress</h1>
+
 <div class="chart-container-bar">
     <canvas id="lastScoreBarChart"></canvas>
 </div>
+
+
 
     <div class="chart-container">
         <canvas id="scoreChart"></canvas>
@@ -174,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.lastScoreBarChart = new Chart(ctx, {
         type: "bar",
         data: {
-            labels: [""], // Empty label to create a single bar
+            labels: [""], // Single bar
             datasets: [
                 {
                     label: "Reading/Writing",
@@ -199,20 +202,33 @@ document.addEventListener("DOMContentLoaded", function () {
         options: {
             indexAxis: "y", // Horizontal bar
             responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 x: {
-                    beginAtZero: true,
+                    stacked: true,
                     max: maxScore,
                     ticks: {
-                        stepSize: 200
+                        stepSize: 400
                     }
+                },
+                y: {
+                    stacked: true,
+                    display: false
                 }
             },
             plugins: {
-                legend: { display: true },
-                tooltip: { enabled: true }
+                legend: { display: false },
+                tooltip: { enabled: true },
+                datalabels: {
+                    anchor: "center",
+                    align: "center",
+                    color: "white",
+                    font: { size: 18, weight: "bold" },
+                    formatter: (value) => (value > 0 ? value : "")
+                }
             }
-        }
+        },
+        plugins: [ChartDataLabels]
     });
 });
     </script>
