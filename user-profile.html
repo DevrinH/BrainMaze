@@ -24,7 +24,9 @@
         </div> 
     </header>
 <h1 class="title">Progress</h1>
-
+<div class="chart-container-bar">
+    <canvas id="lastScoreBarChart"></canvas>
+</div>
 
     <div class="chart-container">
         <canvas id="scoreChart"></canvas>
@@ -137,65 +139,82 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const canvas = document.getElementById("lastScoreBarChart");
-    
-        if (!canvas) {
-            console.error("Last Score Bar Chart element not found!");
-            return;
-        }
-    
-        const ctx = canvas.getContext("2d");
-    
-        if (!ctx) {
-            console.error("Failed to get 2D context for Last Score Bar Chart!");
-            return;
-        }
-    
-        // Retrieve the last test score from localStorage
-        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-        let dates = Object.keys(scoreHistory).sort();
-        let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
-    
-        let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
-        let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
-        let lastTotal = lastMath + lastReading;
-        const maxScore = 1600;
-        const unfilledScore = maxScore - lastTotal; // Remaining portion
-    
-        // Destroy previous chart if it exists
-        if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
-            window.lastScoreBarChart.destroy();
-        }
-    
-        // Create the new Last Score Bar Chart
-        window.lastScoreBarChart = new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: ["Reading/Writing", "Math", "Missed"],
-                datasets: [{
-                    label: "Score Breakdown",
-                    data: [lastReading, lastMath, unfilledScore],
-                    backgroundColor: ["#2ecc71", "#3498db", "#d3d3d3"],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                indexAxis: 'y', // Makes it horizontal
-                responsive: true,
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        max: maxScore
-                    }
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("lastScoreBarChart");
+
+    if (!canvas) {
+        console.error("Last Score Bar Chart element not found!");
+        return;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) {
+        console.error("Failed to get 2D context for Last Score Bar Chart!");
+        return;
+    }
+
+    // Retrieve the last test score from localStorage
+    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+    let dates = Object.keys(scoreHistory).sort();
+    let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+
+    let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+    let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
+    let lastTotal = lastMath + lastReading;
+    const maxScore = 1600;
+    const unfilledScore = maxScore - lastTotal; // Remaining portion
+
+    // Destroy previous chart if it exists
+    if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
+        window.lastScoreBarChart.destroy();
+    }
+
+    // Create the new Last Score Single Bar Chart
+    window.lastScoreBarChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [""], // Empty label to create a single bar
+            datasets: [
+                {
+                    label: "Reading/Writing",
+                    data: [lastReading],
+                    backgroundColor: "#2ecc71", // Green
+                    stack: "total"
                 },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: { enabled: true }
+                {
+                    label: "Math",
+                    data: [lastMath],
+                    backgroundColor: "#3498db", // Blue
+                    stack: "total"
+                },
+                {
+                    label: "Missed",
+                    data: [unfilledScore],
+                    backgroundColor: "#d3d3d3", // Gray
+                    stack: "total"
                 }
+            ]
+        },
+        options: {
+            indexAxis: "y", // Horizontal bar
+            responsive: true,
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    max: maxScore,
+                    ticks: {
+                        stepSize: 200
+                    }
+                }
+            },
+            plugins: {
+                legend: { display: true },
+                tooltip: { enabled: true }
             }
-        });
+        }
     });
+});
     </script>
 
 
