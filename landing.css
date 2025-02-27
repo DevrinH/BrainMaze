@@ -582,7 +582,7 @@ padding-right: 10px;
 
   }
   .chart-container-bar {
-    width: 50%; /* Only half of the screen width */
+    width: 60%; /* Only half of the screen width */
     max-width: 600px;
     height: 50px; /* Thinner bar */
     margin: auto;
