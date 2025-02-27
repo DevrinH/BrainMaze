@@ -140,10 +140,9 @@
     </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const chartText = document.getElementById("chartText");
-    chartText.textContent = lastTotal; // Update with actual score
-});
+    document.addEventListener("DOMContentLoaded", function () {
+        const canvas = document.getElementById("lastScoreChart");
+        const chartText = document.getElementById("chartText");
 
         if (!canvas) {
             console.error("Last Score Canvas element not found!");
