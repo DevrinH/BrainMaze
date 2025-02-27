@@ -586,15 +586,14 @@ padding-right: 10px;
     max-width: 400px;
     height: auto;
     display: flex;
-    justify-content: center; /* ✅ Keeps the chart centered */
+    justify-content: center;
     align-items: center;
     margin: auto;
     position: relative;
-  }
-  
-  canvas {
+}
+
+canvas {
     display: block;
     max-width: 100%;
     height: auto;
-  }
-  
+}
