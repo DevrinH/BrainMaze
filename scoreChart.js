@@ -74,32 +74,29 @@ function updateScoreChart() {
                         display: true,
                         text: "Date",
                         color: "black",
-                        font: { size: 14 }
+                        font: { size: 16, weight: "bold" } // ✅ Bold and bigger axis title
                     },
                     ticks: {
                         color: "black",
-                        autoSkip: false,
-                        maxTicksLimit: 10,
-                        callback: function (value, index, values) {
-                            return limitedDates.includes(this.getLabelForValue(value)) ? this.getLabelForValue(value) : "";
-                        }
+                        font: { size: 14, weight: "bold" } // ✅ Bold tick labels
                     },
-                    grid: { display: false } // ❌ Removes grid lines on X-axis
+                    grid: { display: false },
+                    border: { color: "black", width: 2 } // ✅ Thicker axis line
                 },
                 y: {
                     title: {
                         display: true,
                         text: "SAT Score",
                         color: "black",
-                        font: { size: 14 }
+                        font: { size: 16, weight: "bold" } // ✅ Bold and bigger axis title
                     },
                     ticks: {
                         color: "black",
-                        stepSize: 100,
-                        beginAtZero: true
+                        font: { size: 14, weight: "bold" } // ✅ Bold tick labels
                     },
                     max: 1600,
-                    grid: { display: false } // ❌ Removes grid lines on Y-axis
+                    grid: { display: false },
+                    border: { color: "black", width: 2 } // ✅ Thicker axis line
                 }
             }
             ,
