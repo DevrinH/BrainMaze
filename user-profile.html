@@ -222,25 +222,26 @@
                 plugins: [{
     id: "centerText",
     beforeDraw: function (chart) {
-        let { width, height, ctx } = chart;
+        let { ctx, chartArea } = chart;
+
+        if (!chartArea) {
+            return; // Prevent errors on first load
+        }
+
         let text = lastTotal.toString();
 
-        ctx.restore();
+        // ✅ Use chart area to dynamically adjust positioning
+        let centerX = (chartArea.left + chartArea.right) / 2;
+        let centerY = (chartArea.top + chartArea.bottom) / 2;
 
-        // ✅ Use canvas offset width & height to correctly position the text
-        let canvas = chart.canvas;
-        let centerX = canvas.offsetWidth / 2;
-        let centerY = canvas.offsetHeight / 2;
-
-        // ✅ Adjust font size dynamically for smaller screens
-        let fontSize = Math.max(Math.min(canvas.offsetWidth, canvas.offsetHeight) * 0.2, 16);
+        // ✅ Adjust font size dynamically based on chart size
+        let fontSize = Math.max(Math.min(chart.width * 0.12, chart.height * 0.12), 16);
         ctx.font = `${fontSize}px sans-serif`;
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
         ctx.fillStyle = "black";
 
-        ctx.fillText(text, centerX, centerY); // ✅ Ensures text is centered
-        ctx.save();
+        ctx.fillText(text, centerX, centerY);
     }
 }]
 
