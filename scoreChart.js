@@ -84,7 +84,7 @@ function updateScoreChart() {
                             return limitedDates.includes(this.getLabelForValue(value)) ? this.getLabelForValue(value) : "";
                         }
                     },
-                    grid: { display: true, color: "lightgray" }
+                    grid: { display: false } // ❌ Removes grid lines on X-axis
                 },
                 y: {
                     title: {
@@ -99,9 +99,10 @@ function updateScoreChart() {
                         beginAtZero: true
                     },
                     max: 1600,
-                    grid: { display: true, color: "lightgray" }
+                    grid: { display: false } // ❌ Removes grid lines on Y-axis
                 }
-            },
+            }
+            ,
             plugins: {
                 legend: {
                     display: true,
