@@ -135,123 +135,112 @@
     <br/>
     <canvas id="lastScoreChart"></canvas>
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const canvas = document.getElementById("lastScoreChart");
-
-    if (!canvas) {
-        console.error("Last Score Canvas element not found!");
-        return;
-    }
-
-    const ctx = canvas.getContext("2d");
-
-    if (!ctx) {
-        console.error("Failed to get 2D context for Last Score chart!");
-        return;
-    }
-
-    // Register Chart.js plugin
-    Chart.register(ChartDataLabels);
-
-    // Function to create gradient colors
-    function createGradient(ctx, color1, color2) {
-        let gradient = ctx.createLinearGradient(0, 0, 0, 300);
-        gradient.addColorStop(0, color1);
-        gradient.addColorStop(1, color2);
-        return gradient;
-    }
-
-    // Retrieve the last test score from localStorage
-    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    let dates = Object.keys(scoreHistory).sort();
-    let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
-
-    let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
-    let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
-    let lastTotal = lastMath + lastReading;
-    const maxScore = 1600;
-    const unfilledScore = maxScore - lastTotal; // Remaining portion
-
-    // Define gradient colors
-    const gradientMath = createGradient(ctx, "#3498db", "#1f77d0");
-    const gradientReading = createGradient(ctx, "#2ecc71", "#23a859");
-    const gradientUnfilled = createGradient(ctx, "#d3d3d3", "#bfbfbf");
-
-    // ✅ Define the plugin before using it
-    const centerTextPlugin = {
-        id: "centerText",
-        afterDraw: function (chart) { // ✅ Ensures text is drawn on top
-            let ctx = chart.ctx;
-            let chartArea = chart.chartArea;
-
-            // Get chart dimensions
-            let centerX = (chartArea.left + chartArea.right) / 2;
-            let centerY = (chartArea.top + chartArea.bottom) / 2;
-
-            ctx.save();
-            ctx.textAlign = "center"; // ✅ Horizontally center text
-            ctx.textBaseline = "middle"; // ✅ Vertically center text
-
-            // ✅ Improved font scaling
-            let fontSize = Math.min(chart.width, chart.height) * 0.18;
-            ctx.font = `${fontSize}px sans-serif`;
-
-            let text = lastTotal.toString();
-
-            ctx.fillStyle = "black"; // ✅ Ensure text is visible
-            ctx.fillText(text, centerX, centerY);
-            ctx.restore();
-        }
-    };
-
-    // ✅ Register the plugin
-    Chart.register(centerTextPlugin);
-
-    // Destroy previous chart if it exists
-    if (window.lastScoreChart && typeof window.lastScoreChart.destroy === "function") {
-        window.lastScoreChart.destroy();
-    }
-
-    // Create the new Last Score Donut Chart
-    window.lastScoreChart = new Chart(ctx, {
-        type: "doughnut",
-        data: {
-            labels: ["Math", "Reading/Writing", "Missed"],
-            datasets: [{
-                data: [lastMath, lastReading, unfilledScore], // Unfilled fills the rest
-                backgroundColor: [gradientMath, gradientReading, gradientUnfilled],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            cutout: "75%", // Creates the hole in the middle
-            rotation: 17.5, // Ensures Math & Reading/Writing start at the bottom center
-            circumference: 360, // Full donut is drawn
-            plugins: {
-                legend: {
-                    display: true, // ✅ Show the legend
-                    position: "bottom",
-                    labels: {
-                        color: "black",
-                        font: { size: 14 }
-                    }
-                },
-                datalabels: {
-                    color: "white",
-                    font: { size: 16, weight: "bold" },
-                    formatter: (value, context) => {
-                        if (context.dataIndex === 2) return ""; // Hide "Missed" section label
-                        return value; // Display scores
-                    }
-                },
-                tooltip: { enabled: true }
+        document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById("lastScoreChart");
+    
+            if (!canvas) {
+                console.error("Last Score Canvas element not found!");
+                return;
             }
-        },
-        plugins: [centerTextPlugin] // ✅ Use the registered plugin
-    });
-});
-
-    </script>
+    
+            const ctx = canvas.getContext("2d");
+    
+            if (!ctx) {
+                console.error("Failed to get 2D context for Last Score chart!");
+                return;
+            }
+    
+            // Register Chart.js plugin
+            Chart.register(ChartDataLabels);
+    
+            // Function to create gradient colors
+            function createGradient(ctx, color1, color2) {
+                let gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                gradient.addColorStop(0, color1);
+                gradient.addColorStop(1, color2);
+                return gradient;
+            }
+    
+            // Retrieve the last test score from localStorage
+            let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+            let dates = Object.keys(scoreHistory).sort();
+            let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+    
+            let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+            let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
+            let lastTotal = lastMath + lastReading;
+            const maxScore = 1600;
+            const unfilledScore = maxScore - lastTotal; // Remaining portion
+    
+            // Define gradient colors
+            const gradientMath = createGradient(ctx, "#3498db", "#1f77d0");
+            const gradientReading = createGradient(ctx, "#2ecc71", "#23a859");
+            const gradientUnfilled = createGradient(ctx, "#d3d3d3", "#bfbfbf");
+    
+            // Destroy previous chart if it exists
+            if (window.lastScoreChart && typeof window.lastScoreChart.destroy === "function") {
+                window.lastScoreChart.destroy();
+            }
+    
+            // Create the new Last Score Donut Chart
+            window.lastScoreChart = new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: ["Math", "Reading/Writing", "Missed"],
+                    datasets: [{
+                        data: [lastMath, lastReading, unfilledScore], // Unfilled fills the rest
+                        backgroundColor: [gradientMath, gradientReading, gradientUnfilled],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    cutout: "75%", // Creates the hole in the middle
+                    rotation: 106, // Ensures Math & Reading/Writing start at the bottom center
+                    circumference: 360, // Full donut is drawn
+                    plugins: {
+                        legend: {
+                            display: true, // ✅ Show the legend
+                            position: "bottom",
+                            labels: {
+                                color: "black",
+                                font: { size: 14 }
+                            }
+                        },
+                        datalabels: {
+                            color: "white",
+                            font: { size: 16, weight: "bold" },
+                            formatter: (value, context) => {
+                                if (context.dataIndex === 2) return ""; // Hide "Missed" section label
+                                return value; // Display scores
+                            }
+                        },
+                        tooltip: { enabled: true }
+                    }
+                },
+                plugins: [{
+                    id: "centerText",
+                    beforeDraw: function (chart) {
+                        let width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+    
+                        ctx.restore();
+                        let fontSize = (height / 100).toFixed(2);
+                        ctx.font = fontSize + "em sans-serif";
+                        ctx.textBaseline = "middle";
+    
+                        let text = lastTotal.toString(),
+                            textX = Math.round((width - ctx.measureText(text).width) / 2),
+                            textY = height / 2;
+    
+                        ctx.fillStyle = "black";
+                        ctx.fillText(text, textX, textY);
+                        ctx.save();
+                    }
+                }]
+            });
+        });
+        </script>
 </div>    
 
 </div>
