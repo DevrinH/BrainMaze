@@ -181,17 +181,18 @@ document.addEventListener("DOMContentLoaded", function () {
             labels: [""], // Single bar
             datasets: [
                 {
-                    label: "Reading/Writing",
-                    data: [lastReading],
-                    backgroundColor: "#2ecc71", // Green
-                    stack: "total"
-                },
-                {
                     label: "Math",
                     data: [lastMath],
                     backgroundColor: "#7e009e", // purple
                     stack: "total"
                 },
+                {
+                    label: "Reading/Writing",
+                    data: [lastReading],
+                    backgroundColor: "#2ecc71", // Green
+                    stack: "total"
+                },
+
                 {
                     label: "Missed",
                     data: [unfilledScore],
