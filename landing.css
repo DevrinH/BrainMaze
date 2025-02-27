@@ -583,13 +583,21 @@ padding-right: 10px;
   }
 
   .chart-container-bar {
-    width: 50%; /* Only half of the screen width */
+    width: 50vw; /* Dynamically adjusts to 50% of viewport width */
     max-width: 600px;
-    height: 50px; /* Thinner bar */
+    min-width: 300px;
+    height: 40px; /* Thinner bar */
     margin: auto;
-    border-radius: 12px; /* Rounded edges for entire chart */
+    border-radius: 12px; /* Rounded edges */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    overflow: hidden; /* Ensures rounded corners apply properly */
-    background: white; /* Optional: Ensures a clean background */
+    overflow: hidden; /* Ensures rounded corners apply */
+    background: white; /* Optional: Clean background */
     padding: 5px; /* Prevents cut-off edges */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .chart-container-bar {
+        width: 80vw; /* Make the bar take up 80% of screen width on smaller screens */
+    }
 }

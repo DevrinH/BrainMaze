@@ -224,11 +224,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     anchor: "center",
                     align: "center",
                     color: "white",
-                    font: { size: 14, weight: "bold" },
+                    font: (context) => {
+                        let width = context.chart.width;
+                        return { size: width < 500 ? 10 : 14, weight: "bold" }; // Adjust font size for smaller screens
+                    },
                     formatter: (value, context) => {
                         if (value > 0) {
                             let labels = ["Reading/Writing", "Math", "Missed"];
-                            return `${value} ${labels[context.dataIndex]}`;
+                            return `${labels[context.dataIndex]}: ${value}`;
                         }
                         return "";
                     }
