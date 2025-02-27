@@ -142,8 +142,12 @@
 </div>
 
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("lastScoreBarChart");
+    const mathScoreText = document.getElementById("mathScore");
+    const readingScoreText = document.getElementById("readingScore");
+    const missedScoreText = document.getElementById("missedScore");
 
     if (!canvas) {
         console.error("Last Score Bar Chart element not found!");
@@ -168,6 +172,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const maxScore = 1600;
     const unfilledScore = maxScore - lastTotal; // Remaining portion
 
+    // Update section scores inside the bar
+    mathScoreText.textContent = lastMath;
+    readingScoreText.textContent = lastReading;
+    missedScoreText.textContent = unfilledScore;
+
     // Destroy previous chart if it exists
     if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
         window.lastScoreBarChart.destroy();
@@ -183,19 +192,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     label: "Reading/Writing",
                     data: [lastReading],
                     backgroundColor: "#2ecc71", // Green
-                    stack: "total"
+                    stack: "total",
+                    borderRadius: 12
                 },
                 {
                     label: "Math",
                     data: [lastMath],
-                    backgroundColor: "#3498db", // Blue
-                    stack: "total"
+                    backgroundColor: "#9b59b6", // Purple
+                    stack: "total",
+                    borderRadius: 12
                 },
                 {
                     label: "Missed",
                     data: [unfilledScore],
                     backgroundColor: "#d3d3d3", // Gray
-                    stack: "total"
+                    stack: "total",
+                    borderRadius: 12
                 }
             ]
         },
@@ -207,7 +219,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 x: {
                     stacked: true,
                     max: maxScore,
-                    ticks: { stepSize: 400 },
                     display: false // Hide x-axis grid
                 },
                 y: {
@@ -217,28 +228,11 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             plugins: {
                 legend: { display: false }, // Hide legend
-                tooltip: { enabled: true },
-                datalabels: {
-                    anchor: "center",
-                    align: "center",
-                    color: "white",
-                    font: { size: 14, weight: "bold" },
-                    formatter: (value) => (value > 0 ? value : "")
-                }
+                tooltip: { enabled: true }
             }
-        },
-        plugins: [ChartDataLabels]
+        }
     });
 });
-</script>
-
-<style>
-.chart-container-bar {
-    width: 50%; /* Only half of the screen width */
-    max-width: 600px;
-    height: 50px; /* Thinner bar */
-    margin: auto;
-}
     </script>
 
 
