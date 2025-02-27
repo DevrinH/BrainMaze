@@ -581,12 +581,13 @@ padding-right: 10px;
     text-align: center;
 
   }
-.donut-size{
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: auto;
-  max-width: 300px; /* Default max size */
-
-
-}
+  .donut-size {
+    width: 100%;
+    max-width: 400px; /* Increase max size for larger screens */
+    height: auto;
+    display: flex;
+    justify-content: center; /* ✅ Center chart */
+    align-items: center;
+    margin: auto;
+  }
+  
