@@ -142,8 +142,12 @@
 </div>
 
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("lastScoreBarChart");
+    const mathScoreText = document.getElementById("mathScore");
+    const readingScoreText = document.getElementById("readingScore");
+    const missedScoreText = document.getElementById("missedScore");
 
     if (!canvas) {
         console.error("Last Score Bar Chart element not found!");
@@ -168,6 +172,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const maxScore = 1600;
     const unfilledScore = maxScore - lastTotal; // Remaining portion
 
+    // Update section scores inside the bar
+    mathScoreText.textContent = lastMath;
+    readingScoreText.textContent = lastReading;
+    missedScoreText.textContent = unfilledScore;
+
     // Destroy previous chart if it exists
     if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
         window.lastScoreBarChart.destroy();
@@ -184,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     data: [lastReading],
                     backgroundColor: "#2ecc71", // Green
                     stack: "total",
-                    borderRadius: 12 // Rounded corners for individual sections
+                    borderRadius: 12
                 },
                 {
                     label: "Math",
@@ -219,26 +228,9 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             plugins: {
                 legend: { display: false }, // Hide legend
-                tooltip: { enabled: true },
-                datalabels: {
-                    anchor: "center",
-                    align: "center",
-                    color: "white",
-                    font: (context) => {
-                        let width = context.chart.width;
-                        return { size: width < 500 ? 10 : 14, weight: "bold" }; // Adjust font size for smaller screens
-                    },
-                    formatter: (value, context) => {
-                        if (value > 0) {
-                            let labels = ["Reading/Writing", "Math", "Missed"];
-                            return `${labels[context.dataIndex]}: ${value}`;
-                        }
-                        return "";
-                    }
-                }
+                tooltip: { enabled: true }
             }
-        },
-        plugins: [ChartDataLabels]
+        }
     });
 });
     </script>
