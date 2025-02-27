@@ -226,19 +226,24 @@
         let text = lastTotal.toString();
 
         ctx.restore();
-        let fontSize = Math.min(width, height) * 0.2; // ✅ Scales dynamically
+
+        // ✅ Use canvas offset width & height to correctly position the text
+        let canvas = chart.canvas;
+        let centerX = canvas.offsetWidth / 2;
+        let centerY = canvas.offsetHeight / 2;
+
+        // ✅ Adjust font size dynamically for smaller screens
+        let fontSize = Math.max(Math.min(canvas.offsetWidth, canvas.offsetHeight) * 0.2, 16);
         ctx.font = `${fontSize}px sans-serif`;
         ctx.textBaseline = "middle";
         ctx.textAlign = "center";
         ctx.fillStyle = "black";
 
-        let centerX = width / 2;
-        let centerY = height / 2;
-
-        ctx.fillText(text, centerX, centerY); // ✅ Ensures text is perfectly centered
+        ctx.fillText(text, centerX, centerY); // ✅ Ensures text is centered
         ctx.save();
     }
 }]
+
             });
         });
         </script>
