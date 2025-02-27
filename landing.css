@@ -581,3 +581,11 @@ padding-right: 10px;
     text-align: center;
 
   }
+  #lastScoreChart {
+    max-width: 250px; /* Adjust width */
+    max-height: 250px; /* Adjust height */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
