@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function () {
+    updateScoreChart();
+});
+
 function updateScoreChart() {
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
 
@@ -8,9 +12,9 @@ function updateScoreChart() {
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
 
-    // ✅ Fix: Check if chart exists before destroying it
+    // ✅ Destroy previous chart if it exists
     if (window.scoreChart && typeof window.scoreChart.destroy === "function") {
-        window.scoreChart.destroy(); 
+        window.scoreChart.destroy();
     }
 
     // ✅ Fix: Ensure chart has labels even if no data exists
@@ -30,10 +34,13 @@ function updateScoreChart() {
 
     let limitedDates = getLimitedLabels(dates, 10);
 
+    // ✅ Ensure Chart.js DataLabels is registered
+    Chart.register(ChartDataLabels);
+
     window.scoreChart = new Chart(ctx, {
         type: "line",
         data: {
-            labels: dates,  // Keep full dataset
+            labels: dates, // Keep full dataset
             datasets: [
                 {
                     label: "Math Score",
@@ -72,8 +79,8 @@ function updateScoreChart() {
                     ticks: {
                         color: "black",
                         autoSkip: false,
-                        maxTicksLimit: 10, // ✅ Only show 10 labels
-                        callback: function(value, index, values) {
+                        maxTicksLimit: 10,
+                        callback: function (value, index, values) {
                             return limitedDates.includes(this.getLabelForValue(value)) ? this.getLabelForValue(value) : "";
                         }
                     },
@@ -89,7 +96,7 @@ function updateScoreChart() {
                     ticks: {
                         color: "black",
                         stepSize: 100,
-                        beginAtZero: true 
+                        beginAtZero: true
                     },
                     max: 1600,
                     grid: { display: true, color: "lightgray" }
@@ -99,9 +106,17 @@ function updateScoreChart() {
                 legend: {
                     display: true,
                     labels: { color: "black" }
+                },
+                datalabels: { // ✅ Add labels above points
+                    align: "top",
+                    anchor: "end",
+                    color: "black",
+                    font: { size: 12, weight: "bold" },
+                    formatter: (value) => (isNaN(value) ? "" : value) // Hide NaN values
                 }
             }
-        }
+        },
+        plugins: [ChartDataLabels] // ✅ Register the Data Labels plugin
     });
 }
 
