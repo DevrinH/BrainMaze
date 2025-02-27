@@ -207,7 +207,7 @@
                             }
                         },
                         datalabels: {
-                            color: "white",
+                            color: "black",
                             font: { size: 16, weight: "bold" },
                             formatter: (value, context) => {
                                 if (context.dataIndex === 2) return ""; // Hide "Missed" section label
@@ -218,23 +218,6 @@
                     }
                 },
                 plugins: [{
-                    id: "shadowEffect",
-                    beforeDraw: function (chart) {
-                        let ctx = chart.ctx;
-                        let chartArea = chart.chartArea;
-                        
-                        ctx.save();
-                        ctx.shadowColor = "rgba(0, 0, 0, 0.3)"; // Shadow color
-                        ctx.shadowBlur = 15; // Blur level
-                        ctx.shadowOffsetX = 4; // Horizontal offset
-                        ctx.shadowOffsetY = 4; // Vertical offset
-    
-                        // Redraw the background to apply the shadow
-                        ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
-                        
-                        ctx.restore();
-                    }
-                }, {
                     id: "centerText",
                     beforeDraw: function (chart) {
                         let width = chart.width,
@@ -250,14 +233,14 @@
                             textX = Math.round((width - ctx.measureText(text).width) / 2),
                             textY = height / 2;
     
-                        ctx.fillStyle = "black";
+                        ctx.fillStyle = "black"; // ✅ Keeps text black for readability
                         ctx.fillText(text, textX, textY);
                         ctx.save();
                     }
                 }]
             });
         });
-        </script>
+    </script>
 </div>    
 <div class="right-container"></div>
 </div>
