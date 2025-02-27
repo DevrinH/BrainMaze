@@ -580,3 +580,8 @@ padding-right: 10px;
     text-align: center;
 
   }
+  #lastScoreChart {
+    background-color: white; /* Keeps the canvas background light */
+    border-radius: 50%;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
