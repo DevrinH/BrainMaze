@@ -584,7 +584,7 @@ padding-right: 10px;
   .chart-container-bar {
     width: 50%; /* Only half of the screen width */
     max-width: 600px;
-    height: 40px; /* Thinner bar */
+    height: 50px; /* Thinner bar */
     margin: auto;
     border-radius: 12px;
 }

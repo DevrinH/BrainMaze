@@ -210,11 +210,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     max: maxScore,
                     ticks: {
                         stepSize: 400
+                    },
+                    grid: {
+                        display: false // Remove x-axis grid lines
                     }
                 },
                 y: {
                     stacked: true,
-                    display: false
+                    display: false,
+                    grid: {
+                        display: false // Remove y-axis grid lines
+                    }
                 }
             },
             plugins: {
@@ -232,6 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
         plugins: [ChartDataLabels]
     });
 });
+
     </script>
 
 
