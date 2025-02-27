@@ -581,31 +581,4 @@ padding-right: 10px;
     text-align: center;
 
   }
-  #lastScoreChart {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: auto;
-    max-width: 300px; /* Default max size */
-}
 
-/* Smaller screens (mobile) */
-@media (max-width: 600px) {
-    #lastScoreChart {
-        max-width: 200px;
-    }
-}
-
-/* Tablets */
-@media (min-width: 601px) and (max-width: 1024px) {
-    #lastScoreChart {
-        max-width: 250px;
-    }
-}
-
-/* Larger screens */
-@media (min-width: 1025px) {
-    #lastScoreChart {
-        max-width: 350px;
-    }
-}
