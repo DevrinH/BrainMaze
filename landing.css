@@ -582,3 +582,8 @@ padding-right: 10px;
 
   }
 
+  .chart-container-bar {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
