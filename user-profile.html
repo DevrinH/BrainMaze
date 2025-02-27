@@ -225,12 +225,12 @@
             ctx = chart.ctx;
 
         ctx.restore();
+        ctx.textAlign = "center"; // ✅ Ensure the text is centered horizontally
+        ctx.textBaseline = "middle"; // ✅ Ensure the text is centered vertically
 
-        // ✅ Make the font size responsive based on chart size
-        let fontSize = Math.min(width, height) * 0.10; // 10% of chart size
+        // ✅ Dynamically scale font size based on chart size
+        let fontSize = Math.min(width, height) * 0.15; // Adjusts with size
         ctx.font = fontSize + "px sans-serif";
-        ctx.textBaseline = "middle";
-        ctx.textAlign = "center"; 
 
         let text = lastTotal.toString(),
             textX = width / 2,
