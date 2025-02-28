@@ -101,18 +101,22 @@ function updateScoreChart() {
             }
             ,
             plugins: {
-                legend: {
-                    display: true,
-                    labels: { color: "black" }
-                },
-                datalabels: { // ✅ Add labels above points
-                    align: "top",
-                    anchor: "end",
-                    color: "black",
-                    font: { size: 12, weight: "bold" },
-                    formatter: (value) => (isNaN(value) ? "" : value) // Hide NaN values
-                }
-            }
+    legend: {
+        display: true,
+        position: "bottom", // ✅ Moves legend below the chart
+        labels: {
+            color: "black",
+            font: { size: 14, weight: "bold" } // ✅ Makes legend text bold
+        }
+    },
+    datalabels: { 
+        align: "top",
+        anchor: "end",
+        color: "black",
+        font: { size: 12, weight: "bold" },
+        formatter: (value) => (isNaN(value) ? "" : value) 
+    }
+}
         },
         plugins: [ChartDataLabels] // ✅ Register the Data Labels plugin
     });
