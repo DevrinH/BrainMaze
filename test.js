@@ -42,7 +42,8 @@ const questions = [{
     type: "reading",
     difficulty: "easy",
     category: "inference"
-}{
+},
+{
     question: "What does the passage suggest about Daniel's attitude toward his new job?",
     answers: [
         { text: "He is uncertain about his abilities but determined to prove himself.", correct: true },
