@@ -70,17 +70,17 @@ header {
   background-color: #0056b3;
 }
 
-.center-text{
- text-align: center;
- font-family: "Montserrat-SemiBold";
-
+.center-text-container {
+  text-align: center; /* ✅ Centers text */
+  margin: 15px 0; /* ✅ Adds spacing above and below */
+  display: block; /* ✅ Ensure it is visible */
 }
 
-.center-text-container{
-  align-items: center;
-
-
-
+.center-text {
+  font-size: 18px; /* ✅ Adjust size */
+  font-weight: bold;
+  color: black;
+  display: block; /* ✅ Ensure it's visible */
 }
 
 .landingimg { width: 100%; height: auto; /* Ensures aspect ratio is maintained */ display: block; object-fit: cover; /* Keeps it inside container */ }
