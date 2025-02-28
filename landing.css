@@ -70,7 +70,11 @@ header {
   background-color: #0056b3;
 }
 
+.center-text{
+ text-align: center;
+ font-family: "Montserrat-SemiBold";
 
+}
 
 
 .landingimg { width: 100%; height: auto; /* Ensures aspect ratio is maintained */ display: block; object-fit: cover; /* Keeps it inside container */ }
