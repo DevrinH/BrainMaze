@@ -140,7 +140,7 @@ const questions = [
     type: "reading",
     difficulty: "easy",
     category: "Command of Evidence"
-}
+},
 {
     question: "Oliver adjusted the straps of his backpack and took a deep breath. The forest stretched before him, an endless maze of towering trees and winding paths. He had studied the map thoroughly, yet now, standing here, he realized that the landmarks weren’t as clear as he had expected. Every direction looked the same.<br/><br/>Which sentence best supports the idea that Oliver is unsure of where to go?",
     answers: [
