@@ -882,6 +882,8 @@ let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
 let selectedQuestions = [];
+let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -955,13 +957,21 @@ function resetState() {
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    let questionDifficulty = selectedQuestions[currentQuestionIndex].difficulty;
+    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let questionCategory = currentQuestion.type; // Category (e.g., reading, writing)
+    let questionDifficulty = currentQuestion.difficulty; // Difficulty level
+
+    // Initialize category tracking if not already set
+    if (!categoryStats[questionCategory]) {
+        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
+    }
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
+        categoryStats[questionCategory].correct++; // Track correct answer
 
-        // Fixed weighted scoring based on difficulty (NO scaling)
+        // Difficulty-based scoring
         if (questionDifficulty === "easy") {
             score += 1;
         } else if (questionDifficulty === "medium") {
@@ -971,8 +981,10 @@ function selectAnswer(e) {
         }
     } else {
         selectedBtn.classList.add("incorrect");
+        categoryStats[questionCategory].incorrect++; // Track incorrect answer
     }
 
+    // Disable all buttons after selection & highlight correct answer
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
@@ -980,8 +992,13 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
+    // Show next button
     nextButton.style.display = "block";
+
+    // Save updated category stats in localStorage
+    localStorage.setItem("categoryStats", JSON.stringify(categoryStats));
 }
+
 
 function showScore() {
     clearInterval(refreshIntervalId);
