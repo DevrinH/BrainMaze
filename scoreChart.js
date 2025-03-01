@@ -1,7 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    updateScoreChart();
-});
-
 function updateScoreChart() {
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
 
@@ -17,7 +13,7 @@ function updateScoreChart() {
         window.scoreChart.destroy();
     }
 
-    // ✅ Fix: Ensure chart has labels even if no data exists
+    // ✅ Handle case with no data
     if (dates.length === 0) {
         dates = ["No Data"];
         mathScores = [NaN];
@@ -25,43 +21,52 @@ function updateScoreChart() {
         totalScores = [NaN];
     }
 
-    // ✅ Limit x-axis to 10 evenly spaced labels
-    function getLimitedLabels(dates, maxLabels) {
-        if (dates.length <= maxLabels) return dates;
-        let step = Math.ceil(dates.length / maxLabels);
-        return dates.filter((_, index) => index % step === 0 || index === dates.length - 1);
-    }
-
-    let limitedDates = getLimitedLabels(dates, 10);
-
     // ✅ Ensure Chart.js DataLabels is registered
     Chart.register(ChartDataLabels);
+
+    // ✅ Create gradient fill for a softer look
+    function createGradient(color1, color2) {
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, color1);
+        gradient.addColorStop(1, color2);
+        return gradient;
+    }
+
+    let mathGradient = createGradient("rgba(0, 0, 255, 0.4)", "rgba(0, 0, 255, 0.1)");
+    let readingGradient = createGradient("rgba(0, 255, 0, 0.4)", "rgba(0, 255, 0, 0.1)");
+    let totalGradient = createGradient("rgba(255, 0, 0, 0.4)", "rgba(255, 0, 0, 0.1)");
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
         data: {
-            labels: dates, // Keep full dataset
+            labels: dates,
             datasets: [
                 {
                     label: "Math",
                     data: mathScores,
                     borderColor: "blue",
-                    backgroundColor: "rgba(0, 0, 255, 0.2)",
-                    fill: false
+                    backgroundColor: mathGradient,
+                    fill: true, // ✅ Allows soft shading effect
+                    borderWidth: 2.5, // ✅ Thicker lines
+                    tension: 0.4 // ✅ Smooth curves
                 },
                 {
                     label: "Reading & Writing",
                     data: readingScores,
                     borderColor: "green",
-                    backgroundColor: "rgba(0, 255, 0, 0.2)",
-                    fill: false
+                    backgroundColor: readingGradient,
+                    fill: true,
+                    borderWidth: 2.5,
+                    tension: 0.4
                 },
                 {
                     label: "Total",
                     data: totalScores,
                     borderColor: "red",
-                    backgroundColor: "rgba(255, 0, 0, 0.2)",
-                    fill: false
+                    backgroundColor: totalGradient,
+                    fill: true,
+                    borderWidth: 2.5,
+                    tension: 0.4
                 }
             ]
         },
@@ -74,51 +79,50 @@ function updateScoreChart() {
                         display: true,
                         text: "Date",
                         color: "black",
-                        font: { size: 16, weight: "bold" } // ✅ Bold and bigger axis title
+                        font: { size: 16, weight: "bold" }
                     },
                     ticks: {
                         color: "black",
-                        font: { size: 14, weight: "bold" } // ✅ Bold tick labels
+                        font: { size: 14, weight: "bold" }
                     },
                     grid: { display: false },
-                    border: { color: "black", width: 2 } // ✅ Thicker axis line
+                    border: { color: "black", width: 2 }
                 },
                 y: {
                     title: {
                         display: true,
                         text: "SAT Score",
                         color: "black",
-                        font: { size: 16, weight: "bold" } // ✅ Bold and bigger axis title
+                        font: { size: 16, weight: "bold" }
                     },
                     ticks: {
                         color: "black",
-                        font: { size: 14, weight: "bold" } // ✅ Bold tick labels
+                        font: { size: 14, weight: "bold" }
                     },
                     max: 1600,
                     grid: { display: false },
-                    border: { color: "black", width: 2 } // ✅ Thicker axis line
+                    border: { color: "black", width: 2 }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: "bottom", // ✅ Moves legend below chart
+                    labels: {
+                        color: "black",
+                        font: { size: 14, weight: "bold" }
+                    }
+                },
+                datalabels: {
+                    align: "top",
+                    anchor: "end",
+                    color: "black",
+                    font: { size: 12, weight: "bold" },
+                    formatter: (value) => (isNaN(value) ? "" : value)
                 }
             }
-            ,
-            plugins: {
-    legend: {
-        display: true,
-        position: "bottom", // ✅ Moves legend below the chart
-        labels: {
-            color: "black",
-            font: { size: 14, weight: "bold" } // ✅ Makes legend text bold
-        }
-    },
-    datalabels: { 
-        align: "top",
-        anchor: "end",
-        color: "black",
-        font: { size: 12, weight: "bold" },
-        formatter: (value) => (isNaN(value) ? "" : value) 
-    }
-}
         },
-        plugins: [ChartDataLabels] // ✅ Register the Data Labels plugin
+        plugins: [ChartDataLabels]
     });
 }
 
