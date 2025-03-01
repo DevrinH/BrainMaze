@@ -76,41 +76,31 @@ function updateScoreChart() {
             maintainAspectRatio: false,
             scales: {
                 x: {
-                    title: {
-                        display: true,
-                        text: "Date",
-                        color: "black",
-                        font: { size: 16, weight: "bold" }
-                    },
                     ticks: {
                         color: "black",
                         font: { size: 14, weight: "bold" }
                     },
                     grid: {
-                        drawTicks: true, // ✅ Show tick marks (small lines)
-                        tickLength: 6, // ✅ Tick length (adjust size)
-                        color: "black", // ✅ Tick color
-                        display: false // Hide full grid lines
+                        drawTicks: true,  // ✅ Enable small tick marks
+                        tickLength: 6,    // ✅ Small line size
+                        tickWidth: 2,     // ✅ Make them visible
+                        color: "black",   // ✅ Tick color
+                        display: false    // Hide full grid lines
                     },
                     border: { display: false } // ✅ Remove x-axis line
                 },
                 y: {
-                    title: {
-                        display: true,
-                        text: "SAT Score",
-                        color: "black",
-                        font: { size: 16, weight: "bold" }
-                    },
                     ticks: {
                         color: "black",
                         font: { size: 14, weight: "bold" }
                     },
                     max: 1600,
                     grid: {
-                        drawTicks: true, // ✅ Show tick marks (small lines)
-                        tickLength: 6, // ✅ Tick length (adjust size)
-                        color: "black", // ✅ Tick color
-                        display: false // Hide full grid lines
+                        drawTicks: true,  // ✅ Enable small tick marks
+                        tickLength: 6,    // ✅ Small line size
+                        tickWidth: 2,     // ✅ Make them visible
+                        color: "black",   // ✅ Tick color
+                        display: false    // Hide full grid lines
                     },
                     border: { display: false } // ✅ Remove y-axis line
                 }
