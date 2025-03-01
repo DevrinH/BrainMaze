@@ -81,13 +81,13 @@ function updateScoreChart() {
                         font: { size: 14, weight: "bold" }
                     },
                     grid: {
-                        drawTicks: true,  // ✅ Enable small tick marks
-                        tickLength: 6,    // ✅ Small line size
-                        tickWidth: 2,     // ✅ Make them visible
-                        color: "black",   // ✅ Tick color
-                        display: false    // Hide full grid lines
-                    },
-                    border: { display: false } // ✅ Remove x-axis line
+                        drawTicks: true,  // ✅ Ensure tick marks show
+                        tickLength: 8,    // ✅ Increase tick size
+                        tickWidth: 2,     // ✅ Make tick marks visible
+                        color: "black",   // ✅ Ensure ticks are black
+                        drawOnChartArea: false, // ✅ Prevent full grid lines
+                        drawBorder: false  // ✅ Remove axis line
+                    }
                 },
                 y: {
                     ticks: {
@@ -96,13 +96,13 @@ function updateScoreChart() {
                     },
                     max: 1600,
                     grid: {
-                        drawTicks: true,  // ✅ Enable small tick marks
-                        tickLength: 6,    // ✅ Small line size
-                        tickWidth: 2,     // ✅ Make them visible
-                        color: "black",   // ✅ Tick color
-                        display: false    // Hide full grid lines
-                    },
-                    border: { display: false } // ✅ Remove y-axis line
+                        drawTicks: true,  // ✅ Ensure tick marks show
+                        tickLength: 8,    // ✅ Increase tick size
+                        tickWidth: 2,     // ✅ Make tick marks visible
+                        color: "black",   // ✅ Ensure ticks are black
+                        drawOnChartArea: false, // ✅ Prevent full grid lines
+                        drawBorder: false  // ✅ Remove axis line
+                    }
                 }
             },
             plugins: {
