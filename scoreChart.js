@@ -21,12 +21,13 @@ function updateScoreChart() {
 
     Chart.register(ChartDataLabels);
 
+    // **Create fading gradient for the total score fill**
     function createFadingGradient() {
         let gradient = ctx.createLinearGradient(0, 0, 0, 400);
         gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
-        gradient.addColorStop(0.15, "rgba(0, 0, 255, 0.4)"); // Starts fading quicker
+        gradient.addColorStop(0.1, "rgba(0, 0, 255, 0.5)"); // Quick fade
         gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.2)");  
-        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0)"); // Fully transparent just above middle
+        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0)"); // Fully transparent near the middle
         return gradient;
     }
 
@@ -40,9 +41,9 @@ function updateScoreChart() {
                 {
                     label: "Total Score",
                     data: totalScores,
-                    borderColor: "rgb(0, 0, 255)", 
-                    backgroundColor: totalGradient, 
-                    fill: true,
+                    borderColor: "rgb(0, 0, 255)", // Solid blue line
+                    backgroundColor: totalGradient, // **Gradient Fill**
+                    fill: true, // **Enable fill for total score only**
                     borderWidth: 2.5,
                     tension: 0.4
                 },
@@ -50,8 +51,8 @@ function updateScoreChart() {
                     label: "Reading & Writing",
                     data: readingScores,
                     borderColor: "rgb(102, 102, 255)", 
-                    backgroundColor: "rgb(102, 102, 255)", // Solid legend circle
-                    fill: false,
+                    backgroundColor: "rgb(102, 102, 255)", // **Solid legend circle**
+                    fill: false, // No fill for reading
                     borderWidth: 2.5,
                     tension: 0.4
                 },
@@ -59,8 +60,8 @@ function updateScoreChart() {
                     label: "Math",
                     data: mathScores,
                     borderColor: "rgb(173, 216, 230)", 
-                    backgroundColor: "rgb(173, 216, 230)", // Solid legend circle
-                    fill: false,
+                    backgroundColor: "rgb(173, 216, 230)", // **Solid legend circle**
+                    fill: false, // No fill for math
                     borderWidth: 2.5,
                     tension: 0.4
                 }
@@ -108,7 +109,7 @@ function updateScoreChart() {
                         color: "black",
                         font: { size: 14, weight: "bold" },
                         usePointStyle: true, 
-                        pointStyle: "circle" // Solid circles
+                        pointStyle: "circle" // **Solid legend circles**
                     }
                 },
                 datalabels: {
