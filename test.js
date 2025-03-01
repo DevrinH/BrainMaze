@@ -573,7 +573,68 @@ const questions = [
     type: "writing",
     difficulty: "hard",
     category: "Boundaries"
+},
+{
+    question: "The ancient city of Caral, located in present-day Peru, is one of the oldest known civilizations in the Americas. Archaeologists have discovered that the city’s inhabitants engaged in complex trade networks, __ used advanced engineering techniques to construct pyramids.",
+    answers: [
+        { text: "A) and they", correct: true },
+        { text: "B) but they", correct: false },
+        { text: "C) who", correct: false },
+        { text: "D) as they", correct: false },
+    ],
+    type: "writing",
+    difficulty: "medium",
+    category: "Form, Structure, and Sense"
+},
+{
+    question: "Marie Curie made groundbreaking contributions to science, particularly in the study of radioactivity. Her research led to the discovery of polonium and radium, __ earned her two Nobel Prizes in different scientific fields.",
+    answers: [
+        { text: "A) discoveries that", correct: true },
+        { text: "B) which", correct: false },
+        { text: "C) a discovery that", correct: false },
+        { text: "D) and she", correct: false },
+    ],
+    type: "writing",
+    difficulty: "easy",
+    category: "Form, Structure, and Sense"
+},
+{
+    question: "The novel’s protagonist, an ambitious young lawyer, faces a moral dilemma when he learns that his client, __, may not be as innocent as he first believed.",
+    answers: [
+        { text: "A) who he is defending", correct: false },
+        { text: "B) whom he is defending", correct: true },
+        { text: "C) which he is defending", correct: false },
+        { text: "D) that he is defending", correct: false },
+    ],
+    type: "writing",
+    difficulty: "hard",
+    category: "Form, Structure, and Sense"
+},
+{
+    question: "Unlike most traditional forms of painting, pointillism relies on small dots of pure color, __, when viewed from a distance, blend together to form an image.",
+    answers: [
+        { text: "A) they", correct: false },
+        { text: "B) which", correct: true },
+        { text: "C) and", correct: false },
+        { text: "D) that", correct: false },
+    ],
+    type: "writing",
+    difficulty: "medium",
+    category: "Form, Structure, and Sense"
+},
+{
+    question: "The ancient Silk Road facilitated the exchange of goods, culture, and ideas between Europe and Asia, __ leading to significant advancements in science, technology, and art.",
+    answers: [
+        { text: "A) therefore", correct: false },
+        { text: "B) as a result", correct: false },
+        { text: "C) thus", correct: false },
+        { text: "D) thereby", correct: true },
+    ],
+    type: "writing",
+    difficulty: "hard",
+    category: "Form, Structure, and Sense"
 }
+
 
 
 
