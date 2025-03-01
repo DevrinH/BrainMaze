@@ -87,9 +87,9 @@ function updateScoreChart() {
                         font: { size: 14, weight: "bold" }
                     },
                     grid: {
-                        drawTicks: true, // ✅ Show tick marks (small bullets)
-                        tickLength: 8, // ✅ Bullet length
-                        color: "black", // ✅ Bullet color
+                        drawTicks: true, // ✅ Show tick marks (small lines)
+                        tickLength: 6, // ✅ Tick length (adjust size)
+                        color: "black", // ✅ Tick color
                         display: false // Hide full grid lines
                     },
                     border: { display: false } // ✅ Remove x-axis line
@@ -106,7 +106,12 @@ function updateScoreChart() {
                         font: { size: 14, weight: "bold" }
                     },
                     max: 1600,
-                    grid: { display: false },
+                    grid: {
+                        drawTicks: true, // ✅ Show tick marks (small lines)
+                        tickLength: 6, // ✅ Tick length (adjust size)
+                        color: "black", // ✅ Tick color
+                        display: false // Hide full grid lines
+                    },
                     border: { display: false } // ✅ Remove y-axis line
                 }
             },
