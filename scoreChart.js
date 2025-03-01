@@ -8,12 +8,10 @@ function updateScoreChart() {
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
 
-    // ✅ Destroy previous chart if it exists
     if (window.scoreChart && typeof window.scoreChart.destroy === "function") {
         window.scoreChart.destroy();
     }
 
-    // ✅ Handle case with no data
     if (dates.length === 0) {
         dates = ["No Data"];
         mathScores = [NaN];
@@ -21,21 +19,19 @@ function updateScoreChart() {
         totalScores = [NaN];
     }
 
-    // ✅ Ensure Chart.js DataLabels is registered
     Chart.register(ChartDataLabels);
 
-    // ✅ Create smooth fading gradient fill
     function createFadingGradient(color) {
         let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, color.replace("1)", "0.5)")); // Darker near line
-        gradient.addColorStop(0.6, color.replace("1)", "0.15)")); // Medium fade
-        gradient.addColorStop(1, color.replace("1)", "0)")); // Fully transparent at bottom
+        gradient.addColorStop(0, color.replace("1)", "0.5)")); 
+        gradient.addColorStop(0.6, color.replace("1)", "0.15)")); 
+        gradient.addColorStop(1, color.replace("1)", "0)")); 
         return gradient;
     }
 
-    let mathGradient = createFadingGradient("rgba(0, 0, 255, 1)"); // Blue
-    let readingGradient = createFadingGradient("rgba(0, 255, 0, 1)"); // Green
-    let totalGradient = createFadingGradient("rgba(255, 0, 0, 1)"); // Red
+    let totalGradient = createFadingGradient("rgba(0, 0, 255, 1)"); // A-Team (Dark Blue)
+    let readingGradient = createFadingGradient("rgba(102, 102, 255, 1)"); // Ghostbusters (Medium Blue)
+    let mathGradient = createFadingGradient("rgba(173, 216, 230, 1)"); // Little Rascals (Light Blue)
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -43,10 +39,10 @@ function updateScoreChart() {
             labels: dates,
             datasets: [
                 {
-                    label: "Math",
-                    data: mathScores,
-                    borderColor: "blue",
-                    backgroundColor: mathGradient,
+                    label: "Total Score",
+                    data: totalScores,
+                    borderColor: "rgb(0, 0, 255)", 
+                    backgroundColor: totalGradient,
                     fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
@@ -54,17 +50,17 @@ function updateScoreChart() {
                 {
                     label: "Reading & Writing",
                     data: readingScores,
-                    borderColor: "green",
+                    borderColor: "rgb(102, 102, 255)", 
                     backgroundColor: readingGradient,
                     fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
                 },
                 {
-                    label: "Total",
-                    data: totalScores,
-                    borderColor: "red",
-                    backgroundColor: totalGradient,
+                    label: "Math",
+                    data: mathScores,
+                    borderColor: "rgb(173, 216, 230)", 
+                    backgroundColor: mathGradient,
                     fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
@@ -81,12 +77,12 @@ function updateScoreChart() {
                         font: { size: 14, weight: "bold" }
                     },
                     grid: {
-                        drawTicks: true,  // ✅ Ensure tick marks show
-                        tickLength: 8,    // ✅ Increase tick size
-                        tickWidth: 2,     // ✅ Make tick marks visible
-                        color: "black",   // ✅ Ensure ticks are black
-                        drawOnChartArea: false, // ✅ Prevent full grid lines
-                        drawBorder: false  // ✅ Remove axis line
+                        drawTicks: true,
+                        tickLength: 8,
+                        tickWidth: 2,
+                        color: "black",
+                        drawOnChartArea: false,
+                        drawBorder: false
                     }
                 },
                 y: {
@@ -96,12 +92,12 @@ function updateScoreChart() {
                     },
                     max: 1600,
                     grid: {
-                        drawTicks: true,  // ✅ Ensure tick marks show
-                        tickLength: 8,    // ✅ Increase tick size
-                        tickWidth: 2,     // ✅ Make tick marks visible
-                        color: "black",   // ✅ Ensure ticks are black
-                        drawOnChartArea: false, // ✅ Prevent full grid lines
-                        drawBorder: false  // ✅ Remove axis line
+                        drawTicks: true,
+                        tickLength: 8,
+                        tickWidth: 2,
+                        color: "black",
+                        drawOnChartArea: false,
+                        drawBorder: false
                     }
                 }
             },
@@ -127,5 +123,4 @@ function updateScoreChart() {
     });
 }
 
-// ✅ Ensure script runs after page loads
 document.addEventListener("DOMContentLoaded", updateScoreChart);
