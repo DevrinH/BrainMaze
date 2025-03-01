@@ -24,17 +24,18 @@ function updateScoreChart() {
     // ✅ Ensure Chart.js DataLabels is registered
     Chart.register(ChartDataLabels);
 
-    // ✅ Create gradient fill for a softer look
-    function createGradient(color1, color2) {
+    // ✅ Create smooth fading gradient fill (darker near line, fades down)
+    function createFadingGradient(color) {
         let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, color1);
-        gradient.addColorStop(1, color2);
+        gradient.addColorStop(0, color.replace("1)", "0.5)")); // Darker near line
+        gradient.addColorStop(0.6, color.replace("1)", "0.15)")); // Medium fade
+        gradient.addColorStop(1, color.replace("1)", "0)")); // Fully transparent at bottom
         return gradient;
     }
 
-    let mathGradient = createGradient("rgba(0, 0, 255, 0.4)", "rgba(0, 0, 255, 0.1)");
-    let readingGradient = createGradient("rgba(0, 255, 0, 0.4)", "rgba(0, 255, 0, 0.1)");
-    let totalGradient = createGradient("rgba(255, 0, 0, 0.4)", "rgba(255, 0, 0, 0.1)");
+    let mathGradient = createFadingGradient("rgba(0, 0, 255, 1)"); // Blue
+    let readingGradient = createFadingGradient("rgba(0, 255, 0, 1)"); // Green
+    let totalGradient = createFadingGradient("rgba(255, 0, 0, 1)"); // Red
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -46,9 +47,9 @@ function updateScoreChart() {
                     data: mathScores,
                     borderColor: "blue",
                     backgroundColor: mathGradient,
-                    fill: true, // ✅ Allows soft shading effect
-                    borderWidth: 2.5, // ✅ Thicker lines
-                    tension: 0.4 // ✅ Smooth curves
+                    fill: true,
+                    borderWidth: 2.5,
+                    tension: 0.4
                 },
                 {
                     label: "Reading & Writing",
@@ -101,13 +102,13 @@ function updateScoreChart() {
                     },
                     max: 1600,
                     grid: { display: false },
-                    border: { color: "black", width: 2 }
+                    border: { display: false } // ✅ Removes y-axis line
                 }
             },
             plugins: {
                 legend: {
                     display: true,
-                    position: "bottom", // ✅ Moves legend below chart
+                    position: "bottom",
                     labels: {
                         color: "black",
                         font: { size: 14, weight: "bold" }
