@@ -21,18 +21,16 @@ function updateScoreChart() {
 
     Chart.register(ChartDataLabels);
 
-    function createFadingGradient(color) {
-        let gradient = ctx.createLinearGradient(0, 0, 0, 450); // Extend further for a more dramatic fade
-        gradient.addColorStop(0, color.replace("1)", "0.6)")); // Darker near the line
-        gradient.addColorStop(0.3, color.replace("1)", "0.25)")); 
-        gradient.addColorStop(0.6, color.replace("1)", "0.1)")); 
-        gradient.addColorStop(1, color.replace("1)", "0)")); // Fully transparent further down
+    function createFadingGradient() {
+        let gradient = ctx.createLinearGradient(0, 0, 0, 450); // Taller fade
+        gradient.addColorStop(0, "rgba(0, 0, 255, 0.6)"); // Darker near the line
+        gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.3)"); 
+        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.1)"); 
+        gradient.addColorStop(1, "rgba(0, 0, 255, 0)"); // Fully transparent
         return gradient;
     }
 
-    let totalGradient = createFadingGradient("rgba(0, 0, 255, 1)"); // A-Team (Dark Blue)
-    let readingGradient = createFadingGradient("rgba(102, 102, 255, 1)"); // Ghostbusters (Medium Blue)
-    let mathGradient = createFadingGradient("rgba(173, 216, 230, 1)"); // Little Rascals (Light Blue)
+    let totalGradient = createFadingGradient(); // Apply gradient only to total score
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -43,7 +41,7 @@ function updateScoreChart() {
                     label: "Total Score",
                     data: totalScores,
                     borderColor: "rgb(0, 0, 255)", 
-                    backgroundColor: totalGradient,
+                    backgroundColor: totalGradient, // Only total score gets the gradient
                     fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
@@ -52,8 +50,7 @@ function updateScoreChart() {
                     label: "Reading & Writing",
                     data: readingScores,
                     borderColor: "rgb(102, 102, 255)", 
-                    backgroundColor: readingGradient,
-                    fill: true,
+                    fill: false, // No gradient fill
                     borderWidth: 2.5,
                     tension: 0.4
                 },
@@ -61,8 +58,7 @@ function updateScoreChart() {
                     label: "Math",
                     data: mathScores,
                     borderColor: "rgb(173, 216, 230)", 
-                    backgroundColor: mathGradient,
-                    fill: true,
+                    fill: false, // No gradient fill
                     borderWidth: 2.5,
                     tension: 0.4
                 }
@@ -108,7 +104,9 @@ function updateScoreChart() {
                     position: "bottom",
                     labels: {
                         color: "black",
-                        font: { size: 14, weight: "bold" }
+                        font: { size: 14, weight: "bold" },
+                        usePointStyle: true, // Changes legend shape
+                        pointStyle: "circle" // Solid circles instead of rectangles
                     }
                 },
                 datalabels: {
