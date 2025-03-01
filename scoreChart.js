@@ -22,10 +22,11 @@ function updateScoreChart() {
     Chart.register(ChartDataLabels);
 
     function createFadingGradient(color) {
-        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, color.replace("1)", "0.5)")); 
-        gradient.addColorStop(0.6, color.replace("1)", "0.15)")); 
-        gradient.addColorStop(1, color.replace("1)", "0)")); 
+        let gradient = ctx.createLinearGradient(0, 0, 0, 450); // Extend further for a more dramatic fade
+        gradient.addColorStop(0, color.replace("1)", "0.6)")); // Darker near the line
+        gradient.addColorStop(0.3, color.replace("1)", "0.25)")); 
+        gradient.addColorStop(0.6, color.replace("1)", "0.1)")); 
+        gradient.addColorStop(1, color.replace("1)", "0)")); // Fully transparent further down
         return gradient;
     }
 
