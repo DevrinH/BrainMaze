@@ -22,15 +22,15 @@ function updateScoreChart() {
     Chart.register(ChartDataLabels);
 
     function createFadingGradient() {
-        let gradient = ctx.createLinearGradient(0, 0, 0, 450); // Taller fade
-        gradient.addColorStop(0, "rgba(0, 0, 255, 0.6)"); // Darker near the line
-        gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.3)"); 
-        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.1)"); 
-        gradient.addColorStop(1, "rgba(0, 0, 255, 0)"); // Fully transparent
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
+        gradient.addColorStop(0.15, "rgba(0, 0, 255, 0.4)"); // Starts fading quicker
+        gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.2)");  
+        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0)"); // Fully transparent just above middle
         return gradient;
     }
 
-    let totalGradient = createFadingGradient(); // Apply gradient only to total score
+    let totalGradient = createFadingGradient(); 
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -41,7 +41,7 @@ function updateScoreChart() {
                     label: "Total Score",
                     data: totalScores,
                     borderColor: "rgb(0, 0, 255)", 
-                    backgroundColor: totalGradient, // Only total score gets the gradient
+                    backgroundColor: totalGradient, 
                     fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
@@ -50,7 +50,8 @@ function updateScoreChart() {
                     label: "Reading & Writing",
                     data: readingScores,
                     borderColor: "rgb(102, 102, 255)", 
-                    fill: false, // No gradient fill
+                    backgroundColor: "rgb(102, 102, 255)", // Solid legend circle
+                    fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
                 },
@@ -58,7 +59,8 @@ function updateScoreChart() {
                     label: "Math",
                     data: mathScores,
                     borderColor: "rgb(173, 216, 230)", 
-                    fill: false, // No gradient fill
+                    backgroundColor: "rgb(173, 216, 230)", // Solid legend circle
+                    fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
                 }
@@ -105,8 +107,8 @@ function updateScoreChart() {
                     labels: {
                         color: "black",
                         font: { size: 14, weight: "bold" },
-                        usePointStyle: true, // Changes legend shape
-                        pointStyle: "circle" // Solid circles instead of rectangles
+                        usePointStyle: true, 
+                        pointStyle: "circle" // Solid circles
                     }
                 },
                 datalabels: {
