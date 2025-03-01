@@ -24,7 +24,7 @@ function updateScoreChart() {
     // ✅ Ensure Chart.js DataLabels is registered
     Chart.register(ChartDataLabels);
 
-    // ✅ Create smooth fading gradient fill (darker near line, fades down)
+    // ✅ Create smooth fading gradient fill
     function createFadingGradient(color) {
         let gradient = ctx.createLinearGradient(0, 0, 0, 400);
         gradient.addColorStop(0, color.replace("1)", "0.5)")); // Darker near line
@@ -86,8 +86,13 @@ function updateScoreChart() {
                         color: "black",
                         font: { size: 14, weight: "bold" }
                     },
-                    grid: { display: false },
-                    border: { color: "black", width: 2 }
+                    grid: {
+                        drawTicks: true, // ✅ Show tick marks (small bullets)
+                        tickLength: 8, // ✅ Bullet length
+                        color: "black", // ✅ Bullet color
+                        display: false // Hide full grid lines
+                    },
+                    border: { display: false } // ✅ Remove x-axis line
                 },
                 y: {
                     title: {
@@ -102,7 +107,7 @@ function updateScoreChart() {
                     },
                     max: 1600,
                     grid: { display: false },
-                    border: { display: false } // ✅ Removes y-axis line
+                    border: { display: false } // ✅ Remove y-axis line
                 }
             },
             plugins: {
