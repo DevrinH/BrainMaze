@@ -1,15 +1,13 @@
 function updateScoreChart() {
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
 
-  
-// Ensure dates are sorted properly and use local timezone
-let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+    // Ensure dates are sorted properly and use local timezone
+    let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
-let dates = rawDates.map(date => {
-    let d = new Date(date + "T00:00:00"); // Force local timezone interpretation
-    return d.toLocaleDateString(undefined, { month: "short", day: "numeric" }); // "Feb 25"
-});
-
+    let dates = rawDates.map(date => {
+        let d = new Date(date + "T00:00:00"); // Force local timezone interpretation
+        return d.toLocaleDateString(undefined, { month: "short", day: "numeric" }); // "Feb 25"
+    });
 
     let mathScores = rawDates.map(date => scoreHistory[date]?.math ?? NaN);
     let readingScores = rawDates.map(date => scoreHistory[date]?.reading ?? NaN);
@@ -40,7 +38,7 @@ let dates = rawDates.map(date => {
         return gradient;
     }
 
-    let totalGradient = createFadingGradient(); 
+    let totalGradient = createFadingGradient();
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -134,7 +132,6 @@ let dates = rawDates.map(date => {
                         let mathValue = mathScores[index];
                         let readingValue = readingScores[index];
 
-                        // If reading is lower, move it below; otherwise, keep it above
                         if (datasetIndex === 1 && readingValue < mathValue) return "bottom";
                         if (datasetIndex === 2 && mathValue < readingValue) return "bottom";
                         return "top"; // Default position
@@ -145,10 +142,13 @@ let dates = rawDates.map(date => {
                         let mathValue = mathScores[index];
                         let readingValue = readingScores[index];
 
-                        // If reading is lower, move it below; otherwise, keep it above
                         if (datasetIndex === 1 && readingValue < mathValue) return "start";
                         if (datasetIndex === 2 && mathValue < readingValue) return "start";
                         return "end"; // Default position
+                    },
+                    xAdjust: function (context) {
+                        // Offset first data point to the right if too close to the y-axis
+                        return context.dataIndex === 0 ? 15 : 0;
                     }
                 }
             }
