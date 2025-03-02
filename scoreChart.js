@@ -125,11 +125,31 @@ let dates = rawDates.map(date => {
                     }
                 },
                 datalabels: {
-                    align: "top",
-                    anchor: "end",
                     color: "black",
                     font: { size: 12, weight: "bold" },
-                    formatter: (value) => (isNaN(value) ? "" : value)
+                    formatter: (value) => (isNaN(value) ? "" : value),
+                    align: function (context) {
+                        let index = context.dataIndex;
+                        let datasetIndex = context.datasetIndex;
+                        let mathValue = mathScores[index];
+                        let readingValue = readingScores[index];
+
+                        // If reading is lower, move it below; otherwise, keep it above
+                        if (datasetIndex === 1 && readingValue < mathValue) return "bottom";
+                        if (datasetIndex === 2 && mathValue < readingValue) return "bottom";
+                        return "top"; // Default position
+                    },
+                    anchor: function (context) {
+                        let index = context.dataIndex;
+                        let datasetIndex = context.datasetIndex;
+                        let mathValue = mathScores[index];
+                        let readingValue = readingScores[index];
+
+                        // If reading is lower, move it below; otherwise, keep it above
+                        if (datasetIndex === 1 && readingValue < mathValue) return "start";
+                        if (datasetIndex === 2 && mathValue < readingValue) return "start";
+                        return "end"; // Default position
+                    }
                 }
             }
         },
