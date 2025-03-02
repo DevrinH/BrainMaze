@@ -163,8 +163,7 @@
 
     </div>
 
-    <div class="right-container">
-        <h2 class="title">Adaptive Learning</h2>
+  
         <div class="progress-container">
             <h2>SAT Category Progress</h2>
         
@@ -224,132 +223,41 @@
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {
-    const canvas = document.getElementById("lastScoreBarChart");
-
-    if (!canvas) {
-        console.error("Last Score Bar Chart element not found!");
-        return;
+    // Function to get stored scores or initialize default ones
+    function getStoredScores() {
+        const storedScores = localStorage.getItem("satScores");
+        return storedScores ? JSON.parse(storedScores) : {
+            inference: 50,
+            "big-picture": 50,
+            grammar: 50,
+            transitions: 50,
+            algebra: 50,
+            trigonometry: 50
+        };
     }
 
-    const ctx = canvas.getContext("2d");
-
-    if (!ctx) {
-        console.error("Failed to get 2D context for Last Score Bar Chart!");
-        return;
+    // Simulate new test scores (replace this with actual test results)
+    function getNewTestScores() {
+        return {
+            inference: Math.floor(Math.random() * 100),
+            "big-picture": Math.floor(Math.random() * 100),
+            grammar: Math.floor(Math.random() * 100),
+            transitions: Math.floor(Math.random() * 100),
+            algebra: Math.floor(Math.random() * 100),
+            trigonometry: Math.floor(Math.random() * 100)
+        };
     }
 
-    // Retrieve the last test score from localStorage
-    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    let dates = Object.keys(scoreHistory).sort();
-    let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+    // Get old and new scores
+    const previousScores = getStoredScores();
+    const currentScores = getNewTestScores();
 
-    let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
-    let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
-    let lastTotal = lastMath + lastReading;
-    const maxScore = 1600;
-    const unfilledScore = maxScore - lastTotal; // Remaining portion
-
-    // Destroy previous chart if it exists
-    if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
-        window.lastScoreBarChart.destroy();
-    }
-
-    // Create the new Last Score Single Bar Chart
-    window.lastScoreBarChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: [""], // Single bar
-            datasets: [
-                {
-                    label: "Math",
-                    data: [lastMath],
-                    backgroundColor: "rgb(96, 205, 241)", // blue
-                    stack: "total"
-                },
-                {
-                    label: "Reading/Writing",
-                    data: [lastReading],
-                    backgroundColor: "rgb(205, 120, 255)", // lavander
-                    stack: "total"
-                },
-
-                {
-                    label: "Missed",
-                    data: [unfilledScore],
-                    backgroundColor: "#d3d3d3", // Gray
-                    stack: "total"
-                }
-            ]
-        },
-        options: {
-            indexAxis: "y", // Horizontal bar
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: {
-                    stacked: true,
-                    max: maxScore,
-                    ticks: {
-                        stepSize: 800
-                    },
-                    grid: {
-                        display: false,
-                        drawBorder: false,
-                        drawOnChartArea: false
-                    }
-                },
-                y: {
-                    stacked: true,
-                    display: false,
-                    grid: {
-                        display: false,
-                        drawBorder: false,
-                        drawOnChartArea: false
-                    }
-                }
-            },
-            plugins: {
-                legend: { display: false },
-                tooltip: { enabled: true },
-                datalabels: {
-                    anchor: "center",
-                    align: "center",
-                    color: "white",
-                    font: { size: 18, weight: "bold" },
-                    formatter: (value) => (value > 0 ? value : "")
-                }
-            }
-        },
-        plugins: [ChartDataLabels]
-    });
-});
-
-
-    </script>
-<script>
-    // Simulated user test results
-    const previousScores = {
-        inference: 55,
-        "big-picture": 65,
-        grammar: 70,
-        transitions: 80,
-        algebra: 60,
-        trigonometry: 50
-    };
-
-    const currentScores = {
-        inference: 75,
-        "big-picture": 60,
-        grammar: 85,
-        transitions: 70,
-        algebra: 65,
-        trigonometry: 55
-    };
+    // Save new scores in localStorage
+    localStorage.setItem("satScores", JSON.stringify(currentScores));
 
     function updateProgress(category) {
-        const prev = previousScores[category];
-        const curr = currentScores[category];
+        const prev = previousScores[category] || 0;
+        const curr = currentScores[category] || 0;
 
         const bar = document.getElementById(`${category}-bar`);
         const text = document.getElementById(`${category}-text`);
