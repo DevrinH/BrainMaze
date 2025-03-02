@@ -692,3 +692,7 @@ h3 {
   margin: 0;
   display: block;
 }
+.progress-container, h2{
+
+  font-family: "Montserrat-SemiBold", sans-serif;
+}
