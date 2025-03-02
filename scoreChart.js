@@ -2,12 +2,14 @@ function updateScoreChart() {
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
 
   
-    // Format dates as "Feb 25" instead of "YYYY-MM-DD"
-    let rawDates = Object.keys(scoreHistory).sort();
-    let dates = rawDates.map(date => {
-        let d = new Date(date);
-        return d.toLocaleDateString("en-US", { month: "short", day: "numeric" }); // "Feb 25"
-    });
+// Ensure dates are sorted properly and use local timezone
+let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+
+let dates = rawDates.map(date => {
+    let d = new Date(date + "T00:00:00"); // Force local timezone interpretation
+    return d.toLocaleDateString(undefined, { month: "short", day: "numeric" }); // "Feb 25"
+});
+
 
     let mathScores = rawDates.map(date => scoreHistory[date]?.math ?? NaN);
     let readingScores = rawDates.map(date => scoreHistory[date]?.reading ?? NaN);
