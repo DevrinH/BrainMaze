@@ -672,25 +672,24 @@ h3 {
 }
 .flex-container {
   display: flex;
-  justify-content: space-between; /* Ensures even spacing */
-  align-items: flex-start; /* Aligns items to the top */
-  gap: 20px; /* Adds spacing between them */
+  justify-content: center; /* Centers the elements */
+  align-items: flex-start; 
+  gap: 20px;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  flex-wrap: wrap; /* Allows wrapping on smaller screens */
-  margin: 0;
+  flex-wrap: wrap; /* Ensures wrapping on smaller screens */
 }
 
 .testlessonscontainer, .progress-container {
   flex: 1; 
-  min-width: 48%; /* Adjusted to keep them balanced */
+  min-width: 48%;
   max-width: 900px;
   background-color: rgb(255, 255, 255);
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 20px;
-  margin: 0;
+  margin: 0 auto; /* Centers the elements when in column mode */
   display: block;
 }
 .progress-container, h2{
