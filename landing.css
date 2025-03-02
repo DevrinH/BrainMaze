@@ -609,7 +609,7 @@ padding-right: 10px;
 
 .line-chart-container{
   min-height: 500px; 
-  background-color: rgb(255, 249, 249);
+  background-color: rgb(252, 252, 252);
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   flex: 1; 
@@ -623,4 +623,8 @@ padding-right: 10px;
   overflow: hidden; /* Prevents legends from escaping */
   margin: 0 auto; /* Centers it horizontally */
   max-width: 900px; /* Ensures it doesn't stretch too wide */
+}
+.align-center{
+  display: flex;
+  justify-content: center; /* Centers horizontally */
 }
