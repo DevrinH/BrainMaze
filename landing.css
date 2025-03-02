@@ -615,7 +615,7 @@ padding-right: 10px;
   flex: 1; 
   min-width: 300px;
   
-  padding: 0px;
+  padding: 5px;
   transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column; /* Ensures internal elements stack properly */
@@ -631,5 +631,5 @@ padding-right: 10px;
 
 .left-align{
   text-align: left;
-  
+  margin-left: left;
 }
