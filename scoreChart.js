@@ -12,7 +12,8 @@ function updateScoreChart() {
     let readingScores = rawDates.map(date => scoreHistory[date]?.reading ?? NaN);
     let totalScores = rawDates.map(date => scoreHistory[date]?.total ?? NaN);
 
-    let ctx = document.getElementById("scoreChart").getContext("2d");
+    let canvas = document.getElementById("scoreChart");
+    let ctx = canvas.getContext("2d");
 
     if (window.scoreChart && typeof window.scoreChart.destroy === "function") {
         window.scoreChart.destroy();
@@ -27,17 +28,20 @@ function updateScoreChart() {
 
     Chart.register(ChartDataLabels);
 
+    // **Ensure the chart container has a height (CSS Fix)**
+    canvas.parentElement.style.height = "400px"; // Adjust height if needed
+
     // **Create fading gradient for the total score fill**
-    function createFadingGradient() {
-        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
-        gradient.addColorStop(0.1, "rgba(0, 0, 255, 0.5)"); // Quick fade
-        gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.2)");  
-        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0)"); // Fully transparent near the middle
+    function createFadingGradient(ctx) {
+        let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height || 400);
+        gradient.addColorStop(0, "rgba(0, 0, 255, 0.6)"); // Strongest at the top
+        gradient.addColorStop(0.2, "rgba(0, 0, 255, 0.4)");
+        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0.2)");
+        gradient.addColorStop(1, "rgba(0, 0, 255, 0)"); // Fully transparent at the bottom
         return gradient;
     }
 
-    let totalGradient = createFadingGradient(); 
+    let totalGradient = createFadingGradient(ctx); 
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -47,27 +51,27 @@ function updateScoreChart() {
                 {
                     label: "Total Score",
                     data: totalScores,
-                    borderColor: "rgb(0, 0, 255)",
-                    backgroundColor: totalGradient,
-                    fill: true,
+                    borderColor: "rgb(0, 0, 255)", // Solid blue line
+                    backgroundColor: totalGradient, // **Gradient Fill**
+                    fill: true, // **Enable fill for total score only**
                     borderWidth: 2.5,
                     tension: 0.4
                 },
                 {
                     label: "Reading & Writing",
                     data: readingScores,
-                    borderColor: "rgb(102, 102, 255)",
-                    backgroundColor: "rgb(102, 102, 255)",
-                    fill: false,
+                    borderColor: "rgb(102, 102, 255)", 
+                    backgroundColor: "rgb(102, 102, 255)", // **Solid legend circle**
+                    fill: false, // No fill for reading
                     borderWidth: 2.5,
                     tension: 0.4
                 },
                 {
                     label: "Math",
                     data: mathScores,
-                    borderColor: "rgb(173, 216, 230)",
-                    backgroundColor: "rgb(173, 216, 230)",
-                    fill: false,
+                    borderColor: "rgb(173, 216, 230)", 
+                    backgroundColor: "rgb(173, 216, 230)", // **Solid legend circle**
+                    fill: false, // No fill for math
                     borderWidth: 2.5,
                     tension: 0.4
                 }
