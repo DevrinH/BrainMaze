@@ -24,10 +24,10 @@ function updateScoreChart() {
     // **Create fading gradient for the total score fill**
     function createFadingGradient() {
         let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
-        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)"); // Quick fade
-        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.2)");  
-        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)"); // Fully transparent near the middle
+        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
+        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.5)"); // Quick fade
+        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0.2)");  
+        gradient.addColorStop(1.0, "rgba(0, 0, 255, 0)"); // Fully transparent near the middle
         return gradient;
     }
 
