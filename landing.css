@@ -645,4 +645,5 @@ padding-right: 10px;
 .last-score-text {
   font-size: 12px;
   font-weight: bold;
+  margin-bottom: 15px; /* Space between text and bar chart */
 }
