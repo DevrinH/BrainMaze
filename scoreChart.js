@@ -32,9 +32,9 @@ function updateScoreChart() {
     function createFadingGradient() {
         let gradient = ctx.createLinearGradient(0, 0, 0, 400);
         gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)");
-        gradient.addColorStop(0.1, "rgba(0, 0, 255, 0.5)");
-        gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.2)");  
-        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0)");
+        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)");
+        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.2)");  
+        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)");
         return gradient;
     }
 
