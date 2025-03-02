@@ -2,16 +2,15 @@ function updateScoreChart() {
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
 
     // Format dates as "Feb 25" instead of "YYYY-MM-DD"
-    let dates = Object.keys(scoreHistory)
-        .sort()
-        .map(date => {
-            let d = new Date(date);
-            return d.toLocaleDateString("en-US", { month: "short", day: "numeric" }); // "Feb 25"
-        });
+    let rawDates = Object.keys(scoreHistory).sort();
+    let dates = rawDates.map(date => {
+        let d = new Date(date);
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric" }); // "Feb 25"
+    });
 
-    let mathScores = Object.keys(scoreHistory).sort().map(date => scoreHistory[date]?.math ?? NaN);
-    let readingScores = Object.keys(scoreHistory).sort().map(date => scoreHistory[date]?.reading ?? NaN);
-    let totalScores = Object.keys(scoreHistory).sort().map(date => scoreHistory[date]?.total ?? NaN);
+    let mathScores = rawDates.map(date => scoreHistory[date]?.math ?? NaN);
+    let readingScores = rawDates.map(date => scoreHistory[date]?.reading ?? NaN);
+    let totalScores = rawDates.map(date => scoreHistory[date]?.total ?? NaN);
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
 
@@ -30,15 +29,15 @@ function updateScoreChart() {
 
     // **Create fading gradient for the total score fill**
     function createFadingGradient() {
-        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)");
-        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)");
-        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.2)");  
-        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)");
+        let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
+        gradient.addColorStop(0.1, "rgba(0, 0, 255, 0.5)"); // Quick fade
+        gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.2)");  
+        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0)"); // Fully transparent near the middle
         return gradient;
     }
 
-    let totalGradient = createFadingGradient(); 
+    let totalGradient = createFadingGradient();
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -115,39 +114,16 @@ function updateScoreChart() {
                     labels: {
                         color: "black",
                         font: { size: 14, weight: "bold" },
-                        usePointStyle: true,
+                        usePointStyle: true, 
                         pointStyle: "circle"
                     }
                 },
                 datalabels: {
                     color: "black",
                     font: { size: 12, weight: "bold" },
-                    formatter: (value, context) => {
-                        if (isNaN(value)) return "";
-                        
-                        let datasetIndex = context.datasetIndex;
-                        let currentIndex = context.dataIndex;
-                        
-                        let total = totalScores[currentIndex] ?? 0;
-                        let reading = readingScores[currentIndex] ?? 0;
-                        let math = mathScores[currentIndex] ?? 0;
-                        
-                        if (datasetIndex === 0) {
-                            return total;
-                        }
-
-                        let position = "top";
-                        if (datasetIndex === 1 && Math.abs(total - reading) < 50) position = "start";
-                        if (datasetIndex === 2 && Math.abs(total - math) < 50) position = "end";
-
-                        return value;
-                    },
-                    align: (context) => {
-                        let datasetIndex = context.datasetIndex;
-                        return datasetIndex === 0 ? "end" : (datasetIndex === 1 ? "start" : "end");
-                    },
-                    anchor: "end",
-                    offset: 4
+                    formatter: (value) => (isNaN(value) ? "" : value),
+                    align: "end",
+                    anchor: "end"
                 }
             }
         },
