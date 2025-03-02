@@ -1,19 +1,12 @@
 function updateScoreChart() {
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
 
-    // Format dates as "Feb 25" instead of "YYYY-MM-DD"
-    let rawDates = Object.keys(scoreHistory).sort();
-    let dates = rawDates.map(date => {
-        let d = new Date(date);
-        return d.toLocaleDateString("en-US", { month: "short", day: "numeric" }); // "Feb 25"
-    });
+    let dates = Object.keys(scoreHistory).sort();
+    let mathScores = dates.map(date => scoreHistory[date]?.math ?? NaN);
+    let readingScores = dates.map(date => scoreHistory[date]?.reading ?? NaN);
+    let totalScores = dates.map(date => scoreHistory[date]?.total ?? NaN);
 
-    let mathScores = rawDates.map(date => scoreHistory[date]?.math ?? NaN);
-    let readingScores = rawDates.map(date => scoreHistory[date]?.reading ?? NaN);
-    let totalScores = rawDates.map(date => scoreHistory[date]?.total ?? NaN);
-
-    let canvas = document.getElementById("scoreChart");
-    let ctx = canvas.getContext("2d");
+    let ctx = document.getElementById("scoreChart").getContext("2d");
 
     if (window.scoreChart && typeof window.scoreChart.destroy === "function") {
         window.scoreChart.destroy();
@@ -28,20 +21,17 @@ function updateScoreChart() {
 
     Chart.register(ChartDataLabels);
 
-    // **Ensure the chart container has a height (CSS Fix)**
-    canvas.parentElement.style.height = "400px"; // Adjust height if needed
-
     // **Create fading gradient for the total score fill**
-    function createFadingGradient(ctx) {
-        let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height || 400);
-        gradient.addColorStop(0, "rgba(0, 0, 255, 0.6)"); // Strongest at the top
-        gradient.addColorStop(0.2, "rgba(0, 0, 255, 0.4)");
-        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0.2)");
-        gradient.addColorStop(1, "rgba(0, 0, 255, 0)"); // Fully transparent at the bottom
+    function createFadingGradient() {
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
+        gradient.addColorStop(0.1, "rgba(0, 0, 255, 0.5)"); // Quick fade
+        gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.2)");  
+        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0)"); // Fully transparent near the middle
         return gradient;
     }
 
-    let totalGradient = createFadingGradient(ctx); 
+    let totalGradient = createFadingGradient(); 
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -119,15 +109,15 @@ function updateScoreChart() {
                         color: "black",
                         font: { size: 14, weight: "bold" },
                         usePointStyle: true, 
-                        pointStyle: "circle"
+                        pointStyle: "circle" // **Solid legend circles**
                     }
                 },
                 datalabels: {
+                    align: "top",
+                    anchor: "end",
                     color: "black",
                     font: { size: 12, weight: "bold" },
-                    formatter: (value) => (isNaN(value) ? "" : value),
-                    align: "end",
-                    anchor: "end"
+                    formatter: (value) => (isNaN(value) ? "" : value)
                 }
             }
         },
