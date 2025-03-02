@@ -66,7 +66,7 @@ function updateScoreChart() {
                 {
                     label: "Math",
                     data: mathScores,
-                    borderColor: "rgb(48, 233, 240)", 
+                    borderColor: "rgb(0, 222, 230)", 
                     backgroundColor: "rgb(173, 216, 230)", // **Solid legend circle**
                     fill: false, // No fill for math
                     borderWidth: 2.5,
