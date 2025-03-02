@@ -29,7 +29,7 @@ function updateScoreChart() {
 
     // **Create fading gradient for the total score fill**
     function createFadingGradient() {
-        let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
         gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
         gradient.addColorStop(0.1, "rgba(0, 0, 255, 0.5)"); // Quick fade
         gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.2)");  
@@ -37,7 +37,7 @@ function updateScoreChart() {
         return gradient;
     }
 
-    let totalGradient = createFadingGradient();
+    let totalGradient = createFadingGradient(); 
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
