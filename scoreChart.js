@@ -77,7 +77,7 @@ function updateScoreChart() {
                 {
                     label: "Total Score",
                     data: selectedTotalScores,
-                    borderColor: "rgb(132, 0, 255)",
+                    borderColor: "rgb(89, 0, 255)",
                     backgroundColor: totalGradient,
                     fill: true,
                     borderWidth: 2.5,
