@@ -163,49 +163,24 @@
 
     </div>
 
-  
+    <div class="right-container">
+        <h2 class="title">Adaptive Learning</h2>
         <div class="progress-container">
             <h2>SAT Category Progress</h2>
-        
-            <!-- Reading -->
-            <div class="progress-item">
-                <div class="progress-label">Inference <span id="inference-change" class="arrow"></span></div>
-                <div class="progress-bar"><div class="progress-fill" id="inference-bar"></div></div>
-                <div class="progress-percentage" id="inference-text"></div>
-            </div>
-        
-            <div class="progress-item">
-                <div class="progress-label">Big Picture <span id="big-picture-change" class="arrow"></span></div>
-                <div class="progress-bar"><div class="progress-fill" id="big-picture-bar"></div></div>
-                <div class="progress-percentage" id="big-picture-text"></div>
-            </div>
-        
-            <!-- Writing -->
-            <div class="progress-item">
-                <div class="progress-label">Grammar & Sentence Structure <span id="grammar-change" class="arrow"></span></div>
-                <div class="progress-bar"><div class="progress-fill" id="grammar-bar"></div></div>
-                <div class="progress-percentage" id="grammar-text"></div>
-            </div>
-        
-            <div class="progress-item">
-                <div class="progress-label">Transitions & Logical Flow <span id="transitions-change" class="arrow"></span></div>
-                <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
-                <div class="progress-percentage" id="transitions-text"></div>
-            </div>
-        
-            <!-- Math -->
-            <div class="progress-item">
-                <div class="progress-label">Algebra <span id="algebra-change" class="arrow"></span></div>
-                <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
-                <div class="progress-percentage" id="algebra-text"></div>
-            </div>
-        
-            <div class="progress-item">
-                <div class="progress-label">Trigonometry <span id="trigonometry-change" class="arrow"></span></div>
-                <div class="progress-bar"><div class="progress-fill" id="trigonometry-bar"></div></div>
-                <div class="progress-percentage" id="trigonometry-text"></div>
-            </div>
-        
+            <div class="progress-item"><div class="progress-label">Command of Evidence</div><div class="progress-bar"><div class="progress-fill" id="command-evidence-bar"></div></div><div class="progress-percentage" id="command-evidence-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Central Ideas and Detail</div><div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div><div class="progress-percentage" id="central-ideas-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Inferences</div><div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div><div class="progress-percentage" id="inferences-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Words in Context</div><div class="progress-bar"><div class="progress-fill" id="words-context-bar"></div></div><div class="progress-percentage" id="words-context-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Text Structure and Purpose</div><div class="progress-bar"><div class="progress-fill" id="text-structure-bar"></div></div><div class="progress-percentage" id="text-structure-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Cross-Text Connections</div><div class="progress-bar"><div class="progress-fill" id="cross-text-bar"></div></div><div class="progress-percentage" id="cross-text-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Transitions</div><div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div><div class="progress-percentage" id="transitions-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Rhetorical Synthesis</div><div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div><div class="progress-percentage" id="rhetorical-synthesis-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Boundaries</div><div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div><div class="progress-percentage" id="boundaries-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Form, Structure, and Sense</div><div class="progress-bar"><div class="progress-fill" id="form-structure-bar"></div></div><div class="progress-percentage" id="form-structure-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Algebra</div><div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div><div class="progress-percentage" id="algebra-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Advanced Math</div><div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div><div class="progress-percentage" id="advanced-math-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Problem Solving and Data Analysis</div><div class="progress-bar"><div class="progress-fill" id="problem-solving-bar"></div></div><div class="progress-percentage" id="problem-solving-text"></div></div>
+            <div class="progress-item"><div class="progress-label">Geometry and Trigonometry</div><div class="progress-bar"><div class="progress-fill" id="geometry-trig-bar"></div></div><div class="progress-percentage" id="geometry-trig-text"></div></div>
         </div>
 
 
@@ -222,68 +197,159 @@
 </div>
 
 <script>
-// Categories and their initial values
-const categories = [
-    "Form, Structure, and Sense",
-    "Grammar and Punctuation",
-    "Expression of Ideas",
-    "Reading Comprehension",
-    "Mathematical Problem Solving"
-];
 
-// Function to get stored data or set default
-function getCategoryData(category) {
-    let storedData = JSON.parse(localStorage.getItem(category));
-    return storedData ? storedData : { correct: 0, incorrect: 0, lastPercentage: 0 };
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("lastScoreBarChart");
 
-// Function to update category data
-function updateCategory(category, correctAnswers, incorrectAnswers) {
-    let data = getCategoryData(category);
+    if (!canvas) {
+        console.error("Last Score Bar Chart element not found!");
+        return;
+    }
 
-    // Update counts
-    data.correct += correctAnswers;
-    data.incorrect += incorrectAnswers;
+    const ctx = canvas.getContext("2d");
 
-    // Calculate new percentage
-    let newPercentage = Math.round((data.correct / (data.correct + data.incorrect)) * 100);
-    
-    // Compare with previous percentage for arrow direction
-    data.lastPercentage = data.percentage || 0; // Store previous percentage
-    data.percentage = newPercentage; // Update to new percentage
+    if (!ctx) {
+        console.error("Failed to get 2D context for Last Score Bar Chart!");
+        return;
+    }
 
-    // Save back to local storage
-    localStorage.setItem(category, JSON.stringify(data));
-}
+    // Retrieve the last test score from localStorage
+    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+    let dates = Object.keys(scoreHistory).sort();
+    let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
 
-// Function to render progress bars
-function renderProgress() {
-    let container = document.getElementById("progress-container");
-    container.innerHTML = ""; // Clear previous elements
+    let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+    let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
+    let lastTotal = lastMath + lastReading;
+    const maxScore = 1600;
+    const unfilledScore = maxScore - lastTotal; // Remaining portion
 
-    categories.forEach(category => {
-        let data = getCategoryData(category);
-        let percentage = data.percentage || 0;
-        let lastPercentage = data.lastPercentage || 0;
-        let arrow = percentage > lastPercentage ? "⬆️" : percentage < lastPercentage ? "⬇️" : "➡️";
+    // Destroy previous chart if it exists
+    if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
+        window.lastScoreBarChart.destroy();
+    }
 
-        // Create progress bar element
-        let progressHTML = `
-            <div class="progress-item">
-                <p><strong>${category}</strong></p>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: ${percentage}%"></div>
-                </div>
-                <p>${percentage}% completed <span class="arrow">${arrow}</span></p>
-            </div>
-        `;
-        container.innerHTML += progressHTML;
+    // Create the new Last Score Single Bar Chart
+    window.lastScoreBarChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [""], // Single bar
+            datasets: [
+                {
+                    label: "Math",
+                    data: [lastMath],
+                    backgroundColor: "rgb(96, 205, 241)", // blue
+                    stack: "total"
+                },
+                {
+                    label: "Reading/Writing",
+                    data: [lastReading],
+                    backgroundColor: "rgb(205, 120, 255)", // lavander
+                    stack: "total"
+                },
+
+                {
+                    label: "Missed",
+                    data: [unfilledScore],
+                    backgroundColor: "#d3d3d3", // Gray
+                    stack: "total"
+                }
+            ]
+        },
+        options: {
+            indexAxis: "y", // Horizontal bar
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    stacked: true,
+                    max: maxScore,
+                    ticks: {
+                        stepSize: 800
+                    },
+                    grid: {
+                        display: false,
+                        drawBorder: false,
+                        drawOnChartArea: false
+                    }
+                },
+                y: {
+                    stacked: true,
+                    display: false,
+                    grid: {
+                        display: false,
+                        drawBorder: false,
+                        drawOnChartArea: false
+                    }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: { enabled: true },
+                datalabels: {
+                    anchor: "center",
+                    align: "center",
+                    color: "white",
+                    font: { size: 18, weight: "bold" },
+                    formatter: (value) => (value > 0 ? value : "")
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
     });
-}
+});
 
-// Call function to display progress on page load
-document.addEventListener("DOMContentLoaded", renderProgress);
 
+    </script>
+<script>
+    // Simulated user test results
+    const previousScores = {
+        inference: 55,
+        "big-picture": 65,
+        grammar: 70,
+        transitions: 80,
+        algebra: 60,
+        trigonometry: 50
+    };
+
+    const currentScores = {
+        inference: 75,
+        "big-picture": 60,
+        grammar: 85,
+        transitions: 70,
+        algebra: 65,
+        trigonometry: 55
+    };
+
+    function updateProgress(category) {
+        const prev = previousScores[category];
+        const curr = currentScores[category];
+
+        const bar = document.getElementById(`${category}-bar`);
+        const text = document.getElementById(`${category}-text`);
+        const changeIndicator = document.getElementById(`${category}-change`);
+
+        bar.style.width = `${curr}%`;
+        text.textContent = `${curr}% completed`;
+
+        if (curr > prev) {
+            changeIndicator.innerHTML = `▲ ${Math.abs(curr - prev)}%`;
+            changeIndicator.classList.add("up");
+        } else if (curr < prev) {
+            changeIndicator.innerHTML = `▼ ${Math.abs(curr - prev)}%`;
+            changeIndicator.classList.add("down");
+        } else {
+            changeIndicator.innerHTML = "—"; // No change
+        }
+    }
+
+    // Update all categories
+    updateProgress("inference");
+    updateProgress("big-picture");
+    updateProgress("grammar");
+    updateProgress("transitions");
+    updateProgress("algebra");
+    updateProgress("trigonometry");
 </script>
 
 
