@@ -57,7 +57,7 @@ function updateScoreChart() {
                 {
                     label: "Reading & Writing",
                     data: readingScores,
-                    borderColor: "rgb(102, 102, 255)", 
+                    borderColor: "rgb(205, 120, 255)", 
                     backgroundColor: "rgb(102, 102, 255)", // **Solid legend circle**
                     fill: false, // No fill for reading
                     borderWidth: 2.5,
@@ -66,7 +66,7 @@ function updateScoreChart() {
                 {
                     label: "Math",
                     data: mathScores,
-                    borderColor: "rgb(173, 216, 230)", 
+                    borderColor: "rgb(48, 233, 240)", 
                     backgroundColor: "rgb(173, 216, 230)", // **Solid legend circle**
                     fill: false, // No fill for math
                     borderWidth: 2.5,
