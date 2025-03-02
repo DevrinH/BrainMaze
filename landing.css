@@ -647,3 +647,16 @@ padding-right: 10px;
   font-weight: bold;
   margin-bottom: 10px; /* Space between text and bar chart */
 }
+.progress-title {
+  text-align: left;
+  width: 100%;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px; /* Adjust spacing */
+  padding-left: 10px; /* Moves it slightly from the edge */
+}
+.chart-container h2 {
+  text-align: left;
+  width: 100%;
+  margin-left: 10px; /* Adjust spacing */
+}
