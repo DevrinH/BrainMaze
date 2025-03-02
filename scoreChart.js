@@ -77,7 +77,7 @@ function updateScoreChart() {
                 {
                     label: "Total Score",
                     data: selectedTotalScores,
-                    borderColor: "rgb(0, 0, 255)",
+                    borderColor: "rgb(174, 0, 255)",
                     backgroundColor: totalGradient,
                     fill: true,
                     borderWidth: 2.5,
@@ -87,7 +87,7 @@ function updateScoreChart() {
                     label: "Reading & Writing",
                     data: selectedReadingScores,
                     borderColor: "rgb(205, 120, 255)", 
-                    backgroundColor: "rgb(102, 102, 255)",
+                    backgroundColor: "rgb(205, 120, 255)",
                     fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
@@ -96,7 +96,7 @@ function updateScoreChart() {
                     label: "Math",
                     data: selectedMathScores,
                     borderColor: "rgb(0, 222, 230)", 
-                    backgroundColor: "rgb(173, 216, 230)",
+                    backgroundColor: "rgb(0, 222, 230)",
                     fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
