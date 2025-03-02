@@ -614,7 +614,7 @@ padding-right: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   flex: 1; 
   min-width: 300px;
-  max-width: 900px;
+  
   padding: 20px;
   transition: all 0.3s ease-in-out;
   display: flex;
