@@ -125,11 +125,13 @@ let dates = rawDates.map(date => {
                     }
                 },
                 datalabels: {
-                    align: "top",
-                    anchor: "end",
                     color: "black",
                     font: { size: 12, weight: "bold" },
-                    formatter: (value) => (isNaN(value) ? "" : value)
+                    formatter: (value) => (isNaN(value) ? "" : value),
+                    align: "end",
+                    anchor: "end",
+                    clip: true,      // Ensures labels stay inside the chart area
+                    overflow: "none" // Hides labels if they would overlap outside
                 }
             }
         },
