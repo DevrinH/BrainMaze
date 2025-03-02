@@ -28,10 +28,10 @@ function updateScoreChart() {
         let gradient = ctx.createLinearGradient(0, top, 0, bottom);
 
         gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
-        gradient.addColorStop(0.2, "rgba(0, 0, 255, 0.5)"); 
-        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.2)");
-        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.05)");
-        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)"); // Fully transparent at the middle
+        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)"); 
+        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.2)");
+        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0.05)");
+        gradient.addColorStop(1.0, "rgba(0, 0, 255, 0)"); // Fully transparent at the middle
 
         return gradient;
     }
