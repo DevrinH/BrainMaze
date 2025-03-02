@@ -165,23 +165,74 @@
 
    
    
-        <div class="progress-container">
-            <h2>SAT Category Progress</h2>
-            <div class="progress-item"><div class="progress-label">Command of Evidence</div><div class="progress-bar"><div class="progress-fill" id="command-evidence-bar"></div></div><div class="progress-percentage" id="command-evidence-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Central Ideas and Detail</div><div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div><div class="progress-percentage" id="central-ideas-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Inferences</div><div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div><div class="progress-percentage" id="inferences-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Words in Context</div><div class="progress-bar"><div class="progress-fill" id="words-context-bar"></div></div><div class="progress-percentage" id="words-context-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Text Structure and Purpose</div><div class="progress-bar"><div class="progress-fill" id="text-structure-bar"></div></div><div class="progress-percentage" id="text-structure-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Cross-Text Connections</div><div class="progress-bar"><div class="progress-fill" id="cross-text-bar"></div></div><div class="progress-percentage" id="cross-text-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Transitions</div><div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div><div class="progress-percentage" id="transitions-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Rhetorical Synthesis</div><div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div><div class="progress-percentage" id="rhetorical-synthesis-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Boundaries</div><div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div><div class="progress-percentage" id="boundaries-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Form, Structure, and Sense</div><div class="progress-bar"><div class="progress-fill" id="form-structure-bar"></div></div><div class="progress-percentage" id="form-structure-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Algebra</div><div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div><div class="progress-percentage" id="algebra-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Advanced Math</div><div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div><div class="progress-percentage" id="advanced-math-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Problem Solving and Data Analysis</div><div class="progress-bar"><div class="progress-fill" id="problem-solving-bar"></div></div><div class="progress-percentage" id="problem-solving-text"></div></div>
-            <div class="progress-item"><div class="progress-label">Geometry and Trigonometry</div><div class="progress-bar"><div class="progress-fill" id="geometry-trig-bar"></div></div><div class="progress-percentage" id="geometry-trig-text"></div></div>
+    <div class="progress-container">
+        <h2>SAT Category Progress</h2>
+        <div class="progress-item" data-category="command-evidence">
+            <div class="progress-label">Command of Evidence</div>
+            <div class="progress-bar"><div class="progress-fill" id="command-evidence-bar"></div></div>
+            <div class="progress-percentage" id="command-evidence-text">0% <span class="arrow">→</span></div>
         </div>
+        <div class="progress-item" data-category="central-ideas">
+            <div class="progress-label">Central Ideas and Detail</div>
+            <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
+            <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="inferences">
+            <div class="progress-label">Inferences</div>
+            <div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div>
+            <div class="progress-percentage" id="inferences-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="words-context">
+            <div class="progress-label">Words in Context</div>
+            <div class="progress-bar"><div class="progress-fill" id="words-context-bar"></div></div>
+            <div class="progress-percentage" id="words-context-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="text-structure">
+            <div class="progress-label">Text Structure and Purpose</div>
+            <div class="progress-bar"><div class="progress-fill" id="text-structure-bar"></div></div>
+            <div class="progress-percentage" id="text-structure-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="cross-text">
+            <div class="progress-label">Cross-Text Connections</div>
+            <div class="progress-bar"><div class="progress-fill" id="cross-text-bar"></div></div>
+            <div class="progress-percentage" id="cross-text-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="transitions">
+            <div class="progress-label">Transitions</div>
+            <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
+            <div class="progress-percentage" id="transitions-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="rhetorical-synthesis">
+            <div class="progress-label">Rhetorical Synthesis</div>
+            <div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div>
+            <div class="progress-percentage" id="rhetorical-synthesis-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="boundaries">
+            <div class="progress-label">Boundaries</div>
+            <div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div>
+            <div class="progress-percentage" id="boundaries-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="algebra">
+            <div class="progress-label">Algebra</div>
+            <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
+            <div class="progress-percentage" id="algebra-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="advanced-math">
+            <div class="progress-label">Advanced Math</div>
+            <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
+            <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="problem-solving">
+            <div class="progress-label">Problem Solving and Data Analysis</div>
+            <div class="progress-bar"><div class="progress-fill" id="problem-solving-bar"></div></div>
+            <div class="progress-percentage" id="problem-solving-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="geometry-trigonometry">
+            <div class="progress-label">Geometry and Trigonometry</div>
+            <div class="progress-bar"><div class="progress-fill" id="geometry-trigonometry-bar"></div></div>
+            <div class="progress-percentage" id="geometry-trigonometry-text">0% <span class="arrow">→</span></div>
+        </div>
+    </div>
 
 
 
@@ -302,31 +353,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </script>
 <script>
-    // Simulated user test results
-    function getStoredScores() {
-            const storedScores = JSON.parse(localStorage.getItem("satScores")) || {};
-            return storedScores;
+ const categories = [
+            "command-evidence", "central-ideas", "inferences", "words-context", "text-structure", 
+            "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
+            "advanced-math", "problem-solving", "geometry-trigonometry"
+        ];
+
+        function getStoredScores() {
+            return JSON.parse(localStorage.getItem("satScores")) || {};
         }
 
         function saveScores(scores) {
             localStorage.setItem("satScores", JSON.stringify(scores));
         }
 
-        function updateProgress() {
+        function updateProgressUI() {
             const scores = getStoredScores();
-            Object.keys(scores).forEach(category => {
-                const correct = scores[category].correct || 0;
-                const total = scores[category].total || 1;
-                const percentage = Math.round((correct / total) * 100);
-
-                const bar = document.getElementById(`${category}-bar`);
-                const text = document.getElementById(`${category}-text`);
-                if (bar) bar.style.width = `${percentage}%`;
-                if (text) text.textContent = `${percentage}% correct`;
+            const progressContainer = document.getElementById("progress-items");
+            progressContainer.innerHTML = "";
+            
+            categories.forEach(category => {
+                const score = scores[category] || 0;
+                const arrow = score === 0 ? "→" : (score > 50 ? "▲" : "▼");
+                const colorClass = score === 0 ? "gray" : (score > 50 ? "up" : "down");
+                
+                progressContainer.innerHTML += `
+                    <div class="progress-item" data-category="${category}">
+                        <div class="progress-label">${category.replace("-", " ")}</div>
+                        <div class="progress-bar"><div class="progress-fill" id="${category}-bar" style="width: ${score}%"></div></div>
+                        <div class="progress-percentage" id="${category}-text">${score}% <span class="arrow ${colorClass}">${arrow}</span></div>
+                    </div>
+                `;
             });
         }
 
-        updateProgress();
+        function recordTestResults(results) {
+            const scores = getStoredScores();
+            categories.forEach(category => {
+                if (results[category] !== undefined) {
+                    scores[category] = Math.round((scores[category] || 0 + results[category]) / 2);
+                }
+            });
+            saveScores(scores);
+            updateProgressUI();
+        }
+
+        updateProgressUI();
 </script>
 
 
