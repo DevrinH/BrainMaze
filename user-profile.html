@@ -165,7 +165,49 @@
 
     <div class="right-container">
         <h2 class="title">Adaptive Learning</h2>
-
+        <div class="progress-container">
+            <h2>SAT Category Progress</h2>
+        
+            <!-- Reading -->
+            <div class="progress-item">
+                <div class="progress-label">Inference <span id="inference-change" class="arrow"></span></div>
+                <div class="progress-bar"><div class="progress-fill" id="inference-bar"></div></div>
+                <div class="progress-percentage" id="inference-text"></div>
+            </div>
+        
+            <div class="progress-item">
+                <div class="progress-label">Big Picture <span id="big-picture-change" class="arrow"></span></div>
+                <div class="progress-bar"><div class="progress-fill" id="big-picture-bar"></div></div>
+                <div class="progress-percentage" id="big-picture-text"></div>
+            </div>
+        
+            <!-- Writing -->
+            <div class="progress-item">
+                <div class="progress-label">Grammar & Sentence Structure <span id="grammar-change" class="arrow"></span></div>
+                <div class="progress-bar"><div class="progress-fill" id="grammar-bar"></div></div>
+                <div class="progress-percentage" id="grammar-text"></div>
+            </div>
+        
+            <div class="progress-item">
+                <div class="progress-label">Transitions & Logical Flow <span id="transitions-change" class="arrow"></span></div>
+                <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
+                <div class="progress-percentage" id="transitions-text"></div>
+            </div>
+        
+            <!-- Math -->
+            <div class="progress-item">
+                <div class="progress-label">Algebra <span id="algebra-change" class="arrow"></span></div>
+                <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
+                <div class="progress-percentage" id="algebra-text"></div>
+            </div>
+        
+            <div class="progress-item">
+                <div class="progress-label">Trigonometry <span id="trigonometry-change" class="arrow"></span></div>
+                <div class="progress-bar"><div class="progress-fill" id="trigonometry-bar"></div></div>
+                <div class="progress-percentage" id="trigonometry-text"></div>
+            </div>
+        
+        </div>
 
 
 
@@ -228,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 {
                     label: "Reading/Writing",
                     data: [lastReading],
-                    backgroundColor: "rgb(125, 125, 255)", // Green
+                    backgroundColor: "rgb(205, 120, 255)", // lavander
                     stack: "total"
                 },
 
@@ -285,7 +327,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     </script>
+<script>
+    // Simulated user test results
+    const previousScores = {
+        inference: 55,
+        "big-picture": 65,
+        grammar: 70,
+        transitions: 80,
+        algebra: 60,
+        trigonometry: 50
+    };
 
+    const currentScores = {
+        inference: 75,
+        "big-picture": 60,
+        grammar: 85,
+        transitions: 70,
+        algebra: 65,
+        trigonometry: 55
+    };
+
+    function updateProgress(category) {
+        const prev = previousScores[category];
+        const curr = currentScores[category];
+
+        const bar = document.getElementById(`${category}-bar`);
+        const text = document.getElementById(`${category}-text`);
+        const changeIndicator = document.getElementById(`${category}-change`);
+
+        bar.style.width = `${curr}%`;
+        text.textContent = `${curr}% completed`;
+
+        if (curr > prev) {
+            changeIndicator.innerHTML = `▲ ${Math.abs(curr - prev)}%`;
+            changeIndicator.classList.add("up");
+        } else if (curr < prev) {
+            changeIndicator.innerHTML = `▼ ${Math.abs(curr - prev)}%`;
+            changeIndicator.classList.add("down");
+        } else {
+            changeIndicator.innerHTML = "—"; // No change
+        }
+    }
+
+    // Update all categories
+    updateProgress("inference");
+    updateProgress("big-picture");
+    updateProgress("grammar");
+    updateProgress("transitions");
+    updateProgress("algebra");
+    updateProgress("trigonometry");
+</script>
 
 
 
