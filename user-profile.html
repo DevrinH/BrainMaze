@@ -303,53 +303,30 @@ document.addEventListener("DOMContentLoaded", function () {
     </script>
 <script>
     // Simulated user test results
-    const previousScores = {
-        inference: 55,
-        "big-picture": 65,
-        grammar: 70,
-        transitions: 80,
-        algebra: 60,
-        trigonometry: 50
-    };
-
-    const currentScores = {
-        inference: 75,
-        "big-picture": 60,
-        grammar: 85,
-        transitions: 70,
-        algebra: 65,
-        trigonometry: 55
-    };
-
-    function updateProgress(category) {
-        const prev = previousScores[category];
-        const curr = currentScores[category];
-
-        const bar = document.getElementById(`${category}-bar`);
-        const text = document.getElementById(`${category}-text`);
-        const changeIndicator = document.getElementById(`${category}-change`);
-
-        bar.style.width = `${curr}%`;
-        text.textContent = `${curr}% completed`;
-
-        if (curr > prev) {
-            changeIndicator.innerHTML = `▲ ${Math.abs(curr - prev)}%`;
-            changeIndicator.classList.add("up");
-        } else if (curr < prev) {
-            changeIndicator.innerHTML = `▼ ${Math.abs(curr - prev)}%`;
-            changeIndicator.classList.add("down");
-        } else {
-            changeIndicator.innerHTML = "—"; // No change
+    function getStoredScores() {
+            const storedScores = JSON.parse(localStorage.getItem("satScores")) || {};
+            return storedScores;
         }
-    }
 
-    // Update all categories
-    updateProgress("inference");
-    updateProgress("big-picture");
-    updateProgress("grammar");
-    updateProgress("transitions");
-    updateProgress("algebra");
-    updateProgress("trigonometry");
+        function saveScores(scores) {
+            localStorage.setItem("satScores", JSON.stringify(scores));
+        }
+
+        function updateProgress() {
+            const scores = getStoredScores();
+            Object.keys(scores).forEach(category => {
+                const correct = scores[category].correct || 0;
+                const total = scores[category].total || 1;
+                const percentage = Math.round((correct / total) * 100);
+
+                const bar = document.getElementById(`${category}-bar`);
+                const text = document.getElementById(`${category}-text`);
+                if (bar) bar.style.width = `${percentage}%`;
+                if (text) text.textContent = `${percentage}% correct`;
+            });
+        }
+
+        updateProgress();
 </script>
 
 
