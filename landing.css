@@ -622,7 +622,7 @@ padding-right: 10px;
   align-items: center; /* Centers content */
   overflow: hidden; /* Prevents legends from escaping */
   margin: 0 auto; /* Centers it horizontally */
-  max-width: 900px; /* Ensures it doesn't stretch too wide */
+  max-width: 1200px; /* Ensures it doesn't stretch too wide */
 }
 .align-center{
   display: flex;
