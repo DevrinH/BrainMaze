@@ -621,5 +621,6 @@ padding-right: 10px;
   flex-direction: column; /* Ensures internal elements stack properly */
   align-items: center; /* Centers content */
   overflow: hidden; /* Prevents legends from escaping */
- 
+  margin: 0 auto; /* Centers it horizontally */
+  max-width: 900px; /* Ensures it doesn't stretch too wide */
 }
