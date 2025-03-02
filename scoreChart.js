@@ -44,7 +44,7 @@ function updateScoreChart() {
                 {
                     label: "Total Score",
                     data: totalScores,
-                    borderColor: "rgb(0, 0, 255)", // Solid blue line
+                    borderColor: "rgb(52, 2, 133)", // Solid blue line
                     backgroundColor: (context) => {
                         if (!context.chart.chartArea) return "rgba(0, 0, 255, 0)"; // Ensure chart area is ready
                         return createFadingGradient(ctx, context.chart.chartArea);
