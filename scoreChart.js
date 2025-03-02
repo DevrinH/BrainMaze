@@ -81,8 +81,12 @@ function updateScoreChart() {
                 x: {
                     ticks: {
                         color: "black",
-                        font: { size: 14, weight: "bold" }
-                    },
+                        font: { size: 14, weight: "bold" },
+                        maxRotation: 45, 
+                        minRotation: 30,
+                        autoSkip: true // Prevents overlapping labels
+                    }
+                },
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
