@@ -21,17 +21,20 @@ function updateScoreChart() {
 
     Chart.register(ChartDataLabels);
 
-    // **Create fading gradient for the total score fill**
-    function createFadingGradient() {
-        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    // **Create a fading gradient for the total score fill**
+    function createFadingGradient(ctx, chartArea) {
+        let { top, bottom } = chartArea;
+        let height = bottom - top;
+        let gradient = ctx.createLinearGradient(0, top, 0, bottom);
+
         gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
-        gradient.addColorStop(0.1, "rgba(0, 0, 255, 0.5)"); // Quick fade
-        gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.2)");  
-        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0)"); // Fully transparent near the middle
+        gradient.addColorStop(0.2, "rgba(0, 0, 255, 0.5)"); 
+        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.2)");
+        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.05)");
+        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)"); // Fully transparent at the middle
+
         return gradient;
     }
-
-    let totalGradient = createFadingGradient(); 
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -42,8 +45,11 @@ function updateScoreChart() {
                     label: "Total Score",
                     data: totalScores,
                     borderColor: "rgb(0, 0, 255)", // Solid blue line
-                    backgroundColor: totalGradient, // **Gradient Fill**
-                    fill: true, // **Enable fill for total score only**
+                    backgroundColor: (context) => {
+                        if (!context.chart.chartArea) return "rgba(0, 0, 255, 0)"; // Ensure chart area is ready
+                        return createFadingGradient(ctx, context.chart.chartArea);
+                    },
+                    fill: true, // **Enable gradient fill under total**
                     borderWidth: 2.5,
                     tension: 0.4
                 },
