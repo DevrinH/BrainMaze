@@ -606,3 +606,20 @@ padding-right: 10px;
   font-size: 16px;
 
 }
+
+.line-chart-container{
+  min-height: 500px; 
+  background-color: rgb(255, 249, 249);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex: 1; 
+  min-width: 300px;
+  max-width: 900px;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Ensures internal elements stack properly */
+  align-items: center; /* Centers content */
+  overflow: hidden; /* Prevents legends from escaping */
+  margin: auto;
+}
