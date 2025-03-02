@@ -615,7 +615,7 @@ padding-right: 10px;
   flex: 1; 
   min-width: 300px;
   
-  padding: 20px;
+  padding: 10px;
   transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column; /* Ensures internal elements stack properly */
