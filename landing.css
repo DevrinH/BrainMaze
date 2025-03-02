@@ -608,23 +608,23 @@ padding-right: 10px;
 
 }
 
-.line-chart-container{
+.line-chart-container {
   min-height: 500px; 
   background-color: rgb(252, 252, 252);
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   flex: 1; 
   min-width: 300px;
-  margin-top: 15px;
+  margin: 15px auto 0 auto; /* Adds margin to the top while keeping it centered */
   padding: 5px;
   transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column; /* Ensures internal elements stack properly */
   align-items: center; /* Centers content */
   overflow: hidden; /* Prevents legends from escaping */
-  margin: 0 auto; /* Centers it horizontally */
   max-width: 1200px; /* Ensures it doesn't stretch too wide */
 }
+
 .align-center{
   display: flex;
   justify-content: center; /* Centers horizontally */
