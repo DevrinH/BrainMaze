@@ -634,3 +634,15 @@ padding-right: 10px;
   text-align: left;
   margin-left: left;
 }
+.last-score-container {
+  text-align: center;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 24px;
+  color: #1e0144; /* Matches your heading color */
+  margin-bottom: 10px; /* Space between text and bar chart */
+}
+
+.last-score-text {
+  font-size: 28px;
+  font-weight: bold;
+}
