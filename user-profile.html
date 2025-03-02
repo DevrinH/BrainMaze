@@ -264,7 +264,7 @@
         const changeIndicator = document.getElementById(`${category}-change`);
 
         bar.style.width = `${curr}%`;
-        text.textContent = `${curr}% completed`;
+        text.textContent = `${curr}% Correct`;
 
         if (curr > prev) {
             changeIndicator.innerHTML = `▲ ${Math.abs(curr - prev)}%`;
