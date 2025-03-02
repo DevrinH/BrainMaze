@@ -222,68 +222,68 @@
 </div>
 
 <script>
+// Categories and their initial values
+const categories = [
+    "Form, Structure, and Sense",
+    "Grammar and Punctuation",
+    "Expression of Ideas",
+    "Reading Comprehension",
+    "Mathematical Problem Solving"
+];
 
-    // Function to get stored scores or initialize default ones
-    function getStoredScores() {
-        const storedScores = localStorage.getItem("satScores");
-        return storedScores ? JSON.parse(storedScores) : {
-            inference: 50,
-            "big-picture": 50,
-            grammar: 50,
-            transitions: 50,
-            algebra: 50,
-            trigonometry: 50
-        };
-    }
+// Function to get stored data or set default
+function getCategoryData(category) {
+    let storedData = JSON.parse(localStorage.getItem(category));
+    return storedData ? storedData : { correct: 0, incorrect: 0, lastPercentage: 0 };
+}
 
-    // Simulate new test scores (replace this with actual test results)
-    function getNewTestScores() {
-        return {
-            inference: Math.floor(Math.random() * 100),
-            "big-picture": Math.floor(Math.random() * 100),
-            grammar: Math.floor(Math.random() * 100),
-            transitions: Math.floor(Math.random() * 100),
-            algebra: Math.floor(Math.random() * 100),
-            trigonometry: Math.floor(Math.random() * 100)
-        };
-    }
+// Function to update category data
+function updateCategory(category, correctAnswers, incorrectAnswers) {
+    let data = getCategoryData(category);
 
-    // Get old and new scores
-    const previousScores = getStoredScores();
-    const currentScores = getNewTestScores();
+    // Update counts
+    data.correct += correctAnswers;
+    data.incorrect += incorrectAnswers;
 
-    // Save new scores in localStorage
-    localStorage.setItem("satScores", JSON.stringify(currentScores));
+    // Calculate new percentage
+    let newPercentage = Math.round((data.correct / (data.correct + data.incorrect)) * 100);
+    
+    // Compare with previous percentage for arrow direction
+    data.lastPercentage = data.percentage || 0; // Store previous percentage
+    data.percentage = newPercentage; // Update to new percentage
 
-    function updateProgress(category) {
-        const prev = previousScores[category] || 0;
-        const curr = currentScores[category] || 0;
+    // Save back to local storage
+    localStorage.setItem(category, JSON.stringify(data));
+}
 
-        const bar = document.getElementById(`${category}-bar`);
-        const text = document.getElementById(`${category}-text`);
-        const changeIndicator = document.getElementById(`${category}-change`);
+// Function to render progress bars
+function renderProgress() {
+    let container = document.getElementById("progress-container");
+    container.innerHTML = ""; // Clear previous elements
 
-        bar.style.width = `${curr}%`;
-        text.textContent = `${curr}% Correct`;
+    categories.forEach(category => {
+        let data = getCategoryData(category);
+        let percentage = data.percentage || 0;
+        let lastPercentage = data.lastPercentage || 0;
+        let arrow = percentage > lastPercentage ? "⬆️" : percentage < lastPercentage ? "⬇️" : "➡️";
 
-        if (curr > prev) {
-            changeIndicator.innerHTML = `▲ ${Math.abs(curr - prev)}%`;
-            changeIndicator.classList.add("up");
-        } else if (curr < prev) {
-            changeIndicator.innerHTML = `▼ ${Math.abs(curr - prev)}%`;
-            changeIndicator.classList.add("down");
-        } else {
-            changeIndicator.innerHTML = "—"; // No change
-        }
-    }
+        // Create progress bar element
+        let progressHTML = `
+            <div class="progress-item">
+                <p><strong>${category}</strong></p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${percentage}%"></div>
+                </div>
+                <p>${percentage}% completed <span class="arrow">${arrow}</span></p>
+            </div>
+        `;
+        container.innerHTML += progressHTML;
+    });
+}
 
-    // Update all categories
-    updateProgress("inference");
-    updateProgress("big-picture");
-    updateProgress("grammar");
-    updateProgress("transitions");
-    updateProgress("algebra");
-    updateProgress("trigonometry");
+// Call function to display progress on page load
+document.addEventListener("DOMContentLoaded", renderProgress);
+
 </script>
 
 
