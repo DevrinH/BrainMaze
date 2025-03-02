@@ -1,10 +1,17 @@
 function updateScoreChart() {
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
 
-    let dates = Object.keys(scoreHistory).sort();
-    let mathScores = dates.map(date => scoreHistory[date]?.math ?? NaN);
-    let readingScores = dates.map(date => scoreHistory[date]?.reading ?? NaN);
-    let totalScores = dates.map(date => scoreHistory[date]?.total ?? NaN);
+    // Format dates as "Feb 25" instead of "YYYY-MM-DD"
+    let dates = Object.keys(scoreHistory)
+        .sort()
+        .map(date => {
+            let d = new Date(date);
+            return d.toLocaleDateString("en-US", { month: "short", day: "numeric" }); // "Feb 25"
+        });
+
+    let mathScores = Object.keys(scoreHistory).sort().map(date => scoreHistory[date]?.math ?? NaN);
+    let readingScores = Object.keys(scoreHistory).sort().map(date => scoreHistory[date]?.reading ?? NaN);
+    let totalScores = Object.keys(scoreHistory).sort().map(date => scoreHistory[date]?.total ?? NaN);
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
 
@@ -21,20 +28,17 @@ function updateScoreChart() {
 
     Chart.register(ChartDataLabels);
 
-    // **Create a fading gradient for the total score fill**
-    function createFadingGradient(ctx, chartArea) {
-        let { top, bottom } = chartArea;
-        let height = bottom - top;
-        let gradient = ctx.createLinearGradient(0, top, 0, bottom);
-
-        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
-        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)"); 
-        gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.2)");
-        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0.05)");
-        gradient.addColorStop(1.0, "rgba(0, 0, 255, 0)"); // Fully transparent at the middle
-
+    // **Create fading gradient for the total score fill**
+    function createFadingGradient() {
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)");
+        gradient.addColorStop(0.1, "rgba(0, 0, 255, 0.5)");
+        gradient.addColorStop(0.3, "rgba(0, 0, 255, 0.2)");  
+        gradient.addColorStop(0.5, "rgba(0, 0, 255, 0)");
         return gradient;
     }
+
+    let totalGradient = createFadingGradient(); 
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -44,30 +48,27 @@ function updateScoreChart() {
                 {
                     label: "Total Score",
                     data: totalScores,
-                    borderColor: "rgb(52, 2, 133)", // Solid blue line
-                    backgroundColor: (context) => {
-                        if (!context.chart.chartArea) return "rgba(0, 0, 255, 0)"; // Ensure chart area is ready
-                        return createFadingGradient(ctx, context.chart.chartArea);
-                    },
-                    fill: true, // **Enable gradient fill under total**
+                    borderColor: "rgb(0, 0, 255)",
+                    backgroundColor: totalGradient,
+                    fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
                 },
                 {
                     label: "Reading & Writing",
                     data: readingScores,
-                    borderColor: "rgb(125, 125, 255)", 
-                    backgroundColor: "rgb(102, 102, 255)", // **Solid legend circle**
-                    fill: false, // No fill for reading
+                    borderColor: "rgb(102, 102, 255)",
+                    backgroundColor: "rgb(102, 102, 255)",
+                    fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
                 },
                 {
                     label: "Math",
                     data: mathScores,
-                    borderColor: "rgb(96, 205, 241)", 
-                    backgroundColor: "rgb(173, 216, 230)", // **Solid legend circle**
-                    fill: false, // No fill for math
+                    borderColor: "rgb(173, 216, 230)",
+                    backgroundColor: "rgb(173, 216, 230)",
+                    fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
                 }
@@ -114,16 +115,39 @@ function updateScoreChart() {
                     labels: {
                         color: "black",
                         font: { size: 14, weight: "bold" },
-                        usePointStyle: true, 
-                        pointStyle: "circle" // **Solid legend circles**
+                        usePointStyle: true,
+                        pointStyle: "circle"
                     }
                 },
                 datalabels: {
-                    align: "top",
-                    anchor: "end",
                     color: "black",
                     font: { size: 12, weight: "bold" },
-                    formatter: (value) => (isNaN(value) ? "" : value)
+                    formatter: (value, context) => {
+                        if (isNaN(value)) return "";
+                        
+                        let datasetIndex = context.datasetIndex;
+                        let currentIndex = context.dataIndex;
+                        
+                        let total = totalScores[currentIndex] ?? 0;
+                        let reading = readingScores[currentIndex] ?? 0;
+                        let math = mathScores[currentIndex] ?? 0;
+                        
+                        if (datasetIndex === 0) {
+                            return total;
+                        }
+
+                        let position = "top";
+                        if (datasetIndex === 1 && Math.abs(total - reading) < 50) position = "start";
+                        if (datasetIndex === 2 && Math.abs(total - math) < 50) position = "end";
+
+                        return value;
+                    },
+                    align: (context) => {
+                        let datasetIndex = context.datasetIndex;
+                        return datasetIndex === 0 ? "end" : (datasetIndex === 1 ? "start" : "end");
+                    },
+                    anchor: "end",
+                    offset: 4
                 }
             }
         },
