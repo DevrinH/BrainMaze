@@ -4,14 +4,43 @@ function updateScoreChart() {
     // Ensure dates are sorted properly and use local timezone
     let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
-    let dates = rawDates.map(date => {
-        let d = new Date(date + "T00:00:00"); // Force local timezone interpretation
-        return d.toLocaleDateString(undefined, { month: "short", day: "numeric" }); // "Feb 25"
+    if (rawDates.length === 0) {
+        rawDates = ["No Data"];
+    }
+
+    let totalCount = rawDates.length;
+    let selectedDates = [];
+    let selectedMathScores = [];
+    let selectedReadingScores = [];
+    let selectedTotalScores = [];
+
+    if (totalCount <= 10) {
+        // If 10 or fewer scores exist, use them all
+        selectedDates = rawDates;
+    } else {
+        // Always include first and last date
+        selectedDates.push(rawDates[0]);
+
+        // Pick evenly spaced dates (excluding first and last)
+        let interval = Math.floor((totalCount - 2) / 8); // 8 more points needed
+        for (let i = 1; i <= 8; i++) {
+            selectedDates.push(rawDates[i * interval]);
+        }
+
+        // Include the last date
+        selectedDates.push(rawDates[totalCount - 1]);
+    }
+
+    // Convert selected dates to proper format
+    let dates = selectedDates.map(date => {
+        let d = new Date(date + "T00:00:00");
+        return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
     });
 
-    let mathScores = rawDates.map(date => scoreHistory[date]?.math ?? NaN);
-    let readingScores = rawDates.map(date => scoreHistory[date]?.reading ?? NaN);
-    let totalScores = rawDates.map(date => scoreHistory[date]?.total ?? NaN);
+    // Get corresponding scores
+    selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
+    selectedReadingScores = selectedDates.map(date => scoreHistory[date]?.reading ?? NaN);
+    selectedTotalScores = selectedDates.map(date => scoreHistory[date]?.total ?? NaN);
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
 
@@ -21,9 +50,9 @@ function updateScoreChart() {
 
     if (dates.length === 0) {
         dates = ["No Data"];
-        mathScores = [NaN];
-        readingScores = [NaN];
-        totalScores = [NaN];
+        selectedMathScores = [NaN];
+        selectedReadingScores = [NaN];
+        selectedTotalScores = [NaN];
     }
 
     Chart.register(ChartDataLabels);
@@ -47,28 +76,28 @@ function updateScoreChart() {
             datasets: [
                 {
                     label: "Total Score",
-                    data: totalScores,
-                    borderColor: "rgb(0, 0, 255)", // Solid blue line
-                    backgroundColor: totalGradient, // **Gradient Fill**
-                    fill: true, // **Enable fill for total score only**
+                    data: selectedTotalScores,
+                    borderColor: "rgb(0, 0, 255)",
+                    backgroundColor: totalGradient,
+                    fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
                 },
                 {
                     label: "Reading & Writing",
-                    data: readingScores,
+                    data: selectedReadingScores,
                     borderColor: "rgb(205, 120, 255)", 
-                    backgroundColor: "rgb(102, 102, 255)", // **Solid legend circle**
-                    fill: false, // No fill for reading
+                    backgroundColor: "rgb(102, 102, 255)",
+                    fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
                 },
                 {
                     label: "Math",
-                    data: mathScores,
+                    data: selectedMathScores,
                     borderColor: "rgb(0, 222, 230)", 
-                    backgroundColor: "rgb(173, 216, 230)", // **Solid legend circle**
-                    fill: false, // No fill for math
+                    backgroundColor: "rgb(173, 216, 230)",
+                    fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
                 }
@@ -82,9 +111,9 @@ function updateScoreChart() {
                     ticks: {
                         color: "black",
                         font: { size: 14, weight: "bold" },
-                        maxRotation: 45,  // Rotate labels to avoid overlap
+                        maxRotation: 45,
                         minRotation: 30,
-                        autoSkip: true,    // Automatically hide labels if they overlap
+                        autoSkip: true,
                     },
                     grid: {
                         drawTicks: true,
@@ -119,7 +148,7 @@ function updateScoreChart() {
                         color: "black",
                         font: { size: 14, weight: "bold" },
                         usePointStyle: true, 
-                        pointStyle: "circle" // **Solid legend circles**
+                        pointStyle: "circle"
                     }
                 },
                 datalabels: {
@@ -129,25 +158,24 @@ function updateScoreChart() {
                     align: function (context) {
                         let index = context.dataIndex;
                         let datasetIndex = context.datasetIndex;
-                        let mathValue = mathScores[index];
-                        let readingValue = readingScores[index];
+                        let mathValue = selectedMathScores[index];
+                        let readingValue = selectedReadingScores[index];
 
                         if (datasetIndex === 1 && readingValue < mathValue) return "bottom";
                         if (datasetIndex === 2 && mathValue < readingValue) return "bottom";
-                        return "top"; // Default position
+                        return "top";
                     },
                     anchor: function (context) {
                         let index = context.dataIndex;
                         let datasetIndex = context.datasetIndex;
-                        let mathValue = mathScores[index];
-                        let readingValue = readingScores[index];
+                        let mathValue = selectedMathScores[index];
+                        let readingValue = selectedReadingScores[index];
 
                         if (datasetIndex === 1 && readingValue < mathValue) return "start";
                         if (datasetIndex === 2 && mathValue < readingValue) return "start";
-                        return "end"; // Default position
+                        return "end";
                     },
                     xAdjust: function (context) {
-                        // Offset first data point to the right if too close to the y-axis
                         return context.dataIndex === 0 ? 15 : 0;
                     }
                 }
