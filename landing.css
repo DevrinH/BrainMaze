@@ -689,6 +689,7 @@ padding-right: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 .progress-bar {
   width: 100%;
@@ -706,11 +707,13 @@ padding-right: 10px;
 .progress-percentage {
   font-size: 14px;
   margin-top: 5px;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 .arrow {
   font-size: 16px;
   font-weight: bold;
   margin-left: 5px;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 .up {
   color: green;
