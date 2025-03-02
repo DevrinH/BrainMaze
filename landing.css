@@ -628,3 +628,8 @@ padding-right: 10px;
   display: flex;
   justify-content: center; /* Centers horizontally */
 }
+
+.left-align{
+  text-align: left;
+  
+}
