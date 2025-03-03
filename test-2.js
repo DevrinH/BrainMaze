@@ -144,25 +144,6 @@ function saveScores(scores) {
     localStorage.setItem("satScores", JSON.stringify(scores));
 }
 
-function updateProgressUI() {
-    const scores = getStoredScores();
-    const progressContainer = document.getElementById("progress-items");
-    progressContainer.innerHTML = "";
-    
-    categories.forEach(category => {
-        const score = scores[category] || 0;
-        const arrow = score === 0 ? "→" : (score > 50 ? "▲" : "▼");
-        const colorClass = score === 0 ? "gray" : (score > 50 ? "up" : "down");
-        
-        progressContainer.innerHTML += `
-            <div class="progress-item" data-category="${category}">
-                <div class="progress-label">${category.replace("-", " ")}</div>
-                <div class="progress-bar"><div class="progress-fill" id="${category}-bar" style="width: ${score}%"></div></div>
-                <div class="progress-percentage" id="${category}-text">${score}% <span class="arrow ${colorClass}">${arrow}</span></div>
-            </div>
-        `;
-    });
-}
 
 function recordTestResults(results) {
     let scores = getStoredScores();
@@ -178,7 +159,7 @@ function recordTestResults(results) {
     });
     
     saveScores(scores);
-    updateProgressUI();
+    
 }
 
 function startQuiz() {
@@ -270,11 +251,7 @@ function handleNextButton() {
     }
 }
 
-function updateProgressBar() {
-    const progressBar = document.getElementById("progress-bar");
-    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
-    progressBar.style.width = progress + "%";
-}
+
 
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
