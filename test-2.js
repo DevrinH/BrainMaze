@@ -131,7 +131,7 @@ let currentQuestionIndex = 0;
 let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
 
 const categories = [
-    "command-evidence", "central-ideas", "inferences", "words-context", "text-structure", 
+    "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
     "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
     "advanced-math", "problem-solving", "geometry-trigonometry"
 ];
