@@ -633,7 +633,249 @@ const questions = [
     type: "writing",
     difficulty: "hard",
     category: "Form, Structure, and Sense"
-}
+},
+    {
+        question: "If 3x - 5 = 16, what is the value of x?",
+        answers: [
+            { text: "A) 5", correct: false },
+            { text: "B) 7", correct: true },
+            { text: "C) 9", correct: false },
+            { text: "D) 11", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "Algebra"
+    },
+    {
+        question: "The expression (x + 3)(x - 2) is equivalent to which of the following?",
+        answers: [
+            { text: "A) x² + x - 6", correct: true },
+            { text: "B) x² - x - 6", correct: false },
+            { text: "C) x² + 5x - 6", correct: false },
+            { text: "D) x² - 5x - 6", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Algebra"
+    },
+    {
+        question: "If f(x) = 2x² - 3x + 4, what is f(3)?",
+        answers: [
+            { text: "A) 19", correct: true },
+            { text: "B) 20", correct: false },
+            { text: "C) 21", correct: false },
+            { text: "D) 22", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Algebra"
+    },
+    {
+        question: "Which of the following is equivalent to 4(x - 2) + 3(x + 1)?",
+        answers: [
+            { text: "A) 7x - 5", correct: false },
+            { text: "B) 7x - 8", correct: true },
+            { text: "C) 7x - 10", correct: false },
+            { text: "D) 7x - 11", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "Algebra"
+    },
+    {
+        question: "If 2x + 3 = 5x - 6, what is the value of x?",
+        answers: [
+            { text: "A) 1", correct: false },
+            { text: "B) 2", correct: false },
+            { text: "C) 3", correct: true },
+            { text: "D) 4", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Algebra"
+    },
+    {
+        question: "A right triangle has legs of length 6 and 8. What is the length of the hypotenuse?",
+        answers: [
+            { text: "A) 10", correct: true },
+            { text: "B) 12", correct: false },
+            { text: "C) 14", correct: false },
+            { text: "D) 16", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "Geometry and Trigonometry"
+    },
+    {
+        question: "A circle has a radius of 5. What is its circumference?",
+        answers: [
+            { text: "A) 5π", correct: false },
+            { text: "B) 10π", correct: true },
+            { text: "C) 25π", correct: false },
+            { text: "D) 50π", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "Geometry and Trigonometry"
+    },
+    {
+        question: "In a 30°-60°-90° triangle, the length of the shorter leg is 4. What is the length of the hypotenuse?",
+        answers: [
+            { text: "A) 4√3", correct: false },
+            { text: "B) 8", correct: true },
+            { text: "C) 6", correct: false },
+            { text: "D) 4√2", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Geometry and Trigonometry"
+    },
+    {
+        question: "A triangle has angles measuring 35° and 45°. What is the measure of the third angle?",
+        answers: [
+            { text: "A) 100°", correct: false },
+            { text: "B) 90°", correct: false },
+            { text: "C) 80°", correct: true },
+            { text: "D) 75°", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "Geometry and Trigonometry"
+    },
+    {
+        question: "If sin(θ) = 3/5, what is cos(θ) assuming θ is in the first quadrant?",
+        answers: [
+            { text: "A) 4/5", correct: true },
+            { text: "B) 3/5", correct: false },
+            { text: "C) 5/3", correct: false },
+            { text: "D) 5/4", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Geometry and Trigonometry"
+    },
+    {
+        question: "A survey found that 40% of 200 students prefer online learning over in-person classes. How many students prefer online learning?",
+        answers: [
+            { text: "A) 60", correct: false },
+            { text: "B) 80", correct: true },
+            { text: "C) 100", correct: false },
+            { text: "D) 120", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "Problem Solving and Data Analysis"
+    },
+    {
+        question: "The average score of five students on a math test is 82. If four students scored 85, 78, 90, and 80, what did the fifth student score?",
+        answers: [
+            { text: "A) 77", correct: true },
+            { text: "B) 80", correct: false },
+            { text: "C) 85", correct: false },
+            { text: "D) 90", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Problem Solving and Data Analysis"
+    },
+    {
+        question: "A store sells apples for $1.50 each or a bundle of 4 for $5.00. How much would a customer save by buying 8 apples in bundles instead of individually?",
+        answers: [
+            { text: "A) $2.00", correct: true },
+            { text: "B) $3.00", correct: false },
+            { text: "C) $4.00", correct: false },
+            { text: "D) $5.00", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Problem Solving and Data Analysis"
+    },
+    {
+        question: "A car rental company charges a base fee of $25 plus $0.20 per mile driven. If a customer pays $61, how many miles did they drive?",
+        answers: [
+            { text: "A) 150", correct: true },
+            { text: "B) 160", correct: false },
+            { text: "C) 180", correct: false },
+            { text: "D) 200", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Problem Solving and Data Analysis"
+    },
+    {
+        question: "A company’s profit increased from $12,000 to $15,000 in one year. What was the percentage increase in profit?",
+        answers: [
+            { text: "A) 20%", correct: false },
+            { text: "B) 25%", correct: true },
+            { text: "C) 30%", correct: false },
+            { text: "D) 35%", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Problem Solving and Data Analysis"
+    },
+    {
+        question: "If f(x) = 2x² - 3x + 5, what is f(4)?",
+        answers: [
+            { text: "A) 27", correct: false },
+            { text: "B) 29", correct: true },
+            { text: "C) 31", correct: false },
+            { text: "D) 33", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Advanced Math"
+    },
+    {
+        question: "The equation 3x² - 5x - 2 = 0 is factored as (ax + b)(cx + d) = 0. What is the value of a + b + c + d?",
+        answers: [
+            { text: "A) 1", correct: false },
+            { text: "B) 3", correct: false },
+            { text: "C) 5", correct: true },
+            { text: "D) 7", correct: false },
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "Advanced Math"
+    },
+    {
+        question: "If g(x) = 4x - 7 and h(x) = x² + 2x, what is (g ∘ h)(2)?",
+        answers: [
+            { text: "A) -3", correct: false },
+            { text: "B) 5", correct: false },
+            { text: "C) 9", correct: true },
+            { text: "D) 15", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Advanced Math"
+    },
+    {
+        question: "A function is defined as f(x) = (x - 3)(x + 5). What is the x-coordinate of the vertex of the parabola?",
+        answers: [
+            { text: "A) -4", correct: false },
+            { text: "B) -1", correct: true },
+            { text: "C) 1", correct: false },
+            { text: "D) 4", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Advanced Math"
+    },
+    {
+        question: "The function f(x) = 2(x - 4)² + 3 is transformed from its parent function y = x². What is the vertex of the function?",
+        answers: [
+            { text: "A) (4,3)", correct: true },
+            { text: "B) (-4,-3)", correct: false },
+            { text: "C) (3,4)", correct: false },
+            { text: "D) (-3,4)", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "Advanced Math"
+    }
+
+
 
 
 
