@@ -128,42 +128,63 @@ const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
-let score = 0;
-let correctAnswers = 0;
-let selectedQuestions = [];
 let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+
+const categories = [
+    "command-evidence", "central-ideas", "inferences", "words-context", "text-structure", 
+    "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
+    "advanced-math", "problem-solving", "geometry-trigonometry"
+];
+
+function getStoredScores() {
+    return JSON.parse(localStorage.getItem("satScores")) || {};
+}
+
+function saveScores(scores) {
+    localStorage.setItem("satScores", JSON.stringify(scores));
+}
+
+function updateProgressUI() {
+    const scores = getStoredScores();
+    const progressContainer = document.getElementById("progress-items");
+    progressContainer.innerHTML = "";
+    
+    categories.forEach(category => {
+        const score = scores[category] || 0;
+        const arrow = score === 0 ? "→" : (score > 50 ? "▲" : "▼");
+        const colorClass = score === 0 ? "gray" : (score > 50 ? "up" : "down");
+        
+        progressContainer.innerHTML += `
+            <div class="progress-item" data-category="${category}">
+                <div class="progress-label">${category.replace("-", " ")}</div>
+                <div class="progress-bar"><div class="progress-fill" id="${category}-bar" style="width: ${score}%"></div></div>
+                <div class="progress-percentage" id="${category}-text">${score}% <span class="arrow ${colorClass}">${arrow}</span></div>
+            </div>
+        `;
+    });
+}
+
+function recordTestResults(results) {
+    const scores = getStoredScores();
+    categories.forEach(category => {
+        if (results[category] !== undefined) {
+            scores[category] = Math.round((scores[category] || 0 + results[category]) / 2);
+        }
+    });
+    saveScores(scores);
+    updateProgressUI();
+}
 
 function startQuiz() {
     currentQuestionIndex = 0;
-    score = 0;
-    correctAnswers = 0;
-
-    // Select 54 questions (ordered Easy → Medium → Hard)
-    selectedQuestions = selectRandomQuestions(questions, 18, 18, 18);
-
+    categoryStats = {};
     nextButton.innerHTML = "Next";
     showQuestion();
 }
 
-function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
-    const easyQuestions = questions.filter(q => q.difficulty === "easy");
-    const mediumQuestions = questions.filter(q => q.difficulty === "medium");
-    const hardQuestions = questions.filter(q => q.difficulty === "hard");
-
-    function getRandom(arr, num) {
-        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
-    }
-
-    const selectedEasy = getRandom(easyQuestions, numEasy);
-    const selectedMedium = getRandom(mediumQuestions, numMedium);
-    const selectedHard = getRandom(hardQuestions, numHard);
-
-    return [...selectedEasy, ...selectedMedium, ...selectedHard];
-}
-
 function showQuestion() {
     resetState();
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
@@ -191,7 +212,7 @@ function resetState() {
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let currentQuestion = questions[currentQuestionIndex];
     let questionCategory = currentQuestion.category; 
 
     if (!categoryStats[questionCategory]) {
@@ -200,16 +221,7 @@ function selectAnswer(e) {
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
-        correctAnswers++;
         categoryStats[questionCategory].correct++;
-
-        if (currentQuestion.difficulty === "easy") {
-            score += 1;
-        } else if (currentQuestion.difficulty === "medium") {
-            score += 2;
-        } else if (currentQuestion.difficulty === "hard") {
-            score += 3;
-        }
     } else {
         selectedBtn.classList.add("incorrect");
         categoryStats[questionCategory].incorrect++;
@@ -223,56 +235,46 @@ function selectAnswer(e) {
     });
 
     nextButton.style.display = "block";
-    localStorage.setItem("categoryStats", JSON.stringify(categoryStats));
 }
 
-function showScore() {
+function showResults() {
     resetState();
-
-    let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
-    let rawScore = score;
-    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
-
-    localStorage.setItem("readingScore", scaledScore);
-
-    let today = new Date().toLocaleDateString("en-CA");
-    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    scoreHistory[today] = scaledScore;
-    localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
-
-    questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
+    questionElement.innerHTML = "Quiz Completed!";
     nextButton.innerHTML = "Continue";
     nextButton.style.display = "block";
 
-    document.getElementById("progress-bar").style.width = "100%";
-    updateScoreGraph();
+    let results = {};
+    Object.keys(categoryStats).forEach(category => {
+        const totalAttempts = categoryStats[category].correct + categoryStats[category].incorrect;
+        if (totalAttempts > 0) {
+            results[category] = Math.round((categoryStats[category].correct / totalAttempts) * 100);
+        }
+    });
+    
+    recordTestResults(results);
 }
 
 function handleNextButton() {
     currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) {
+    if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
-        showScore();
+        showResults();
     }
 }
 
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
-    let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
     progressBar.style.width = progress + "%";
 }
 
 nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < selectedQuestions.length) {
+    if (currentQuestionIndex < questions.length) {
         handleNextButton();
     } else {
-        mathlink();
+        location.href = "https://www.brainjelli.com/user-profile.html";
     }
 });
-
-function mathlink() {
-    location.href = "https://www.brainjelli.com/user-profile.html";
-}
 
 startQuiz();
