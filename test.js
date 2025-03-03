@@ -1,34 +1,4 @@
-const startingMinutes = 64;
-const countdownEl = document.getElementById('countdown');
 
-let time = startingMinutes * 60; // No need for "+1", ensures exactly 64 minutes
-let refreshIntervalId = setInterval(updateCountdown, 1000);
-
-function updateCountdown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    
-    countdownEl.innerHTML = `${minutes} : ${seconds}`;
-
-    if (time === 0) { 
-        clearInterval(refreshIntervalId);
-        endQuiz();  // ✅ Stops quiz when timer hits zero
-    } else {
-        time--; 
-    }
-}
-
-// Function to handle quiz timeout
-function endQuiz() {
-    resetState();  // Removes answer buttons
-    showScore();   // Shows final score immediately
-}
-
-// Automatically end test after 64 minutes (3,840,000 ms)
-setTimeout(endQuiz, 3840000);
-
-updateCountdown();
 
 
 const questions = [
@@ -888,7 +858,7 @@ const questions = [
 
 ];
 
-const questionElement = document.getElementById("question");
+const questionElement = document.getElementById("question"); 
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
@@ -897,7 +867,6 @@ let score = 0;
 let correctAnswers = 0;
 let selectedQuestions = [];
 let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
-
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -912,32 +881,18 @@ function startQuiz() {
 }
 
 function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
-    // Separate questions by difficulty
     const easyQuestions = questions.filter(q => q.difficulty === "easy");
     const mediumQuestions = questions.filter(q => q.difficulty === "medium");
     const hardQuestions = questions.filter(q => q.difficulty === "hard");
 
-    // Further separate by type (reading/writing)
-    const easyReading = easyQuestions.filter(q => q.type === "reading");
-    const easyWriting = easyQuestions.filter(q => q.type === "writing");
-
-    const mediumReading = mediumQuestions.filter(q => q.type === "reading");
-    const mediumWriting = mediumQuestions.filter(q => q.type === "writing");
-
-    const hardReading = hardQuestions.filter(q => q.type === "reading");
-    const hardWriting = hardQuestions.filter(q => q.type === "writing");
-
-    // Function to get random questions
     function getRandom(arr, num) {
         return arr.sort(() => 0.5 - Math.random()).slice(0, num);
     }
 
-    // Select 9 reading and 9 writing questions for each difficulty level
-    const selectedEasy = [...getRandom(easyReading, numEasy / 2), ...getRandom(easyWriting, numEasy / 2)];
-    const selectedMedium = [...getRandom(mediumReading, numMedium / 2), ...getRandom(mediumWriting, numMedium / 2)];
-    const selectedHard = [...getRandom(hardReading, numHard / 2), ...getRandom(hardWriting, numHard / 2)];
+    const selectedEasy = getRandom(easyQuestions, numEasy);
+    const selectedMedium = getRandom(mediumQuestions, numMedium);
+    const selectedHard = getRandom(hardQuestions, numHard);
 
-    // Return ordered questions (Easy → Medium → Hard)
     return [...selectedEasy, ...selectedMedium, ...selectedHard];
 }
 
@@ -972,10 +927,8 @@ function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionCategory = currentQuestion.type; // Category (e.g., reading, writing)
-    let questionDifficulty = currentQuestion.difficulty; // Difficulty level
+    let questionCategory = currentQuestion.category; 
 
-    // Initialize category tracking if not already set
     if (!categoryStats[questionCategory]) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
@@ -983,22 +936,20 @@ function selectAnswer(e) {
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-        categoryStats[questionCategory].correct++; // Track correct answer
+        categoryStats[questionCategory].correct++;
 
-        // Difficulty-based scoring
-        if (questionDifficulty === "easy") {
+        if (currentQuestion.difficulty === "easy") {
             score += 1;
-        } else if (questionDifficulty === "medium") {
+        } else if (currentQuestion.difficulty === "medium") {
             score += 2;
-        } else if (questionDifficulty === "hard") {
+        } else if (currentQuestion.difficulty === "hard") {
             score += 3;
         }
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats[questionCategory].incorrect++; // Track incorrect answer
+        categoryStats[questionCategory].incorrect++;
     }
 
-    // Disable all buttons after selection & highlight correct answer
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
@@ -1006,27 +957,20 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    // Show next button
     nextButton.style.display = "block";
-
-    // Save updated category stats in localStorage
     localStorage.setItem("categoryStats", JSON.stringify(categoryStats));
 }
 
-
 function showScore() {
-    clearInterval(refreshIntervalId);
     resetState();
 
     let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-    // Save reading score before redirecting
     localStorage.setItem("readingScore", scaledScore);
 
-    let today = new Date().toLocaleDateString("en-CA"); // Local timezone, formatted as YYYY-MM-DD
-
+    let today = new Date().toLocaleDateString("en-CA");
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
     scoreHistory[today] = scaledScore;
     localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
@@ -1041,7 +985,7 @@ function showScore() {
 
 function handleNextButton() {
     currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) { // ✅ FIXED: Now uses selectedQuestions
+    if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
     } else {
         showScore();
@@ -1055,7 +999,7 @@ function updateProgressBar() {
 }
 
 nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < selectedQuestions.length) { // ✅ FIXED: Now uses selectedQuestions
+    if (currentQuestionIndex < selectedQuestions.length) {
         handleNextButton();
     } else {
         mathlink();
