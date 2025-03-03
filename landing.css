@@ -183,6 +183,7 @@ color:#1e0144
     flex-direction: column; /* Ensures internal elements stack properly */
     align-items: center; /* Centers content */
     overflow: hidden; /* Prevents legends from escaping */
+    margin: 0 auto; 
 }
   
   /* Responsive design for stacking on smaller screens */
