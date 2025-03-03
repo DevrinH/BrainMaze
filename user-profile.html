@@ -363,52 +363,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </script>
 <script>
- const categories = [
-            "command-evidence", "central-ideas", "inferences", "words-context", "text-structure", 
-            "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
-            "advanced-math", "problem-solving", "geometry-trigonometry"
-        ];
+document.addEventListener("DOMContentLoaded", function () {
+    updateProgressUI();
+});
 
-        function getStoredScores() {
-            return JSON.parse(localStorage.getItem("satScores")) || {};
+const categories = [
+    "command-of-evidence", "central-ideas-and-details", "inferences", "words-in-context",
+    "text-structure-and-purpose", "cross-text-connections", "transitions", "rhetorical-synthesis",
+    "boundaries", "form-structure-and-sense", "algebra", "advanced-math", "problem-solving-and-data-analysis",
+    "geometry-and-trigonometry"
+];
+
+function getStoredScores() {
+    let storedScores = localStorage.getItem("categoryScores");
+    return storedScores ? JSON.parse(storedScores) : {};
+}
+
+function saveScores(scores) {
+    localStorage.setItem("categoryScores", JSON.stringify(scores));
+}
+
+function standardizeCategoryName(category) {
+    return category.toLowerCase().replace(/\s+/g, "-");
+}
+
+function recordTestResults(results) {
+    let scores = getStoredScores();
+    
+    Object.keys(results).forEach(category => {
+        let standardCategory = standardizeCategoryName(category);
+        
+        if (!scores[standardCategory]) {
+            scores[standardCategory] = { totalCorrect: 0, totalAttempts: 0 };
         }
 
-        function saveScores(scores) {
-            localStorage.setItem("satScores", JSON.stringify(scores));
-        }
+        scores[standardCategory].totalCorrect += results[category].correct;
+        scores[standardCategory].totalAttempts += results[category].correct + results[category].incorrect;
+    });
+    
+    let finalScores = {};
+    Object.keys(scores).forEach(category => {
+        finalScores[category] = Math.round((scores[category].totalCorrect / scores[category].totalAttempts) * 100);
+    });
+    
+    saveScores(finalScores);
+    updateProgressUI();
+}
 
-        function updateProgressUI() {
-            const scores = getStoredScores();
-            const progressContainer = document.getElementById("progress-items");
-            progressContainer.innerHTML = "";
-            
-            categories.forEach(category => {
-                const score = scores[category] || 0;
-                const arrow = score === 0 ? "→" : (score > 50 ? "▲" : "▼");
-                const colorClass = score === 0 ? "gray" : (score > 50 ? "up" : "down");
-                
-                progressContainer.innerHTML += `
-                    <div class="progress-item" data-category="${category}">
-                        <div class="progress-label">${category.replace("-", " ")}</div>
-                        <div class="progress-bar"><div class="progress-fill" id="${category}-bar" style="width: ${score}%"></div></div>
-                        <div class="progress-percentage" id="${category}-text">${score}% <span class="arrow ${colorClass}">${arrow}</span></div>
-                    </div>
-                `;
-            });
+function updateProgressUI() {
+    let scores = getStoredScores();
+    
+    categories.forEach(category => {
+        let progressBar = document.getElementById(`${category}-progress`);
+        if (progressBar) {
+            let score = scores[category] || 0;
+            progressBar.style.width = `${score}%`;
+            progressBar.textContent = `${score}%`;
         }
+    });
+}
 
-        function recordTestResults(results) {
-            const scores = getStoredScores();
-            categories.forEach(category => {
-                if (results[category] !== undefined) {
-                    scores[category] = Math.round((scores[category] || 0 + results[category]) / 2);
-                }
-            });
-            saveScores(scores);
-            updateProgressUI();
-        }
-
-        updateProgressUI();
 </script>
 
 
