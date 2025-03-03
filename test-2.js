@@ -165,12 +165,18 @@ function updateProgressUI() {
 }
 
 function recordTestResults(results) {
-    const scores = getStoredScores();
-    categories.forEach(category => {
-        if (results[category] !== undefined) {
-            scores[category] = Math.round((scores[category] || 0 + results[category]) / 2);
+    let scores = getStoredScores();
+    
+    Object.keys(results).forEach(category => {
+        let formattedCategory = category.toLowerCase().replace(/\s+/g, "-"); // Match progress categories
+        if (!scores[formattedCategory]) {
+            scores[formattedCategory] = results[category];
+        } else {
+            let previousScore = scores[formattedCategory];
+            scores[formattedCategory] = Math.round((previousScore + results[category]) / 2);
         }
     });
+    
     saveScores(scores);
     updateProgressUI();
 }
@@ -213,7 +219,8 @@ function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = questions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category; 
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+
 
     if (!categoryStats[questionCategory]) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
