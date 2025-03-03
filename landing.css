@@ -680,6 +680,7 @@ h3 {
   padding: 20px;
   box-sizing: border-box;
   flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+  margin: 0 auto;
 }
 
 .testlessonscontainer, .progress-container {
