@@ -364,32 +364,42 @@ document.addEventListener("DOMContentLoaded", function () {
     </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const progressData = {
-        "command-of-evidence": { correct: 24, incorrect: 21 },
-        "central-ideas": { correct: 33, incorrect: 0 },
-        "inference": { correct: 62, incorrect: 0 },
-        "words-context": { correct: 21, incorrect: 0 },
-        "text-structure": { correct: 9, incorrect: 0 }
-    };
+    function getProgressData() {
+        return JSON.parse(localStorage.getItem("progressData")) || {};
+    }
 
-    Object.keys(progressData).forEach(category => {
-        const correct = progressData[category].correct;
-        const incorrect = progressData[category].incorrect;
-        const total = correct + incorrect;
-        const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+    function updateProgressBars() {
+        const progressData = getProgressData();
 
-        // Update the progress bar width
-        const progressBar = document.getElementById(`${category}-bar`);
-        if (progressBar) {
-            progressBar.style.width = `${percentage}%`;
-        }
+        Object.keys(progressData).forEach(category => {
+            const { correct, incorrect } = progressData[category];
+            const total = correct + incorrect;
+            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-        // Update the text percentage
-        const progressText = document.getElementById(`${category}-text`);
-        if (progressText) {
-            progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
-        }
-    });
+            // Update the progress bar width
+            const progressBar = document.getElementById(`${category}-bar`);
+            if (progressBar) {
+                progressBar.style.width = `${percentage}%`;
+            }
+
+            // Update the text percentage
+            const progressText = document.getElementById(`${category}-text`);
+            if (progressText) {
+                progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
+            }
+        });
+    }
+
+    // Example: Function to update progress after a test
+    function saveProgress(category, correct, incorrect) {
+        let progressData = getProgressData();
+        progressData[category] = { correct, incorrect };
+        localStorage.setItem("progressData", JSON.stringify(progressData));
+        updateProgressBars(); // Refresh UI
+    }
+
+    // Run update on page load
+    updateProgressBars();
 });
 
 </script>
