@@ -148,18 +148,19 @@ function saveScores(scores) {
 
 function recordTestResults() {
     let results = localStorage.getItem("testResults");
-    results = results ? JSON.parse(results) : [];
+    results = results ? JSON.parse(results) : {};
 
-    if (!Array.isArray(results)) {
-        console.error("Error: results should be an array but got", results);
-        results = [];
+    if (typeof results !== "object" || Array.isArray(results)) {
+        console.error("Error: results should be an object but got", results);
+        results = {};
     }
 
-    // Store current question stats if available
-    if (Object.keys(categoryStats).length > 0) {
-        results.push({ ...categoryStats });
-    } else {
-        console.warn("No categoryStats recorded, skipping save.");
+    for (let category in categoryStats) {
+        if (!results[category]) {
+            results[category] = { correct: 0, incorrect: 0 };
+        }
+        results[category].correct += categoryStats[category].correct;
+        results[category].incorrect += categoryStats[category].incorrect;
     }
 
     localStorage.setItem("testResults", JSON.stringify(results));
