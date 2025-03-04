@@ -179,9 +179,7 @@
         <br/>
         <div class="progress-item" data-category="command-of-evidence">
             <div class="progress-label">Command of Evidence</div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="command-of-evidence-progress"></div>
-            </div>
+            <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
             <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">→</span></div>
         </div>
         <div class="progress-item" data-category="central-ideas">
@@ -365,55 +363,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </script>
 <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    function getStoredProgress() {
-        // Retrieve progress data from localStorage
-        const storedData = localStorage.getItem("satProgress");
-        return storedData ? JSON.parse(storedData) : {};
+window.addEventListener("storage", function (event) {
+    if (event.key === "satProgress") {
+        const updatedData = JSON.parse(event.newValue);
+        updateProgressUI(updatedData);
     }
-
-    function updateProgressUI(data) {
-        Object.keys(data).forEach(category => {
-            const progressBar = document.getElementById(`${category}-bar`);
-            const progressText = document.getElementById(`${category}-text`);
-
-            if (progressBar && progressText) {
-                let correct = data[category]?.correct || 0;
-                let total = data[category]?.total || 1; // Avoid division by zero
-                let percentage = Math.round((correct / total) * 100);
-
-                progressBar.style.width = percentage + "%";
-                progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
-            }
-        });
-    }
-
-    function updateProgress(category, isCorrect) {
-        let progressData = localStorage.getItem("satProgress");
-        progressData = progressData ? JSON.parse(progressData) : {};
-
-        if (!progressData[category]) {
-            progressData[category] = { correct: 0, total: 0 };
-        }
-
-        // Increment the total count for that category
-        progressData[category].total += 1;
-
-        // If the answer was correct, increment the correct count
-        if (isCorrect) {
-            progressData[category].correct += 1;
-        }
-
-        localStorage.setItem("satProgress", JSON.stringify(progressData));
-        
-        // Update UI
-        updateProgressUI(progressData);
-    }
-
-    // Load and update progress bars on page load
-    const progressData = getStoredProgress();
-    updateProgressUI(progressData);
 });
+function updateProgress(category, isCorrect) {
+    let progressData = localStorage.getItem("satProgress");
+    progressData = progressData ? JSON.parse(progressData) : {};
+
+    if (!progressData[category]) {
+        progressData[category] = { correct: 0, total: 0 };
+    }
+
+    // Increment total attempts
+    progressData[category].total += 1;
+
+    // Increment correct count if answer is correct
+    if (isCorrect) {
+        progressData[category].correct += 1;
+    }
+
+    // Save updated progress
+    localStorage.setItem("satProgress", JSON.stringify(progressData));
+
+    // Trigger UI update on the same page
+    updateProgressUI(progressData);
+}
 
 </script>
 
