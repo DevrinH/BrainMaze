@@ -368,31 +368,18 @@ document.addEventListener("DOMContentLoaded", function () {
     </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {  
-    // Load progress data from localStorage or use default values
-    const defaultProgressData = {
-        "command-of-evidence": { correct: 24, incorrect: 21 },
-        "central-ideas": { correct: 33, incorrect: 0 },
-        "inference": { correct: 62, incorrect: 0 },
-        "words-context": { correct: 21, incorrect: 5 },
-        "text-structure": { correct: 9, incorrect: 0 },
-        "cross-text": { correct: 10, incorrect: 2 },
-        "transitions": { correct: 15, incorrect: 3 },
-        "rhetorical-synthesis": { correct: 20, incorrect: 5 },
-        "boundaries": { correct: 12, incorrect: 4 },
-        "algebra": { correct: 30, incorrect: 6 },
-        "advanced-math": { correct: 18, incorrect: 5 },
-        "problem-solving": { correct: 25, incorrect: 7 },
-        "geometry-trigonometry": { correct: 14, incorrect: 6 }
-    };
+    // Ensure test results are recorded first
+    recordTestResults();
 
-    let progressData = JSON.parse(localStorage.getItem("progressData")) || defaultProgressData;
+    // Load test results from localStorage
+    let progressData = JSON.parse(localStorage.getItem("testResults")) || {};
 
     function updateProgressBars() {
-        console.log("Updating progress bars...", progressData);
+        console.log("Updating progress bars with data:", progressData);
 
         Object.keys(progressData).forEach(category => {
-            const correct = progressData[category].correct;
-            const incorrect = progressData[category].incorrect;
+            const correct = progressData[category].correct || 0;
+            const incorrect = progressData[category].incorrect || 0;
             const total = correct + incorrect;
             const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
@@ -412,32 +399,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Ensure UI is updated on page load
     updateProgressBars();
-
-    // Function to update progress data and save it to localStorage
-    function updateProgress(category, correctIncrement, incorrectIncrement) {
-        if (progressData[category]) {
-            progressData[category].correct += correctIncrement;
-            progressData[category].incorrect += incorrectIncrement;
-            localStorage.setItem("progressData", JSON.stringify(progressData)); // Save to localStorage
-            updateProgressBars(); // Refresh UI
-        } else {
-            console.error(`Invalid category: ${category}`);
-        }
-    }
-
-    // Example: Ensure button exists before adding event listener
-    const updateButton = document.getElementById("update-inference");
-    if (updateButton) {
-        updateButton.addEventListener("click", function () {
-            updateProgress("inference", 1, 0);
-        });
-    } else {
-        console.warn("Update button not found: #update-inference");
-    }
 });
-
 
 </script>
 
