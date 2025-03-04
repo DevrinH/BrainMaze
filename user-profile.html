@@ -363,34 +363,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </script>
 <script>
-window.addEventListener("storage", function (event) {
-    if (event.key === "satProgress") {
-        const updatedData = JSON.parse(event.newValue);
-        updateProgressUI(updatedData);
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    const progressData = {
+        "command-of-evidence": { correct: 24, incorrect: 21 },
+        "central-ideas": { correct: 33, incorrect: 0 },
+        "inference": { correct: 62, incorrect: 0 },
+        "words-context": { correct: 21, incorrect: 0 },
+        "text-structure": { correct: 9, incorrect: 0 }
+    };
+
+    Object.keys(progressData).forEach(category => {
+        const correct = progressData[category].correct;
+        const incorrect = progressData[category].incorrect;
+        const total = correct + incorrect;
+        const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+        // Update the progress bar width
+        const progressBar = document.getElementById(`${category}-bar`);
+        if (progressBar) {
+            progressBar.style.width = `${percentage}%`;
+        }
+
+        // Update the text percentage
+        const progressText = document.getElementById(`${category}-text`);
+        if (progressText) {
+            progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
+        }
+    });
 });
-function updateProgress(category, isCorrect) {
-    let progressData = localStorage.getItem("satProgress");
-    progressData = progressData ? JSON.parse(progressData) : {};
-
-    if (!progressData[category]) {
-        progressData[category] = { correct: 0, total: 0 };
-    }
-
-    // Increment total attempts
-    progressData[category].total += 1;
-
-    // Increment correct count if answer is correct
-    if (isCorrect) {
-        progressData[category].correct += 1;
-    }
-
-    // Save updated progress
-    localStorage.setItem("satProgress", JSON.stringify(progressData));
-
-    // Trigger UI update on the same page
-    updateProgressUI(progressData);
-}
 
 </script>
 
