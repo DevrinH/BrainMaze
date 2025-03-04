@@ -273,6 +273,7 @@ function handleNextButton() {
     }
 }
 
+localStorage.removeItem("satProgress");
 
 
 nextButton.addEventListener("click", () => {
