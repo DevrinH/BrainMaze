@@ -201,7 +201,7 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
 
-    updateProgressBar("algebra", 50);
+    updateProgressBar("inference", 50);
 }
 
 function resetState() {
