@@ -120,7 +120,31 @@ const questions = [
     type: "reading",
     difficulty: "easy",
     category: "text-structure"
-}
+},
+{
+    question: "Passage 1: Maya sat on the edge of the stage, her script clutched tightly in her hands. She had rehearsed her lines countless times, yet now, with the audience beyond the curtain, doubt crept into her mind. What if she forgot her lines? What if she wasn’t good enough?<br/><br/>Passage 2: Andre adjusted his tie in the mirror, forcing himself to take slow, steady breaths. His speech was ready, but his hands trembled as he imagined all eyes on him. He had spent weeks preparing, but now, the pressure felt overwhelming.<br/><br/>What theme is shared by both passages?",
+    answers: [
+        { text: "A) The fear of failure despite thorough preparation.", correct: true },
+        { text: "B) The excitement of achieving a lifelong dream.", correct: false },
+        { text: "C) The desire to impress an audience at all costs.", correct: false },
+        { text: "D) The relief that comes after facing one’s fears.", correct: false },
+    ],
+    type: "reading",
+    difficulty: "medium",
+    category: "cross-text"
+},
+{
+    question: "Passage 1: In the heart of the rainforest, thousands of species rely on the delicate balance of their ecosystem to survive. Even the smallest changes in climate or deforestation can disrupt the intricate web of life, threatening biodiversity.<br/><br/>Passage 2: In the Arctic, rising temperatures are melting sea ice at an alarming rate. Polar bears struggle to find stable hunting grounds, and entire food chains are being altered as ice-dependent species decline.<br/><br/>What central idea is shared by both passages?",
+    answers: [
+        { text: "A) Environmental changes have widespread consequences on ecosystems.", correct: true },
+        { text: "B) Climate change is only affecting colder regions of the world.", correct: false },
+        { text: "C) Scientists have found solutions to prevent habitat destruction.", correct: false },
+        { text: "D) Some animals are adapting quickly to new environmental conditions.", correct: false },
+    ],
+    type: "reading",
+    difficulty: "hard",
+    category: "cross-text"
+},
 ];
 
 const questionElement = document.getElementById("question"); 
