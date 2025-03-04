@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "command-of-evidence": { correct: 24, incorrect: 21 },
         "central-ideas": { correct: 33, incorrect: 0 },
         "inference": { correct: 62, incorrect: 0 },
-        "words-context": { correct: 21, incorrect: 0 },
+        "words-context": { correct: 21, incorrect: 5 },
         "text-structure": { correct: 9, incorrect: 0 }
     };
 
@@ -378,21 +378,28 @@ document.addEventListener("DOMContentLoaded", function () {
         const total = correct + incorrect;
         const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-        // Update the progress bar width
+        // Debugging: Log category and element existence
+        console.log(`Processing category: ${category}`);
+
         const progressBar = document.getElementById(`${category}-bar`);
+        console.log(`Progress bar for ${category}:`, progressBar);
+
         if (progressBar) {
             progressBar.style.width = `${percentage}%`;
+        } else {
+            console.error(`Progress bar not found: ${category}-bar`);
         }
 
-        // Update the text percentage
         const progressText = document.getElementById(`${category}-text`);
+        console.log(`Progress text for ${category}:`, progressText);
+
         if (progressText) {
             progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
+        } else {
+            console.error(`Progress text not found: ${category}-text`);
         }
     });
 });
-
-
 
 </script>
 
