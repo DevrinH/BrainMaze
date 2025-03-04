@@ -187,6 +187,13 @@
             <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
             <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
         </div>
+
+        <div class="progress-container">
+            <div id="inference-bar" class="progress-bar"></div>
+            <span id="inference-text"></span>
+        </div>
+
+
         <div class="progress-item" data-category="inference">
             <div class="progress-label">Inferences</div>
             <div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div>
@@ -363,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () { 
+document.addEventListener("DOMContentLoaded", function () {  
     // Load progress data from localStorage or use default values
     const defaultProgressData = {
         "command-of-evidence": { correct: 24, incorrect: 21 },
@@ -384,31 +391,31 @@ document.addEventListener("DOMContentLoaded", function () {
     let progressData = JSON.parse(localStorage.getItem("progressData")) || defaultProgressData;
 
     function updateProgressBars() {
+        console.log("Updating progress bars...", progressData);
+
         Object.keys(progressData).forEach(category => {
             const correct = progressData[category].correct;
             const incorrect = progressData[category].incorrect;
             const total = correct + incorrect;
             const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-            console.log(`Processing category: ${category}`);
-
             const progressBar = document.getElementById(`${category}-bar`);
             if (progressBar) {
                 progressBar.style.width = `${percentage}%`;
             } else {
-                console.error(`Progress bar not found: ${category}-bar`);
+                console.warn(`Progress bar not found: ${category}-bar`);
             }
 
             const progressText = document.getElementById(`${category}-text`);
             if (progressText) {
                 progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
             } else {
-                console.error(`Progress text not found: ${category}-text`);
+                console.warn(`Progress text not found: ${category}-text`);
             }
         });
     }
 
-    // Update UI on page load
+    // Ensure UI is updated on page load
     updateProgressBars();
 
     // Function to update progress data and save it to localStorage
@@ -423,12 +430,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Example: Increment "inference" category when a button is clicked
-    document.getElementById("update-inference").addEventListener("click", function () {
-        updateProgress("inference", 1, 0);
-    });
-
+    // Example: Ensure button exists before adding event listener
+    const updateButton = document.getElementById("update-inference");
+    if (updateButton) {
+        updateButton.addEventListener("click", function () {
+            updateProgress("inference", 1, 0);
+        });
+    } else {
+        console.warn("Update button not found: #update-inference");
+    }
 });
+
 
 </script>
 
