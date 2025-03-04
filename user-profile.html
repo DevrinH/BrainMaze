@@ -365,40 +365,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Sample progress data (replace this with real data)
-    const progressData = {
-        "command-of-evidence": 75,
-        "central-ideas": 50,
-        "inference": 60,
-        "words-context": 40,
-        "text-structure": 30,
-        "cross-text": 85,
-        "transitions": 55,
-        "rhetorical-synthesis": 70,
-        "boundaries": 25,
-        "algebra": 90,
-        "advanced-math": 80,
-        "problem-solving": 65,
-        "geometry-trigonometry": 35
-    };
-
-    function updateProgressUI(data) {
-        Object.keys(data).forEach(category => {
-            const progressBar = document.getElementById(`${category}-bar`);
-            const progressText = document.getElementById(`${category}-text`);
-
-            if (progressBar && progressText) {
-                let percentage = data[category];
-                progressBar.style.width = percentage + "%";
-                progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
+        document.addEventListener("DOMContentLoaded", function () {
+            function getStoredProgress() {
+                // Retrieve progress data from localStorage
+                const storedData = localStorage.getItem("satProgress");
+                return storedData ? JSON.parse(storedData) : {};
             }
-        });
-    }
 
-    // Call function to update UI
-    updateProgressUI(progressData);
-});
+            function updateProgressUI(data) {
+                Object.keys(data).forEach(category => {
+                    const progressBar = document.getElementById(`${category}-bar`);
+                    const progressText = document.getElementById(`${category}-text`);
+
+                    if (progressBar && progressText) {
+                        let percentage = data[category] || 0; // Default to 0 if not found
+                        progressBar.style.width = percentage + "%";
+                        progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
+                    }
+                });
+            }
+
+            // Load and update progress bars
+            const progressData = getStoredProgress();
+            updateProgressUI(progressData);
+        });
+
+        // Example function to update progress dynamically and save it
+        function updateProgress(category, value) {
+            let progressData = localStorage.getItem("satProgress");
+            progressData = progressData ? JSON.parse(progressData) : {};
+
+            progressData[category] = value;
+            localStorage.setItem("satProgress", JSON.stringify(progressData));
+            
+            // Update UI
+            document.getElementById(`${category}-bar`).style.width = value + "%";
+            document.getElementById(`${category}-text`).innerHTML = `${value}% <span class="arrow">→</span>`;
+        }
 
 
 </script>
