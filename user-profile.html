@@ -363,57 +363,73 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const progressData = {
+document.addEventListener("DOMContentLoaded", function () { 
+    // Load progress data from localStorage or use default values
+    const defaultProgressData = {
         "command-of-evidence": { correct: 24, incorrect: 21 },
         "central-ideas": { correct: 33, incorrect: 0 },
         "inference": { correct: 62, incorrect: 0 },
         "words-context": { correct: 21, incorrect: 5 },
-        "text-structure": { correct: 9, incorrect: 0 }
+        "text-structure": { correct: 9, incorrect: 0 },
+        "cross-text": { correct: 10, incorrect: 2 },
+        "transitions": { correct: 15, incorrect: 3 },
+        "rhetorical-synthesis": { correct: 20, incorrect: 5 },
+        "boundaries": { correct: 12, incorrect: 4 },
+        "algebra": { correct: 30, incorrect: 6 },
+        "advanced-math": { correct: 18, incorrect: 5 },
+        "problem-solving": { correct: 25, incorrect: 7 },
+        "geometry-trigonometry": { correct: 14, incorrect: 6 }
     };
 
-    Object.keys(progressData).forEach(category => {
-        const correct = progressData[category].correct;
-        const incorrect = progressData[category].incorrect;
-        const total = correct + incorrect;
-        const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+    let progressData = JSON.parse(localStorage.getItem("progressData")) || defaultProgressData;
 
-        // Debugging: Log category and element existence
-        console.log(`Processing category: ${category}`);
+    function updateProgressBars() {
+        Object.keys(progressData).forEach(category => {
+            const correct = progressData[category].correct;
+            const incorrect = progressData[category].incorrect;
+            const total = correct + incorrect;
+            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-        const progressBar = document.getElementById(`${category}-bar`);
-        console.log(`Progress bar for ${category}:`, progressBar);
+            console.log(`Processing category: ${category}`);
 
-        if (progressBar) {
-            progressBar.style.width = `${percentage}%`;
+            const progressBar = document.getElementById(`${category}-bar`);
+            if (progressBar) {
+                progressBar.style.width = `${percentage}%`;
+            } else {
+                console.error(`Progress bar not found: ${category}-bar`);
+            }
+
+            const progressText = document.getElementById(`${category}-text`);
+            if (progressText) {
+                progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
+            } else {
+                console.error(`Progress text not found: ${category}-text`);
+            }
+        });
+    }
+
+    // Update UI on page load
+    updateProgressBars();
+
+    // Function to update progress data and save it to localStorage
+    function updateProgress(category, correctIncrement, incorrectIncrement) {
+        if (progressData[category]) {
+            progressData[category].correct += correctIncrement;
+            progressData[category].incorrect += incorrectIncrement;
+            localStorage.setItem("progressData", JSON.stringify(progressData)); // Save to localStorage
+            updateProgressBars(); // Refresh UI
         } else {
-            console.error(`Progress bar not found: ${category}-bar`);
+            console.error(`Invalid category: ${category}`);
         }
+    }
 
-        const progressText = document.getElementById(`${category}-text`);
-        console.log(`Progress text for ${category}:`, progressText);
-
-        if (progressText) {
-            progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
-        } else {
-            console.error(`Progress text not found: ${category}-text`);
-        }
+    // Example: Increment "inference" category when a button is clicked
+    document.getElementById("update-inference").addEventListener("click", function () {
+        updateProgress("inference", 1, 0);
     });
+
 });
 
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const element = document.getElementById("yourElementId"); 
-        if (element) {
-            element.addEventListener("click", function() {
-                console.log("Clicked!");
-            });
-        } else {
-            console.error("Element not found: yourElementId");
-        }
-    });
 </script>
 
 
