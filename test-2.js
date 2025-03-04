@@ -146,22 +146,27 @@ function saveScores(scores) {
     localStorage.setItem("satScores", JSON.stringify(scores));
 }
 
-
 function recordTestResults() {
     let results = localStorage.getItem("testResults");
     console.log("Retrieved from localStorage:", results);
     results = results ? JSON.parse(results) : [];
-    console.log("Parsed results:", results);
-    // Make sure results is an array
+
+    // Ensure results is an array
     if (!Array.isArray(results)) {
         console.error("Error: results should be an array but got", results);
-        results = []; // Reset to an empty array
+        results = [];
     }
-    // Your existing logic to update `results`...
+
+    // Store category performance
+    Object.keys(categoryStats).forEach(category => {
+        const correct = categoryStats[category].correct || 0;
+        const incorrect = categoryStats[category].incorrect || 0;
+        results.push({ category, correct, incorrect });
+    });
+
     localStorage.setItem("testResults", JSON.stringify(results));
+    console.log("Updated testResults:", results);
 }
-
-
 
 function updateProgressBar(category, value) {
     const progressBar = document.getElementById(`${category}-bar`);
@@ -178,6 +183,7 @@ function updateProgressBar(category, value) {
     progressData[category] = value;
     localStorage.setItem("satProgress", JSON.stringify(progressData));
 }
+
 function startQuiz() {
     currentQuestionIndex = 0;
     categoryStats = {};
@@ -218,7 +224,6 @@ function selectAnswer(e) {
     let currentQuestion = questions[currentQuestionIndex];
     let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
 
-
     if (!categoryStats[questionCategory]) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
@@ -247,15 +252,10 @@ function showResults(results) {
         console.error("Error: results is not an array!", results);
         return;
     }
-    results.forEach((result) => {
+    results.forEach(result => {
         console.log(result);
     });
-    console.log("Results before forEach:", results);
-results.forEach((result) => {
-    // Your loop logic here
-});
 }
-
 
 function handleNextButton() {
     console.log("Handling next button click...");
@@ -264,18 +264,17 @@ function handleNextButton() {
     results = results ? JSON.parse(results) : [];
     console.log("Results before showing:", results);
     showResults(results);
-}
 
-
-localStorage.removeItem("satProgress");
-
-
-nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
-        handleNextButton();
+        showQuestion();
     } else {
         location.href = "https://www.brainjelli.com/user-profile.html";
     }
-});
+}
+
+localStorage.removeItem("satProgress");
+
+nextButton.addEventListener("click", handleNextButton);
 
 startQuiz();
