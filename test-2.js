@@ -146,6 +146,11 @@ function saveScores(scores) {
 
 
 function recordTestResults(results) {
+    if (!Array.isArray(results)) {
+        console.error("recordTestResults expected an array but got:", results);
+        return;
+    }
+
     let progressData = localStorage.getItem("satProgress");
     progressData = progressData ? JSON.parse(progressData) : {};
 
@@ -153,12 +158,10 @@ function recordTestResults(results) {
         const category = result.category;
         const isCorrect = result.correct;
 
-        // Ensure progressData[category] is an object, not a number
         if (typeof progressData[category] !== "object") {
-            progressData[category] = { correct: 0, total: 0 }; 
+            progressData[category] = { correct: 0, total: 0 };
         }
 
-        // Update category progress
         progressData[category].total += 1;
         if (isCorrect) {
             progressData[category].correct += 1;
@@ -167,6 +170,7 @@ function recordTestResults(results) {
 
     localStorage.setItem("satProgress", JSON.stringify(progressData));
 }
+
 
 
 function updateProgressBar(category, value) {
