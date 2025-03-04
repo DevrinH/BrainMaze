@@ -35,7 +35,7 @@ const questions = [
     ],
     type: "reading",
     difficulty: "medium",
-    category: "Command of Evidence"
+    category: "command-of-evidence"
 },
 {
     question: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.<br/><br/>Which sentence best supports the idea that the scientist is struggling to accept her findings?",
@@ -47,7 +47,7 @@ const questions = [
     ],
     type: "reading",
     difficulty: "medium",
-    category: "Command of Evidence"
+    category: "command-of-evidence"
 },
 {
     question: "Sophia sat at the old wooden table, running her fingers over the faded ink of a letter her grandmother had written decades ago. The words spoke of resilience, of sacrifices made for family, of dreams put on hold. As Sophia read, she felt an unshakable connection to the past, as if the struggles of generations before her still echoed in the present.<br/><br/>What is the central idea of the passage?",
@@ -59,7 +59,7 @@ const questions = [
     ],
     type: "reading",
     difficulty: "medium",
-    category: "Central Ideas and Details"
+    category: "central-ideas"
 },
 {
     question: "The researchers stood at the edge of the ice shelf, their equipment humming softly as they recorded data. Towering glaciers stretched endlessly before them, a frozen expanse that had remained unchanged for thousands of years. But beneath the surface, the ice was shifting—melting slowly, almost imperceptibly, signaling a transformation that could reshape the planet.<br/><br/>What is the central idea of the passage?",
@@ -71,7 +71,7 @@ const questions = [
     ],
     type: "reading",
     difficulty: "medium",
-    category: "Central Ideas and Details"
+    category: "central-ideas"
 },
 {
     question: "Lena carefully arranged the wildflowers in a glass vase, her fingers brushing against the delicate petals. The vibrant hues of yellow and violet contrasted beautifully against the dimly lit room, bringing a touch of warmth to the otherwise somber space. She sighed, knowing that even the most fleeting beauty had its place.<br/><br/>As used in the passage, the word 'fleeting' most nearly means:",
@@ -83,7 +83,7 @@ const questions = [
     ],
     type: "reading",
     difficulty: "medium",
-    category: "Words in Context"
+    category: "words-context"
 },
 {
     question: "The professor’s explanation was so convoluted that even the most attentive students struggled to follow. His sentences twisted and turned, filled with jargon and unnecessary details, making the concept seem far more complicated than it actually was.<br/><br/>As used in the passage, the word 'convoluted' most nearly means:",
@@ -95,7 +95,7 @@ const questions = [
     ],
     type: "reading",
     difficulty: "hard",
-    category: "Words in Context"
+    category: "words-context"
 },
 {
     question: "Lena unfolded the old letter, the ink faded but the words still legible. The careful handwriting and affectionate tone told of a love long past, yet preserved on paper. She traced the signature with her fingertips, wondering how different life might have been if history had taken another course.<br/><br/>What is the primary purpose of this passage?",
@@ -107,7 +107,7 @@ const questions = [
     ],
     type: "reading",
     difficulty: "medium",
-    category: "Text Structure and Purpose"
+    category: "text-structure"
 },
 {
     question: "The scientist carefully recorded her observations, noting each reaction with precision. Every detail, from the color shift in the liquid to the faintest change in temperature, was documented. Her work required patience and attention to detail, for even the smallest oversight could alter the results.<br/><br/>What is the primary structure of this passage?",
@@ -119,146 +119,133 @@ const questions = [
     ],
     type: "reading",
     difficulty: "easy",
-    category: "Text Structure and Purpose"
+    category: "text-structure"
 }
 ];
 
-const questionElement = document.getElementById("question"); 
-const answerButtons = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-btn");
+document.addEventListener("DOMContentLoaded", () => {
+    const questionElement = document.getElementById("question");
+    const answerButtonsElement = document.getElementById("answer-buttons");
+    const nextButton = document.getElementById("next-button");
+    const progressBar = document.getElementById("progress-bar");
 
-let currentQuestionIndex = 0;
-let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let categoryStats = {};
 
-const categories = [
-    "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
-    "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
-    "advanced-math", "problem-solving", "geometry-trigonometry"
-];
-
-function getStoredScores() {
-    return JSON.parse(localStorage.getItem("satScores")) || {};
-}
-
-function saveScores(scores) {
-    localStorage.setItem("satScores", JSON.stringify(scores));
-}
-
-
-function recordTestResults(results) {
-    let scores = getStoredScores();
-    
-    Object.keys(results).forEach(category => {
-        let formattedCategory = category.toLowerCase().replace(/\s+/g, "-"); // Match progress categories
-        if (!scores[formattedCategory]) {
-            scores[formattedCategory] = results[category];
-        } else {
-            let previousScore = scores[formattedCategory];
-            scores[formattedCategory] = Math.round((previousScore + results[category]) / 2);
-        }
-    });
-    
-    saveScores(scores);
-    
-}
-
-function startQuiz() {
-    currentQuestionIndex = 0;
-    categoryStats = {};
-    nextButton.innerHTML = "Next";
-    showQuestion();
-}
-
-function showQuestion() {
-    resetState();
-    let currentQuestion = questions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
-
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        answerButtons.appendChild(button);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener("click", selectAnswer);
-    });
-
-    updateProgressBar();
-}
-
-function resetState() {
-    nextButton.style.display = "none";
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
-    }
-}
-
-function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = questions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-
-
-    if (!categoryStats[questionCategory]) {
-        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
+    function fetchQuestions() {
+        // Replace with actual question fetching logic
+        questions = [
+            { question: "What is 2 + 2?", answers: ["3", "4", "5", "6"], correct: "4", category: "Algebra" },
+            { question: "What is the capital of France?", answers: ["Berlin", "Madrid", "Paris", "Rome"], correct: "Paris", category: "Geography" }
+        ];
+        startQuiz();
     }
 
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        categoryStats[questionCategory].correct++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats[questionCategory].incorrect++;
-    }
-
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
-
-    nextButton.style.display = "block";
-}
-
-function showResults() {
-    resetState();
-    questionElement.innerHTML = "Quiz Completed!";
-    nextButton.innerHTML = "Continue";
-    nextButton.style.display = "block";
-
-    let results = {};
-    Object.keys(categoryStats).forEach(category => {
-        const totalAttempts = categoryStats[category].correct + categoryStats[category].incorrect;
-        if (totalAttempts > 0) {
-            results[category] = Math.round((categoryStats[category].correct / totalAttempts) * 100);
-        }
-    });
-    
-    recordTestResults(results);
-}
-
-function handleNextButton() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
+    function startQuiz() {
+        currentQuestionIndex = 0;
+        score = 0;
+        categoryStats = {};
         showQuestion();
-    } else {
-        showResults();
     }
-}
 
+    function showQuestion() {
+        resetState();
+        let currentQuestion = questions[currentQuestionIndex];
+        questionElement.innerText = currentQuestion.question;
+        let questionCategory = standardizeCategoryName(currentQuestion.category);
 
+        if (!categoryStats[questionCategory]) {
+            categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
+        }
 
-nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
-        handleNextButton();
-    } else {
-        location.href = "https://www.brainjelli.com/user-profile.html";
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerText = answer;
+            button.classList.add("btn");
+            button.addEventListener("click", () => selectAnswer(button, currentQuestion.correct, questionCategory));
+            answerButtonsElement.appendChild(button);
+        });
     }
+
+    function resetState() {
+        nextButton.classList.add("hide");
+        answerButtonsElement.innerHTML = "";
+    }
+
+    function selectAnswer(button, correctAnswer, category) {
+        const selectedAnswer = button.innerText;
+        const isCorrect = selectedAnswer === correctAnswer;
+
+        if (isCorrect) {
+            button.classList.add("correct");
+            score++;
+            categoryStats[category].correct++;
+        } else {
+            button.classList.add("incorrect");
+            categoryStats[category].incorrect++;
+        }
+
+        Array.from(answerButtonsElement.children).forEach(btn => {
+            if (btn.innerText === correctAnswer) {
+                btn.classList.add("correct");
+            }
+            btn.disabled = true;
+        });
+
+        nextButton.classList.remove("hide");
+    }
+
+    nextButton.addEventListener("click", () => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            recordTestResults();
+            showResults();
+        }
+    });
+
+    function recordTestResults() {
+        let scores = getStoredScores();
+        
+        Object.keys(categoryStats).forEach(category => {
+            let formattedCategory = category.toLowerCase().replace(/\s+/g, "-");
+            if (!scores[formattedCategory]) {
+                scores[formattedCategory] = { totalCorrect: 0, totalAttempts: 0 };
+            }
+            
+            scores[formattedCategory].totalCorrect += categoryStats[category].correct;
+            scores[formattedCategory].totalAttempts += categoryStats[category].correct + categoryStats[category].incorrect;
+            
+            scores[formattedCategory].percentage = Math.round(
+                (scores[formattedCategory].totalCorrect / scores[formattedCategory].totalAttempts) * 100
+            );
+        });
+        
+        saveScores(scores);
+    }
+
+    function getStoredScores() {
+        return JSON.parse(localStorage.getItem("quizScores")) || {};
+    }
+
+    function saveScores(scores) {
+        localStorage.setItem("quizScores", JSON.stringify(scores));
+    }
+
+    function showResults() {
+        questionElement.innerText = `Quiz completed! Your score: ${score} / ${questions.length}`;
+        answerButtonsElement.innerHTML = "";
+        nextButton.innerText = "Restart";
+        nextButton.classList.remove("hide");
+        nextButton.addEventListener("click", startQuiz);
+    }
+
+    function standardizeCategoryName(category) {
+        return category.trim().replace(/\s+/g, "-").toLowerCase();
+    }
+
+    fetchQuestions();
 });
-
-startQuiz();
