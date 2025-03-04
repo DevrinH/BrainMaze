@@ -370,10 +370,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const categories = [
-    "Command of Evidence", "Central Ideas and Details", "inference", "Words in Context",
-    "Text Structure and Purpose", "cross-text-connections", "transitions", "rhetorical-synthesis",
-    "boundaries", "form-structure-and-sense", "algebra", "advanced-math", "problem-solving-and-data-analysis",
-    "geometry-and-trigonometry"
+    "command-of-evidence", "central-ideas", "inference", "words-context",
+    "text-structure", "cross-text", "transitions", "rhetorical-synthesis",
+    "boundaries", "algebra", "advanced-math", "problem-solving",
+    "geometry-trigonometry"
 ];
 
 function getStoredScores() {
@@ -391,39 +391,49 @@ function standardizeCategoryName(category) {
 
 function recordTestResults(results) {
     let scores = getStoredScores();
-    
+
     Object.keys(results).forEach(category => {
         let standardCategory = standardizeCategoryName(category);
-        
+
+        // If category doesn't exist, initialize it
         if (!scores[standardCategory]) {
             scores[standardCategory] = { totalCorrect: 0, totalAttempts: 0 };
         }
 
+        // Add new test results to old data
         scores[standardCategory].totalCorrect += results[category].correct;
-        scores[standardCategory].totalAttempts += results[category].correct + results[category].incorrect;
+        scores[standardCategory].totalAttempts += (results[category].correct + results[category].incorrect);
     });
-    
+
+    // Convert raw scores to percentages
     let finalScores = {};
     Object.keys(scores).forEach(category => {
         finalScores[category] = Math.round((scores[category].totalCorrect / scores[category].totalAttempts) * 100);
     });
-    
-    saveScores(finalScores);
+
+    saveScores(scores); // Save the cumulative scores, NOT the percentages
     updateProgressUI();
 }
 
 function updateProgressUI() {
     let scores = getStoredScores();
-    
+
     categories.forEach(category => {
-        let progressBar = document.getElementById(`${category}-progress`);
-        if (progressBar) {
-            let score = scores[category] || 0;
-            progressBar.style.width = `${score}%`;
-            progressBar.textContent = `${score}%`;
+        let progressBar = document.getElementById(`${category}-bar`);
+        let progressText = document.getElementById(`${category}-text`);
+
+        if (progressBar && progressText) {
+            let scoreData = scores[category] || { totalCorrect: 0, totalAttempts: 0 };
+            let percentage = scoreData.totalAttempts > 0
+                ? Math.round((scoreData.totalCorrect / scoreData.totalAttempts) * 100)
+                : 0;
+
+            progressBar.style.width = `${percentage}%`;
+            progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
         }
     });
 }
+
 
 </script>
 
