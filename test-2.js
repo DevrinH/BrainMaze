@@ -147,30 +147,18 @@ function saveScores(scores) {
 }
 
 
-function recordTestResults(results) {
+function recordTestResults() {
+    let results = localStorage.getItem("testResults");
+    console.log("Retrieved from localStorage:", results);
+    results = results ? JSON.parse(results) : [];
+    console.log("Parsed results:", results);
+    // Make sure results is an array
     if (!Array.isArray(results)) {
-        console.error("recordTestResults expected an array but got:", results);
-        return;
+        console.error("Error: results should be an array but got", results);
+        results = []; // Reset to an empty array
     }
-
-    let progressData = localStorage.getItem("satProgress");
-    progressData = progressData ? JSON.parse(progressData) : {};
-
-    results.forEach(result => {
-        const category = result.category;
-        const isCorrect = result.correct;
-
-        if (typeof progressData[category] !== "object") {
-            progressData[category] = { correct: 0, total: 0 };
-        }
-
-        progressData[category].total += 1;
-        if (isCorrect) {
-            progressData[category].correct += 1;
-        }
-    });
-
-    localStorage.setItem("satProgress", JSON.stringify(progressData));
+    // Your existing logic to update `results`...
+    localStorage.setItem("testResults", JSON.stringify(results));
 }
 
 
@@ -270,13 +258,14 @@ results.forEach((result) => {
 
 
 function handleNextButton() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        showResults();
-    }
+    console.log("Handling next button click...");
+    recordTestResults(); // Ensure results are recorded
+    let results = localStorage.getItem("testResults");
+    results = results ? JSON.parse(results) : [];
+    console.log("Results before showing:", results);
+    showResults(results);
 }
+
 
 localStorage.removeItem("satProgress");
 
