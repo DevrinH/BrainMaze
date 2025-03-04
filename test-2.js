@@ -150,22 +150,19 @@ function recordTestResults() {
     let results = localStorage.getItem("testResults");
     console.log("Retrieved from localStorage:", results);
     results = results ? JSON.parse(results) : [];
-
-    // Ensure results is an array
+    
     if (!Array.isArray(results)) {
         console.error("Error: results should be an array but got", results);
-        results = [];
+        results = []; 
     }
 
-    // Store category performance
-    Object.keys(categoryStats).forEach(category => {
-        const correct = categoryStats[category].correct || 0;
-        const incorrect = categoryStats[category].incorrect || 0;
-        results.push({ category, correct, incorrect });
-    });
+    // Push current category stats into results
+    results.push({ ...categoryStats });
 
+    // Save updated results
     localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Updated testResults:", results);
+
+    console.log("Updated testResults saved to localStorage:", results);
 }
 
 function updateProgressBar(category, value) {
@@ -259,13 +256,18 @@ function showResults(results) {
 
 function handleNextButton() {
     console.log("Handling next button click...");
-    recordTestResults(); // Ensure results are recorded
+
+    // Store results before proceeding
+    recordTestResults();
+
     let results = localStorage.getItem("testResults");
     results = results ? JSON.parse(results) : [];
+    
     console.log("Results before showing:", results);
     showResults(results);
 
     currentQuestionIndex++;
+    
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
