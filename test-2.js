@@ -146,21 +146,28 @@ function saveScores(scores) {
 
 
 function recordTestResults(results) {
-    let scores = getStoredScores();
+    let progressData = localStorage.getItem("satProgress");
+    progressData = progressData ? JSON.parse(progressData) : {};
 
-    Object.keys(results).forEach(category => {
-        let formattedCategory = category.toLowerCase().replace(/\s+/g, "-");
-        
-        if (!scores[formattedCategory]) {
-            scores[formattedCategory] = { correct: results[category].correct, incorrect: results[category].incorrect };
-        } else {
-            scores[formattedCategory].correct += results[category].correct;
-            scores[formattedCategory].incorrect += results[category].incorrect;
+    results.forEach(result => {
+        const category = result.category;
+        const isCorrect = result.correct;
+
+        // Ensure progressData[category] is an object, not a number
+        if (typeof progressData[category] !== "object") {
+            progressData[category] = { correct: 0, total: 0 }; 
+        }
+
+        // Update category progress
+        progressData[category].total += 1;
+        if (isCorrect) {
+            progressData[category].correct += 1;
         }
     });
 
-    saveScores(scores);
+    localStorage.setItem("satProgress", JSON.stringify(progressData));
 }
+
 
 function updateProgressBar(category, value) {
     const progressBar = document.getElementById(`${category}-bar`);
