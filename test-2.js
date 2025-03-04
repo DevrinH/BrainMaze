@@ -129,6 +129,8 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+let results = localStorage.getItem("testResults");
+results = results ? JSON.parse(results) : [];
 
 const categories = [
     "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
@@ -251,22 +253,21 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
-function showResults() {
-    resetState();
-    questionElement.innerHTML = "Quiz Completed!";
-    nextButton.innerHTML = "Continue";
-    nextButton.style.display = "block";
-
-    let results = {};
-    Object.keys(categoryStats).forEach(category => {
-        results[category] = {
-            correct: categoryStats[category].correct,
-            incorrect: categoryStats[category].incorrect
-        };
+function showResults(results) {
+    console.log("Results received by showResults:", results);
+    if (!Array.isArray(results)) {
+        console.error("Error: results is not an array!", results);
+        return;
+    }
+    results.forEach((result) => {
+        console.log(result);
     });
-
-    recordTestResults(results);
+    console.log("Results before forEach:", results);
+results.forEach((result) => {
+    // Your loop logic here
+});
 }
+
 
 function handleNextButton() {
     currentQuestionIndex++;
