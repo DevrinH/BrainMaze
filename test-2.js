@@ -148,22 +148,25 @@ function saveScores(scores) {
 
 function recordTestResults() {
     let results = localStorage.getItem("testResults");
-    console.log("Retrieved from localStorage:", results);
     results = results ? JSON.parse(results) : [];
-    
+
     if (!Array.isArray(results)) {
         console.error("Error: results should be an array but got", results);
-        results = []; 
+        results = [];
     }
 
-    // Push current category stats into results
-    results.push({ ...categoryStats });
+    // Store current question stats if available
+    if (Object.keys(categoryStats).length > 0) {
+        results.push({ ...categoryStats });
+    } else {
+        console.warn("No categoryStats recorded, skipping save.");
+    }
 
-    // Save updated results
     localStorage.setItem("testResults", JSON.stringify(results));
 
     console.log("Updated testResults saved to localStorage:", results);
 }
+
 
 function updateProgressBar(category, value) {
     const progressBar = document.getElementById(`${category}-bar`);
@@ -240,8 +243,10 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    nextButton.style.display = "block";
+    nextButton.style.display = "block"; // Ensure Next button is visible
+    nextButton.disabled = false; // Ensure Next button is enabled
 }
+
 
 function showResults(results) {
     console.log("Results received by showResults:", results);
@@ -260,23 +265,26 @@ function handleNextButton() {
     // Store results before proceeding
     recordTestResults();
 
-    let results = localStorage.getItem("testResults");
-    results = results ? JSON.parse(results) : [];
-    
-    console.log("Results before showing:", results);
-    showResults(results);
+    currentQuestionIndex++; // Move to the next question
 
-    currentQuestionIndex++;
-    
     if (currentQuestionIndex < questions.length) {
-        showQuestion();
+        showQuestion(); // Display the next question
     } else {
+        console.log("Quiz completed! Redirecting...");
         location.href = "https://www.brainjelli.com/user-profile.html";
     }
 }
 
 localStorage.removeItem("satProgress");
 
-nextButton.addEventListener("click", handleNextButton);
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        handleNextButton();
+    } else {
+        console.log("Quiz completed! Redirecting...");
+        location.href = "https://www.brainjelli.com/user-profile.html";
+    }
+});
+
 
 startQuiz();
