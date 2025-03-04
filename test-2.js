@@ -148,13 +148,16 @@ function saveScores(scores) {
 
 function recordTestResults() {
     let results = localStorage.getItem("testResults");
+
+    // Ensure results is an object, not an array
     results = results ? JSON.parse(results) : {};
 
     if (typeof results !== "object" || Array.isArray(results)) {
         console.error("Error: results should be an object but got", results);
-        results = {};
+        results = {}; // Reset to an empty object if it's an array
     }
 
+    // Update scores per category
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
@@ -163,6 +166,7 @@ function recordTestResults() {
         results[category].incorrect += categoryStats[category].incorrect;
     }
 
+    // Save corrected object back to localStorage
     localStorage.setItem("testResults", JSON.stringify(results));
 
     console.log("Updated testResults saved to localStorage:", results);
