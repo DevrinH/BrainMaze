@@ -372,17 +372,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const progressData = getProgressData();
 
         Object.keys(progressData).forEach(category => {
-            const { correct, incorrect } = progressData[category];
+            const { correct = 0, incorrect = 0 } = progressData[category] || {};
             const total = correct + incorrect;
             const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-            // Update the progress bar width
+            // Debugging: Log data to console
+            console.log(`Updating ${category}: ${correct} correct, ${incorrect} incorrect, ${percentage}%`);
+
+            // Update progress bar width
             const progressBar = document.getElementById(`${category}-bar`);
             if (progressBar) {
                 progressBar.style.width = `${percentage}%`;
             }
 
-            // Update the text percentage
+            // Update text percentage
             const progressText = document.getElementById(`${category}-text`);
             if (progressText) {
                 progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
@@ -390,17 +393,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Example: Function to update progress after a test
     function saveProgress(category, correct, incorrect) {
         let progressData = getProgressData();
         progressData[category] = { correct, incorrect };
         localStorage.setItem("progressData", JSON.stringify(progressData));
+
+        console.log("Progress saved:", progressData); // Debugging log
+
         updateProgressBars(); // Refresh UI
     }
 
-    // Run update on page load
+    // Update progress bars on page load
     updateProgressBars();
+
+    // Example: Simulating saving progress
+    // Uncomment to test
+    // saveProgress("inference", 10, 2);
 });
+
 
 </script>
 
