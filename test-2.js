@@ -162,7 +162,21 @@ function recordTestResults(results) {
     saveScores(scores);
 }
 
+function updateProgressBar(category, value) {
+    const progressBar = document.getElementById(`${category}-bar`);
+    const progressText = document.getElementById(`${category}-text`);
 
+    if (progressBar && progressText) {
+        progressBar.style.width = value + "%";
+        progressText.innerHTML = `${value}% <span class="arrow">→</span>`;
+    }
+
+    // Save progress in localStorage
+    let progressData = localStorage.getItem("satProgress");
+    progressData = progressData ? JSON.parse(progressData) : {};
+    progressData[category] = value;
+    localStorage.setItem("satProgress", JSON.stringify(progressData));
+}
 function startQuiz() {
     currentQuestionIndex = 0;
     categoryStats = {};
@@ -187,7 +201,7 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
 
-    updateProgressBar();
+    updateProgressBar("algebra", 50);
 }
 
 function resetState() {
