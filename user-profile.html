@@ -414,7 +414,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const element = document.getElementById("yourElementId"); 
+        if (element) {
+            element.addEventListener("click", function() {
+                console.log("Clicked!");
+            });
+        } else {
+            console.error("Element not found: yourElementId");
+        }
+    });
+</script>
 
 
 
