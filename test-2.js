@@ -166,7 +166,7 @@ function recordTestResults(results) {
 
 function startQuiz() {
     currentQuestionIndex = 0;
-    categoryStats = {};
+    categoryStats = getStoredScores() || {}; // Load existing scores
     nextButton.innerHTML = "Next";
     showQuestion();
 }
@@ -175,7 +175,7 @@ function showQuestion() {
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -187,9 +187,8 @@ function showQuestion() {
         }
         button.addEventListener("click", selectAnswer);
     });
-
-    updateProgressBar();
 }
+
 
 function resetState() {
     nextButton.style.display = "none";
@@ -227,23 +226,6 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
-function showResults() {
-    resetState();
-    questionElement.innerHTML = "Quiz Completed!";
-    nextButton.innerHTML = "Continue";
-    nextButton.style.display = "block";
-
-    let results = {};
-    Object.keys(categoryStats).forEach(category => {
-        const totalAttempts = categoryStats[category].correct + categoryStats[category].incorrect;
-        if (totalAttempts > 0) {
-            results[category] = Math.round((categoryStats[category].correct / totalAttempts) * 100);
-        }
-    });
-    
-    recordTestResults(results);
-}
-
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -253,15 +235,34 @@ function handleNextButton() {
     }
 }
 
+function showResults() {
+    resetState();
+    questionElement.innerHTML = "Quiz Completed!";
+    nextButton.innerHTML = "Continue";
+    nextButton.style.display = "block";
+
+    let results = {};
+    Object.keys(categoryStats).forEach(category => {
+        let totalAttempts = categoryStats[category].correct + categoryStats[category].incorrect;
+        if (totalAttempts > 0) {
+            results[category] = Math.round((categoryStats[category].correct / totalAttempts) * 100);
+        }
+    });
+
+    recordTestResults(results);
+}
+
 function standardizeCategoryName(category) {
     return category.toLowerCase().replace(/\s+/g, "-");
 }
 
 
+// Prevents unnecessary redirection
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
     } else {
+        alert("Your results have been saved!"); // Let the user acknowledge before redirecting
         location.href = "https://www.brainjelli.com/user-profile.html";
     }
 });
