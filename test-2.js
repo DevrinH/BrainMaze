@@ -123,129 +123,151 @@ const questions = [
 }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
-    const questionElement = document.getElementById("question");
-    const answerButtonsElement = document.getElementById("answer-buttons");
-    const nextButton = document.getElementById("next-button");
-    const progressBar = document.getElementById("progress-bar");
+const questionElement = document.getElementById("question"); 
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
 
-    let questions = [];
-    let currentQuestionIndex = 0;
-    let score = 0;
-    let categoryStats = {};
+let currentQuestionIndex = 0;
+let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+let questionCategory = standardizeCategoryName(currentQuestion.category);
 
-    function fetchQuestions() {
-        // Replace with actual question fetching logic
-        questions = [
-            { question: "What is 2 + 2?", answers: ["3", "4", "5", "6"], correct: "4", category: "Algebra" },
-            { question: "What is the capital of France?", answers: ["Berlin", "Madrid", "Paris", "Rome"], correct: "Paris", category: "Geography" }
-        ];
-        startQuiz();
-    }
 
-    function startQuiz() {
-        currentQuestionIndex = 0;
-        score = 0;
-        categoryStats = {};
-        showQuestion();
-    }
+const categories = [
+    "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
+    "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
+    "advanced-math", "problem-solving", "geometry-trigonometry"
+];
 
-    function showQuestion() {
-        resetState();
-        let currentQuestion = questions[currentQuestionIndex];
-        questionElement.innerText = currentQuestion.question;
-        let questionCategory = standardizeCategoryName(currentQuestion.category);
+function getStoredScores() {
+    return JSON.parse(localStorage.getItem("satScores")) || {};
+}
 
-        if (!categoryStats[questionCategory]) {
-            categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-        }
+function saveScores(scores) {
+    localStorage.setItem("satScores", JSON.stringify(scores));
+}
 
-        currentQuestion.answers.forEach(answer => {
-            const button = document.createElement("button");
-            button.innerText = answer;
-            button.classList.add("btn");
-            button.addEventListener("click", () => selectAnswer(button, currentQuestion.correct, questionCategory));
-            answerButtonsElement.appendChild(button);
-        });
-    }
 
-    function resetState() {
-        nextButton.classList.add("hide");
-        answerButtonsElement.innerHTML = "";
-    }
-
-    function selectAnswer(button, correctAnswer, category) {
-        const selectedAnswer = button.innerText;
-        const isCorrect = selectedAnswer === correctAnswer;
-
-        if (isCorrect) {
-            button.classList.add("correct");
-            score++;
-            categoryStats[category].correct++;
+function recordTestResults(results) {
+    let scores = getStoredScores();
+    
+    Object.keys(results).forEach(category => {
+        let formattedCategory = category.toLowerCase().replace(/\s+/g, "-"); // Match progress categories
+        if (!scores[formattedCategory]) {
+            scores[formattedCategory] = results[category];
         } else {
-            button.classList.add("incorrect");
-            categoryStats[category].incorrect++;
-        }
-
-        Array.from(answerButtonsElement.children).forEach(btn => {
-            if (btn.innerText === correctAnswer) {
-                btn.classList.add("correct");
-            }
-            btn.disabled = true;
-        });
-
-        nextButton.classList.remove("hide");
-    }
-
-    nextButton.addEventListener("click", () => {
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            showQuestion();
-        } else {
-            recordTestResults();
-            showResults();
+            let previousScore = scores[formattedCategory];
+            scores[formattedCategory] = Math.round((previousScore + results[category]) / 2);
         }
     });
+    
+    saveScores(scores);
+    
+}
 
-    function recordTestResults() {
-        let scores = getStoredScores();
-        
-        Object.keys(categoryStats).forEach(category => {
-            let formattedCategory = category.toLowerCase().replace(/\s+/g, "-");
-            if (!scores[formattedCategory]) {
-                scores[formattedCategory] = { totalCorrect: 0, totalAttempts: 0 };
-            }
-            
-            scores[formattedCategory].totalCorrect += categoryStats[category].correct;
-            scores[formattedCategory].totalAttempts += categoryStats[category].correct + categoryStats[category].incorrect;
-            
-            scores[formattedCategory].percentage = Math.round(
-                (scores[formattedCategory].totalCorrect / scores[formattedCategory].totalAttempts) * 100
-            );
-        });
-        
-        saveScores(scores);
+function startQuiz() {
+    currentQuestionIndex = 0;
+    categoryStats = {};
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
+
+function showQuestion() {
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
+
+    updateProgressBar();
+}
+
+function resetState() {
+    nextButton.style.display = "none";
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+}
+
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+
+
+    if (!categoryStats[questionCategory]) {
+        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
 
-    function getStoredScores() {
-        return JSON.parse(localStorage.getItem("quizScores")) || {};
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        categoryStats[questionCategory].correct++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats[questionCategory].incorrect++;
     }
 
-    function saveScores(scores) {
-        localStorage.setItem("quizScores", JSON.stringify(scores));
-    }
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
 
-    function showResults() {
-        questionElement.innerText = `Quiz completed! Your score: ${score} / ${questions.length}`;
-        answerButtonsElement.innerHTML = "";
-        nextButton.innerText = "Restart";
-        nextButton.classList.remove("hide");
-        nextButton.addEventListener("click", startQuiz);
-    }
+    nextButton.style.display = "block";
+}
 
-    function standardizeCategoryName(category) {
-        return category.trim().replace(/\s+/g, "-").toLowerCase();
-    }
+function showResults() {
+    resetState();
+    questionElement.innerHTML = "Quiz Completed!";
+    nextButton.innerHTML = "Continue";
+    nextButton.style.display = "block";
 
-    fetchQuestions();
+    let results = {};
+    Object.keys(categoryStats).forEach(category => {
+        const totalAttempts = categoryStats[category].correct + categoryStats[category].incorrect;
+        if (totalAttempts > 0) {
+            results[category] = Math.round((categoryStats[category].correct / totalAttempts) * 100);
+        }
+    });
+    
+    recordTestResults(results);
+}
+
+function handleNextButton() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        showResults();
+    }
+}
+
+function standardizeCategoryName(category) {
+    return category.toLowerCase().replace(/\s+/g, "-");
+}
+
+
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        handleNextButton();
+    } else {
+        location.href = "https://www.brainjelli.com/user-profile.html";
+    }
 });
+function fetchQuestions() {
+    // Keep your existing questions instead of replacing them
+    startQuiz();
+}
+
+startQuiz();
