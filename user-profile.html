@@ -366,73 +366,39 @@ document.addEventListener("DOMContentLoaded", function () {
     </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    updateProgressUI();
+    // Sample progress data (replace this with real data)
+    const progressData = {
+        "command-of-evidence": 75,
+        "central-ideas": 50,
+        "inference": 60,
+        "words-context": 40,
+        "text-structure": 30,
+        "cross-text": 85,
+        "transitions": 55,
+        "rhetorical-synthesis": 70,
+        "boundaries": 25,
+        "algebra": 90,
+        "advanced-math": 80,
+        "problem-solving": 65,
+        "geometry-trigonometry": 35
+    };
+
+    function updateProgressUI(data) {
+        Object.keys(data).forEach(category => {
+            const progressBar = document.getElementById(`${category}-bar`);
+            const progressText = document.getElementById(`${category}-text`);
+
+            if (progressBar && progressText) {
+                let percentage = data[category];
+                progressBar.style.width = percentage + "%";
+                progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
+            }
+        });
+    }
+
+    // Call function to update UI
+    updateProgressUI(progressData);
 });
-
-const categories = [
-    "command-of-evidence", "central-ideas", "inference", "words-context",
-    "text-structure", "cross-text", "transitions", "rhetorical-synthesis",
-    "boundaries", "algebra", "advanced-math", "problem-solving",
-    "geometry-trigonometry"
-];
-
-function getStoredScores() {
-    let storedScores = localStorage.getItem("categoryScores");
-    return storedScores ? JSON.parse(storedScores) : {};
-}
-
-function saveScores(scores) {
-    localStorage.setItem("categoryScores", JSON.stringify(scores));
-}
-
-function standardizeCategoryName(category) {
-    return category.toLowerCase().replace(/\s+/g, "-");
-}
-
-function recordTestResults(results) {
-    let scores = getStoredScores();
-
-    Object.keys(results).forEach(category => {
-        let standardCategory = standardizeCategoryName(category);
-
-        // If category doesn't exist, initialize it
-        if (!scores[standardCategory]) {
-            scores[standardCategory] = { totalCorrect: 0, totalAttempts: 0 };
-        }
-
-        // Add new test results to old data
-        scores[standardCategory].totalCorrect += results[category].correct;
-        scores[standardCategory].totalAttempts += (results[category].correct + results[category].incorrect);
-    });
-
-    // Convert raw scores to percentages
-    let finalScores = {};
-    Object.keys(scores).forEach(category => {
-        finalScores[category] = Math.round((scores[category].totalCorrect / scores[category].totalAttempts) * 100);
-    });
-
-    saveScores(scores); // Save the cumulative scores, NOT the percentages
-    updateProgressUI();
-}
-
-function updateProgressUI() {
-    let scores = getStoredScores();
-
-    categories.forEach(category => {
-        let progressBar = document.getElementById(`${category}-bar`);
-        let progressText = document.getElementById(`${category}-text`);
-
-        if (progressBar && progressText) {
-            let scoreData = scores[category] || { totalCorrect: 0, totalAttempts: 0 };
-            let percentage = scoreData.totalAttempts > 0
-                ? Math.round((scoreData.totalCorrect / scoreData.totalAttempts) * 100)
-                : 0;
-
-            progressBar.style.width = `${percentage}%`;
-            progressText.innerHTML = `${percentage}% <span class="arrow">→</span>`;
-        }
-    });
-}
 
 
 </script>
