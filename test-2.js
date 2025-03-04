@@ -147,20 +147,21 @@ function saveScores(scores) {
 
 function recordTestResults(results) {
     let scores = getStoredScores();
-    
+
     Object.keys(results).forEach(category => {
-        let formattedCategory = category.toLowerCase().replace(/\s+/g, "-"); // Match progress categories
+        let formattedCategory = category.toLowerCase().replace(/\s+/g, "-");
+        
         if (!scores[formattedCategory]) {
-            scores[formattedCategory] = results[category];
+            scores[formattedCategory] = { correct: results[category].correct, incorrect: results[category].incorrect };
         } else {
-            let previousScore = scores[formattedCategory];
-            scores[formattedCategory] = Math.round((previousScore + results[category]) / 2);
+            scores[formattedCategory].correct += results[category].correct;
+            scores[formattedCategory].incorrect += results[category].incorrect;
         }
     });
-    
+
     saveScores(scores);
-    
 }
+
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -233,12 +234,12 @@ function showResults() {
 
     let results = {};
     Object.keys(categoryStats).forEach(category => {
-        const totalAttempts = categoryStats[category].correct + categoryStats[category].incorrect;
-        if (totalAttempts > 0) {
-            results[category] = Math.round((categoryStats[category].correct / totalAttempts) * 100);
-        }
+        results[category] = {
+            correct: categoryStats[category].correct,
+            incorrect: categoryStats[category].incorrect
+        };
     });
-    
+
     recordTestResults(results);
 }
 
