@@ -161,7 +161,7 @@ function showScore() {
 
     let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
     let rawScore = score;
-    let scaledScore = Math.round((rawScorescore / maxPossibleScore) * 600 + 200);
+    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
     localStorage.setItem("readingScore", scaledScore);
     localStorage.setItem("categoryTracking", JSON.stringify(categoryTracking));
