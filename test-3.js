@@ -1,4 +1,4 @@
-let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }const startingMinutes = 64;
+
 const countdownEl = document.getElementById('countdown');
 
 let time = startingMinutes * 60; // No need for "+1", ensures exactly 64 minutes
