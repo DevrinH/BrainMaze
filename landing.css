@@ -652,7 +652,7 @@ h3 {
   height: 100%;
   width: 0;
   transition: width 0.5s ease-in-out;
-  background: linear-gradient(to right,#e71fb5, #05cca1 );
+  background: linear-gradient(to right,#e71f6c, #05cca1 );
 }
 .progress-percentage {
   font-size: 14px;
