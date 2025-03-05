@@ -179,31 +179,82 @@ const questions = [
 },
 ];
 
-
 const questionElement = document.getElementById("question"); 
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
-let score = 0;
-let correctAnswers = 0;
-let selectedQuestions = [];
+let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+let results = localStorage.getItem("testResults");
+results = results ? JSON.parse(results) : [];
+
+const categories = [
+    "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
+    "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
+    "advanced-math", "problem-solving", "geometry-trigonometry"
+];
+
+function getStoredScores() {
+    return JSON.parse(localStorage.getItem("satScores")) || {};
+}
+
+function saveScores(scores) {
+    localStorage.setItem("satScores", JSON.stringify(scores));
+}
+
+function recordTestResults() {
+    let results = localStorage.getItem("testResults");
+
+    // Ensure results is an object, not an array
+    results = results ? JSON.parse(results) : {};
+
+    if (typeof results !== "object" || Array.isArray(results)) {
+        console.error("Error: results should be an object but got", results);
+        results = {}; // Reset to an empty object if it's an array
+    }
+
+    // Update scores per category
+    for (let category in categoryStats) {
+        if (!results[category]) {
+            results[category] = { correct: 0, incorrect: 0 };
+        }
+        results[category].correct += categoryStats[category].correct;
+        results[category].incorrect += categoryStats[category].incorrect;
+    }
+
+    // Save corrected object back to localStorage
+    localStorage.setItem("testResults", JSON.stringify(results));
+
+    console.log("Updated testResults saved to localStorage:", results);
+}
+
+
+function updateProgressBar(category, value) {
+    const progressBar = document.getElementById(`${category}-bar`);
+    const progressText = document.getElementById(`${category}-text`);
+
+    if (progressBar && progressText) {
+        progressBar.style.width = value + "%";
+        progressText.innerHTML = `${value}% <span class="arrow">→</span>`;
+    }
+
+    // Save progress in localStorage
+    let progressData = localStorage.getItem("satProgress");
+    progressData = progressData ? JSON.parse(progressData) : {};
+    progressData[category] = value;
+    localStorage.setItem("satProgress", JSON.stringify(progressData));
+}
 
 function startQuiz() {
     currentQuestionIndex = 0;
-    score = 0;
-    correctAnswers = 0;
     categoryStats = {};
-    
-    selectedQuestions = selectRandomQuestions(questions, 18, 18, 18);
-
     nextButton.innerHTML = "Next";
     showQuestion();
 }
 
 function showQuestion() {
     resetState();
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
@@ -218,31 +269,32 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
 
-    updateProgressBar();
+    updateProgressBar("inference", 50);
+}
+
+function resetState() {
+    nextButton.style.display = "none";
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
 }
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let category = currentQuestion.category;
-    let questionDifficulty = currentQuestion.difficulty;
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
 
-    if (!categoryStats[category]) {
-        categoryStats[category] = { correct: 0, incorrect: 0 };
+    if (!categoryStats[questionCategory]) {
+        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
-        correctAnswers++;
-        categoryStats[category].correct++;
-        
-        if (questionDifficulty === "easy") score += 1;
-        else if (questionDifficulty === "medium") score += 2;
-        else if (questionDifficulty === "hard") score += 3;
+        categoryStats[questionCategory].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats[category].incorrect++;
+        categoryStats[questionCategory].incorrect++;
     }
 
     Array.from(answerButtons.children).forEach(button => {
@@ -252,9 +304,21 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    nextButton.style.display = "block";
+    nextButton.style.display = "block"; // Ensure Next button is visible
+    nextButton.disabled = false; // Ensure Next button is enabled
 }
 
+
+function showResults(results) {
+    console.log("Results received by showResults:", results);
+    if (!Array.isArray(results)) {
+        console.error("Error: results is not an array!", results);
+        return;
+    }
+    results.forEach(result => {
+        console.log(result);
+    });
+}
 function showScore() {
     clearInterval(refreshIntervalId);
     resetState();
@@ -263,10 +327,11 @@ function showScore() {
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
+    // Save reading score before redirecting
     localStorage.setItem("readingScore", scaledScore);
-    localStorage.setItem("categoryStats", JSON.stringify(categoryStats));
 
-    let today = new Date().toLocaleDateString("en-CA");
+    let today = new Date().toLocaleDateString("en-CA"); // Local timezone, formatted as YYYY-MM-DD
+
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
     scoreHistory[today] = scaledScore;
     localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
@@ -276,40 +341,29 @@ function showScore() {
     nextButton.style.display = "block";
 
     document.getElementById("progress-bar").style.width = "100%";
-    updateCategoryProgress();
+    updateScoreGraph();
 }
-
-function updateCategoryProgress() {
-    Object.keys(categoryStats).forEach(category => {
-        let correct = categoryStats[category].correct;
-        let incorrect = categoryStats[category].incorrect;
-        let total = correct + incorrect;
-        let progress = total > 0 ? (correct / total) * 100 : 0;
-
-        let progressBar = document.getElementById(`progress-${category}`);
-        if (progressBar) {
-            progressBar.style.width = progress + "%";
-        }
-    });
-}
-
 function handleNextButton() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) {
-        showQuestion();
+    console.log("Handling next button click...");
+
+    // Store results before proceeding
+    recordTestResults();
+
+    currentQuestionIndex++; // Move to the next question
+
+    if (currentQuestionIndex < questions.length) {
+        showQuestion(); // Display the next question
     } else {
-        showScore();
+        console.log("Quiz completed! Redirecting...");
+        location.href = "https://www.brainjelli.com/user-profile.html";
     }
 }
 
-function updateProgressBar() {
-    const progressBar = document.getElementById("progress-bar");
-    let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
-    progressBar.style.width = progress + "%";
-}
+localStorage.removeItem("satProgress");
+
 
 nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < selectedQuestions.length) {
+    if (currentQuestionIndex < selectedQuestions.length) { // ✅ FIXED: Now uses selectedQuestions
         handleNextButton();
     } else {
         mathlink();
