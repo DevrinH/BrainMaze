@@ -39,7 +39,7 @@ const questions = [
         ],
         type: "reading",
         difficulty: "easy",
-        category: "algebra"
+        category: "inference"
     },
     {
         question: "Question goes here?", 
@@ -51,7 +51,7 @@ const questions = [
         ],
         type: "reading",
         difficulty: "easy",
-        category: "inferences"
+        category: "inference"
     }
 ];
 
@@ -160,7 +160,8 @@ function showScore() {
     resetState();
 
     let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
-    let scaledScore = Math.round((score / maxPossibleScore) * 600 + 200);
+    let rawScore = score;
+    let scaledScore = Math.round((rawScorescore / maxPossibleScore) * 600 + 200);
 
     localStorage.setItem("readingScore", scaledScore);
     localStorage.setItem("categoryTracking", JSON.stringify(categoryTracking));
