@@ -311,7 +311,7 @@ function showScore() {
     nextButton.style.display = "block";
 
     document.getElementById("progress-bar").style.width = "100%";
-    updateScoreGraph();
+   
 }
 
 function handleNextButton() {
