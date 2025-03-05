@@ -65,6 +65,47 @@ let correctAnswers = 0;
 let selectedQuestions = [];
 let categoryTracking = {}; // Tracks correct/incorrect by category
 
+const categories = [
+    "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
+    "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
+    "advanced-math", "problem-solving", "geometry-trigonometry"
+];
+
+function getStoredScores() {
+    return JSON.parse(localStorage.getItem("satScores")) || {};
+}
+
+function saveScores(scores) {
+    localStorage.setItem("satScores", JSON.stringify(scores));
+}
+
+function recordTestResults() {
+    let results = localStorage.getItem("testResults");
+
+    // Ensure results is an object, not an array
+    results = results ? JSON.parse(results) : {};
+
+    if (typeof results !== "object" || Array.isArray(results)) {
+        console.error("Error: results should be an object but got", results);
+        results = {}; // Reset to an empty object if it's an array
+    }
+
+    // Update scores per category
+    for (let category in categoryStats) {
+        if (!results[category]) {
+            results[category] = { correct: 0, incorrect: 0 };
+        }
+        results[category].correct += categoryStats[category].correct;
+        results[category].incorrect += categoryStats[category].incorrect;
+    }
+
+    // Save corrected object back to localStorage
+    localStorage.setItem("testResults", JSON.stringify(results));
+
+    console.log("Updated testResults saved to localStorage:", results);
+}
+
+
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
@@ -76,6 +117,8 @@ function startQuiz() {
     nextButton.innerHTML = "Next";
     showQuestion();
 }
+
+
 
 function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     const easyQuestions = questions.filter(q => q.difficulty === "easy");
