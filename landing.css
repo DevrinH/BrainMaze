@@ -647,6 +647,7 @@ h3 {
   border-radius: 5px;
   overflow: hidden;
   height: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .progress-fill {
   height: 100%;
@@ -719,8 +720,8 @@ h3 {
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 14px;
+  padding-right: 14px;
   position: relative;
   text-align: left;
   text-decoration: none;
