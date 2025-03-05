@@ -63,7 +63,9 @@ let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
 let selectedQuestions = [];
-let categoryTracking = {}; // Tracks correct/incorrect by category
+let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+let results = localStorage.getItem("testResults");
+results = results ? JSON.parse(results) : [];
 
 const categories = [
     "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
@@ -167,7 +169,7 @@ function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category;
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
@@ -179,13 +181,16 @@ function selectAnswer(e) {
     }
 
     // Track correct/incorrect per category
-    if (!categoryTracking[questionCategory]) {
-        categoryTracking[questionCategory] = { correct: 0, incorrect: 0 };
+    if (!categoryStats[questionCategory]) {
+        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
+
     if (isCorrect) {
-        categoryTracking[questionCategory].correct++;
+        selectedBtn.classList.add("correct");
+        categoryStats[questionCategory].correct++;
     } else {
-        categoryTracking[questionCategory].incorrect++;
+        selectedBtn.classList.add("incorrect");
+        categoryStats[questionCategory].incorrect++;
     }
 
     Array.from(answerButtons.children).forEach(button => {
@@ -195,7 +200,8 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    nextButton.style.display = "block";
+    nextButton.style.display = "block"; // Ensure Next button is visible
+    nextButton.disabled = false; // Ensure Next button is enabled
 }
 
 function showScore() {
