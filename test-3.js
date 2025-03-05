@@ -82,12 +82,15 @@ function startQuiz() {
     correctAnswers = 0;
     categoryStats = {};
     
-    selectedQuestions = selectRandomQuestions(questions, 18, 18, 18);
+    selectedQuestions = selectRandomQuestions(questions, Math.min(questions.length, 2));
 
     nextButton.innerHTML = "Next";
     showQuestion();
 }
-
+function selectRandomQuestions(questionPool, count) {
+    let shuffled = questionPool.sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, count);
+}
 function showQuestion() {
     resetState();
     let currentQuestion = selectedQuestions[currentQuestionIndex];
