@@ -210,4 +210,7 @@ function mathlink() {
     location.href = "https://www.brainjelli.com/math.html";
 }
 
-startQuiz();
+document.addEventListener("DOMContentLoaded", function () {
+    startQuiz();
+});
+
