@@ -361,11 +361,6 @@ function handleNextButton() {
 
 localStorage.removeItem("satProgress");
 
-function updateProgressBar() {
-    const progressBar = document.getElementById("progress-bar");
-    let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
-    progressBar.style.width = progress + "%";
-}
 
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < selectedQuestions.length) { // ✅ FIXED: Now uses selectedQuestions
