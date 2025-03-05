@@ -112,7 +112,7 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
-    categoryTracking = {};
+    categoryStats = {};
 
     selectedQuestions = selectRandomQuestions(questions, 18, 18, 18);
 
@@ -213,7 +213,7 @@ function showScore() {
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
     localStorage.setItem("readingScore", scaledScore);
-    localStorage.setItem("categoryTracking", JSON.stringify(categoryTracking));
+    //localStorage.setItem("categoryTracking", JSON.stringify(categoryTracking));
 
     let today = new Date().toLocaleDateString("en-CA");
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
@@ -228,7 +228,23 @@ function showScore() {
    
 }
 
+function showResults(results) {
+    console.log("Results received by showResults:", results);
+    if (!Array.isArray(results)) {
+        console.error("Error: results is not an array!", results);
+        return;
+    }
+    results.forEach(result => {
+        console.log(result);
+    });
+}
+
 function handleNextButton() {
+    console.log("Handling next button click...");
+
+    // Store results before proceeding
+    recordTestResults();
+   
     currentQuestionIndex++;
     if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
