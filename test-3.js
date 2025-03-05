@@ -195,7 +195,7 @@ function startQuiz() {
     correctAnswers = 0;
 
     // Select 54 questions (ordered Easy → Medium → Hard)
-    selectedQuestions = selectRandomQuestions(questions, 18, 18, 18);
+    selectedQuestions = selectRandomQuestions(questions, 4, 4, 4);
 
     nextButton.innerHTML = "Next";
     showQuestion();
