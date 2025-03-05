@@ -540,6 +540,7 @@ h3 {
   display: flex;
   column-gap: 15px;
   margin-left: 5%;
+  margin-bottom: 8px;
   }
 
   .satdesc{
