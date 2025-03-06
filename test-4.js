@@ -246,6 +246,7 @@ function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     let questionDifficulty = selectedQuestions[currentQuestionIndex].difficulty;
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
@@ -343,7 +344,7 @@ function showResults(results) {
 // Function to handle "Next" button click
 function handleNextButton() {
         // Store results before proceeding
-       // recordTestResults();
+       recordTestResults();
     currentQuestionIndex++;
     if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
