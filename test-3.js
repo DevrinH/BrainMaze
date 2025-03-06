@@ -301,31 +301,45 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-    const selectedButton = e.target;
-    const correct = selectedButton.dataset.correct === "true";
-
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let category = currentQuestion.category;
+    let questionDifficulty = currentQuestion.difficulty;
+    let category = currentQuestion.category; // Get category from question
 
-    console.log(`Answer selected: ${selectedButton.innerText}, Correct: ${correct}`);
-    console.log(`Category: ${category}, Current Question Index: ${currentQuestionIndex}`);
-
-    if (!testResults[category]) {
-        testResults[category] = { correct: 0, incorrect: 0 };
+    if (!categoryStats[category]) {
+        categoryStats[category] = { correct: 0, incorrect: 0 };
     }
 
-    if (correct) {
-        testResults[category].correct++;
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        correctAnswers++;
+
+        // Fixed weighted scoring based on difficulty
+        if (questionDifficulty === "easy") {
+            score += 1;
+        } else if (questionDifficulty === "medium") {
+            score += 2;
+        } else if (questionDifficulty === "hard") {
+            score += 3;
+        }
+
+        categoryStats[category].correct += 1; // Increment correct count
     } else {
-        testResults[category].incorrect++;
+        selectedBtn.classList.add("incorrect");
+        categoryStats[category].incorrect += 1; // Increment incorrect count
     }
 
-    console.log("Updated testResults:", testResults);
+    console.log("Updated categoryStats:", categoryStats);
 
-    localStorage.setItem("testResults", JSON.stringify(testResults));
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
 
-    currentQuestionIndex++; // Move to next question
-    showQuestion();
+    nextButton.style.display = "block";
 }
 
 
