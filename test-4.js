@@ -139,12 +139,56 @@ let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
 let selectedQuestions = [];
+let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+let results = localStorage.getItem("testResults");
+results = results ? JSON.parse(results) : [];
+
+const categories = [
+    "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
+    "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
+    "advanced-math", "problem-solving", "geometry-trigonometry"
+];
+
+function getStoredScores() {
+    return JSON.parse(localStorage.getItem("satScores")) || {};
+}
+
+function saveScores(scores) {
+    localStorage.setItem("satScores", JSON.stringify(scores));
+}
+
+function recordTestResults() {
+    let results = localStorage.getItem("testResults");
+
+    // Ensure results is an object, not an array
+    results = results ? JSON.parse(results) : {};
+
+    if (typeof results !== "object" || Array.isArray(results)) {
+        console.error("Error: results should be an object but got", results);
+        results = {}; // Reset to an empty object if it's an array
+    }
+
+    // Update scores per category
+    for (let category in categoryStats) {
+        if (!results[category]) {
+            results[category] = { correct: 0, incorrect: 0 };
+        }
+        results[category].correct += categoryStats[category].correct;
+        results[category].incorrect += categoryStats[category].incorrect;
+    }
+
+    // Save corrected object back to localStorage
+    localStorage.setItem("testResults", JSON.stringify(results));
+
+    console.log("Updated testResults saved to localStorage:", results);
+}
 
 // Function to start the quiz
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
+    categoryStats = {};
 
     // Select 44 random questions (14 easy, 15 medium, 15 hard)
     selectedQuestions = selectRandomMathQuestions(questions, 14, 15, 15);
@@ -276,8 +320,24 @@ function showScore() {
 }
 
 
+function showResults(results) {
+    console.log("Results received by showResults:", results);
+    if (!Array.isArray(results)) {
+        console.error("Error: results is not an array!", results);
+        return;
+    }
+    results.forEach(result => {
+        console.log(result);
+    });
+}
+
 // Function to handle "Next" button click
 function handleNextButton() {
+    console.log("Handling next button click...");
+
+    // Store results before proceeding
+    recordTestResults();
+
     currentQuestionIndex++;
     if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
@@ -304,7 +364,7 @@ nextButton.addEventListener("click", () => {
 
 // Function to redirect to home
 function homelink() {
-    location.href = "https://www.brainjelli.com/satlandingpage";
+    location.href = "https://www.brainjelli.com/user-profile";
 }
 
 
