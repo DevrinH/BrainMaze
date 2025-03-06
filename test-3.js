@@ -301,28 +301,34 @@ function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+    let category = currentQuestion.category; // Get question category
+    let difficulty = currentQuestion.difficulty;
+
+    // Initialize categoryStats for the category if it doesn’t exist
+    if (!categoryStats[category]) {
+        categoryStats[category] = { correct: 0, incorrect: 0 };
+    }
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-        score += currentQuestion.difficulty === "easy" ? 1 :
-                 currentQuestion.difficulty === "medium" ? 2 : 3;
+
+        // Update score based on difficulty
+        if (difficulty === "easy") {
+            score += 1;
+        } else if (difficulty === "medium") {
+            score += 2;
+        } else if (difficulty === "hard") {
+            score += 3;
+        }
+
+        // Increment correct count for category
+        categoryStats[category].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-    }
 
-    // Track correct/incorrect per category
-    if (!categoryStats[questionCategory]) {
-        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-    }
-
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        categoryStats[questionCategory].correct++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats[questionCategory].incorrect++;
+        // Increment incorrect count for category (but only once)
+        categoryStats[category].incorrect += 1;
     }
 
     Array.from(answerButtons.children).forEach(button => {
@@ -332,9 +338,11 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    nextButton.style.display = "block"; // Ensure Next button is visible
-    nextButton.disabled = false; // Ensure Next button is enabled
+    nextButton.style.display = "block";
+
+    console.log("Category stats after answer:", categoryStats);
 }
+
 
 function showScore() {
     clearInterval(refreshIntervalId);
