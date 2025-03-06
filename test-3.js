@@ -240,14 +240,21 @@ function recordTestResults() {
 }
 
 
-// Function to start the quiz
+//// Function to start the quiz
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
     categoryStats = {};
-    }
 
+    // Select 44 random questions (14 easy, 15 medium, 15 hard)
+    selectedQuestions = selectRandomMathQuestions(questions, 14, 15, 15);
+
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
+
+// 
 
 
 function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
