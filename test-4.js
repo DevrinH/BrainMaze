@@ -189,7 +189,7 @@ function startQuiz() {
     correctAnswers = 0;
 
     // Select 44 random questions (14 easy, 15 medium, 15 hard)
-    selectedQuestions = selectRandomMathQuestions(questions, 14, 15, 15);
+    selectedQuestions = selectRandomMathQuestions(questions, 2, 2, 2);
 
     nextButton.innerHTML = "Next";
     showQuestion();
