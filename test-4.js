@@ -103,7 +103,7 @@ const questions = [
             { text: "D) 13", correct: false }
         ],
         difficulty: "easy",
-        category: "geometry-and-trigonometry"
+        category: "geometry-trigonometry"
     },
     {
         question: "A circle has a radius of 6 inches. What is the area of a sector that subtends a central angle of 120 degrees? (Round to the nearest tenth of a square inch.)",
@@ -114,7 +114,7 @@ const questions = [
             { text: "D) 50.5 square inches", correct: false }
         ],
         difficulty: "medium",
-        category: "geometry-and-trigonometry"
+        category: "geometry-trigonometry"
     },
     {
         question: "In a triangle, two sides have lengths of 7 and 10. Which of the following could be the length of the third side?",
@@ -125,7 +125,7 @@ const questions = [
             { text: "D) 18", correct: false }
         ],
         difficulty: "hard",
-        category: "geometry-and-trigonometry"
+        category: "geometry-trigonometry"
     }
 
 ];
