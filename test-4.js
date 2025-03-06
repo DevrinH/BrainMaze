@@ -173,6 +173,8 @@ function recordTestResults() {
         }
         results[category].correct += categoryStats[category].correct;
         results[category].incorrect += categoryStats[category].incorrect;
+        console.log("Final category stats before saving:", categoryStats);
+
     }
 
     // Save corrected object back to localStorage
