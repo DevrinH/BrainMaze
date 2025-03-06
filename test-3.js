@@ -240,16 +240,13 @@ function recordTestResults() {
 }
 
 
+// Function to start the quiz
 function startQuiz() {
     currentQuestionIndex = 0;
-    correctAnswers = 0;
     score = 0;
-    nextButton.style.display = "none";
-    showQuestion();
-
-    // Remove all previous event listeners before adding new ones
-    answerButtons.replaceChildren(); // Clears previous buttons
-}
+    correctAnswers = 0;
+    categoryStats = {};
+    }
 
 
 
