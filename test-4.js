@@ -39,28 +39,94 @@ const questions = [
         difficulty: "hard",
         category: "advanced-math"
     },
-    { 
+    {
         question: "A car's value depreciates by 15% each year. If the car was originally purchased for $30,000, what will its value be after 3 years, rounded to the nearest dollar?",
         answers: [
-            { text: "$18,520", correct: false }, 
-            { text: "$19,275", correct: false }, 
-            { text: "$20,250", correct: false }, 
-            { text: "$19,275", correct: true } 
+            { text: "A) $18,520", correct: false },
+            { text: "B) $19,275", correct: true },
+            { text: "C) $20,250", correct: false },
+            { text: "D) $21,000", correct: false }
         ],
         difficulty: "hard",
         category: "advanced-math"
     },
-    { 
+    {
         question: "A farmer has a rectangular field that is 200 feet long and 150 feet wide. He wants to build a circular pond that takes up exactly 25% of the field’s area. What should the radius of the pond be, rounded to the nearest foot?",
         answers: [
-            { text: "30 feet", correct: false }, 
-            { text: "35 feet", correct: false }, 
-            { text: "40 feet", correct: false }, 
-            { text: "38 feet", correct: true } 
+            { text: "A) 30 feet", correct: false },
+            { text: "B) 35 feet", correct: false },
+            { text: "C) 40 feet", correct: false },
+            { text: "D) 38 feet", correct: true }
         ],
         difficulty: "hard",
         category: "advanced-math"
-    }    
+    },
+    {
+        question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
+        answers: [
+            { text: "A) 10 hours", correct: false },
+            { text: "B) 11 hours", correct: false },
+            { text: "C) 9 hours", correct: true },
+            { text: "D) 8 hours", correct: false }
+        ],
+        difficulty: "medium",
+        category: "algebra"
+    },
+    {
+        question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
+        answers: [
+            { text: "A) 27", correct: false },
+            { text: "B) 29", correct: true },
+            { text: "C) 31", correct: false },
+            { text: "D) 25", correct: false }
+        ],
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "A quadratic equation is given as x² - 6x + c = 0. If one of the roots of the equation is 4, what is the value of c?",
+        answers: [
+            { text: "A) 8", correct: false },
+            { text: "B) 10", correct: true },
+            { text: "C) 12", correct: false },
+            { text: "D) 6", correct: false }
+        ],
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        question: "A right triangle has legs of length 9 and 12. What is the length of the hypotenuse?",
+        answers: [
+            { text: "A) 15", correct: true },
+            { text: "B) 18", correct: false },
+            { text: "C) 21", correct: false },
+            { text: "D) 13", correct: false }
+        ],
+        difficulty: "easy",
+        category: "geometry-and-trigonometry"
+    },
+    {
+        question: "A circle has a radius of 6 inches. What is the area of a sector that subtends a central angle of 120 degrees? (Round to the nearest tenth of a square inch.)",
+        answers: [
+            { text: "A) 37.7 square inches", correct: false },
+            { text: "B) 45.2 square inches", correct: false },
+            { text: "C) 48.0 square inches", correct: true },
+            { text: "D) 50.5 square inches", correct: false }
+        ],
+        difficulty: "medium",
+        category: "geometry-and-trigonometry"
+    },
+    {
+        question: "In a triangle, two sides have lengths of 7 and 10. Which of the following could be the length of the third side?",
+        answers: [
+            { text: "A) 3", correct: false },
+            { text: "B) 17", correct: false },
+            { text: "C) 9", correct: true },
+            { text: "D) 18", correct: false }
+        ],
+        difficulty: "hard",
+        category: "geometry-and-trigonometry"
+    }
 
 ];
 
