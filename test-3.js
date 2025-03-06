@@ -297,48 +297,31 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-    if (e.target.dataset.answered) return; // Prevent multiple increments
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct === "true";
 
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let category = currentQuestion.category;
-    let difficulty = currentQuestion.difficulty;
 
-    // Initialize categoryStats if not set
-    if (!categoryStats[category]) {
-        categoryStats[category] = { correct: 0, incorrect: 0 };
+    console.log(`Answer selected: ${selectedButton.innerText}, Correct: ${correct}`);
+    console.log(`Category: ${category}, Current Question Index: ${currentQuestionIndex}`);
+
+    if (!testResults[category]) {
+        testResults[category] = { correct: 0, incorrect: 0 };
     }
 
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        correctAnswers++;
-
-        // Update score based on difficulty
-        score += difficulty === "easy" ? 1 : difficulty === "medium" ? 2 : 3;
-
-        // Ensure correct count increments only once
-        categoryStats[category].correct++;
+    if (correct) {
+        testResults[category].correct++;
     } else {
-        selectedBtn.classList.add("incorrect");
-
-        // Ensure incorrect count increments only once
-        categoryStats[category].incorrect++;
+        testResults[category].incorrect++;
     }
 
-    // Mark button as answered to prevent multiple increments
-    e.target.dataset.answered = "true";
+    console.log("Updated testResults:", testResults);
 
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
+    localStorage.setItem("testResults", JSON.stringify(testResults));
 
-    nextButton.style.display = "block";
-
-    console.log("Category stats after answer:", categoryStats);
+    currentQuestionIndex++; // Move to next question
+    showQuestion();
 }
 
 
