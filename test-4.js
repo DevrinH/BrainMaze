@@ -138,7 +138,8 @@ const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
-let selectedQuestions = [];let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+let selectedQuestions = [];
+let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
 let results = localStorage.getItem("testResults");
 results = results ? JSON.parse(results) : [];
 
@@ -187,6 +188,7 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
+    categoryStats = {};
 
     // Select 44 random questions (14 easy, 15 medium, 15 hard)
     selectedQuestions = selectRandomMathQuestions(questions, 2, 2, 2);
