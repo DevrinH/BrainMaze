@@ -299,43 +299,49 @@ function resetState() {
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
-    if (selectedBtn.classList.contains("selected")) return; // Prevent multiple triggers
-    selectedBtn.classList.add("selected");
-
+    const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let category = currentQuestion.category;
+    let category = currentQuestion.category; // Get question category
     let difficulty = currentQuestion.difficulty;
-    let isCorrect = selectedBtn.dataset.correct === "true";
 
-    // Initialize if not exists
+    // Initialize categoryStats for the category if it doesn’t exist
     if (!categoryStats[category]) {
         categoryStats[category] = { correct: 0, incorrect: 0 };
     }
 
-    // Log before updating
-    console.log(`Before update: ${category} -`, JSON.stringify(categoryStats[category]));
-
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
+
+        // Update score based on difficulty
+        if (difficulty === "easy") {
+            score += 1;
+        } else if (difficulty === "medium") {
+            score += 2;
+        } else if (difficulty === "hard") {
+            score += 3;
+        }
+
+        // Increment correct count for category
         categoryStats[category].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats[category].incorrect++;
+
+        // Increment incorrect count for category (but only once)
+        categoryStats[category].incorrect += 1;
     }
 
-    // Log after updating
-    console.log(`After update: ${category} -`, JSON.stringify(categoryStats[category]));
-
-    // Save updated data
-    localStorage.setItem("testResults", JSON.stringify(categoryStats));
-
-    // Disable buttons to prevent multiple clicks
-    Array.from(answerButtons.children).forEach(button => button.disabled = true);
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
 
     nextButton.style.display = "block";
-}
 
+    console.log("Category stats after answer:", categoryStats);
+}
 
 
 function showScore() {
