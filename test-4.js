@@ -144,9 +144,7 @@ let results = localStorage.getItem("testResults");
 results = results ? JSON.parse(results) : [];
 
 const categories = [
-    "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
-    "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
-    "advanced-math", "problem-solving", "geometry-trigonometry"
+    "algebra", "advanced-math", "problem-solving", "geometry-trigonometry"
 ];
 
 function getStoredScores() {
