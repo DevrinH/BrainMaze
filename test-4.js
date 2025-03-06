@@ -343,7 +343,7 @@ function showResults(results) {
 // Function to handle "Next" button click
 function handleNextButton() {
         // Store results before proceeding
-        recordTestResults();
+       // recordTestResults();
     currentQuestionIndex++;
     if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
