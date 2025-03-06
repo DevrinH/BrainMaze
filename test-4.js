@@ -243,45 +243,43 @@ function resetState() {
 // Function to handle answer selection
 function selectAnswer(e) {
     const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionDifficulty = currentQuestion.difficulty;
-    let category = currentQuestion.category; // Get category from question
+    if (selectedBtn.classList.contains("selected")) return; // Prevent multiple triggers
+    selectedBtn.classList.add("selected");
 
+    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let category = currentQuestion.category;
+    let difficulty = currentQuestion.difficulty;
+    let isCorrect = selectedBtn.dataset.correct === "true";
+
+    // Initialize if not exists
     if (!categoryStats[category]) {
         categoryStats[category] = { correct: 0, incorrect: 0 };
     }
 
+    // Log before updating
+    console.log(`Before update: ${category} -`, JSON.stringify(categoryStats[category]));
+
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-
-        // Fixed weighted scoring based on difficulty
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
-        }
-
-        categoryStats[category].correct += 1; // Increment correct count
+        categoryStats[category].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats[category].incorrect += 1; // Increment incorrect count
+        categoryStats[category].incorrect++;
     }
 
-    console.log("Updated categoryStats:", categoryStats);
+    // Log after updating
+    console.log(`After update: ${category} -`, JSON.stringify(categoryStats[category]));
 
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
+    // Save updated data
+    localStorage.setItem("testResults", JSON.stringify(categoryStats));
+
+    // Disable buttons to prevent multiple clicks
+    Array.from(answerButtons.children).forEach(button => button.disabled = true);
 
     nextButton.style.display = "block";
 }
+
 
 // Function to display the final score
 function showScore() { 
