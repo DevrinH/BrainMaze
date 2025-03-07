@@ -201,7 +201,7 @@ results = results ? JSON.parse(results) : [];
 
 const categories = [
     "Command of Evidence", "central-ideas", "inferences", "Words in Context", "text-structure", 
-    "cross-text", "transitions", "rhetorical-synthesis", "boundaries", "algebra", 
+    "cross-text", "transitions", "rhetorical-synthesis", "boundaries","algebra", 
     "advanced-math", "problem-solving", "geometry-trigonometry"
 ];
 
@@ -334,6 +334,18 @@ function selectAnswer(e) {
 
     nextButton.style.display = "block"; // Ensure Next button is visible
     nextButton.disabled = false; // Ensure Next button is enabled
+}
+
+function updateCategoryStats(category, isCorrect) {
+    if (!categoryStats[category]) {
+        categoryStats[category] = { correct: 0, incorrect: 0 };
+    }
+    
+    if (isCorrect) {
+        categoryStats[category].correct++;
+    } else {
+        categoryStats[category].incorrect++;
+    }
 }
 
 function showScore() {
