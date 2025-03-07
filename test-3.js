@@ -204,17 +204,16 @@ function saveScores(scores) {
 }
 
 function recordTestResults() {
-    let results = localStorage.getItem("testResults");
+    console.log("Recording results:", categoryStats); // Debugging step
 
-    // Ensure results is an object, not an array
+    let results = localStorage.getItem("testResults");
     results = results ? JSON.parse(results) : {};
 
     if (typeof results !== "object" || Array.isArray(results)) {
         console.error("Error: results should be an object but got", results);
-        results = {}; // Reset to an empty object if it's an array
+        results = {};
     }
 
-    // Update scores per category
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
@@ -223,9 +222,9 @@ function recordTestResults() {
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
 
-    // Save corrected object back to localStorage
     localStorage.setItem("testResults", JSON.stringify(results));
 }
+
 
 
 function startQuiz() {
