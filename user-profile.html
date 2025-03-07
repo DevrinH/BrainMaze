@@ -378,106 +378,116 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     </script>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {  
-        // Ensure test results are recorded first
-        recordTestResults();
-    
-        // Load stored progress from previous tests
-        let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
-        let storedProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
-    
-        // **Accumulate results over time instead of replacing them**
-        Object.keys(currentTestResults).forEach(category => {
-            if (!storedProgress[category]) {
-                storedProgress[category] = { correct: 0, incorrect: 0 };
-            }
-    
-            storedProgress[category].correct += currentTestResults[category]?.correct || 0;
-            storedProgress[category].incorrect += currentTestResults[category]?.incorrect || 0;
-        });
-    
-        // Save the updated progress data
-        localStorage.setItem("satProgress", JSON.stringify(storedProgress));
-    
-        // Update progress bars
-        function updateProgressBars() {
-            console.log("Updating progress bars with data:", storedProgress);
-    
-            Object.keys(storedProgress).forEach(category => {
-                const correct = storedProgress[category]?.correct || 0;
-                const incorrect = storedProgress[category]?.incorrect || 0;
-                const total = correct + incorrect;
-                const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-    
-                // Update progress bar
-                const progressBar = document.getElementById(`${category}-bar`);
-                if (progressBar) {
-                    progressBar.style.width = `${percentage}%`;
-                } else {
-                    console.warn(`Progress bar not found: ${category}-bar`);
-                }
-    
-                // Update progress text
-                const progressText = document.getElementById(`${category}-text`);
-                if (progressText) {
-                    let previousPercentage = previousProgress[category]?.percentage || 0;
-                    let arrow = "→";
-                    let arrowColor = "black";
-    
-                    if (percentage > previousPercentage) {
-                        arrow = "↑";
-                        arrowColor = "green";
-                    } else if (percentage < previousPercentage) {
-                        arrow = "↓";
-                        arrowColor = "red";
-                    }
-    
-                    progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                } else {
-                    console.warn(`Progress text not found: ${category}-text`);
-                }
-    
-                // Store current progress for future reference
-                previousProgress[category] = { percentage };
-            });
-    
-            // Save updated progress
-            localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
+document.addEventListener("DOMContentLoaded", function () {  
+    // Ensure test results are recorded first
+    recordTestResults();
+
+    // Load stored progress from previous tests
+    let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
+    let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
+    let storedProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+
+    console.log("Previous Progress:", previousProgress);
+    console.log("Current Test Results:", currentTestResults);
+    console.log("Stored Progress Before Update:", storedProgress);
+
+    // **Accumulate results over time instead of replacing them**
+    Object.keys(currentTestResults).forEach(category => {
+        if (!storedProgress[category]) {
+            storedProgress[category] = { correct: 0, incorrect: 0 };
         }
-    
-        updateProgressBars();
+
+        // Ensure values are treated as numbers (not undefined or NaN)
+        let currentCorrect = Number(currentTestResults[category]?.correct || 0);
+        let currentIncorrect = Number(currentTestResults[category]?.incorrect || 0);
+
+        storedProgress[category].correct += currentCorrect;
+        storedProgress[category].incorrect += currentIncorrect;
     });
-    
-    function resetProgress() {
-        // Remove stored test results
-        localStorage.removeItem("testResults");
-        localStorage.removeItem("scoreHistory");
-        localStorage.removeItem("satProgress"); // Clear stored progress
-    
-        // Reset progress bars
-        document.querySelectorAll(".progress-fill").forEach(bar => {
-            bar.style.width = "0%";
+
+    // Save the updated progress data
+    localStorage.setItem("satProgress", JSON.stringify(storedProgress));
+    console.log("Updated Stored Progress:", storedProgress);
+
+    // Update progress bars
+    function updateProgressBars() {
+        console.log("Updating progress bars with data:", storedProgress);
+
+        Object.keys(storedProgress).forEach(category => {
+            const correct = storedProgress[category]?.correct || 0;
+            const incorrect = storedProgress[category]?.incorrect || 0;
+            const total = correct + incorrect;
+            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+            // Update progress bar
+            const progressBar = document.getElementById(`${category}-bar`);
+            if (progressBar) {
+                progressBar.style.width = `${percentage}%`;
+            } else {
+                console.warn(`Progress bar not found: ${category}-bar`);
+            }
+
+            // Update progress text
+            const progressText = document.getElementById(`${category}-text`);
+            if (progressText) {
+                let previousPercentage = previousProgress[category]?.percentage || 0;
+                let arrow = "→";
+                let arrowColor = "black";
+
+                if (percentage > previousPercentage) {
+                    arrow = "↑";
+                    arrowColor = "green";
+                } else if (percentage < previousPercentage) {
+                    arrow = "↓";
+                    arrowColor = "red";
+                }
+
+                progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+            } else {
+                console.warn(`Progress text not found: ${category}-text`);
+            }
+
+            // Store current progress for future reference
+            previousProgress[category] = { percentage };
         });
-    
-        // Reset progress text
-        document.querySelectorAll(".progress-percentage").forEach(text => {
-            text.innerHTML = "0% <span class='arrow'>→</span>";
-        });
-    
-        // Reset the chart (if applicable)
-        if (window.lastScoreBarChart) {
-            window.lastScoreBarChart.data.datasets.forEach(dataset => {
-                dataset.data = [0, 0, 0]; // Reset scores
-            });
-            window.lastScoreBarChart.update();
-        }
-    
-        alert("Progress has been reset!");
+
+        // Save updated progress
+        localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
     }
-    </script>
-    
+
+    updateProgressBars();
+});
+
+function resetProgress() {
+    // Remove stored test results
+    localStorage.removeItem("testResults");
+    localStorage.removeItem("scoreHistory");
+    localStorage.removeItem("satProgress"); // Clear stored progress
+
+    // Reset progress bars
+    document.querySelectorAll(".progress-fill").forEach(bar => {
+        bar.style.width = "0%";
+    });
+
+    // Reset progress text
+    document.querySelectorAll(".progress-percentage").forEach(text => {
+        text.innerHTML = "0% <span class='arrow'>→</span>";
+    });
+
+    // Reset the chart (if applicable)
+    if (window.lastScoreBarChart) {
+        window.lastScoreBarChart.data.datasets.forEach(dataset => {
+            dataset.data = [0, 0, 0]; // Reset scores
+        });
+        window.lastScoreBarChart.update();
+    }
+
+    alert("Progress has been reset!");
+}
+</script>
+
     
 
 <button onclick="resetProgress()">Reset Progress</button>
