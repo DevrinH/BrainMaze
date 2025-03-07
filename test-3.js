@@ -242,13 +242,14 @@ function recordTestResults() {
 
 function startQuiz() {
     currentQuestionIndex = 0;
-    correctAnswers = 0;
     score = 0;
-    nextButton.style.display = "none";
-    showQuestion();
+    correctAnswers = 0;
+    categoryStats = {};
 
-    // Remove all previous event listeners before adding new ones
-    answerButtons.replaceChildren(); // Clears previous buttons
+    selectedQuestions = selectRandomQuestions(questions, 18, 18, 18);
+
+    nextButton.innerHTML = "Next";
+    showQuestion();
 }
 
 
@@ -297,15 +298,13 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-    if (e.target.dataset.answered) return; // Prevent multiple increments
-
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let category = currentQuestion.category;
+    let category = currentQuestion.category; // Get question category
     let difficulty = currentQuestion.difficulty;
 
-    // Initialize categoryStats if not set
+    // Initialize categoryStats for the category if it doesn’t exist
     if (!categoryStats[category]) {
         categoryStats[category] = { correct: 0, incorrect: 0 };
     }
@@ -315,19 +314,22 @@ function selectAnswer(e) {
         correctAnswers++;
 
         // Update score based on difficulty
-        score += difficulty === "easy" ? 1 : difficulty === "medium" ? 2 : 3;
+        if (difficulty === "easy") {
+            score += 1;
+        } else if (difficulty === "medium") {
+            score += 2;
+        } else if (difficulty === "hard") {
+            score += 3;
+        }
 
-        // Ensure correct count increments only once
+        // Increment correct count for category
         categoryStats[category].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
 
-        // Ensure incorrect count increments only once
-        categoryStats[category].incorrect++;
+        // Increment incorrect count for category (but only once)
+        categoryStats[category].incorrect += 1;
     }
-
-    // Mark button as answered to prevent multiple increments
-    e.target.dataset.answered = "true";
 
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
@@ -340,7 +342,6 @@ function selectAnswer(e) {
 
     console.log("Category stats after answer:", categoryStats);
 }
-
 
 
 function showScore() {

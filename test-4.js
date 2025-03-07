@@ -158,7 +158,7 @@ function saveScores(scores) {
 function recordTestResults() {
     let results = localStorage.getItem("testResults");
 
-    // Ensure results is an object
+    // Ensure results is an object, not an array
     results = results ? JSON.parse(results) : {};
 
     if (typeof results !== "object" || Array.isArray(results)) {
@@ -166,15 +166,17 @@ function recordTestResults() {
         results = {}; // Reset to an empty object if it's an array
     }
 
-    // Merge current session stats with stored results
+    // Update scores per category
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
         results[category].correct += categoryStats[category].correct;
         results[category].incorrect += categoryStats[category].incorrect;
+        
     }
 
+    // Save corrected object back to localStorage
     localStorage.setItem("testResults", JSON.stringify(results));
 
     console.log("Updated testResults saved to localStorage:", results);
@@ -244,13 +246,7 @@ function resetState() {
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionDifficulty = currentQuestion.difficulty;
-    let category = currentQuestion.category; // Get category from question
-
-    if (!categoryStats[category]) {
-        categoryStats[category] = { correct: 0, incorrect: 0 };
-    }
+    let questionDifficulty = selectedQuestions[currentQuestionIndex].difficulty;
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
@@ -264,14 +260,9 @@ function selectAnswer(e) {
         } else if (questionDifficulty === "hard") {
             score += 3;
         }
-
-        categoryStats[category].correct += 1; // Increment correct count
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats[category].incorrect += 1; // Increment incorrect count
     }
-
-    console.log("Updated categoryStats:", categoryStats);
 
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
