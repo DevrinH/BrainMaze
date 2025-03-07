@@ -173,18 +173,8 @@ const questions = [
     type: "reading",
     difficulty: "hard",
     category: "cross-text"
-},
-{
-    question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
-    answers: [
-        { text: "A) 27", correct: false },
-        { text: "B) 29", correct: true },
-        { text: "C) 31", correct: false },
-        { text: "D) 25", correct: false }
-    ],
-    difficulty: "easy",
-    category: "algebra"
 }
+
 ];
 
 const questionElement = document.getElementById("question"); 
