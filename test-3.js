@@ -287,43 +287,29 @@ function resetState() {
     }
 }
 
-function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
+function handleAnswer(selectedAnswer) {
     let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+    let category = currentQuestion.category;
 
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
+    // Ensure categoryStats exists for this category
+    if (!categoryStats[category]) {
+        categoryStats[category] = { correct: 0, incorrect: 0 };
+    }
+
+    if (selectedAnswer.correct) {
+        categoryStats[category].correct += 1; // Only update the relevant category
         correctAnswers++;
-        score += currentQuestion.difficulty === "easy" ? 1 :
-                 currentQuestion.difficulty === "medium" ? 2 : 3;
     } else {
-        selectedBtn.classList.add("incorrect");
+        categoryStats[category].incorrect += 1;
     }
 
-    // Track correct/incorrect per category
-    if (!categoryStats[questionCategory]) {
-        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-    }
-
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        categoryStats[questionCategory].correct++;
+    // Move to next question
+    currentQuestionIndex++;
+    if (currentQuestionIndex < selectedQuestions.length) {
+        showQuestion();
     } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats[questionCategory].incorrect++;
+        endQuiz();
     }
-
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
-
-    nextButton.style.display = "block"; // Ensure Next button is visible
-    nextButton.disabled = false; // Ensure Next button is enabled
 }
 
 function updateCategoryStats(category, isCorrect) {
