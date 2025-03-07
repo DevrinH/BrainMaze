@@ -402,5 +402,4 @@ nextButton.addEventListener("click", () => {
 function mathlink() {
     location.href = "https://www.brainjelli.com/test-4.html";
 }
-localStorage.removeItem("testResults"); // Removes only "testResults"
 startQuiz();
