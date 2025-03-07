@@ -282,7 +282,17 @@ function selectAnswer(e) {
 
     nextButton.style.display = "block";
 }
-
+function updateCategoryStats(category, isCorrect) {
+    if (!categoryStats[category]) {
+        categoryStats[category] = { correct: 0, incorrect: 0 };
+    }
+    
+    if (isCorrect) {
+        categoryStats[category].correct++;
+    } else {
+        categoryStats[category].incorrect++;
+    }
+}
 // Function to display the final score
 function showScore() { 
     clearInterval(refreshIntervalId);
