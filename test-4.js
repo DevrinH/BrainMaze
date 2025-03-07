@@ -156,29 +156,27 @@ function saveScores(scores) {
 }
 
 function recordTestResults() {
-    let results = localStorage.getItem("testResults");
+    console.log("Recording results:", categoryStats); // Debugging step
 
-    // Ensure results is an object
+    let results = localStorage.getItem("testResults");
     results = results ? JSON.parse(results) : {};
 
     if (typeof results !== "object" || Array.isArray(results)) {
         console.error("Error: results should be an object but got", results);
-        results = {}; // Reset to an empty object if it's an array
+        results = {};
     }
 
-    // Merge current session stats with stored results
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
-        results[category].correct += categoryStats[category].correct;
-        results[category].incorrect += categoryStats[category].incorrect;
+        results[category].correct += categoryStats[category].correct || 0;
+        results[category].incorrect += categoryStats[category].incorrect || 0;
     }
 
     localStorage.setItem("testResults", JSON.stringify(results));
-
-    console.log("Updated testResults saved to localStorage:", results);
 }
+
 
 // Function to start the quiz
 function startQuiz() {
@@ -245,33 +243,29 @@ function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionDifficulty = currentQuestion.difficulty;
-    let category = currentQuestion.category; // Get category from question
-
-    if (!categoryStats[category]) {
-        categoryStats[category] = { correct: 0, incorrect: 0 };
-    }
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-
-        // Fixed weighted scoring based on difficulty
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
-        }
-
-        categoryStats[category].correct += 1; // Increment correct count
+        score += currentQuestion.difficulty === "easy" ? 1 :
+                 currentQuestion.difficulty === "medium" ? 2 : 3;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats[category].incorrect += 1; // Increment incorrect count
     }
 
-    console.log("Updated categoryStats:", categoryStats);
+    // Track correct/incorrect per category
+    if (!categoryStats[questionCategory]) {
+        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
+    }
+
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        categoryStats[questionCategory].correct++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats[questionCategory].incorrect++;
+    }
 
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
@@ -280,7 +274,8 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    nextButton.style.display = "block";
+    nextButton.style.display = "block"; // Ensure Next button is visible
+    nextButton.disabled = false; // Ensure Next button is enabled
 }
 function updateCategoryStats(category, isCorrect) {
     if (!categoryStats[category]) {
