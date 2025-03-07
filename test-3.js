@@ -219,14 +219,12 @@ function recordTestResults() {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
-        results[category].correct += categoryStats[category].correct;
-        results[category].incorrect += categoryStats[category].incorrect;
+        results[category].correct += categoryStats[category].correct || 0;
+        results[category].incorrect += categoryStats[category].incorrect || 0;
     }
 
     // Save corrected object back to localStorage
     localStorage.setItem("testResults", JSON.stringify(results));
-
-    console.log("Updated testResults saved to localStorage:", results);
 }
 
 
@@ -287,29 +285,43 @@ function resetState() {
     }
 }
 
-function handleAnswer(selectedAnswer) {
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let category = currentQuestion.category;
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
 
-    // Ensure categoryStats exists for this category
-    if (!categoryStats[category]) {
-        categoryStats[category] = { correct: 0, incorrect: 0 };
-    }
-
-    if (selectedAnswer.correct) {
-        categoryStats[category].correct += 1; // Only update the relevant category
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
         correctAnswers++;
+        score += currentQuestion.difficulty === "easy" ? 1 :
+                 currentQuestion.difficulty === "medium" ? 2 : 3;
     } else {
-        categoryStats[category].incorrect += 1;
+        selectedBtn.classList.add("incorrect");
     }
 
-    // Move to next question
-    currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) {
-        showQuestion();
-    } else {
-        endQuiz();
+    // Track correct/incorrect per category
+    if (!categoryStats[questionCategory]) {
+        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
+
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        categoryStats[questionCategory].correct++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats[questionCategory].incorrect++;
+    }
+
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+
+    nextButton.style.display = "block"; // Ensure Next button is visible
+    nextButton.disabled = false; // Ensure Next button is enabled
 }
 
 function updateCategoryStats(category, isCorrect) {
