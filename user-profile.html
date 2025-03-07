@@ -435,14 +435,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateProgressBars();
 });
-document.getElementById("clearResults").addEventListener("click", function() {
+function resetProgress() {
+    // Remove stored test results
     localStorage.removeItem("testResults");
-    console.log("Test results cleared!");
-    alert("Test results have been cleared.");
-});
+    localStorage.removeItem("scoreHistory");
+
+    // Reset progress bars
+    document.querySelectorAll(".progress-fill").forEach(bar => {
+        bar.style.width = "0%";
+    });
+
+    // Reset progress text
+    document.querySelectorAll(".progress-percentage").forEach(text => {
+        text.innerHTML = "0% <span class='arrow'>→</span>";
+    });
+
+    // Reset the chart (if applicable)
+    if (window.lastScoreBarChart) {
+        window.lastScoreBarChart.data.datasets.forEach(dataset => {
+            dataset.data = [0, 0, 0]; // Reset scores
+        });
+        window.lastScoreBarChart.update();
+    }
+
+    alert("Progress has been reset!");
+}
 </script>
 
-<button id="clearResults">Clear Test Results</button>
+<button onclick="resetProgress()">Reset Progress</button>
+
 
     <footer>
         <div class="center">
