@@ -212,7 +212,7 @@
             <div class="progress-percentage" id="words-context-text">0% <span class="arrow">→</span></div>
         </div>
 
-        
+
         <div class="progress-item" data-category="text-structure">
             <div class="progress-label">Text Structure and Purpose</div>
             <div class="progress-bar"><div class="progress-fill" id="text-structure-bar"></div></div>
@@ -435,10 +435,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateProgressBars();
 });
-
+document.getElementById("clearResults").addEventListener("click", function() {
+    localStorage.removeItem("testResults");
+    console.log("Test results cleared!");
+    alert("Test results have been cleared.");
+});
 </script>
 
-
+<button id="clearResults">Clear Test Results</button>
 
     <footer>
         <div class="center">
