@@ -276,7 +276,17 @@ function selectAnswer(e) {
     nextButton.disabled = false; // Ensure Next button is enabled
 }
 
-
+function updateCategoryStats(category, isCorrect) {
+    if (!categoryStats[category]) {
+        categoryStats[category] = { correct: 0, incorrect: 0 };
+    }
+    
+    if (isCorrect) {
+        categoryStats[category].correct++;
+    } else {
+        categoryStats[category].incorrect++;
+    }
+}
 function showResults(results) {
     console.log("Results received by showResults:", results);
     if (!Array.isArray(results)) {
