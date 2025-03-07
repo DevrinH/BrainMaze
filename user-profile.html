@@ -383,33 +383,31 @@ document.addEventListener("DOMContentLoaded", function () {
         // Ensure test results are recorded first
         recordTestResults();
     
-        // Load previous and current test results from localStorage
+        // Load stored progress from previous tests
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-        let progressData = JSON.parse(localStorage.getItem("testResults")) || {};
-        
-        // **Fix #2: Prevent Overwriting Existing Data**
+        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
         let storedProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
     
-        // Merge new progressData into storedProgress
-        Object.keys(progressData).forEach(category => {
-            storedProgress[category] = {
-                correct: (storedProgress[category]?.correct || 0) + (progressData[category]?.correct || 0),
-                incorrect: (storedProgress[category]?.incorrect || 0) + (progressData[category]?.incorrect || 0)
-            };
+        // **Accumulate results over time instead of replacing them**
+        Object.keys(currentTestResults).forEach(category => {
+            if (!storedProgress[category]) {
+                storedProgress[category] = { correct: 0, incorrect: 0 };
+            }
+    
+            storedProgress[category].correct += currentTestResults[category]?.correct || 0;
+            storedProgress[category].incorrect += currentTestResults[category]?.incorrect || 0;
         });
     
-        // Save the merged data back to localStorage
+        // Save the updated progress data
         localStorage.setItem("satProgress", JSON.stringify(storedProgress));
     
-        // Update progressData reference to use the updated storage
-        progressData = storedProgress;
-    
+        // Update progress bars
         function updateProgressBars() {
-            console.log("Updating progress bars with data:", progressData);
+            console.log("Updating progress bars with data:", storedProgress);
     
-            Object.keys(progressData).forEach(category => {
-                const correct = progressData[category]?.correct || 0;
-                const incorrect = progressData[category]?.incorrect || 0;
+            Object.keys(storedProgress).forEach(category => {
+                const correct = storedProgress[category]?.correct || 0;
+                const incorrect = storedProgress[category]?.incorrect || 0;
                 const total = correct + incorrect;
                 const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
     
@@ -456,7 +454,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Remove stored test results
         localStorage.removeItem("testResults");
         localStorage.removeItem("scoreHistory");
-        localStorage.removeItem("satProgress"); // Also clear stored progress
+        localStorage.removeItem("satProgress"); // Clear stored progress
     
         // Reset progress bars
         document.querySelectorAll(".progress-fill").forEach(bar => {
@@ -479,6 +477,7 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Progress has been reset!");
     }
     </script>
+    
     
 
 <button onclick="resetProgress()">Reset Progress</button>
