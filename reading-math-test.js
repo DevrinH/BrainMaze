@@ -271,13 +271,16 @@ function recordTestResults() {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
-        results[category].correct += categoryStats[category].correct || 0;
-        results[category].incorrect += categoryStats[category].incorrect || 0;
+
+        // Ensure we only add the difference since last update
+        results[category].correct += categoryStats[category].correct - (results[category].correct || 0);
+        results[category].incorrect += categoryStats[category].incorrect - (results[category].incorrect || 0);
     }
 
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Updated testResults:", results); // Debugging step
 }
+
 
 
 nextButton.addEventListener("click", () => {
