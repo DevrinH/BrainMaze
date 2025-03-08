@@ -263,6 +263,18 @@ continueButton.addEventListener("click", () => {
     document.getElementById("question-container").classList.remove("hide");
     startMathTest();
 });
+function updateMathCountdown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    countdownEl.innerHTML = `${minutes} : ${seconds}`;
 
+    if (time === 0) {
+        clearInterval(refreshIntervalId);
+        endMathQuiz();
+    } else {
+        time--;
+    }
+}
 // Start the reading and writing test
 startReadingWritingTest();
