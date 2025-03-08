@@ -255,7 +255,12 @@ function recordTestResults() {
 }
 
 nextButton.addEventListener("click", () => {
-    handleNextButton();
+    if (nextButton.innerHTML === "Continue") {
+        document.getElementById("break-message").classList.remove("hide");
+        document.getElementById("question-container").classList.add("hide");
+    } else {
+        handleNextButton();
+    }
 });
 
 continueButton.addEventListener("click", () => {
