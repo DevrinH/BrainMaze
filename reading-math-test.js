@@ -76,18 +76,67 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
     nextButton.disabled = false;
 }
-// Function to handle "Next" button click
+// Combined JavaScript for Reading/Writing and Math Tests
+
+// ... (your existing code) ...
+
+function endReadingQuiz() {
+    clearInterval(refreshIntervalId);
+    resetState();
+
+    let maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
+    let rawScore = score;
+    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+
+    localStorage.setItem("readingScore", scaledScore);
+
+    questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
+    nextButton.innerHTML = "Continue to Math";
+    nextButton.style.display = "block";
+    document.getElementById("progress-bar").style.width = "100%";
+}
+
+function endMathQuiz() {
+    clearInterval(refreshIntervalId);
+    resetState();
+
+    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
+    let rawScore = score;
+
+    let mathScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+    localStorage.setItem("mathScore", mathScore);
+
+    let readingScore = localStorage.getItem("readingScore") || 0;
+    readingScore = parseInt(readingScore, 10);
+
+    let totalSATScore = readingScore + mathScore;
+
+    let today = new Date().toLocaleDateString("en-CA");
+    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+    scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
+
+    localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+
+    questionElement.innerHTML = `
+        <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
+        <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
+        <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>
+    `;
+
+    nextButton.innerHTML = "Finish";
+    nextButton.style.display = "block";
+    document.getElementById("progress-bar").style.width = "100%";
+}
+
 function handleNextButton() {
     console.log("Handling next button click...");
 
-    // Store results before proceeding
     recordTestResults();
 
     currentQuestionIndex++;
     if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
     } else {
-        // If the reading section is finished, start the math section
         if (selectedQuestions === readingQuestions){
             endReadingQuiz();
             startMathQuiz();
@@ -98,10 +147,6 @@ function handleNextButton() {
     }
 }
 
-// Event listener for Next button
-nextButton.addEventListener("click", () => {
-    handleNextButton();
-});
 
 document.addEventListener("DOMContentLoaded", function() {
     startReadingQuiz();
