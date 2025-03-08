@@ -205,15 +205,12 @@ function showScore() {
     clearInterval(refreshIntervalId);
     resetState();
 
-    let maxPossibleScore = (selectedQuestions.length) * 3;
-    let rawScore = score;
-    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+    let maxPossibleScore = selectedQuestions.length * 2.5; // Max points possible
+    let scaledScore = Math.round((score / maxPossibleScore) * 600 + 200);
 
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
         questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
-        nextButton.innerHTML = "Continue";
-        nextButton.style.display = "block";
     } else {
         let readingScore = localStorage.getItem("readingScore") || 0;
         readingScore = parseInt(readingScore, 10);
@@ -221,7 +218,6 @@ function showScore() {
         localStorage.setItem("mathScore", mathScore);
 
         let totalSATScore = readingScore + mathScore;
-
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
         scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
@@ -231,13 +227,13 @@ function showScore() {
         questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
                                     <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
                                     <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
-        nextButton.innerHTML = "Finish";
-        nextButton.style.display = "block";
-        nextButton.addEventListener("click", () => {
-            window.location.href = "https://www.brainjelli.com/user-profile";
-        });
-        document.getElementById("progress-bar").style.width = "100%";
     }
+
+    nextButton.innerHTML = "Finish";
+    nextButton.style.display = "block";
+    nextButton.addEventListener("click", () => {
+        window.location.href = "https://www.brainjelli.com/user-profile";
+    });
 }
 
 function handleNextButton() {
