@@ -274,115 +274,107 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const canvas = document.getElementById("lastScoreBarChart");
 
-document.addEventListener("DOMContentLoaded", function () {
-    const canvas = document.getElementById("lastScoreBarChart");
+        if (!canvas) {
+            console.error("Last Score Bar Chart element not found!");
+            return;
+        }
 
-    if (!canvas) {
-        console.error("Last Score Bar Chart element not found!");
-        return;
-    }
+        const ctx = canvas.getContext("2d");
 
-    const ctx = canvas.getContext("2d");
+        if (!ctx) {
+            console.error("Failed to get 2D context for Last Score Bar Chart!");
+            return;
+        }
 
-    if (!ctx) {
-        console.error("Failed to get 2D context for Last Score Bar Chart!");
-        return;
-    }
+        // Retrieve the last test score from localStorage
+        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+        let dates = Object.keys(scoreHistory).sort();
+        let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
 
-    // Retrieve the last test score from localStorage
-    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    let dates = Object.keys(scoreHistory).sort();
-    let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+        let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+        let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
+        let lastTotal = lastMath + lastReading;
+        const maxScore = 1600;
+        const unfilledScore = maxScore - lastTotal; // Remaining portion
 
-    let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
-    let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
-    let lastTotal = lastMath + lastReading;
-    const maxScore = 1600;
-    const unfilledScore = maxScore - lastTotal; // Remaining portion
+        // Destroy previous chart if it exists
+        if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
+            window.lastScoreBarChart.destroy();
+        }
 
-    // Destroy previous chart if it exists
-    if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
-        window.lastScoreBarChart.destroy();
-    }
-
-    // Create the new Last Score Single Bar Chart
-    window.lastScoreBarChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: [""], // Single bar
-            datasets: [
-                {
-                    label: "Math",
-                    data: [lastMath],
-                    backgroundColor: "rgb(96, 205, 241)", // blue
-                    stack: "total"
-                },
-                {
-                    label: "Reading/Writing",
-                    data: [lastReading],
-                    backgroundColor: "rgb(205, 120, 255)", // lavander
-                    stack: "total"
-                },
-
-                {
-                    label: "Missed",
-                    data: [unfilledScore],
-                    backgroundColor: "#d3d3d3", // Gray
-                    stack: "total"
-                }
-            ]
-        },
-        options: {
-            indexAxis: "y", // Horizontal bar
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: {
-                    stacked: true,
-                    max: maxScore,
-                    ticks: {
-                        stepSize: 800
+        // Create the new Last Score Single Bar Chart
+        window.lastScoreBarChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [""], // Single bar
+                datasets: [
+                    {
+                        label: "Math",
+                        data: [lastMath],
+                        backgroundColor: "rgb(96, 205, 241)", // blue
+                        stack: "total"
                     },
-                    grid: {
+                    {
+                        label: "Reading/Writing",
+                        data: [lastReading],
+                        backgroundColor: "rgb(205, 120, 255)", // lavender
+                        stack: "total"
+                    },
+                    {
+                        label: "Missed",
+                        data: [unfilledScore],
+                        backgroundColor: "#d3d3d3", // Gray
+                        stack: "total"
+                    }
+                ]
+            },
+            options: {
+                indexAxis: "y", // Horizontal bar
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        max: maxScore,
+                        ticks: {
+                            stepSize: 800
+                        },
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true,
                         display: false,
-                        drawBorder: false,
-                        drawOnChartArea: false
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
                     }
                 },
-                y: {
-                    stacked: true,
-                    display: false,
-                    grid: {
-                        display: false,
-                        drawBorder: false,
-                        drawOnChartArea: false
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true },
+                    datalabels: {
+                        anchor: "center",
+                        align: "center",
+                        color: "white",
+                        font: { size: 18, weight: "bold" },
+                        formatter: (value) => (value > 0 ? value : "")
                     }
                 }
             },
-            plugins: {
-                legend: { display: false },
-                tooltip: { enabled: true },
-                datalabels: {
-                    anchor: "center",
-                    align: "center",
-                    color: "white",
-                    font: { size: 18, weight: "bold" },
-                    formatter: (value) => (value > 0 ? value : "")
-                }
-            }
-        },
-        plugins: [ChartDataLabels]
+            plugins: [ChartDataLabels]
+        });
     });
-});
 
-
-    </script>
-
-<script>
     document.addEventListener("DOMContentLoaded", function () {  
-        recordTestResults(); // Ensure new test results are recorded
-    
         // Load stored progress from previous tests
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
         let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
@@ -484,7 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
         alert("Progress has been reset!");
     }
-    </script>
+</script>
     
 
     
