@@ -1,71 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
-        <title>Multiple Choice</title>
-       <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-49R9J7N7SJ"></script>
-  
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-49R9J7N7SJ');
-</script>
-
-
-<link rel="stylesheet" href="https://www.brainjelli.com/style2.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-
-   </head>
-    <body>
-        <div class="header">
-            <header>
-                <a href="https://www.brainjelli.com/">
-                    <img src="BrainJelliLOGO.png" height="170">
-                   </a>
-            </header>
-        </div>
-
-        <div id="progress-container">
-            <div id="progress-bar"></div>
-        </div>
-
-        
-<div class="app">
-    <h1>SAT Timed Prep Test</h1>
-   
-
-    <div class="quiz">
-             
-            
-            <h4 id="question">Question goes here</h4>
-            
-            <div id="answer-buttons">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 2</button>
-                <button class="btn">Answer 3</button>
-                <button class="btn">Answer 4</button>
-            </div>
-                <button id="next-btn">Next</button>
-
-        </div>
-</div>
-
-<script src="reading-math-test.js" type="module"></script>
-
-<div class="containier">
-    <div class="timer">
-        <p id="countdown" class="timerp">10:00</p>
-        
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Test</title>
+    <style>
+        .hide {
+            display: none;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn.correct {
+            background-color: #28a745;
+        }
+        .btn.incorrect {
+            background-color: #dc3545;
+        }
+        #progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        #progress-bar > div {
+            height: 20px;
+            background-color: #4caf50;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown"></div>
+    <div id="question-container">
+        <div id="question"></div>
+        <div id="answer-buttons" class="btn-container"></div>
+        <button id="next-btn" class="btn hide">Next</button>
     </div>
-</div>
-
-
-    </body>
-    <footer>
-        <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
-     </footer>
+    <div id="break-message" class="hide">
+        <p>Take a short break! Press continue to start the Math test.</p>
+        <button id="continue-btn" class="btn">Continue</button>
+    </div>
+    <div id="progress-bar"><div></div></div>
+    <script src="combined_test.js"></script>
+</body>
 </html>
