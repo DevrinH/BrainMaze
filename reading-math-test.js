@@ -257,10 +257,12 @@ function updateProgressBar() {
 }
 
 function recordTestResults() {
-    console.log("Recording results:", categoryStats); // Debugging step
+    console.log("Recording results. Current categoryStats:", categoryStats);
 
-    let results = localStorage.getItem("testResults");
-    results = results ? JSON.parse(results) : {};
+    let storedResults = localStorage.getItem("testResults");
+    let results = storedResults ? JSON.parse(storedResults) : {};
+
+    console.log("Previous testResults from localStorage:", results);
 
     if (typeof results !== "object" || Array.isArray(results)) {
         console.error("Error: results should be an object but got", results);
@@ -272,15 +274,22 @@ function recordTestResults() {
             results[category] = { correct: 0, incorrect: 0 };
         }
 
-        // Ensure we only add the difference since last update
-        results[category].correct += categoryStats[category].correct - (results[category].correct || 0);
-        results[category].incorrect += categoryStats[category].incorrect - (results[category].incorrect || 0);
+        // Ensure we're only adding the latest results correctly
+        console.log(
+            `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
+        );
+
+        results[category].correct += categoryStats[category].correct || 0;
+        results[category].incorrect += categoryStats[category].incorrect || 0;
+
+        console.log(
+            `After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
+        );
     }
 
     localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Updated testResults:", results); // Debugging step
+    console.log("Final stored testResults:", results);
 }
-
 
 
 
