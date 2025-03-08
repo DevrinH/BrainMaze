@@ -173,24 +173,21 @@ function selectAnswer(e) {
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
 
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        correctAnswers++;
-        score += currentQuestion.difficulty === "easy" ? 1 :
-            currentQuestion.difficulty === "medium" ? 2 : 3;
-    } else {
-        selectedBtn.classList.add("incorrect");
-    }
-
     if (!categoryStats[questionCategory]) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
 
     if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        correctAnswers++;
         categoryStats[questionCategory].correct++;
     } else {
+        selectedBtn.classList.add("incorrect");
         categoryStats[questionCategory].incorrect++;
     }
+
+    // Save results after selecting an answer
+    recordTestResults();
 
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
@@ -202,6 +199,7 @@ function selectAnswer(e) {
     nextButton.style.display = "block"; // Ensure Next button is visible
     nextButton.disabled = false; // Ensure Next button is enabled
 }
+
 
 function showScore() {
     clearInterval(refreshIntervalId);
@@ -278,7 +276,9 @@ function recordTestResults() {
     }
 
     localStorage.setItem("testResults", JSON.stringify(results));
+    console.log("Updated testResults:", results); // Debugging step
 }
+
 
 nextButton.addEventListener("click", () => {
     if (nextButton.innerHTML === "Continue") {
