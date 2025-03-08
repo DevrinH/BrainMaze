@@ -76,7 +76,36 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
     nextButton.disabled = false;
 }
+// Function to handle "Next" button click
+function handleNextButton() {
+    console.log("Handling next button click...");
 
+    // Store results before proceeding
+    recordTestResults();
+
+    currentQuestionIndex++;
+    if (currentQuestionIndex < selectedQuestions.length) {
+        showQuestion();
+    } else {
+        // If the reading section is finished, start the math section
+        if (selectedQuestions === readingQuestions){
+            endReadingQuiz();
+            startMathQuiz();
+        } else {
+            endMathQuiz();
+        }
+
+    }
+}
+
+// Event listener for Next button
+nextButton.addEventListener("click", () => {
+    handleNextButton();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    startReadingQuiz();
+});
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
     let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
