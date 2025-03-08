@@ -217,3 +217,11 @@ function startMathQuiz() {
 
     currentQuestionIndex = 0;
     score = 0;
+    correctAnswers = 0;
+    categoryStats = {};
+    selectedQuestions = selectRandomMathQuestions(mathQuestions, 14, 15, 15);
+    nextButton.innerHTML = "Next";
+    showQuestion();
+
+    setTimeout(endMathQuiz, 2640000); // 44 minutes
+} // This was the missing closing curly brace.
