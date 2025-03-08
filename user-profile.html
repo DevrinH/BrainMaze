@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>BrainJelli - User Profile</title>
+<head> 
+    <title>BrainJelli - Landing Page</title> 
     <link href="https://www.brainjelli.com/landing.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="BrainJelli LOGO.png">
     <meta property="og:image" content="https://brainjelli.com/BrainJelliPNG1-02.png"/>
     <link rel="apple-touch-icon" href="https://brainjelli.com/BrainJelliPNG1-03.png">
@@ -12,334 +12,483 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 </head>
+
 <body>
-    <header>
-        <div class="header-container">
-            <img src="BrainJelli-header.png" class="logo">
-            <button class="login-button">Login</button>
-        </div>
+
+
+
+    <header> 
+        <div class="header-container"> 
+            <img src="BrainJelli-header.png" class="logo"> 
+            <button class="login-button">Login</button> 
+        </div> 
     </header>
 
-    <div class="line-chart-container">
-        <h2 class="progress-title">Progress</h2>
-        <div class="chart-container">
-            <canvas id="scoreChart"></canvas>
-        </div>
-        <div class="last-score-container">
-            <p class="last-score-text">Last Score:</p>
-        </div>
-        <div class="chart-container-bar">
-            <canvas id="lastScoreBarChart"></canvas>
-        </div>
-    </div>
 
-    <div class="button-container">
-        <button class="exam-button">GED</button>
-        <button class="exam-button">SAT</button>
-        <button class="exam-button">ACT</button>
-    </div>
 
-    <div class="flex-container">
+
+
+<div class="line-chart-container">
+    <h2 class="progress-title">Progress</h2>
+    <div class="chart-container">
+        <canvas id="scoreChart"></canvas>
+    </div>
+    <div class="last-score-container">
+        <p class="last-score-text">Last Score:</p>
+    </div>   
+    <div class="chart-container-bar">
+    <canvas id="lastScoreBarChart"></canvas>
+</div>
+
+
+ </div>   
+    
+    
+    <div class="button-container"> <button class="exam-button">GED</button> <button class="exam-button">SAT</button> <button class="exam-button">ACT</button> </div>
+
+      
+<div class="flex-container">          
         <div class="testlessonscontainer">
-            <h2 class="title">SAT Practice Tests and Lessons</h2>
-            <br/>
-            <!-- Add your test buttons here -->
-            <!-- Example test button -->
-            <div class="container">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-landing'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Rank Up (beta)</p>
-                    <p> Each level gets harder as you go. See how far you can go.</p>
-                </div>
-            </div>
-            <!-- Add more test buttons as needed -->
-        </div>
+      
+        <h2 class="title">SAT Practice Tests and Lessons</h2>
+        <br/>
+        
+        <div class="container" >
+          <div class="satplacement" >
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-landing'">START</button>
+          </div>
+      
+          <div class="satdesc">
+             <p class="pbungee">Rank Up (beta)</p> <p> Each level gets harder as you go. See how far you can go.</p>
+          </div>
+      </div>
+        
+        
 
-        <div class="progress-container">
-            <h2>SAT Category Progress</h2>
-            <br/>
-            <!-- Progress Items -->
-            <div class="progress-item" data-category="command-of-evidence">
-                <div class="progress-label">Command of Evidence</div>
-                <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
-                <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="central-ideas">
-                <div class="progress-label">Central Ideas and Detail</div>
-                <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
-                <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="inference">
-                <div class="progress-label">Inferences</div>
-                <div class="progress-bar"><div class="progress-fill" id="inference-bar"></div></div>
-                <div class="progress-percentage" id="inference-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="words-context">
-                <div class="progress-label">Words in Context</div>
-                <div class="progress-bar"><div class="progress-fill" id="words-context-bar"></div></div>
-                <div class="progress-percentage" id="words-context-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="text-structure">
-                <div class="progress-label">Text Structure and Purpose</div>
-                <div class="progress-bar"><div class="progress-fill" id="text-structure-bar"></div></div>
-                <div class="progress-percentage" id="text-structure-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="cross-text">
-                <div class="progress-label">Cross-Text Connections</div>
-                <div class="progress-bar"><div class="progress-fill" id="cross-text-bar"></div></div>
-                <div class="progress-percentage" id="cross-text-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="transitions">
-                <div class="progress-label">Transitions</div>
-                <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
-                <div class="progress-percentage" id="transitions-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="rhetorical-synthesis">
-                <div class="progress-label">Rhetorical Synthesis</div>
-                <div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div>
-                <div class="progress-percentage" id="rhetorical-synthesis-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="boundaries">
-                <div class="progress-label">Boundaries</div>
-                <div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div>
-                <div class="progress-percentage" id="boundaries-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="algebra">
-                <div class="progress-label">Algebra</div>
-                <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
-                <div class="progress-percentage" id="algebra-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="advanced-math">
-                <div class="progress-label">Advanced Math</div>
-                <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
-                <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="problem-solving">
-                <div class="progress-label">Problem Solving and Data Analysis</div>
-                <div class="progress-bar"><div class="progress-fill" id="problem-solving-bar"></div></div>
-                <div class="progress-percentage" id="problem-solving-text">0% <span class="arrow">→</span></div>
-            </div>
-            <div class="progress-item" data-category="geometry-trigonometry">
-                <div class="progress-label">Geometry and Trigonometry</div>
-                <div class="progress-bar"><div class="progress-fill" id="geometry-trigonometry-bar"></div></div>
-                <div class="progress-percentage" id="geometry-trigonometry-text">0% <span class="arrow">→</span></div>
-            </div>
+
+
+      <div class="container" >
+        <div class="satplacement" >
+              <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/test.html'">START</button>
+        </div>
+    
+        <div class="satdesc">
+           <p class="pbungee">TEST % (beta)</p> <p> Each level gets harder as you go. See how far you can go.</p>
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const canvas = document.getElementById("lastScoreBarChart");
 
-            if (!canvas) {
-                console.error("Last Score Bar Chart element not found!");
-                return;
-            }
+    <div class="container" >
+        <div class="satplacement" >
+              <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/test-2.html'">START</button>
+        </div>
+    
+        <div class="satdesc">
+           <p class="pbungee">TEST-2 % (beta)</p> <p> Each level gets harder as you go. See how far you can go.</p>
+        </div>
+    </div>
 
-            const ctx = canvas.getContext("2d");
 
-            if (!ctx) {
-                console.error("Failed to get 2D context for Last Score Bar Chart!");
-                return;
-            }
+    <div class="container" >
+        <div class="satplacement" >
+              <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/test-3.html'">START</button>
+        </div>
+    
+        <div class="satdesc">
+           <p class="pbungee">TEST-3 % (beta)</p> <p> Each level gets harder as you go. See how far you can go.</p>
+        </div>
+    </div>
 
-            // Retrieve the last test score from localStorage
-            let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-            let dates = Object.keys(scoreHistory).sort();
-            let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
 
-            let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
-            let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
-            let lastTotal = lastMath + lastReading;
-            const maxScore = 1600;
-            const unfilledScore = maxScore - lastTotal; // Remaining portion
 
-            // Destroy previous chart if it exists
-            if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
-                window.lastScoreBarChart.destroy();
-            }
 
-            // Create the new Last Score Single Bar Chart
-            window.lastScoreBarChart = new Chart(ctx, {
-                type: "bar",
-                data: {
-                    labels: [""], // Single bar
-                    datasets: [
-                        {
-                            label: "Math",
-                            data: [lastMath],
-                            backgroundColor: "rgb(96, 205, 241)", // blue
-                            stack: "total"
+
+ 
+
+
+
+
+
+
+
+        <div class="container" >
+          <div class="satplacement" >
+                <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/timedsattest.html'">START</button>
+          </div>
+      
+          <div class="satdesc">
+                <p class="pbungee">Timed SAT (not adaptive) </p><p>This is a timed SAT practice test. Wrong answers will be displayed. <p>
+          </div>
+      </div>
+      
+      <div class="container" >
+        <div class="satplacement" >
+              <button class="button-29" role="button"  type="button" onclick="location.href='https://www.brainjelli.com/dsat.html'">START</button>
+        </div>
+      
+        <div class="satdesc">
+              <p class="pbungee">Timed DSAT (adaptive) </p><p>This is a timed SAT practice test. Wrong answers will be displayed. <p>
+        </div>
+      </div>
+      
+      
+      
+        <div class="container">
+              <div>
+             <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/sat-untimed.html'">START</button>
+             </div>
+             <div class="satdesc">
+              <p class="pbungee">Untimed SAT Prep Test </p><p>Non-timed SAT practice test. Wrong answers and explanations will be shown.</p>
+                 </div>
+        </div>
+      
+        <div class="container">
+          <div>
+         <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/sat-just-reading-1.html'">START</button>
+         </div>
+         <div class="satdesc">
+          <p class="pbungee">Timed SAT (just Reading) </p><p>Timed SAT practice test. Wrong answers will be shown.</p>
+             </div>
+      </div>
+      
+      <div class="container">
+        <div>
+       <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/sat-just-math-1.html'">START</button>
+       </div>
+       <div class="satdesc">
+        <p class="pbungee">Timed SAT (just math) </p><p>Timed SAT practice test. Wrong answers will be shown.</p>
+           </div>
+      </div>
+      
+      <div class="container">
+        <div>
+       <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/sat-vocab-multi-1.html'">START</button>
+       </div>
+       <div class="satdesc">
+        <p class="pbungee">Multiple Choice Vocab test</p><p>Test your vocabulary knowledge.</p>
+           </div>
+      </div>
+      
+        <div class="container">
+          <div>
+         <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/sat-vocab'">START</button>
+         </div>
+         <div class="satdesc">
+          <p class="pbungee">Vocabulary</p> <p>Flashcards of the most common SAT words.      </p>
+        </div>
+      </div>
+
+
+    </div>
+
+   
+   
+    <div class="progress-container">
+        <h2>SAT Category Progress</h2>
+        <br/>
+        <div class="progress-item" data-category="command-of-evidence">
+            <div class="progress-label">Command of Evidence</div>
+            <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
+            <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="central-ideas">
+            <div class="progress-label">Central Ideas and Detail</div>
+            <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
+            <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
+        </div>
+
+    
+
+
+    <div class="progress-item" data-category="inference">
+    <div class="progress-label">Inferences</div>
+    <div class="progress-bar"><div class="progress-fill" id="inference-bar"></div></div>
+    <div class="progress-percentage" id="inference-text">0% <span class="arrow">→</span></div>
+</div>
+
+        <div class="progress-item" data-category="words-context">
+            <div class="progress-label">Words in Context</div>
+            <div class="progress-bar"><div class="progress-fill" id="words-context-bar"></div></div>
+            <div class="progress-percentage" id="words-context-text">0% <span class="arrow">→</span></div>
+        </div>
+
+
+        <div class="progress-item" data-category="text-structure">
+            <div class="progress-label">Text Structure and Purpose</div>
+            <div class="progress-bar"><div class="progress-fill" id="text-structure-bar"></div></div>
+            <div class="progress-percentage" id="text-structure-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="cross-text">
+            <div class="progress-label">Cross-Text Connections</div>
+            <div class="progress-bar"><div class="progress-fill" id="cross-text-bar"></div></div>
+            <div class="progress-percentage" id="cross-text-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="transitions">
+            <div class="progress-label">Transitions</div>
+            <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
+            <div class="progress-percentage" id="transitions-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="rhetorical-synthesis">
+            <div class="progress-label">Rhetorical Synthesis</div>
+            <div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div>
+            <div class="progress-percentage" id="rhetorical-synthesis-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="boundaries">
+            <div class="progress-label">Boundaries</div>
+            <div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div>
+            <div class="progress-percentage" id="boundaries-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="algebra">
+            <div class="progress-label">Algebra</div>
+            <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
+            <div class="progress-percentage" id="algebra-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="advanced-math">
+            <div class="progress-label">Advanced Math</div>
+            <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
+            <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="problem-solving">
+            <div class="progress-label">Problem Solving and Data Analysis</div>
+            <div class="progress-bar"><div class="progress-fill" id="problem-solving-bar"></div></div>
+            <div class="progress-percentage" id="problem-solving-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="geometry-trigonometry">
+            <div class="progress-label">Geometry and Trigonometry</div>
+            <div class="progress-bar"><div class="progress-fill" id="geometry-trigonometry-bar"></div></div>
+            <div class="progress-percentage" id="geometry-trigonometry-text">0% <span class="arrow">→</span></div>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+
+</div>
+
+</div>    
+
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const canvas = document.getElementById("lastScoreBarChart");
+
+        if (!canvas) {
+            console.error("Last Score Bar Chart element not found!");
+            return;
+        }
+
+        const ctx = canvas.getContext("2d");
+
+        if (!ctx) {
+            console.error("Failed to get 2D context for Last Score Bar Chart!");
+            return;
+        }
+
+        // Retrieve the last test score from localStorage
+        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+        let dates = Object.keys(scoreHistory).sort();
+        let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+
+        let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+        let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
+        let lastTotal = lastMath + lastReading;
+        const maxScore = 1600;
+        const unfilledScore = maxScore - lastTotal; // Remaining portion
+
+        // Destroy previous chart if it exists
+        if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
+            window.lastScoreBarChart.destroy();
+        }
+
+        // Create the new Last Score Single Bar Chart
+        window.lastScoreBarChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [""], // Single bar
+                datasets: [
+                    {
+                        label: "Math",
+                        data: [lastMath],
+                        backgroundColor: "rgb(96, 205, 241)", // blue
+                        stack: "total"
+                    },
+                    {
+                        label: "Reading/Writing",
+                        data: [lastReading],
+                        backgroundColor: "rgb(205, 120, 255)", // lavender
+                        stack: "total"
+                    },
+                    {
+                        label: "Missed",
+                        data: [unfilledScore],
+                        backgroundColor: "#d3d3d3", // Gray
+                        stack: "total"
+                    }
+                ]
+            },
+            options: {
+                indexAxis: "y", // Horizontal bar
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        max: maxScore,
+                        ticks: {
+                            stepSize: 800
                         },
-                        {
-                            label: "Reading/Writing",
-                            data: [lastReading],
-                            backgroundColor: "rgb(205, 120, 255)", // lavender
-                            stack: "total"
-                        },
-                        {
-                            label: "Missed",
-                            data: [unfilledScore],
-                            backgroundColor: "#d3d3d3", // Gray
-                            stack: "total"
-                        }
-                    ]
-                },
-                options: {
-                    indexAxis: "y", // Horizontal bar
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            stacked: true,
-                            max: maxScore,
-                            ticks: {
-                                stepSize: 800
-                            },
-                            grid: {
-                                display: false,
-                                drawBorder: false,
-                                drawOnChartArea: false
-                            }
-                        },
-                        y: {
-                            stacked: true,
+                        grid: {
                             display: false,
-                            grid: {
-                                display: false,
-                                drawBorder: false,
-                                drawOnChartArea: false
-                            }
+                            drawBorder: false,
+                            drawOnChartArea: false
                         }
                     },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: { enabled: true },
-                        datalabels: {
-                            anchor: "center",
-                            align: "center",
-                            color: "white",
-                            font: { size: 18, weight: "bold" },
-                            formatter: (value) => (value > 0 ? value : "")
+                    y: {
+                        stacked: true,
+                        display: false,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
                         }
                     }
                 },
-                plugins: [ChartDataLabels]
-            });
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true },
+                    datalabels: {
+                        anchor: "center",
+                        align: "center",
+                        color: "white",
+                        font: { size: 18, weight: "bold" },
+                        formatter: (value) => (value > 0 ? value : "")
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Load stored progress from previous tests
+        let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
+        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
+        let storedProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+
+        console.log("Previous Progress:", previousProgress);
+        console.log("Current Test Results:", currentTestResults);
+        console.log("Stored Progress Before Update:", storedProgress);
+
+        // **Accumulate results over multiple tests**
+        Object.keys(currentTestResults).forEach(category => {
+            if (!storedProgress[category]) {
+                storedProgress[category] = { correct: 0, incorrect: 0 };
+            }
+
+            // Ensure values are treated as numbers
+            let newCorrect = Number(currentTestResults[category]?.correct || 0);
+            let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
+
+            storedProgress[category].correct += newCorrect;
+            storedProgress[category].incorrect += newIncorrect;
         });
 
-        document.addEventListener("DOMContentLoaded", function () {
-            // Load stored progress from previous tests
-            let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-            let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
-            let storedProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+        // Save updated progress
+        localStorage.setItem("satProgress", JSON.stringify(storedProgress));
+        console.log("Updated Stored Progress:", storedProgress);
 
-            console.log("Previous Progress:", previousProgress);
-            console.log("Current Test Results:", currentTestResults);
-            console.log("Stored Progress Before Update:", storedProgress);
+        // Update progress bars
+        function updateProgressBars() {
+            console.log("Updating progress bars with data:", storedProgress);
 
-            // **Accumulate results over multiple tests**
-            Object.keys(currentTestResults).forEach(category => {
-                if (!storedProgress[category]) {
-                    storedProgress[category] = { correct: 0, incorrect: 0 };
+            Object.keys(storedProgress).forEach(category => {
+                const correct = storedProgress[category]?.correct || 0;
+                const incorrect = storedProgress[category]?.incorrect || 0;
+                const total = correct + incorrect;
+                const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+                // Update progress bar
+                const progressBar = document.getElementById(`${category}-bar`);
+                if (progressBar) {
+                    progressBar.style.width = `${percentage}%`;
+                } else {
+                    console.warn(`Progress bar not found: ${category}-bar`);
                 }
 
-                // Ensure values are treated as numbers
-                let newCorrect = Number(currentTestResults[category]?.correct || 0);
-                let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
+                // Update progress text
+                const progressText = document.getElementById(`${category}-text`);
+                if (progressText) {
+                    let previousPercentage = previousProgress[category]?.percentage || 0;
+                    let arrow = "→";
+                    let arrowColor = "black";
 
-                storedProgress[category].correct += newCorrect;
-                storedProgress[category].incorrect += newIncorrect;
+                    if (percentage > previousPercentage) {
+                        arrow = "↑";
+                        arrowColor = "green";
+                    } else if (percentage < previousPercentage) {
+                        arrow = "↓";
+                        arrowColor = "red";
+                    }
+
+                    progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                } else {
+                    console.warn(`Progress text not found: ${category}-text`);
+                }
+
+                // Store current progress for future reference
+                previousProgress[category] = { percentage };
             });
 
             // Save updated progress
-            localStorage.setItem("satProgress", JSON.stringify(storedProgress));
-            console.log("Updated Stored Progress:", storedProgress);
+            localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
+        }
 
-            // Update progress bars
-            function updateProgressBars() {
-                console.log("Updating progress bars with data:", storedProgress);
+        updateProgressBars();
+    });
 
-                Object.keys(storedProgress).forEach(category => {
-                    const correct = storedProgress[category]?.correct || 0;
-                    const incorrect = storedProgress[category]?.incorrect || 0;
-                    const total = correct + incorrect;
-                    const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+    function resetProgress() {
+        localStorage.removeItem("testResults");
+        localStorage.removeItem("scoreHistory");
+        localStorage.removeItem("satProgress"); // Clear stored progress
 
-                    // Update progress bar
-                    const progressBar = document.getElementById(`${category}-bar`);
-                    if (progressBar) {
-                        progressBar.style.width = `${percentage}%`;
-                    } else {
-                        console.warn(`Progress bar not found: ${category}-bar`);
-                    }
-
-                    // Update progress text
-                    const progressText = document.getElementById(`${category}-text`);
-                    if (progressText) {
-                        let previousPercentage = previousProgress[category]?.percentage || 0;
-                        let arrow = "→";
-                        let arrowColor = "black";
-
-                        if (percentage > previousPercentage) {
-                            arrow = "↑";
-                            arrowColor = "green";
-                        } else if (percentage < previousPercentage) {
-                            arrow = "↓";
-                            arrowColor = "red";
-                        }
-
-                        progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                    } else {
-                        console.warn(`Progress text not found: ${category}-text`);
-                    }
-
-                    // Store current progress for future reference
-                    previousProgress[category] = { percentage };
-                });
-
-                // Save updated progress
-                localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
-            }
-
-            updateProgressBars();
+        // Reset progress bars
+        document.querySelectorAll(".progress-fill").forEach(bar => {
+            bar.style.width = "0%";
         });
 
-        function resetProgress() {
-            localStorage.removeItem("testResults");
-            localStorage.removeItem("scoreHistory");
-            localStorage.removeItem("satProgress"); // Clear stored progress
+        // Reset progress text
+        document.querySelectorAll(".progress-percentage").forEach(text => {
+            text.innerHTML = "0% <span class='arrow'>→</span>";
+        });
 
-            // Reset progress bars
-            document.querySelectorAll(".progress-fill").forEach(bar => {
-                bar.style.width = "0%";
+        // Reset the chart (if applicable)
+        if (window.lastScoreBarChart) {
+            window.lastScoreBarChart.data.datasets.forEach(dataset => {
+                dataset.data = [0, 0, 0]; // Reset scores
             });
-
-            // Reset progress text
-            document.querySelectorAll(".progress-percentage").forEach(text => {
-                text.innerHTML = "0% <span class='arrow'>→</span>";
-            });
-
-            // Reset the chart (if applicable)
-            if (window.lastScoreBarChart) {
-                window.lastScoreBarChart.data.datasets.forEach(dataset => {
-                    dataset.data = [0, 0, 0]; // Reset scores
-                });
-                window.lastScoreBarChart.update();
-            }
-
-            alert("Progress has been reset!");
+            window.lastScoreBarChart.update();
         }
-    </script>
 
-    <button onclick="resetProgress()">Reset Progress</button>
+        alert("Progress has been reset!");
+    }
+</script>
+    
+
+    
+
+<button onclick="resetProgress()">Reset Progress</button>
+
 
     <footer>
         <div class="center">
-            <h2>Follow Us On</h2>
+          <h2>Follow Us On</h2>
         </div>
+      
         <div class="social-container">
             <img src="Twitter.png" height="35px">
             <img src="Insta.png" height="35px">
@@ -347,9 +496,15 @@
             <img src="YouTube.png" height="35px">
             <img src="Tik Tok.png" height="35px">
         </div>
+      
         <div class="margin-top">
             <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
         </div>
     </footer>
+
+    <!-- Load SAT Chart JavaScript (Move it here to ensure canvas exists first) -->
+<script src="scoreChart.js" defer></script>
+<script defer src="test-2.js"></script>
+<script src="test-2.js"></script>
 </body>
 </html>
