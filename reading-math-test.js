@@ -229,7 +229,7 @@ function handleNextButton() {
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar");
     let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
-    progressBar.style.width = progress + "%";
+    progressBar.firstElementChild.style.width = progress + "%";
 }
 
 function recordTestResults() {
@@ -263,18 +263,6 @@ continueButton.addEventListener("click", () => {
     document.getElementById("question-container").classList.remove("hide");
     startMathTest();
 });
-function updateMathCountdown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    countdownEl.innerHTML = `${minutes} : ${seconds}`;
 
-    if (time === 0) {
-        clearInterval(refreshIntervalId);
-        endMathQuiz();
-    } else {
-        time--;
-    }
-}
 // Start the reading and writing test
 startReadingWritingTest();
