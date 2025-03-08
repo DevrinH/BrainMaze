@@ -225,3 +225,7 @@ function startMathQuiz() {
 
     setTimeout(endMathQuiz, 2640000); // 44 minutes
 } // This was the missing closing curly brace.
+
+document.addEventListener("DOMContentLoaded", function() {
+    startReadingQuiz();
+});
