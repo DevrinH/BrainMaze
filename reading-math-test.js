@@ -27,18 +27,6 @@ const readingWritingQuestions = [
         type: "reading",
         difficulty: "easy",
         category: "inference"
-    },
-    {
-        question: "Daniel stepped into the office, straightening his tie as he took in the bustling atmosphere. Conversations hummed around him, and the clatter of keyboards filled the air. He had spent weeks preparing for this moment, yet a small knot of doubt twisted in his stomach. He took a deep breath and walked toward his desk, reminding himself that everyone had to start somewhere.<br/><br/>What does the passage suggest about Daniel's attitude toward his new job?",
-        answers: [
-            { text: "He is uncertain about his abilities but determined to prove himself.", correct: true },
-            { text: "He is uninterested in the work and only took the job for financial reasons.", correct: false },
-            { text: "He is confident that he will excel without any major challenges.", correct: false },
-            { text: "He regrets accepting the position and is considering quitting.", correct: false },
-        ],
-        type: "reading",
-        difficulty: "medium",
-        category: "inference"
     }
 ];
 
@@ -50,17 +38,6 @@ const mathQuestions = [
             { text: "2.6 hours", correct: false },
             { text: "2.8 hours", correct: false },
             { text: "2.75 hours", correct: true }
-        ],
-        difficulty: "hard",
-        category: "advanced-math"
-    },
-    {
-        question: "A car's value depreciates by 15% each year. If the car was originally purchased for $30,000, what will its value be after 3 years, rounded to the nearest dollar?",
-        answers: [
-            { text: "A) $18,520", correct: false },
-            { text: "B) $19,275", correct: true },
-            { text: "C) $20,250", correct: false },
-            { text: "D) $21,000", correct: false }
         ],
         difficulty: "hard",
         category: "advanced-math"
