@@ -171,6 +171,7 @@ function selectAnswer(e) {
     const isCorrect = selectedBtn.dataset.correct === "true";
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+    let questionDifficulty = currentQuestion.difficulty;
 
     if (!categoryStats[questionCategory]) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
@@ -179,6 +180,16 @@ function selectAnswer(e) {
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
+
+        // Fixed weighted scoring based on difficulty (NO scaling)
+        if (questionDifficulty === "easy") {
+            score += 1;
+        } else if (questionDifficulty === "medium") {
+            score += 2;
+        } else if (questionDifficulty === "hard") {
+            score += 3;
+        }
+
         categoryStats[questionCategory].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
@@ -203,9 +214,14 @@ function showScore() {
     clearInterval(refreshIntervalId);
     resetState();
 
-    let maxPossibleScore = (selectedQuestions.length) * 3;
+    let maxPossibleScore;
+    if (!isMathTest) {
+        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3); // Adjust based on the number of questions
+    } else {
+        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3); // Adjust based on the number of questions
+    }
     let rawScore = score;
-    let scaledScore = Math.round((correctAnswers / selectedQuestions.length) * 600 + 200);
+    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
@@ -253,7 +269,6 @@ function updateProgressBar() {
     let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
     progressBar.firstElementChild.style.width = progress + "%";
 }
-
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
