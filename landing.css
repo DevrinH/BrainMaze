@@ -547,7 +547,7 @@ h3 {
   column-gap: 15px;
   margin-left: 5%;
   margin-bottom: 12px;
- 
+  flex-direction: column;
   }
 
   .satdesc{
