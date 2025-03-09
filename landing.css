@@ -552,7 +552,7 @@ h3 {
   .seccontainer{
     display: flex;
     column-gap: 15px;
-    margin-left: 7%;
+   width: 98%;
     margin-bottom: 12px;
    
     }
