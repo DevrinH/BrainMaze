@@ -67,7 +67,7 @@ function updateScoreChart() {
         return gradient;
     }
 
-    let totalGradient = createFadingGradient();
+    let totalGradient = createFadingGradient(ctx);
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
