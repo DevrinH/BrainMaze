@@ -547,6 +547,7 @@ h3 {
   column-gap: 15px;
   margin-left: 5%;
   margin-bottom: 12px;
+  flex-direction: column;
   }
 
   .satdesc{
@@ -701,6 +702,7 @@ h3 {
   padding: 20px;
   margin: 0 auto; /* Centers the elements when in column mode */
   display: block;
+  overflow: hidden; /* Ensures content stays within the container */
 }
 .progress-container, h2{
 
