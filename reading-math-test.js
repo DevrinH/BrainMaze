@@ -40,6 +40,18 @@ const readingWritingQuestions = [
         difficulty: "medium",
         category: "inference"
     },
+    {
+        question: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.<br/><br/>Which choice provides the best evidence for the idea that Liam is uncertain about his work?",
+        answers: [
+            { text: "A) 'Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind.'", correct: true },
+            { text: "B) 'He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.'", correct: false },
+            { text: "C) 'Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript.'", correct: false },
+            { text: "D) 'He had imagined this moment countless times, picturing the satisfaction of a completed draft.'", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
 ];
 
 const mathQuestions = [
@@ -64,6 +76,16 @@ const mathQuestions = [
         ],
         difficulty: "hard",
         category: "advanced-math"
+    },    {
+        question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
+        answers: [
+            { text: "A) 27", correct: false },
+            { text: "B) 29", correct: true },
+            { text: "C) 31", correct: false },
+            { text: "D) 25", correct: false }
+        ],
+        difficulty: "easy",
+        category: "algebra"
     },
 ];
 function startReadingWritingTest() {
