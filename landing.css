@@ -612,6 +612,7 @@ h3 {
 .align-center{
   display: flex;
   justify-content: center; /* Centers horizontally */
+  column-gap: 15px;
 }
 
 .left-align{
