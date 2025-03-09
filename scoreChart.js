@@ -59,7 +59,7 @@ function updateScoreChart() {
 
     // **Create fading gradient for the total score fill**
     function createFadingGradient() {
-        let gradient = ctx.createLinearGradient(0, 0, 0, 2100);
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
         gradient.addColorStop(0.2, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
         gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)"); // Quick fade
         gradient.addColorStop(0.6, "rgba(0, 0, 255, 0.2)");  
@@ -67,7 +67,7 @@ function updateScoreChart() {
         return gradient;
     }
 
-    let totalGradient = createFadingGradient(ctx);
+    let totalGradient = createFadingGradient();
 
     window.scoreChart = new Chart(ctx, {
         type: "line",
@@ -77,7 +77,7 @@ function updateScoreChart() {
                 {
                     label: "Total Score",
                     data: selectedTotalScores,
-                    borderColor: "rgb(89, 0, 255)",
+                    borderColor: "rgb(0, 0, 255)",
                     backgroundColor: totalGradient,
                     fill: true,
                     borderWidth: 2.5,
@@ -87,7 +87,7 @@ function updateScoreChart() {
                     label: "Reading & Writing",
                     data: selectedReadingScores,
                     borderColor: "rgb(205, 120, 255)", 
-                    backgroundColor: "rgb(205, 120, 255)",
+                    backgroundColor: "rgb(102, 102, 255)",
                     fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
@@ -96,7 +96,7 @@ function updateScoreChart() {
                     label: "Math",
                     data: selectedMathScores,
                     borderColor: "rgb(0, 222, 230)", 
-                    backgroundColor: "rgb(0, 222, 230)",
+                    backgroundColor: "rgb(173, 216, 230)",
                     fill: false,
                     borderWidth: 2.5,
                     tension: 0.4
