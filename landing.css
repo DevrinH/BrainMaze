@@ -681,13 +681,14 @@ h3 {
 }
 .flex-container {
   display: flex;
-  flex-direction: column; /* Changes flex direction to column for vertical alignment */
-  justify-content: flex-start; /* Align items to the start vertically */
-  align-items: center; /* Centers the elements horizontally */
+  justify-content: center; /* Centers the elements */
+  align-items: flex-start; 
   gap: 20px;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
+  flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+  margin: 0 auto;
 }
 
 .testlessonscontainer, .progress-container {
