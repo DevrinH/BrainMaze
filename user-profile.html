@@ -179,7 +179,17 @@
 </div>
 
     </div>
+    <script>
+        function showTests() {
+            document.getElementById('tests-container').classList.remove('hidden');
+            document.getElementById('lessons-container').classList.add('hidden');
+        }
 
+        function showLessons() {
+            document.getElementById('tests-container').classList.add('hidden');
+            document.getElementById('lessons-container').classList.remove('hidden');
+        }
+    </script>
    
    
     <div class="progress-container">
