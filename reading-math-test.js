@@ -52,6 +52,18 @@ const readingWritingQuestions = [
         difficulty: "medium",
         category: "command-of-evidence"
     },
+    {
+        question: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.<br/><br/>Which sentence best supports the idea that the scientist is struggling to accept her findings?",
+        answers: [
+            { text: "A) 'The scientist adjusted her glasses, peering at the data displayed on the screen.'", correct: false },
+            { text: "B) 'She tapped her fingers against the desk, reviewing each calculation.'", correct: false },
+            { text: "C) 'The results were unexpected—far different from what she and her team had predicted.'", correct: false },
+            { text: "D) 'There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.'", correct: true },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
 ];
 
 const mathQuestions = [
@@ -85,6 +97,17 @@ const mathQuestions = [
             { text: "D) 25", correct: false }
         ],
         difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
+        answers: [
+            { text: "A) 10 hours", correct: false },
+            { text: "B) 11 hours", correct: false },
+            { text: "C) 9 hours", correct: true },
+            { text: "D) 8 hours", correct: false }
+        ],
+        difficulty: "medium",
         category: "algebra"
     },
 ];
