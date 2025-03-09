@@ -221,7 +221,8 @@ color:#1e0144
 }
 
 .test-lesson-buttons{
-margin-bottom: 8px;
+margin-bottom: 9px;
+column-gap: 15px;
 
 }
 
