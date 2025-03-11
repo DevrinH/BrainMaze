@@ -104,7 +104,20 @@ function showExample() {
         <p>Step 4: Simplify: x = 2</p>
         <button id="next-example">Next Example</button>
     `;
-    document.getElementById('next-example').addEventListener('click', askQuestion);
+    document.getElementById('next-example').addEventListener('click', showNextExample);
+}
+
+function showNextExample() {
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = `
+        <h2>Example: Solving for y</h2>
+        <p>Consider the equation: y - 4 = 10</p>
+        <p>To solve for y, we need to isolate y on one side of the equation.</p>
+        <p>Step 1: Add 4 to both sides: y - 4 + 4 = 10 + 4</p>
+        <p>Step 2: Simplify: y = 14</p>
+        <button id="next-question">Next Question</button>
+    `;
+    document.getElementById('next-question').addEventListener('click', askQuestion);
 }
 
 function askQuestion() {
@@ -123,20 +136,22 @@ function checkAnswer1() {
     if (answer == '3') {
         alert('Correct!');
         categoryStats.algebra.correct++;
-        showQuiz();
+        showNextExample3();
     } else {
         alert('Incorrect. Try again.');
         categoryStats.algebra.incorrect++;
     }
 }
-function showNextExample() {
+
+function showNextExample3() {
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = `
-        <h2>Example: Solving for y</h2>
-        <p>Consider the equation: y - 4 = 10</p>
-        <p>To solve for y, we need to isolate y on one side of the equation.</p>
-        <p>Step 1: Add 4 to both sides: y - 4 + 4 = 10 + 4</p>
-        <p>Step 2: Simplify: y = 14</p>
+        <h2>Example: Evaluating a Function</h2>
+        <p>Consider the function f(x) = 3x² - 2x + 1. What is the value of f(3)?</p>
+        <p>Step 1: Substitute x with 3: f(3) = 3(3)² - 2(3) + 1</p>
+        <p>Step 2: Calculate the square: f(3) = 3(9) - 2(3) + 1</p>
+        <p>Step 3: Multiply: f(3) = 27 - 6 + 1</p>
+        <p>Step 4: Simplify: f(3) = 22</p>
         <button id="next-question">Next Question</button>
     `;
     document.getElementById('next-question').addEventListener('click', askNextQuestion);
@@ -164,42 +179,7 @@ function checkAnswer2() {
         categoryStats.algebra.incorrect++;
     }
 }
-function showNextExample3() {
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <h2>Example: Evaluating a Function</h2>
-        <p>Consider the function f(x) = 3x² - 2x + 1. What is the value of f(3)?</p>
-        <p>Step 1: Substitute x with 3: f(3) = 3(3)² - 2(3) + 1</p>
-        <p>Step 2: Calculate the square: f(3) = 3(9) - 2(3) + 1</p>
-        <p>Step 3: Multiply: f(3) = 27 - 6 + 1</p>
-        <p>Step 4: Simplify: f(3) = 22</p>
-        <button id="next-question">Next Question</button>
-    `;
-    document.getElementById('next-question').addEventListener('click', askNextQuestion);
-}
 
-function askNextQuestion3() {
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <h2>Question 2</h2>
-        <p>The function g(x) is defined as g(x) = x² - 4x + 6. What is the value of g(2)?</p>
-        <input type="text" id="answer2" placeholder="Your answer">
-        <button id="submit-answer2">Submit Answer</button>
-    `;
-    document.getElementById('submit-answer2').addEventListener('click', checkAnswer2);
-}
-
-function checkAnswer3() {
-    const answer = document.getElementById('answer2').value;
-    if (answer == '2') {
-        alert('Correct!');
-        categoryStats.algebra.correct++;
-        showQuiz();
-    } else {
-        alert('Incorrect. Try again.');
-        categoryStats.algebra.incorrect++;
-    }
-}
 function showQuiz() {
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = `
@@ -217,6 +197,7 @@ function showQuiz() {
     `;
     document.getElementById('submit-quiz').addEventListener('click', gradeQuiz);
 }
+
 function gradeQuiz() {
     let score = 0;
     mathQuestions.forEach((question, index) => {
