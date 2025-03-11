@@ -82,8 +82,6 @@ let categoryStats = {
     algebra: { correct: 0, incorrect: 0 }
 };
 
-document.getElementById('start-lesson').addEventListener('click', startLesson);
-
 function startLesson() {
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = `
