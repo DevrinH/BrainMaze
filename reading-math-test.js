@@ -88,7 +88,8 @@ const mathQuestions = [
         ],
         difficulty: "hard",
         category: "advanced-math"
-    },    {
+    },    
+    {
         question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
         answers: [
             { text: "A) 27", correct: false },
