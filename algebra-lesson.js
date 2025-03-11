@@ -191,3 +191,10 @@ function recordTestResults() {
         categoryStats[category].incorrect = 0;
     }
 }
+function startLesson() {
+    alert("Start Lesson Function Called!");
+    const lessonContent = document.getElementById('lesson-content');
+    //rest of the function.
+}
+console.log("Start Lesson Button:", document.getElementById('start-lesson'));
+document.getElementById('start-lesson').addEventListener('click', startLesson);
