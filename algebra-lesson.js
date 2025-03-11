@@ -148,7 +148,6 @@ function showQuiz() {
 
 function gradeQuiz() {
     let score = 0;
-
     mathQuestions.forEach((question, index) => {
         const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
         if (selectedAnswer && selectedAnswer.value === 'true') {
@@ -165,7 +164,6 @@ function gradeQuiz() {
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
-
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
 
@@ -180,19 +178,11 @@ function recordTestResults() {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
-
-        console.log(
-            `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
-
+        console.log(`Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
-
-        console.log(
-            `After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
+        console.log(`After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
     }
-
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
 
