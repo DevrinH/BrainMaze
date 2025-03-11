@@ -192,9 +192,13 @@ function recordTestResults() {
     }
 }
 function startLesson() {
-    alert("Start Lesson Function Called!");
+    console.log("startLesson function called");
     const lessonContent = document.getElementById('lesson-content');
-    //rest of the function.
+    if (lessonContent) {
+        lessonContent.innerHTML = "test";
+    } else {
+        console.log("lesson-content element not found");
+    }
 }
 console.log("Start Lesson Button:", document.getElementById('start-lesson'));
 document.getElementById('start-lesson').addEventListener('click', startLesson);
