@@ -191,14 +191,6 @@ function recordTestResults() {
         categoryStats[category].incorrect = 0;
     }
 }
-function startLesson() {
-    console.log("startLesson function called");
-    const lessonContent = document.getElementById('lesson-content');
-    if (lessonContent) {
-        lessonContent.innerHTML = "test";
-    } else {
-        console.log("lesson-content element not found");
-    }
-}
+
 console.log("Start Lesson Button:", document.getElementById('start-lesson'));
 document.getElementById('start-lesson').addEventListener('click', startLesson);

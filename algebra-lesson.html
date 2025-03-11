@@ -46,13 +46,26 @@ button:hover {
 
 </head>
 <body>
+    
     <div class="container">
         <h1>Welcome to the Algebra Lesson</h1>
         <div id="lesson-content">
+            
             <p>In this lesson, we will learn about basic algebra concepts.</p>
             <button id="start-lesson">Start Lesson</button>
         </div>
     </div>
+    <script>
+        function startLesson() {
+            const lessonContent = document.getElementById('lesson-content');
+            if (lessonContent) {
+                lessonContent.innerHTML = "Test Content";
+            } else {
+                console.log("lesson-content not found");
+            }
+        }
+        document.getElementById('start-lesson').addEventListener('click', startLesson);
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
