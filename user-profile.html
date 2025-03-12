@@ -186,28 +186,49 @@
                     <p>Algebra Lessons</p>
                 </div>
             </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 2</p>
+                    <p>Algebra Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 3</p>
+                    <p>Algebra Lessons</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
 
 <script>
-    function showTests() {
-        document.getElementById('tests-container').classList.remove('hidden');
-        document.getElementById('lessons-container').classList.add('hidden');
-        document.getElementById('lessons-container-algebra').classList.add('hidden');
-    }
+function showTests() {
+    document.getElementById('tests-container').style.display = 'block';
+    document.getElementById('lessons-container').style.display = 'none';
+    document.getElementById('lessons-container-algebra').style.display = 'none';
+}
 
-    function showLessons() {
-        document.getElementById('tests-container').classList.add('hidden');
-        document.getElementById('lessons-container').classList.remove('hidden');
-        document.getElementById('lessons-container-algebra').classList.add('hidden');
-    }
+function showLessons() {
+    document.getElementById('tests-container').style.display = 'none';
+    document.getElementById('lessons-container').style.display = 'block';
+    document.getElementById('lessons-container-algebra').style.display = 'none';
+}
 
-    function showAlgebraLessons() {
-        document.getElementById('tests-container').classList.add('hidden');
-        document.getElementById('lessons-container').classList.add('hidden');
-        document.getElementById('lessons-container-algebra').classList.remove('hidden');
-    }
+function showAlgebraLessons() {
+    document.getElementById('tests-container').style.display = 'none';
+    document.getElementById('lessons-container').style.display = 'none';
+    document.getElementById('lessons-container-algebra').style.display = 'block';
+}
 </script>
            <script src="scoreChart.js"></script>
    
