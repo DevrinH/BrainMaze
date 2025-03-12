@@ -199,23 +199,24 @@
         <script src="scoreChart.js"></script>
 
         <script>
-            function showTests() {
-                document.getElementById('tests-container').classList.remove('hidden');
-                document.getElementById('lessons-container').classList.add('hidden');
-                document.getElementById('lessons-container-algebra').classList.add('hidden');
-            }
-        
-            function showLessons() {
-                document.getElementById('tests-container').classList.add('hidden');
-                document.getElementById('lessons-container').classList.remove('hidden');
-                document.getElementById('lessons-container-algebra').classList.add('hidden');
-            }
-        
-            function showAlgebraLessons() {
+function showTests() {
+    document.getElementById('tests-container').classList.remove('hidden');
+    document.getElementById('lessons-container').classList.add('hidden');
+    document.getElementById('lessons-container-algebra').classList.add('hidden'); // Ensure this gets hidden
+}
+
+function showLessons() {
+    document.getElementById('tests-container').classList.add('hidden');
+    document.getElementById('lessons-container').classList.remove('hidden');
+    document.getElementById('lessons-container-algebra').classList.add('hidden'); // Ensure this gets hidden
+}
+
+function showAlgebraLessons() {
     document.getElementById('tests-container').classList.add('hidden');
     document.getElementById('lessons-container').classList.add('hidden');
     document.getElementById('lessons-container-algebra').classList.remove('hidden');
 }
+
         </script>
    
    
