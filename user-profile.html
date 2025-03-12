@@ -153,7 +153,7 @@
                 </div>
 
 
- <div class="seccontainer">
+                <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button"  onclick="location.href='https://www.brainjelli.com/sat-vocab'">START</button>
                 </div>
@@ -163,7 +163,7 @@
                 </div>
  </div>
 
- <div class="seccontainer">
+                <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-landing'">START</button>
                 </div>
@@ -173,16 +173,19 @@
                 </div>
  </div>
 
- <div class="seccontainer">
-    <div class="satplacement">
-        <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
-    </div>
-    <div class="satdesc">
-        <p class="pbungee">Algebra</p>
-        <p>Algebra Lessons</p>
+</div>
+<button class="button-29" onclick="showAlgebraLessons()">Algebra</button>
+<div id="lessons-container-algebra" class="container hidden">
+    <div class="seccontainer">
+        <div class="satplacement">
+            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
+        </div>
+        <div class="satdesc">
+            <p class="pbungee">Algebra</p>
+            <p>Algebra Lessons</p>
+        </div>
     </div>
 </div>
-            </div>
         </div>
         <script src="scoreChart.js"></script>
 
@@ -196,6 +199,12 @@
             document.getElementById('tests-container').classList.add('hidden');
             document.getElementById('lessons-container').classList.remove('hidden');
         }
+
+        function showAlgebraLessons() {
+        document.getElementById('tests-container').classList.add('hidden');
+        document.getElementById('lessons-container').classList.add('hidden');
+        document.getElementById('lessons-container-algebra').classList.remove('hidden');
+    }
     </script>
    
    
