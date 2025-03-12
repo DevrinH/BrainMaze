@@ -211,24 +211,40 @@
     </div>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".exam-button");
-    const lessonContainers = document.querySelectorAll(".lesson-container");
-
-    buttons.forEach((button, index) => {
-        button.addEventListener("click", function () {
-            // Hide all lesson containers first
-            lessonContainers.forEach(container => {
-                container.style.display = "none";
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".exam-button");
+            const lessonContainers = document.querySelectorAll(".lesson-container");
+        
+            buttons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    // Hide all lesson containers first
+                    lessonContainers.forEach(container => {
+                        container.style.display = "none";
+                    });
+        
+                    // Show the clicked lesson's container
+                    lessonContainers[index].style.display = "block";
+                });
             });
-
-            // Show the clicked lesson's container
-            lessonContainers[index].style.display = "block";
         });
-    });
-});
-</script>
+        
+        function showAlgebraLessons() {
+            document.getElementById("lessons-container").classList.add("hidden"); // Hide other lessons
+            document.getElementById("lessons-container-algebra").classList.remove("hidden"); // Show Algebra lessons
+        }
+        
+        function showLessons() {
+            document.getElementById("tests-container").classList.add("hidden"); // Hide Tests
+            document.getElementById("lessons-container").classList.remove("hidden"); // Show Lessons
+        }
+        
+        function showTests() {
+            document.getElementById("lessons-container").classList.add("hidden"); // Hide Lessons
+            document.getElementById("tests-container").classList.remove("hidden"); // Show Tests
+        }
+        </script>
+        
            <script src="scoreChart.js"></script>
    
     <div class="progress-container">
