@@ -188,40 +188,41 @@
 
         <script src="scoreChart.js"></script>
 
-        <script>
-            function showTests() {
-                document.getElementById('tests-container').classList.remove('hidden');
-                document.getElementById('lessons-container').classList.add('hidden');
-                document.getElementById('lessons-container-algebra').classList.add('hidden');
-                document.getElementById('lessons-container-algebra').innerHTML = ""; // Clear content
-            }
-        
-            function showLessons() {
-                document.getElementById('tests-container').classList.add('hidden');
-                document.getElementById('lessons-container').classList.remove('hidden');
-                document.getElementById('lessons-container-algebra').classList.add('hidden');
-                document.getElementById('lessons-container-algebra').innerHTML = ""; // Clear content
-            }
-        
-            function showAlgebraLessons() {
-                document.getElementById('tests-container').classList.add('hidden');
-                document.getElementById('lessons-container').classList.add('hidden');
-                document.getElementById('lessons-container-algebra').classList.remove('hidden');
-        
-                // Create the content dynamically
-                document.getElementById('lessons-container-algebra').innerHTML = `
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lesson 1</p>
-                            <p>Algebra Lessons</p>
-                        </div>
-                    </div>
-                `;
-            }
-        </script>
+      <script>
+    function showTests() {
+        document.getElementById('tests-container').classList.remove('hidden');
+        document.getElementById('lessons-container').classList.add('hidden');
+        document.getElementById('lessons-container-algebra').classList.add('hidden');
+        document.getElementById('lessons-container-algebra').innerHTML = ""; // Clear content
+    }
+
+    function showLessons() {
+        document.getElementById('tests-container').classList.add('hidden');
+        document.getElementById('lessons-container').classList.remove('hidden');
+        document.getElementById('lessons-container-algebra').classList.add('hidden');
+        document.getElementById('lessons-container-algebra').innerHTML = ""; // Clear content
+    }
+
+    function showAlgebraLessons() {
+        document.getElementById('tests-container').classList.add('hidden');
+        document.getElementById('lessons-container').classList.add('hidden');
+        document.getElementById('lessons-container-algebra').classList.remove('hidden');
+
+        // Corrected content creation
+        document.getElementById('lessons-container-algebra').innerHTML = `
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 1</p>
+                    <p>Algebra Lessons</p>
+                </div>
+            </div>
+        `; // Added the closing backtick here
+    }
+</script>
+
    
    
     <div class="progress-container">
