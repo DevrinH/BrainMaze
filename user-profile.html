@@ -199,32 +199,23 @@
         <script src="scoreChart.js"></script>
 
         <script>
-function showTests() {
-    alert("Switching to Tests");
-    console.log("Switching to Tests");
-    document.getElementById('tests-container').classList.remove('hidden');
-    document.getElementById('lessons-container').classList.add('hidden');
-    document.getElementById('lessons-container-algebra').classList.add('hidden');
-}
-
-function showLessons() {
-    alert("Switching to Lessons");
-    console.log("Switching to Lessons");
-    document.getElementById('tests-container').classList.add('hidden');
-    document.getElementById('lessons-container').classList.remove('hidden');
-    document.getElementById('lessons-container-algebra').classList.add('hidden');
-}
-
-function showAlgebraLessons() {
-   
-    console.log("Switching to Algebra Lessons");
-    document.getElementById('tests-container').classList.add('hidden');
-    document.getElementById('lessons-container').classList.add('hidden');
-    document.getElementById('lessons-container-algebra').classList.remove('hidden');
-}
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('lessons-container-algebra').classList.add('hidden');
-});
+            function showTests() {
+                document.getElementById('tests-container').classList.remove('hidden');
+                document.getElementById('lessons-container').classList.add('hidden');
+                document.getElementById('lessons-container-algebra').classList.add('hidden');
+            }
+        
+            function showLessons() {
+                document.getElementById('tests-container').classList.add('hidden');
+                document.getElementById('lessons-container').classList.remove('hidden');
+                document.getElementById('lessons-container-algebra').classList.add('hidden');
+            }
+        
+            function showAlgebraLessons() {
+                document.getElementById('tests-container').classList.add('hidden');
+                document.getElementById('lessons-container').classList.add('hidden');
+                document.getElementById('lessons-container-algebra').classList.remove('hidden');
+            }
         </script>
    
    
