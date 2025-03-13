@@ -232,12 +232,18 @@ function gradeQuiz() {
 function recordTestResults() {
     console.log("Starting recordTestResults. categoryStats:", categoryStats);
     let storedResults = localStorage.getItem("testResults");
-    let results = storedResults ? JSON.parse(storedResults) : {};
-    console.log("Results from localStorage:", results);
-    if (typeof results !== "object" || Array.isArray(results)) {
-        console.error("Error: results should be an object but got", results);
+
+    let results;
+    try {
+        results = storedResults ? JSON.parse(storedResults) : {};
+        if (typeof results !== "object" || results === null || Array.isArray(results)) {
+            throw new Error("Invalid results data.");
+        }
+    } catch (e) {
+        console.error("Error parsing localStorage data:", e);
         results = {};
     }
+
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
@@ -245,15 +251,18 @@ function recordTestResults() {
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
+
     console.log("Results after update:", results);
     localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("localStorage after setItem:", JSON.parse(localStorage.getItem("testResults")));
+    updateDisplayedPercentage(results);
+
+    // Reset session stats
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
-    updateDisplayedPercentage(results);
 }
+
 
 function updateDisplayedPercentage(results) {
     console.log("Starting updateDisplayedPercentage. Results:", results);
@@ -272,5 +281,3 @@ function updateDisplayedPercentage(results) {
     }
 }
 
-console.log("Start Lesson Button:", document.getElementById('start-lesson'));
-document.getElementById('start-lesson').addEventListener('click', startLesson);
