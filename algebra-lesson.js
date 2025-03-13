@@ -198,15 +198,6 @@ function showQuiz() {
     document.getElementById('submit-quiz').addEventListener('click', gradeQuiz);
 }
 
-// Inside algebra-lesson.js
-
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed");
-    updateDisplayedPercentage(JSON.parse(localStorage.getItem("testResults")) || {});
-    console.log("Start Lesson Button:", document.getElementById('start-lesson'));
-    document.getElementById('start-lesson').addEventListener('click', startLesson);
-});
-
 function gradeQuiz() {
     let score = 0;
     mathQuestions.forEach((question, index) => {
@@ -223,24 +214,26 @@ function gradeQuiz() {
     recordTestResults();
 
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML += `<button id="continue-button">Continue</button>`;
+    lessonContent.innerHTML += `
+        <button id="continue-button">Continue</button>
+    `;
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile';
     });
 }
 
 function recordTestResults() {
-    console.log("Starting recordTestResults. categoryStats:", categoryStats);
-    let storedResults = localStorage.getItem("testResults");
+    console.log("Recording results. Current categoryStats:", categoryStats);
 
-    let results;
-    try {
-        results = storedResults ? JSON.parse(storedResults) : {};
-        if (typeof results !== "object" || results === null || Array.isArray(results)) {
-            throw new Error("Invalid results data.");
-        }
-    } catch (e) {
-        console.error("Error parsing localStorage data:", e);
+    // Fetch previous results from localStorage
+    let storedResults = localStorage.getItem("testResults");
+    let results = storedResults ? JSON.parse(storedResults) : {};
+
+    console.log("Previous testResults from localStorage:", results);
+
+    // Validate stored results
+    if (typeof results !== "object" || Array.isArray(results)) {
+        console.error("Error: results should be an object but got", results);
         results = {};
     }
 
@@ -248,36 +241,45 @@ function recordTestResults() {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
+
+        // Check previous values before updating
+        console.log(
+            `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
+        );
+
+        // Ensure fresh values are added correctly
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
+
+        console.log(
+            `After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
+        );
     }
 
-    console.log("Results after update:", results);
+    // Store updated results in localStorage
     localStorage.setItem("testResults", JSON.stringify(results));
-    updateDisplayedPercentage(results);
+    console.log("Final stored testResults:", results);
 
-    // Reset session stats
+    // Reset categoryStats to prevent double counting in the next test
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
+
+    // Update the displayed percentage in the satdesc class
+    updateDisplayedPercentage(results);
 }
 
-
 function updateDisplayedPercentage(results) {
-    console.log("Starting updateDisplayedPercentage. Results:", results);
     const algebraResults = results.algebra || { correct: 0, incorrect: 0 };
-    console.log("Algebra results:", algebraResults);
     const total = algebraResults.correct + algebraResults.incorrect;
-    console.log("Total:", total);
     const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
-    console.log("Percentage:", percentage);
+
     const percentageElement = document.getElementById("algebra-percentage");
     if (percentageElement) {
         percentageElement.textContent = `Correct Answers: ${percentage}%`;
-        console.log("Percentage element updated. Text:", percentageElement.textContent);
-    } else {
-        console.log("Percentage element not found.");
     }
 }
 
+console.log("Start Lesson Button:", document.getElementById('start-lesson'));
+document.getElementById('start-lesson').addEventListener('click', startLesson);
