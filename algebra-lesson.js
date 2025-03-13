@@ -198,6 +198,15 @@ function showQuiz() {
     document.getElementById('submit-quiz').addEventListener('click', gradeQuiz);
 }
 
+// Inside algebra-lesson.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
+    updateDisplayedPercentage(JSON.parse(localStorage.getItem("testResults")) || {});
+    console.log("Start Lesson Button:", document.getElementById('start-lesson'));
+    document.getElementById('start-lesson').addEventListener('click', startLesson);
+});
+
 function gradeQuiz() {
     let score = 0;
     mathQuestions.forEach((question, index) => {
@@ -214,9 +223,7 @@ function gradeQuiz() {
     recordTestResults();
 
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML += `
-        <button id="continue-button">Continue</button>
-    `;
+    lessonContent.innerHTML += `<button id="continue-button">Continue</button>`;
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile';
     });
@@ -225,13 +232,9 @@ function gradeQuiz() {
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
 
-    // Fetch previous results from localStorage
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
 
-    console.log("Previous testResults from localStorage:", results);
-
-    // Validate stored results
     if (typeof results !== "object" || Array.isArray(results)) {
         console.error("Error: results should be an object but got", results);
         results = {};
@@ -241,32 +244,16 @@ function recordTestResults() {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
-
-        // Check previous values before updating
-        console.log(
-            `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
-
-        // Ensure fresh values are added correctly
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
-
-        console.log(
-            `After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
     }
 
-    // Store updated results in localStorage
     localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
-
-    // Reset categoryStats to prevent double counting in the next test
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
 
-    // Update the displayed percentage in the satdesc class
     updateDisplayedPercentage(results);
 }
 
