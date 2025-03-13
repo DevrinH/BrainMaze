@@ -275,10 +275,10 @@ function updateDisplayedPercentage(results) {
     const total = algebraResults.correct + algebraResults.incorrect;
     const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
 
-    const percentageElements = document.querySelectorAll("#algebra-percentage");
-    percentageElements.forEach(element => {
-        element.textContent = `Correct Answers: ${percentage}%`;
-    });
+    const percentageElement = document.getElementById("algebra-percentage");
+    if (percentageElement) {
+        percentageElement.textContent = `Correct Answers: ${percentage}%`;
+    }
 }
 
 console.log("Start Lesson Button:", document.getElementById('start-lesson'));
