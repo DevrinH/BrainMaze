@@ -250,6 +250,23 @@ function recordTestResults() {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
+
+    // Update the displayed percentage in the satdesc class
+    updateDisplayedPercentage(results);
+}
+
+function updateDisplayedPercentage(results) {
+    const algebraResults = results.algebra || { correct: 0, incorrect: 0 };
+    const total = algebraResults.correct + algebraResults.incorrect;
+    const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
+
+    const satdescElements = document.querySelectorAll("#lessons-container-algebra .satdesc");
+    satdescElements.forEach(element => {
+        element.innerHTML = `
+            <p class="pbungee">Algebra Lessons</p>
+            <p>Correct Answers: ${percentage}%</p>
+        `;
+    });
 }
 
 console.log("Start Lesson Button:", document.getElementById('start-lesson'));
