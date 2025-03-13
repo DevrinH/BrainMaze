@@ -230,16 +230,14 @@ function gradeQuiz() {
 }
 
 function recordTestResults() {
-    console.log("Recording results. Current categoryStats:", categoryStats);
-
+    console.log("Starting recordTestResults. categoryStats:", categoryStats);
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
-
+    console.log("Results from localStorage:", results);
     if (typeof results !== "object" || Array.isArray(results)) {
         console.error("Error: results should be an object but got", results);
         results = {};
     }
-
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
@@ -247,24 +245,30 @@ function recordTestResults() {
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
-
+    console.log("Results after update:", results);
     localStorage.setItem("testResults", JSON.stringify(results));
+    console.log("localStorage after setItem:", JSON.parse(localStorage.getItem("testResults")));
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
-
     updateDisplayedPercentage(results);
 }
 
 function updateDisplayedPercentage(results) {
+    console.log("Starting updateDisplayedPercentage. Results:", results);
     const algebraResults = results.algebra || { correct: 0, incorrect: 0 };
+    console.log("Algebra results:", algebraResults);
     const total = algebraResults.correct + algebraResults.incorrect;
+    console.log("Total:", total);
     const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
-
+    console.log("Percentage:", percentage);
     const percentageElement = document.getElementById("algebra-percentage");
     if (percentageElement) {
         percentageElement.textContent = `Correct Answers: ${percentage}%`;
+        console.log("Percentage element updated. Text:", percentageElement.textContent);
+    } else {
+        console.log("Percentage element not found.");
     }
 }
 
