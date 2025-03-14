@@ -1,3 +1,15 @@
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start Lesson Button event listener added.");
+    } else {
+        console.error("Start lesson button not found.");
+    }
+});
+
 const mathQuestions = [
     {
         question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
@@ -199,27 +211,33 @@ function showQuiz() {
 }
 
 function gradeQuiz() {
+    console.log("Grading quiz");
     let score = 0;
-    mathQuestions.forEach((question, index) => {
+    let totalQuestions = questions.length;
+    let categoryStats = {};
+
+    questions.forEach((question, index) => {
         const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
-        if (selectedAnswer && selectedAnswer.value === 'true') {
-            score++;
-            categoryStats[question.category].correct++;
+        if (!categoryStats[question.category]) {
+            categoryStats[question.category] = { correct: 0, incorrect: 0 };
+        }
+
+        if (selectedAnswer) {
+            if (selectedAnswer.value === "true") {
+                score++;
+                categoryStats[question.category].correct++;
+            } else {
+                categoryStats[question.category].incorrect++;
+            }
         } else {
-            categoryStats[question.category].incorrect++;
+            console.log(`No answer selected for question ${index + 1}`);
         }
     });
 
-    alert(`You scored ${score}/${mathQuestions.length}`);
-    recordTestResults();
-
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML += `
-        <button id="continue-button">Continue</button>
-    `;
-    document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://www.brainjelli.com/user-profile';
-    });
+    const percentage = Math.round((score / totalQuestions) * 100);
+    console.log(`Quiz score: ${percentage}%`);
+    updateDisplayedPercentage(categoryStats);
+    localStorage.setItem("testResults", JSON.stringify(categoryStats));
 }
 
 function recordTestResults() {
@@ -270,16 +288,20 @@ function recordTestResults() {
     updateDisplayedPercentage(results);
 }
 
-function updateDisplayedPercentage(results) {
-    const algebraResults = results.algebra || { correct: 0, incorrect: 0 };
-    const total = algebraResults.correct + algebraResults.incorrect;
-    const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
-
-    const percentageElement = document.getElementById("algebra-percentage");
+function updateDisplayedPercentage(categoryStats) {
+    console.log("Updating displayed percentages");
+    let percentageElement = document.getElementById("algebra-percentage");
     if (percentageElement) {
-        percentageElement.textContent = `Correct Answers: ${percentage}%`;
+        let correct = categoryStats["Algebra"]?.correct || 0;
+        let incorrect = categoryStats["Algebra"]?.incorrect || 0;
+        let total = correct + incorrect;
+        let percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+        percentageElement.innerText = `Algebra Mastery: ${percentage}%`;
+    } else {
+        console.warn("Percentage element not found.");
     }
 }
+
 
 function showScore() {
     // Fetch previous results from localStorage
