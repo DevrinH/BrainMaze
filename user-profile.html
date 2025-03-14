@@ -39,7 +39,15 @@
     <button class="button-30" role="button">GED</button> 
     <button class="button-30" role="button">SAT</button> 
     <button class="button-30" role="button">ACT</button> 
-    <p id="algebra-percentage" style="display: block; visibility: visible; opacity: 1; color: black; font-size: 16px;">Correct Answers: 0%</p> 
+    <h1>Quiz Results</h1>
+    <p id="percentage">Loading...</p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let percentage = localStorage.getItem("quizPercentage");
+            document.getElementById("percentage").innerText = 
+                percentage ? `Your Score: ${percentage}%` : "No results found.";
+        });
+    </script>
 </div>
 
 <div class="flex-container">          
