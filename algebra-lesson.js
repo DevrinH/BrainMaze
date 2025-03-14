@@ -281,5 +281,30 @@ function updateDisplayedPercentage(results) {
     }
 }
 
+function showScore() {
+    // Fetch previous results from localStorage
+    let storedResults = localStorage.getItem("testResults");
+    let results = storedResults ? JSON.parse(storedResults) : {};
+
+    // Validate stored results
+    if (typeof results !== "object" || Array.isArray(results)) {
+        console.error("Error: results should be an object but got", results);
+        results = {};
+    }
+
+    const algebraResults = results.algebra || { correct: 0, incorrect: 0 };
+    const total = algebraResults.correct + algebraResults.incorrect;
+    const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
+
+    const percentageElement = document.getElementById("algebra-percentage");
+    if (percentageElement) {
+        percentageElement.textContent = `Correct Answers: ${percentage}%`;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    showScore();
+});
+
 console.log("Start Lesson Button:", document.getElementById('start-lesson'));
 document.getElementById('start-lesson').addEventListener('click', startLesson);
