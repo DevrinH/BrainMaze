@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.error("Start lesson button not found.");
     }
+
+    showScore();
 });
 
 const mathQuestions = [
@@ -213,10 +215,9 @@ function showQuiz() {
 function gradeQuiz() {
     console.log("Grading quiz");
     let score = 0;
-    let totalQuestions = questions.length;
-    let categoryStats = {};
+    let totalQuestions = mathQuestions.length;
 
-    questions.forEach((question, index) => {
+    mathQuestions.forEach((question, index) => {
         const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
         if (!categoryStats[question.category]) {
             categoryStats[question.category] = { correct: 0, incorrect: 0 };
@@ -292,16 +293,15 @@ function updateDisplayedPercentage(categoryStats) {
     console.log("Updating displayed percentages");
     let percentageElement = document.getElementById("algebra-percentage");
     if (percentageElement) {
-        let correct = categoryStats["Algebra"]?.correct || 0;
-        let incorrect = categoryStats["Algebra"]?.incorrect || 0;
+        let correct = categoryStats["algebra"]?.correct || 0;
+        let incorrect = categoryStats["algebra"]?.incorrect || 0;
         let total = correct + incorrect;
         let percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-        percentageElement.innerText = `Algebra Mastery: ${percentage}%`;
+        percentageElement.innerText = `Correct Answers: ${percentage}%`;
     } else {
         console.warn("Percentage element not found.");
     }
 }
-
 
 function showScore() {
     // Fetch previous results from localStorage
@@ -323,10 +323,3 @@ function showScore() {
         percentageElement.textContent = `Correct Answers: ${percentage}%`;
     }
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    showScore();
-});
-
-console.log("Start Lesson Button:", document.getElementById('start-lesson'));
-document.getElementById('start-lesson').addEventListener('click', startLesson);
