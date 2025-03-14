@@ -242,7 +242,6 @@ function gradeQuiz() {
     window.location.href = "user-profile.html"; // Redirect to results page
 }
 
-
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
 
@@ -290,6 +289,7 @@ function recordTestResults() {
     // Update the displayed percentage in the satdesc class
     updateDisplayedPercentage(results);
 }
+
 
 function updateDisplayedPercentage(categoryStats) {
     console.log("Updating displayed percentages");
