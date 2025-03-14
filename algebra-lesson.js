@@ -239,6 +239,7 @@ function gradeQuiz() {
     console.log(`Quiz score: ${percentage}%`);
     
     localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
+    recordTestResults(); // Save the results
     window.location.href = "user-profile.html"; // Redirect to results page
 }
 
@@ -274,7 +275,6 @@ function recordTestResults() {
 
 console.log("Start Lesson Button:", document.getElementById('start-lesson'));
 document.getElementById('start-lesson').addEventListener('click', startLesson);
-
 
 function updateDisplayedPercentage(categoryStats) {
     console.log("Updating displayed percentages");
