@@ -39,15 +39,7 @@
     <button class="button-30" role="button">GED</button> 
     <button class="button-30" role="button">SAT</button> 
     <button class="button-30" role="button">ACT</button> 
-    <h1>Quiz Results</h1>
-    <p id="percentage">Loading...</p>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let percentage = localStorage.getItem("quizPercentage");
-            document.getElementById("percentage").innerText = 
-                percentage ? `Your Score: ${percentage}%` : "No results found.";
-        });
-    </script>
+
 </div>
 
 <div class="flex-container">          
@@ -192,7 +184,13 @@
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Algebra Lesson 1</p>
-                    <p>Algebra Lessons</p>
+                    <p>Algebra Lessons     <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            let percentage = localStorage.getItem("quizPercentage");
+                            document.getElementById("percentage").innerText = 
+                                percentage ? `Your Last Score: ${percentage}%` : "No results found.";
+                        });
+                    </script></p>
 
       
                 </div>
