@@ -223,63 +223,71 @@ function gradeQuiz() {
 }
 
 function recordTestResults() {
-    console.log("Recording results. Current categoryStats:", categoryStats);
+    console.log("Starting recordTestResults. categoryStats:", categoryStats);
 
-    // Fetch previous results from localStorage
-    let storedResults = localStorage.getItem("testResults");
-    let results = storedResults ? JSON.parse(storedResults) : {};
+    // Retrieve existing data or initialize a new object
+    let results = JSON.parse(localStorage.getItem("testResults")) || {};
 
-    console.log("Previous testResults from localStorage:", results);
-
-    // Validate stored results
     if (typeof results !== "object" || Array.isArray(results)) {
         console.error("Error: results should be an object but got", results);
         results = {};
     }
 
+    // Update the category statistics
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
-
-        // Check previous values before updating
-        console.log(
-            `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
-
-        // Ensure fresh values are added correctly
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
-
-        console.log(
-            `After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
     }
 
-    // Store updated results in localStorage
+    // Save updated results
     localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
 
-    // Reset categoryStats to prevent double counting in the next test
+    // Reset the current session stats
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
 
-    // Update the displayed percentage in the satdesc class
+    console.log("Updated testResults:", JSON.parse(localStorage.getItem("testResults")));
+
+    // Call update function to reflect changes in UI
     updateDisplayedPercentage(results);
 }
 
+
 function updateDisplayedPercentage(results) {
+    console.log("Updating displayed percentage with results:", results);
+
     const algebraResults = results.algebra || { correct: 0, incorrect: 0 };
     const total = algebraResults.correct + algebraResults.incorrect;
     const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
 
+    // Ensure the element exists before updating it
     const percentageElement = document.getElementById("algebra-percentage");
     if (percentageElement) {
         percentageElement.textContent = `Correct Answers: ${percentage}%`;
+    } else {
+        console.log("Percentage element not found.");
     }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
+
+    // Load and display stored test results
+    const storedResults = JSON.parse(localStorage.getItem("testResults")) || {};
+    updateDisplayedPercentage(storedResults);
+
+    // Attach event listener to the start lesson button
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+    } else {
+        console.error("Start lesson button not found.");
+    }
+});
 console.log("Start Lesson Button:", document.getElementById('start-lesson'));
 document.getElementById('start-lesson').addEventListener('click', startLesson);
