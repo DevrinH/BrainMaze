@@ -237,9 +237,11 @@ function gradeQuiz() {
 
     const percentage = Math.round((score / totalQuestions) * 100);
     console.log(`Quiz score: ${percentage}%`);
-    updateDisplayedPercentage(categoryStats);
-    localStorage.setItem("testResults", JSON.stringify(categoryStats));
+    
+    localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
+    window.location.href = "results.html"; // Redirect to results page
 }
+
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
