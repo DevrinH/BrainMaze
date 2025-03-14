@@ -270,10 +270,10 @@ function recordTestResults() {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
-
-    // Update the displayed percentage in the satdesc class
-    updateDisplayedPercentage(results);
 }
+
+console.log("Start Lesson Button:", document.getElementById('start-lesson'));
+document.getElementById('start-lesson').addEventListener('click', startLesson);
 
 
 function updateDisplayedPercentage(categoryStats) {
