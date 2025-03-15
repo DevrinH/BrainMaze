@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+ddocument.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
     const startLessonButton = document.getElementById('start-lesson');
