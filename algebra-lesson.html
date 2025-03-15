@@ -1,62 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49R9J7N7SJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-49R9J7N7SJ');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8792646979011381"
+     crossorigin="anonymous"></script>
     <title>Algebra Lesson</title>
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-}
-
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.question {
-    margin-top: 20px;
-    text-align: left;
-}
-</style>
-
+    <link rel="stylesheet" href="https://www.brainjelli.com/style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
+    <div class="header">
+        <header>
+            <a href="https://www.brainjelli.com/">
+                <img src="BrainJelliLOGO.png" height="170">
+            </a>
+        </header>
+    </div>
 
-    <div class="container">
-        <h1>Welcome to the Algebra Lesson</h1>
-        <div id="lesson-content">
-            <p>In this lesson, we will learn about basic algebra concepts.</p>
-            <button id="start-lesson">Start Lesson</button>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <div class="app">
+        <h1>Algebra Lesson</h1>
+        <div class="quiz">
+            <h4 id="question">Question goes here</h4>
+            <div id="answer-buttons">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+            <p id="explanation" style="display: none;"></p>
+            <button id="next-btn">Next</button>
         </div>
     </div>
 
-    <script src="algebra-lesson.js"></script>
-
+    <script src="algebra-lesson.js" type="module"></script>
 </body>
+<footer>
+    <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
+</footer>
 </html>
