@@ -21,7 +21,6 @@ const mathQuestions = [
             { text: "C) 31", correct: false },
             { text: "D) 25", correct: false }
         ],
-        explanation: "To find f(4), substitute 4 for x in the function: f(4) = 2(4)² - 3(4) + 5 = 2(16) - 12 + 5 = 32 - 12 + 5 = 25.",
         difficulty: "easy",
         category: "algebra"
     },
@@ -33,7 +32,6 @@ const mathQuestions = [
             { text: "C) 9 hours", correct: true },
             { text: "D) 8 hours", correct: false }
         ],
-        explanation: "The total cost is $12 + $3 per hour. Let h be the number of hours. Then 12 + 3h = 45. Solving for h, we get h = (45 - 12) / 3 = 33 / 3 = 11 hours.",
         difficulty: "medium",
         category: "algebra"
     },
@@ -45,7 +43,6 @@ const mathQuestions = [
             { text: "C) 4", correct: false },
             { text: "D) 5", correct: false }
         ],
-        explanation: "To solve for x, subtract 3 from both sides: 5x = 15. Then divide both sides by 5: x = 3.",
         difficulty: "easy",
         category: "algebra"
     },
@@ -57,7 +54,6 @@ const mathQuestions = [
             { text: "C) 5", correct: false },
             { text: "D) 6", correct: false }
         ],
-        explanation: "To solve for x, divide both sides by 3: x - 2 = 3. Then add 2 to both sides: x = 5.",
         difficulty: "easy",
         category: "algebra"
     },
@@ -69,7 +65,6 @@ const mathQuestions = [
             { text: "C) 7", correct: true },
             { text: "D) 8", correct: false }
         ],
-        explanation: "To find y when x = 3, substitute 3 for x in the equation: y = 2(3) + 1 = 6 + 1 = 7.",
         difficulty: "easy",
         category: "algebra"
     },
@@ -81,7 +76,6 @@ const mathQuestions = [
             { text: "C) 19 and 20", correct: false },
             { text: "D) 16 and 17", correct: false }
         ],
-        explanation: "Let the two consecutive integers be x and x + 1. Then x + (x + 1) = 37. Solving for x, we get 2x + 1 = 37, so x = 18. The integers are 18 and 19.",
         difficulty: "medium",
         category: "algebra"
     },
@@ -93,7 +87,6 @@ const mathQuestions = [
             { text: "C) x > 1", correct: false },
             { text: "D) x < 1", correct: false }
         ],
-        explanation: "To solve the inequality, add 5 to both sides: 2x > 8. Then divide both sides by 2: x > 4.",
         difficulty: "medium",
         category: "algebra"
     }
@@ -102,8 +95,6 @@ const mathQuestions = [
 let categoryStats = {
     algebra: { correct: 0, incorrect: 0 }
 };
-
-let currentQuestionIndex = 0;
 
 function startLesson() {
     const lessonContent = document.getElementById('lesson-content');
@@ -145,58 +136,111 @@ function showNextExample() {
 
 function askQuestion() {
     const lessonContent = document.getElementById('lesson-content');
-    const question = mathQuestions[currentQuestionIndex];
     lessonContent.innerHTML = `
-        <h2>Question ${currentQuestionIndex + 1}</h2>
-        <p>${question.question}</p>
-        ${question.answers.map((answer, index) => `
-            <input type="radio" id="q${currentQuestionIndex}a${index}" name="q${currentQuestionIndex}" value="${answer.correct}">
-            <label for="q${currentQuestionIndex}a${index}">${answer.text}</label><br>
-        `).join('')}
-        <button id="submit-answer">Submit Answer</button>
+        <h2>Question 1</h2>
+        <p>Solve for x: 3x - 4 = 5</p>
+        <input type="text" id="answer1" placeholder="Your answer">
+        <button id="submit-answer1">Submit Answer</button>
     `;
-    document.getElementById('submit-answer').addEventListener('click', () => checkAnswer(question));
+    document.getElementById('submit-answer1').addEventListener('click', checkAnswer1);
 }
 
-function checkAnswer(question) {
-    const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
-    if (selectedAnswer) {
-        if (selectedAnswer.value === "true") {
-            alert('Correct!');
-            categoryStats.algebra.correct++;
-        } else {
-            alert(`Incorrect. ${question.explanation}`);
-            categoryStats.algebra.incorrect++;
-        }
-        currentQuestionIndex++;
-        if (currentQuestionIndex < mathQuestions.length) {
-            askQuestion();
-        } else {
-            showQuizResults();
-        }
+function checkAnswer1() {
+    const answer = document.getElementById('answer1').value;
+    if (answer == '3') {
+        alert('Correct!');
+        categoryStats.algebra.correct++;
+        showNextExample3();
     } else {
-        alert('Please select an answer.');
+        alert('Incorrect. Try again.');
+        categoryStats.algebra.incorrect++;
     }
 }
 
-function showQuizResults() {
+function showNextExample3() {
     const lessonContent = document.getElementById('lesson-content');
-    const totalQuestions = mathQuestions.length;
-    const correctAnswers = categoryStats.algebra.correct;
-    const incorrectAnswers = categoryStats.algebra.incorrect;
-    const percentage = Math.round((correctAnswers / totalQuestions) * 100);
-
     lessonContent.innerHTML = `
-        <h2>Quiz Results</h2>
-        <p>Correct Answers: ${correctAnswers}</p>
-        <p>Incorrect Answers: ${incorrectAnswers}</p>
-        <p>Percentage: ${percentage}%</p>
-        <button id="finish-quiz">Finish</button>
+        <h2>Example: Evaluating a Function</h2>
+        <p>Consider the function f(x) = 3x² - 2x + 1. What is the value of f(3)?</p>
+        <p>Step 1: Substitute x with 3: f(3) = 3(3)² - 2(3) + 1</p>
+        <p>Step 2: Calculate the square: f(3) = 3(9) - 2(3) + 1</p>
+        <p>Step 3: Multiply: f(3) = 27 - 6 + 1</p>
+        <p>Step 4: Simplify: f(3) = 22</p>
+        <button id="next-question">Next Question</button>
     `;
-    document.getElementById('finish-quiz').addEventListener('click', () => {
-        recordTestResults();
-        window.location.href = "user-profile.html"; // Redirect to results page
+    document.getElementById('next-question').addEventListener('click', askNextQuestion);
+}
+
+function askNextQuestion() {
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = `
+        <h2>Question 2</h2>
+        <p>Solve for y: y + 5 = 12</p>
+        <input type="text" id="answer2" placeholder="Your answer">
+        <button id="submit-answer2">Submit Answer</button>
+    `;
+    document.getElementById('submit-answer2').addEventListener('click', checkAnswer2);
+}
+
+function checkAnswer2() {
+    const answer = document.getElementById('answer2').value;
+    if (answer == '7') {
+        alert('Correct!');
+        categoryStats.algebra.correct++;
+        showQuiz();
+    } else {
+        alert('Incorrect. Try again.');
+        categoryStats.algebra.incorrect++;
+    }
+}
+
+function showQuiz() {
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = `
+        <h2>Final Quiz</h2>
+        ${mathQuestions.map((question, index) => `
+            <div class="question">
+                <p>${index + 1}. ${question.question}</p>
+                ${question.answers.map(answer => `
+                    <input type="radio" id="q${index}a${answer.text[0]}" name="q${index}" value="${answer.correct}">
+                    <label for="q${index}a${answer.text[0]}">${answer.text}</label><br>
+                `).join('')}
+            </div>
+        `).join('')}
+        <button id="submit-quiz">Submit Quiz</button>
+    `;
+    document.getElementById('submit-quiz').addEventListener('click', gradeQuiz);
+}
+
+function gradeQuiz() {
+    console.log("Grading quiz");
+    let score = 0;
+    let totalQuestions = mathQuestions.length;
+
+    mathQuestions.forEach((question, index) => {
+        const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
+        if (!categoryStats[question.category]) {
+            categoryStats[question.category] = { correct: 0, incorrect: 0 };
+        }
+
+        if (selectedAnswer) {
+            if (selectedAnswer.value === "true") {
+                score++;
+                categoryStats[question.category].correct++;
+            } else {
+                categoryStats[question.category].incorrect++;
+            }
+        } else {
+            console.log(`No answer selected for question ${index + 1}`);
+        }
     });
+
+    const percentage = Math.round((score / totalQuestions) * 100);
+    console.log(`Quiz score: ${percentage}%`);
+    
+    localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
+    recordTestResults(); // Save the results
+    window.location.href = "user-profile.html"; // Redirect to results page
 }
 
 function recordTestResults() {
@@ -265,33 +309,4 @@ function showScore() {
     if (percentageElement) {
         percentageElement.textContent = `Correct Answers: ${percentage}%`;
     }
-}
-function gradeQuiz() {
-    console.log("Grading quiz");
-    let score = 0;
-    let totalQuestions = mathQuestions.length;
-
-    mathQuestions.forEach((question, index) => {
-        const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
-        if (!categoryStats[question.category]) {
-            categoryStats[question.category] = { correct: 0, incorrect: 0 };
-        }
-
-        if (selectedAnswer) {
-            if (selectedAnswer.value === "true") {
-                score++;
-                categoryStats[question.category].correct++;
-            } else {
-                categoryStats[question.category].incorrect++;
-            }
-        } else {
-            console.log(`No answer selected for question ${index + 1}`);
-        }
-    });
-
-    const percentage = Math.round((score / totalQuestions) * 100);
-    console.log(`Quiz score: ${percentage}%`);
-    
-    localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
-    window.location.href = "results.html"; // Redirect to results page
 }
