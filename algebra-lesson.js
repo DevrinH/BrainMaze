@@ -266,3 +266,32 @@ function showScore() {
         percentageElement.textContent = `Correct Answers: ${percentage}%`;
     }
 }
+function gradeQuiz() {
+    console.log("Grading quiz");
+    let score = 0;
+    let totalQuestions = mathQuestions.length;
+
+    mathQuestions.forEach((question, index) => {
+        const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
+        if (!categoryStats[question.category]) {
+            categoryStats[question.category] = { correct: 0, incorrect: 0 };
+        }
+
+        if (selectedAnswer) {
+            if (selectedAnswer.value === "true") {
+                score++;
+                categoryStats[question.category].correct++;
+            } else {
+                categoryStats[question.category].incorrect++;
+            }
+        } else {
+            console.log(`No answer selected for question ${index + 1}`);
+        }
+    });
+
+    const percentage = Math.round((score / totalQuestions) * 100);
+    console.log(`Quiz score: ${percentage}%`);
+    
+    localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
+    window.location.href = "results.html"; // Redirect to results page
+}
