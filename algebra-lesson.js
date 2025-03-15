@@ -21,6 +21,7 @@ const mathQuestions = [
             { text: "C) 31", correct: false },
             { text: "D) 25", correct: false }
         ],
+        explanation: "The correct answer is B) 29. f(4) = 2(4)² - 3(4) + 5 = 32 - 12 + 5 = 25.",
         difficulty: "easy",
         category: "algebra"
     },
@@ -32,6 +33,7 @@ const mathQuestions = [
             { text: "C) 9 hours", correct: true },
             { text: "D) 8 hours", correct: false }
         ],
+        explanation: "The correct answer is C) 9 hours. $45 - $12 = $33. $33 / $3 per hour = 11 hours.",
         difficulty: "medium",
         category: "algebra"
     },
@@ -43,6 +45,7 @@ const mathQuestions = [
             { text: "C) 4", correct: false },
             { text: "D) 5", correct: false }
         ],
+        explanation: "The correct answer is B) 3. 5x + 3 = 18 -> 5x = 15 -> x = 3.",
         difficulty: "easy",
         category: "algebra"
     },
@@ -54,6 +57,7 @@ const mathQuestions = [
             { text: "C) 5", correct: false },
             { text: "D) 6", correct: false }
         ],
+        explanation: "The correct answer is A) 3. 3(x - 2) = 9 -> x - 2 = 3 -> x = 5.",
         difficulty: "easy",
         category: "algebra"
     },
@@ -65,6 +69,7 @@ const mathQuestions = [
             { text: "C) 7", correct: true },
             { text: "D) 8", correct: false }
         ],
+        explanation: "The correct answer is C) 7. y = 2(3) + 1 = 6 + 1 = 7.",
         difficulty: "easy",
         category: "algebra"
     },
@@ -76,6 +81,7 @@ const mathQuestions = [
             { text: "C) 19 and 20", correct: false },
             { text: "D) 16 and 17", correct: false }
         ],
+        explanation: "The correct answer is A) 18 and 19. 18 + 19 = 37.",
         difficulty: "medium",
         category: "algebra"
     },
@@ -87,6 +93,7 @@ const mathQuestions = [
             { text: "C) x > 1", correct: false },
             { text: "D) x < 1", correct: false }
         ],
+        explanation: "The correct answer is A) x > 4. 2x - 5 > 3 -> 2x > 8 -> x > 4.",
         difficulty: "medium",
         category: "algebra"
     }
@@ -96,14 +103,12 @@ let categoryStats = {
     algebra: { correct: 0, incorrect: 0 }
 };
 
+let currentQuestionIndex = 0;
+
 function startLesson() {
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <h2>Understanding Algebra</h2>
-        <p>Algebra is the study of mathematical symbols and the rules for manipulating these symbols.</p>
-        <button id="next-step">Next</button>
-    `;
-    document.getElementById('next-step').addEventListener('click', showExample);
+    const startLessonButton = document.getElementById('start-lesson');
+    startLessonButton.style.display = 'none';
+    showExample();
 }
 
 function showExample() {
@@ -195,52 +200,62 @@ function checkAnswer2() {
 }
 
 function showQuiz() {
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <h2>Final Quiz</h2>
-        ${mathQuestions.map((question, index) => `
-            <div class="question">
-                <p>${index + 1}. ${question.question}</p>
-                ${question.answers.map(answer => `
-                    <input type="radio" id="q${index}a${answer.text[0]}" name="q${index}" value="${answer.correct}">
-                    <label for="q${index}a${answer.text[0]}">${answer.text}</label><br>
-                `).join('')}
-            </div>
-        `).join('')}
-        <button id="submit-quiz">Submit Quiz</button>
+    currentQuestionIndex = 0;
+    showNextQuizQuestion();
+}
+
+function showNextQuizQuestion() {
+    if (currentQuestionIndex < mathQuestions.length) {
+        const question = mathQuestions[currentQuestionIndex];
+        const lessonContent = document.getElementById('lesson-content');
+        lessonContent.innerHTML = `
+            <h2>Question ${currentQuestionIndex + 1}</h2>
+            <p>${question.question}</p>
+            ${question.answers.map((answer, index) => `
+                <input type="radio" id="q${currentQuestionIndex}a${index}" name="q${currentQuestionIndex}" value="${answer.correct}">
+                <label for="q${currentQuestionIndex}a${index}">${answer.text}</label><br>
+            `).join('')}
+            <button id="submit-answer">Submit Answer</button>
+        `;
+        document.getElementById('submit-answer').addEventListener('click', () => checkQuizAnswer(question));
+    } else {
+        showFinalScore();
+    }
+}
+
+function checkQuizAnswer(question) {
+    const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
+    if (selectedAnswer) {
+        if (selectedAnswer.value === "true") {
+            alert('Correct!');
+            categoryStats[question.category].correct++;
+        } else {
+            alert(`Incorrect. ${question.explanation}`);
+            categoryStats[question.category].incorrect++;
+        }
+        currentQuestionIndex++;
+        showNextQuizQuestion();
+    } else {
+        alert('Please select an answer.');
+    }
+}
+
+function showFinalScore() {
+    const totalQuestions = mathQuestions.length;
+    const correctAnswers = categoryStats.algebra.correct;
+    const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+    const finalScoreElement = document.getElementById('final-score');
+    finalScoreElement.style.display = 'block';
+    finalScoreElement.innerHTML = `
+        <h2>Final Score</h2>
+        <p>You answered ${correctAnswers} out of ${totalQuestions} questions correctly.</p>
+        <p>Your score: ${percentage}%</p>
     `;
-    document.getElementById('submit-quiz').addEventListener('click', gradeQuiz);
+    recordTestResults();
 }
 
 function gradeQuiz() {
-    console.log("Grading quiz");
-    let score = 0;
-    let totalQuestions = mathQuestions.length;
-
-    mathQuestions.forEach((question, index) => {
-        const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
-        if (!categoryStats[question.category]) {
-            categoryStats[question.category] = { correct: 0, incorrect: 0 };
-        }
-
-        if (selectedAnswer) {
-            if (selectedAnswer.value === "true") {
-                score++;
-                categoryStats[question.category].correct++;
-            } else {
-                categoryStats[question.category].incorrect++;
-            }
-        } else {
-            console.log(`No answer selected for question ${index + 1}`);
-        }
-    });
-
-    const percentage = Math.round((score / totalQuestions) * 100);
-    console.log(`Quiz score: ${percentage}%`);
-    
-    localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
-    recordTestResults(); // Save the results
-    window.location.href = "user-profile.html"; // Redirect to results page
+    // This function is no longer needed as we are grading each question individually
 }
 
 function recordTestResults() {
@@ -272,9 +287,6 @@ function recordTestResults() {
         categoryStats[category].incorrect = 0;
     }
 }
-
-console.log("Start Lesson Button:", document.getElementById('start-lesson'));
-document.getElementById('start-lesson').addEventListener('click', startLesson);
 
 function updateDisplayedPercentage(categoryStats) {
     console.log("Updating displayed percentages");
