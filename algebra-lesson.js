@@ -258,27 +258,30 @@ function showFinalScore() {
     // Save percentage to localStorage
     localStorage.setItem("quizPercentage", percentage);
 
-    // Display score on the same page with Retry & Continue buttons
+    // Display score on the same page
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = `
         <h2>Quiz Completed!</h2>
         <p>Your Score: ${percentage}%</p>
-        <button onclick="restartQuiz()">Retry Quiz</button>
-        <button onclick="continueToProfile()">Continue</button>
+        <button id="retry-quiz">Retry Quiz</button>
+        <button id="continue-button">Continue</button>
     `;
+
+    // Add event listeners after the elements are inserted
+    document.getElementById("retry-quiz").addEventListener("click", restartQuiz);
+    document.getElementById("continue-button").addEventListener("click", continueToProfile);
 }
 
-// Function to restart the quiz
 function restartQuiz() {
     localStorage.removeItem("quizPercentage");
     categoryStats = { algebra: { correct: 0, incorrect: 0 } }; // Reset stats
     showQuiz();
 }
 
-// Function to continue to the user profile page
 function continueToProfile() {
     window.location.href = "https://www.brainjelli.com/user-profile.html";
 }
+
 
 
 
