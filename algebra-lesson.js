@@ -244,6 +244,11 @@ function checkQuizAnswer(question) {
     }
 }
 
+function restartQuiz() {
+    localStorage.removeItem("finalScore"); 
+    location.reload();
+}
+
 function showFinalScore() {
     let totalCorrect = 0;
     let totalAttempted = 0;
@@ -276,12 +281,6 @@ function continueToProfile() {
     window.location.href = "https://www.brainjelli.com/user-profile.html";
 }
 
-
-function restartQuiz() {
-    // Reset stored score and reload the page
-    localStorage.removeItem("finalScore"); 
-    location.reload();
-}
 
 
 function continueToProfile() {
