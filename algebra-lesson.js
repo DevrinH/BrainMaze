@@ -99,11 +99,9 @@ const mathQuestions = [
     }
 ];
 
-// Load category stats from localStorage or initialize
-let categoryStats = JSON.parse(localStorage.getItem("categoryStats")) || {
+let categoryStats = {
     algebra: { correct: 0, incorrect: 0 }
 };
-
 
 let currentQuestionIndex = 0;
 
@@ -246,23 +244,6 @@ function checkQuizAnswer(question) {
     }
 }
 
-// Function to record answers and update category stats
-function recordAnswer(category, isCorrect) {
-    if (!categoryStats[category]) {
-        categoryStats[category] = { correct: 0, incorrect: 0 };
-    }
-
-    if (isCorrect) {
-        categoryStats[category].correct++;
-    } else {
-        categoryStats[category].incorrect++;
-    }
-
-    // Save updated stats to localStorage
-    localStorage.setItem("categoryStats", JSON.stringify(categoryStats));
-}
-
-// Function to display final score
 function showFinalScore() {
     let totalCorrect = 0;
     let totalAttempted = 0;
@@ -273,42 +254,58 @@ function showFinalScore() {
     }
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-
-    // Save percentage to localStorage
-    localStorage.setItem("quizPercentage", percentage);
-
-    // Display score and buttons
+    
+    const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <h2>Quiz Completed!</h2>
-        <p>Your Score: ${percentage}%</p>
-        <button id="retry-quiz">Retry Quiz</button>
+    lessonContent.innerHTML = ''; // Clear lesson content
+    finalScoreElement.style.display = 'block';
+    finalScoreElement.innerHTML = `
+        <h2>Final Score</h2>
+        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+        <p>Your score: ${percentage}%</p>
         <button id="continue-button">Continue</button>
     `;
 
-    // Add event listeners for buttons
-    document.getElementById("retry-quiz").addEventListener("click", restartQuiz);
-    document.getElementById("continue-button").addEventListener("click", continueToProfile);
-}
+    document.getElementById('continue-button').addEventListener('click', () => {
+        window.location.href = 'https://www.brainjelli.com/user-profile.html';
+    });
 
-// Function to restart quiz
-function restartQuiz() {
-    // Reset only the quizPercentage but keep category stats
-    localStorage.removeItem("quizPercentage");
-
-    // Reset the UI to show the quiz again
-    showQuiz();
-}
-
-// Function to continue to profile page
-function continueToProfile() {
-    window.location.href = "https://www.brainjelli.com/user-profile.html";
+    recordTestResults();
 }
 
 
 
-
-
+    // This function is no longer needed as we are grading each question individually
+    function gradeQuiz() {
+        console.log("Grading quiz");
+        let score = 0;
+        let totalQuestions = mathQuestions.length;
+    
+        mathQuestions.forEach((question, index) => {
+            const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
+            if (!categoryStats[question.category]) {
+                categoryStats[question.category] = { correct: 0, incorrect: 0 };
+            }
+    
+            if (selectedAnswer) {
+                if (selectedAnswer.value === "true") {
+                    score++;
+                    categoryStats[question.category].correct++;
+                } else {
+                    categoryStats[question.category].incorrect++;
+                }
+            } else {
+                console.log(`No answer selected for question ${index + 1}`);
+            }
+        });
+    
+        const percentage = Math.round((score / totalQuestions) * 100);
+        console.log(`Quiz score: ${percentage}%`);
+        
+        localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
+        window.location.href = "results.html"; // Redirect to results page
+    }
+    
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
