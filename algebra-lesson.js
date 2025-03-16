@@ -351,7 +351,7 @@ function updateDisplayedPercentage(categoryStats) {
     }
 }
 
-function showScore() {
+function showScore(correct, incorrect) {
     // Fetch previous results from localStorage
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
@@ -362,10 +362,17 @@ function showScore() {
         results = {};
     }
 
-    const algebraResults = results.algebra || { correct: 0, incorrect: 0 };
-    const total = algebraResults.correct + algebraResults.incorrect;
-    const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
+    // Update algebra results
+    results.algebra = { correct, incorrect };
 
+    // Save updated results to localStorage
+    localStorage.setItem("testResults", JSON.stringify(results));
+
+    // Calculate percentage
+    const total = correct + incorrect;
+    const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+    // Update UI if element exists
     const percentageElement = document.getElementById("algebra-percentage");
     if (percentageElement) {
         percentageElement.textContent = `Correct Answers: ${percentage}%`;
