@@ -186,29 +186,24 @@
                     <p class="pbungee">Algebra Lesson 1</p>
                     <p>Algebra Lessons</p>
                     <h2>Last Algebra Test Score</h2>
-                    <p id="last-quiz-score">Loading...</p>
+                    <p id="score-summary"></p>
 
-                    <script>
-                        function displayLastQuizScore() {
-                            let storedScore = localStorage.getItem("lastQuizScore");
-                            let lastScore = storedScore ? JSON.parse(storedScore) : null;
-                
-                            if (lastScore) {
-                                let correct = lastScore.correct || 0;
-                                let incorrect = lastScore.incorrect || 0;
-                                let total = correct + incorrect;
-                                let percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-                
-                                document.getElementById("last-quiz-score").textContent =
-                                    `Correct Answers: ${percentage}% (${correct}/${total})`;
-                            } else {
-                                document.getElementById("last-quiz-score").textContent =
-                                    "No quiz results found.";
-                            }
+                </div>
+            
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const finalScore = JSON.parse(localStorage.getItem("finalScore"));
+            
+                        if (finalScore) {
+                            document.getElementById("score-summary").innerHTML = `
+                                You answered <strong>${finalScore.correct}</strong> out of <strong>${finalScore.attempted}</strong> questions correctly.<br>
+                                Your score: <strong>${finalScore.percentage}%</strong>
+                            `;
+                        } else {
+                            document.getElementById("score-summary").textContent = "No score found. Please complete a quiz first.";
                         }
-                
-                        displayLastQuizScore();
-                    </script>
+                    });
+                </script>
                     
 
       
