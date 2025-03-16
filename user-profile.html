@@ -185,17 +185,29 @@
                 <div class="satdesc">
                     <p class="pbungee">Algebra Lesson 1</p>
                     <p>Algebra Lessons</p>
-                    <div id="final-score" style="display: none;"></div>
-
+                    <h2>Last Algebra Test Score</h2>
+                    <p id="algebra-last-score">Loading...</p>
+                
                     <script>
-                        document.addEventListener("DOMContentLoaded", function () {
-                            let finalScore = localStorage.getItem("finalScore");
-                    
-                            if (finalScore !== null) {
-                                document.getElementById("final-score").style.display = "block";
-                                document.getElementById("final-score").innerHTML = `<h2>Final Score: ${finalScore}%</h2>`;
+                        function displayLastScore() {
+                            let storedResults = localStorage.getItem("testResults");
+                            let results = storedResults ? JSON.parse(storedResults) : {};
+                
+                            if (results.algebra) {
+                                let correct = results.algebra.correct || 0;
+                                let incorrect = results.algebra.incorrect || 0;
+                                let total = correct + incorrect;
+                                let percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+                
+                                document.getElementById("algebra-last-score").textContent =
+                                    `Correct Answers: ${percentage}% (${correct}/${total})`;
+                            } else {
+                                document.getElementById("algebra-last-score").textContent =
+                                    "No previous test results found.";
                             }
-                        });
+                        }
+                
+                        displayLastScore();
                     </script>
                     
 
