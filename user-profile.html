@@ -180,7 +180,7 @@
         <div id="lessons-container-algebra" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
-                    <button class="start-lesson" data-lesson-level="beginner">START</button>
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Algebra Lesson 1</p>
@@ -272,28 +272,28 @@ document.addEventListener("DOMContentLoaded", function () {
     if (lessonButton) lessonButton.addEventListener("click", showLessons);
     if (algebraLessonButton) algebraLessonButton.addEventListener("click", showAlgebraLessons);
 });
-
-function showTests() {
-    document.getElementById('tests-container').classList.remove('hidden');
-    document.getElementById('lessons-container').classList.add('hidden');
-}
-
-function showLessons() {
-    document.getElementById('tests-container').classList.add('hidden');
-    document.getElementById('lessons-container').classList.remove('hidden');
-}
-
-function showAlgebraLessons() {
-    document.getElementById('tests-container').classList.add('hidden');
-    document.getElementById('lessons-container').classList.add('hidden');
-    document.getElementById('lessons-container-algebra').classList.remove('hidden');
-}
         </script>
         
            <script src="scoreChart.js"></script>
            
    
-    <div class="progress-container"></div>
+    <div class="progress-container">
+        <h2>SAT Category Progress</h2>
+        <br/>
+        <div class="progress-item" data-category="command-of-evidence">
+            <div class="progress-label">Command of Evidence</div>
+            <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
+            <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="central-ideas">
+            <div class="progress-label">Central Ideas and Detail</div>
+            <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
+            <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
+        </div>
+
+    
+
+
     <div class="progress-item" data-category="inference">
     <div class="progress-label">Inferences</div>
     <div class="progress-bar"><div class="progress-fill" id="inference-bar"></div></div>
