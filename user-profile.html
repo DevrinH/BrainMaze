@@ -188,22 +188,20 @@
                     <h2>Last Algebra Test Score</h2>
                     <p id="score-summary"></p>
 
-                </div>
-            
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        const finalScore = JSON.parse(localStorage.getItem("finalScore"));
-            
-                        if (finalScore) {
-                            document.getElementById("score-summary").innerHTML = `
-                                You answered <strong>${finalScore.correct}</strong> out of <strong>${finalScore.attempted}</strong> questions correctly.<br>
-                                Your score: <strong>${finalScore.percentage}%</strong>
-                            `;
-                        } else {
-                            document.getElementById("score-summary").textContent = "No score found. Please complete a quiz first.";
-                        }
-                    });
-                </script>
+                    <script>
+ document.addEventListener("DOMContentLoaded", function() {
+            const finalScore = JSON.parse(localStorage.getItem("finalScore"));
+
+            if (finalScore) {
+                document.getElementById("score-summary").innerHTML = `
+                    You answered <strong>${finalScore.correct}</strong> out of <strong>${finalScore.attempted}</strong> questions correctly.<br>
+                    Your score: <strong>${finalScore.percentage}%</strong>
+                `;
+            } else {
+                document.getElementById("score-summary").textContent = "No score found. Please complete a quiz first.";
+            }
+        });
+                    </script>
                     
 
       
