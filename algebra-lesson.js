@@ -259,7 +259,7 @@ function showFinalScore() {
     localStorage.setItem("quizPercentage", percentage);
 
     // Redirect to the results page
-    window.location.href = "quiz-results.html";
+    window.location.href = "user-profile.html";
 }
 
 
