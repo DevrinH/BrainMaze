@@ -277,6 +277,18 @@ function continueToProfile() {
 }
 
 
+function restartQuiz() {
+    // Reset stored score and reload the page
+    localStorage.removeItem("finalScore"); 
+    location.reload();
+}
+
+
+function continueToProfile() {
+    window.location.href = "https://www.brainjelli.com/user-profile.html";
+}
+
+
 
 
     // This function is no longer needed as we are grading each question individually
