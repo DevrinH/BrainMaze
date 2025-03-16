@@ -272,12 +272,28 @@ document.addEventListener("DOMContentLoaded", function () {
     if (lessonButton) lessonButton.addEventListener("click", showLessons);
     if (algebraLessonButton) algebraLessonButton.addEventListener("click", showAlgebraLessons);
 });
+
+function showTests() {
+    document.getElementById('tests-container').classList.remove('hidden');
+    document.getElementById('lessons-container').classList.add('hidden');
+}
+
+function showLessons() {
+    document.getElementById('tests-container').classList.add('hidden');
+    document.getElementById('lessons-container').classList.remove('hidden');
+}
+
+function showAlgebraLessons() {
+    document.getElementById('tests-container').classList.add('hidden');
+    document.getElementById('lessons-container').classList.add('hidden');
+    document.getElementById('lessons-container-algebra').classList.remove('hidden');
+}
         </script>
         
            <script src="scoreChart.js"></script>
            
    
-    <div class="progress-container">
+    <div class="progress-container"></div>
         <h2>SAT Category Progress</h2>
         <br/>
         <div class="progress-item" data-category="command-of-evidence">
@@ -580,6 +596,12 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('tests-container').classList.add('hidden');
             document.getElementById('lessons-container').classList.remove('hidden');
         }
+
+        function showAlgebraLessons() {
+            document.getElementById('tests-container').classList.add('hidden');
+            document.getElementById('lessons-container').classList.add('hidden');
+            document.getElementById('lessons-container-algebra').classList.remove('hidden');
+        }
 </script>
     
 
@@ -589,7 +611,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     <footer>
-        <div class="center">
+        <div class="center"></div>
           <h2>Follow Us On</h2>
         </div>
       
