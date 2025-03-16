@@ -254,24 +254,28 @@ function showFinalScore() {
     }
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    
-    const finalScoreElement = document.getElementById('final-score');
+
+    // Save the final score in localStorage
+    localStorage.setItem("finalScore", percentage);
+
+    // Display score and buttons
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = ''; // Clear lesson content
-    finalScoreElement.style.display = 'block';
-    finalScoreElement.innerHTML = `
-        <h2>Final Score</h2>
-        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-        <p>Your score: ${percentage}%</p>
+    lessonContent.innerHTML = `
+        <h2>Quiz Completed!</h2>
+        <p>Your Score: ${percentage}%</p>
+        <button id="retry-quiz">Retry Quiz</button>
         <button id="continue-button">Continue</button>
     `;
 
-    document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    });
-
-    recordTestResults();
+    // Add event listeners
+    document.getElementById("retry-quiz").addEventListener("click", restartQuiz);
+    document.getElementById("continue-button").addEventListener("click", continueToProfile);
 }
+
+function continueToProfile() {
+    window.location.href = "https://www.brainjelli.com/user-profile.html";
+}
+
 
 
 

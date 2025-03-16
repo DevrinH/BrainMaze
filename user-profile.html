@@ -185,13 +185,19 @@
                 <div class="satdesc">
                     <p class="pbungee">Algebra Lesson 1</p>
                     <p>Algebra Lessons</p>
-                    <p id="score-display">Loading...</p>
-                      <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            let quizPercentage = localStorage.getItem("quizPercentage") || "0";
-                            document.getElementById("score-display").textContent = `Your Score: ${quizPercentage}%`;
+                    <div id="final-score" style="display: none;"></div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            let finalScore = localStorage.getItem("finalScore");
+                    
+                            if (finalScore !== null) {
+                                document.getElementById("final-score").style.display = "block";
+                                document.getElementById("final-score").innerHTML = `<h2>Final Score: ${finalScore}%</h2>`;
+                            }
                         });
                     </script>
+                    
 
       
                 </div>
