@@ -250,7 +250,11 @@ function showFinalScore() {
         <h2>Final Score</h2>
         <p>You answered ${correctAnswers} out of ${totalQuestions} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
+        <button id="continue-button">Continue</button>
     `;
+    document.getElementById('continue-button').addEventListener('click', () => {
+        window.location.href = 'https://www.brainjelli.com/user-profile.html';
+    });
     recordTestResults();
 }
 
