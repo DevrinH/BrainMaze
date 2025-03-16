@@ -99,9 +99,11 @@ const mathQuestions = [
     }
 ];
 
-let categoryStats = {
+// Load category stats from localStorage or initialize
+let categoryStats = JSON.parse(localStorage.getItem("categoryStats")) || {
     algebra: { correct: 0, incorrect: 0 }
 };
+
 
 let currentQuestionIndex = 0;
 
@@ -244,6 +246,23 @@ function checkQuizAnswer(question) {
     }
 }
 
+// Function to record answers and update category stats
+function recordAnswer(category, isCorrect) {
+    if (!categoryStats[category]) {
+        categoryStats[category] = { correct: 0, incorrect: 0 };
+    }
+
+    if (isCorrect) {
+        categoryStats[category].correct++;
+    } else {
+        categoryStats[category].incorrect++;
+    }
+
+    // Save updated stats to localStorage
+    localStorage.setItem("categoryStats", JSON.stringify(categoryStats));
+}
+
+// Function to display final score
 function showFinalScore() {
     let totalCorrect = 0;
     let totalAttempted = 0;
@@ -254,11 +273,11 @@ function showFinalScore() {
     }
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    
+
     // Save percentage to localStorage
     localStorage.setItem("quizPercentage", percentage);
 
-    // Display score on the same page
+    // Display score and buttons
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = `
         <h2>Quiz Completed!</h2>
@@ -267,17 +286,21 @@ function showFinalScore() {
         <button id="continue-button">Continue</button>
     `;
 
-    // Add event listeners after the elements are inserted
+    // Add event listeners for buttons
     document.getElementById("retry-quiz").addEventListener("click", restartQuiz);
     document.getElementById("continue-button").addEventListener("click", continueToProfile);
 }
 
+// Function to restart quiz
 function restartQuiz() {
+    // Reset only the quizPercentage but keep category stats
     localStorage.removeItem("quizPercentage");
-    categoryStats = { algebra: { correct: 0, incorrect: 0 } }; // Reset stats
+
+    // Reset the UI to show the quiz again
     showQuiz();
 }
 
+// Function to continue to profile page
 function continueToProfile() {
     window.location.href = "https://www.brainjelli.com/user-profile.html";
 }
