@@ -352,29 +352,19 @@ function updateDisplayedPercentage(categoryStats) {
 }
 
 function showScore(correct, incorrect) {
-    // Fetch previous results from localStorage
-    let storedResults = localStorage.getItem("testResults");
-    let results = storedResults ? JSON.parse(storedResults) : {};
+    // Store only the latest quiz results
+    let lastScore = { correct, incorrect };
 
-    // Validate stored results
-    if (typeof results !== "object" || Array.isArray(results)) {
-        console.error("Error: results should be an object but got", results);
-        results = {};
-    }
-
-    // Update algebra results
-    results.algebra = { correct, incorrect };
-
-    // Save updated results to localStorage
-    localStorage.setItem("testResults", JSON.stringify(results));
+    // Save last score to localStorage
+    localStorage.setItem("lastQuizScore", JSON.stringify(lastScore));
 
     // Calculate percentage
     const total = correct + incorrect;
     const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
     // Update UI if element exists
-    const percentageElement = document.getElementById("algebra-percentage");
+    const percentageElement = document.getElementById("quiz-percentage");
     if (percentageElement) {
-        percentageElement.textContent = `Correct Answers: ${percentage}%`;
+        percentageElement.textContent = `Correct Answers: ${percentage}% (${correct}/${total})`;
     }
 }
