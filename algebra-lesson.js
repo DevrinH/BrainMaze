@@ -258,9 +258,28 @@ function showFinalScore() {
     // Save percentage to localStorage
     localStorage.setItem("quizPercentage", percentage);
 
-    // Redirect to the results page
-    window.location.href = "user-profile.html";
+    // Display score on the same page with Retry & Continue buttons
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = `
+        <h2>Quiz Completed!</h2>
+        <p>Your Score: ${percentage}%</p>
+        <button onclick="restartQuiz()">Retry Quiz</button>
+        <button onclick="continueToProfile()">Continue</button>
+    `;
 }
+
+// Function to restart the quiz
+function restartQuiz() {
+    localStorage.removeItem("quizPercentage");
+    categoryStats = { algebra: { correct: 0, incorrect: 0 } }; // Reset stats
+    showQuiz();
+}
+
+// Function to continue to the user profile page
+function continueToProfile() {
+    window.location.href = "https://www.brainjelli.com/user-profile.html";
+}
+
 
 
 
@@ -309,25 +328,23 @@ function updateDisplayedPercentage(categoryStats) {
     }
 }
 
-function showFinalScore() {
-    let totalCorrect = 0;
-    let totalAttempted = 0;
+function showScore() {
+    // Fetch previous results from localStorage
+    let storedResults = localStorage.getItem("testResults");
+    let results = storedResults ? JSON.parse(storedResults) : {};
 
-    for (let category in categoryStats) {
-        totalCorrect += categoryStats[category].correct;
-        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
+    // Validate stored results
+    if (typeof results !== "object" || Array.isArray(results)) {
+        console.error("Error: results should be an object but got", results);
+        results = {};
     }
 
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    
-    // Save percentage to localStorage
-    localStorage.setItem("quizPercentage", percentage);
+    const algebraResults = results.algebra || { correct: 0, incorrect: 0 };
+    const total = algebraResults.correct + algebraResults.incorrect;
+    const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
 
-    // Display score on the same page
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <h2>Quiz Completed!</h2>
-        <p>Your Score: ${percentage}%</p>
-        <button onclick="restartQuiz()">Retry Quiz</button>
-    `;
+    const percentageElement = document.getElementById("algebra-percentage");
+    if (percentageElement) {
+        percentageElement.textContent = `Correct Answers: ${percentage}%`;
+    }
 }
