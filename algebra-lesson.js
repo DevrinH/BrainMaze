@@ -309,23 +309,25 @@ function updateDisplayedPercentage(categoryStats) {
     }
 }
 
-function showScore() {
-    // Fetch previous results from localStorage
-    let storedResults = localStorage.getItem("testResults");
-    let results = storedResults ? JSON.parse(storedResults) : {};
+function showFinalScore() {
+    let totalCorrect = 0;
+    let totalAttempted = 0;
 
-    // Validate stored results
-    if (typeof results !== "object" || Array.isArray(results)) {
-        console.error("Error: results should be an object but got", results);
-        results = {};
+    for (let category in categoryStats) {
+        totalCorrect += categoryStats[category].correct;
+        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
     }
 
-    const algebraResults = results.algebra || { correct: 0, incorrect: 0 };
-    const total = algebraResults.correct + algebraResults.incorrect;
-    const percentage = total > 0 ? Math.round((algebraResults.correct / total) * 100) : 0;
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    
+    // Save percentage to localStorage
+    localStorage.setItem("quizPercentage", percentage);
 
-    const percentageElement = document.getElementById("algebra-percentage");
-    if (percentageElement) {
-        percentageElement.textContent = `Correct Answers: ${percentage}%`;
-    }
+    // Display score on the same page
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = `
+        <h2>Quiz Completed!</h2>
+        <p>Your Score: ${percentage}%</p>
+        <button onclick="restartQuiz()">Retry Quiz</button>
+    `;
 }
