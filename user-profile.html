@@ -293,23 +293,7 @@ function showAlgebraLessons() {
            <script src="scoreChart.js"></script>
            
    
-    <div class="progress-container"></div>
-        <h2>SAT Category Progress</h2>
-        <br/>
-        <div class="progress-item" data-category="command-of-evidence">
-            <div class="progress-label">Command of Evidence</div>
-            <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
-            <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="central-ideas">
-            <div class="progress-label">Central Ideas and Detail</div>
-            <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
-            <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
-        </div>
-
-    
-
-
+    <div class="progress-container">
     <div class="progress-item" data-category="inference">
     <div class="progress-label">Inferences</div>
     <div class="progress-bar"><div class="progress-fill" id="inference-bar"></div></div>
@@ -596,12 +580,6 @@ function showAlgebraLessons() {
             document.getElementById('tests-container').classList.add('hidden');
             document.getElementById('lessons-container').classList.remove('hidden');
         }
-
-        function showAlgebraLessons() {
-            document.getElementById('tests-container').classList.add('hidden');
-            document.getElementById('lessons-container').classList.add('hidden');
-            document.getElementById('lessons-container-algebra').classList.remove('hidden');
-        }
 </script>
     
 
@@ -612,5 +590,27 @@ function showAlgebraLessons() {
 
     <footer>
         <div class="center">
+          <h2>Follow Us On</h2>
+        </div>
+      
+        <div class="social-container">
+            <img src="Twitter.png" height="35px">
+            <img src="Insta.png" height="35px">
+            <img src="Reddit.png" height="35px">
+            <img src="YouTube.png" height="35px">
+            <img src="Tik Tok.png" height="35px">
+        </div>
+      
+        <div class="margin-top">
+            <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
+        </div>
+    </footer>
+
+    <!-- Load SAT Chart JavaScript (Move it here to ensure canvas exists first) -->
+<script src="scoreChart.js" defer></script>
+<script defer src="test-2.js"></script>
+<script src="test-2.js"></script>
+<script src="algebra-lessons.js"></script>
+
 </body>
 </html>
