@@ -244,11 +244,6 @@ function checkQuizAnswer(question) {
     }
 }
 
-function restartQuiz() {
-    localStorage.removeItem("finalScore"); 
-    location.reload();
-}
-
 function showFinalScore() {
     let totalCorrect = 0;
     let totalAttempted = 0;
@@ -259,68 +254,58 @@ function showFinalScore() {
     }
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-
-    // Save the final score in localStorage
-    localStorage.setItem("finalScore", percentage);
-
-    // Display score and buttons
+    
+    const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <h2>Quiz Completed!</h2>
-        <p>Your Score: ${percentage}%</p>
-        <button id="retry-quiz">Retry Quiz</button>
+    lessonContent.innerHTML = ''; // Clear lesson content
+    finalScoreElement.style.display = 'block';
+    finalScoreElement.innerHTML = `
+        <h2>Final Score</h2>
+        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+        <p>Your score: ${percentage}%</p>
         <button id="continue-button">Continue</button>
     `;
 
-    // Add event listeners
-    document.getElementById("retry-quiz").addEventListener("click", restartQuiz);
-    document.getElementById("continue-button").addEventListener("click", continueToProfile);
+    document.getElementById('continue-button').addEventListener('click', () => {
+        window.location.href = 'https://www.brainjelli.com/user-profile.html';
+    });
+
+    recordTestResults();
 }
-
-function continueToProfile() {
-    window.location.href = "https://www.brainjelli.com/user-profile.html";
-}
-
-
-
-function continueToProfile() {
-    window.location.href = "https://www.brainjelli.com/user-profile.html";
-}
-
 
 
 
     // This function is no longer needed as we are grading each question individually
-    function gradeQuiz() {
-        console.log("Grading quiz");
-        let score = 0;
-        let totalQuestions = mathQuestions.length;
-    
-        mathQuestions.forEach((question, index) => {
-            const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
-            if (!categoryStats[question.category]) {
-                categoryStats[question.category] = { correct: 0, incorrect: 0 };
-            }
-    
-            if (selectedAnswer) {
-                if (selectedAnswer.value === "true") {
-                    score++;
-                    categoryStats[question.category].correct++;
-                } else {
-                    categoryStats[question.category].incorrect++;
-                }
+function gradeQuiz() {
+    console.log("Grading quiz");
+    let score = 0;
+    let totalQuestions = mathQuestions.length;
+
+    mathQuestions.forEach((question, index) => {
+        const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
+        if (!categoryStats[question.category]) {
+            categoryStats[question.category] = { correct: 0, incorrect: 0 };
+        }
+
+        if (selectedAnswer) {
+            if (selectedAnswer.value === "true") {
+                score++;
+                categoryStats[question.category].correct++;
             } else {
-                console.log(`No answer selected for question ${index + 1}`);
+                categoryStats[question.category].incorrect++;
             }
-        });
+        } else {
+            console.log(`No answer selected for question ${index + 1}`);
+        }
+    });
+
+    const percentage = Math.round((score / totalQuestions) * 100);
+    console.log(`Quiz score: ${percentage}%`);
     
-        const percentage = Math.round((score / totalQuestions) * 100);
-        console.log(`Quiz score: ${percentage}%`);
-        
-        localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
-        window.location.href = "results.html"; // Redirect to results page
-    }
-    
+    localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
+    window.location.href = "results.html"; // Redirect to results page
+}
+
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
