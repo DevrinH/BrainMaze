@@ -186,28 +186,28 @@
                     <p class="pbungee">Algebra Lesson 1</p>
                     <p>Algebra Lessons</p>
                     <h2>Last Algebra Test Score</h2>
-                    <p id="algebra-last-score">Loading...</p>
-                
+                    <p id="last-quiz-score">Loading...</p>
+
                     <script>
-                        function displayLastScore() {
-                            let storedResults = localStorage.getItem("testResults");
-                            let results = storedResults ? JSON.parse(storedResults) : {};
+                        function displayLastQuizScore() {
+                            let storedScore = localStorage.getItem("lastQuizScore");
+                            let lastScore = storedScore ? JSON.parse(storedScore) : null;
                 
-                            if (results.algebra) {
-                                let correct = results.algebra.correct || 0;
-                                let incorrect = results.algebra.incorrect || 0;
+                            if (lastScore) {
+                                let correct = lastScore.correct || 0;
+                                let incorrect = lastScore.incorrect || 0;
                                 let total = correct + incorrect;
                                 let percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
                 
-                                document.getElementById("algebra-last-score").textContent =
+                                document.getElementById("last-quiz-score").textContent =
                                     `Correct Answers: ${percentage}% (${correct}/${total})`;
                             } else {
-                                document.getElementById("algebra-last-score").textContent =
-                                    "No previous test results found.";
+                                document.getElementById("last-quiz-score").textContent =
+                                    "No quiz results found.";
                             }
                         }
                 
-                        displayLastScore();
+                        displayLastQuizScore();
                     </script>
                     
 
