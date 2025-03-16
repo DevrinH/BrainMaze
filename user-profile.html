@@ -184,11 +184,10 @@
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Algebra Lesson 1</p>
-                    <p>Algebra Lessons  <p id="percentage">Loading...</p></p>    <script>
+                    <p>Algebra Lessons  <p id="score-display">Loading...</p></p>        <script>
                         document.addEventListener("DOMContentLoaded", function() {
-                            let percentage = localStorage.getItem("quizPercentage");
-                            document.getElementById("percentage").innerText = 
-                                percentage ? `Your Last Score: ${percentage}%` : "No results found.";
+                            let quizPercentage = localStorage.getItem("quizPercentage") || "0";
+                            document.getElementById("score-display").textContent = `Your Score: ${quizPercentage}%`;
                         });
                     </script>
 
