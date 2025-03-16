@@ -245,24 +245,34 @@ function checkQuizAnswer(question) {
 }
 
 function showFinalScore() {
-    const totalQuestions = mathQuestions.length;
-    const correctAnswers = categoryStats.algebra.correct;
-    const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+    let totalCorrect = 0;
+    let totalAttempted = 0;
+
+    for (let category in categoryStats) {
+        totalCorrect += categoryStats[category].correct;
+        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
+    }
+
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    
     const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = ''; // Clear the lesson content
+    lessonContent.innerHTML = ''; // Clear lesson content
     finalScoreElement.style.display = 'block';
     finalScoreElement.innerHTML = `
         <h2>Final Score</h2>
-        <p>You answered ${correctAnswers} out of ${totalQuestions} questions correctly.</p>
+        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
         <button id="continue-button">Continue</button>
     `;
+
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     });
+
     recordTestResults();
 }
+
 
 function gradeQuiz() {
     // This function is no longer needed as we are grading each question individually
