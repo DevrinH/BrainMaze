@@ -255,57 +255,15 @@ function showFinalScore() {
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     
-    const finalScoreElement = document.getElementById('final-score');
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = ''; // Clear lesson content
-    finalScoreElement.style.display = 'block';
-    finalScoreElement.innerHTML = `
-        <h2>Final Score</h2>
-        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-        <p>Your score: ${percentage}%</p>
-        <button id="continue-button">Continue</button>
-    `;
+    // Save percentage to localStorage
+    localStorage.setItem("quizPercentage", percentage);
 
-    document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    });
-
-    recordTestResults();
+    // Redirect to the results page
+    window.location.href = "quiz-results.html";
 }
 
 
 
-    // This function is no longer needed as we are grading each question individually
-    function gradeQuiz() {
-        console.log("Grading quiz");
-        let score = 0;
-        let totalQuestions = mathQuestions.length;
-    
-        mathQuestions.forEach((question, index) => {
-            const selectedAnswer = document.querySelector(`input[name="q${index}"]:checked`);
-            if (!categoryStats[question.category]) {
-                categoryStats[question.category] = { correct: 0, incorrect: 0 };
-            }
-    
-            if (selectedAnswer) {
-                if (selectedAnswer.value === "true") {
-                    score++;
-                    categoryStats[question.category].correct++;
-                } else {
-                    categoryStats[question.category].incorrect++;
-                }
-            } else {
-                console.log(`No answer selected for question ${index + 1}`);
-            }
-        });
-    
-        const percentage = Math.round((score / totalQuestions) * 100);
-        console.log(`Quiz score: ${percentage}%`);
-        
-        localStorage.setItem("quizPercentage", percentage); // Store percentage in localStorage
-        window.location.href = "results.html"; // Redirect to results page
-    }
-    
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
