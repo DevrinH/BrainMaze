@@ -234,7 +234,11 @@ function checkQuizAnswer(question) {
             categoryStats[question.category].incorrect++;
         }
         currentQuestionIndex++;
-        showNextQuizQuestion();
+        if (currentQuestionIndex < mathQuestions.length) {
+            showNextQuizQuestion();
+        } else {
+            showFinalScore();
+        }
     } else {
         alert('Please select an answer.');
     }
@@ -245,6 +249,8 @@ function showFinalScore() {
     const correctAnswers = categoryStats.algebra.correct;
     const percentage = Math.round((correctAnswers / totalQuestions) * 100);
     const finalScoreElement = document.getElementById('final-score');
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = ''; // Clear the lesson content
     finalScoreElement.style.display = 'block';
     finalScoreElement.innerHTML = `
         <h2>Final Score</h2>
