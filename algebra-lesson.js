@@ -244,6 +244,20 @@ function checkQuizAnswer(question) {
     }
 }
 
+function logFinalScore(totalCorrect, totalAttempted) {
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    
+    // Store the final score in localStorage
+    localStorage.setItem("finalScore", JSON.stringify({
+        correct: totalCorrect,
+        attempted: totalAttempted,
+        percentage: percentage
+    }));
+
+    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage });
+}
+
+
 function showFinalScore() {
     let totalCorrect = 0;
     let totalAttempted = 0;
@@ -252,6 +266,8 @@ function showFinalScore() {
         totalCorrect += categoryStats[category].correct;
         totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
     }
+
+    logFinalScore(totalCorrect, totalAttempted); // Log the score before redirecting
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     
