@@ -178,43 +178,30 @@
         </div>
 
         <div id="lessons-container-algebra" class="container hidden">
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
+            <div id="lessons-container-algebra" class="container">
+                <div class="seccontainer">
+                    <div class="satplacement">
+                        <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=1'">START</button>
+                    </div>
+                    <div class="satdesc">
+                        <p class="pbungee">Algebra Lesson 1: Solving Linear Equations</p>
+                        <p id="score-summary-1"></p>
+                    </div>
                 </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 1</p>
-                    <p id="score-summary"></p>
-
-                    <script>
- document.addEventListener("DOMContentLoaded", function() {
-            const finalScore = JSON.parse(localStorage.getItem("finalScore"));
-
-            if (finalScore) {
-                document.getElementById("score-summary").innerHTML = `
-                    You answered <strong>${finalScore.correct}</strong> out of <strong>${finalScore.attempted}</strong> questions correctly last time.<br>
-                    Your score: <strong>${finalScore.percentage}%</strong>
-                `;
-            } else {
-                document.getElementById("score-summary").textContent = "No score found. Please complete a quiz first.";
-            }
-        });
-                    </script>
-                    
-
-      
+            
+                <div class="seccontainer">
+                    <div class="satplacement">
+                        <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=2'">START</button>
+                    </div>
+                    <div class="satdesc">
+                        <p class="pbungee">Algebra Lesson 2: Solving Systems of Equations</p>
+                        <p id="score-summary-2"></p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 2</p>
-                    <p>Algebra Lessons</p>
-                </div>
-            </div>
+            
+                <div class="seccontainer">
+                    <div class="satplacement">
+                        <button class="button-29" role="button" onclick="location.href
 
             <div class="seccontainer">
                 <div class="satplacement">
