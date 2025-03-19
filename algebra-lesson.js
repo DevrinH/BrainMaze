@@ -1022,7 +1022,8 @@ function checkQuizAnswer(question, quizQuestions) {
         if (currentQuestionIndex < quizQuestions.length) {
             showNextQuizQuestion(quizQuestions);
         } else {
-            showFinalScore();
+            console.log("Quiz complete, calling showFinalScore");
+            showFinalScore(); // Ensure this runs
         }
     } else {
         alert('Please select an answer.');
@@ -1152,16 +1153,6 @@ showScore = function() {
         }
     }
 };
-// Function to save the score for a specific lesson
-function saveScore(lessonId, score) {
-    localStorage.setItem(`lessonScore-${lessonId}`, score);
-    console.log(`Saved score ${score} for lesson ${lessonId}`);
-}
-
-// Function to retrieve the score for a specific lesson
-function getScore(lessonId) {
-    return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
-}
 
 // Function to calculate and save score after quiz (add this to integrate with quiz logic)
 function endQuiz(correctAnswers, totalQuestions) {
@@ -1191,16 +1182,48 @@ function checkAnswer(selectedAnswer, correctAnswer) {
 
 // Hook into showFinalScore to save the score
 const originalShowFinalScore = showFinalScore;
-showFinalScore = function() {
-    originalShowFinalScore(); // Call original logic
-    
+function showFinalScore() {
+    console.log("Running showFinalScore for lesson:", currentLesson);
     let totalCorrect = 0;
     let totalAttempted = 0;
+
     for (let category in categoryStats) {
         totalCorrect += categoryStats[category].correct;
         totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
     }
+
+    logFinalScore(totalCorrect, totalAttempted);
+
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    
+    const finalScoreElement = document.getElementById('final-score');
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = '';
+    finalScoreElement.style.display = 'block';
+    finalScoreElement.innerHTML = `
+        <h2>Final Score</h2>
+        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+        <p>Your score: ${percentage}%</p>
+        <button id="continue-button">Continue</button>
+    `;
+
+    document.getElementById('continue-button').addEventListener('click', () => {
+        window.location.href = 'https://www.brainjelli.com/user-profile.html';
+    });
+
+    recordTestResults();
+
+    // Save the score
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    saveScore(currentLesson, score); // Save score when quiz ends
-};
+    console.log("Saving score:", score);
+    saveScore(currentLesson, score);
+}
+
+function saveScore(lessonId, score) {
+    localStorage.setItem(`lessonScore-${lessonId}`, score);
+    console.log(`Saved score ${score} for lesson ${lessonId}`);
+}
+
+function getScore(lessonId) {
+    return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
+}
