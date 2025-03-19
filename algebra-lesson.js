@@ -872,15 +872,30 @@ let currentQuestionIndex = 0;
 let currentLesson = 1;
 
 function startLesson() {
+    console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
-    startLessonButton.style.display = 'none';
-    showExample();
+    if (startLessonButton) {
+        startLessonButton.style.display = 'none';
+        showExample();
+    } else {
+        console.error("Start lesson button not found!");
+    }
 }
 
 function showExample() {
+    console.log("Showing example for lesson:", currentLesson);
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = lessons[currentLesson].examples[0].content;
-    document.getElementById('next-example').addEventListener('click', showNextExample);
+    if (lessonContent && lessons && lessons[currentLesson] && lessons[currentLesson].examples[0]) {
+        lessonContent.innerHTML = lessons[currentLesson].examples[0].content;
+        const nextExampleBtn = document.getElementById('next-example');
+        if (nextExampleBtn) {
+            nextExampleBtn.addEventListener('click', showNextExample);
+        } else {
+            console.error("Next example button not found!");
+        }
+    } else {
+        console.error("Lesson content or lessons data missing!");
+    }
 }
 
 function showNextExample() {
@@ -904,7 +919,6 @@ function askQuestion() {
 function checkAnswer1() {
     const answer = document.getElementById('answer1').value;
     const correctAnswer = lessons[currentLesson].questions[0].answer;
-    
     if (answer.toString().trim() === correctAnswer.toString().trim()) {
         alert('Correct!');
         categoryStats.algebra.correct++;
@@ -936,7 +950,6 @@ function askNextQuestion() {
 function checkAnswer2() {
     const answer = document.getElementById('answer2').value;
     const correctAnswer = lessons[currentLesson].questions[1].answer;
-    
     if (answer.toString().trim() === correctAnswer.toString().trim()) {
         alert('Correct!');
         categoryStats.algebra.correct++;
@@ -947,44 +960,21 @@ function checkAnswer2() {
     }
 }
 
-
-// Update the showQuiz function
 function showQuiz() {
     currentQuestionIndex = 0;
     let quizQuestions;
     switch (parseInt(currentLesson)) {
-        case 1:
-            quizQuestions = mathQuestions;
-            break;
-        case 2:
-            quizQuestions = systemsQuestions;
-            break;
-        case 3:
-            quizQuestions = quadraticQuestions;
-            break;
-        case 4:
-            quizQuestions = expressionsPolynomialsQuestions;
-            break;
-        case 5:
-            quizQuestions = rationalExpressionsQuestions;
-            break;
-        case 6:
-            quizQuestions = exponentsRadicalsQuestions;
-            break;
-        case 7:
-            quizQuestions = absoluteValueInequalitiesQuestions;
-            break;
-        case 8:
-            quizQuestions = functionsGraphsQuestions;
-            break;
-        case 9:
-            quizQuestions = exponentialLogarithmicQuestions;
-            break;
-        case 10:
-            quizQuestions = mathematicalModelingQuestions;
-            break;
-        default:
-            quizQuestions = mathQuestions;
+        case 1: quizQuestions = mathQuestions; break;
+        case 2: quizQuestions = systemsQuestions; break;
+        case 3: quizQuestions = quadraticQuestions; break;
+        case 4: quizQuestions = expressionsPolynomialsQuestions; break;
+        case 5: quizQuestions = rationalExpressionsQuestions; break;
+        case 6: quizQuestions = exponentsRadicalsQuestions; break;
+        case 7: quizQuestions = absoluteValueInequalitiesQuestions; break;
+        case 8: quizQuestions = functionsGraphsQuestions; break;
+        case 9: quizQuestions = exponentialLogarithmicQuestions; break;
+        case 10: quizQuestions = mathematicalModelingQuestions; break;
+        default: quizQuestions = mathQuestions;
     }
     showNextQuizQuestion(quizQuestions);
 }
@@ -1023,7 +1013,7 @@ function checkQuizAnswer(question, quizQuestions) {
             showNextQuizQuestion(quizQuestions);
         } else {
             console.log("Quiz complete, calling showFinalScore");
-            showFinalScore(); // Ensure this runs
+            showFinalScore();
         }
     } else {
         alert('Please select an answer.');
@@ -1032,19 +1022,17 @@ function checkQuizAnswer(question, quizQuestions) {
 
 function logFinalScore(totalCorrect, totalAttempted) {
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    
-    // Store the final score in localStorage
     localStorage.setItem("finalScore", JSON.stringify({
         correct: totalCorrect,
         attempted: totalAttempted,
         percentage: percentage,
         lesson: currentLesson
     }));
-
     console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
 }
 
 function showFinalScore() {
+    console.log("Running showFinalScore for lesson:", currentLesson);
     let totalCorrect = 0;
     let totalAttempted = 0;
 
@@ -1053,13 +1041,16 @@ function showFinalScore() {
         totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
     }
 
-    logFinalScore(totalCorrect, totalAttempted); // Log the score before redirecting
+    logFinalScore(totalCorrect, totalAttempted);
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    
+    const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
+    console.log("Saving score:", score);
+    saveScore(currentLesson, score);
+
     const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = ''; // Clear lesson content
+    lessonContent.innerHTML = '';
     finalScoreElement.style.display = 'block';
     finalScoreElement.innerHTML = `
         <h2>Final Score</h2>
@@ -1079,144 +1070,17 @@ function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
-
-    console.log("Previous testResults from localStorage:", results);
-
-    if (typeof results !== "object" || Array.isArray(results)) {
-        console.error("Error: results should be an object but got", results);
-        results = {};
-    }
-
     for (let category in categoryStats) {
-        if (!results[category]) {
-            results[category] = { correct: 0, incorrect: 0 };
-        }
-        console.log(`Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
+        if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
-        console.log(`After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
     }
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
-
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
-}
-
-function updateDisplayedPercentage(categoryStats) {
-    console.log("Updating displayed percentages");
-    let percentageElement = document.getElementById("algebra-percentage");
-    if (percentageElement) {
-        let correct = categoryStats["algebra"]?.correct || 0;
-        let incorrect = categoryStats["algebra"]?.incorrect || 0;
-        let total = correct + incorrect;
-        let percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-        percentageElement.innerText = `Correct Answers: ${percentage}%`;
-    } else {
-        console.warn("Percentage element not found.");
-    }
-}
-
-function showScore() {
-    const finalScore = JSON.parse(localStorage.getItem("finalScore"));
-    if (!finalScore) return;
-
-    const correct = finalScore.correct || 0;
-    const attempted = finalScore.attempted || 0;
-    const percentage = finalScore.percentage || 0;
-
-    // Update UI if element exists
-    const percentageElement = document.getElementById("quiz-percentage");
-    if (percentageElement) {
-        percentageElement.textContent = `Correct Answers: ${percentage}% (${correct}/${attempted})`;
-    }
-}
-
-// Enhance the existing showScore function to update score summaries for all lessons
-const originalShowScore = showScore; // Preserve the original function if it has other logic
-showScore = function() {
-    // Call the original showScore function if it does something else
-    if (typeof originalShowScore === 'function') {
-        originalShowScore();
-    }
-    
-    // Update score summaries for lessons 1 through 10
-    for (let i = 1; i <= 10; i++) {
-        const scoreElement = document.getElementById(`score-summary-${i}`);
-        if (scoreElement) {
-            const score = getScore(i);
-            scoreElement.textContent = `Last Score: ${score}`;
-        } else {
-            console.warn(`Score summary element for lesson ${i} not found`);
-        }
-    }
-};
-
-// Function to calculate and save score after quiz (add this to integrate with quiz logic)
-function endQuiz(correctAnswers, totalQuestions) {
-    const score = `${correctAnswers}/${totalQuestions} (${Math.round((correctAnswers / totalQuestions) * 100)}%)`;
-    saveScore(currentLesson, score);
-    showScore(); // Update the display immediately after saving
-}
-
-// Example integration with quiz logic (add this if not already present)
-// Assuming you have a way to track correct answers in your quiz
-let correctAnswers = 0; // Add this at the top of your script if not already defined
-
-// Add this function if you don't already have a way to check answers
-function checkAnswer(selectedAnswer, correctAnswer) {
-    if (selectedAnswer === correctAnswer) {
-        correctAnswers++;
-    }
-    // Move to next question or end quiz
-    if (currentQuestionIndex + 1 < quizQuestions.length) {
-        currentQuestionIndex++;
-        showNextQuizQuestion(quizQuestions);
-    } else {
-        endQuiz(correctAnswers, quizQuestions.length);
-        correctAnswers = 0; // Reset for next quiz
-    }
-}
-
-// Hook into showFinalScore to save the score
-const originalShowFinalScore = showFinalScore;
-function showFinalScore() {
-    console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = 0;
-    let totalAttempted = 0;
-
-    for (let category in categoryStats) {
-        totalCorrect += categoryStats[category].correct;
-        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
-    }
-
-    logFinalScore(totalCorrect, totalAttempted);
-
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    
-    const finalScoreElement = document.getElementById('final-score');
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = '';
-    finalScoreElement.style.display = 'block';
-    finalScoreElement.innerHTML = `
-        <h2>Final Score</h2>
-        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-        <p>Your score: ${percentage}%</p>
-        <button id="continue-button">Continue</button>
-    `;
-
-    document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    });
-
-    recordTestResults();
-
-    // Save the score
-    const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    console.log("Saving score:", score);
-    saveScore(currentLesson, score);
 }
 
 function saveScore(lessonId, score) {
@@ -1227,3 +1091,19 @@ function saveScore(lessonId, score) {
 function getScore(lessonId) {
     return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
 }
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Page loaded, initializing lesson:", currentLesson);
+    const urlParams = new URLSearchParams(window.location.search);
+    currentLesson = urlParams.get('lesson') || 1;
+    console.log("Set currentLesson to:", currentLesson);
+
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start lesson button event listener added");
+    } else {
+        console.error("Start lesson button not found on page load!");
+    }
+});
