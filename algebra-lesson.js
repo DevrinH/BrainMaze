@@ -1188,3 +1188,19 @@ function checkAnswer(selectedAnswer, correctAnswer) {
         correctAnswers = 0; // Reset for next quiz
     }
 }
+
+// Hook into showFinalScore to save the score
+const originalShowFinalScore = showFinalScore;
+showFinalScore = function() {
+    originalShowFinalScore(); // Call original logic
+    
+    let totalCorrect = 0;
+    let totalAttempted = 0;
+    for (let category in categoryStats) {
+        totalCorrect += categoryStats[category].correct;
+        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
+    }
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
+    saveScore(currentLesson, score); // Save score when quiz ends
+};
