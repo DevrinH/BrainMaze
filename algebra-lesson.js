@@ -209,7 +209,213 @@ const lessons = {
                 <button id="next-question">Next Question</button>
             `
         }
+    },
+
+
+    // Existing lessons 1, 2, and 3 remain unchanged...
+    // Add new lessons starting with ID 4
+    4: {
+        title: "Expressions and Polynomials",
+        examples: [
+            {
+                title: "Example: Simplifying Expressions",
+                content: `
+                    <h2>Example: Simplifying Expressions</h2>
+                    <p>Simplify the expression: 3x + 5x - 2 + 4</p>
+                    <p>Step 1: Combine like terms (x terms): 3x + 5x = 8x</p>
+                    <p>Step 2: Combine constants: -2 + 4 = 2</p>
+                    <p>Step 3: Write the simplified expression: 8x + 2</p>
+                    <button id="next-example">Next Example</button>
+                `
+            },
+            {
+                title: "Example: Adding Polynomials",
+                content: `
+                    <h2>Example: Adding Polynomials</h2>
+                    <p>Add the polynomials: (2x² + 3x - 1) + (x² - 4x + 5)</p>
+                    <p>Step 1: Combine like terms: (2x² + x²) + (3x - 4x) + (-1 + 5)</p>
+                    <p>Step 2: Simplify: 3x² - x + 4</p>
+                    <button id="next-question">Next Question</button>
+                `
+            }
+        ],
+        questions: [
+            {
+                title: "Question 1",
+                question: "Simplify: 4x + 2x - 7 + 3",
+                answer: "6x - 4",
+                explanation: "Combine like terms: 4x + 2x = 6x, and -7 + 3 = -4. So, 6x - 4."
+            },
+            {
+                title: "Question 2",
+                question: "Add the polynomials: (3x² - x + 2) + (2x² + 5x - 3)",
+                answer: "5x² + 4x - 1",
+                explanation: "Combine like terms: 3x² + 2x² = 5x², -x + 5x = 4x, 2 - 3 = -1. So, 5x² + 4x - 1."
+            }
+        ],
+        additionalExample: {
+            title: "Example: Multiplying Polynomials",
+            content: `
+                <h2>Example: Multiplying Polynomials</h2>
+                <p>Multiply: (x + 2)(x - 3)</p>
+                <p>Step 1: Use FOIL: x·x + x·(-3) + 2·x + 2·(-3)</p>
+                <p>Step 2: Simplify: x² - 3x + 2x - 6</p>
+                <p>Step 3: Combine like terms: x² - x - 6</p>
+                <button id="next-question">Next Question</button>
+            `
+        }
+    },
+    5: {
+        title: "Rational Expressions and Equations",
+        examples: [
+            {
+                title: "Example: Simplifying Rational Expressions",
+                content: `
+                    <h2>Example: Simplifying Rational Expressions</h2>
+                    <p>Simplify: (x² - 4) / (x - 2)</p>
+                    <p>Step 1: Factor the numerator: (x - 2)(x + 2) / (x - 2)</p>
+                    <p>Step 2: Cancel common factors (x ≠ 2): x + 2</p>
+                    <button id="next-example">Next Example</button>
+                `
+            },
+            {
+                title: "Example: Solving Rational Equations",
+                content: `
+                    <h2>Example: Solving Rational Equations</h2>
+                    <p>Solve: 3 / (x - 1) = 6</p>
+                    <p>Step 1: Multiply both sides by (x - 1): 3 = 6(x - 1)</p>
+                    <p>Step 2: Simplify: 3 = 6x - 6</p>
+                    <p>Step 3: Solve for x: 9 = 6x, x = 1.5</p>
+                    <button id="next-question">Next Question</button>
+                `
+            }
+        ],
+        questions: [
+            {
+                title: "Question 1",
+                question: "Simplify: (x² - 9) / (x + 3)",
+                answer: "x - 3",
+                explanation: "Factor the numerator: (x - 3)(x + 3) / (x + 3). Cancel (x + 3), so x - 3 (x ≠ -3)."
+            },
+            {
+                title: "Question 2",
+                question: "Solve: 5 / (x + 2) = 10",
+                answer: "0.5",
+                explanation: "Multiply by (x + 2): 5 = 10(x + 2). Simplify: 5 = 10x + 20, -15 = 10x, x = -1.5."
+            }
+        ],
+        additionalExample: {
+            title: "Example: Adding Rational Expressions",
+            content: `
+                <h2>Example: Adding Rational Expressions</h2>
+                <p>Add: 2 / x + 3 / (x + 1)</p>
+                <p>Step 1: Find a common denominator: x(x + 1)</p>
+                <p>Step 2: Rewrite: (2(x + 1)) / (x(x + 1)) + (3x) / (x(x + 1))</p>
+                <p>Step 3: Combine: (2x + 2 + 3x) / (x(x + 1)) = (5x + 2) / (x(x + 1))</p>
+                <button id="next-question">Next Question</button>
+            `
+        }
+    },
+    6: {
+        title: "Exponents and Radicals",
+        examples: [
+            {
+                title: "Example: Simplifying Exponents",
+                content: `
+                    <h2>Example: Simplifying Exponents</h2>
+                    <p>Simplify: x⁵ · x³</p>
+                    <p>Step 1: Add the exponents (same base): x⁵⁺³</p>
+                    <p>Step 2: Simplify: x⁸</p>
+                    <button id="next-example">Next Example</button>
+                `
+            },
+            {
+                title: "Example: Simplifying Radicals",
+                content: `
+                    <h2>Example: Simplifying Radicals</h2>
+                    <p>Simplify: √50</p>
+                    <p>Step 1: Factor: √(25 · 2)</p>
+                    <p>Step 2: Take the square root of 25: 5√2</p>
+                    <button id="next-question">Next Question</button>
+                `
+            }
+        ],
+        questions: [
+            {
+                title: "Question 1",
+                question: "Simplify: x⁴ / x²",
+                answer: "x²",
+                explanation: "Subtract exponents: x⁴⁻² = x²."
+            },
+            {
+                title: "Question 2",
+                question: "Simplify: √72",
+                answer: "6√2",
+                explanation: "Factor: √(36 · 2) = 6√2."
+            }
+        ],
+        additionalExample: {
+            title: "Example: Rational Exponents",
+            content: `
+                <h2>Example: Rational Exponents</h2>
+                <p>Simplify: 16^(1/2)</p>
+                <p>Step 1: Recognize 1/2 as a square root: √16</p>
+                <p>Step 2: Simplify: 4</p>
+                <button id="next-question">Next Question</button>
+            `
+        }
+    },
+    7: {
+        title: "Absolute Value and Inequalities",
+        examples: [
+            {
+                title: "Example: Solving Absolute Value Equations",
+                content: `
+                    <h2>Example: Solving Absolute Value Equations</h2>
+                    <p>Solve: |x - 3| = 5</p>
+                    <p>Step 1: Set up two equations: x - 3 = 5 or x - 3 = -5</p>
+                    <p>Step 2: Solve: x = 8 or x = -2</p>
+                    <button id="next-example">Next Example</button>
+                `
+            },
+            {
+                title: "Example: Solving Inequalities",
+                content: `
+                    <h2>Example: Solving Inequalities</h2>
+                    <p>Solve: 2x + 1 < 7</p>
+                    <p>Step 1: Subtract 1: 2x < 6</p>
+                    <p>Step 2: Divide by 2: x < 3</p>
+                    <button id="next-question">Next Question</button>
+                `
+            }
+        ],
+        questions: [
+            {
+                title: "Question 1",
+                question: "Solve: |x + 2| = 4",
+                answer: "2,-6",
+                explanation: "x + 2 = 4 or x + 2 = -4. So, x = 2 or x = -6."
+            },
+            {
+                title: "Question 2",
+                question: "Solve: 3x - 4 > 5",
+                answer: "x > 3",
+                explanation: "3x > 9, so x > 3."
+            }
+        ],
+        additionalExample: {
+            title: "Example: Absolute Value Inequalities",
+            content: `
+                <h2>Example: Absolute Value Inequalities</h2>
+                <p>Solve: |x - 1| < 3</p>
+                <p>Step 1: Rewrite as: -3 < x - 1 < 3</p>
+                <p>Step 2: Add 1: -2 < x < 4</p>
+                <button id="next-question">Next Question</button>
+            `
+        }
     }
+    // No comma after the last lesson
+
 };
 
 const mathQuestions = [
@@ -353,6 +559,78 @@ const quadraticQuestions = [
         category: "algebra"
     }
 ];
+// Add new question arrays after quadraticQuestions
+const expressionsPolynomialsQuestions = [
+    {
+        question: "Simplify: 7x - 3x + 2 + 5",
+        answers: [
+            { text: "A) 4x + 7", correct: true },
+            { text: "B) 10x + 7", correct: false },
+            { text: "C) 4x - 3", correct: false },
+            { text: "D) 7x + 2", correct: false }
+        ],
+        explanation: "Combine like terms: 7x - 3x = 4x, 2 + 5 = 7. So, 4x + 7.",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "Multiply: (x + 1)(x + 2)",
+        answers: [
+            { text: "A) x² + 3x + 2", correct: true },
+            { text: "B) x² + 2x + 1", correct: false },
+            { text: "C) x² + x + 2", correct: false },
+            { text: "D) x² + 3x + 1", correct: false }
+        ],
+        explanation: "Use FOIL: x·x + x·2 + 1·x + 1·2 = x² + 2x + x + 2 = x² + 3x + 2.",
+        difficulty: "medium",
+        category: "algebra"
+    }
+];
+
+const rationalExpressionsQuestions = [
+    {
+        question: "Simplify: (x² - 16) / (x + 4)",
+        answers: [
+            { text: "A) x - 4", correct: true },
+            { text: "B) x + 4", correct: false },
+            { text: "C) x² - 4", correct: false },
+            { text: "D) x - 16", correct: false }
+        ],
+        explanation: "Factor: (x - 4)(x + 4) / (x + 4) = x - 4 (x ≠ -4).",
+        difficulty: "medium",
+        category: "algebra"
+    }
+];
+
+const exponentsRadicalsQuestions = [
+    {
+        question: "Simplify: x⁶ · x²",
+        answers: [
+            { text: "A) x⁸", correct: true },
+            { text: "B) x¹²", correct: false },
+            { text: "C) x⁴", correct: false },
+            { text: "D) x³", correct: false }
+        ],
+        explanation: "Add exponents: x⁶⁺² = x⁸.",
+        difficulty: "easy",
+        category: "algebra"
+    }
+];
+
+const absoluteValueInequalitiesQuestions = [
+    {
+        question: "Solve: |x - 2| = 6",
+        answers: [
+            { text: "A) x = 8, x = -4", correct: true },
+            { text: "B) x = 6, x = -6", correct: false },
+            { text: "C) x = 2, x = -2", correct: false },
+            { text: "D) x = 8, x = 4", correct: false }
+        ],
+        explanation: "x - 2 = 6 or x - 2 = -6. So, x = 8 or x = -4.",
+        difficulty: "medium",
+        category: "algebra"
+    }
+];
 
 let categoryStats = {
     algebra: { correct: 0, incorrect: 0 }
@@ -437,10 +715,9 @@ function checkAnswer2() {
     }
 }
 
+// Update showQuiz function
 function showQuiz() {
     currentQuestionIndex = 0;
-    
-    // Select appropriate questions based on the lesson
     let quizQuestions;
     switch (parseInt(currentLesson)) {
         case 1:
@@ -452,10 +729,21 @@ function showQuiz() {
         case 3:
             quizQuestions = quadraticQuestions;
             break;
+        case 4:
+            quizQuestions = expressionsPolynomialsQuestions;
+            break;
+        case 5:
+            quizQuestions = rationalExpressionsQuestions;
+            break;
+        case 6:
+            quizQuestions = exponentsRadicalsQuestions;
+            break;
+        case 7:
+            quizQuestions = absoluteValueInequalitiesQuestions;
+            break;
         default:
             quizQuestions = mathQuestions;
     }
-    
     showNextQuizQuestion(quizQuestions);
 }
 
