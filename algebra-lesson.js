@@ -413,8 +413,162 @@ const lessons = {
                 <button id="next-question">Next Question</button>
             `
         }
-    }
+    },
     // No comma after the last lesson
+    8: {
+        title: "Functions and Graphs",
+        examples: [
+            {
+                title: "Example: Evaluating a Function",
+                content: `
+                    <h2>Example: Evaluating a Function</h2>
+                    <p>Given f(x) = 2x + 3, find f(5).</p>
+                    <p>Step 1: Substitute x = 5: f(5) = 2(5) + 3</p>
+                    <p>Step 2: Simplify: f(5) = 10 + 3 = 13</p>
+                    <button id="next-example">Next Example</button>
+                `
+            },
+            {
+                title: "Example: Graphing a Linear Function",
+                content: `
+                    <h2>Example: Graphing a Linear Function</h2>
+                    <p>Graph y = 3x - 2.</p>
+                    <p>Step 1: Find two points. If x = 0: y = 3(0) - 2 = -2 (point: (0, -2)).</p>
+                    <p>Step 2: If x = 1: y = 3(1) - 2 = 1 (point: (1, 1)).</p>
+                    <p>Step 3: Plot (0, -2) and (1, 1) and draw a straight line through them.</p>
+                    <button id="next-question">Next Question</button>
+                `
+            }
+        ],
+        questions: [
+            {
+                title: "Question 1",
+                question: "If f(x) = x² - 4, what is f(3)?",
+                answer: "5",
+                explanation: "f(3) = 3² - 4 = 9 - 4 = 5."
+            },
+            {
+                title: "Question 2",
+                question: "What is the slope of the line y = -2x + 5?",
+                answer: "-2",
+                explanation: "In y = mx + b, m is the slope. Here, m = -2."
+            }
+        ],
+        additionalExample: {
+            title: "Example: Finding the Domain",
+            content: `
+                <h2>Example: Finding the Domain</h2>
+                <p>Find the domain of f(x) = 1 / (x - 2).</p>
+                <p>Step 1: The function is undefined when the denominator is 0: x - 2 = 0.</p>
+                <p>Step 2: Solve: x = 2.</p>
+                <p>Step 3: Domain is all real numbers except x ≠ 2.</p>
+                <button id="next-question">Next Question</button>
+            `
+        }
+    },
+    9: {
+        title: "Exponential and Logarithmic Functions",
+        examples: [
+            {
+                title: "Example: Simplifying an Exponential Expression",
+                content: `
+                    <h2>Example: Simplifying an Exponential Expression</h2>
+                    <p>Simplify: 2³ · 2⁴.</p>
+                    <p>Step 1: Add exponents (same base): 2³⁺⁴ = 2⁷</p>
+                    <p>Step 2: Calculate: 2⁷ = 128</p>
+                    <button id="next-example">Next Example</button>
+                `
+            },
+            {
+                title: "Example: Solving a Logarithmic Equation",
+                content: `
+                    <h2>Example: Solving a Logarithmic Equation</h2>
+                    <p>Solve: log₂(x) = 3.</p>
+                    <p>Step 1: Rewrite in exponential form: 2³ = x</p>
+                    <p>Step 2: Simplify: x = 8</p>
+                    <button id="next-question">Next Question</button>
+                `
+            }
+        ],
+        questions: [
+            {
+                title: "Question 1",
+                question: "What is 5² · 5³?",
+                answer: "3125",
+                explanation: "5²⁺³ = 5⁵ = 25 · 125 = 3125."
+            },
+            {
+                title: "Question 2",
+                question: "Solve: log₃(9) = x",
+                answer: "2",
+                explanation: "log₃(9) = x means 3ˣ = 9. Since 3² = 9, x = 2."
+            }
+        ],
+        additionalExample: {
+            title: "Example: Exponential Growth",
+            content: `
+                <h2>Example: Exponential Growth</h2>
+                <p>A population grows by 5% annually from 1000. What’s the population after 2 years?</p>
+                <p>Step 1: Use P = P₀(1 + r)ᵗ: P = 1000(1 + 0.05)²</p>
+                <p>Step 2: Simplify: P = 1000(1.05)² = 1000 · 1.1025 = 1102.5</p>
+                <p>Population ≈ 1103 (rounded).</p>
+                <button id="next-question">Next Question</button>
+            `
+        }
+    },
+    10: {
+        title: "Mathematical Modeling and Word Problems",
+        examples: [
+            {
+                title: "Example: Linear Model",
+                content: `
+                    <h2>Example: Linear Model</h2>
+                    <p>A car rental costs $30/day plus $0.20/mile. Write a cost function.</p>
+                    <p>Step 1: Define variables: Let C = cost, m = miles.</p>
+                    <p>Step 2: Model: C = 30 + 0.20m</p>
+                    <button id="next-example">Next Example</button>
+                `
+            },
+            {
+                title: "Example: Solving a Word Problem",
+                content: `
+                    <h2>Example: Solving a Word Problem</h2>
+                    <p>Two numbers sum to 15, and their difference is 3. Find them.</p>
+                    <p>Step 1: Let x and y be the numbers. x + y = 15, x - y = 3.</p>
+                    <p>Step 2: Add equations: 2x = 18, x = 9.</p>
+                    <p>Step 3: Substitute: 9 + y = 15, y = 6.</p>
+                    <p>Numbers are 9 and 6.</p>
+                    <button id="next-question">Next Question</button>
+                `
+            }
+        ],
+        questions: [
+            {
+                title: "Question 1",
+                question: "A phone plan costs $20/month plus $0.10/text. What’s the cost for 50 texts?",
+                answer: "25",
+                explanation: "C = 20 + 0.10(50) = 20 + 5 = 25."
+            },
+            {
+                title: "Question 2",
+                question: "A rectangle’s length is twice its width. If the perimeter is 24, what’s the width?",
+                answer: "4",
+                explanation: "Let w = width, l = 2w. Perimeter = 2l + 2w = 2(2w) + 2w = 6w = 24. So, w = 4."
+            }
+        ],
+        additionalExample: {
+            title: "Example: Quadratic Model",
+            content: `
+                <h2>Example: Quadratic Model</h2>
+                <p>A ball’s height is h(t) = -16t² + 32t + 5. When does it hit the ground?</p>
+                <p>Step 1: Set h(t) = 0: -16t² + 32t + 5 = 0.</p>
+                <p>Step 2: Use quadratic formula: t = [-32 ± √(32² - 4(-16)(5))] / (2(-16))</p>
+                <p>Step 3: Simplify: t = [-32 ± √(1024 + 320)] / -32 = [-32 ± √1344] / -32</p>
+                <p>Step 4: Approximate: t ≈ 2.15 or t ≈ -0.15. Take t ≈ 2.15 seconds.</p>
+                <button id="next-question">Next Question</button>
+            `
+        }
+    }
 
 };
 
@@ -631,6 +785,86 @@ const absoluteValueInequalitiesQuestions = [
         category: "algebra"
     }
 ];
+const functionsGraphsQuestions = [
+    {
+        question: "If f(x) = 3x - 1, what is f(2)?",
+        answers: [
+            { text: "A) 5", correct: true },
+            { text: "B) 6", correct: false },
+            { text: "C) 4", correct: false },
+            { text: "D) 7", correct: false }
+        ],
+        explanation: "f(2) = 3(2) - 1 = 6 - 1 = 5.",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "What is the y-intercept of y = 4x + 3?",
+        answers: [
+            { text: "A) 4", correct: false },
+            { text: "B) 3", correct: true },
+            { text: "C) 0", correct: false },
+            { text: "D) -3", correct: false }
+        ],
+        explanation: "In y = mx + b, b is the y-intercept. Here, b = 3.",
+        difficulty: "easy",
+        category: "algebra"
+    }
+];
+
+const exponentialLogarithmicQuestions = [
+    {
+        question: "Simplify: 3⁴ · 3²",
+        answers: [
+            { text: "A) 3⁶", correct: true },
+            { text: "B) 3⁸", correct: false },
+            { text: "C) 3⁵", correct: false },
+            { text: "D) 9⁶", correct: false }
+        ],
+        explanation: "3⁴ · 3² = 3⁴⁺² = 3⁶.",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "Solve: log₅(25) = x",
+        answers: [
+            { text: "A) 1", correct: false },
+            { text: "B) 2", correct: true },
+            { text: "C) 3", correct: false },
+            { text: "D) 5", correct: false }
+        ],
+        explanation: "log₅(25) = x means 5ˣ = 25. Since 5² = 25, x = 2.",
+        difficulty: "medium",
+        category: "algebra"
+    }
+];
+
+const mathematicalModelingQuestions = [
+    {
+        question: "A store charges $15 plus $2 per item. What’s the cost for 3 items?",
+        answers: [
+            { text: "A) $21", correct: true },
+            { text: "B) $18", correct: false },
+            { text: "C) $17", correct: false },
+            { text: "D) $20", correct: false }
+        ],
+        explanation: "C = 15 + 2(3) = 15 + 6 = 21.",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "Two numbers sum to 20, and one is 4 more than the other. What’s the smaller number?",
+        answers: [
+            { text: "A) 8", correct: true },
+            { text: "B) 10", correct: false },
+            { text: "C) 12", correct: false },
+            { text: "D) 6", correct: false }
+        ],
+        explanation: "Let x = smaller number, x + 4 = larger. x + (x + 4) = 20 → 2x + 4 = 20 → 2x = 16 → x = 8.",
+        difficulty: "medium",
+        category: "algebra"
+    }
+];
 
 let categoryStats = {
     algebra: { correct: 0, incorrect: 0 }
@@ -715,7 +949,7 @@ function checkAnswer2() {
     }
 }
 
-// Update showQuiz function
+// Update the showQuiz function
 function showQuiz() {
     currentQuestionIndex = 0;
     let quizQuestions;
@@ -740,6 +974,15 @@ function showQuiz() {
             break;
         case 7:
             quizQuestions = absoluteValueInequalitiesQuestions;
+            break;
+        case 8:
+            quizQuestions = functionsGraphsQuestions;
+            break;
+        case 9:
+            quizQuestions = exponentialLogarithmicQuestions;
+            break;
+        case 10:
+            quizQuestions = mathematicalModelingQuestions;
             break;
         default:
             quizQuestions = mathQuestions;
