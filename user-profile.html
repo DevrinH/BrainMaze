@@ -658,26 +658,22 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
     
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        console.log("Landing page loaded, updating score summaries");
-    
-        // Function to retrieve score from localStorage
-        function getScore(lessonId) {
-            return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Landing page loaded, updating score summaries");
+    function getScore(lessonId) {
+        return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
+    }
+    for (let i = 1; i <= 10; i++) {
+        const scoreElement = document.getElementById(`score-summary-${i}`);
+        if (scoreElement) {
+            const score = getScore(i);
+            scoreElement.textContent = `Last Score: ${score}`;
+            console.log(`Updated score-summary-${i} with: ${score}`);
+        } else {
+            console.warn(`Score summary element for lesson ${i} not found`);
         }
-    
-        // Update score summaries for lessons 1 through 10
-        for (let i = 1; i <= 10; i++) {
-            const scoreElement = document.getElementById(`score-summary-${i}`);
-            if (scoreElement) {
-                const score = getScore(i);
-                scoreElement.textContent = `Last Score: ${score}`;
-                console.log(`Updated score-summary-${i} with: ${score}`);
-            } else {
-                console.warn(`Score summary element for lesson ${i} not found`);
-            }
-        }
-    });
+    }
+});
     </script>
     
 
