@@ -1,4 +1,6 @@
+// Ensure scores display on page load by calling showScore
 document.addEventListener("DOMContentLoaded", function() {
+    // Existing DOMContentLoaded logic remains unchanged
     console.log("DOM fully loaded and parsed");
 
     const startLessonButton = document.getElementById('start-lesson');
@@ -9,16 +11,12 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Start lesson button not found.");
     }
 
-    // Get the lesson ID from URL params
     const urlParams = new URLSearchParams(window.location.search);
     const lessonId = urlParams.get('lesson') || 1;
-    
     console.log(`Loading lesson ${lessonId}`);
-    
-    // Set the current lesson
     currentLesson = lessonId;
 
-    showScore();
+    showScore(); // This call already exists, ensuring scores display on load
 });
 
 // Define all lessons
@@ -949,6 +947,7 @@ function checkAnswer2() {
     }
 }
 
+
 // Update the showQuiz function
 function showQuiz() {
     currentQuestionIndex = 0;
@@ -1131,5 +1130,61 @@ function showScore() {
     const percentageElement = document.getElementById("quiz-percentage");
     if (percentageElement) {
         percentageElement.textContent = `Correct Answers: ${percentage}% (${correct}/${attempted})`;
+    }
+}
+
+// Enhance the existing showScore function to update score summaries for all lessons
+const originalShowScore = showScore; // Preserve the original function if it has other logic
+showScore = function() {
+    // Call the original showScore function if it does something else
+    if (typeof originalShowScore === 'function') {
+        originalShowScore();
+    }
+    
+    // Update score summaries for lessons 1 through 10
+    for (let i = 1; i <= 10; i++) {
+        const scoreElement = document.getElementById(`score-summary-${i}`);
+        if (scoreElement) {
+            const score = getScore(i);
+            scoreElement.textContent = `Last Score: ${score}`;
+        } else {
+            console.warn(`Score summary element for lesson ${i} not found`);
+        }
+    }
+};
+// Function to save the score for a specific lesson
+function saveScore(lessonId, score) {
+    localStorage.setItem(`lessonScore-${lessonId}`, score);
+    console.log(`Saved score ${score} for lesson ${lessonId}`);
+}
+
+// Function to retrieve the score for a specific lesson
+function getScore(lessonId) {
+    return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
+}
+
+// Function to calculate and save score after quiz (add this to integrate with quiz logic)
+function endQuiz(correctAnswers, totalQuestions) {
+    const score = `${correctAnswers}/${totalQuestions} (${Math.round((correctAnswers / totalQuestions) * 100)}%)`;
+    saveScore(currentLesson, score);
+    showScore(); // Update the display immediately after saving
+}
+
+// Example integration with quiz logic (add this if not already present)
+// Assuming you have a way to track correct answers in your quiz
+let correctAnswers = 0; // Add this at the top of your script if not already defined
+
+// Add this function if you don't already have a way to check answers
+function checkAnswer(selectedAnswer, correctAnswer) {
+    if (selectedAnswer === correctAnswer) {
+        correctAnswers++;
+    }
+    // Move to next question or end quiz
+    if (currentQuestionIndex + 1 < quizQuestions.length) {
+        currentQuestionIndex++;
+        showNextQuizQuestion(quizQuestions);
+    } else {
+        endQuiz(correctAnswers, quizQuestions.length);
+        correctAnswers = 0; // Reset for next quiz
     }
 }
