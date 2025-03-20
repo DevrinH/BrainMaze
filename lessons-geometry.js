@@ -597,6 +597,8 @@ const trigonometryQuestions = [
     }
 ];
 
+// lesson-geometry.js
+
 let categoryStats = {
     geometry: { correct: 0, incorrect: 0 }
 };
@@ -816,8 +818,9 @@ function recordTestResults() {
 
 function saveScore(lessonId, score) {
     localStorage.setItem(`geometry-lessonScore-${lessonId}`, score);
-    console.log(`Saved score ${score} for geometry lesson ${lessonId}`);
+    console.log(`Saved geometry-lessonScore-${lessonId}: ${score}`);
 }
+
 function getScore(lessonId) {
     return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
 }
@@ -837,4 +840,3 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Start lesson button not found on page load!");
     }
 });
-
