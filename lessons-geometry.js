@@ -815,10 +815,9 @@ function recordTestResults() {
 }
 
 function saveScore(lessonId, score) {
-    localStorage.setItem(`lessonScore-${lessonId}`, score);
-    console.log(`Saved score ${score} for lesson ${lessonId}`);
+    localStorage.setItem(`geometry-lessonScore-${lessonId}`, score);
+    console.log(`Saved score ${score} for geometry lesson ${lessonId}`);
 }
-
 function getScore(lessonId) {
     return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
 }
@@ -838,3 +837,4 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Start lesson button not found on page load!");
     }
 });
+
