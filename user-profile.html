@@ -177,9 +177,102 @@
             </div>
         </div>
 
+        <div class="seccontainer"> 
+            <div class="satplacement">
+                <button class="button-29" onclick="showGeometryLessons()">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lessons</p>
+                <p>Geometry Lesson</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="lessons-container-geometry" class="container hidden">
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/geometry-lesson.html?lesson=1'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 1: Lines and Angles</p>
+                <p id="score-summary-1"></p>
+            </div>
+        </div>
+    
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/geometry-lesson.html?lesson=2'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 2: Triangles</p>
+                <p id="score-summary-2"></p>
+            </div>
+        </div>
+    
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/geometry-lesson.html?lesson=3'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 3: Quadrilaterals and Polygons</p>
+                <p id="score-summary-3"></p>
+            </div>
+        </div>
+    
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/geometry-lesson.html?lesson=4'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 4: Circles</p>
+                <p id="score-summary-4"></p>
+            </div>
+        </div>
+    
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/geometry-lesson.html?lesson=5'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 5: Coordinate Geometry</p>
+                <p id="score-summary-5"></p>
+            </div>
+        </div>
+    
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/geometry-lesson.html?lesson=6'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 6: 3D Geometry (Solids)</p>
+                <p id="score-summary-6"></p>
+            </div>
+        </div>
+    
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/geometry-lesson.html?lesson=7'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 7: Transformations</p>
+                <p id="score-summary-7"></p>
+            </div>
+        </div>
+    
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/geometry-lesson.html?lesson=8'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 8: Trigonometry (Basic Concepts)</p>
+                <p id="score-summary-8"></p>
+            </div>
+        </div>
+    </div>
+
+            
+
         <div id="lessons-container-algebra" class="container hidden">
-            
-            
             
             
             <div class="seccontainer">
@@ -192,9 +285,6 @@
                 </div>
             </div>
 
-
-
-
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=2'">START</button>
@@ -204,12 +294,6 @@
                     <p id="score-summary-2"></p>
                 </div>
             </div>
-        
-
-
-
-
-
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -221,7 +305,6 @@
                 </div>
             </div>
 
-
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=4'">START</button>
@@ -231,8 +314,6 @@
                     <p id="score-summary-4"></p>
                 </div>
             </div>
-
-
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -254,7 +335,6 @@
                 </div>
             </div>
 
-
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=7'">START</button>
@@ -275,7 +355,6 @@
                 </div>
             </div>
 
-
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=9'">START</button>
@@ -285,8 +364,6 @@
                     <p id="score-summary-9"></p>
                 </div>
             </div>
-
-
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -308,8 +385,6 @@
     <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Selecting buttons for test/lesson toggling
-    document.addEventListener("DOMContentLoaded", function () {
-    // Select Buttons
     const testButton = document.querySelector(".button-29[onclick='showTests()']");
     const lessonButton = document.querySelector(".button-29[onclick='showLessons()']");
     const algebraButton = document.querySelector(".button-29[onclick='showAlgebraLessons()']");
@@ -691,6 +766,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+    </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("Geometry profile page loaded, updating score summaries");
+    
+        function getScore(lessonId) {
+            return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
+        }
+    
+        // Loop through Geometry lessons 1 to 8
+        for (let i = 1; i <= 8; i++) {
+            const scoreElement = document.getElementById(`score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i);
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Score summary element for lesson ${i} not found`);
+            }
+        }
+    });
     </script>
     
 
