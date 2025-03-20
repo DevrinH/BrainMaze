@@ -1,23 +1,3 @@
-// Ensure scores display on page load by calling showScore
-document.addEventListener("DOMContentLoaded", function() {
-    // Existing DOMContentLoaded logic remains unchanged
-    console.log("DOM fully loaded and parsed");
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
-        console.log("Start Lesson Button event listener added.");
-    } else {
-        console.error("Start lesson button not found.");
-    }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || 1;
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId;
-
-    showScore(); // This call already exists, ensuring scores display on load
-});
 
 // Define all lessons
 const lessons = {
@@ -864,6 +844,8 @@ const mathematicalModelingQuestions = [
     }
 ];
 
+// algebra-lesson.js
+
 let categoryStats = {
     algebra: { correct: 0, incorrect: 0 }
 };
@@ -1085,11 +1067,32 @@ function recordTestResults() {
 
 function saveScore(lessonId, score) {
     localStorage.setItem(`algebra-lessonScore-${lessonId}`, score);
-    console.log(`Saved score ${score} for algebra lesson ${lessonId}`);
+    console.log(`Saved algebra-lessonScore-${lessonId}: ${score}`);
 }
+
 function getScore(lessonId) {
     return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
 }
+
+// Ensure scores display on page load by calling showScore
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start Lesson Button event listener added.");
+    } else {
+        console.error("Start lesson button not found.");
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = urlParams.get('lesson') || 1;
+    console.log(`Loading lesson ${lessonId}`);
+    currentLesson = lessonId;
+
+    showScore(); // This call already exists, ensuring scores display on load
+});
 
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", function() {
