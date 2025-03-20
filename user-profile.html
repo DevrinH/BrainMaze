@@ -308,44 +308,61 @@
     <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Selecting buttons for test/lesson toggling
+    document.addEventListener("DOMContentLoaded", function () {
+    // Select Buttons
     const testButton = document.querySelector(".button-29[onclick='showTests()']");
     const lessonButton = document.querySelector(".button-29[onclick='showLessons()']");
-    const algebraLessonButton = document.querySelector(".button-29[onclick='showAlgebraLessons()']");
+    const algebraButton = document.querySelector(".button-29[onclick='showAlgebraLessons()']");
+    const inferenceButton = document.querySelector(".button-29[onclick='showInferenceLessons()']");
+    const geometryButton = document.querySelector(".button-29[onclick='showGeometryLessons()']");
 
-    // Selecting containers
+    // Select Containers
     const testsContainer = document.getElementById("tests-container");
     const lessonsContainer = document.getElementById("lessons-container");
-    const algebraLessonsContainer = document.getElementById("lessons-container-algebra");
+    const algebraContainer = document.getElementById("lessons-container-algebra");
+    const inferenceContainer = document.getElementById("lessons-container-inference");
+    const geometryContainer = document.getElementById("lessons-container-geometry");
 
     // Function to hide all containers
     function hideAllContainers() {
-        if (testsContainer) testsContainer.classList.add("hidden");
-        if (lessonsContainer) lessonsContainer.classList.add("hidden");
-        if (algebraLessonsContainer) algebraLessonsContainer.classList.add("hidden");
+        const allContainers = [testsContainer, lessonsContainer, algebraContainer, inferenceContainer, geometryContainer];
+        allContainers.forEach(container => {
+            if (container) container.classList.add("hidden");
+        });
     }
 
-    // Function to show the tests section
+    // Functions to show specific sections
     function showTests() {
         hideAllContainers();
         if (testsContainer) testsContainer.classList.remove("hidden");
     }
 
-    // Function to show the general lessons section
     function showLessons() {
         hideAllContainers();
         if (lessonsContainer) lessonsContainer.classList.remove("hidden");
     }
 
-    // Function to show the algebra lessons section
     function showAlgebraLessons() {
         hideAllContainers();
-        if (algebraLessonsContainer) algebraLessonsContainer.classList.remove("hidden");
+        if (algebraContainer) algebraContainer.classList.remove("hidden");
     }
 
-    // Event Listeners (Check if buttons exist before adding event listeners)
+    function showInferenceLessons() {
+        hideAllContainers();
+        if (inferenceContainer) inferenceContainer.classList.remove("hidden");
+    }
+
+    function showGeometryLessons() {
+        hideAllContainers();
+        if (geometryContainer) geometryContainer.classList.remove("hidden");
+    }
+
+    // Add Event Listeners (Only if buttons exist)
     if (testButton) testButton.addEventListener("click", showTests);
     if (lessonButton) lessonButton.addEventListener("click", showLessons);
-    if (algebraLessonButton) algebraLessonButton.addEventListener("click", showAlgebraLessons);
+    if (algebraButton) algebraButton.addEventListener("click", showAlgebraLessons);
+    if (inferenceButton) inferenceButton.addEventListener("click", showInferenceLessons);
+    if (geometryButton) geometryButton.addEventListener("click", showGeometryLessons);
 });
         </script>
         
