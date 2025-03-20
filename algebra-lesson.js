@@ -1084,10 +1084,9 @@ function recordTestResults() {
 }
 
 function saveScore(lessonId, score) {
-    localStorage.setItem(`lessonScore-${lessonId}`, score);
-    console.log(`Saved score ${score} for lesson ${lessonId}`);
+    localStorage.setItem(`algebra-lessonScore-${lessonId}`, score);
+    console.log(`Saved score ${score} for algebra lesson ${lessonId}`);
 }
-
 function getScore(lessonId) {
     return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
 }
