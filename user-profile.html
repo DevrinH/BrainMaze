@@ -743,11 +743,13 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         console.log("User profile page loaded, updating score summaries");
-    
+
         function getScore(lessonId, subject) {
-            return localStorage.getItem(`${subject}-lessonScore-${lessonId}`) || "Not completed yet";
+            const score = localStorage.getItem(`${subject}-lessonScore-${lessonId}`) || "Not completed yet";
+            console.log(`Fetching ${subject}-lessonScore-${lessonId}: ${score}`);
+            return score;
         }
-    
+
         // Update Algebra lesson scores (1–10)
         for (let i = 1; i <= 10; i++) {
             const scoreElement = document.getElementById(`algebra-score-summary-${i}`);
@@ -759,7 +761,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.warn(`Algebra score summary element for lesson ${i} not found`);
             }
         }
-    
+
         // Update Geometry lesson scores (1–8)
         for (let i = 1; i <= 8; i++) {
             const scoreElement = document.getElementById(`geometry-score-summary-${i}`);
