@@ -200,6 +200,18 @@
 
             <div class="seccontainer"> 
                 <div class="satplacement">
+                    <button class="button-29" onclick="showWordsInContextLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+            
+
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
                     <button class="button-29" onclick="showAlgebraLessons()">START</button>
                 </div>
                 <div class="satdesc">
@@ -362,6 +374,46 @@
                 <div class="satdesc">
                     <p class="pbungee">Inferences Lesson 6: Inferring Meaning from Context</p>
                     <p id="inferences-score-summary-6"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="lessons-container-words-in-context" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 1: Determining Word Meaning from Context</p>
+                    <p id="words-in-context-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 2: Recognizing Nuanced Word Meanings</p>
+                    <p id="words-in-context-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 3: Interpreting Figurative and Connotative Meanings</p>
+                    <p id="words-in-context-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 4: Analyzing Word Choice and Rhetorical Effect</p>
+                    <p id="words-in-context-score-summary-4"></p>
                 </div>
             </div>
         </div>
@@ -558,6 +610,7 @@
             const geometryButton = document.querySelector(".button-29[onclick='showGeometryLessons()']");
             const commandOfEvidenceButton = document.querySelector(".button-29[onclick='showCommandOfEvidenceLessons()']");
             const centralIdeasAndDetailButton = document.querySelector(".button-29[onclick='showCentralIdeasAndDetailLessons()']");
+            const wordsInContextButton = document.querySelector(".button-29[onclick='showWordsInContextLessons()']");
             
         
             // Select Containers
@@ -568,6 +621,7 @@
             const geometryContainer = document.getElementById("lessons-container-geometry");
             const commandOfEvidenceContainer = document.getElementById("lessons-container-command-of-evidence");
             const centralIdeasAndDetailContainer = document.getElementById("lessons-container-central-ideas-and-detail");
+            const wordsInContextContainer = document.getElementById("lessons-container-words-in-context");
         
             // Function to hide all containers
             function hideAllContainers() {
@@ -578,7 +632,8 @@
                     inferenceContainer,
                     geometryContainer,
                     commandOfEvidenceContainer,
-                    centralIdeasAndDetailContainer
+                    centralIdeasAndDetailContainer,
+                    wordsInContextContainer
                 ];
                 allContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
@@ -619,6 +674,10 @@
                 hideAllContainers();
                 if (centralIdeasAndDetailContainer) centralIdeasAndDetailContainer.classList.remove("hidden");
             }
+            function showWordsInContextLessons() {
+                hideAllContainers();
+                if (wordsInContextContainer) wordsInContextContainer.classList.remove("hidden");
+            }
         
             // Add Event Listeners (Only if buttons exist)
             if (testButton) testButton.addEventListener("click", showTests);
@@ -628,6 +687,7 @@
             if (geometryButton) geometryButton.addEventListener("click", showGeometryLessons);
             if (commandOfEvidenceButton) commandOfEvidenceButton.addEventListener("click", showCommandOfEvidenceLessons);
             if (centralIdeasAndDetailButton) centralIdeasAndDetailButton.addEventListener("click", showCentralIdeasAndDetailLessons);
+            if (wordsInContextButton) wordsInContextButton.addEventListener("click", showWordsInContextLessons);
         });
         </script>
            <script src="scoreChart.js"></script>
@@ -1005,6 +1065,16 @@
         console.warn(`Inferences score summary element for lesson ${i} not found`);
     }
         }
+        for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`words-in-context-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "words-in-context");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated words-in-context-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Words in Context score summary element for lesson ${i} not found`);
+    }
+}
     });
 </script>
     
