@@ -168,11 +168,21 @@
 
             <div class="seccontainer"> 
                 <div class="satplacement">
+                    <button class="button-29" onclick="showCommandOfEvidenceLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
                     <button class="button-29" onclick="showAlgebraLessons()">START</button>
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Algebra Lessons</p>
-                    <p>Algebra Lesson</p>
+                    <p>10 Lessons</p>
                 </div>
             </div>
 
@@ -182,13 +192,50 @@
             </div>
             <div class="satdesc">
                 <p class="pbungee">Geometry Lessons</p>
-                <p>Geometry Lesson</p>
+                <p>8 Lesson</p>
             </div>
         </div>
 
         </div>
 
-
+        <div id="lessons-container-command-of-evidence" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/command-of-evidence-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 1: Textual Evidence</p>
+                    <p id="command-of-evidence-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/command-of-evidence-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 2: Understanding Author’s Use of Evidence</p>
+                    <p id="command-of-evidence-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/command-of-evidence-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 3: Data Interpretation in Texts</p>
+                    <p id="command-of-evidence-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/command-of-evidence-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 4: Cross-Text Evidence Comparison</p>
+                    <p id="command-of-evidence-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
     
 
     <div id="lessons-container-geometry" class="container hidden">
@@ -373,64 +420,78 @@
 
 
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Selecting buttons for test/lesson toggling
-    const testButton = document.querySelector(".button-29[onclick='showTests()']");
-    const lessonButton = document.querySelector(".button-29[onclick='showLessons()']");
-    const algebraButton = document.querySelector(".button-29[onclick='showAlgebraLessons()']");
-    const inferenceButton = document.querySelector(".button-29[onclick='showInferenceLessons()']");
-    const geometryButton = document.querySelector(".button-29[onclick='showGeometryLessons()']");
-
-    // Select Containers
-    const testsContainer = document.getElementById("tests-container");
-    const lessonsContainer = document.getElementById("lessons-container");
-    const algebraContainer = document.getElementById("lessons-container-algebra");
-    const inferenceContainer = document.getElementById("lessons-container-inference");
-    const geometryContainer = document.getElementById("lessons-container-geometry");
-
-    // Function to hide all containers
-    function hideAllContainers() {
-        const allContainers = [testsContainer, lessonsContainer, algebraContainer, inferenceContainer, geometryContainer];
-        allContainers.forEach(container => {
-            if (container) container.classList.add("hidden");
-        });
-    }
-
-    // Functions to show specific sections
-    function showTests() {
-        hideAllContainers();
-        if (testsContainer) testsContainer.classList.remove("hidden");
-    }
-
-    function showLessons() {
-        hideAllContainers();
-        if (lessonsContainer) lessonsContainer.classList.remove("hidden");
-    }
-
-    function showAlgebraLessons() {
-        hideAllContainers();
-        if (algebraContainer) algebraContainer.classList.remove("hidden");
-    }
-
-    function showInferenceLessons() {
-        hideAllContainers();
-        if (inferenceContainer) inferenceContainer.classList.remove("hidden");
-    }
-
-    function showGeometryLessons() {
-        hideAllContainers();
-        if (geometryContainer) geometryContainer.classList.remove("hidden");
-    }
-
-    // Add Event Listeners (Only if buttons exist)
-    if (testButton) testButton.addEventListener("click", showTests);
-    if (lessonButton) lessonButton.addEventListener("click", showLessons);
-    if (algebraButton) algebraButton.addEventListener("click", showAlgebraLessons);
-    if (inferenceButton) inferenceButton.addEventListener("click", showInferenceLessons);
-    if (geometryButton) geometryButton.addEventListener("click", showGeometryLessons);
-});
-        </script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Selecting buttons for test/lesson toggling
+            const testButton = document.querySelector(".button-29[onclick='showTests()']");
+            const lessonButton = document.querySelector(".button-29[onclick='showLessons()']");
+            const algebraButton = document.querySelector(".button-29[onclick='showAlgebraLessons()']");
+            const inferenceButton = document.querySelector(".button-29[onclick='showInferenceLessons()']");
+            const geometryButton = document.querySelector(".button-29[onclick='showGeometryLessons()']");
+            const commandOfEvidenceButton = document.querySelector(".button-29[onclick='showCommandOfEvidenceLessons()']");
         
+            // Select Containers
+            const testsContainer = document.getElementById("tests-container");
+            const lessonsContainer = document.getElementById("lessons-container");
+            const algebraContainer = document.getElementById("lessons-container-algebra");
+            const inferenceContainer = document.getElementById("lessons-container-inference");
+            const geometryContainer = document.getElementById("lessons-container-geometry");
+            const commandOfEvidenceContainer = document.getElementById("lessons-container-command-of-evidence");
+        
+            // Function to hide all containers
+            function hideAllContainers() {
+                const allContainers = [
+                    testsContainer,
+                    lessonsContainer,
+                    algebraContainer,
+                    inferenceContainer,
+                    geometryContainer,
+                    commandOfEvidenceContainer
+                ];
+                allContainers.forEach(container => {
+                    if (container) container.classList.add("hidden");
+                });
+            }
+        
+            // Functions to show specific sections
+            function showTests() {
+                hideAllContainers();
+                if (testsContainer) testsContainer.classList.remove("hidden");
+            }
+        
+            function showLessons() {
+                hideAllContainers();
+                if (lessonsContainer) lessonsContainer.classList.remove("hidden");
+            }
+        
+            function showAlgebraLessons() {
+                hideAllContainers();
+                if (algebraContainer) algebraContainer.classList.remove("hidden");
+            }
+        
+            function showInferenceLessons() {
+                hideAllContainers();
+                if (inferenceContainer) inferenceContainer.classList.remove("hidden");
+            }
+        
+            function showGeometryLessons() {
+                hideAllContainers();
+                if (geometryContainer) geometryContainer.classList.remove("hidden");
+            }
+        
+            function showCommandOfEvidenceLessons() {
+                hideAllContainers();
+                if (commandOfEvidenceContainer) commandOfEvidenceContainer.classList.remove("hidden");
+            }
+        
+            // Add Event Listeners (Only if buttons exist)
+            if (testButton) testButton.addEventListener("click", showTests);
+            if (lessonButton) lessonButton.addEventListener("click", showLessons);
+            if (algebraButton) algebraButton.addEventListener("click", showAlgebraLessons);
+            if (inferenceButton) inferenceButton.addEventListener("click", showInferenceLessons);
+            if (geometryButton) geometryButton.addEventListener("click", showGeometryLessons);
+            if (commandOfEvidenceButton) commandOfEvidenceButton.addEventListener("click", showCommandOfEvidenceLessons);
+        });
+        </script>
            <script src="scoreChart.js"></script>
            
    
@@ -773,8 +834,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.warn(`Geometry score summary element for lesson ${i} not found`);
             }
         }
+
+        // Update Command of Evidence lesson scores (1–4)
+        for (let i = 1; i <= 4; i++) {
+            const scoreElement = document.getElementById(`command-of-evidence-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "command-of-evidence");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated command-of-evidence-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Command of Evidence score summary element for lesson ${i} not found`);
+            }
+        }
     });
-    </script>
+</script>
     
 
 <button onclick="resetProgress()">Reset Progress</button>
