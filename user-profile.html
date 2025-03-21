@@ -176,6 +176,18 @@
                 </div>
             </div>
 
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showCentralIdeasAndDetailLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Details</p>
+                    <p>5 Lessons</p>
+                </div>
+            </div>
+
+
             <div class="seccontainer"> 
                 <div class="satplacement">
                     <button class="button-29" onclick="showAlgebraLessons()">START</button>
@@ -236,6 +248,56 @@
                 </div>
             </div>
         </div>
+
+
+        <div id="lessons-container-central-ideas-and-detail" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/central-ideas-and-detail-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 1: Identifying the Central Idea</p>
+                    <p id="central-ideas-and-detail-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/central-ideas-and-detail-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 2: Summarizing a Passage</p>
+                    <p id="central-ideas-and-detail-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/central-ideas-and-detail-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 3: Identifying Key Details</p>
+                    <p id="central-ideas-and-detail-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/central-ideas-and-detail-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 4: Understanding Supporting Evidence</p>
+                    <p id="central-ideas-and-detail-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/central-ideas-and-detail-lesson.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 5: Paraphrasing and Restating Ideas</p>
+                    <p id="central-ideas-and-detail-score-summary-5"></p>
+                </div>
+            </div>
+        </div>
+
     
 
     <div id="lessons-container-geometry" class="container hidden">
@@ -428,6 +490,7 @@
             const inferenceButton = document.querySelector(".button-29[onclick='showInferenceLessons()']");
             const geometryButton = document.querySelector(".button-29[onclick='showGeometryLessons()']");
             const commandOfEvidenceButton = document.querySelector(".button-29[onclick='showCommandOfEvidenceLessons()']");
+            const centralIdeasAndDetailButton = document.querySelector(".button-29[onclick='showCentralIdeasAndDetailLessons()']");
         
             // Select Containers
             const testsContainer = document.getElementById("tests-container");
@@ -436,6 +499,7 @@
             const inferenceContainer = document.getElementById("lessons-container-inference");
             const geometryContainer = document.getElementById("lessons-container-geometry");
             const commandOfEvidenceContainer = document.getElementById("lessons-container-command-of-evidence");
+            const centralIdeasAndDetailContainer = document.getElementById("lessons-container-central-ideas-and-detail");
         
             // Function to hide all containers
             function hideAllContainers() {
@@ -445,7 +509,8 @@
                     algebraContainer,
                     inferenceContainer,
                     geometryContainer,
-                    commandOfEvidenceContainer
+                    commandOfEvidenceContainer,
+                    centralIdeasAndDetailContainer
                 ];
                 allContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
@@ -482,6 +547,10 @@
                 hideAllContainers();
                 if (commandOfEvidenceContainer) commandOfEvidenceContainer.classList.remove("hidden");
             }
+            function showCentralIdeasAndDetailLessons() {
+                hideAllContainers();
+                if (centralIdeasAndDetailContainer) centralIdeasAndDetailContainer.classList.remove("hidden");
+            }
         
             // Add Event Listeners (Only if buttons exist)
             if (testButton) testButton.addEventListener("click", showTests);
@@ -490,6 +559,7 @@
             if (inferenceButton) inferenceButton.addEventListener("click", showInferenceLessons);
             if (geometryButton) geometryButton.addEventListener("click", showGeometryLessons);
             if (commandOfEvidenceButton) commandOfEvidenceButton.addEventListener("click", showCommandOfEvidenceLessons);
+            if (centralIdeasAndDetailButton) centralIdeasAndDetailButton.addEventListener("click", showCentralIdeasAndDetailLessons);
         });
         </script>
            <script src="scoreChart.js"></script>
@@ -846,6 +916,17 @@
                 console.warn(`Command of Evidence score summary element for lesson ${i} not found`);
             }
         }
+
+        for (let i = 1; i <= 5; i++) {
+    const scoreElement = document.getElementById(`central-ideas-and-detail-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "central-ideas-and-detail");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated central-ideas-and-detail-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Central Ideas and Detail score summary element for lesson ${i} not found`);
+    }
+}
     });
 </script>
     
