@@ -187,6 +187,16 @@
                 </div>
             </div>
 
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showInferenceLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences</p>
+                    <p>6 Lessons</p>
+                </div>
+            </div>
+
 
             <div class="seccontainer"> 
                 <div class="satplacement">
@@ -299,6 +309,63 @@
         </div>
 
     
+        <div id="lessons-container-inferences" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/inferences-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 1: Drawing Logical Conclusions</p>
+                    <p id="inferences-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/inferences-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 2: Inferring the Author’s Perspective and Tone</p>
+                    <p id="inferences-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/inferences-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 3: Predicting Outcomes and Next Steps</p>
+                    <p id="inferences-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/inferences-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 4: Understanding Relationships Between Ideas</p>
+                    <p id="inferences-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/inferences-lesson.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 5: Interpreting Figurative Language and Symbolism</p>
+                    <p id="inferences-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/inferences-lesson.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 6: Inferring Meaning from Context</p>
+                    <p id="inferences-score-summary-6"></p>
+                </div>
+            </div>
+        </div>
+
 
     <div id="lessons-container-geometry" class="container hidden">
 
@@ -491,6 +558,7 @@
             const geometryButton = document.querySelector(".button-29[onclick='showGeometryLessons()']");
             const commandOfEvidenceButton = document.querySelector(".button-29[onclick='showCommandOfEvidenceLessons()']");
             const centralIdeasAndDetailButton = document.querySelector(".button-29[onclick='showCentralIdeasAndDetailLessons()']");
+            
         
             // Select Containers
             const testsContainer = document.getElementById("tests-container");
@@ -918,15 +986,25 @@
         }
 
         for (let i = 1; i <= 5; i++) {
-    const scoreElement = document.getElementById(`central-ideas-and-detail-score-summary-${i}`);
-    if (scoreElement) {
+          const scoreElement = document.getElementById(`central-ideas-and-detail-score-summary-${i}`);
+        if (scoreElement) {
         const score = getScore(i, "central-ideas-and-detail");
         scoreElement.textContent = `Last Score: ${score}`;
         console.log(`Updated central-ideas-and-detail-score-summary-${i} with: ${score}`);
+             } else {
+                 console.warn(`Central Ideas and Detail score summary element for lesson ${i} not found`);
+            }
+        }
+        for (let i = 1; i <= 6; i++) {
+    const scoreElement = document.getElementById(`inferences-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "inferences");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated inferences-score-summary-${i} with: ${score}`);
     } else {
-        console.warn(`Central Ideas and Detail score summary element for lesson ${i} not found`);
+        console.warn(`Inferences score summary element for lesson ${i} not found`);
     }
-}
+        }
     });
 </script>
     
