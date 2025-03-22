@@ -230,6 +230,16 @@
                 </div>
             </div>
 
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showTransitionsLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
 
             <div class="seccontainer"> 
                 <div class="satplacement">
@@ -529,6 +539,47 @@
             </div>
         </div>
 
+<!--Transitions lessons-->
+
+        <div id="lessons-container-transitions" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 1: Identifying the Correct Type of Transition</p>
+                    <p id="transitions-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 2: Choosing the Best Transition Word or Phrase</p>
+                    <p id="transitions-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 3: Transitioning Between Sentences</p>
+                    <p id="transitions-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 4: Transitioning Between Paragraphs</p>
+                    <p id="transitions-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
 
 <!--Geometry lessons-->
 
@@ -726,6 +777,7 @@
             const wordsInContextButton = document.querySelector(".button-29[onclick='showWordsInContextLessons()']");
             const textStructureAndPurposeButton = document.querySelector(".button-29[onclick='showTextStructureAndPurposeLessons()']");
             const crossTextConnectionsButton = document.querySelector(".button-29[onclick='showCrossTextConnectionsLessons()']");
+            const transitionsButton = document.querySelector(".button-29[onclick='showTransitionsLessons()']");
             
         
             // Select Containers
@@ -739,6 +791,7 @@
             const wordsInContextContainer = document.getElementById("lessons-container-words-in-context");
             const textStructureAndPurposeContainer = document.getElementById("lessons-container-text-structure-and-purpose");
             const crossTextConnectionsContainer = document.getElementById("lessons-container-cross-text-connections");
+            const transitionsContainer = document.getElementById("lessons-container-transitions");
         
             // Function to hide all containers
             function hideAllContainers() {
@@ -752,7 +805,8 @@
                     centralIdeasAndDetailContainer,
                     wordsInContextContainer,
                     textStructureAndPurposeContainer,
-                    crossTextConnectionsContainer
+                    crossTextConnectionsContainer,
+                    transitionsContainer
                 ];
                 allContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
@@ -805,6 +859,10 @@
                 hideAllContainers();
                 if (crossTextConnectionsContainer) crossTextConnectionsContainer.classList.remove("hidden");
             }
+            function showTransitionsLessons() {
+                hideAllContainers();
+                if (transitionsContainer) transitionsContainer.classList.remove("hidden");
+            }
         
             // Add Event Listeners (Only if buttons exist)
             if (testButton) testButton.addEventListener("click", showTests);
@@ -817,6 +875,7 @@
             if (wordsInContextButton) wordsInContextButton.addEventListener("click", showWordsInContextLessons);
             if (textStructureAndPurposeButton) textStructureAndPurposeButton.addEventListener("click", showTextStructureAndPurposeLessons);
             if (crossTextConnectionsButton) crossTextConnectionsButton.addEventListener("click", showCrossTextConnectionsLessons);
+            if (transitionsButton) transitionsButton.addEventListener("click", showTransitionsLessons);
         });
         </script>
            <script src="scoreChart.js"></script>
@@ -1222,6 +1281,17 @@ for (let i = 1; i <= 4; i++) {
         console.log(`Updated cross-text-connections-score-summary-${i} with: ${score}`);
     } else {
         console.warn(`Cross Text Connections score summary element for lesson ${i} not found`);
+    }
+}
+
+for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`transitions-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "transitions");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated transitions-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Transitions score summary element for lesson ${i} not found`);
     }
 }
     });
