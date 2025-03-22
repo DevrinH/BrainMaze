@@ -222,6 +222,17 @@
 
             <div class="seccontainer"> 
                 <div class="satplacement">
+                    <button class="button-29" onclick="showCrossTextConnectionsLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross-Text Connections</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
                     <button class="button-29" onclick="showAlgebraLessons()">START</button>
                 </div>
                 <div class="satdesc">
@@ -441,7 +452,7 @@
         <div id="lessons-container-text-structure-and-purpose" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/text-structure-and-purpose-lesson.html?lesson=1'">START</button>
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=1'">START</button>
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Text Structure and Purpose Lesson 1: Identifying the Author’s Purpose</p>
@@ -450,7 +461,7 @@
             </div>
             <div class="seccontainer">
                 <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/text-structure-and-purpose-lesson.html?lesson=2'">START</button>
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=2'">START</button>
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Text Structure and Purpose Lesson 2: Recognizing Text Structures</p>
@@ -459,7 +470,7 @@
             </div>
             <div class="seccontainer">
                 <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/text-structure-and-purpose-lesson.html?lesson=3'">START</button>
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=3'">START</button>
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Text Structure and Purpose Lesson 3: Understanding How Ideas are Organized</p>
@@ -468,7 +479,7 @@
             </div>
             <div class="seccontainer">
                 <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/text-structure-and-purpose-lesson.html?lesson=4'">START</button>
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=4'">START</button>
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Text Structure and Purpose Lesson 4: Evaluating Rhetorical Strategies</p>
@@ -478,6 +489,45 @@
         </div>
 
         <!--Cross Text lessons-->
+
+        <div id="lessons-container-cross-text-connections" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 1: Comparing Main Ideas and Arguments</p>
+                    <p id="cross-text-connections-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 2: Evaluating Evidence Across Texts</p>
+                    <p id="cross-text-connections-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 3: Understanding Differences in Tone and Perspective</p>
+                    <p id="cross-text-connections-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 4: Synthesizing Information from Multiple Sources</p>
+                    <p id="cross-text-connections-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
 
 
 <!--Geometry lessons-->
@@ -675,6 +725,7 @@
             const centralIdeasAndDetailButton = document.querySelector(".button-29[onclick='showCentralIdeasAndDetailLessons()']");
             const wordsInContextButton = document.querySelector(".button-29[onclick='showWordsInContextLessons()']");
             const textStructureAndPurposeButton = document.querySelector(".button-29[onclick='showTextStructureAndPurposeLessons()']");
+            const crossTextConnectionsButton = document.querySelector(".button-29[onclick='showCrossTextConnectionsLessons()']");
             
         
             // Select Containers
@@ -687,6 +738,7 @@
             const centralIdeasAndDetailContainer = document.getElementById("lessons-container-central-ideas-and-detail");
             const wordsInContextContainer = document.getElementById("lessons-container-words-in-context");
             const textStructureAndPurposeContainer = document.getElementById("lessons-container-text-structure-and-purpose");
+            const crossTextConnectionsContainer = document.getElementById("lessons-container-cross-text-connections");
         
             // Function to hide all containers
             function hideAllContainers() {
@@ -699,7 +751,8 @@
                     commandOfEvidenceContainer,
                     centralIdeasAndDetailContainer,
                     wordsInContextContainer,
-                    textStructureAndPurposeContainer
+                    textStructureAndPurposeContainer,
+                    crossTextConnectionsContainer
                 ];
                 allContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
@@ -748,6 +801,10 @@
                 hideAllContainers();
                 if (textStructureAndPurposeContainer) textStructureAndPurposeContainer.classList.remove("hidden");
             }
+            function showCrossTextConnectionsLessons() {
+                hideAllContainers();
+                if (crossTextConnectionsContainer) crossTextConnectionsContainer.classList.remove("hidden");
+            }
         
             // Add Event Listeners (Only if buttons exist)
             if (testButton) testButton.addEventListener("click", showTests);
@@ -759,6 +816,7 @@
             if (centralIdeasAndDetailButton) centralIdeasAndDetailButton.addEventListener("click", showCentralIdeasAndDetailLessons);
             if (wordsInContextButton) wordsInContextButton.addEventListener("click", showWordsInContextLessons);
             if (textStructureAndPurposeButton) textStructureAndPurposeButton.addEventListener("click", showTextStructureAndPurposeLessons);
+            if (crossTextConnectionsButton) crossTextConnectionsButton.addEventListener("click", showCrossTextConnectionsLessons);
         });
         </script>
            <script src="scoreChart.js"></script>
@@ -1154,6 +1212,16 @@ for (let i = 1; i <= 4; i++) {
         console.log(`Updated text-structure-and-purpose-score-summary-${i} with: ${score}`);
     } else {
         console.warn(`Text Structure and Purpose score summary element for lesson ${i} not found`);
+    }
+}
+for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`cross-text-connections-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "cross-text-connections");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated cross-text-connections-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Cross Text Connections score summary element for lesson ${i} not found`);
     }
 }
     });
