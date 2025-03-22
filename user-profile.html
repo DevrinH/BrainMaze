@@ -280,6 +280,16 @@
                 </div>
             </div>
 
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showProblemSolvingDataLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving and Data Analysis</p>
+                    <p>8 Lessons</p>
+                </div>
+            </div>
+
         <div class="seccontainer"> 
             <div class="satplacement">
                 <button class="button-29" onclick="showGeometryLessons()">START</button>
@@ -957,6 +967,81 @@
             </div>
         </div>
 
+        <div id="lessons-container-problem-solving-data" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/problem-solving-data-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 1: Ratios, Proportions, and Percentages</p>
+                    <p id="problem-solving-data-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/problem-solving-data-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 2: Unit Conversions and Rates</p>
+                    <p id="problem-solving-data-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/problem-solving-data-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 3: Linear and Exponential Growth</p>
+                    <p id="problem-solving-data-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/problem-solving-data-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 4: Data Interpretation (Tables, Graphs, and Charts)</p>
+                    <p id="problem-solving-data-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/problem-solving-data-lesson.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 5: Measures of Center and Spread (Statistics)</p>
+                    <p id="problem-solving-data-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/problem-solving-data-lesson.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 6: Probability and Expected Value</p>
+                    <p id="problem-solving-data-score-summary-6"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/problem-solving-data-lesson.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 7: Two-Way Tables and Conditional Probability</p>
+                    <p id="problem-solving-data-score-summary-7"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/problem-solving-data-lesson.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 8: Experimental Design and Statistical Validity</p>
+                    <p id="problem-solving-data-score-summary-8"></p>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
@@ -979,6 +1064,7 @@
             const rhetoricalSynthesisButton = document.querySelector(".button-29[onclick='showRhetoricalSynthesisLessons()']");
             const boundariesButton = document.querySelector(".button-29[onclick='showBoundariesLessons()']");
             const advancedMathButton = document.querySelector(".button-29[onclick='showAdvancedMathLessons()']");
+            const problemSolvingDataButton = document.querySelector(".button-29[onclick='showProblemSolvingDataLessons()']");
         
             // Select Containers
             const testsContainer = document.getElementById("tests-container");
@@ -995,6 +1081,8 @@
             const rhetoricalSynthesisContainer = document.getElementById("lessons-container-rhetorical-synthesis");
             const boundariesContainer = document.getElementById("lessons-container-boundaries");
             const advancedMathContainer = document.getElementById("lessons-container-advanced-math");
+            const problemSolvingDataContainer = document.getElementById("lessons-container-problem-solving-data");
+
         
             // Function to hide all containers
             function hideAllContainers() {
@@ -1012,7 +1100,8 @@
                     transitionsContainer,
                     rhetoricalSynthesisContainer,
                     boundariesContainer,
-                    advancedMathContainer
+                    advancedMathContainer,
+                    problemSolvingDataContainer
                 ];
                 allContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
@@ -1081,6 +1170,10 @@
                 hideAllContainers();
                 if (advancedMathContainer) advancedMathContainer.classList.remove("hidden");
             }
+            function showProblemSolvingDataLessons() {
+                hideAllContainers();
+                if (problemSolvingDataContainer) problemSolvingDataContainer.classList.remove("hidden");
+            }
         
             // Add Event Listeners (Only if buttons exist)
             if (testButton) testButton.addEventListener("click", showTests);
@@ -1097,6 +1190,7 @@
             if (rhetoricalSynthesisButton) rhetoricalSynthesisButton.addEventListener("click", showRhetoricalSynthesisLessons);
             if (boundariesButton) boundariesButton.addEventListener("click", showBoundariesLessons);
             if (advancedMathButton) advancedMathButton.addEventListener("click", showAdvancedMathLessons);
+            if (problemSolvingDataButton) problemSolvingDataButton.addEventListener("click", showProblemSolvingDataLessons);
         });
         </script>
            <script src="scoreChart.js"></script>
@@ -1550,16 +1644,16 @@ for (let i = 1; i <= 5; i++) {
 }
 
         // Update Problem Solving and Data Analysis lesson scores (1–4)
-        for (let i = 1; i <= 4; i++) {
-            const scoreElement = document.getElementById(`problem-solving-score-summary-${i}`);
-            if (scoreElement) {
-                const score = getScore(i, "problem-solving");
-                scoreElement.textContent = `Last Score: ${score}`;
-                console.log(`Updated problem-solving-score-summary-${i} with: ${score}`);
-            } else {
-                console.warn(`Problem Solving and Data Analysis score summary element for lesson ${i} not found`);
-            }
-        }
+        for (let i = 1; i <= 8; i++) {
+    const scoreElement = document.getElementById(`problem-solving-data-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "problem-solving-data");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated problem-solving-data-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Problem Solving and Data Analysis score summary element for lesson ${i} not found`);
+    }
+}
 
 
     });
