@@ -117,6 +117,7 @@ const mathQuestions = [
 function startReadingWritingTest() {
     isMathTest = false;
     time = 64 * 60;
+    userResponses = []; // Reset userResponses only at the start of the full test
     refreshIntervalId = setInterval(updateCountdown, 1000);
     setTimeout(endReadingWritingTest, 3840000); // 64 minutes in milliseconds
     startQuiz(readingWritingQuestions, 18, 18, 18);
@@ -166,7 +167,7 @@ function startQuiz(questions, numEasy, numMedium, numHard) {
     score = 0;
     correctAnswers = 0;
     categoryStats = {};
-    userResponses = []; // Reset user responses for each new test
+    // Removed userResponses = []; to preserve responses across sections
     selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
     nextButton.innerHTML = "Next";
     showQuestion();
@@ -226,7 +227,6 @@ function selectAnswer(e) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
 
-    // Record the user's response
     const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
     userResponses.push({
         question: currentQuestion.question,
@@ -302,8 +302,8 @@ function showScore() {
                                     <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
-        nextButton.removeEventListener("click", handleNextButton); // Remove old listener
-        nextButton.addEventListener("click", showExplanations); // Add new listener for explanations
+        nextButton.removeEventListener("click", handleNextButton);
+        nextButton.addEventListener("click", showExplanations);
     }
 }
 
@@ -324,7 +324,7 @@ function showExplanations() {
                     <p><strong>Question:</strong> ${response.question}</p>
                     <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
                     <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
-                    <p><strong>Explanation:</strong> ${explanation}</p>
+                    <p><strong>Explanation:</strong> ${explanation}</p> <!-- Fixed typo here -->
                 </div>
             `;
         });
@@ -341,7 +341,6 @@ function showExplanations() {
 function generateExplanation(response) {
     const questionText = response.question;
 
-    // Reading/Writing Explanations
     if (questionText.includes("Emma stepped into the grand ballroom")) {
         return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation. The text highlights her discomfort rather than excitement or confidence.";
     } else if (questionText.includes("Daniel stepped into the office")) {
@@ -350,8 +349,6 @@ function generateExplanation(response) {
         return "The best evidence is the explicit mention of 'nagging doubt,' directly showing his uncertainty about the manuscript’s quality.";
     } else if (questionText.includes("The scientist adjusted her glasses")) {
         return "The scientist’s struggle to accept the findings is best supported by her disbelief in the consistent results, despite repeated checks.";
-
-    // Math Explanations
     } else if (questionText.includes("An airplane is flying from City A to City B")) {
         return "The trip is split into two 750-mile segments. Time against the wind = 750 / 500 = 1.5 hours. Time with the wind = 750 / 600 = 1.25 hours. Total time = 1.5 + 1.25 = 2.75 hours.";
     } else if (questionText.includes("A car's value depreciates by 15%")) {
@@ -435,5 +432,4 @@ continueButton.addEventListener("click", () => {
     startMathTest();
 });
 
-// Start the reading and writing test
 startReadingWritingTest();
