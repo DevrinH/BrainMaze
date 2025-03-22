@@ -270,6 +270,16 @@
                 </div>
             </div>
 
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showAdvancedMathLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lessons</p>
+                    <p>8 Lessons</p>
+                </div>
+            </div>
+
         <div class="seccontainer"> 
             <div class="satplacement">
                 <button class="button-29" onclick="showGeometryLessons()">START</button>
@@ -868,10 +878,86 @@
                 </div>
             </div>
 
-
-
-
         </div>
+
+        <!--Advanced math lessons-->
+
+        <div id="lessons-container-advanced-math" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/advanced-math-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 1: Nonlinear Equations and Functions</p>
+                    <p id="advanced-math-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/advanced-math-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 2: Systems of Equations with Nonlinear Functions</p>
+                    <p id="advanced-math-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/advanced-math-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 3: Function Transformations and Composition</p>
+                    <p id="advanced-math-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/advanced-math-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 4: Complex Numbers</p>
+                    <p id="advanced-math-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/advanced-math-lesson.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 5: Polynomial Division and Remainder Theorem</p>
+                    <p id="advanced-math-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/advanced-math-lesson.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 6: Rational Exponents and Radical Equations</p>
+                    <p id="advanced-math-score-summary-6"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/advanced-math-lesson.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 7: Absolute Value and Piecewise Functions</p>
+                    <p id="advanced-math-score-summary-7"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/advanced-math-lesson.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 8: Trigonometric Functions and Identities</p>
+                    <p id="advanced-math-score-summary-8"></p>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 
@@ -892,6 +978,7 @@
             const transitionsButton = document.querySelector(".button-29[onclick='showTransitionsLessons()']");
             const rhetoricalSynthesisButton = document.querySelector(".button-29[onclick='showRhetoricalSynthesisLessons()']");
             const boundariesButton = document.querySelector(".button-29[onclick='showBoundariesLessons()']");
+            const advancedMathButton = document.querySelector(".button-29[onclick='showAdvancedMathLessons()']");
         
             // Select Containers
             const testsContainer = document.getElementById("tests-container");
@@ -907,6 +994,7 @@
             const transitionsContainer = document.getElementById("lessons-container-transitions");
             const rhetoricalSynthesisContainer = document.getElementById("lessons-container-rhetorical-synthesis");
             const boundariesContainer = document.getElementById("lessons-container-boundaries");
+            const advancedMathContainer = document.getElementById("lessons-container-advanced-math");
         
             // Function to hide all containers
             function hideAllContainers() {
@@ -923,7 +1011,8 @@
                     crossTextConnectionsContainer,
                     transitionsContainer,
                     rhetoricalSynthesisContainer,
-                    boundariesContainer
+                    boundariesContainer,
+                    advancedMathContainer
                 ];
                 allContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
@@ -988,6 +1077,10 @@
                 hideAllContainers();
                 if (boundariesContainer) boundariesContainer.classList.remove("hidden");
             }
+            function showAdvancedMathLessons() {
+                hideAllContainers();
+                if (advancedMathContainer) advancedMathContainer.classList.remove("hidden");
+            }
         
             // Add Event Listeners (Only if buttons exist)
             if (testButton) testButton.addEventListener("click", showTests);
@@ -1003,6 +1096,7 @@
             if (transitionsButton) transitionsButton.addEventListener("click", showTransitionsLessons);
             if (rhetoricalSynthesisButton) rhetoricalSynthesisButton.addEventListener("click", showRhetoricalSynthesisLessons);
             if (boundariesButton) boundariesButton.addEventListener("click", showBoundariesLessons);
+            if (advancedMathButton) advancedMathButton.addEventListener("click", showAdvancedMathLessons);
         });
         </script>
            <script src="scoreChart.js"></script>
@@ -1441,6 +1535,29 @@ for (let i = 1; i <= 5; i++) {
                 console.log(`Updated boundaries-score-summary-${i} with: ${score}`);
             } else {
                 console.warn(`Boundaries score summary element for lesson ${i} not found`);
+            }
+        }
+
+        for (let i = 1; i <= 8; i++) {
+    const scoreElement = document.getElementById(`advanced-math-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "advanced-math");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated advanced-math-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Advanced Math score summary element for lesson ${i} not found`);
+    }
+}
+
+        // Update Problem Solving and Data Analysis lesson scores (1–4)
+        for (let i = 1; i <= 4; i++) {
+            const scoreElement = document.getElementById(`problem-solving-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "problem-solving");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated problem-solving-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Problem Solving and Data Analysis score summary element for lesson ${i} not found`);
             }
         }
 
