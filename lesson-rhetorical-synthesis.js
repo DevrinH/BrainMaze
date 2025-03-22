@@ -24,70 +24,189 @@ const lessons = {
         title: "Choosing the Best Sentence for Clarity and Impact",
         examples: [
             {
-                title: "Example: Clarity in Sentence Choice",
-                content: `
-                    <h2>Example: Clarity in Sentence Choice</h2>
-                    <p>Context: Explaining a recycling benefit.</p>
-                    <p>A) 'Recycling cuts waste.' B) 'Trash goes down with recycling stuff.'</p>
-                    <p>Question: Which is clearer?</p>
-                    <p>Step 1: Analyze: A is concise, B is vague.</p>
-                    <p>Step 2: Choose: A is direct and clear.</p>
-                    <p>Best: 'Recycling cuts waste.'</p>
-                    <button id="next-example">Next Example</button>
-                `
+                        type: "example",
+                        title: "Example: Clarity in Sentence Choice",
+                        content: `
+                            <h2>Example: Clarity in Sentence Choice</h2>
+                            <p>Context: Explaining a recycling benefit.</p>
+                            <p>A) 'Recycling cuts waste.' B) 'Trash goes down with recycling stuff.'</p>
+                            <p>Question: Which is clearer?</p>
+                            <p>Step 1: Analyze: A is concise, B is vague.</p>
+                            <p>Step 2: Choose: A is direct and clear.</p>
+                            <p>Best: 'Recycling cuts waste.'</p>
+                            <button id="next-item">Next</button>
+                        `
+                    },
+                    {
+                        type: "question",
+                        title: "Question 1",
+                        question: "Context: Describing a study’s result. A) 'Data shows improvement.' B) 'Some numbers got better.' Which is clearer?",
+                        options: [
+                            { text: "A) Data shows improvement", correct: true },
+                            { text: "B) Some numbers got better", correct: false },
+                            { text: "C) Both are equal", correct: false },
+                            { text: "D) Neither is clear", correct: false }
+                        ],
+                        explanation: "A is straightforward, while B is vague and informal."
+                    },
+                    {
+                        type: "example",
+                        title: "Example: Impact in Sentence Choice",
+                        content: `
+                            <h2>Example: Impact in Sentence Choice</h2>
+                            <p>Context: Urging action on climate.</p>
+                            <p>A) 'We should act now.' B) 'Act now, or lose everything!'</p>
+                            <p>Question: Which has more impact?</p>
+                            <p>Step 1: Analyze: A is mild, B is urgent.</p>
+                            <p>Step 2: Choose: B grabs attention.</p>
+                            <p>Best: 'Act now, or lose everything!'</p>
+                            <button id="next-item">Next</button>
+                        `
+                    },
+                    {
+                        type: "question",
+                        title: "Question 2",
+                        question: "Context: Motivating a team. A) 'We can win.' B) 'Victory is ours if we fight!' Which has more impact?",
+                        options: [
+                            { text: "A) We can win", correct: false },
+                            { text: "B) Victory is ours if we fight!", correct: true },
+                            { text: "C) Both are equal", correct: false },
+                            { text: "D) Neither has impact", correct: false }
+                        ],
+                        explanation: "B inspires with strong, vivid language."
+                    },
+                    {
+                        type: "example",
+                        title: "Example: Precision in Instructions",
+                        content: `
+                            <h2>Example: Precision in Instructions</h2>
+                            <p>Context: Giving directions to a meeting.</p>
+                            <p>A) 'Turn left at the big tree.' B) 'At the oak by the park, go left.'</p>
+                            <p>Question: Which is clearer?</p>
+                            <p>Step 1: Analyze: A is general, B is specific.</p>
+                            <p>Step 2: Choose: B reduces confusion.</p>
+                            <p>Best: 'At the oak by the park, go left.'</p>
+                            <button id="next-item">Next</button>
+                        `
+                    },
+                    {
+                        type: "question",
+                        title: "Question 3",
+                        question: "Context: Explaining a safety rule. A) 'Wear helmets.' B) 'Helmets save heads—wear them!' Which is better?",
+                        options: [
+                            { text: "A) Wear helmets", correct: false },
+                            { text: "B) Helmets save heads—wear them!", correct: true },
+                            { text: "C) Both are equal", correct: false },
+                            { text: "D) Neither works", correct: false }
+                        ],
+                        explanation: "B is clear and adds impact with a reason."
+                    },
+                    {
+                        type: "example",
+                        title: "Example: Emotional Resonance",
+                        content: `
+                            <h2>Example: Emotional Resonance</h2>
+                            <p>Context: Encouraging donations for a cause.</p>
+                            <p>A) 'Give money to help.' B) 'Your gift saves lives today.'</p>
+                            <p>Question: Which has more impact?</p>
+                            <p>Step 1: Analyze: A is bland, B is personal.</p>
+                            <p>Step 2: Choose: B stirs emotion.</p>
+                            <p>Best: 'Your gift saves lives today.'</p>
+                            <button id="next-item">Next</button>
+                        `
+                    },
+                    {
+                        type: "question",
+                        title: "Question 4",
+                        question: "Context: Announcing a sale. A) 'Discounts start tomorrow.' B) 'Tomorrow, snag deals before they’re gone!' Which has more impact?",
+                        options: [
+                            { text: "A) Discounts start tomorrow", correct: false },
+                            { text: "B) Tomorrow, snag deals before they’re gone!", correct: true },
+                            { text: "C) Both are equal", correct: false },
+                            { text: "D) Neither has impact", correct: false }
+                        ],
+                        explanation: "B creates urgency and excitement."
+                    },
+                    {
+                        type: "example",
+                        title: "Example: Simplifying Complex Ideas",
+                        content: `
+                            <h2>Example: Simplifying Complex Ideas</h2>
+                            <p>Context: Explaining a tech benefit.</p>
+                            <p>A) 'It optimizes system efficiency.' B) 'It makes your device run faster.'</p>
+                            <p>Question: Which is clearer?</p>
+                            <p>Step 1: Analyze: A is technical, B is simple.</p>
+                            <p>Step 2: Choose: B is easier to grasp.</p>
+                            <p>Best: 'It makes your device run faster.'</p>
+                            <button id="next-item">Next</button>
+                        `
+                    },
+                    {
+                        type: "question",
+                        title: "Question 5",
+                        question: "Context: Describing a health tip. A) 'Exercise helps you.' B) 'Daily walks boost your heart.' Which is clearer?",
+                        options: [
+                            { text: "A) Exercise helps you", correct: false },
+                            { text: "B) Daily walks boost your heart", correct: true },
+                            { text: "C) Both are equal", correct: false },
+                            { text: "D) Neither is clear", correct: false }
+                        ],
+                        explanation: "B is specific and easy to understand."
+                    },
+                    {
+                        type: "example",
+                        title: "Example: Urgency in Deadlines",
+                        content: `
+                            <h2>Example: Urgency in Deadlines</h2>
+                            <p>Context: Announcing a project due date.</p>
+                            <p>A) 'Finish by Friday.' B) 'Friday’s the line—get it done!'</p>
+                            <p>Question: Which has more impact?</p>
+                            <p>Step 1: Analyze: A is plain, B is forceful.</p>
+                            <p>Step 2: Choose: B pushes action.</p>
+                            <p>Best: 'Friday’s the line—get it done!'</p>
+                            <button id="next-item">Next</button>
+                        `
+                    },
+                    {
+                        type: "question",
+                        title: "Question 6",
+                        question: "Context: Warning about a storm. A) 'Be ready for rain.' B) 'Brace for the downpour—it’s coming!' Which has more impact?",
+                        options: [
+                            { text: "A) Be ready for rain", correct: false },
+                            { text: "B) Brace for the downpour—it’s coming!", correct: true },
+                            { text: "C) Both are equal", correct: false },
+                            { text: "D) Neither has impact", correct: false }
+                        ],
+                        explanation: "B uses vivid words to heighten urgency."
+                    },
+                    {
+                        type: "example",
+                        title: "Example: Balancing Clarity and Impact",
+                        content: `
+                            <h2>Example: Balancing Clarity and Impact</h2>
+                            <p>Context: Warning about pollution.</p>
+                            <p>A) 'Pollution is bad.' B) 'Pollution chokes our planet daily.'</p>
+                            <p>Question: Which is better?</p>
+                            <p>Step 1: Analyze: A is simple, B is vivid.</p>
+                            <p>Step 2: Choose: B is clear and striking.</p>
+                            <p>Best: 'Pollution chokes our planet daily.'</p>
+                            <button id="next-item">Next</button>
+                        `
+                    },
+                    {
+                        type: "question",
+                        title: "Question 7",
+                        question: "Context: Explaining a new policy. A) 'Rules changed.' B) 'Our policy just got a clear upgrade.' Which is clearer?",
+                        options: [
+                            { text: "A) Rules changed", correct: false },
+                            { text: "B) Our policy just got a clear upgrade", correct: true },
+                            { text: "C) Both are equal", correct: false },
+                            { text: "D) Neither is clear", correct: false }
+                        ],
+                        explanation: "B provides more context and clarity."
+                    }
+                ]
             },
-            {
-                title: "Example: Impact in Sentence Choice",
-                content: `
-                    <h2>Example: Impact in Sentence Choice</h2>
-                    <p>Context: Urging action on climate.</p>
-                    <p>A) 'We should act now.' B) 'Act now, or lose everything!'</p>
-                    <p>Question: Which has more impact?</p>
-                    <p>Step 1: Analyze: A is mild, B is urgent.</p>
-                    <p>Step 2: Choose: B grabs attention.</p>
-                    <p>Best: 'Act now, or lose everything!'</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
-                title: "Question 1",
-                question: "Context: Describing a study’s result. A) 'Data shows improvement.' B) 'Some numbers got better.' Which is clearer?",
-                options: [
-                    { text: "A) Data shows improvement", correct: true },
-                    { text: "B) Some numbers got better", correct: false },
-                    { text: "C) Both are equal", correct: false },
-                    { text: "D) Neither is clear", correct: false }
-                ],
-                explanation: "A is straightforward, while B is vague and informal."
-            },
-            {
-                title: "Question 2",
-                question: "Context: Motivating a team. A) 'We can win.' B) 'Victory is ours if we fight!' Which has more impact?",
-                options: [
-                    { text: "A) We can win", correct: false },
-                    { text: "B) Victory is ours if we fight!", correct: true },
-                    { text: "C) Both are equal", correct: false },
-                    { text: "D) Neither has impact", correct: false }
-                ],
-                explanation: "B inspires with strong, vivid language."
-            }
-        ],
-        additionalExample: {
-            title: "Example: Balancing Clarity and Impact",
-            content: `
-                <h2>Example: Balancing Clarity and Impact</h2>
-                <p>Context: Warning about pollution.</p>
-                <p>A) 'Pollution is bad.' B) 'Pollution chokes our planet daily.'</p>
-                <p>Question: Which is better?</p>
-                <p>Step 1: Analyze: A is simple, B is vivid.</p>
-                <p>Step 2: Choose: B is clear and striking.</p>
-                <p>Best: 'Pollution chokes our planet daily.'</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
-    },
     2: {
         title: "Connecting Ideas Logically",
         examples: [
