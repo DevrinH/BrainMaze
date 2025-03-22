@@ -59,8 +59,8 @@
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/test.html'">START</button>
                 </div>
                 <div class="satdesc">
-                    <p class="pbungee">TEST % (beta)</p>
-                    <p>Each level gets harder as you go. See how far you can go.</p>
+                    <p class="pbungee">Timed SAT Test</p>
+                    <p>Module 1. Wrong Answers will be displayed at the end.</p>
                 </div>
             </div>
 
@@ -240,6 +240,25 @@
                 </div>
             </div>
 
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showRhetoricalSynthesisLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis</p>
+                    <p>5 Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showBoundariesLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
 
             <div class="seccontainer"> 
                 <div class="satplacement">
@@ -580,6 +599,99 @@
             </div>
         </div>
 
+        <!--Rhetorical lessons-->
+
+        <div id="lessons-container-rhetorical-synthesis" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/rhetorical-synthesis-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 1: Choosing the Best Sentence for Clarity and Impact</p>
+                    <p id="rhetorical-synthesis-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/rhetorical-synthesis-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 2: Connecting Ideas Logically</p>
+                    <p id="rhetorical-synthesis-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/rhetorical-synthesis-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 3: Integrating Evidence and Supporting Details</p>
+                    <p id="rhetorical-synthesis-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/rhetorical-synthesis-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 4: Maintaining the Author’s Purpose and Tone</p>
+                    <p id="rhetorical-synthesis-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/rhetorical-synthesis-lesson.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 5: Strengthening Arguments and Explanations</p>
+                    <p id="rhetorical-synthesis-score-summary-5"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Boundaries lessons-->
+
+        <div id="lessons-container-boundaries" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/boundaries-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 1: Avoiding Run-On Sentences and Comma Splices</p>
+                    <p id="boundaries-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/boundaries-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 2: Avoiding Sentence Fragments</p>
+                    <p id="boundaries-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/boundaries-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 3: Proper Use of Semicolons, Colons, and Dashes</p>
+                    <p id="boundaries-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/boundaries-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 4: Maintaining Logical and Clear Sentence Boundaries</p>
+                    <p id="boundaries-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+
 
 <!--Geometry lessons-->
 
@@ -778,7 +890,8 @@
             const textStructureAndPurposeButton = document.querySelector(".button-29[onclick='showTextStructureAndPurposeLessons()']");
             const crossTextConnectionsButton = document.querySelector(".button-29[onclick='showCrossTextConnectionsLessons()']");
             const transitionsButton = document.querySelector(".button-29[onclick='showTransitionsLessons()']");
-            
+            const rhetoricalSynthesisButton = document.querySelector(".button-29[onclick='showRhetoricalSynthesisLessons()']");
+            const boundariesButton = document.querySelector(".button-29[onclick='showBoundariesLessons()']");
         
             // Select Containers
             const testsContainer = document.getElementById("tests-container");
@@ -792,6 +905,8 @@
             const textStructureAndPurposeContainer = document.getElementById("lessons-container-text-structure-and-purpose");
             const crossTextConnectionsContainer = document.getElementById("lessons-container-cross-text-connections");
             const transitionsContainer = document.getElementById("lessons-container-transitions");
+            const rhetoricalSynthesisContainer = document.getElementById("lessons-container-rhetorical-synthesis");
+            const boundariesContainer = document.getElementById("lessons-container-boundaries");
         
             // Function to hide all containers
             function hideAllContainers() {
@@ -806,7 +921,9 @@
                     wordsInContextContainer,
                     textStructureAndPurposeContainer,
                     crossTextConnectionsContainer,
-                    transitionsContainer
+                    transitionsContainer,
+                    rhetoricalSynthesisContainer,
+                    boundariesContainer
                 ];
                 allContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
@@ -863,6 +980,14 @@
                 hideAllContainers();
                 if (transitionsContainer) transitionsContainer.classList.remove("hidden");
             }
+            function showRhetoricalSynthesisLessons() {
+                hideAllContainers();
+                 if (rhetoricalSynthesisContainer) rhetoricalSynthesisContainer.classList.remove("hidden");
+            }
+            function showBoundariesLessons() {
+                hideAllContainers();
+                if (boundariesContainer) boundariesContainer.classList.remove("hidden");
+            }
         
             // Add Event Listeners (Only if buttons exist)
             if (testButton) testButton.addEventListener("click", showTests);
@@ -876,6 +1001,8 @@
             if (textStructureAndPurposeButton) textStructureAndPurposeButton.addEventListener("click", showTextStructureAndPurposeLessons);
             if (crossTextConnectionsButton) crossTextConnectionsButton.addEventListener("click", showCrossTextConnectionsLessons);
             if (transitionsButton) transitionsButton.addEventListener("click", showTransitionsLessons);
+            if (rhetoricalSynthesisButton) rhetoricalSynthesisButton.addEventListener("click", showRhetoricalSynthesisLessons);
+            if (boundariesButton) boundariesButton.addEventListener("click", showBoundariesLessons);
         });
         </script>
            <script src="scoreChart.js"></script>
@@ -1294,6 +1421,30 @@ for (let i = 1; i <= 4; i++) {
         console.warn(`Transitions score summary element for lesson ${i} not found`);
     }
 }
+
+for (let i = 1; i <= 5; i++) {
+    const scoreElement = document.getElementById(`rhetorical-synthesis-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "rhetorical-synthesis");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated rhetorical-synthesis-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Rhetorical Synthesis score summary element for lesson ${i} not found`);
+    }
+}
+
+        for (let i = 1; i <= 4; i++) {
+            const scoreElement = document.getElementById(`boundaries-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "boundaries");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated boundaries-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Boundaries score summary element for lesson ${i} not found`);
+            }
+        }
+
+
     });
 </script>
     
