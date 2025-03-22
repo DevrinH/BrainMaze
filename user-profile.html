@@ -209,6 +209,16 @@
             </div>
             
 
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showTextStructureAndPurposeLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
 
             <div class="seccontainer"> 
                 <div class="satplacement">
@@ -231,6 +241,8 @@
         </div>
 
         </div>
+
+<!--Command of evidence lessons-->
 
         <div id="lessons-container-command-of-evidence" class="container hidden">
             <div class="seccontainer">
@@ -271,6 +283,8 @@
             </div>
         </div>
 
+
+<!--Central Ideas lessons-->
 
         <div id="lessons-container-central-ideas-and-detail" class="container hidden">
             <div class="seccontainer">
@@ -320,7 +334,9 @@
             </div>
         </div>
 
-    
+<!--Inferences lessons-->
+
+
         <div id="lessons-container-inferences" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -378,6 +394,7 @@
             </div>
         </div>
 
+        <!--Words in context lessons-->
 
         <div id="lessons-container-words-in-context" class="container hidden">
             <div class="seccontainer">
@@ -418,6 +435,52 @@
             </div>
         </div>
 
+
+        <!--Text Structure lessons-->
+
+        <div id="lessons-container-text-structure-and-purpose" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/text-structure-and-purpose-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 1: Identifying the Author’s Purpose</p>
+                    <p id="text-structure-and-purpose-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/text-structure-and-purpose-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 2: Recognizing Text Structures</p>
+                    <p id="text-structure-and-purpose-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/text-structure-and-purpose-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 3: Understanding How Ideas are Organized</p>
+                    <p id="text-structure-and-purpose-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/text-structure-and-purpose-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 4: Evaluating Rhetorical Strategies</p>
+                    <p id="text-structure-and-purpose-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+        <!--Cross Text lessons-->
+
+
+<!--Geometry lessons-->
 
     <div id="lessons-container-geometry" class="container hidden">
 
@@ -611,6 +674,7 @@
             const commandOfEvidenceButton = document.querySelector(".button-29[onclick='showCommandOfEvidenceLessons()']");
             const centralIdeasAndDetailButton = document.querySelector(".button-29[onclick='showCentralIdeasAndDetailLessons()']");
             const wordsInContextButton = document.querySelector(".button-29[onclick='showWordsInContextLessons()']");
+            const textStructureAndPurposeButton = document.querySelector(".button-29[onclick='showTextStructureAndPurposeLessons()']");
             
         
             // Select Containers
@@ -622,6 +686,7 @@
             const commandOfEvidenceContainer = document.getElementById("lessons-container-command-of-evidence");
             const centralIdeasAndDetailContainer = document.getElementById("lessons-container-central-ideas-and-detail");
             const wordsInContextContainer = document.getElementById("lessons-container-words-in-context");
+            const textStructureAndPurposeContainer = document.getElementById("lessons-container-text-structure-and-purpose");
         
             // Function to hide all containers
             function hideAllContainers() {
@@ -633,7 +698,8 @@
                     geometryContainer,
                     commandOfEvidenceContainer,
                     centralIdeasAndDetailContainer,
-                    wordsInContextContainer
+                    wordsInContextContainer,
+                    textStructureAndPurposeContainer
                 ];
                 allContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
@@ -678,6 +744,10 @@
                 hideAllContainers();
                 if (wordsInContextContainer) wordsInContextContainer.classList.remove("hidden");
             }
+            function showTextStructureAndPurposeLessons() {
+                hideAllContainers();
+                if (textStructureAndPurposeContainer) textStructureAndPurposeContainer.classList.remove("hidden");
+            }
         
             // Add Event Listeners (Only if buttons exist)
             if (testButton) testButton.addEventListener("click", showTests);
@@ -688,6 +758,7 @@
             if (commandOfEvidenceButton) commandOfEvidenceButton.addEventListener("click", showCommandOfEvidenceLessons);
             if (centralIdeasAndDetailButton) centralIdeasAndDetailButton.addEventListener("click", showCentralIdeasAndDetailLessons);
             if (wordsInContextButton) wordsInContextButton.addEventListener("click", showWordsInContextLessons);
+            if (textStructureAndPurposeButton) textStructureAndPurposeButton.addEventListener("click", showTextStructureAndPurposeLessons);
         });
         </script>
            <script src="scoreChart.js"></script>
@@ -1073,6 +1144,16 @@
         console.log(`Updated words-in-context-score-summary-${i} with: ${score}`);
     } else {
         console.warn(`Words in Context score summary element for lesson ${i} not found`);
+    }
+}
+for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`text-structure-and-purpose-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "text-structure-and-purpose");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated text-structure-and-purpose-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Text Structure and Purpose score summary element for lesson ${i} not found`);
     }
 }
     });
