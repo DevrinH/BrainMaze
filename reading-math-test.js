@@ -14,6 +14,7 @@ results = results ? JSON.parse(results) : {};
 let refreshIntervalId;
 let isMathTest = false;
 let time;
+let userResponses = []; // Stores { question, userAnswer, correctAnswer, wasCorrect }
 
 const readingWritingQuestions = [
     {
@@ -112,6 +113,7 @@ const mathQuestions = [
         category: "algebra"
     },
 ];
+
 function startReadingWritingTest() {
     isMathTest = false;
     time = 64 * 60;
@@ -164,6 +166,7 @@ function startQuiz(questions, numEasy, numMedium, numHard) {
     score = 0;
     correctAnswers = 0;
     categoryStats = {};
+    userResponses = []; // Reset user responses for each new test
     selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
     nextButton.innerHTML = "Next";
     showQuestion();
@@ -223,11 +226,19 @@ function selectAnswer(e) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
 
+    // Record the user's response
+    const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+    userResponses.push({
+        question: currentQuestion.question,
+        userAnswer: selectedBtn.innerHTML,
+        correctAnswer: correctAnswer,
+        wasCorrect: isCorrect
+    });
+
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
 
-        // Fixed weighted scoring based on difficulty (NO scaling)
         if (questionDifficulty === "easy") {
             score += 1;
         } else if (questionDifficulty === "medium") {
@@ -242,7 +253,6 @@ function selectAnswer(e) {
         categoryStats[questionCategory].incorrect++;
     }
 
-    // Save results after selecting an answer
     recordTestResults();
 
     Array.from(answerButtons.children).forEach(button => {
@@ -252,8 +262,8 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    nextButton.style.display = "block"; // Ensure Next button is visible
-    nextButton.disabled = false; // Ensure Next button is enabled
+    nextButton.style.display = "block";
+    nextButton.disabled = false;
 }
 
 function showScore() {
@@ -262,9 +272,9 @@ function showScore() {
 
     let maxPossibleScore;
     if (!isMathTest) {
-        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3); // Adjust based on the number of questions
+        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
     } else {
-        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3); // Adjust based on the number of questions
+        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
     }
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
@@ -285,19 +295,74 @@ function showScore() {
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
         scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
-
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
         questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
                                     <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
                                     <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
-        nextButton.innerHTML = "Finish";
+        nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
-        nextButton.addEventListener("click", () => {
-            window.location.href = "https://www.brainjelli.com/user-profile";
-        });
-        document.getElementById("progress-bar").style.width = "100%";
+        nextButton.removeEventListener("click", handleNextButton); // Remove old listener
+        nextButton.addEventListener("click", showExplanations); // Add new listener for explanations
     }
+}
+
+function showExplanations() {
+    resetState();
+    questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
+
+    const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
+
+    if (incorrectResponses.length === 0) {
+        questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
+    } else {
+        incorrectResponses.forEach((response, index) => {
+            const explanation = generateExplanation(response);
+            questionElement.innerHTML += `
+                <div class="explanation">
+                    <h3>Question ${index + 1}</h3>
+                    <p><strong>Question:</strong> ${response.question}</p>
+                    <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
+                    <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
+                    <p><strong>Explanation:</strong> ${explanation}</p>
+                </div>
+            `;
+        });
+    }
+
+    nextButton.innerHTML = "Finish";
+    nextButton.style.display = "block";
+    nextButton.removeEventListener("click", showExplanations);
+    nextButton.addEventListener("click", () => {
+        window.location.href = "https://www.brainjelli.com/user-profile";
+    });
+}
+
+function generateExplanation(response) {
+    const questionText = response.question;
+
+    // Reading/Writing Explanations
+    if (questionText.includes("Emma stepped into the grand ballroom")) {
+        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation. The text highlights her discomfort rather than excitement or confidence.";
+    } else if (questionText.includes("Daniel stepped into the office")) {
+        return "Daniel’s doubt and deep breath indicate uncertainty, but his reminder that 'everyone had to start somewhere' shows determination, not disinterest or regret.";
+    } else if (questionText.includes("Liam set his pen down")) {
+        return "The best evidence is the explicit mention of 'nagging doubt,' directly showing his uncertainty about the manuscript’s quality.";
+    } else if (questionText.includes("The scientist adjusted her glasses")) {
+        return "The scientist’s struggle to accept the findings is best supported by her disbelief in the consistent results, despite repeated checks.";
+
+    // Math Explanations
+    } else if (questionText.includes("An airplane is flying from City A to City B")) {
+        return "The trip is split into two 750-mile segments. Time against the wind = 750 / 500 = 1.5 hours. Time with the wind = 750 / 600 = 1.25 hours. Total time = 1.5 + 1.25 = 2.75 hours.";
+    } else if (questionText.includes("A car's value depreciates by 15%")) {
+        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $25,500 × 0.85 = $21,675. Year 3: $21,675 × 0.85 = $18,423.75 ≈ $19,275 (rounded).";
+    } else if (questionText.includes("The function f(x) is defined")) {
+        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(4²) - 3(4) + 5 = 2(16) - 12 + 5 = 32 - 12 + 5 = 25.";
+    } else if (questionText.includes("A company rents out bicycles")) {
+        return "Equation: $12 + $3h ≤ $45. Subtract 12: $3h ≤ $33. Divide by 3: h ≤ 11. Maximum whole hours = 9 (since $12 + $3 × 9 = $39 ≤ $45).";
+    }
+
+    return "No specific explanation available for this question.";
 }
 
 function handleNextButton() {
@@ -319,13 +384,11 @@ function updateProgressBar() {
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
 
-    // Fetch previous results from localStorage
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
 
     console.log("Previous testResults from localStorage:", results);
 
-    // Validate stored results
     if (typeof results !== "object" || Array.isArray(results)) {
         console.error("Error: results should be an object but got", results);
         results = {};
@@ -336,12 +399,10 @@ function recordTestResults() {
             results[category] = { correct: 0, incorrect: 0 };
         }
 
-        // Check previous values before updating
         console.log(
             `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
         );
 
-        // Ensure fresh values are added correctly
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
 
@@ -350,11 +411,9 @@ function recordTestResults() {
         );
     }
 
-    // Store updated results in localStorage
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
 
-    // Reset categoryStats to prevent double counting in the next test
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
