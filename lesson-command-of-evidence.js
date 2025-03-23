@@ -1,5 +1,4 @@
 // Ensure scores display on page load by calling showScore
-// Ensure scores display on page load by calling showScore
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
     currentLesson = lessonId;
 
     showScore();
-    updateProgressBar(0); // Initialize progress bar at 0%
 });
 
 // Define all lessons
@@ -808,12 +806,10 @@ let categoryStats = {
 
 let currentQuestionIndex = 0;
 let currentLesson = 1;
-let currentExampleIndex = 0;
-let currentQuestionIdx = 0;
+let currentItemIndex = 0;
 let progressSteps = 0;
-const totalSteps = 16; // 8 examples + 8 questions
+let totalSteps = 15; // Default for Lesson 1: 14 items + 1 quiz
 
-// Progress bar function
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
@@ -831,94 +827,99 @@ function startLesson() {
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
         startLessonButton.style.display = 'none';
-        currentExampleIndex = 0;
-        showExample();
-        progressSteps = 1; // First example
+        currentItemIndex = 0;
+        // Set totalSteps based on current lesson's content length + quiz
+        totalSteps = lessons[currentLesson].content.length + 1;
+        console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
+        showItem();
+        progressSteps = 1; // First item
         updateProgressBar(progressSteps);
     } else {
         console.error("Start lesson button not found!");
     }
 }
 
-function showExample() {
-    console.log("Showing example for lesson:", currentLesson, "index:", currentExampleIndex);
+function showItem() {
+    console.log("Showing item for lesson:", currentLesson, "at index:", currentItemIndex);
     const lessonContent = document.getElementById('lesson-content');
-    if (lessonContent && lessons[currentLesson] && lessons[currentLesson].examples[currentExampleIndex]) {
-        lessonContent.innerHTML = lessons[currentLesson].examples[currentExampleIndex].content;
-        const nextButton = document.getElementById(currentExampleIndex < 7 ? 'next-example' : 'next-question');
+    const currentLessonData = lessons[currentLesson];
+    if (!lessonContent || !currentLessonData || !currentLessonData.content) {
+        console.error("Lesson content or data missing!");
+        return;
+    }
+
+    const item = currentLessonData.content[currentItemIndex];
+    if (!item) {
+        console.log("No more items, proceeding to quiz");
+        showQuiz();
+        return;
+    }
+
+    if (item.type === "example") {
+        lessonContent.innerHTML = item.content;
+        const nextButton = document.getElementById('next-item');
         if (nextButton) {
-            nextButton.addEventListener('click', currentExampleIndex < 7 ? showNextExample : askQuestion);
+            nextButton.addEventListener('click', nextItem);
         } else {
-            console.error("Next button not found!");
+            console.error("Next item button not found!");
         }
-    } else {
-        console.error("Lesson content or examples data missing!");
-    }
-}
-
-function showNextExample() {
-    currentExampleIndex++;
-    if (currentExampleIndex < 8) {
-        const lessonContent = document.getElementById('lesson-content');
-        lessonContent.innerHTML = lessons[currentLesson].examples[currentExampleIndex].content;
-        const nextButton = document.getElementById(currentExampleIndex < 7 ? 'next-example' : 'next-question');
-        nextButton.addEventListener('click', currentExampleIndex < 7 ? showNextExample : askQuestion);
-        progressSteps = currentExampleIndex + 1; // 2 through 8 for examples
-        updateProgressBar(progressSteps);
-    } else {
-        askQuestion();
-    }
-}
-
-function askQuestion() {
-    console.log("Asking question for lesson:", currentLesson, "index:", currentQuestionIdx);
-    const lessonContent = document.getElementById('lesson-content');
-    if (lessonContent && lessons[currentLesson] && lessons[currentLesson].questions[currentQuestionIdx]) {
-        const question = lessons[currentLesson].questions[currentQuestionIdx];
+    } else if (item.type === "question") {
         lessonContent.innerHTML = `
-            <h2>${question.title}</h2>
-            <p>${question.question}</p>
-            ${question.options.map((option, index) => `
-                <input type="radio" id="q${currentQuestionIdx}a${index}" name="q${currentQuestionIdx}" value="${option.correct}">
-                <label for="q${currentQuestionIdx}a${index}">${option.text}</label><br>
+            <h2>${item.title}</h2>
+            <p>${item.question}</p>
+            ${item.options.map((option, index) => `
+                <input type="radio" id="q${currentItemIndex}a${index}" name="q${currentItemIndex}" value="${option.correct}">
+                <label for="q${currentItemIndex}a${index}">${option.text}</label><br>
             `).join('')}
-            <button id="submit-answer${currentQuestionIdx}">Submit Answer</button>
+            <button id="submit-answer${currentItemIndex}">Submit Answer</button>
         `;
-        document.getElementById(`submit-answer${currentQuestionIdx}`).addEventListener('click', () => checkAnswer(currentQuestionIdx));
-        progressSteps = 9 + currentQuestionIdx; // 9 through 16 for questions
-        updateProgressBar(progressSteps);
-    } else {
-        showQuiz(); // End if no more questions
+        const submitButton = document.getElementById(`submit-answer${currentItemIndex}`);
+        if (submitButton) {
+            submitButton.addEventListener('click', () => checkItemAnswer(item));
+        } else {
+            console.error("Submit answer button not found!");
+        }
     }
 }
 
-function checkAnswer(questionIdx) {
-    const selectedAnswer = document.querySelector(`input[name="q${questionIdx}"]:checked`);
+function nextItem() {
+    currentItemIndex++;
+    progressSteps = currentItemIndex + 1;
+    updateProgressBar(progressSteps);
+    showItem();
+}
+
+function checkItemAnswer(item) {
+    const selectedAnswer = document.querySelector(`input[name="q${currentItemIndex}"]:checked`);
     if (selectedAnswer) {
         if (selectedAnswer.value === "true") {
             alert('Correct!');
             categoryStats["command-of-evidence"].correct++;
         } else {
-            alert(`Incorrect. ${lessons[currentLesson].questions[questionIdx].explanation}`);
+            alert(`Incorrect. ${item.explanation}`);
             categoryStats["command-of-evidence"].incorrect++;
         }
-        currentQuestionIdx++;
-        if (currentQuestionIdx < 8) {
-            askQuestion();
-        } else {
-            showQuiz();
-        }
+        currentItemIndex++;
+        progressSteps = currentItemIndex + 1; // Increment progress after answering
+        updateProgressBar(progressSteps);
+        showItem();
     } else {
         alert('Please select an answer.');
     }
 }
-
 function showQuiz() {
     currentQuestionIndex = 0;
-    let quizQuestions = evidenceQuestions; // Use defined quiz questions
-    showNextQuizQuestion(quizQuestions);
-    progressSteps = 16; // Final step (assuming quiz is last)
+    let quizQuestions;
+    switch (parseInt(currentLesson)) {
+        case 1: quizQuestions = textualEvidenceQuestions; break;
+        case 2: quizQuestions = authorUseOfEvidenceQuestions; break;
+        case 3: quizQuestions = dataInterpretationQuestions; break;
+        case 4: quizQuestions = crossTextEvidenceQuestions; break;
+        default: quizQuestions = textualEvidenceQuestions;
+    }
+    progressSteps = totalSteps; // Final step (quiz)
     updateProgressBar(progressSteps);
+    showNextQuizQuestion(quizQuestions);
 }
 
 function showNextQuizQuestion(quizQuestions) {
@@ -951,7 +952,12 @@ function checkQuizAnswer(question, quizQuestions) {
             categoryStats[question.category].incorrect++;
         }
         currentQuestionIndex++;
-        showNextQuizQuestion(quizQuestions);
+        if (currentQuestionIndex < quizQuestions.length) {
+            showNextQuizQuestion(quizQuestions);
+        } else {
+            console.log("Quiz complete, calling showFinalScore");
+            showFinalScore();
+        }
     } else {
         alert('Please select an answer.');
     }
@@ -1026,9 +1032,15 @@ function saveScore(lessonId, score) {
 }
 
 function getScore(lessonId) {
-    return localStorage.getItem(`command-of-evidence-lessonScore-${lessonId}`) || "Not completed yet";
+    return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
 }
 
+// Placeholder for showScore (assuming it exists elsewhere or is intended to be empty)
+function showScore() {
+    console.log("showScore called (placeholder)");
+}
+
+// Initialize on page load
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Page loaded, initializing lesson:", currentLesson);
     const urlParams = new URLSearchParams(window.location.search);
