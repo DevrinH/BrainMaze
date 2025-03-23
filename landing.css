@@ -886,7 +886,7 @@ h3 {
 #next-item {
   align-items: center;
   margin: auto;
-  margin-top: 6px;
+  margin-top: 10px;
   appearance: none;
   background-image: radial-gradient(100% 100% at 100% 0, #cdcacf 0, #9ea9b6 100%);
   border: 0;
@@ -905,7 +905,7 @@ h3 {
   padding-left: 14px;
   padding-right: 14px;
   position: relative;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   transition: box-shadow .15s,transform .15s;
   user-select: none;
