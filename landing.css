@@ -722,6 +722,11 @@ h3 {
 
 }
 
+.app, h1{
+
+margin-bottom: 7px;  
+}
+
 .testlessonscontainer, .progress-container {
   flex: 1; 
   min-width: 48%;
