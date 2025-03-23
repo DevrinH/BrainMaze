@@ -1,23 +1,15 @@
 // Ensure scores display on page load by calling showScore
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
 
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
-        console.log("Start Lesson Button event listener added.");
-    } else {
-        console.error("Start lesson button not found.");
-    }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || 1;
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId;
-
-    showScore();
-});
-
+// Declare global variables at the top
+let totalItems = 0;
+let completedItems = 0;
+let categoryStats = {
+    "rhetorical-synthesis": { correct: 0, incorrect: 0 }
+};
+let currentQuestionIndex = 0;
+let currentLesson = 1;
+let currentItemIndex = 0;
 // Define all lessons
 // Define all lessons
 const lessons = {
@@ -1032,36 +1024,16 @@ const strengtheningArgumentsQuestions = [
 // lesson-rhetorical-synthesis.js
 
 // Progress tracking variables
-let totalItems = 0;
-let completedItems = 0;
-
-let categoryStats = {
-    "rhetorical-synthesis": { correct: 0, incorrect: 0 }
-};
-
-let currentQuestionIndex = 0;
-let currentLesson = 1;
-let currentItemIndex = 0;
-
-// Define all lessons (keeping your existing lessons object)
-const lessons = {
-    // Your existing lessons object goes here
-    // ... (I've omitted it for brevity since it's unchanged from what you provided)
-};
-
-// Rhetorical Synthesis question arrays (keeping your existing question arrays)
-// ... (omitted for brevity)
-
 // Progress bar update function
 function updateProgressBar() {
     const progressBar = document.getElementById('progress-bar');
-    if (!progressBar) return;
-    
-    const progressPercentage = totalItems > 0 ? (completedItems / totalItems) * 100 : 0;
-    progressBar.style.width = `${progressPercentage}%`;
+    if (progressBar) {
+        const progressPercentage = totalItems > 0 ? (completedItems / totalItems) * 100 : 0;
+        progressBar.style.width = `${progressPercentage}%`;
+    }
 }
 
-// Initial page load
+// Page load initialization
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
@@ -1074,7 +1046,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || 1;
+    const lessonId = urlParams.get('lesson') || '1';
     console.log(`Loading lesson ${lessonId}`);
     currentLesson = lessonId;
 
@@ -1089,8 +1061,13 @@ function startLesson() {
         startLessonButton.style.display = 'none';
         currentItemIndex = 0;
         
-        // Calculate total items (lesson content + quiz questions)
         const lessonData = lessons[currentLesson];
+        if (!lessonData) {
+            console.error(`Lesson ${currentLesson} not found`);
+            return;
+        }
+
+        // Select quiz questions based on lesson
         let quizQuestions;
         switch (parseInt(currentLesson)) {
             case 1: quizQuestions = clarityImpactQuestions; break;
@@ -1100,11 +1077,14 @@ function startLesson() {
             case 5: quizQuestions = strengtheningArgumentsQuestions; break;
             default: quizQuestions = clarityImpactQuestions;
         }
+
         totalItems = lessonData.content.length + quizQuestions.length;
         completedItems = 0;
         
         showItem();
         updateProgressBar();
+    } else {
+        console.error("Start lesson button not found in startLesson");
     }
 }
 
@@ -1112,6 +1092,7 @@ function showItem() {
     console.log("Showing item for lesson:", currentLesson, "at index:", currentItemIndex);
     const lessonContent = document.getElementById('lesson-content');
     const currentLessonData = lessons[currentLesson];
+    
     if (!lessonContent || !currentLessonData || !currentLessonData.content) {
         console.error("Lesson content or data missing!");
         return;
@@ -1124,10 +1105,14 @@ function showItem() {
         return;
     }
 
+    lessonContent.innerHTML = '';
+
     if (item.type === "example") {
         lessonContent.innerHTML = item.content;
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
+            // Remove existing listeners to prevent duplicates
+            nextButton.removeEventListener('click', nextItem);
             nextButton.addEventListener('click', nextItem);
         }
     } else if (item.type === "question") {
@@ -1142,6 +1127,7 @@ function showItem() {
         `;
         const submitButton = document.getElementById(`submit-answer${currentItemIndex}`);
         if (submitButton) {
+            submitButton.removeEventListener('click', () => checkItemAnswer(item));
             submitButton.addEventListener('click', () => checkItemAnswer(item));
         }
     }
@@ -1200,7 +1186,11 @@ function showNextQuizQuestion(quizQuestions) {
             `).join('')}
             <button id="submit-answer">Submit Answer</button>
         `;
-        document.getElementById('submit-answer').addEventListener('click', () => checkQuizAnswer(question, quizQuestions));
+        const submitButton = document.getElementById('submit-answer');
+        if (submitButton) {
+            submitButton.removeEventListener('click', () => checkQuizAnswer(question, quizQuestions));
+            submitButton.addEventListener('click', () => checkQuizAnswer(question, quizQuestions));
+        }
     } else {
         showFinalScore();
     }
@@ -1241,7 +1231,6 @@ function logFinalScore(totalCorrect, totalAttempted) {
 }
 
 function showFinalScore() {
-    console.log("Running showFinalScore for lesson:", currentLesson);
     let totalCorrect = 0;
     let totalAttempted = 0;
 
@@ -1254,29 +1243,31 @@ function showFinalScore() {
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    console.log("Saving score:", score);
     saveScore(currentLesson, score);
 
     const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = '';
-    finalScoreElement.style.display = 'block';
-    finalScoreElement.innerHTML = `
-        <h2>Final Score</h2>
-        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-        <p>Your score: ${percentage}%</p>
-        <button id="continue-button">Continue</button>
-    `;
+    if (lessonContent && finalScoreElement) {
+        lessonContent.innerHTML = '';
+        finalScoreElement.style.display = 'block';
+        finalScoreElement.innerHTML = `
+            <h2>Final Score</h2>
+            <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+            <p>Your score: ${percentage}%</p>
+            <button id="continue-button">Continue</button>
+        `;
 
-    document.getElementById('continue-button').addEventListener('click', () => {
-        window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    });
-
+        const continueButton = document.getElementById('continue-button');
+        if (continueButton) {
+            continueButton.addEventListener('click', () => {
+                window.location.href = 'https://www.brainjelli.com/user-profile.html';
+            });
+        }
+    }
     recordTestResults();
 }
 
 function recordTestResults() {
-    console.log("Recording results. Current categoryStats:", categoryStats);
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
     for (let category in categoryStats) {
@@ -1285,7 +1276,6 @@ function recordTestResults() {
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
     localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
@@ -1298,7 +1288,6 @@ function saveScore(lessonId, score) {
 }
 
 function showScore() {
-    console.log("showScore called for lesson:", currentLesson);
     const finalScoreElement = document.getElementById('final-score');
     if (finalScoreElement) {
         const score = localStorage.getItem(`rhetorical-synthesis-lessonScore-${currentLesson}`);
