@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Define all lessons
+// Define all lessons
 const lessons = {
     1: {
         title: "Choosing the Best Sentence for Clarity and Impact",
@@ -209,8 +210,9 @@ const lessons = {
     },
     2: {
         title: "Connecting Ideas Logically",
-        examples: [
+        content: [
             {
+                type: "example",
                 title: "Example: Cause and Effect Link",
                 content: `
                     <h2>Example: Cause and Effect Link</h2>
@@ -219,24 +221,11 @@ const lessons = {
                     <p>Step 1: Identify: Rain caused flooding.</p>
                     <p>Step 2: Connect: Use 'thus' for effect.</p>
                     <p>Revised: 'Rain fell heavily, thus streets flooded.'</p>
-                    <button id="next-example">Next Example</button>
+                    <button id="next-item">Next</button>
                 `
             },
             {
-                title: "Example: Contrast Link",
-                content: `
-                    <h2>Example: Contrast Link</h2>
-                    <p>Sentences: 'She practiced a lot. She didn’t win.'</p>
-                    <p>Question: How to connect logically?</p>
-                    <p>Step 1: Identify: Effort vs. outcome.</p>
-                    <p>Step 2: Connect: Use 'yet' for contrast.</p>
-                    <p>Revised: 'She practiced a lot, yet she didn’t win.'</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
+                type: "question",
                 title: "Question 1",
                 question: "Sentences: 'He studied hard. He passed.' How to connect logically?",
                 options: [
@@ -248,6 +237,20 @@ const lessons = {
                 explanation: "'So' shows studying caused passing."
             },
             {
+                type: "example",
+                title: "Example: Contrast Link",
+                content: `
+                    <h2>Example: Contrast Link</h2>
+                    <p>Sentences: 'She practiced a lot. She didn’t win.'</p>
+                    <p>Question: How to connect logically?</p>
+                    <p>Step 1: Identify: Effort vs. outcome.</p>
+                    <p>Step 2: Connect: Use 'yet' for contrast.</p>
+                    <p>Revised: 'She practiced a lot, yet she didn’t win.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
                 title: "Question 2",
                 question: "Sentences: 'The plan was simple. It failed.' How to connect logically?",
                 options: [
@@ -257,25 +260,139 @@ const lessons = {
                     { text: "D) The plan was simple, because it failed", correct: false }
                 ],
                 explanation: "'Yet' highlights the unexpected failure."
+            },
+            {
+                type: "example",
+                title: "Example: Sequence Link",
+                content: `
+                    <h2>Example: Sequence Link</h2>
+                    <p>Sentences: 'She wrote the code. She tested it.'</p>
+                    <p>Question: How to connect logically?</p>
+                    <p>Step 1: Identify: Steps in order.</p>
+                    <p>Step 2: Connect: Use 'then' for sequence.</p>
+                    <p>Revised: 'She wrote the code, then she tested it.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 3",
+                question: "Sentences: 'He cooked dinner. He ate.' How to connect logically?",
+                options: [
+                    { text: "A) He cooked dinner, then he ate", correct: true },
+                    { text: "B) He cooked dinner, so he ate", correct: false },
+                    { text: "C) He cooked dinner, but he ate", correct: false },
+                    { text: "D) He cooked dinner, or he ate", correct: false }
+                ],
+                explanation: "'Then' shows the order of events."
+            },
+            {
+                type: "example",
+                title: "Example: Addition Link",
+                content: `
+                    <h2>Example: Addition Link</h2>
+                    <p>Sentences: 'The team worked late. They met the deadline.'</p>
+                    <p>Question: How to connect logically?</p>
+                    <p>Step 1: Identify: Extra effort aided success.</p>
+                    <p>Step 2: Connect: Use 'and' for addition.</p>
+                    <p>Revised: 'The team worked late, and they met the deadline.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 4",
+                question: "Sentences: 'She saved money. She bought a car.' How to connect logically?",
+                options: [
+                    { text: "A) She saved money, and she bought a car", correct: true },
+                    { text: "B) She saved money, yet she bought a car", correct: false },
+                    { text: "C) She saved money, because she bought a car", correct: false },
+                    { text: "D) She saved money, or she bought a car", correct: false }
+                ],
+                explanation: "'And' adds related actions logically."
+            },
+            {
+                type: "example",
+                title: "Example: Reason Link",
+                content: `
+                    <h2>Example: Reason Link</h2>
+                    <p>Sentences: 'He was tired. He went to bed early.'</p>
+                    <p>Question: How to connect logically?</p>
+                    <p>Step 1: Identify: Tiredness caused early sleep.</p>
+                    <p>Step 2: Connect: Use 'because' for reason.</p>
+                    <p>Revised: 'He went to bed early because he was tired.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 5",
+                question: "Sentences: 'The road was icy. She drove slowly.' How to connect logically?",
+                options: [
+                    { text: "A) She drove slowly because the road was icy", correct: true },
+                    { text: "B) She drove slowly, yet the road was icy", correct: false },
+                    { text: "C) She drove slowly, and the road was icy", correct: false },
+                    { text: "D) She drove slowly, or the road was icy", correct: false }
+                ],
+                explanation: "'Because' explains why she drove slowly."
+            },
+            {
+                type: "example",
+                title: "Example: Condition Link",
+                content: `
+                    <h2>Example: Condition Link</h2>
+                    <p>Sentences: 'It rains. We’ll stay inside.'</p>
+                    <p>Question: How to connect logically?</p>
+                    <p>Step 1: Identify: Rain triggers staying in.</p>
+                    <p>Step 2: Connect: Use 'if' for condition.</p>
+                    <p>Revised: 'If it rains, we’ll stay inside.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 6",
+                question: "Sentences: 'You finish early. You can leave.' How to connect logically?",
+                options: [
+                    { text: "A) If you finish early, you can leave", correct: true },
+                    { text: "B) You finish early, so you can leave", correct: false },
+                    { text: "C) You finish early, but you can leave", correct: false },
+                    { text: "D) You finish early, then you can leave", correct: false }
+                ],
+                explanation: "'If' sets a condition for leaving."
+            },
+            {
+                type: "example",
+                title: "Example: Alternative Link",
+                content: `
+                    <h2>Example: Alternative Link</h2>
+                    <p>Sentences: 'We can walk. We can drive.'</p>
+                    <p>Question: How to connect logically?</p>
+                    <p>Step 1: Identify: Two options presented.</p>
+                    <p>Step 2: Connect: Use 'or' for alternatives.</p>
+                    <p>Revised: 'We can walk, or we can drive.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 7",
+                question: "Sentences: 'She can call. She can text.' How to connect logically?",
+                options: [
+                    { text: "A) She can call, or she can text", correct: true },
+                    { text: "B) She can call, and she can text", correct: false },
+                    { text: "C) She can call, so she can text", correct: false },
+                    { text: "D) She can call, because she can text", correct: false }
+                ],
+                explanation: "'Or' presents two valid options."
             }
-        ],
-        additionalExample: {
-            title: "Example: Addition Link",
-            content: `
-                <h2>Example: Addition Link</h2>
-                <p>Sentences: 'The team worked late. They met the deadline.'</p>
-                <p>Question: How to connect logically?</p>
-                <p>Step 1: Identify: Extra effort aided success.</p>
-                <p>Step 2: Connect: Use 'and' for addition.</p>
-                <p>Revised: 'The team worked late, and they met the deadline.'</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        ]
     },
     3: {
         title: "Integrating Evidence and Supporting Details",
-        examples: [
+        content: [
             {
+                type: "example",
                 title: "Example: Adding Evidence",
                 content: `
                     <h2>Example: Adding Evidence</h2>
@@ -285,25 +402,11 @@ const lessons = {
                     <p>Step 1: Link: Evidence supports claim.</p>
                     <p>Step 2: Integrate: Combine smoothly.</p>
                     <p>Revised: 'Exercise improves health, as studies show lower heart disease rates.'</p>
-                    <button id="next-example">Next Example</button>
+                    <button id="next-item">Next</button>
                 `
             },
             {
-                title: "Example: Adding Detail",
-                content: `
-                    <h2>Example: Adding Detail</h2>
-                    <p>Claim: 'The policy saved money.'</p>
-                    <p>Detail: 'It cut costs by 20%.'</p>
-                    <p>Question: How to integrate?</p>
-                    <p>Step 1: Link: Detail explains savings.</p>
-                    <p>Step 2: Integrate: Use specific example.</p>
-                    <p>Revised: 'The policy saved money, cutting costs by 20%.'</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
+                type: "question",
                 title: "Question 1",
                 question: "Claim: 'Reading boosts learning.' Evidence: 'Test scores rose 15%.' How to integrate?",
                 options: [
@@ -315,6 +418,21 @@ const lessons = {
                 explanation: "A smoothly ties the evidence to the claim."
             },
             {
+                type: "example",
+                title: "Example: Adding Detail",
+                content: `
+                    <h2>Example: Adding Detail</h2>
+                    <p>Claim: 'The policy saved money.'</p>
+                    <p>Detail: 'It cut costs by 20%.'</p>
+                    <p>Question: How to integrate?</p>
+                    <p>Step 1: Link: Detail explains savings.</p>
+                    <p>Step 2: Integrate: Use specific example.</p>
+                    <p>Revised: 'The policy saved money, cutting costs by 20%.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
                 title: "Question 2",
                 question: "Claim: 'The event was popular.' Detail: 'Over 500 attended.' How to integrate?",
                 options: [
@@ -324,26 +442,144 @@ const lessons = {
                     { text: "D) The event was popular, over 500 attended", correct: false }
                 ],
                 explanation: "A integrates the detail naturally with 'drawing'."
+            },
+            {
+                type: "example",
+                title: "Example: Combining Evidence",
+                content: `
+                    <h2>Example: Combining Evidence</h2>
+                    <p>Claim: 'Diet affects mood.'</p>
+                    <p>Evidence: 'Research links sugar to anxiety.'</p>
+                    <p>Question: How to integrate?</p>
+                    <p>Step 1: Link: Evidence supports claim.</p>
+                    <p>Step 2: Integrate: Add evidence directly.</p>
+                    <p>Revised: 'Diet affects mood, as research links sugar to anxiety.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 3",
+                question: "Claim: 'Sleep improves memory.' Evidence: 'Studies show better recall.' How to integrate?",
+                options: [
+                    { text: "A) Sleep improves memory, as studies show better recall", correct: true },
+                    { text: "B) Sleep improves memory, but studies show better recall", correct: false },
+                    { text: "C) Sleep improves memory, studies show better recall", correct: false },
+                    { text: "D) Sleep improves memory, or studies show better recall", correct: false }
+                ],
+                explanation: "A connects evidence logically with 'as'."
+            },
+            {
+                type: "example",
+                title: "Example: Specific Detail",
+                content: `
+                    <h2>Example: Specific Detail</h2>
+                    <p>Claim: 'Parks benefit cities.'</p>
+                    <p>Detail: 'They increase property values.'</p>
+                    <p>Question: How to integrate?</p>
+                    <p>Step 1: Link: Detail shows benefit.</p>
+                    <p>Step 2: Integrate: Use a participle.</p>
+                    <p>Revised: 'Parks benefit cities, increasing property values.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 4",
+                question: "Claim: 'Training boosts skills.' Detail: 'It improves accuracy.' How to integrate?",
+                options: [
+                    { text: "A) Training boosts skills, improving accuracy", correct: true },
+                    { text: "B) Training boosts skills, yet it improves accuracy", correct: false },
+                    { text: "C) Training boosts skills, so it improves accuracy", correct: false },
+                    { text: "D) Training boosts skills, or it improves accuracy", correct: false }
+                ],
+                explanation: "A uses a participle for smooth integration."
+            },
+            {
+                type: "example",
+                title: "Example: Quantitative Evidence",
+                content: `
+                    <h2>Example: Quantitative Evidence</h2>
+                    <p>Claim: 'Recycling helps the environment.'</p>
+                    <p>Evidence: 'It reduces landfill use by 30%.'</p>
+                    <p>Question: How to integrate?</p>
+                    <p>Step 1: Link: Evidence quantifies benefit.</p>
+                    <p>Step 2: Integrate: Add directly.</p>
+                    <p>Revised: 'Recycling helps the environment, reducing landfill use by 30%.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 5",
+                question: "Claim: 'Education reduces crime.' Evidence: 'Crime drops 25% with schooling.' How to integrate?",
+                options: [
+                    { text: "A) Education reduces crime, dropping crime 25% with schooling", correct: true },
+                    { text: "B) Education reduces crime, but crime drops 25% with schooling", correct: false },
+                    { text: "C) Education reduces crime, crime drops 25% with schooling", correct: false },
+                    { text: "D) Education reduces crime, or crime drops 25% with schooling", correct: false }
+                ],
+                explanation: "A integrates the evidence clearly."
+            },
+            {
+                type: "example",
+                title: "Example: Qualitative Detail",
+                content: `
+                    <h2>Example: Qualitative Detail</h2>
+                    <p>Claim: 'Art inspires creativity.'</p>
+                    <p>Detail: 'It sparks new ideas.'</p>
+                    <p>Question: How to integrate?</p>
+                    <p>Step 1: Link: Detail explains inspiration.</p>
+                    <p>Step 2: Integrate: Use a phrase.</p>
+                    <p>Revised: 'Art inspires creativity, sparking new ideas.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 6",
+                question: "Claim: 'Travel broadens perspectives.' Detail: 'It exposes people to cultures.' How to integrate?",
+                options: [
+                    { text: "A) Travel broadens perspectives, exposing people to cultures", correct: true },
+                    { text: "B) Travel broadens perspectives, yet it exposes people to cultures", correct: false },
+                    { text: "C) Travel broadens perspectives, so it exposes people to cultures", correct: false },
+                    { text: "D) Travel broadens perspectives, or it exposes people to cultures", correct: false }
+                ],
+                explanation: "A integrates the detail naturally."
+            },
+            {
+                type: "example",
+                title: "Example: Evidence and Detail",
+                content: `
+                    <h2>Example: Evidence and Detail</h2>
+                    <p>Claim: 'Tech aids education.'</p>
+                    <p>Evidence: 'Studies prove better scores.' Detail: 'Math improved most.'</p>
+                    <p>Question: How to integrate?</p>
+                    <p>Step 1: Link: Evidence and detail support claim.</p>
+                    <p>Step 2: Integrate: Combine for flow.</p>
+                    <p>Revised: 'Tech aids education, as studies prove better scores, especially in math.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 7",
+                question: "Claim: 'Music reduces stress.' Evidence: 'Research shows calm.' Detail: 'Heart rates drop.' How to integrate?",
+                options: [
+                    { text: "A) Music reduces stress, as research shows calm, with heart rates dropping", correct: true },
+                    { text: "B) Music reduces stress, but research shows calm, heart rates drop", correct: false },
+                    { text: "C) Music reduces stress, research shows calm, heart rates drop", correct: false },
+                    { text: "D) Music reduces stress, or research shows calm, heart rates drop", correct: false }
+                ],
+                explanation: "A combines evidence and detail smoothly."
             }
-        ],
-        additionalExample: {
-            title: "Example: Evidence and Detail",
-            content: `
-                <h2>Example: Evidence and Detail</h2>
-                <p>Claim: 'Tech aids education.'</p>
-                <p>Evidence: 'Studies prove better scores.' Detail: 'Math improved most.'</p>
-                <p>Question: How to integrate?</p>
-                <p>Step 1: Link: Evidence and detail support claim.</p>
-                <p>Step 2: Integrate: Combine for flow.</p>
-                <p>Revised: 'Tech aids education, as studies prove better scores, especially in math.'</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        ]
     },
     4: {
         title: "Maintaining the Author’s Purpose and Tone",
-        examples: [
+        content: [
             {
+                type: "example",
                 title: "Example: Persuasive Purpose",
                 content: `
                     <h2>Example: Persuasive Purpose</h2>
@@ -353,25 +589,11 @@ const lessons = {
                     <p>Step 1: Check: Persuasive needs urgency.</p>
                     <p>Step 2: Match: A is forceful, B is casual.</p>
                     <p>Best: 'We must recycle now!'</p>
-                    <button id="next-example">Next Example</button>
+                    <button id="next-item">Next</button>
                 `
             },
             {
-                title: "Example: Informative Purpose",
-                content: `
-                    <h2>Example: Informative Purpose</h2>
-                    <p>Context: Explaining weather (informative, neutral tone).</p>
-                    <p>A) 'Rain falls often here.' B) 'Rain is super annoying!'</p>
-                    <p>Question: Which fits the purpose and tone?</p>
-                    <p>Step 1: Check: Informative needs facts, neutrality.</p>
-                    <p>Step 2: Match: A is factual, B is opinionated.</p>
-                    <p>Best: 'Rain falls often here.'</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
+                type: "question",
                 title: "Question 1",
                 question: "Context: Convincing action (persuasive, serious tone). A) 'Act fast to save lives!' B) 'Maybe we should act.' Which fits?",
                 options: [
@@ -383,6 +605,21 @@ const lessons = {
                 explanation: "A matches the urgent, persuasive intent."
             },
             {
+                type: "example",
+                title: "Example: Informative Purpose",
+                content: `
+                    <h2>Example: Informative Purpose</h2>
+                    <p>Context: Explaining weather (informative, neutral tone).</p>
+                    <p>A) 'Rain falls often here.' B) 'Rain is super annoying!'</p>
+                    <p>Question: Which fits the purpose and tone?</p>
+                    <p>Step 1: Check: Informative needs facts, neutrality.</p>
+                    <p>Step 2: Match: A is factual, B is opinionated.</p>
+                    <p>Best: 'Rain falls often here.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
                 title: "Question 2",
                 question: "Context: Describing history (informative, neutral tone). A) 'Wars shaped the era.' B) 'Wars were totally wild!' Which fits?",
                 options: [
@@ -392,26 +629,144 @@ const lessons = {
                     { text: "D) Neither fits", correct: false }
                 ],
                 explanation: "A keeps the neutral, factual tone."
+            },
+            {
+                type: "example",
+                title: "Example: Entertaining Purpose",
+                content: `
+                    <h2>Example: Entertaining Purpose</h2>
+                    <p>Context: Storytelling (entertaining, playful tone).</p>
+                    <p>A) 'The cat napped.' B) 'The cat snoozed like a champ!'</p>
+                    <p>Question: Which fits the purpose and tone?</p>
+                    <p>Step 1: Check: Entertaining needs fun.</p>
+                    <p>Step 2: Match: B is lively, A is bland.</p>
+                    <p>Best: 'The cat snoozed like a champ!'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 3",
+                question: "Context: Joking about food (entertaining, light tone). A) 'Pizza is tasty.' B) 'Pizza’s the king of munchies!' Which fits?",
+                options: [
+                    { text: "A) Pizza is tasty", correct: false },
+                    { text: "B) Pizza’s the king of munchies!", correct: true },
+                    { text: "C) Both fit", correct: false },
+                    { text: "D) Neither fits", correct: false }
+                ],
+                explanation: "B uses playful language for entertainment."
+            },
+            {
+                type: "example",
+                title: "Example: Warning Purpose",
+                content: `
+                    <h2>Example: Warning Purpose</h2>
+                    <p>Context: Cautioning about danger (persuasive, stern tone).</p>
+                    <p>A) 'Watch out for ice!' B) 'Ice might be there.'</p>
+                    <p>Question: Which fits the purpose and tone?</p>
+                    <p>Step 1: Check: Warning needs authority.</p>
+                    <p>Step 2: Match: A is direct, B is weak.</p>
+                    <p>Best: 'Watch out for ice!'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 4",
+                question: "Context: Alerting to risk (persuasive, stern tone). A) 'Don’t swim—sharks!' B) 'Swimming could be risky.' Which fits?",
+                options: [
+                    { text: "A) Don’t swim—sharks!", correct: true },
+                    { text: "B) Swimming could be risky", correct: false },
+                    { text: "C) Both fit", correct: false },
+                    { text: "D) Neither fits", correct: false }
+                ],
+                explanation: "A conveys urgency and sternness."
+            },
+            {
+                type: "example",
+                title: "Example: Descriptive Purpose",
+                content: `
+                    <h2>Example: Descriptive Purpose</h2>
+                    <p>Context: Painting a scene (descriptive, vivid tone).</p>
+                    <p>A) 'The sky was blue.' B) 'The sky shimmered sapphire.'</p>
+                    <p>Question: Which fits the purpose and tone?</p>
+                    <p>Step 1: Check: Descriptive needs imagery.</p>
+                    <p>Step 2: Match: B is vivid, A is plain.</p>
+                    <p>Best: 'The sky shimmered sapphire.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 5",
+                question: "Context: Depicting a forest (descriptive, vivid tone). A) 'Trees were tall.' B) 'Trees towered like giants.' Which fits?",
+                options: [
+                    { text: "A) Trees were tall", correct: false },
+                    { text: "B) Trees towered like giants", correct: true },
+                    { text: "C) Both fit", correct: false },
+                    { text: "D) Neither fits", correct: false }
+                ],
+                explanation: "B uses imagery for a vivid description."
+            },
+            {
+                type: "example",
+                title: "Example: Instructional Purpose",
+                content: `
+                    <h2>Example: Instructional Purpose</h2>
+                    <p>Context: Teaching a task (instructional, clear tone).</p>
+                    <p>A) 'Mix the stuff.' B) 'Stir the ingredients well.'</p>
+                    <p>Question: Which fits the purpose and tone?</p>
+                    <p>Step 1: Check: Instructions need clarity.</p>
+                    <p>Step 2: Match: B is precise, A is vague.</p>
+                    <p>Best: 'Stir the ingredients well.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 6",
+                question: "Context: Guiding setup (instructional, clear tone). A) 'Plug it in right.' B) 'Insert the cord into the outlet.' Which fits?",
+                options: [
+                    { text: "A) Plug it in right", correct: false },
+                    { text: "B) Insert the cord into the outlet", correct: true },
+                    { text: "C) Both fit", correct: false },
+                    { text: "D) Neither fits", correct: false }
+                ],
+                explanation: "B is clear and specific."
+            },
+            {
+                type: "example",
+                title: "Example: Reflective Purpose",
+                content: `
+                    <h2>Example: Reflective Purpose</h2>
+                    <p>Context: Sharing a lesson (reflective, thoughtful tone).</p>
+                    <p>A) 'Life teaches us.' B) 'Life reveals wisdom through struggle.'</p>
+                    <p>Question: Which fits the purpose and tone?</p>
+                    <p>Step 1: Check: Reflective needs depth.</p>
+                    <p>Step 2: Match: B is thoughtful, A is basic.</p>
+                    <p>Best: 'Life reveals wisdom through struggle.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 7",
+                question: "Context: Pondering time (reflective, thoughtful tone). A) 'Time goes fast.' B) 'Time slips away, leaving lessons.' Which fits?",
+                options: [
+                    { text: "A) Time goes fast", correct: false },
+                    { text: "B) Time slips away, leaving lessons", correct: true },
+                    { text: "C) Both fit", correct: false },
+                    { text: "D) Neither fits", correct: false }
+                ],
+                explanation: "B conveys a thoughtful tone."
             }
-        ],
-        additionalExample: {
-            title: "Example: Entertaining Purpose",
-            content: `
-                <h2>Example: Entertaining Purpose</h2>
-                <p>Context: Storytelling (entertaining, playful tone).</p>
-                <p>A) 'The cat napped.' B) 'The cat snoozed like a champ!'</p>
-                <p>Question: Which fits the purpose and tone?</p>
-                <p>Step 1: Check: Entertaining needs fun.</p>
-                <p>Step 2: Match: B is lively, A is bland.</p>
-                <p>Best: 'The cat snoozed like a champ!'</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        ]
     },
     5: {
         title: "Strengthening Arguments and Explanations",
-        examples: [
+        content: [
             {
+                type: "example",
                 title: "Example: Adding Specificity",
                 content: `
                     <h2>Example: Adding Specificity</h2>
@@ -421,25 +776,11 @@ const lessons = {
                     <p>Step 1: Analyze: Weak is vague, strong is precise.</p>
                     <p>Step 2: Choose: Specific data bolsters.</p>
                     <p>Best: 'Education helps people, raising incomes by 10%.'</p>
-                    <button id="next-example">Next Example</button>
+                    <button id="next-item">Next</button>
                 `
             },
             {
-                title: "Example: Adding Reasoning",
-                content: `
-                    <h2>Example: Adding Reasoning</h2>
-                    <p>Explanation: 'Trees reduce pollution.'</p>
-                    <p>Weak: 'They just do.' Strong: 'They filter air particles.'</p>
-                    <p>Question: Which strengthens it?</p>
-                    <p>Step 1: Analyze: Weak lacks why, strong explains.</p>
-                    <p>Step 2: Choose: Reasoning adds depth.</p>
-                    <p>Best: 'Trees reduce pollution by filtering air particles.'</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
+                type: "question",
                 title: "Question 1",
                 question: "Argument: 'Exercise is beneficial.' A) 'It’s nice.' B) 'It cuts stress 30%.' Which strengthens it?",
                 options: [
@@ -451,6 +792,21 @@ const lessons = {
                 explanation: "B adds concrete evidence for strength."
             },
             {
+                type: "example",
+                title: "Example: Adding Reasoning",
+                content: `
+                    <h2>Example: Adding Reasoning</h2>
+                    <p>Explanation: 'Trees reduce pollution.'</p>
+                    <p>Weak: 'They just do.' Strong: 'They filter air particles.'</p>
+                    <p>Question: Which strengthens it?</p>
+                    <p>Step 1: Analyze: Weak lacks why, strong explains.</p>
+                    <p>Step 2: Choose: Reasoning adds depth.</p>
+                    <p>Best: 'Trees reduce pollution by filtering air particles.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
                 title: "Question 2",
                 question: "Explanation: 'Sleep aids focus.' A) 'It’s true.' B) 'It restores brain function.' Which strengthens it?",
                 options: [
@@ -460,21 +816,138 @@ const lessons = {
                     { text: "D) Neither", correct: false }
                 ],
                 explanation: "B provides a clear reason, enhancing the claim."
+            },
+            {
+                type: "example",
+                title: "Example: Adding Examples",
+                content: `
+                    <h2>Example: Adding Examples</h2>
+                    <p>Argument: 'Sports build teamwork.'</p>
+                    <p>Weak: 'It’s obvious.' Strong: 'Soccer teams coordinate plays.'</p>
+                    <p>Question: Which strengthens it?</p>
+                    <p>Step 1: Analyze: Weak assumes, strong shows.</p>
+                    <p>Step 2: Choose: Examples clarify.</p>
+                    <p>Best: 'Sports build teamwork, like soccer teams coordinating plays.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 3",
+                question: "Argument: 'Reading improves knowledge.' A) 'It does.' B) 'Biographies teach history.' Which strengthens it?",
+                options: [
+                    { text: "A) It does", correct: false },
+                    { text: "B) Biographies teach history", correct: true },
+                    { text: "C) Both equally", correct: false },
+                    { text: "D) Neither", correct: false }
+                ],
+                explanation: "B provides a specific example."
+            },
+            {
+                type: "example",
+                title: "Example: Combining Evidence and Reason",
+                content: `
+                    <h2>Example: Combining Evidence and Reason</h2>
+                    <p>Argument: 'Parks improve cities.'</p>
+                    <p>Weak: 'They’re cool.' Strong: 'They boost happiness, per surveys.'</p>
+                    <p>Question: Which strengthens it?</p>
+                    <p>Step 1: Analyze: Weak is vague, strong has proof.</p>
+                    <p>Step 2: Choose: Evidence and reason win.</p>
+                    <p>Best: 'Parks improve cities, boosting happiness, per surveys.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 4",
+                question: "Argument: 'Meditation helps health.' A) 'It’s great.' B) 'It lowers blood pressure, studies say.' Which strengthens it?",
+                options: [
+                    { text: "A) It’s great", correct: false },
+                    { text: "B) It lowers blood pressure, studies say", correct: true },
+                    { text: "C) Both equally", correct: false },
+                    { text: "D) Neither", correct: false }
+                ],
+                explanation: "B uses evidence and reasoning."
+            },
+            {
+                type: "example",
+                title: "Example: Countering Objections",
+                content: `
+                    <h2>Example: Countering Objections</h2>
+                    <p>Argument: 'Remote work is effective.'</p>
+                    <p>Weak: 'It works fine.' Strong: 'Productivity rises despite less oversight.'</p>
+                    <p>Question: Which strengthens it?</p>
+                    <p>Step 1: Analyze: Weak ignores doubts, strong addresses them.</p>
+                    <p>Step 2: Choose: Countering strengthens.</p>
+                    <p>Best: 'Remote work is effective, with productivity rising despite less oversight.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 5",
+                question: "Argument: 'Public transit saves money.' A) 'It’s cheap.' B) 'It cuts fuel costs despite fares.' Which strengthens it?",
+                options: [
+                    { text: "A) It’s cheap", correct: false },
+                    { text: "B) It cuts fuel costs despite fares", correct: true },
+                    { text: "C) Both equally", correct: false },
+                    { text: "D) Neither", correct: false }
+                ],
+                explanation: "B addresses cost concerns with specifics."
+            },
+            {
+                type: "example",
+                title: "Example: Adding Authority",
+                content: `
+                    <h2>Example: Adding Authority</h2>
+                    <p>Argument: 'Vaccines are safe.'</p>
+                    <p>Weak: 'People say so.' Strong: 'Experts at CDC confirm it.'</p>
+                    <p>Question: Which strengthens it?</p>
+                    <p>Step 1: Analyze: Weak is hearsay, strong cites authority.</p>
+                    <p>Step 2: Choose: Authority adds credibility.</p>
+                    <p>Best: 'Vaccines are safe, as experts at CDC confirm.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 6",
+                question: "Argument: 'Solar power is reliable.' A) 'It’s fine.' B) 'Engineers at MIT endorse it.' Which strengthens it?",
+                options: [
+                    { text: "A) It’s fine", correct: false },
+                    { text: "B) Engineers at MIT endorse it", correct: true },
+                    { text: "C) Both equally", correct: false },
+                    { text: "D) Neither", correct: false }
+                ],
+                explanation: "B boosts credibility with authority."
+            },
+            {
+                type: "example",
+                title: "Example: Emotional Appeal",
+                content: `
+                    <h2>Example: Emotional Appeal</h2>
+                    <p>Argument: 'Shelters save pets.'</p>
+                    <p>Weak: 'They’re useful.' Strong: 'They rescue abandoned pups daily.'</p>
+                    <p>Question: Which strengthens it?</p>
+                    <p>Step 1: Analyze: Weak is dry, strong tugs heartstrings.</p>
+                    <p>Step 2: Choose: Emotion reinforces.</p>
+                    <p>Best: 'Shelters save pets, rescuing abandoned pups daily.'</p>
+                    <button id="next-item">Next</button>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 7",
+                question: "Argument: 'Donations help kids.' A) 'They do good.' B) 'They feed hungry children nightly.' Which strengthens it?",
+                options: [
+                    { text: "A) They do good", correct: false },
+                    { text: "B) They feed hungry children nightly", correct: true },
+                    { text: "C) Both equally", correct: false },
+                    { text: "D) Neither", correct: false }
+                ],
+                explanation: "B uses emotional detail to strengthen."
             }
-        ],
-        additionalExample: {
-            title: "Example: Combining Evidence and Reason",
-            content: `
-                <h2>Example: Combining Evidence and Reason</h2>
-                <p>Argument: 'Parks improve cities.'</p>
-                <p>Weak: 'They’re cool.' Strong: 'They boost happiness, per surveys.'</p>
-                <p>Question: Which strengthens it?</p>
-                <p>Step 1: Analyze: Weak is vague, strong has proof.</p>
-                <p>Step 2: Choose: Evidence and reason win.</p>
-                <p>Best: 'Parks improve cities, boosting happiness, per surveys.'</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        ]
     }
 };
 
