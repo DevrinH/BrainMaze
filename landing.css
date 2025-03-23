@@ -714,6 +714,7 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 20px;
   margin: 0 auto; /* Centers the elements when in column mode */
+  margin-top: 30px;
   display: block;
   overflow: hidden; /* Ensures content stays within the container */
 
