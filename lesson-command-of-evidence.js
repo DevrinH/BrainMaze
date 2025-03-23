@@ -28,10 +28,15 @@ const lessons = {
                 title: "Example: Identifying Textual Evidence",
                 content: `
                     <h2>Example: Identifying Textual Evidence</h2>
+                    <br/>
                     <p>Passage: 'The new policy reduced emissions by 20% in its first year.'</p>
+                    <br/>
                     <p>Question: What evidence supports the claim that the policy was effective?</p>
+                    <br/>
                     <p>Step 1: Identify the claim: The policy was effective.</p>
+                    <br/>
                     <p>Step 2: Find supporting evidence: 'reduced emissions by 20% in its first year.'</p>
+                    <br/>
                     <p>The evidence is the specific reduction percentage.</p>
                     <button id="next-item">Next</button>
                 `
