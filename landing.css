@@ -885,6 +885,7 @@ h3 {
 #next-item {
   align-items: center;
   margin: auto;
+  margin-top: 6px;
   appearance: none;
   background-image: radial-gradient(100% 100% at 100% 0, #d35aff 0, #ffd51d 100%);
   border: 0;
