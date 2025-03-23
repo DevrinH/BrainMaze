@@ -667,6 +667,27 @@ let categoryStats = {
 
 let currentQuestionIndex = 0;
 let currentLesson = 1;
+let progressSteps = 0;
+const totalSteps = 6;
+
+function updateProgressBar(step) {
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+        const percentage = (step / totalSteps) * 100;
+        progressBar.style.width = `${percentage}%`;
+        progressBar.setAttribute('aria-valuenow', percentage);
+        console.log(`Progress updated: ${step}/${totalSteps} (${percentage}%)`);
+    } else {
+        console.error("Progress bar element not found!");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+    // ... existing code ...
+    showScore();
+    updateProgressBar(0);
+});
 
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
