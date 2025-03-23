@@ -707,6 +707,7 @@ h3 {
 
 .app{
   flex: 1; 
+  align-items: center;
   min-width: 48%;
   max-width: 600px;
   background-color: rgb(255, 255, 255);
