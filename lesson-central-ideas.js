@@ -1227,12 +1227,12 @@ function recordTestResults() {
 }
 
 function saveScore(lessonId, score) {
-    localStorage.setItem(`central-ideas-and-detail-lessonScore-${lessonId}`, score);
-    console.log(`Saved central-ideas-and-detail-lessonScore-${lessonId}: ${score}`);
+    localStorage.setItem(`central-ideas-lessonScore-${lessonId}`, score);
+    console.log(`Saved central-ideas-lessonScore-${lessonId}: ${score}`);
 }
 
 function getScore(lessonId) {
-    return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
+    return localStorage.getItem(`central-ideas-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
 function showScore() {
