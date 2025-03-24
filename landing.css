@@ -965,6 +965,6 @@ margin-bottom: 7px;
 
 
 
-#lesson-content p {
-  margin-bottom: px; /* Adjust spacing between paragraphs */
+#lesson-content {
+  line-height: 1.8; /* Adjust text spacing */
 }
