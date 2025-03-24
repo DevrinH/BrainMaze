@@ -957,3 +957,7 @@ margin-bottom: 7px;
 
 
 }
+
+#lesson-content, #algebra-percentage, #final-score {
+  margin-top: 20px;
+}
