@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
     showScore();
 });
 
+
+
 // Define all lessons
 const lessons = {
     1: {
