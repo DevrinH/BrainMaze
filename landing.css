@@ -954,11 +954,17 @@ margin-bottom: 7px;
   font-size: 18px;
 
 
+
+
+}
+
 .app, h1 {
   margin-bottom: 7px;  
 
 }
 
+
+
 #lesson-content p {
-  margin-bottom: 20px; /* Adjust spacing between paragraphs */
+  margin-bottom: px; /* Adjust spacing between paragraphs */
 }
