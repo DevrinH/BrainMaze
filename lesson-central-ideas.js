@@ -1063,24 +1063,22 @@ function showItem() {
         }
     } else if (item.type === "question") {
         lessonContent.innerHTML = `
-    <h2>${item.title}</h2>
-    <p>${item.question}</p>
-    ${item.options.map((option, index) => `
-        <input type="radio" id="q${currentItemIndex}a${index}" name="q${currentItemIndex}" value="${option.correct}">
-        <label for="q${currentItemIndex}a${index}">${option.text}</label><br>
-    `).join('')}
-    <button class="submit-answer">Submit Answer</button>
-`;
-const submitButton = lessonContent.querySelector('.submit-answer');
-if (submitButton) {
-    submitButton.addEventListener('click', () => checkItemAnswer(item));
-}
+            <h2>${item.title}</h2>
+            <p>${item.question}</p>
+            ${item.options.map((option, index) => `
+                <input type="radio" id="q${currentItemIndex}a${index}" name="q${currentItemIndex}" value="${option.correct}">
+                <label for="q${currentItemIndex}a${index}">${option.text}</label><br>
+            `).join('')}
+            <button class="submit-answer">Submit Answer</button>
+        `;
+        const submitButton = lessonContent.querySelector('.submit-answer');
+        if (submitButton) {
+            submitButton.addEventListener('click', () => checkItemAnswer(item));
         } else {
             console.error("Submit answer button not found!");
         }
     }
 }
-
 function nextItem() {
     currentItemIndex++;
     progressSteps = currentItemIndex + 1;
