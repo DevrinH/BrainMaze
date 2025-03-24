@@ -15,6 +15,8 @@
             color: white;
             border: none;
             border-radius: 5px;
+            width: 100%;
+            text-align: left;
         }
         .btn.correct {
             background-color: #28a745;
@@ -36,17 +38,34 @@
             padding: 15px;
             margin: 10px 0;
             border-radius: 5px;
+            clear: both;
         }
         .explanation h3 {
             margin-top: 0;
+        }
+        .question-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .question-text {
+            width: 50%;
+            padding-right: 20px;
+        }
+        .answer-choices {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
 <body>
     <div id="countdown"></div>
     <div id="question-container">
-        <div id="question"></div>
-        <div id="answer-buttons" class="btn-container"></div>
+        <div class="question-row">
+            <div id="question" class="question-text"></div>
+            <div id="answer-buttons" class="answer-choices"></div>
+        </div>
         <button id="next-btn" class="btn hide">Next</button>
     </div>
     <div id="break-message" class="hide">
