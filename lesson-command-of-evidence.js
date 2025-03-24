@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     showScore();
 });
 
-document.getElementById('submit-answer').classList.add('styled-button');
+
 
 // Define all lessons
 const lessons = {
