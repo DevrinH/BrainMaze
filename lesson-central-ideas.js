@@ -1063,17 +1063,18 @@ function showItem() {
         }
     } else if (item.type === "question") {
         lessonContent.innerHTML = `
-            <h2>${item.title}</h2>
-            <p>${item.question}</p>
-            ${item.options.map((option, index) => `
-                <input type="radio" id="q${currentItemIndex}a${index}" name="q${currentItemIndex}" value="${option.correct}">
-                <label for="q${currentItemIndex}a${index}">${option.text}</label><br>
-            `).join('')}
-            <button id="submit-answer${currentItemIndex}">Submit Answer</button>
-        `;
-        const submitButton = document.getElementById(`submit-answer${currentItemIndex}`);
-        if (submitButton) {
-            submitButton.addEventListener('click', () => checkItemAnswer(item));
+    <h2>${item.title}</h2>
+    <p>${item.question}</p>
+    ${item.options.map((option, index) => `
+        <input type="radio" id="q${currentItemIndex}a${index}" name="q${currentItemIndex}" value="${option.correct}">
+        <label for="q${currentItemIndex}a${index}">${option.text}</label><br>
+    `).join('')}
+    <button class="submit-answer">Submit Answer</button>
+`;
+const submitButton = lessonContent.querySelector('.submit-answer');
+if (submitButton) {
+    submitButton.addEventListener('click', () => checkItemAnswer(item));
+}
         } else {
             console.error("Submit answer button not found!");
         }
@@ -1127,16 +1128,15 @@ function showNextQuizQuestion(quizQuestions) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
         lessonContent.innerHTML = `
-            <h2>Question ${currentQuestionIndex + 1}</h2>
-            <p>${question.question}</p>
-            ${question.answers.map((answer, index) => `
-                <input type="radio" id="q${currentQuestionIndex}a${index}" name="q${currentQuestionIndex}" value="${answer.correct}">
-                <label for="q${currentQuestionIndex}a${index}">${answer.text}</label><br>
-            `).join('')}
-            <button id="submit-answer">Submit Answer</button>
-        `;
-        document.getElementById('submit-answer').addEventListener('click', () => checkQuizAnswer(question, quizQuestions));
-    } else {
+    <h2>Question ${currentQuestionIndex + 1}</h2>
+    <p>${question.question}</p>
+    ${question.answers.map((answer, index) => `
+        <input type="radio" id="q${currentQuestionIndex}a${index}" name="q${currentQuestionIndex}" value="${answer.correct}">
+        <label for="q${currentQuestionIndex}a${index}">${answer.text}</label><br>
+    `).join('')}
+    <button class="submit-answer">Submit Answer</button>
+`;
+lessonContent.querySelector('.submit-answer').addEventListener('click', () => checkQuizAnswer(question, quizQuestions));} else {
         showFinalScore();
     }
 }
