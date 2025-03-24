@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
     showScore();
 });
 
+document.getElementById('submit-answer').classList.add('submit-answer');
+
 // Define all lessons
 const lessons = {
     1: {
