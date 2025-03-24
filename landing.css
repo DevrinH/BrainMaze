@@ -921,7 +921,7 @@ margin-bottom: 7px;
   font-size: 18px;
 }
 
-#submit-answer {
+.submit-answer {
   align-items: center;
   margin: auto;
   margin-top: 15px;
