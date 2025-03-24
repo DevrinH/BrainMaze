@@ -1501,12 +1501,6 @@ function updateProgressBar(step) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
-    showScore();
-    updateProgressBar(0);
-});
-
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
@@ -1563,10 +1557,10 @@ function checkAnswer(question) {
     if (selectedAnswer) {
         if (selectedAnswer.value === "true") {
             alert('Correct!');
-            categoryStats["advanced-math"].correct++;
+            categoryStats["geometry"].correct++;
         } else {
             alert(`Incorrect. ${question.explanation}`);
-            categoryStats["advanced-math"].incorrect++;
+            categoryStats["geometry"].incorrect++;
         }
         nextContent();
     } else {
@@ -1578,15 +1572,15 @@ function showQuiz() {
     currentContentIndex = 0;
     let quizQuestions;
     switch (parseInt(currentLesson)) {
-        case 1: quizQuestions = nonlinearQuestions; break;
-        case 2: quizQuestions = nonlinearSystemsQuestions; break;
-        case 3: quizQuestions = functionTransformQuestions; break;
-        case 4: quizQuestions = complexNumberQuestions; break;
-        case 5: quizQuestions = polynomialDivisionQuestions; break;
-        case 6: quizQuestions = rationalExponentQuestions; break;
-        case 7: quizQuestions = absolutePiecewiseQuestions; break;
-        case 8: quizQuestions = trigFunctionQuestions; break;
-        default: quizQuestions = nonlinearQuestions;
+        case 1: quizQuestions = linesAnglesQuestions; break;
+        case 2: quizQuestions = trianglesQuestions; break;
+        case 3: quizQuestions = quadrilateralsPolygonsQuestions; break;
+        case 4: quizQuestions = circlesQuestions; break;
+        case 5: quizQuestions = coordinateGeometryQuestions; break;
+        case 6: quizQuestions = threeDGeometryQuestions; break;
+        case 7: quizQuestions = transformationsQuestions; break;
+        case 8: quizQuestions = trigonometryQuestions; break;
+        default: quizQuestions = linesAnglesQuestions;
     }
     showNextQuizQuestion(quizQuestions);
 }
@@ -1696,12 +1690,12 @@ function recordTestResults() {
 }
 
 function saveScore(lessonId, score) {
-    localStorage.setItem(`advanced-math-lessonScore-${lessonId}`, score);
-    console.log(`Saved advanced-math-lessonScore-${lessonId}: ${score}`);
+    localStorage.setItem(`geometry-lessonScore-${lessonId}`, score);
+    console.log(`Saved geometry-lessonScore-${lessonId}: ${score}`);
 }
 
 function getScore(lessonId) {
-    return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
+    return localStorage.getItem(`geometry-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
 function showScore() {
@@ -1718,6 +1712,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const urlParams = new URLSearchParams(window.location.search);
     currentLesson = urlParams.get('lesson') || 1;
     console.log("Set currentLesson to:", currentLesson);
+
+    showScore();
+    updateProgressBar(0);
 
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {

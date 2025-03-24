@@ -178,8 +178,12 @@ const lessons = {
 // Geometry question arrays
 // Geometry question arrays
 const linesAnglesQuestions = [
-    { question: "Two angles are supplementary, and one is 75°. What is the other angle?", answers: [{ text: "A) 105°", correct: true }, { text: "B) 115°", correct: false }, { text: "C) 95°", correct: false }, { text: "D) 85°", correct: false }], explanation: "Supplementary angles sum to 180°. 180° - 75° = 105°.", difficulty: "easy", category: "geometry" },
-    { question: "Two angles are complementary, and one is 40°. What is the other angle?", answers: [{ text: "A) 50°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 40°", correct: false }, { text: "D) 30°", correct: false }], explanation: "Complementary angles sum to 90°. 90° - 40° = 50°.", difficulty: "easy", category: "geometry" },
+    { question: "Two angles are supplementary, and one is 75°. What is the other angle?", 
+        answers: [{ text: "A) 105°", correct: true }, { text: "B) 115°", correct: false }, { text: "C) 95°", correct: false }, { text: "D) 85°", correct: false }], 
+        explanation: "Supplementary angles sum to 180°. 180° - 75° = 105°.", 
+        difficulty: "easy", category: "geometry" },
+    { question: "Two angles are complementary, and one is 40°. What is the other angle?", 
+        answers: [{ text: "A) 50°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 40°", correct: false }, { text: "D) 30°", correct: false }], explanation: "Complementary angles sum to 90°. 90° - 40° = 50°.", difficulty: "easy", category: "geometry" },
     { question: "If two parallel lines are cut by a transversal and a corresponding angle is 80°, what is another corresponding angle?", answers: [{ text: "A) 80°", correct: true }, { text: "B) 100°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 110°", correct: false }], explanation: "Corresponding angles are equal. Thus, it’s 80°.", difficulty: "easy", category: "geometry" },
     { question: "Vertical angles are formed by two intersecting lines. If one is 65°, what is the other?", answers: [{ text: "A) 65°", correct: true }, { text: "B) 115°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 25°", correct: false }], explanation: "Vertical angles are equal. Thus, it’s 65°.", difficulty: "medium", category: "geometry" },
     { question: "If two parallel lines are cut by a transversal and an alternate interior angle is 120°, what is the other?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Alternate interior angles are equal. Thus, it’s 120°.", difficulty: "medium", category: "geometry" },
