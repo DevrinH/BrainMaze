@@ -58,10 +58,15 @@ const lessons = {
                 title: "Example: Evaluating Evidence Relevance",
                 content: `
                     <h2>Example: Evaluating Evidence Relevance</h2>
+                    <br/>
                     <p>Passage: 'Students who attended the program scored higher on tests. The program ran for 10 weeks.'</p>
+                    <br/>
                     <p>Question: Which evidence best supports improved academic performance?</p>
+                    <br/>
                     <p>Step 1: Focus on the claim: Improved academic performance.</p>
+                    <br/>
                     <p>Step 2: Evaluate: 'scored higher on tests' directly supports it; 'ran for 10 weeks' does not.</p>
+                    <br/>
                     <p>The evidence is 'scored higher on tests.'</p>
                     <button id="next-item">Next</button>
                 `
