@@ -19,583 +19,245 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Define all lessons
+// Define all lessons
 const lessons = {
     1: {
         title: "Lines and Angles",
-        examples: [
-            {
-                title: "Example: Finding Angle Measures",
-                content: `
-                    <h2>Example: Finding Angle Measures</h2>
-                    <p>Two angles are supplementary, and one angle is 40°. Find the other angle.</p>
-                    <p>Step 1: Supplementary angles sum to 180°.</p>
-                    <p>Step 2: Subtract the known angle: 180° - 40° = 140°</p>
-                    <p>The other angle is 140°.</p>
-                    <button id="next-example">Next Example</button>
-                `
-            },
-            {
-                title: "Example: Parallel Lines and Transversals",
-                content: `
-                    <h2>Example: Parallel Lines and Transversals</h2>
-                    <p>If two parallel lines are cut by a transversal, and one angle is 65°, find the corresponding angle.</p>
-                    <p>Step 1: Corresponding angles are equal when lines are parallel.</p>
-                    <p>Step 2: The corresponding angle is also 65°.</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
-                title: "Question 1",
-                question: "Two angles are complementary, and one is 25°. What is the other angle?",
-                answer: "65",
-                explanation: "Complementary angles sum to 90°. So, 90° - 25° = 65°."
-            },
-            {
-                title: "Question 2",
-                question: "If two parallel lines are cut by a transversal and an interior angle is 110°, what is the alternate interior angle?",
-                answer: "110",
-                explanation: "Alternate interior angles are equal when lines are parallel. Thus, it’s 110°."
-            }
-        ],
-        additionalExample: {
-            title: "Example: Vertical Angles",
-            content: `
-                <h2>Example: Vertical Angles</h2>
-                <p>Two lines intersect, forming a vertical angle pair. If one angle is 72°, find the other.</p>
-                <p>Step 1: Vertical angles are equal.</p>
-                <p>Step 2: The other angle is 72°.</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        content: [
+            { type: "example", content: "<h2>Example 1: Supplementary Angles</h2><p>Two angles are supplementary, and one is 40°. Find the other.</p><p>Supplementary angles sum to 180°. 180° - 40° = 140°.</p><p>Answer: 140°</p>" },
+            { type: "question", title: "Question 1", question: "Two angles are complementary, and one is 25°. What is the other?", options: [{ text: "A) 65°", correct: true }, { text: "B) 75°", correct: false }, { text: "C) 55°", correct: false }, { text: "D) 45°", correct: false }], explanation: "Complementary angles sum to 90°. 90° - 25° = 65°." },
+            { type: "example", content: "<h2>Example 2: Parallel Lines</h2><p>Two parallel lines are cut by a transversal, and one angle is 65°. Find the corresponding angle.</p><p>Corresponding angles are equal. Thus, it’s 65°.</p><p>Answer: 65°</p>" },
+            { type: "question", title: "Question 2", question: "If two parallel lines are cut by a transversal and an interior angle is 110°, what is the alternate interior angle?", options: [{ text: "A) 110°", correct: true }, { text: "B) 70°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 130°", correct: false }], explanation: "Alternate interior angles are equal. Thus, it’s 110°." },
+            { type: "example", content: "<h2>Example 3: Vertical Angles</h2><p>Two lines intersect, and one angle is 72°. Find the vertical angle.</p><p>Vertical angles are equal. Thus, it’s 72°.</p><p>Answer: 72°</p>" },
+            { type: "question", title: "Question 3", question: "An angle is twice its complement. What is the angle?", options: [{ text: "A) 60°", correct: true }, { text: "B) 30°", correct: false }, { text: "C) 45°", correct: false }, { text: "D) 90°", correct: false }], explanation: "Let angle = x, complement = 90° - x. x = 2(90° - x), x = 180° - 2x, 3x = 180°, x = 60°." },
+            { type: "example", content: "<h2>Example 4: Transversal</h2><p>Parallel lines with a transversal, one angle is 130°. Find the same-side interior angle.</p><p>Same-side interior angles sum to 180°. 180° - 130° = 50°.</p><p>Answer: 50°</p>" },
+            { type: "question", title: "Question 4", question: "Two angles are supplementary, and one is 85°. What is the other?", options: [{ text: "A) 95°", correct: true }, { text: "B) 105°", correct: false }, { text: "C) 85°", correct: false }, { text: "D) 75°", correct: false }], explanation: "180° - 85° = 95°." },
+            { type: "example", content: "<h2>Example 5: Angle Sum</h2><p>Three angles on a straight line are 40°, 60°, and x°. Find x.</p><p>40° + 60° + x = 180°, x = 80°.</p><p>Answer: 80°</p>" },
+            { type: "question", title: "Question 5", question: "If two parallel lines are cut by a transversal and an exterior angle is 140°, what is the corresponding angle?", options: [{ text: "A) 140°", correct: true }, { text: "B) 40°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 50°", correct: false }], explanation: "Corresponding angles are equal. Thus, it’s 140°." },
+            { type: "example", content: "<h2>Example 6: Angle Pair</h2><p>An angle is 3 times its supplement. Find the angle.</p><p>x = 3(180° - x), 4x = 540°, x = 135°.</p><p>Answer: 135°</p>" },
+            { type: "question", title: "Question 6", question: "Vertical angles are equal. If one is 45°, what is the other?", options: [{ text: "A) 45°", correct: true }, { text: "B) 135°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 60°", correct: false }], explanation: "Vertical angles are equal. Thus, it’s 45°." },
+            { type: "example", content: "<h2>Example 7: Linear Pair</h2><p>Two angles form a linear pair, one is 35°. Find the other.</p><p>Linear pair sums to 180°. 180° - 35° = 145°.</p><p>Answer: 145°</p>" },
+            { type: "question", title: "Question 7", question: "An angle is 4 times its complement. What is the angle?", options: [{ text: "A) 72°", correct: true }, { text: "B) 18°", correct: false }, { text: "C) 36°", correct: false }, { text: "D) 90°", correct: false }], explanation: "x = 4(90° - x), 5x = 360°, x = 72°." }
+        ]
     },
     2: {
         title: "Triangles",
-        examples: [
-            {
-                title: "Example: Finding a Missing Angle",
-                content: `
-                    <h2>Example: Finding a Missing Angle</h2>
-                    <p>In a triangle, two angles are 50° and 60°. Find the third angle.</p>
-                    <p>Step 1: The sum of angles in a triangle is 180°.</p>
-                    <p>Step 2: Add known angles: 50° + 60° = 110°</p>
-                    <p>Step 3: Subtract from 180°: 180° - 110° = 70°</p>
-                    <p>The third angle is 70°.</p>
-                    <button id="next-example">Next Example</button>
-                `
-            },
-            {
-                title: "Example: Using the Pythagorean Theorem",
-                content: `
-                    <h2>Example: Using the Pythagorean Theorem</h2>
-                    <p>In a right triangle, the legs are 3 and 4. Find the hypotenuse.</p>
-                    <p>Step 1: Use the formula: a² + b² = c²</p>
-                    <p>Step 2: Substitute: 3² + 4² = c²</p>
-                    <p>Step 3: Calculate: 9 + 16 = 25</p>
-                    <p>Step 4: Take the square root: c = √25 = 5</p>
-                    <p>The hypotenuse is 5.</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
-                title: "Question 1",
-                question: "In a triangle, two angles are 45° and 75°. What is the third angle?",
-                answer: "60",
-                explanation: "180° - (45° + 75°) = 180° - 120° = 60°."
-            },
-            {
-                title: "Question 2",
-                question: "In a right triangle, one leg is 6 and the hypotenuse is 10. What is the other leg?",
-                answer: "8",
-                explanation: "6² + b² = 10² → 36 + b² = 100 → b² = 64 → b = 8."
-            }
-        ],
-        additionalExample: {
-            title: "Example: Triangle Congruence",
-            content: `
-                <h2>Example: Triangle Congruence</h2>
-                <p>Two triangles have sides 5, 12, 13. Are they congruent?</p>
-                <p>Step 1: Check if they are right triangles: 5² + 12² = 25 + 144 = 169 = 13²</p>
-                <p>Step 2: Since all sides match (SSS), they are congruent.</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        content: [
+            { type: "example", content: "<h2>Example 1: Angle Sum</h2><p>In a triangle, two angles are 50° and 60°. Find the third.</p><p>180° - (50° + 60°) = 70°.</p><p>Answer: 70°</p>" },
+            { type: "question", title: "Question 1", question: "In a triangle, two angles are 45° and 75°. What is the third?", options: [{ text: "A) 60°", correct: true }, { text: "B) 50°", correct: false }, { text: "C) 70°", correct: false }, { text: "D) 45°", correct: false }], explanation: "180° - (45° + 75°) = 60°." },
+            { type: "example", content: "<h2>Example 2: Pythagorean Theorem</h2><p>In a right triangle, legs are 3 and 4. Find the hypotenuse.</p><p>3² + 4² = c², 9 + 16 = 25, c = 5.</p><p>Answer: 5</p>" },
+            { type: "question", title: "Question 2", question: "In a right triangle, one leg is 6 and the hypotenuse is 10. What is the other leg?", options: [{ text: "A) 8", correct: true }, { text: "B) 6", correct: false }, { text: "C) 10", correct: false }, { text: "D) 4", correct: false }], explanation: "6² + b² = 10² → 36 + b² = 100 → b = 8." },
+            { type: "example", content: "<h2>Example 3: Isosceles Triangle</h2><p>An isosceles triangle has a base angle of 55°. Find the vertex angle.</p><p>180° - (55° + 55°) = 70°.</p><p>Answer: 70°</p>" },
+            { type: "question", title: "Question 3", question: "An isosceles triangle has a vertex angle of 40°. What is each base angle?", options: [{ text: "A) 70°", correct: true }, { text: "B) 80°", correct: false }, { text: "C) 60°", correct: false }, { text: "D) 50°", correct: false }], explanation: "(180° - 40°) / 2 = 70°." },
+            { type: "example", content: "<h2>Example 4: Right Triangle</h2><p>A right triangle has legs 5 and 12. Find the hypotenuse.</p><p>5² + 12² = c², 25 + 144 = 169, c = 13.</p><p>Answer: 13</p>" },
+            { type: "question", title: "Question 4", question: "In a triangle, angles are in the ratio 2:3:4. What is the smallest angle?", options: [{ text: "A) 40°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 80°", correct: false }, { text: "D) 20°", correct: false }], explanation: "2x + 3x + 4x = 180°, 9x = 180°, x = 20°, smallest = 2x = 40°." },
+            { type: "example", content: "<h2>Example 5: Equilateral Triangle</h2><p>Find the measure of each angle in an equilateral triangle.</p><p>180° ÷ 3 = 60°.</p><p>Answer: 60°</p>" },
+            { type: "question", title: "Question 5", question: "A right triangle has a leg of 8 and hypotenuse of 17. What is the other leg?", options: [{ text: "A) 15", correct: true }, { text: "B) 12", correct: false }, { text: "C) 9", correct: false }, { text: "D) 10", correct: false }], explanation: "8² + b² = 17² → 64 + b² = 289 → b = 15." },
+            { type: "example", content: "<h2>Example 6: Triangle Check</h2><p>Are sides 6, 8, 10 a right triangle?</p><p>6² + 8² = 36 + 64 = 100 = 10².</p><p>Answer: Yes</p>" },
+            { type: "question", title: "Question 6", question: "An isosceles triangle has base angles of 65°. What is the vertex angle?", options: [{ text: "A) 50°", correct: true }, { text: "B) 65°", correct: false }, { text: "C) 115°", correct: false }, { text: "D) 25°", correct: false }], explanation: "180° - (65° + 65°) = 50°." },
+            { type: "example", content: "<h2>Example 7: Angle Ratio</h2><p>A triangle’s angles are in the ratio 1:1:2. Find the largest angle.</p><p>1x + 1x + 2x = 180°, 4x = 180°, x = 45°, largest = 90°.</p><p>Answer: 90°</p>" },
+            { type: "question", title: "Question 7", question: "A triangle has sides 5, 12, 13. Is it a right triangle?", options: [{ text: "A) Yes", correct: true }, { text: "B) No", correct: false }, { text: "C) Maybe", correct: false }, { text: "D) Not enough info", correct: false }], explanation: "5² + 12² = 25 + 144 = 169 = 13²." }
+        ]
     },
     3: {
         title: "Quadrilaterals and Polygons",
-        examples: [
-            {
-                title: "Example: Sum of Interior Angles",
-                content: `
-                    <h2>Example: Sum of Interior Angles</h2>
-                    <p>Find the sum of interior angles in a pentagon.</p>
-                    <p>Step 1: Use the formula: (n - 2) × 180°, where n = number of sides.</p>
-                    <p>Step 2: For a pentagon (n = 5): (5 - 2) × 180° = 3 × 180° = 540°</p>
-                    <p>The sum is 540°.</p>
-                    <button id="next-example">Next Example</button>
-                `
-            },
-            {
-                title: "Example: Rectangle Diagonal",
-                content: `
-                    <h2>Example: Rectangle Diagonal</h2>
-                    <p>A rectangle has sides 6 and 8. Find the diagonal length.</p>
-                    <p>Step 1: Use the Pythagorean theorem: d² = 6² + 8²</p>
-                    <p>Step 2: Calculate: d² = 36 + 64 = 100</p>
-                    <p>Step 3: Take the square root: d = √100 = 10</p>
-                    <p>The diagonal is 10.</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
-                title: "Question 1",
-                question: "What is the sum of interior angles in a hexagon?",
-                answer: "720",
-                explanation: "(6 - 2) × 180° = 4 × 180° = 720°."
-            },
-            {
-                title: "Question 2",
-                question: "A square has a side length of 5. What is its diagonal?",
-                answer: "7.07",
-                explanation: "d² = 5² + 5² = 50 → d = √50 ≈ 7.07 (to two decimals)."
-            }
-        ],
-        additionalExample: {
-            title: "Example: Parallelogram Properties",
-            content: `
-                <h2>Example: Parallelogram Properties</h2>
-                <p>In a parallelogram, one angle is 70°. Find the other angles.</p>
-                <p>Step 1: Opposite angles are equal: another angle is 70°.</p>
-                <p>Step 2: Adjacent angles are supplementary: 180° - 70° = 110°</p>
-                <p>Angles are 70°, 110°, 70°, 110°.</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        content: [
+            { type: "example", content: "<h2>Example 1: Interior Angles</h2><p>Find the sum of interior angles in a pentagon.</p><p>(5 - 2) × 180° = 540°.</p><p>Answer: 540°</p>" },
+            { type: "question", title: "Question 1", question: "What is the sum of interior angles in a hexagon?", options: [{ text: "A) 720°", correct: true }, { text: "B) 540°", correct: false }, { text: "C) 900°", correct: false }, { text: "D) 360°", correct: false }], explanation: "(6 - 2) × 180° = 720°." },
+            { type: "example", content: "<h2>Example 2: Rectangle Diagonal</h2><p>A rectangle has sides 6 and 8. Find the diagonal.</p><p>d² = 6² + 8² = 36 + 64 = 100, d = 10.</p><p>Answer: 10</p>" },
+            { type: "question", title: "Question 2", question: "A square has a side length of 5. What is its diagonal?", options: [{ text: "A) 5√2", correct: true }, { text: "B) 10", correct: false }, { text: "C) 5", correct: false }, { text: "D) 7", correct: false }], explanation: "d² = 5² + 5² = 50 → d = 5√2." },
+            { type: "example", content: "<h2>Example 3: Parallelogram</h2><p>In a parallelogram, one angle is 70°. Find the adjacent angle.</p><p>180° - 70° = 110°.</p><p>Answer: 110°</p>" },
+            { type: "question", title: "Question 3", question: "In a parallelogram, one angle is 50°. What is the opposite angle?", options: [{ text: "A) 50°", correct: true }, { text: "B) 130°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 40°", correct: false }], explanation: "Opposite angles are equal. Thus, it’s 50°." },
+            { type: "example", content: "<h2>Example 4: Square</h2><p>A square has a side of 4. Find its diagonal.</p><p>d² = 4² + 4² = 32, d = 4√2.</p><p>Answer: 4√2</p>" },
+            { type: "question", title: "Question 4", question: "What is the sum of interior angles in a heptagon?", options: [{ text: "A) 900°", correct: true }, { text: "B) 720°", correct: false }, { text: "C) 1080°", correct: false }, { text: "D) 540°", correct: false }], explanation: "(7 - 2) × 180° = 900°." },
+            { type: "example", content: "<h2>Example 5: Regular Polygon</h2><p>Find each interior angle of a regular hexagon.</p><p>(6 - 2) × 180° = 720°, 720° ÷ 6 = 120°.</p><p>Answer: 120°</p>" },
+            { type: "question", title: "Question 5", question: "A rectangle has sides 5 and 12. What is its diagonal?", options: [{ text: "A) 13", correct: true }, { text: "B) 15", correct: false }, { text: "C) 10", correct: false }, { text: "D) 17", correct: false }], explanation: "d² = 5² + 12² = 169 → d = 13." },
+            { type: "example", content: "<h2>Example 6: Quadrilateral</h2><p>A quadrilateral has angles 80°, 100°, 120°. Find the fourth.</p><p>(4 - 2) × 180° = 360°, 360° - (80° + 100° + 120°) = 60°.</p><p>Answer: 60°</p>" },
+            { type: "question", title: "Question 6", question: "In a regular octagon, what is each interior angle?", options: [{ text: "A) 135°", correct: true }, { text: "B) 120°", correct: false }, { text: "C) 150°", correct: false }, { text: "D) 108°", correct: false }], explanation: "(8 - 2) × 180° = 1080°, 1080° ÷ 8 = 135°." },
+            { type: "example", content: "<h2>Example 7: Rhombus</h2><p>A rhombus has one angle of 60°. Find the adjacent angle.</p><p>180° - 60° = 120°.</p><p>Answer: 120°</p>" },
+            { type: "question", title: "Question 7", question: "A parallelogram has one angle of 130°. What is an adjacent angle?", options: [{ text: "A) 50°", correct: true }, { text: "B) 130°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 40°", correct: false }], explanation: "180° - 130° = 50°." }
+        ]
     },
     4: {
         title: "Circles",
-        examples: [
-            {
-                title: "Example: Circumference",
-                content: `
-                    <h2>Example: Circumference</h2>
-                    <p>A circle has a radius of 7. Find its circumference.</p>
-                    <p>Step 1: Use the formula: C = 2πr</p>
-                    <p>Step 2: Substitute: C = 2π(7) = 14π</p>
-                    <p>The circumference is 14π (or ≈ 43.98).</p>
-                    <button id="next-example">Next Example</button>
-                `
-            },
-            {
-                title: "Example: Area of a Circle",
-                content: `
-                    <h2>Example: Area of a Circle</h2>
-                    <p>A circle has a diameter of 10. Find its area.</p>
-                    <p>Step 1: Radius = diameter / 2 = 10 / 2 = 5</p>
-                    <p>Step 2: Use the formula: A = πr²</p>
-                    <p>Step 3: Substitute: A = π(5)² = 25π</p>
-                    <p>The area is 25π (or ≈ 78.54).</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
-                title: "Question 1",
-                question: "A circle has a radius of 3. What is its circumference?",
-                answer: "6π",
-                explanation: "C = 2π(3) = 6π."
-            },
-            {
-                title: "Question 2",
-                question: "A circle has a diameter of 8. What is its area?",
-                answer: "16π",
-                explanation: "Radius = 8 / 2 = 4, A = π(4)² = 16π."
-            }
-        ],
-        additionalExample: {
-            title: "Example: Arc Length",
-            content: `
-                <h2>Example: Arc Length</h2>
-                <p>A circle has a radius of 6, and a central angle of 60°. Find the arc length.</p>
-                <p>Step 1: Use the formula: L = (θ/360°) × 2πr</p>
-                <p>Step 2: Substitute: L = (60/360) × 2π(6) = (1/6) × 12π = 2π</p>
-                <p>The arc length is 2π.</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        content: [
+            { type: "example", content: "<h2>Example 1: Circumference</h2><p>A circle has a radius of 7. Find its circumference.</p><p>C = 2π(7) = 14π.</p><p>Answer: 14π</p>" },
+            { type: "question", title: "Question 1", question: "A circle has a radius of 3. What is its circumference?", options: [{ text: "A) 6π", correct: true }, { text: "B) 9π", correct: false }, { text: "C) 3π", correct: false }, { text: "D) 12π", correct: false }], explanation: "C = 2π(3) = 6π." },
+            { type: "example", content: "<h2>Example 2: Area</h2><p>A circle has a diameter of 10. Find its area.</p><p>Radius = 5, A = π(5)² = 25π.</p><p>Answer: 25π</p>" },
+            { type: "question", title: "Question 2", question: "A circle has a diameter of 8. What is its area?", options: [{ text: "A) 16π", correct: true }, { text: "B) 64π", correct: false }, { text: "C) 8π", correct: false }, { text: "D) 32π", correct: false }], explanation: "Radius = 4, A = π(4)² = 16π." },
+            { type: "example", content: "<h2>Example 3: Arc Length</h2><p>A circle has radius 6 and a 60° central angle. Find the arc length.</p><p>L = (60/360) × 2π(6) = 2π.</p><p>Answer: 2π</p>" },
+            { type: "question", title: "Question 3", question: "A circle has a radius of 5 and a 90° central angle. What is the arc length?", options: [{ text: "A) 2.5π", correct: true }, { text: "B) 5π", correct: false }, { text: "C) 10π", correct: false }, { text: "D) 1.25π", correct: false }], explanation: "L = (90/360) × 2π(5) = 2.5π." },
+            { type: "example", content: "<h2>Example 4: Sector Area</h2><p>A circle has radius 4 and a 90° angle. Find the sector area.</p><p>A = (90/360) × π(4)² = 4π.</p><p>Answer: 4π</p>" },
+            { type: "question", title: "Question 4", question: "A circle’s area is 36π. What is its radius?", options: [{ text: "A) 6", correct: true }, { text: "B) 12", correct: false }, { text: "C) 3", correct: false }, { text: "D) 9", correct: false }], explanation: "πr² = 36π → r² = 36 → r = 6." },
+            { type: "example", content: "<h2>Example 5: Diameter</h2><p>A circle’s circumference is 10π. Find its diameter.</p><p>C = πd, 10π = πd, d = 10.</p><p>Answer: 10</p>" },
+            { type: "question", title: "Question 5", question: "A circle’s circumference is 18π. What is its radius?", options: [{ text: "A) 9", correct: true }, { text: "B) 18", correct: false }, { text: "C) 6", correct: false }, { text: "D) 12", correct: false }], explanation: "C = 2πr, 18π = 2πr, r = 9." },
+            { type: "example", content: "<h2>Example 6: Area from Radius</h2><p>A circle has radius 2. Find its area.</p><p>A = π(2)² = 4π.</p><p>Answer: 4π</p>" },
+            { type: "question", title: "Question 6", question: "A sector has radius 8 and central angle 45°. What is the arc length?", options: [{ text: "A) 2π", correct: true }, { text: "B) 4π", correct: false }, { text: "C) 8π", correct: false }, { text: "D) 1π", correct: false }], explanation: "L = (45/360) × 2π(8) = 2π." },
+            { type: "example", content: "<h2>Example 7: Radius from Area</h2><p>A circle’s area is 9π. Find its radius.</p><p>πr² = 9π, r² = 9, r = 3.</p><p>Answer: 3</p>" },
+            { type: "question", title: "Question 7", question: "A circle has radius 10 and a 180° central angle. What is the sector area?", options: [{ text: "A) 50π", correct: true }, { text: "B) 100π", correct: false }, { text: "C) 25π", correct: false }, { text: "D) 10π", correct: false }], explanation: "A = (180/360) × π(10)² = 50π." }
+        ]
     },
     5: {
         title: "Coordinate Geometry",
-        examples: [
-            {
-                title: "Example: Distance Between Points",
-                content: `
-                    <h2>Example: Distance Between Points</h2>
-                    <p>Find the distance between (2, 3) and (5, 7).</p>
-                    <p>Step 1: Use the distance formula: d = √((x₂ - x₁)² + (y₂ - y₁)²)</p>
-                    <p>Step 2: Substitute: d = √((5 - 2)² + (7 - 3)²) = √(3² + 4²) = √(9 + 16) = √25 = 5</p>
-                    <p>The distance is 5.</p>
-                    <button id="next-example">Next Example</button>
-                `
-            },
-            {
-                title: "Example: Midpoint",
-                content: `
-                    <h2>Example: Midpoint</h2>
-                    <p>Find the midpoint of (1, 2) and (3, 4).</p>
-                    <p>Step 1: Use the midpoint formula: M = ((x₁ + x₂)/2, (y₁ + y₂)/2)</p>
-                    <p>Step 2: Substitute: M = ((1 + 3)/2, (2 + 4)/2) = (4/2, 6/2) = (2, 3)</p>
-                    <p>The midpoint is (2, 3).</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
-                title: "Question 1",
-                question: "What is the distance between (0, 0) and (3, 4)?",
-                answer: "5",
-                explanation: "d = √(3² + 4²) = √(9 + 16) = √25 = 5."
-            },
-            {
-                title: "Question 2",
-                question: "What is the midpoint of (-2, 1) and (4, 5)?",
-                answer: "1,3",
-                explanation: "M = ((-2 + 4)/2, (1 + 5)/2) = (2/2, 6/2) = (1, 3)."
-            }
-        ],
-        additionalExample: {
-            title: "Example: Slope of a Line",
-            content: `
-                <h2>Example: Slope of a Line</h2>
-                <p>Find the slope between (2, 1) and (5, 7).</p>
-                <p>Step 1: Use the slope formula: m = (y₂ - y₁) / (x₂ - x₁)</p>
-                <p>Step 2: Substitute: m = (7 - 1) / (5 - 2) = 6 / 3 = 2</p>
-                <p>The slope is 2.</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        content: [
+            { type: "example", content: "<h2>Example 1: Distance</h2><p>Find the distance between (2, 3) and (5, 7).</p><p>d = √((5 - 2)² + (7 - 3)²) = √(9 + 16) = 5.</p><p>Answer: 5</p>" },
+            { type: "question", title: "Question 1", question: "What is the distance between (0, 0) and (3, 4)?", options: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 3", correct: false }, { text: "D) 6", correct: false }], explanation: "d = √(3² + 4²) = √25 = 5." },
+            { type: "example", content: "<h2>Example 2: Midpoint</h2><p>Find the midpoint of (1, 2) and (3, 4).</p><p>M = ((1 + 3)/2, (2 + 4)/2) = (2, 3).</p><p>Answer: (2, 3)</p>" },
+            { type: "question", title: "Question 2", question: "What is the midpoint of (-2, 1) and (4, 5)?", options: [{ text: "A) (1, 3)", correct: true }, { text: "B) (0, 2)", correct: false }, { text: "C) (2, 4)", correct: false }, { text: "D) (-1, 2)", correct: false }], explanation: "M = ((-2 + 4)/2, (1 + 5)/2) = (1, 3)." },
+            { type: "example", content: "<h2>Example 3: Slope</h2><p>Find the slope between (2, 1) and (5, 7).</p><p>m = (7 - 1) / (5 - 2) = 6 / 3 = 2.</p><p>Answer: 2</p>" },
+            { type: "question", title: "Question 3", question: "What is the slope of the line through (-1, 2) and (3, -2)?", options: [{ text: "A) -1", correct: true }, { text: "B) 1", correct: false }, { text: "C) 0", correct: false }, { text: "D) -2", correct: false }], explanation: "m = (-2 - 2) / (3 - (-1)) = -4 / 4 = -1." },
+            { type: "example", content: "<h2>Example 4: Perpendicular Slope</h2><p>A line has slope 3. Find the slope of a perpendicular line.</p><p>Perpendicular slope = -1/3.</p><p>Answer: -1/3</p>" },
+            { type: "question", title: "Question 4", question: "What is the slope of a line perpendicular to y = -4x + 2?", options: [{ text: "A) 1/4", correct: true }, { text: "B) -4", correct: false }, { text: "C) 4", correct: false }, { text: "D) -1/4", correct: false }], explanation: "Slope = -4, perpendicular slope = 1/4." },
+            { type: "example", content: "<h2>Example 5: Line Equation</h2><p>A line has slope 2 and passes through (1, 1). Find y when x = 3.</p><p>y - 1 = 2(x - 1), y = 2x - 1, y = 5.</p><p>Answer: 5</p>" },
+            { type: "question", title: "Question 5", question: "What is the distance between (-3, -2) and (1, 1)?", options: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 6", correct: false }, { text: "D) 3", correct: false }], explanation: "d = √((1 - (-3))² + (1 - (-2))²) = √(16 + 9) = 5." },
+            { type: "example", content: "<h2>Example 6: Midpoint</h2><p>Find the midpoint of (-4, 2) and (2, -6).</p><p>M = ((-4 + 2)/2, (2 + (-6))/2) = (-1, -2).</p><p>Answer: (-1, -2)</p>" },
+            { type: "question", title: "Question 6", question: "A line has slope -2 and passes through (0, 3). What is y when x = 2?", options: [{ text: "A) -1", correct: true }, { text: "B) 1", correct: false }, { text: "C) 3", correct: false }, { text: "D) -3", correct: false }], explanation: "y = -2x + 3, at x = 2: y = -4 + 3 = -1." },
+            { type: "example", content: "<h2>Example 7: Distance</h2><p>Find the distance between (0, 5) and (5, 0).</p><p>d = √((5 - 0)² + (0 - 5)²) = √(25 + 25) = 5√2.</p><p>Answer: 5√2</p>" },
+            { type: "question", title: "Question 7", question: "What is the slope of a line parallel to y = 3x - 5?", options: [{ text: "A) 3", correct: true }, { text: "B) -3", correct: false }, { text: "C) 1/3", correct: false }, { text: "D) -1/3", correct: false }], explanation: "Parallel lines have the same slope. Thus, it’s 3." }
+        ]
     },
     6: {
         title: "3D Geometry (Solids)",
-        examples: [
-            {
-                title: "Example: Volume of a Cube",
-                content: `
-                    <h2>Example: Volume of a Cube</h2>
-                    <p>A cube has a side length of 4. Find its volume.</p>
-                    <p>Step 1: Use the formula: V = s³</p>
-                    <p>Step 2: Substitute: V = 4³ = 64</p>
-                    <p>The volume is 64 cubic units.</p>
-                    <button id="next-example">Next Example</button>
-                `
-            },
-            {
-                title: "Example: Surface Area of a Cylinder",
-                content: `
-                    <h2>Example: Surface Area of a Cylinder</h2>
-                    <p>A cylinder has a radius of 3 and height of 5. Find its surface area.</p>
-                    <p>Step 1: Use the formula: SA = 2πr² + 2πrh</p>
-                    <p>Step 2: Substitute: SA = 2π(3)² + 2π(3)(5) = 18π + 30π = 48π</p>
-                    <p>The surface area is 48π (or ≈ 150.8).</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
-                title: "Question 1",
-                question: "What is the volume of a sphere with radius 3?",
-                answer: "36π",
-                explanation: "V = (4/3)πr³ = (4/3)π(3)³ = (4/3)π(27) = 36π."
-            },
-            {
-                title: "Question 2",
-                question: "A rectangular prism has dimensions 2, 3, and 4. What is its volume?",
-                answer: "24",
-                explanation: "V = l × w × h = 2 × 3 × 4 = 24."
-            }
-        ],
-        additionalExample: {
-            title: "Example: Volume of a Cone",
-            content: `
-                <h2>Example: Volume of a Cone</h2>
-                <p>A cone has a radius of 2 and height of 6. Find its volume.</p>
-                <p>Step 1: Use the formula: V = (1/3)πr²h</p>
-                <p>Step 2: Substitute: V = (1/3)π(2)²(6) = (1/3)π(4)(6) = 8π</p>
-                <p>The volume is 8π.</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        content: [
+            { type: "example", content: "<h2>Example 1: Cube Volume</h2><p>A cube has a side length of 4. Find its volume.</p><p>V = 4³ = 64.</p><p>Answer: 64</p>" },
+            { type: "question", title: "Question 1", question: "What is the volume of a sphere with radius 3?", options: [{ text: "A) 36π", correct: true }, { text: "B) 27π", correct: false }, { text: "C) 9π", correct: false }, { text: "D) 108π", correct: false }], explanation: "V = (4/3)π(3)³ = 36π." },
+            { type: "example", content: "<h2>Example 2: Cylinder SA</h2><p>A cylinder has radius 3 and height 5. Find its surface area.</p><p>SA = 2π(3)² + 2π(3)(5) = 18π + 30π = 48π.</p><p>Answer: 48π</p>" },
+            { type: "question", title: "Question 2", question: "A rectangular prism has dimensions 2, 3, and 4. What is its volume?", options: [{ text: "A) 24", correct: true }, { text: "B) 20", correct: false }, { text: "C) 30", correct: false }, { text: "D) 18", correct: false }], explanation: "V = 2 × 3 × 4 = 24." },
+            { type: "example", content: "<h2>Example 3: Cone Volume</h2><p>A cone has radius 2 and height 6. Find its volume.</p><p>V = (1/3)π(2)²(6) = 8π.</p><p>Answer: 8π</p>" },
+            { type: "question", title: "Question 3", question: "A cylinder has radius 4 and height 7. What is its volume?", options: [{ text: "A) 112π", correct: true }, { text: "B) 56π", correct: false }, { text: "C) 28π", correct: false }, { text: "D) 16π", correct: false }], explanation: "V = π(4)²(7) = 112π." },
+            { type: "example", content: "<h2>Example 4: Prism SA</h2><p>A rectangular prism has dimensions 3, 4, 5. Find its surface area.</p><p>SA = 2(3×4 + 3×5 + 4×5) = 2(12 + 15 + 20) = 94.</p><p>Answer: 94</p>" },
+            { type: "question", title: "Question 4", question: "A cube has a side length of 6. What is its surface area?", options: [{ text: "A) 216", correct: true }, { text: "B) 36", correct: false }, { text: "C) 144", correct: false }, { text: "D) 108", correct: false }], explanation: "SA = 6(6)² = 216." },
+            { type: "example", content: "<h2>Example 5: Sphere Volume</h2><p>A sphere has radius 1. Find its volume.</p><p>V = (4/3)π(1)³ = (4/3)π.</p><p>Answer: (4/3)π</p>" },
+            { type: "question", title: "Question 5", question: "A cone has radius 5 and height 12. What is its volume?", options: [{ text: "A) 100π", correct: true }, { text: "B) 300π", correct: false }, { text: "C) 60π", correct: false }, { text: "D) 25π", correct: false }], explanation: "V = (1/3)π(5)²(12) = 100π." },
+            { type: "example", content: "<h2>Example 6: Cylinder Volume</h2><p>A cylinder has radius 2 and height 3. Find its volume.</p><p>V = π(2)²(3) = 12π.</p><p>Answer: 12π</p>" },
+            { type: "question", title: "Question 6", question: "A sphere has a volume of 288π. What is its radius?", options: [{ text: "A) 6", correct: true }, { text: "B) 12", correct: false }, { text: "C) 3", correct: false }, { text: "D) 9", correct: false }], explanation: "(4/3)πr³ = 288π → r³ = 216 → r = 6." },
+            { type: "example", content: "<h2>Example 7: Cube SA</h2><p>A cube has a volume of 8. Find its surface area.</p><p>V = s³ = 8, s = 2, SA = 6(2)² = 24.</p><p>Answer: 24</p>" },
+            { type: "question", title: "Question 7", question: "A rectangular prism has dimensions 1, 2, 3. What is its surface area?", options: [{ text: "A) 22", correct: true }, { text: "B) 24", correct: false }, { text: "C) 18", correct: false }, { text: "D) 26", correct: false }], explanation: "SA = 2(1×2 + 1×3 + 2×3) = 2(2 + 3 + 6) = 22." }
+        ]
     },
     7: {
         title: "Transformations",
-        examples: [
-            {
-                title: "Example: Translation",
-                content: `
-                    <h2>Example: Translation</h2>
-                    <p>Translate point (3, 4) by (2, -1). Find the new coordinates.</p>
-                    <p>Step 1: Add the translation vector: (3 + 2, 4 + (-1))</p>
-                    <p>Step 2: Simplify: (5, 3)</p>
-                    <p>The new coordinates are (5, 3).</p>
-                    <button id="next-example">Next Example</button>
-                `
-            },
-            {
-                title: "Example: Reflection",
-                content: `
-                    <h2>Example: Reflection</h2>
-                    <p>Reflect point (2, 3) over the x-axis. Find the new coordinates.</p>
-                    <p>Step 1: Over the x-axis, y changes sign: (x, y) → (x, -y)</p>
-                    <p>Step 2: Apply: (2, 3) → (2, -3)</p>
-                    <p>The new coordinates are (2, -3).</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
-                title: "Question 1",
-                question: "Translate (1, 5) by (-3, 2). What are the new coordinates?",
-                answer: "-2,7",
-                explanation: "(1 + (-3), 5 + 2) = (-2, 7)."
-            },
-            {
-                title: "Question 2",
-                question: "Reflect (4, -1) over the y-axis. What are the new coordinates?",
-                answer: "-4,-1",
-                explanation: "Over the y-axis, x changes sign: (4, -1) → (-4, -1)."
-            }
-        ],
-        additionalExample: {
-            title: "Example: Rotation",
-            content: `
-                <h2>Example: Rotation</h2>
-                <p>Rotate (1, 0) 90° counterclockwise around the origin. Find the new coordinates.</p>
-                <p>Step 1: For 90° CCW: (x, y) → (-y, x)</p>
-                <p>Step 2: Apply: (1, 0) → (0, 1)</p>
-                <p>The new coordinates are (0, 1).</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        content: [
+            { type: "example", content: "<h2>Example 1: Translation</h2><p>Translate (3, 4) by (2, -1).</p><p>(3 + 2, 4 - 1) = (5, 3).</p><p>Answer: (5, 3)</p>" },
+            { type: "question", title: "Question 1", question: "Translate (1, 5) by (-3, 2). What are the new coordinates?", options: [{ text: "A) (-2, 7)", correct: true }, { text: "B) (4, 3)", correct: false }, { text: "C) (1, 7)", correct: false }, { text: "D) (-2, 3)", correct: false }], explanation: "(1 - 3, 5 + 2) = (-2, 7)." },
+            { type: "example", content: "<h2>Example 2: Reflection</h2><p>Reflect (2, 3) over the x-axis.</p><p>(x, y) → (x, -y), (2, 3) → (2, -3).</p><p>Answer: (2, -3)</p>" },
+            { type: "question", title: "Question 2", question: "Reflect (4, -1) over the y-axis. What are the new coordinates?", options: [{ text: "A) (-4, -1)", correct: true }, { text: "B) (4, 1)", correct: false }, { text: "C) (-4, 1)", correct: false }, { text: "D) (1, -4)", correct: false }], explanation: "(x, y) → (-x, y), (4, -1) → (-4, -1)." },
+            { type: "example", content: "<h2>Example 3: Rotation</h2><p>Rotate (1, 0) 90° counterclockwise around the origin.</p><p>(x, y) → (-y, x), (1, 0) → (0, 1).</p><p>Answer: (0, 1)</p>" },
+            { type: "question", title: "Question 3", question: "Rotate (0, 2) 180° around the origin. What are the new coordinates?", options: [{ text: "A) (0, -2)", correct: true }, { text: "B) (2, 0)", correct: false }, { text: "C) (-2, 0)", correct: false }, { text: "D) (0, 2)", correct: false }], explanation: "(x, y) → (-x, -y), (0, 2) → (0, -2)." },
+            { type: "example", content: "<h2>Example 4: Reflection</h2><p>Reflect (-3, 2) over the y-axis.</p><p>(x, y) → (-x, y), (-3, 2) → (3, 2).</p><p>Answer: (3, 2)</p>" },
+            { type: "question", title: "Question 4", question: "Translate (-2, -3) by (4, 1). What are the new coordinates?", options: [{ text: "A) (2, -2)", correct: true }, { text: "B) (-6, -4)", correct: false }, { text: "C) (2, -3)", correct: false }, { text: "D) (-2, 1)", correct: false }], explanation: "(-2 + 4, -3 + 1) = (2, -2)." },
+            { type: "example", content: "<h2>Example 5: Rotation</h2><p>Rotate (2, 0) 180° around the origin.</p><p>(x, y) → (-x, -y), (2, 0) → (-2, 0).</p><p>Answer: (-2, 0)</p>" },
+            { type: "question", title: "Question 5", question: "Reflect (1, 4) over the x-axis. What are the new coordinates?", options: [{ text: "A) (1, -4)", correct: true }, { text: "B) (-1, 4)", correct: false }, { text: "C) (4, 1)", correct: false }, { text: "D) (-1, -4)", correct: false }], explanation: "(x, y) → (x, -y), (1, 4) → (1, -4)." },
+            { type: "example", content: "<h2>Example 6: Translation</h2><p>Translate (0, 5) by (-2, -3).</p><p>(0 - 2, 5 - 3) = (-2, 2).</p><p>Answer: (-2, 2)</p>" },
+            { type: "question", title: "Question 6", question: "Rotate (3, 0) 90° clockwise around the origin. What are the new coordinates?", options: [{ text: "A) (0, -3)", correct: true }, { text: "B) (0, 3)", correct: false }, { text: "C) (-3, 0)", correct: false }, { text: "D) (3, 0)", correct: false }], explanation: "90° CW: (x, y) → (y, -x), (3, 0) → (0, -3)." },
+            { type: "example", content: "<h2>Example 7: Rotation</h2><p>Rotate (2, 2) 270° counterclockwise around the origin.</p><p>(x, y) → (y, -x), (2, 2) → (-2, 2).</p><p>Answer: (-2, 2)</p>" },
+            { type: "question", title: "Question 7", question: "Reflect (-5, 3) over the line y = x. What are the new coordinates?", options: [{ text: "A) (3, -5)", correct: true }, { text: "B) (-5, -3)", correct: false }, { text: "C) (5, -3)", correct: false }, { text: "D) (-3, 5)", correct: false }], explanation: "Over y = x: (x, y) → (y, x), (-5, 3) → (3, -5)." }
+        ]
     },
     8: {
         title: "Trigonometry (Basic Concepts)",
-        examples: [
-            {
-                title: "Example: Finding Sine",
-                content: `
-                    <h2>Example: Finding Sine</h2>
-                    <p>In a right triangle, the opposite side is 3 and the hypotenuse is 5. Find sin(θ).</p>
-                    <p>Step 1: Use the formula: sin(θ) = opposite / hypotenuse</p>
-                    <p>Step 2: Substitute: sin(θ) = 3 / 5 = 0.6</p>
-                    <p>sin(θ) = 0.6.</p>
-                    <button id="next-example">Next Example</button>
-                `
-            },
-            {
-                title: "Example: Finding Cosine",
-                content: `
-                    <h2>Example: Finding Cosine</h2>
-                    <p>In a right triangle, the adjacent side is 4 and the hypotenuse is 5. Find cos(θ).</p>
-                    <p>Step 1: Use the formula: cos(θ) = adjacent / hypotenuse</p>
-                    <p>Step 2: Substitute: cos(θ) = 4 / 5 = 0.8</p>
-                    <p>cos(θ) = 0.8.</p>
-                    <button id="next-question">Next Question</button>
-                `
-            }
-        ],
-        questions: [
-            {
-                title: "Question 1",
-                question: "In a right triangle, the opposite side is 6 and the hypotenuse is 10. What is sin(θ)?",
-                answer: "0.6",
-                explanation: "sin(θ) = 6 / 10 = 0.6."
-            },
-            {
-                title: "Question 2",
-                question: "In a right triangle, the adjacent side is 8 and the hypotenuse is 10. What is cos(θ)?",
-                answer: "0.8",
-                explanation: "cos(θ) = 8 / 10 = 0.8."
-            }
-        ],
-        additionalExample: {
-            title: "Example: Finding Tangent",
-            content: `
-                <h2>Example: Finding Tangent</h2>
-                <p>In a right triangle, the opposite side is 3 and the adjacent side is 4. Find tan(θ).</p>
-                <p>Step 1: Use the formula: tan(θ) = opposite / adjacent</p>
-                <p>Step 2: Substitute: tan(θ) = 3 / 4 = 0.75</p>
-                <p>tan(θ) = 0.75.</p>
-                <button id="next-question">Next Question</button>
-            `
-        }
+        content: [
+            { type: "example", content: "<h2>Example 1: Sine</h2><p>In a right triangle, opposite = 3, hypotenuse = 5. Find sin(θ).</p><p>sin(θ) = 3 / 5 = 0.6.</p><p>Answer: 0.6</p>" },
+            { type: "question", title: "Question 1", question: "In a right triangle, opposite = 6, hypotenuse = 10. What is sin(θ)?", options: [{ text: "A) 0.6", correct: true }, { text: "B) 0.8", correct: false }, { text: "C) 0.4", correct: false }, { text: "D) 1", correct: false }], explanation: "sin(θ) = 6 / 10 = 0.6." },
+            { type: "example", content: "<h2>Example 2: Cosine</h2><p>In a right triangle, adjacent = 4, hypotenuse = 5. Find cos(θ).</p><p>cos(θ) = 4 / 5 = 0.8.</p><p>Answer: 0.8</p>" },
+            { type: "question", title: "Question 2", question: "In a right triangle, adjacent = 8, hypotenuse = 10. What is cos(θ)?", options: [{ text: "A) 0.8", correct: true }, { text: "B) 0.6", correct: false }, { text: "C) 1", correct: false }, { text: "D) 0.4", correct: false }], explanation: "cos(θ) = 8 / 10 = 0.8." },
+            { type: "example", content: "<h2>Example 3: Tangent</h2><p>In a right triangle, opposite = 3, adjacent = 4. Find tan(θ).</p><p>tan(θ) = 3 / 4 = 0.75.</p><p>Answer: 0.75</p>" },
+            { type: "question", title: "Question 3", question: "In a right triangle, opposite = 5, adjacent = 12. What is tan(θ)?", options: [{ text: "A) 5/12", correct: true }, { text: "B) 12/5", correct: false }, { text: "C) 5/13", correct: false }, { text: "D) 12/13", correct: false }], explanation: "tan(θ) = 5 / 12." },
+            { type: "example", content: "<h2>Example 4: Sine from Cosine</h2><p>If cos(θ) = 3/5, find sin(θ).</p><p>Hyp = 5, adj = 3, opp = √(5² - 3²) = 4, sin(θ) = 4/5.</p><p>Answer: 0.8</p>" },
+            { type: "question", title: "Question 4", question: "If sin(θ) = 8/17, what is cos(θ)?", options: [{ text: "A) 15/17", correct: true }, { text: "B) 17/8", correct: false }, { text: "C) 8/15", correct: false }, { text: "D) 17/15", correct: false }], explanation: "Hyp = 17, opp = 8, adj = √(17² - 8²) = 15, cos(θ) = 15/17." },
+            { type: "example", content: "<h2>Example 5: Tangent from Sine</h2><p>If sin(θ) = 5/13, adj = 12, find tan(θ).</p><p>tan(θ) = 5 / 12.</p><p>Answer: 5/12</p>" },
+            { type: "question", title: "Question 5", question: "In a 3-4-5 triangle, what is sin(θ) for the angle opposite 4?", options: [{ text: "A) 4/5", correct: true }, { text: "B) 3/5", correct: false }, { text: "C) 3/4", correct: false }, { text: "D) 5/4", correct: false }], explanation: "sin(θ) = opp / hyp = 4 / 5." },
+            { type: "example", content: "<h2>Example 6: Cosine from Tangent</h2><p>If tan(θ) = 15/8, find cos(θ).</p><p>Opp = 15, adj = 8, hyp = √(15² + 8²) = 17, cos(θ) = 8/17.</p><p>Answer: 8/17</p>" },
+            { type: "question", title: "Question 6", question: "If tan(θ) = 7/24, what is sin(θ)?", options: [{ text: "A) 7/25", correct: true }, { text: "B) 24/25", correct: false }, { text: "C) 7/24", correct: false }, { text: "D) 24/7", correct: false }], explanation: "Opp = 7, adj = 24, hyp = √(7² + 24²) = 25, sin(θ) = 7/25." },
+            { type: "example", content: "<h2>Example 7: Angle from Tangent</h2><p>If tan(θ) = 1, find θ.</p><p>tan(θ) = 1 when opp = adj, θ = 45°.</p><p>Answer: 45°</p>" },
+            { type: "question", title: "Question 7", question: "In a right triangle, adjacent = 5, hypotenuse = 13. What is sin(θ)?", options: [{ text: "A) 12/13", correct: true }, { text: "B) 5/13", correct: false }, { text: "C) 13/12", correct: false }, { text: "D) 5/12", correct: false }], explanation: "Adj = 5, hyp = 13, opp = √(13² - 5²) = 12, sin(θ) = 12/13." }
+        ]
     }
 };
 
 // Geometry question arrays
+// Geometry question arrays
 const linesAnglesQuestions = [
-    {
-        question: "Two angles are supplementary, and one is 75°. What is the other angle?",
-        answers: [
-            { text: "A) 105°", correct: true },
-            { text: "B) 115°", correct: false },
-            { text: "C) 95°", correct: false },
-            { text: "D) 85°", correct: false }
-        ],
-        explanation: "Supplementary angles sum to 180°. 180° - 75° = 105°.",
-        difficulty: "easy",
-        category: "geometry"
-    },
-    {
-        question: "If two parallel lines are cut by a transversal and a corresponding angle is 80°, what is another corresponding angle?",
-        answers: [
-            { text: "A) 80°", correct: true },
-            { text: "B) 100°", correct: false },
-            { text: "C) 90°", correct: false },
-            { text: "D) 110°", correct: false }
-        ],
-        explanation: "Corresponding angles are equal. Thus, it’s 80°.",
-        difficulty: "easy",
-        category: "geometry"
-    }
+    { question: "Two angles are supplementary, and one is 75°. What is the other angle?", answers: [{ text: "A) 105°", correct: true }, { text: "B) 115°", correct: false }, { text: "C) 95°", correct: false }, { text: "D) 85°", correct: false }], explanation: "Supplementary angles sum to 180°. 180° - 75° = 105°.", difficulty: "easy", category: "geometry" },
+    { question: "Two angles are complementary, and one is 40°. What is the other angle?", answers: [{ text: "A) 50°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 40°", correct: false }, { text: "D) 30°", correct: false }], explanation: "Complementary angles sum to 90°. 90° - 40° = 50°.", difficulty: "easy", category: "geometry" },
+    { question: "If two parallel lines are cut by a transversal and a corresponding angle is 80°, what is another corresponding angle?", answers: [{ text: "A) 80°", correct: true }, { text: "B) 100°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 110°", correct: false }], explanation: "Corresponding angles are equal. Thus, it’s 80°.", difficulty: "easy", category: "geometry" },
+    { question: "Vertical angles are formed by two intersecting lines. If one is 65°, what is the other?", answers: [{ text: "A) 65°", correct: true }, { text: "B) 115°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 25°", correct: false }], explanation: "Vertical angles are equal. Thus, it’s 65°.", difficulty: "medium", category: "geometry" },
+    { question: "If two parallel lines are cut by a transversal and an alternate interior angle is 120°, what is the other?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Alternate interior angles are equal. Thus, it’s 120°.", difficulty: "medium", category: "geometry" },
+    { question: "An angle is 3 times its supplement. What is the angle?", answers: [{ text: "A) 135°", correct: true }, { text: "B) 45°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 60°", correct: false }], explanation: "Let angle = x, supplement = 180° - x. Then, x = 3(180° - x), x = 540° - 3x, 4x = 540°, x = 135°.", difficulty: "hard", category: "geometry" },
+    { question: "If a transversal crosses parallel lines and a same-side interior angle is 130°, what is the other?", answers: [{ text: "A) 50°", correct: true }, { text: "B) 130°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Same-side interior angles sum to 180°. 180° - 130° = 50°.", difficulty: "medium", category: "geometry" }
 ];
 
 const trianglesQuestions = [
-    {
-        question: "In a triangle, two angles are 30° and 70°. What is the third angle?",
-        answers: [
-            { text: "A) 80°", correct: true },
-            { text: "B) 90°", correct: false },
-            { text: "C) 70°", correct: false },
-            { text: "D) 60°", correct: false }
-        ],
-        explanation: "180° - (30° + 70°) = 80°.",
-        difficulty: "easy",
-        category: "geometry"
-    },
-    {
-        question: "In a right triangle, one leg is 5 and the hypotenuse is 13. What is the other leg?",
-        answers: [
-            { text: "A) 12", correct: true },
-            { text: "B) 10", correct: false },
-            { text: "C) 8", correct: false },
-            { text: "D) 6", correct: false }
-        ],
-        explanation: "5² + b² = 13² → 25 + b² = 169 → b² = 144 → b = 12.",
-        difficulty: "medium",
-        category: "geometry"
-    }
+    { question: "In a triangle, two angles are 30° and 70°. What is the third angle?", answers: [{ text: "A) 80°", correct: true }, { text: "B) 90°", correct: false }, { text: "C) 70°", correct: false }, { text: "D) 60°", correct: false }], explanation: "180° - (30° + 70°) = 80°.", difficulty: "easy", category: "geometry" },
+    { question: "In a right triangle, one leg is 5 and the hypotenuse is 13. What is the other leg?", answers: [{ text: "A) 12", correct: true }, { text: "B) 10", correct: false }, { text: "C) 8", correct: false }, { text: "D) 6", correct: false }], explanation: "5² + b² = 13² → 25 + b² = 169 → b² = 144 → b = 12.", difficulty: "medium", category: "geometry" },
+    { question: "An isosceles triangle has a base angle of 70°. What is the vertex angle?", answers: [{ text: "A) 40°", correct: true }, { text: "B) 70°", correct: false }, { text: "C) 110°", correct: false }, { text: "D) 50°", correct: false }], explanation: "Base angles are equal, so 180° - (70° + 70°) = 40°.", difficulty: "easy", category: "geometry" },
+    { question: "In a triangle, angles are in the ratio 1:2:3. What is the largest angle?", answers: [{ text: "A) 90°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 120°", correct: false }, { text: "D) 45°", correct: false }], explanation: "1x + 2x + 3x = 180°, 6x = 180°, x = 30°, largest = 3x = 90°.", difficulty: "medium", category: "geometry" },
+    { question: "A triangle has sides 7, 8, and 10. Is it a right triangle?", answers: [{ text: "A) No", correct: true }, { text: "B) Yes", correct: false }, { text: "C) Maybe", correct: false }, { text: "D) Not enough info", correct: false }], explanation: "7² + 8² = 49 + 64 = 113 ≠ 100 = 10².", difficulty: "medium", category: "geometry" },
+    { question: "In an equilateral triangle, what is each angle?", answers: [{ text: "A) 60°", correct: true }, { text: "B) 90°", correct: false }, { text: "C) 45°", correct: false }, { text: "D) 120°", correct: false }], explanation: "All angles are equal, 180° ÷ 3 = 60°.", difficulty: "easy", category: "geometry" },
+    { question: "A right triangle has legs 9 and 12. What is the hypotenuse?", answers: [{ text: "A) 15", correct: true }, { text: "B) 13", correct: false }, { text: "C) 10", correct: false }, { text: "D) 18", correct: false }], explanation: "9² + 12² = 81 + 144 = 225 → √225 = 15.", difficulty: "hard", category: "geometry" }
 ];
 
 const quadrilateralsPolygonsQuestions = [
-    {
-        question: "What is the sum of interior angles in an octagon?",
-        answers: [
-            { text: "A) 1080°", correct: true },
-            { text: "B) 900°", correct: false },
-            { text: "C) 720°", correct: false },
-            { text: "D) 1260°", correct: false }
-        ],
-        explanation: "(8 - 2) × 180° = 6 × 180° = 1080°.",
-        difficulty: "medium",
-        category: "geometry"
-    },
-    {
-        question: "A rectangle has sides 9 and 12. What is its diagonal?",
-        answers: [
-            { text: "A) 15", correct: true },
-            { text: "B) 13", correct: false },
-            { text: "C) 10", correct: false },
-            { text: "D) 18", correct: false }
-        ],
-        explanation: "d² = 9² + 12² = 81 + 144 = 225 → d = 15.",
-        difficulty: "medium",
-        category: "geometry"
-    }
+    { question: "What is the sum of interior angles in an octagon?", answers: [{ text: "A) 1080°", correct: true }, { text: "B) 900°", correct: false }, { text: "C) 720°", correct: false }, { text: "D) 1260°", correct: false }], explanation: "(8 - 2) × 180° = 6 × 180° = 1080°.", difficulty: "medium", category: "geometry" },
+    { question: "A rectangle has sides 9 and 12. What is its diagonal?", answers: [{ text: "A) 15", correct: true }, { text: "B) 13", correct: false }, { text: "C) 10", correct: false }, { text: "D) 18", correct: false }], explanation: "d² = 9² + 12² = 81 + 144 = 225 → d = 15.", difficulty: "medium", category: "geometry" },
+    { question: "In a parallelogram, one angle is 80°. What is an adjacent angle?", answers: [{ text: "A) 100°", correct: true }, { text: "B) 80°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 110°", correct: false }], explanation: "Adjacent angles are supplementary: 180° - 80° = 100°.", difficulty: "easy", category: "geometry" },
+    { question: "What is the sum of interior angles in a quadrilateral?", answers: [{ text: "A) 360°", correct: true }, { text: "B) 180°", correct: false }, { text: "C) 540°", correct: false }, { text: "D) 720°", correct: false }], explanation: "(4 - 2) × 180° = 360°.", difficulty: "easy", category: "geometry" },
+    { question: "A square has a side of 6. What is its diagonal?", answers: [{ text: "A) 6√2", correct: true }, { text: "B) 6", correct: false }, { text: "C) 12", correct: false }, { text: "D) 9", correct: false }], explanation: "d² = 6² + 6² = 72 → d = √72 = 6√2.", difficulty: "medium", category: "geometry" },
+    { question: "In a regular hexagon, what is each interior angle?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 90°", correct: false }, { text: "C) 135°", correct: false }, { text: "D) 108°", correct: false }], explanation: "(6 - 2) × 180° = 720°, 720° ÷ 6 = 120°.", difficulty: "medium", category: "geometry" },
+    { question: "A rhombus has a diagonal of 10 and a side of 13. What is the other diagonal?", answers: [{ text: "A) 24", correct: true }, { text: "B) 12", correct: false }, { text: "C) 15", correct: false }, { text: "D) 20", correct: false }], explanation: "Half diagonals form right triangle with side: 5² + b² = 13² → 25 + b² = 169 → b = 12, full diagonal = 24.", difficulty: "hard", category: "geometry" }
 ];
 
 const circlesQuestions = [
-    {
-        question: "A circle has a radius of 5. What is its area?",
-        answers: [
-            { text: "A) 25π", correct: true },
-            { text: "B) 20π", correct: false },
-            { text: "C) 15π", correct: false },
-            { text: "D) 10π", correct: false }
-        ],
-        explanation: "A = π(5)² = 25π.",
-        difficulty: "easy",
-        category: "geometry"
-    }
+    { question: "A circle has a radius of 5. What is its area?", answers: [{ text: "A) 25π", correct: true }, { text: "B) 20π", correct: false }, { text: "C) 15π", correct: false }, { text: "D) 10π", correct: false }], explanation: "A = π(5)² = 25π.", difficulty: "easy", category: "geometry" },
+    { question: "A circle has a diameter of 12. What is its circumference?", answers: [{ text: "A) 12π", correct: true }, { text: "B) 6π", correct: false }, { text: "C) 24π", correct: false }, { text: "D) 36π", correct: false }], explanation: "C = πd = 12π.", difficulty: "easy", category: "geometry" },
+    { question: "A circle has a radius of 3. What is its circumference?", answers: [{ text: "A) 6π", correct: true }, { text: "B) 9π", correct: false }, { text: "C) 3π", correct: false }, { text: "D) 12π", correct: false }], explanation: "C = 2π(3) = 6π.", difficulty: "easy", category: "geometry" },
+    { question: "A circle’s area is 16π. What is its radius?", answers: [{ text: "A) 4", correct: true }, { text: "B) 8", correct: false }, { text: "C) 2", correct: false }, { text: "D) 16", correct: false }], explanation: "πr² = 16π → r² = 16 → r = 4.", difficulty: "medium", category: "geometry" },
+    { question: "A circle has a radius of 10 and a central angle of 90°. What is the arc length?", answers: [{ text: "A) 5π", correct: true }, { text: "B) 10π", correct: false }, { text: "C) 2.5π", correct: false }, { text: "D) 20π", correct: false }], explanation: "L = (90/360) × 2π(10) = (1/4) × 20π = 5π.", difficulty: "medium", category: "geometry" },
+    { question: "A sector has a radius of 6 and an area of 12π. What is the central angle?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Area = (θ/360) × π(6)² = 12π → (θ/360) × 36π = 12π → θ = 120°.", difficulty: "hard", category: "geometry" },
+    { question: "A circle’s circumference is 8π. What is its area?", answers: [{ text: "A) 16π", correct: true }, { text: "B) 8π", correct: false }, { text: "C) 4π", correct: false }, { text: "D) 64π", correct: false }], explanation: "C = 2πr = 8π → r = 4, A = π(4)² = 16π.", difficulty: "medium", category: "geometry" }
 ];
 
 const coordinateGeometryQuestions = [
-    {
-        question: "What is the distance between (1, 2) and (4, 6)?",
-        answers: [
-            { text: "A) 5", correct: true },
-            { text: "B) 4", correct: false },
-            { text: "C) 3", correct: false },
-            { text: "D) 6", correct: false }
-        ],
-        explanation: "d = √((4 - 1)² + (6 - 2)²) = √(3² + 4²) = √25 = 5.",
-        difficulty: "medium",
-        category: "geometry"
-    }
+    { question: "What is the distance between (1, 2) and (4, 6)?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 3", correct: false }, { text: "D) 6", correct: false }], explanation: "d = √((4 - 1)² + (6 - 2)²) = √(3² + 4²) = √25 = 5.", difficulty: "medium", category: "geometry" },
+    { question: "What is the midpoint of (2, 3) and (6, 7)?", answers: [{ text: "A) (4, 5)", correct: true }, { text: "B) (2, 5)", correct: false }, { text: "C) (6, 3)", correct: false }, { text: "D) (3, 4)", correct: false }], explanation: "M = ((2 + 6)/2, (3 + 7)/2) = (4, 5).", difficulty: "easy", category: "geometry" },
+    { question: "What is the slope of the line through (1, 1) and (3, 5)?", answers: [{ text: "A) 2", correct: true }, { text: "B) 1", correct: false }, { text: "C) 3", correct: false }, { text: "D) 0", correct: false }], explanation: "m = (5 - 1) / (3 - 1) = 4 / 2 = 2.", difficulty: "easy", category: "geometry" },
+    { question: "What is the distance between (-2, 3) and (1, -1)?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 6", correct: false }, { text: "D) 3", correct: false }], explanation: "d = √((1 - (-2))² + (-1 - 3)²) = √(3² + (-4)²) = √25 = 5.", difficulty: "medium", category: "geometry" },
+    { question: "A line has slope 3 and passes through (1, 2). What is the y-coordinate at x = 3?", answers: [{ text: "A) 8", correct: true }, { text: "B) 6", correct: false }, { text: "C) 5", correct: false }, { text: "D) 10", correct: false }], explanation: "y - 2 = 3(x - 1) → y = 3x - 1, at x = 3: y = 9 - 1 = 8.", difficulty: "medium", category: "geometry" },
+    { question: "What is the slope of a line perpendicular to y = 2x + 1?", answers: [{ text: "A) -1/2", correct: true }, { text: "B) 2", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) -2", correct: false }], explanation: "Slope = 2, perpendicular slope = -1/2.", difficulty: "medium", category: "geometry" },
+    { question: "What is the midpoint of (-4, -2) and (2, 6)?", answers: [{ text: "A) (-1, 2)", correct: true }, { text: "B) (0, 0)", correct: false }, { text: "C) (-2, 4)", correct: false }, { text: "D) (1, 3)", correct: false }], explanation: "M = ((-4 + 2)/2, (-2 + 6)/2) = (-1, 2).", difficulty: "hard", category: "geometry" }
 ];
 
 const threeDGeometryQuestions = [
-    {
-        question: "What is the volume of a cube with side length 5?",
-        answers: [
-            { text: "A) 125", correct: true },
-            { text: "B) 100", correct: false },
-            { text: "C) 150", correct: false },
-            { text: "D) 75", correct: false }
-        ],
-        explanation: "V = 5³ = 125.",
-        difficulty: "easy",
-        category: "geometry"
-    }
+    { question: "What is the volume of a cube with side length 5?", answers: [{ text: "A) 125", correct: true }, { text: "B) 100", correct: false }, { text: "C) 150", correct: false }, { text: "D) 75", correct: false }], explanation: "V = 5³ = 125.", difficulty: "easy", category: "geometry" },
+    { question: "A cylinder has radius 3 and height 4. What is its volume?", answers: [{ text: "A) 36π", correct: true }, { text: "B) 12π", correct: false }, { text: "C) 48π", correct: false }, { text: "D) 24π", correct: false }], explanation: "V = π(3)²(4) = 36π.", difficulty: "easy", category: "geometry" },
+    { question: "A sphere has radius 2. What is its volume?", answers: [{ text: "A) (32/3)π", correct: true }, { text: "B) 8π", correct: false }, { text: "C) 16π", correct: false }, { text: "D) 4π", correct: false }], explanation: "V = (4/3)π(2)³ = (4/3)π(8) = (32/3)π.", difficulty: "medium", category: "geometry" },
+    { question: "A rectangular prism has dimensions 3, 4, 5. What is its surface area?", answers: [{ text: "A) 94", correct: true }, { text: "B) 60", correct: false }, { text: "C) 120", correct: false }, { text: "D) 80", correct: false }], explanation: "SA = 2(3×4 + 3×5 + 4×5) = 2(12 + 15 + 20) = 94.", difficulty: "medium", category: "geometry" },
+    { question: "A cone has radius 3 and height 8. What is its volume?", answers: [{ text: "A) 24π", correct: true }, { text: "B) 72π", correct: false }, { text: "C) 12π", correct: false }, { text: "D) 36π", correct: false }], explanation: "V = (1/3)π(3)²(8) = 24π.", difficulty: "medium", category: "geometry" },
+    { question: "A cylinder has a volume of 100π and height 4. What is its radius?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 6", correct: false }, { text: "D) 10", correct: false }], explanation: "πr²(4) = 100π → r² = 25 → r = 5.", difficulty: "hard", category: "geometry" },
+    { question: "A cube has a volume of 27. What is its surface area?", answers: [{ text: "A) 54", correct: true }, { text: "B) 36", correct: false }, { text: "C) 18", correct: false }, { text: "D) 72", correct: false }], explanation: "V = s³ = 27 → s = 3, SA = 6s² = 6(9) = 54.", difficulty: "medium", category: "geometry" }
 ];
 
 const transformationsQuestions = [
-    {
-        question: "Reflect (3, 2) over the x-axis. What are the new coordinates?",
-        answers: [
-            { text: "A) (3, -2)", correct: true },
-            { text: "B) (-3, 2)", correct: false },
-            { text: "C) (2, 3)", correct: false },
-            { text: "D) (-3, -2)", correct: false }
-        ],
-        explanation: "Over the x-axis: (x, y) → (x, -y). So, (3, 2) → (3, -2).",
-        difficulty: "easy",
-        category: "geometry"
-    }
+    { question: "Reflect (3, 2) over the x-axis. What are the new coordinates?", answers: [{ text: "A) (3, -2)", correct: true }, { text: "B) (-3, 2)", correct: false }, { text: "C) (2, 3)", correct: false }, { text: "D) (-3, -2)", correct: false }], explanation: "Over x-axis: (x, y) → (x, -y). So, (3, 2) → (3, -2).", difficulty: "easy", category: "geometry" },
+    { question: "Translate (2, 4) by (-1, 3). What are the new coordinates?", answers: [{ text: "A) (1, 7)", correct: true }, { text: "B) (3, 1)", correct: false }, { text: "C) (2, 7)", correct: false }, { text: "D) (1, 4)", correct: false }], explanation: "(2 - 1, 4 + 3) = (1, 7).", difficulty: "easy", category: "geometry" },
+    { question: "Rotate (1, 0) 90° counterclockwise around the origin. What are the new coordinates?", answers: [{ text: "A) (0, 1)", correct: true }, { text: "B) (-1, 0)", correct: false }, { text: "C) (0, -1)", correct: false }, { text: "D) (1, 0)", correct: false }], explanation: "90° CCW: (x, y) → (-y, x). So, (1, 0) → (0, 1).", difficulty: "medium", category: "geometry" },
+    { question: "Reflect (-2, 3) over the y-axis. What are the new coordinates?", answers: [{ text: "A) (2, 3)", correct: true }, { text: "B) (-2, -3)", correct: false }, { text: "C) (2, -3)", correct: false }, { text: "D) (-3, 2)", correct: false }], explanation: "Over y-axis: (x, y) → (-x, y). So, (-2, 3) → (2, 3).", difficulty: "easy", category: "geometry" },
+    { question: "Rotate (0, 2) 180° around the origin. What are the new coordinates?", answers: [{ text: "A) (0, -2)", correct: true }, { text: "B) (2, 0)", correct: false }, { text: "C) (-2, 0)", correct: false }, { text: "D) (0, 2)", correct: false }], explanation: "180°: (x, y) → (-x, -y). So, (0, 2) → (0, -2).", difficulty: "medium", category: "geometry" },
+    { question: "Translate (5, -1) by (2, -3). What are the new coordinates?", answers: [{ text: "A) (7, -4)", correct: true }, { text: "B) (3, 2)", correct: false }, { text: "C) (7, -1)", correct: false }, { text: "D) (5, -4)", correct: false }], explanation: "(5 + 2, -1 - 3) = (7, -4).", difficulty: "medium", category: "geometry" },
+    { question: "Rotate (2, 2) 270° counterclockwise around the origin. What are the new coordinates?", answers: [{ text: "A) (-2, 2)", correct: true }, { text: "B) (2, -2)", correct: false }, { text: "C) (-2, -2)", correct: false }, { text: "D) (2, 2)", correct: false }], explanation: "270° CCW: (x, y) → (y, -x). So, (2, 2) → (-2, 2).", difficulty: "hard", category: "geometry" }
 ];
 
 const trigonometryQuestions = [
-    {
-        question: "In a right triangle, the opposite side is 8 and the hypotenuse is 17. What is sin(θ)?",
-        answers: [
-            { text: "A) 8/17", correct: true },
-            { text: "B) 17/8", correct: false },
-            { text: "C) 15/17", correct: false },
-            { text: "D) 8/15", correct: false }
-        ],
-        explanation: "sin(θ) = opposite / hypotenuse = 8 / 17.",
-        difficulty: "medium",
-        category: "geometry"
-    }
+    { question: "In a right triangle, the opposite side is 8 and the hypotenuse is 17. What is sin(θ)?", answers: [{ text: "A) 8/17", correct: true }, { text: "B) 17/8", correct: false }, { text: "C) 15/17", correct: false }, { text: "D) 8/15", correct: false }], explanation: "sin(θ) = opposite / hypotenuse = 8 / 17.", difficulty: "medium", category: "geometry" },
+    { question: "In a right triangle, the adjacent side is 3 and the hypotenuse is 5. What is cos(θ)?", answers: [{ text: "A) 3/5", correct: true }, { text: "B) 5/3", correct: false }, { text: "C) 4/5", correct: false }, { text: "D) 3/4", correct: false }], explanation: "cos(θ) = adjacent / hypotenuse = 3 / 5.", difficulty: "easy", category: "geometry" },
+    { question: "In a right triangle, the opposite side is 6 and the adjacent side is 8. What is tan(θ)?", answers: [{ text: "A) 3/4", correct: true }, { text: "B) 4/3", correct: false }, { text: "C) 6/10", correct: false }, { text: "D) 8/6", correct: false }], explanation: "tan(θ) = opposite / adjacent = 6 / 8 = 3/4.", difficulty: "easy", category: "geometry" },
+    { question: "If sin(θ) = 12/13 and θ is acute, what is cos(θ)?", answers: [{ text: "A) 5/13", correct: true }, { text: "B) 13/12", correct: false }, { text: "C) 12/5", correct: false }, { text: "D) 5/12", correct: false }], explanation: "Hyp = 13, opp = 12, adj = √(13² - 12²) = 5, cos(θ) = 5/13.", difficulty: "medium", category: "geometry" },
+    { question: "In a 3-4-5 triangle, what is tan(θ) for the angle opposite the side of 3?", answers: [{ text: "A) 3/4", correct: true }, { text: "B) 4/3", correct: false }, { text: "C) 3/5", correct: false }, { text: "D) 5/4", correct: false }], explanation: "tan(θ) = opp / adj = 3 / 4.", difficulty: "medium", category: "geometry" },
+    { question: "If cos(θ) = 8/17, what is sin(θ)?", answers: [{ text: "A) 15/17", correct: true }, { text: "B) 17/8", correct: false }, { text: "C) 8/15", correct: false }, { text: "D) 15/8", correct: false }], explanation: "Hyp = 17, adj = 8, opp = √(17² - 8²) = 15, sin(θ) = 15/17.", difficulty: "hard", category: "geometry" },
+    { question: "In a right triangle, tan(θ) = 1. What is θ?", answers: [{ text: "A) 45°", correct: true }, { text: "B) 30°", correct: false }, { text: "C) 60°", correct: false }, { text: "D) 90°", correct: false }], explanation: "tan(θ) = 1 when opp = adj, so θ = 45°.", difficulty: "medium", category: "geometry" }
 ];
+
+// lesson-geometry.js
 
 // lesson-geometry.js
 
@@ -603,182 +265,96 @@ let categoryStats = {
     geometry: { correct: 0, incorrect: 0 }
 };
 
-let currentQuestionIndex = 0;
+let currentStep = 0; // Tracks the current step (0-13 for 14 steps: 7 examples + 7 questions)
 let currentLesson = 1;
+const totalSteps = 14; // 7 examples + 7 questions
 
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
         startLessonButton.style.display = 'none';
-        showExample();
+        updateProgressBar();
+        showContent();
     } else {
         console.error("Start lesson button not found!");
     }
 }
 
-function showExample() {
-    console.log("Showing example for lesson:", currentLesson);
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+        const progress = (currentStep / (totalSteps - 1)) * 100;
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+        console.log(`Progress updated: ${currentStep}/${totalSteps-1} (${progress}%)`);
+    } else {
+        console.error("Progress bar element not found!");
+    }
+}
+
+function showContent() {
+    console.log("Showing content for lesson:", currentLesson, "step:", currentStep);
     const lessonContent = document.getElementById('lesson-content');
-    if (lessonContent && lessons && lessons[currentLesson] && lessons[currentLesson].examples[0]) {
-        lessonContent.innerHTML = lessons[currentLesson].examples[0].content;
-        const nextExampleBtn = document.getElementById('next-example');
-        if (nextExampleBtn) {
-            nextExampleBtn.addEventListener('click', showNextExample);
-        } else {
-            console.error("Next example button not found!");
+    const lessonData = lessons[currentLesson].content[currentStep];
+    
+    if (lessonContent && lessonData) {
+        if (lessonData.type === "example") {
+            lessonContent.innerHTML = lessonData.content;
+            lessonContent.innerHTML += '<button id="next-btn">Next</button>';
+            document.getElementById('next-btn').addEventListener('click', nextStep);
+        } else if (lessonData.type === "question") {
+            lessonContent.innerHTML = `
+                <h2>${lessonData.title}</h2>
+                <p>${lessonData.question}</p>
+                ${lessonData.options.map((opt, index) => `
+                    <input type="radio" id="opt${index}" name="q${currentStep}" value="${opt.correct}">
+                    <label for="opt${index}">${opt.text}</label><br>
+                `).join('')}
+                <button id="submit-btn">Submit Answer</button>
+            `;
+            document.getElementById('submit-btn').addEventListener('click', () => checkAnswer(lessonData));
         }
     } else {
-        console.error("Lesson content or lessons data missing!");
+        console.error("Lesson content or data missing for lesson:", currentLesson, "step:", currentStep);
     }
 }
 
-function showNextExample() {
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = lessons[currentLesson].examples[1].content;
-    document.getElementById('next-question').addEventListener('click', askQuestion);
-}
-
-function askQuestion() {
-    const lessonContent = document.getElementById('lesson-content');
-    const question = lessons[currentLesson].questions[0];
-    lessonContent.innerHTML = `
-        <h2>${question.title}</h2>
-        <p>${question.question}</p>
-        <input type="text" id="answer1" placeholder="Your answer">
-        <button id="submit-answer1">Submit Answer</button>
-    `;
-    document.getElementById('submit-answer1').addEventListener('click', checkAnswer1);
-}
-
-function checkAnswer1() {
-    const answer = document.getElementById('answer1').value;
-    const correctAnswer = lessons[currentLesson].questions[0].answer;
-    if (answer.toString().trim() === correctAnswer.toString().trim()) {
-        alert('Correct!');
-        categoryStats.geometry.correct++;
-        showNextExample3();
-    } else {
-        alert(`Incorrect. ${lessons[currentLesson].questions[0].explanation}`);
-        categoryStats.geometry.incorrect++;
-    }
-}
-
-function showNextExample3() {
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = lessons[currentLesson].additionalExample.content;
-    document.getElementById('next-question').addEventListener('click', askNextQuestion);
-}
-
-function askNextQuestion() {
-    const lessonContent = document.getElementById('lesson-content');
-    const question = lessons[currentLesson].questions[1];
-    lessonContent.innerHTML = `
-        <h2>${question.title}</h2>
-        <p>${question.question}</p>
-        <input type="text" id="answer2" placeholder="Your answer">
-        <button id="submit-answer2">Submit Answer</button>
-    `;
-    document.getElementById('submit-answer2').addEventListener('click', checkAnswer2);
-}
-
-function checkAnswer2() {
-    const answer = document.getElementById('answer2').value;
-    const correctAnswer = lessons[currentLesson].questions[1].answer;
-    if (answer.toString().trim() === correctAnswer.toString().trim()) {
-        alert('Correct!');
-        categoryStats.geometry.correct++;
-        showQuiz();
-    } else {
-        alert(`Incorrect. ${lessons[currentLesson].questions[1].explanation}`);
-        categoryStats.geometry.incorrect++;
-    }
-}
-
-function showQuiz() {
-    currentQuestionIndex = 0;
-    let quizQuestions;
-    switch (parseInt(currentLesson)) {
-        case 1: quizQuestions = linesAnglesQuestions; break;
-        case 2: quizQuestions = trianglesQuestions; break;
-        case 3: quizQuestions = quadrilateralsPolygonsQuestions; break;
-        case 4: quizQuestions = circlesQuestions; break;
-        case 5: quizQuestions = coordinateGeometryQuestions; break;
-        case 6: quizQuestions = threeDGeometryQuestions; break;
-        case 7: quizQuestions = transformationsQuestions; break;
-        case 8: quizQuestions = trigonometryQuestions; break;
-        default: quizQuestions = linesAnglesQuestions;
-    }
-    showNextQuizQuestion(quizQuestions);
-}
-
-function showNextQuizQuestion(quizQuestions) {
-    if (currentQuestionIndex < quizQuestions.length) {
-        const question = quizQuestions[currentQuestionIndex];
-        const lessonContent = document.getElementById('lesson-content');
-        lessonContent.innerHTML = `
-            <h2>Question ${currentQuestionIndex + 1}</h2>
-            <p>${question.question}</p>
-            ${question.answers.map((answer, index) => `
-                <input type="radio" id="q${currentQuestionIndex}a${index}" name="q${currentQuestionIndex}" value="${answer.correct}">
-                <label for="q${currentQuestionIndex}a${index}">${answer.text}</label><br>
-            `).join('')}
-            <button id="submit-answer">Submit Answer</button>
-        `;
-        document.getElementById('submit-answer').addEventListener('click', () => checkQuizAnswer(question, quizQuestions));
+function nextStep() {
+    currentStep++;
+    updateProgressBar();
+    if (currentStep < totalSteps) {
+        showContent();
     } else {
         showFinalScore();
     }
 }
 
-function checkQuizAnswer(question, quizQuestions) {
-    const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
+function checkAnswer(question) {
+    const selectedAnswer = document.querySelector(`input[name="q${currentStep}"]:checked`);
     if (selectedAnswer) {
-        if (selectedAnswer.value === "true") {
+        const isCorrect = selectedAnswer.value === "true";
+        if (isCorrect) {
             alert('Correct!');
-            categoryStats[question.category].correct++;
+            categoryStats.geometry.correct++;
         } else {
             alert(`Incorrect. ${question.explanation}`);
-            categoryStats[question.category].incorrect++;
+            categoryStats.geometry.incorrect++;
         }
-        currentQuestionIndex++;
-        if (currentQuestionIndex < quizQuestions.length) {
-            showNextQuizQuestion(quizQuestions);
-        } else {
-            console.log("Quiz complete, calling showFinalScore");
-            showFinalScore();
-        }
+        nextStep();
     } else {
         alert('Please select an answer.');
     }
 }
 
-function logFinalScore(totalCorrect, totalAttempted) {
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    localStorage.setItem("finalScore", JSON.stringify({
-        correct: totalCorrect,
-        attempted: totalAttempted,
-        percentage: percentage,
-        lesson: currentLesson
-    }));
-    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
-}
-
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = 0;
-    let totalAttempted = 0;
-
-    for (let category in categoryStats) {
-        totalCorrect += categoryStats[category].correct;
-        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
-    }
-
-    logFinalScore(totalCorrect, totalAttempted);
-
+    const totalCorrect = categoryStats.geometry.correct;
+    const totalAttempted = categoryStats.geometry.correct + categoryStats.geometry.incorrect;
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    console.log("Saving score:", score);
+
+    logFinalScore(totalCorrect, totalAttempted);
     saveScore(currentLesson, score);
 
     const finalScoreElement = document.getElementById('final-score');
@@ -799,21 +375,28 @@ function showFinalScore() {
     recordTestResults();
 }
 
+function logFinalScore(totalCorrect, totalAttempted) {
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    localStorage.setItem("finalScore", JSON.stringify({
+        correct: totalCorrect,
+        attempted: totalAttempted,
+        percentage: percentage,
+        lesson: currentLesson
+    }));
+    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
+}
+
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
-    for (let category in categoryStats) {
-        if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
-        results[category].correct += categoryStats[category].correct || 0;
-        results[category].incorrect += categoryStats[category].incorrect || 0;
-    }
+    if (!results.geometry) results.geometry = { correct: 0, incorrect: 0 };
+    results.geometry.correct += categoryStats.geometry.correct || 0;
+    results.geometry.incorrect += categoryStats.geometry.incorrect || 0;
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
-    for (let category in categoryStats) {
-        categoryStats[category].correct = 0;
-        categoryStats[category].incorrect = 0;
-    }
+    categoryStats.geometry.correct = 0;
+    categoryStats.geometry.incorrect = 0;
 }
 
 function saveScore(lessonId, score) {
@@ -822,7 +405,7 @@ function saveScore(lessonId, score) {
 }
 
 function getScore(lessonId) {
-    return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
+    return localStorage.getItem(`geometry-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
 // Initialize on page load
@@ -838,5 +421,10 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Start lesson button event listener added");
     } else {
         console.error("Start lesson button not found on page load!");
+    }
+
+    // Ensure progress bar exists in the DOM
+    if (!document.getElementById('progress-bar')) {
+        console.error("Progress bar not found in DOM!");
     }
 });
