@@ -958,6 +958,6 @@ margin-bottom: 7px;
 
 }
 
-#lesson-content {
-  line-height: 1.6;
+#lesson-content p {
+  margin-bottom: 15px; /* Adjust spacing between paragraphs */
 }
