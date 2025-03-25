@@ -1105,9 +1105,11 @@ margin-bottom: 7px;
 .question-text {
   width: 50%;
   padding-right: 20px;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 .answer-choices {
   width: 50%;
   display: flex;
+  font-family: "Montserrat-SemiBold", sans-serif;
   flex-direction: column;
 }
