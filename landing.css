@@ -1031,84 +1031,152 @@ margin-bottom: 7px;
 
 }
 
-
-
 #lesson-content p {
-  margin-bottom: 20px; /* Adjust spacing between paragraphs */
+  margin-bottom: 20px;
 }
-
 
 .hide {
   display: none;
 }
+
 .btn {
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 10px 15px;
+  margin: 5px 0;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   width: 100%;
   text-align: left;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
+
 .btn.correct {
   background-color: #28a745;
 }
+
 .btn.incorrect {
   background-color: #dc3545;
 }
 
-#progress-bar > div {
-
-  width: 90%;
-
-  max-width: 800px;
-
-  height: 30px;
-
-  background-color: #e0e0e0;
-
-  border-radius: 10px;
-
-  margin: 50px auto 5px; /* Adjusted margin */
-
-  overflow: hidden;
-
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Fix shadow */
-
-  border: 1px solid #e7e7e7; /* Border fix */
+#countdown {
+  text-align: center;
+  font-size: 1.5em;
+  margin: 20px 0;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
+
+#progress-bar {
+  width: 90%;
+  max-width: 900px;
+  height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin: 20px auto;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid #e7e7e7;
+}
+
+#progress-bar > div {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+
 .explanation {
   border: 1px solid #ccc;
   padding: 15px;
-  margin: 10px 0;
+  margin: 10px auto;
   border-radius: 5px;
-  clear: both;
+  max-width: 900px;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
+
 .explanation h3 {
   margin-top: 0;
 }
+
 .question-row {
   display: flex;
   justify-content: space-between;
-  min-width: 48%;
   max-width: 900px;
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
   border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   padding: 20px;
-  margin: 0 auto; /* Centers the elements when in column mode */
-  margin-top: 30px;
-  overflow: hidden; /* Ensures content stays within the container */
+  margin: 30px auto;
+  overflow: hidden;
 }
-.question-text {
-  width: 50%;
-  padding-right: 20px;
+
+.passage-text {
+  width: 45%; /* Reduced from 50% to give more room to answers */
+  padding-right: 15px;
   font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  max-height: 400px; /* Limits passage height */
+  overflow-y: auto; /* Adds scrollbar if passage is too long */
 }
-.answer-choices {
-  width: 50%;
+
+.right-column {
+  width: 55%; /* Increased from 50% to balance layout */
   display: flex;
-  font-family: "Montserrat-SemiBold", sans-serif;
   flex-direction: column;
+}
+
+.question-text {
+  margin-bottom: 15px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+.answer-choices {
+  display: flex;
+  flex-direction: column;
+}
+
+#next-btn {
+  margin-top: 20px;
+  max-width: 200px;
+  align-self: center; /* Centers the Next button */
+}
+
+#break-message {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+#break-message p {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 1.2em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .question-row {
+      flex-direction: column;
+      margin: 20px auto;
+      padding: 15px;
+  }
+
+  .passage-text, .right-column {
+      width: 100%;
+      padding: 0;
+  }
+
+  .passage-text {
+      margin-bottom: 20px;
+      max-height: 300px;
+  }
+
+  #next-btn {
+      width: 100%;
+      max-width: none;
+  }
 }
