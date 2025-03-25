@@ -1187,11 +1187,6 @@ margin-bottom: 7px;
                 max-height: 300px;
             }
 
-            #next-btn {
-              margin: 20px auto;
-              display: block;
-              width: auto; /* Allow button to expand with content */
-          }
         }
         #progress-bar-test {
           width: 90%;
