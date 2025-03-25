@@ -1246,3 +1246,45 @@ margin-bottom: 7px;
     .question-row.score-display .passage-text {
         display: none;
     }
+    
+    /* Ensure consistent base styles for both containers */
+.testlessonscontainer, .progress-container {
+  flex: 1;
+  min-width: 48%;
+  max-width: 900px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  margin: 0 auto;
+  display: block;
+  overflow: hidden;
+}
+
+/* Flex container setup */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+/* Media query for phones (and smaller screens) */
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testlessonscontainer, .progress-container {
+    width: 90%; /* Consistent width for both */
+    min-width: 0; /* Overrides min-width: 48% to allow full control */
+    max-width: 500px; /* Matches your existing responsive max-width */
+    margin: 0 auto 20px auto; /* Consistent margin, adds spacing between stacked items */
+  }
+}
