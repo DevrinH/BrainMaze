@@ -1250,7 +1250,7 @@ margin-bottom: 7px;
     /* Ensure consistent base styles for both containers */
 .testlessonscontainer, .progress-container {
   flex: 1;
-  min-width: 48%;
+  min-width: 52%;
   max-width: 900px;
   background-color: rgb(255, 255, 255);
   border-radius: 12px;
