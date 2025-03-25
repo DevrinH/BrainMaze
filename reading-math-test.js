@@ -292,8 +292,7 @@ function showScore() {
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
         passageElement.innerHTML = "";  // Clear passage
-        questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
-        questionElement.classList.add("centered-score"); // Add centering class
+        questionElement.innerHTML = `<div style="text-align: center;">Reading and Writing SAT Score: ${scaledScore} / 800</div>`;
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
     } else {
@@ -310,17 +309,17 @@ function showScore() {
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
         passageElement.innerHTML = "";  // Clear passage
-        questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
-                                    <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
-                                    <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
-        questionElement.classList.add("centered-score"); // Add centering class
+        questionElement.innerHTML = `<div style="text-align: center;">
+                                        <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
+                                        <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
+                                        <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>
+                                    </div>`;
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }
 }
-
 function showExplanations() {
     resetState();
     passageElement.innerHTML = "";  // Clear passage
