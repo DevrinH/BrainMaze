@@ -1180,7 +1180,7 @@ margin-bottom: 7px;
 
       #progress-bar-test > div {
           height: 100%;
-          background-color: #4caf50;
+          background-image: linear-gradient(#ffd51d, #ff42e6);
           width: 0;
-          transition: width 0.3s ease-in-out;
+          transition: width 0.9s ease-in-out;
       }
