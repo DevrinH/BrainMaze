@@ -1,31 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49R9J7N7SJ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-49R9J7N7SJ');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8792646979011381"
-     crossorigin="anonymous"></script>
-    <title>Algebra Lesson</title>
-    <link rel="stylesheet" href="https://www.brainjelli.com/landing.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT Test</title>
+    <style>
+        .hide {
+            display: none;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            text-align: left;
+        }
+        .btn.correct {
+            background-color: #28a745;
+        }
+        .btn.incorrect {
+            background-color: #dc3545;
+        }
+        #progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        #progress-bar > div {
+            height: 20px;
+            background-color: #4caf50;
+            width: 0;
+        }
+        .explanation {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            clear: both;
+        }
+        .explanation h3 {
+            margin-top: 0;
+        }
+        .question-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .question-text {
+            width: 50%;
+            padding-right: 20px;
+        }
+        .answer-choices {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <header>
-            <a href="https://www.brainjelli.com/">
-                <img src="BrainJelliLOGO.png" height="170">
-            </a>
-        </header>
-    </div>
-
-
-
     <div id="countdown"></div>
     <div id="question-container">
         <div class="question-row">
@@ -41,7 +75,4 @@
     <div id="progress-bar"><div></div></div>
     <script src="reading-math-test.js"></script>
 </body>
-<footer>
-    <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
-</footer>
 </html>
