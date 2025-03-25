@@ -1092,14 +1092,13 @@ margin-bottom: 7px;
   display: flex;
   justify-content: space-between;
   min-width: 48%;
-  max-width: 700px;
+  max-width: 900px;
   background-color: rgb(255, 255, 255);
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 20px;
   margin: 0 auto; /* Centers the elements when in column mode */
   margin-top: 30px;
-  display: block;
   overflow: hidden; /* Ensures content stays within the container */
 }
 .question-text {
