@@ -163,6 +163,7 @@ function endReadingWritingTest() {
     showScore();
     document.getElementById("question-container").classList.add("hide");
     document.getElementById("break-message").classList.remove("hide");
+    document.querySelector(".question-row").classList.remove("score-display"); // Reset layout
 }
 
 function endMathTest() {
@@ -289,10 +290,16 @@ function showScore() {
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
+    // Ensure question-container is visible when showing the score
+    document.getElementById("question-container").classList.remove("hide");
+
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
         passageElement.innerHTML = "";  // Clear passage
-        questionElement.innerHTML = `<div style="text-align: center;">Reading and Writing SAT Score: ${scaledScore} / 800</div>`;
+        questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
+        questionElement.classList.add("centered-score");
+        // Adjust the question-row to center content
+        document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
     } else {
@@ -309,11 +316,12 @@ function showScore() {
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
         passageElement.innerHTML = "";  // Clear passage
-        questionElement.innerHTML = `<div style="text-align: center;">
-                                        <p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
-                                        <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
-                                        <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>
-                                    </div>`;
+        questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
+                                    <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
+                                    <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
+        questionElement.classList.add("centered-score");
+        // Adjust the question-row to center content
+        document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.removeEventListener("click", handleNextButton);
