@@ -1082,9 +1082,14 @@ margin-bottom: 7px;
 
 #progress-bar > div {
   height: 100%;
-  background-color: #4caf50;
-  width: 0;
-  transition: width 0.3s ease-in-out;
+
+  width: 0%; /* Default width */
+
+  background-color: #e5ff52;
+  background-image: linear-gradient(#ffd51d, #ff42e6);
+
+  transition: width 0.9s ease-in-out;
+
 }
 
 .explanation {
