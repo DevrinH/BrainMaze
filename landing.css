@@ -1057,14 +1057,26 @@ margin-bottom: 7px;
 .btn.incorrect {
   background-color: #dc3545;
 }
-#progress-bar {
-  width: 100%;
-  background-color: #f3f3f3;
-}
+
 #progress-bar > div {
-  height: 20px;
-  background-color: #4caf50;
-  width: 0;
+
+  width: 90%;
+
+  max-width: 800px;
+
+  height: 30px;
+
+  background-color: #e0e0e0;
+
+  border-radius: 10px;
+
+  margin: 50px auto 5px; /* Adjusted margin */
+
+  overflow: hidden;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Fix shadow */
+
+  border: 1px solid #e7e7e7; /* Border fix */
 }
 .explanation {
   border: 1px solid #ccc;
