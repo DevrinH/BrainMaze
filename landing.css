@@ -1156,12 +1156,7 @@ margin-bottom: 7px;
             flex-direction: column;
         }
 
-        #next-btn {
-            margin-top: 20px;
-            max-width: 200px;
-            align-self: center; /* Centers the Next button */
-            display: block;
-        }
+
 
         #break-message {
             text-align: center;
@@ -1195,7 +1190,7 @@ margin-bottom: 7px;
             #next-btn {
               margin: 20px auto;
               display: block;
-              width: fit-content; /* Keeps button width natural */
+              width: auto; /* Allow button to expand with content */
           }
         }
         #progress-bar-test {
