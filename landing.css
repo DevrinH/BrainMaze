@@ -1207,7 +1207,7 @@ margin-bottom: 7px;
         touch-action: manipulation;
         white-space: nowrap;
         width: auto;
-        min-width: 50px; /* Ensures button is not too small */
+        min-width: 100px; /* Ensures button is not too small */
         max-width: 250px; /* Increased from 220px to accommodate full text */
     }
     
