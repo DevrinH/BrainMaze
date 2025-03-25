@@ -163,7 +163,8 @@ function endReadingWritingTest() {
     showScore();
     document.getElementById("question-container").classList.add("hide");
     document.getElementById("break-message").classList.remove("hide");
-    document.querySelector(".question-row").classList.remove("score-display"); // Reset layout
+    document.querySelector(".question-row").classList.remove("score-display");
+    nextButton.classList.remove("centered-btn"); // Reset button centering
 }
 
 function endMathTest() {
@@ -222,6 +223,7 @@ function showQuestion() {
 
 function resetState() {
     nextButton.style.display = "none";
+    nextButton.classList.remove("centered-btn"); // Reset centering class
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
