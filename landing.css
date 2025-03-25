@@ -1233,7 +1233,7 @@ margin-bottom: 7px;
     .centered-btn {
       margin: 20px auto; /* Centers horizontally with vertical spacing */
       display: block; /* Ensures it behaves as a block element for centering */
-      width: auto; /* Allow natural width based on content */
-      min-width: 200px; /* Ensure enough width for "Review Incorrect Answers" */
+      
+      width: auto; /* Allow button to expand with content */
       padding: 10px 20px; /* Consistent padding */
   }
