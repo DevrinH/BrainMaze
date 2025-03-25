@@ -1193,9 +1193,10 @@ margin-bottom: 7px;
             }
 
             #next-btn {
-                width: 100%;
-                max-width: none;
-            }
+              margin: 20px auto;
+              display: block;
+              width: fit-content; /* Keeps button width natural */
+          }
         }
         #progress-bar-test {
           width: 90%;
@@ -1219,5 +1220,21 @@ margin-bottom: 7px;
       .centered-score {
         text-align: center;
         font-family: "Montserrat-SemiBold", sans-serif;
-        margin: 20px 0; /* Optional: adds vertical spacing */
+        margin: 20px 0;
+        width: 100%; /* Ensure it takes full width of its parent */
+    }
+    
+    .score-display {
+        display: block; /* Override flex to allow centering */
+        text-align: center; /* Center all content within */
+        padding: 20px;
+    }
+    
+    .question-row.score-display .right-column {
+        width: 100%; /* Expand to full width when showing score */
+        margin: 0 auto;
+    }
+    
+    .question-row.score-display .passage-text {
+        display: none; /* Hide passage area when showing score */
     }
