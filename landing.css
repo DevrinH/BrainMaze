@@ -1217,32 +1217,70 @@ margin-bottom: 7px;
           transition: width 0.9s ease-in-out;
       }
 
-      .centered-score {
-        text-align: center;
-        font-family: "Montserrat-SemiBold", sans-serif;
-        margin: 20px 0;
-        width: 100%; /* Ensure it takes full width of its parent */
-    }
-    
-    .score-display {
-        display: block; /* Override flex to allow centering */
-        text-align: center; /* Center all content within */
-        padding: 20px;
-    }
-    
-    .question-row.score-display .right-column {
-        width: 100%; /* Expand to full width when showing score */
-        margin: 0 auto;
-    }
-    
-    .question-row.score-display .passage-text {
-        display: none; /* Hide passage area when showing score */
-    }
+      /* Existing centered-score class */
+.centered-score {
+  text-align: center;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  margin: 20px 0;
+  width: 100%;
+}
 
-    /* New class for centering the button */
+/* Existing score-display adjustments */
+.score-display {
+  display: block;
+  text-align: center;
+  padding: 20px;
+}
+
+.question-row.score-display .right-column {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.question-row.score-display .passage-text {
+  display: none;
+}
+
+/* Updated styling for next-btn and centered-btn */
+#next-btn {
+  margin: 20px auto; /* Centers horizontally */
+  display: none; /* Hidden by default, shown via JS */
+  padding: 10px 20px; /* Consistent padding */
+  border: none;
+  border-radius: 4px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.15s, transform 0.15s;
+  background-color: #FCFCFD;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  color: #36395A;
+  text-align: center; /* Center text within button */
+  white-space: normal; /* Allow text to wrap if needed */
+  word-wrap: break-word; /* Break long words if necessary */
+  min-width: 200px; /* Minimum width to fit longer text */
+  width: auto; /* Allow button to expand with content */
+}
+
 .centered-btn {
   margin: 20px auto; /* Centers horizontally with vertical spacing */
   display: block; /* Ensures it behaves as a block element for centering */
-  width: fit-content; /* Keeps button width based on content */
+  width: auto; /* Allow natural width based on content */
+  min-width: 200px; /* Ensure enough width for "Review Incorrect Answers" */
   padding: 10px 20px; /* Consistent padding */
+}
+
+/* Hover and active states (optional, matching your .btn styles) */
+#next-btn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#next-btn:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/* Ensure button doesn’t conflict when not in score mode */
+.question-row:not(.score-display) #next-btn {
+  margin: 20px auto;
 }
