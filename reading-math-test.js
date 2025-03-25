@@ -302,6 +302,7 @@ function showScore() {
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
+        nextButton.classList.add("centered-btn"); // Add class for centering
     } else {
         let readingScore = localStorage.getItem("readingScore") || 0;
         readingScore = parseInt(readingScore, 10);
@@ -324,6 +325,7 @@ function showScore() {
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
+        nextButton.classList.add("centered-btn"); // Add class for centering
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }

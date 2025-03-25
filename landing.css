@@ -1238,3 +1238,11 @@ margin-bottom: 7px;
     .question-row.score-display .passage-text {
         display: none; /* Hide passage area when showing score */
     }
+
+    /* New class for centering the button */
+.centered-btn {
+  margin: 20px auto; /* Centers horizontally with vertical spacing */
+  display: block; /* Ensures it behaves as a block element for centering */
+  width: fit-content; /* Keeps button width based on content */
+  padding: 10px 20px; /* Consistent padding */
+}
