@@ -386,7 +386,7 @@ function handleNextButton() {
 }
 
 function updateProgressBar() {
-    const progressBar = document.getElementById("progress-bar");
+    const progressBar = document.getElementById("progress-bar-test");
     let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
     progressBar.firstElementChild.style.width = progress + "%";
 }
