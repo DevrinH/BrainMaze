@@ -1166,3 +1166,21 @@ margin-bottom: 7px;
                 max-width: none;
             }
         }
+        #progress-bar-test {
+          width: 90%;
+          max-width: 900px;
+          height: 30px;
+          background-color: #e0e0e0;
+          border-radius: 10px;
+          margin: 20px auto;
+          overflow: hidden;
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          border: 1px solid #e7e7e7;
+      }
+
+      #progress-bar-test > div {
+          height: 100%;
+          background-color: #4caf50;
+          width: 0;
+          transition: width 0.3s ease-in-out;
+      }
