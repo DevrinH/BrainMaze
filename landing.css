@@ -1250,7 +1250,7 @@ margin-bottom: 7px;
     /* Ensure consistent base styles for both containers */
 .testlessonscontainer, .progress-container {
   flex: 1;
-  min-width: 52%;
+  min-width: 48%;
   max-width: 900px;
   background-color: rgb(255, 255, 255);
   border-radius: 12px;
@@ -1282,7 +1282,7 @@ margin-bottom: 7px;
   }
 
   .testlessonscontainer, .progress-container {
-    width: 95%; /* Consistent width for both */
+    width: 97%; /* Consistent width for both */
     min-width: 0; /* Overrides min-width: 48% to allow full control */
     max-width: 500px; /* Matches your existing responsive max-width */
     margin: 0 auto 20px auto; /* Consistent margin, adds spacing between stacked items */
