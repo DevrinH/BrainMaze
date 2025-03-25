@@ -1208,7 +1208,7 @@ margin-bottom: 7px;
         white-space: nowrap; /* Keep text on one line */
         width: auto; /* Let width adjust to content */
         min-width: 0; /* No forced minimum width */
-        max-width: 220px; /* Cap width to prevent excess wideness */
+        max-width: 230px; /* Cap width to prevent excess wideness */
     }
     
     #next-btn:hover {
