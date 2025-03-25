@@ -22,10 +22,10 @@ const readingWritingQuestions = [
         passage: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.",
         question: "What does the passage suggest about Emma’s feelings?",
         answers: [
-            { text: "She feels out of place despite having anticipated this moment for a long time.", correct: true },
-            { text: "She is overwhelmed by the beauty of the ballroom and struggles to contain her excitement.", correct: false },
-            { text: "She is intimidated by the other guests and decides to leave before entering the ballroom.", correct: false },
-            { text: "She is eager to impress others and makes a confident entrance into the event.", correct: false },
+            { text: "A) She feels out of place despite having anticipated this moment for a long time.", correct: true },
+            { text: "B) She is overwhelmed by the beauty of the ballroom and struggles to contain her excitement.", correct: false },
+            { text: "C) She is intimidated by the other guests and decides to leave before entering the ballroom.", correct: false },
+            { text: "D) She is eager to impress others and makes a confident entrance into the event.", correct: false },
         ],
         type: "reading",
         difficulty: "easy",
@@ -35,10 +35,10 @@ const readingWritingQuestions = [
         passage: "Daniel stepped into the office, straightening his tie as he took in the bustling atmosphere. Conversations hummed around him, and the clatter of keyboards filled the air. He had spent weeks preparing for this moment, yet a small knot of doubt twisted in his stomach. He took a deep breath and walked toward his desk, reminding himself that everyone had to start somewhere.",
         question: "What does the passage suggest about Daniel's attitude toward his new job?",
         answers: [
-            { text: "He is uncertain about his abilities but determined to prove himself.", correct: true },
-            { text: "He is uninterested in the work and only took the job for financial reasons.", correct: false },
-            { text: "He is confident that he will excel without any major challenges.", correct: false },
-            { text: "He regrets accepting the position and is considering quitting.", correct: false },
+            { text: "A) He is uncertain about his abilities but determined to prove himself.", correct: true },
+            { text: "B) He is uninterested in the work and only took the job for financial reasons.", correct: false },
+            { text: "C) He is confident that he will excel without any major challenges.", correct: false },
+            { text: "D) He regrets accepting the position and is considering quitting.", correct: false },
         ],
         type: "reading",
         difficulty: "medium",
@@ -77,10 +77,10 @@ const mathQuestions = [
         passage: "", // Empty passage for math questions
         question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
         answers: [
-            { text: "2.5 hours", correct: false },
-            { text: "2.6 hours", correct: false },
-            { text: "2.8 hours", correct: false },
-            { text: "2.75 hours", correct: true }
+            { text: "A) 2.5 hours", correct: false },
+            { text: "B) 2.6 hours", correct: false },
+            { text: "C) 2.8 hours", correct: false },
+            { text: "D) 2.75 hours", correct: true }
         ],
         difficulty: "hard",
         category: "advanced-math"
