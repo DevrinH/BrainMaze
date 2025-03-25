@@ -923,38 +923,7 @@ margin-bottom: 7px;
   font-size: 18px;
 }
 
-#next-btn {
-  align-items: center;
-  margin: auto;
-  margin-top: 15px;
-  appearance: none;
-  background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
-  border: 0;
-  border-radius: 6px;
-  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  font-family: "Montserrat-SemiBold", sans-serif;
-  height: 48px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 14px;
-  padding-right: 14px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
-}
+
 
 .submit-answer {
   align-items: center;
@@ -1209,26 +1178,71 @@ margin-bottom: 7px;
 
 
     
+      #next-btn {
+        align-items: center;
+        margin: 15px auto; /* Adjusted from margin-top only to center fully */
+        appearance: none;
+        background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
+        border: 0;
+        border-radius: 6px;
+        box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: block; /* Already set, kept for centering */
+        font-family: "Montserrat-SemiBold", sans-serif;
+        font-size: 16px; /* Reduced from 18px for compactness */
+        height: 40px; /* Reduced from 48px for a slimmer look */
+        justify-content: center;
+        line-height: 1.2; /* Adjusted for better vertical alignment */
+        list-style: none;
+        overflow: hidden;
+        padding: 0 16px; /* Simplified to single padding value, slightly increased */
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transition: box-shadow .15s, transform .15s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap; /* Keep text on one line */
+        width: auto; /* Let width adjust to content */
+        min-width: 0; /* No forced minimum width */
+        max-width: 220px; /* Cap width to prevent excess wideness */
+    }
+    
+    #next-btn:hover {
+        box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+        transform: translateY(-2px);
+    }
+    
+    #next-btn:active {
+        box-shadow: rgba(58, 65, 111, .5) 0 3px 7px inset;
+        transform: translateY(2px);
+    }
+    
+    .centered-btn {
+        margin: 15px auto; /* Match #next-btn */
+        display: block;
+        padding: 0 16px; /* Match #next-btn */
+        width: auto;
+        font-size: 16px; /* Match #next-btn */
+        height: 40px; /* Match #next-btn */
+        max-width: 220px; /* Match #next-btn */
+    }
+    
+    /* Ensure consistency with score-display */
     .score-display {
-        display: block; /* Override flex to allow centering */
-        text-align: center; /* Center all content within */
+        display: block;
+        text-align: center;
         padding: 20px;
     }
     
     .question-row.score-display .right-column {
-        width: 100%; /* Expand to full width when showing score */
+        width: 100%;
         margin: 0 auto;
     }
     
     .question-row.score-display .passage-text {
-        display: none; /* Hide passage area when showing score */
+        display: none;
     }
-
-    /* New class for centering the button */
-    .centered-btn {
-      margin: 20px auto; /* Centers horizontally with vertical spacing */
-      display: block; /* Ensures it behaves as a block element for centering */
-      
-      width: auto; /* Allow button to expand with content */
-      padding: 10px 20px; /* Consistent padding */
-  }
