@@ -723,6 +723,7 @@ h3 {
 }
 
 #question-container{
+  flex: 1; 
   min-width: 48%;
   max-width: 900px;
   background-color: rgb(255, 255, 255);
