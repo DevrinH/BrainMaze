@@ -1217,13 +1217,7 @@ margin-bottom: 7px;
           transition: width 0.9s ease-in-out;
       }
 
-      .centered-btn {
-        margin: 20px auto; /* Centers horizontally with vertical spacing */
-        display: block; /* Ensures it behaves as a block element for centering */
-        width: auto; /* Allow natural width based on content */
-        min-width: 200px; /* Ensure enough width for "Review Incorrect Answers" */
-        padding: 10px 20px; /* Consistent padding */
-    }
+
     
     .score-display {
         display: block; /* Override flex to allow centering */
@@ -1241,9 +1235,10 @@ margin-bottom: 7px;
     }
 
     /* New class for centering the button */
-.centered-btn {
-  margin: 20px auto; /* Centers horizontally with vertical spacing */
-  display: block; /* Ensures it behaves as a block element for centering */
-  width: fit-content; /* Keeps button width based on content */
-  padding: 10px 20px; /* Consistent padding */
-}
+    .centered-btn {
+      margin: 20px auto; /* Centers horizontally with vertical spacing */
+      display: block; /* Ensures it behaves as a block element for centering */
+      width: auto; /* Allow natural width based on content */
+      min-width: 200px; /* Ensure enough width for "Review Incorrect Answers" */
+      padding: 10px 20px; /* Consistent padding */
+  }
