@@ -838,13 +838,12 @@ function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
-        startLessonButton.style.display = 'none';
+        startLessonButton.classList.add('hide');
         currentItemIndex = 0;
-        // Set totalSteps based on current lesson's content length + quiz
         totalSteps = lessons[currentLesson].content.length + 1;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
         showItem();
-        progressSteps = 1; // First item
+        progressSteps = 1;
         updateProgressBar(progressSteps);
     } else {
         console.error("Start lesson button not found!");
@@ -868,30 +867,70 @@ function showItem() {
     }
 
     if (item.type === "example") {
-        lessonContent.innerHTML = item.content;
+        lessonContent.innerHTML = `
+            <div class="question-row">
+                <div class="passage-text">${extractPassage(item.content)}</div>
+                <div class="right-column">
+                    <div class="question-text">${item.content.replace(extractPassage(item.content), '')}</div>
+                </div>
+            </div>
+        `;
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
+            nextButton.classList.add('btn');
             nextButton.addEventListener('click', nextItem);
         } else {
             console.error("Next item button not found!");
         }
     } else if (item.type === "question") {
+        const passage = extractPassage(item.question);
         lessonContent.innerHTML = `
-        <h2>${item.title}</h2>
-        <p>${item.question}</p>
-        ${item.options.map((option, index) => `
-            <input type="radio" id="q${currentItemIndex}a${index}" name="q${currentItemIndex}" value="${option.correct}">
-            <label for="q${currentItemIndex}a${index}">${option.text}</label><br>
-        `).join('')}
-        <button class="submit-answer">Submit Answer</button>
-    `;
-    const submitButton = lessonContent.querySelector('.submit-answer');
-    if (submitButton) {
-        submitButton.addEventListener('click', () => checkItemAnswer(item));
-    } else {
-            console.error("Submit answer button not found!");
-        }
+            <div class="question-row">
+                <div class="passage-text">${passage}</div>
+                <div class="right-column">
+                    <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                    <div class="answer-choices" id="answer-buttons"></div>
+                    <button id="submit-answer" class="btn hide">Submit Answer</button>
+                </div>
+            </div>
+        `;
+        const answerButtons = document.getElementById('answer-buttons');
+        item.options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = option.text;
+            button.classList.add("btn");
+            button.dataset.correct = option.correct;
+            button.addEventListener("click", () => selectAnswer(button, item));
+            answerButtons.appendChild(button);
+        });
     }
+}
+
+function extractPassage(content) {
+    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
+    return passageMatch ? passageMatch[0] : "";
+}
+
+function selectAnswer(selectedBtn, item) {
+    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
+    const submitButton = document.getElementById('submit-answer');
+    answerButtons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.correct === "true") {
+            btn.classList.add("correct");
+        }
+    });
+    if (selectedBtn.dataset.correct === "true") {
+        selectedBtn.classList.add("correct");
+        categoryStats["command-of-evidence"].correct++;
+        alert('Correct!');
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats["command-of-evidence"].incorrect++;
+        alert(`Incorrect. ${item.explanation}`);
+    }
+    submitButton.classList.remove('hide');
+    submitButton.addEventListener('click', nextItem);
 }
 
 function nextItem() {
@@ -901,24 +940,6 @@ function nextItem() {
     showItem();
 }
 
-function checkItemAnswer(item) {
-    const selectedAnswer = document.querySelector(`input[name="q${currentItemIndex}"]:checked`);
-    if (selectedAnswer) {
-        if (selectedAnswer.value === "true") {
-            alert('Correct!');
-            categoryStats["command-of-evidence"].correct++;
-        } else {
-            alert(`Incorrect. ${item.explanation}`);
-            categoryStats["command-of-evidence"].incorrect++;
-        }
-        currentItemIndex++;
-        progressSteps = currentItemIndex + 1; // Increment progress after answering
-        updateProgressBar(progressSteps);
-        showItem();
-    } else {
-        alert('Please select an answer.');
-    }
-}
 function showQuiz() {
     currentQuestionIndex = 0;
     let quizQuestions;
@@ -929,7 +950,7 @@ function showQuiz() {
         case 4: quizQuestions = crossTextEvidenceQuestions; break;
         default: quizQuestions = textualEvidenceQuestions;
     }
-    progressSteps = totalSteps; // Final step (quiz)
+    progressSteps = totalSteps;
     updateProgressBar(progressSteps);
     showNextQuizQuestion(quizQuestions);
 }
@@ -938,52 +959,34 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
+        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-        <h2>Question ${currentQuestionIndex + 1}</h2>
-        <p>${question.question}</p>
-        ${question.answers.map((answer, index) => `
-            <input type="radio" id="q${currentQuestionIndex}a${index}" name="q${currentQuestionIndex}" value="${answer.correct}">
-            <label for="q${currentQuestionIndex}a${index}">${answer.text}</label><br>
-        `).join('')}
-        <button class="submit-answer">Submit Answer</button>
-    `;
-    lessonContent.querySelector('.submit-answer').addEventListener('click', () => checkQuizAnswer(question, quizQuestions));
+            <div class="question-row">
+                <div class="passage-text">${passage}</div>
+                <div class="right-column">
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="answer-choices" id="answer-buttons"></div>
+                    <button id="submit-answer" class="btn hide">Submit Answer</button>
+                </div>
+            </div>
+        `;
+        const answerButtons = document.getElementById('answer-buttons');
+        question.answers.forEach((answer, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            button.dataset.correct = answer.correct;
+            button.addEventListener("click", () => selectAnswer(button, question));
+            answerButtons.appendChild(button);
+        });
     } else {
         showFinalScore();
     }
 }
 
+// Remaining functions (checkQuizAnswer, showFinalScore, etc.) remain largely unchanged
 function checkQuizAnswer(question, quizQuestions) {
-    const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
-    if (selectedAnswer) {
-        if (selectedAnswer.value === "true") {
-            alert('Correct!');
-            categoryStats[question.category].correct++;
-        } else {
-            alert(`Incorrect. ${question.explanation}`);
-            categoryStats[question.category].incorrect++;
-        }
-        currentQuestionIndex++;
-        if (currentQuestionIndex < quizQuestions.length) {
-            showNextQuizQuestion(quizQuestions);
-        } else {
-            console.log("Quiz complete, calling showFinalScore");
-            showFinalScore();
-        }
-    } else {
-        alert('Please select an answer.');
-    }
-}
-
-function logFinalScore(totalCorrect, totalAttempted) {
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    localStorage.setItem("finalScore", JSON.stringify({
-        correct: totalCorrect,
-        attempted: totalAttempted,
-        percentage: percentage,
-        lesson: currentLesson
-    }));
-    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
+    // This function is not needed with button-based answers; handled in selectAnswer
 }
 
 function showFinalScore() {
@@ -1006,14 +1009,13 @@ function showFinalScore() {
     const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = '';
-    finalScoreElement.style.display = 'block';
+    finalScoreElement.classList.remove('hide');
     finalScoreElement.innerHTML = `
         <h2>Final Score</h2>
         <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
-        <button id="continue-button">Continue</button>
+        <button id="continue-button" class="btn">Continue</button>
     `;
-
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     });
@@ -1038,21 +1040,26 @@ function recordTestResults() {
     }
 }
 
+function logFinalScore(totalCorrect, totalAttempted) {
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    localStorage.setItem("finalScore", JSON.stringify({
+        correct: totalCorrect,
+        attempted: totalAttempted,
+        percentage: percentage,
+        lesson: currentLesson
+    }));
+    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
+}
+
 function saveScore(lessonId, score) {
     localStorage.setItem(`command-of-evidence-lessonScore-${lessonId}`, score);
     console.log(`Saved command-of-evidence-lessonScore-${lessonId}: ${score}`);
 }
 
-function getScore(lessonId) {
-    return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
-}
-
-// Placeholder for showScore (assuming it exists elsewhere or is intended to be empty)
 function showScore() {
     console.log("showScore called (placeholder)");
 }
 
-// Initialize on page load
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Page loaded, initializing lesson:", currentLesson);
     const urlParams = new URLSearchParams(window.location.search);
