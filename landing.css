@@ -1207,7 +1207,7 @@ margin-bottom: 7px;
         white-space: nowrap;
         width: auto;
         min-width: 115px; /* Ensures button is not too small */
-        max-width: 250px; /* Increased from 220px to accommodate full text */
+        max-width: 322px; /* Increased from 220px to accommodate full text */
     }
     
     #next-btn:hover {
