@@ -5,6 +5,15 @@
   max-width: 600px; /* Prevents it from being too wide on large screens */
 }
 
+#question-container{
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  max-width: 600px; /* Prevents it from being too wide on large screens */
+}
+
+  
+
 @font-face {
     font-family: "Montserrat-SemiBold";
     src: url(Montserrat-SemiBold.ttf);
