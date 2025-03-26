@@ -1,3 +1,6 @@
+html, body {
+  height: 100%;
+}
 
 @font-face {
     font-family: "Montserrat-SemiBold";
@@ -485,10 +488,11 @@ footer {
   background-image: linear-gradient(#4b1c81, #c890fd);
   color: white;
   padding: 15px 0;
+  position: relative;
+  margin-top: auto; /* Moves the footer to the bottom */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: auto; /* Keeps footer at bottom */
 }
 
 h3 {
@@ -592,19 +596,20 @@ h3 {
 }
 
 .line-chart-container {
+  min-height: 500px; 
   background-color: rgb(252, 252, 252);
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex: 1; 
   min-width: 300px;
-  margin: 15px auto 0 auto;
+  margin: 15px auto 0 auto; /* Adds margin to the top while keeping it centered */
   padding: 5px;
   transition: all 0.3s ease-in-out;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  max-width: 1200px;
-  min-height: 500px; /* Ensures chart does not shrink */
+  flex-direction: column; /* Ensures internal elements stack properly */
+  align-items: center; /* Centers content */
+  overflow: hidden; /* Prevents legends from escaping */
+  max-width: 1200px; /* Ensures it doesn't stretch too wide */
 }
 
 .align-center{
