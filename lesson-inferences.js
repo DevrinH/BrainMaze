@@ -42,10 +42,10 @@ const lessons = {
                 title: "Question 1",
                 question: "Passage: 'The store sold out of coats after a cold snap hit.' What can be concluded?",
                 options: [
-                    { text: "A) The cold snap increased coat demand", correct: true },
-                    { text: "B) The store had no coats left last year", correct: false },
-                    { text: "C) People disliked the coats", correct: false },
-                    { text: "D) The store closed after selling out", correct: false }
+                    { text: "A) The cold snap increased coat demand.", correct: true },
+                    { text: "B) The store had no coats left last year.", correct: false },
+                    { text: "C) People disliked the coats.", correct: false },
+                    { text: "D) The store closed after selling out.", correct: false }
                 ],
                 explanation: "The sell-out after the cold snap logically suggests higher demand due to weather."
             },
