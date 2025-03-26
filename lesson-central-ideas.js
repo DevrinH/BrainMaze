@@ -937,7 +937,7 @@ const centralIdeaQuestions = [
         ],
         explanation: "The main focus is transit reducing traffic; other options are details.",
         difficulty: "easy",
-        category: "central-ideas-and-detail"
+        category: "central-ideas"
     }
 ];
 
@@ -952,7 +952,7 @@ const summarizingQuestions = [
         ],
         explanation: "The summary captures the essence without specific details like the year.",
         difficulty: "medium",
-        category: "central-ideas-and-detail"
+        category: "central-ideas"
     }
 ];
 
@@ -967,7 +967,7 @@ const keyDetailsQuestions = [
         ],
         explanation: "The interface explains the user gain, making it a key detail.",
         difficulty: "easy",
-        category: "central-ideas-and-detail"
+        category: "central-ideas"
     }
 ];
 
@@ -982,7 +982,7 @@ const supportingEvidenceQuestions = [
         ],
         explanation: "The research on stress reduction supports the sleep benefit claim.",
         difficulty: "medium",
-        category: "central-ideas-and-detail"
+        category: "central-ideas"
     }
 ];
 
@@ -997,14 +997,14 @@ const paraphrasingQuestions = [
         ],
         explanation: "The paraphrase restates the awards and visuals in new words.",
         difficulty: "medium",
-        category: "central-ideas-and-detail"
+        category: "central-ideas"
     }
 ];
 
 // lesson-central-ideas-and-detail.js
 // Variables
 let categoryStats = {
-    "central-ideas-and-detail": { correct: 0, incorrect: 0 }
+    "central-ideas": { correct: 0, incorrect: 0 }
 };
 let currentQuestionIndex = 0;
 let currentLesson = 1;
