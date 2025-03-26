@@ -1122,8 +1122,7 @@ function selectAnswer(selectedBtn, item) {
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
-        lessonContent.querySelector('.right-colum
-n').appendChild(explanationDiv);
+        lessonContent.querySelector('.right-column').appendChild(explanationDiv);
     }
 
     submitButton.classList.remove('hide');
