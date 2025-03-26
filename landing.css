@@ -2,12 +2,17 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
+  flex-grow: 1; /* Ensures content expands but doesn't shrink */
   display: flex;
   flex-direction: column;
-  flex: 1; /* Allows the main content to expand */
+  align-items: center; /* Centers the chart properly */
+  min-height: 500px; /* Ensures enough space */
+  width: 100%;
 }
 @font-face {
     font-family: "Montserrat-SemiBold";
@@ -603,20 +608,19 @@ h3 {
 }
 
 .line-chart-container {
-  min-height: 500px; 
   background-color: rgb(252, 252, 252);
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  flex: 1; 
   min-width: 300px;
-  margin: 15px auto 0 auto; /* Adds margin to the top while keeping it centered */
+  margin: 15px auto 0 auto;
   padding: 5px;
   transition: all 0.3s ease-in-out;
   display: flex;
-  flex-direction: column; /* Ensures internal elements stack properly */
-  align-items: center; /* Centers content */
-  overflow: hidden; /* Prevents legends from escaping */
-  max-width: 1200px; /* Ensures it doesn't stretch too wide */
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  max-width: 1200px;
+  min-height: 500px; /* Ensures chart does not shrink */
 }
 
 .align-center{
