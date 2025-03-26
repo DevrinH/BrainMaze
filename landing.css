@@ -1,5 +1,9 @@
 
-
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 @font-face {
     font-family: "Montserrat-SemiBold";
