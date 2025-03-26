@@ -813,6 +813,7 @@ let currentLesson = 1;
 let currentItemIndex = 0;
 let progressSteps = 0;
 let totalSteps = 15; // Default for Lesson 1: 14 items + 1 quiz
+let isQuizPhase = false;
 
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
@@ -832,10 +833,11 @@ function startLesson() {
     if (startLessonButton) {
         startLessonButton.style.display = 'none';
         currentItemIndex = 0;
-        totalSteps = lessons[currentLesson].content.length + 1; // 14 items + quiz
+        isQuizPhase = false;
+        totalSteps = lessons[currentLesson].content.length + 1;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
         showItem();
-        progressSteps = 1; // First item
+        progressSteps = 1;
         updateProgressBar(progressSteps);
     } else {
         console.error("Start lesson button not found!");
@@ -859,59 +861,97 @@ function showItem() {
     }
 
     if (item.type === "example") {
-        lessonContent.innerHTML = item.content;
+        const passage = extractPassage(item.content);
+        lessonContent.innerHTML = `
+            <div class="question-row">
+                <div class="passage-text">${passage}</div>
+                <div class="right-column">
+                    <div class="question-text">${item.content.replace(passage, '').replace(/<button id="next-item">Next<\/button>/, '')}</div>
+                    <button id="next-item" class="btn next-btn">Next</button>
+                </div>
+            </div>
+        `;
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
-            nextButton.addEventListener('click', nextItem);
+            nextButton.addEventListener('click', nextItem, { once: true });
+            console.log("Next button styled and listener added");
         } else {
-            console.error("Next item button not found!");
+            console.error("Next item button not found in example!");
         }
     } else if (item.type === "question") {
+        const passage = extractPassage(item.question);
         lessonContent.innerHTML = `
-            <h2>${item.title}</h2>
-            <p>${item.question}</p>
-            ${item.options.map((option, index) => `
-                <input type="radio" id="q${currentItemIndex}a${index}" name="q${currentItemIndex}" value="${option.correct}">
-                <label for="q${currentItemIndex}a${index}">${option.text}</label><br>
-            `).join('')}
-            <button id="submit-answer${currentItemIndex}">Submit Answer</button>
+            <div class="question-row">
+                <div class="passage-text">${passage}</div>
+                <div class="right-column">
+                    <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                    <div class="answer-choices" id="answer-buttons"></div>
+                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                </div>
+            </div>
         `;
-        const submitButton = document.getElementById(`submit-answer${currentItemIndex}`);
-        if (submitButton) {
-            submitButton.addEventListener('click', () => checkItemAnswer(item));
-        } else {
-            console.error("Submit answer button not found!");
-        }
+        const answerButtons = document.getElementById('answer-buttons');
+        item.options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = option.text;
+            button.classList.add("btn");
+            button.dataset.correct = option.correct;
+            button.addEventListener("click", () => selectAnswer(button, item));
+            answerButtons.appendChild(button);
+        });
     }
+}
+
+function extractPassage(content) {
+    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
+    return passageMatch ? passageMatch[0] : "";
+}
+
+function selectAnswer(selectedBtn, item) {
+    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
+    const submitButton = document.getElementById('submit-answer');
+    const lessonContent = document.getElementById('lesson-content');
+
+    answerButtons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.correct === "true") {
+            btn.classList.add("correct");
+        }
+    });
+
+    if (selectedBtn.dataset.correct === "true") {
+        selectedBtn.classList.add("correct");
+        categoryStats["words-in-context"].correct++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats["words-in-context"].incorrect++;
+        const explanationDiv = document.createElement("div");
+        explanationDiv.classList.add("explanation");
+        explanationDiv.innerHTML = item.explanation;
+        lessonContent.querySelector('.right-column').appendChild(explanationDiv);
+    }
+
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', () => {
+        if (!isQuizPhase) {
+            nextItem();
+        } else {
+            nextQuizItem();
+        }
+    }, { once: true });
 }
 
 function nextItem() {
     currentItemIndex++;
     progressSteps = currentItemIndex + 1;
     updateProgressBar(progressSteps);
+    console.log("nextItem called, currentItemIndex:", currentItemIndex);
     showItem();
 }
 
-function checkItemAnswer(item) {
-    const selectedAnswer = document.querySelector(`input[name="q${currentItemIndex}"]:checked`);
-    if (selectedAnswer) {
-        if (selectedAnswer.value === "true") {
-            alert('Correct!');
-            categoryStats["words-in-context"].correct++;
-        } else {
-            alert(`Incorrect. ${item.explanation}`);
-            categoryStats["words-in-context"].incorrect++;
-        }
-        currentItemIndex++;
-        progressSteps = currentItemIndex + 1;
-        updateProgressBar(progressSteps);
-        showItem();
-    } else {
-        alert('Please select an answer.');
-    }
-}
-
 function showQuiz() {
+    console.log("Starting quiz for lesson:", currentLesson);
+    isQuizPhase = true;
     currentQuestionIndex = 0;
     let quizQuestions;
     switch (parseInt(currentLesson)) {
@@ -921,61 +961,54 @@ function showQuiz() {
         case 4: quizQuestions = wordChoiceQuestions; break;
         default: quizQuestions = wordMeaningQuestions;
     }
-    progressSteps = totalSteps; // Final step (quiz)
+    progressSteps = totalSteps;
     updateProgressBar(progressSteps);
     showNextQuizQuestion(quizQuestions);
 }
 
 function showNextQuizQuestion(quizQuestions) {
+    console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
+        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <h2>Question ${currentQuestionIndex + 1}</h2>
-            <p>${question.question}</p>
-            ${question.answers.map((answer, index) => `
-                <input type="radio" id="q${currentQuestionIndex}a${index}" name="q${currentQuestionIndex}" value="${answer.correct}">
-                <label for="q${currentQuestionIndex}a${index}">${answer.text}</label><br>
-            `).join('')}
-            <button id="submit-answer">Submit Answer</button>
+            <div class="question-row">
+                <div class="passage-text">${passage}</div>
+                <div class="right-column">
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="answer-choices" id="answer-buttons"></div>
+                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                </div>
+            </div>
         `;
-        document.getElementById('submit-answer').addEventListener('click', () => checkQuizAnswer(question, quizQuestions));
+        const answerButtons = document.getElementById('answer-buttons');
+        question.answers.forEach((answer, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            button.dataset.correct = answer.correct;
+            button.addEventListener("click", () => selectAnswer(button, question));
+            answerButtons.appendChild(button);
+        });
     } else {
+        console.log("All quiz questions answered, showing final score");
         showFinalScore();
     }
 }
 
-function checkQuizAnswer(question, quizQuestions) {
-    const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
-    if (selectedAnswer) {
-        if (selectedAnswer.value === "true") {
-            alert('Correct!');
-            categoryStats[question.category].correct++;
-        } else {
-            alert(`Incorrect. ${question.explanation}`);
-            categoryStats[question.category].incorrect++;
-        }
-        currentQuestionIndex++;
-        if (currentQuestionIndex < quizQuestions.length) {
-            showNextQuizQuestion(quizQuestions);
-        } else {
-            console.log("Quiz complete, calling showFinalScore");
-            showFinalScore();
-        }
-    } else {
-        alert('Please select an answer.');
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions;
+    switch (parseInt(currentLesson)) {
+        case 1: quizQuestions = wordMeaningQuestions; break;
+        case 2: quizQuestions = nuancedMeaningsQuestions; break;
+        case 3: quizQuestions = figurativeConnotativeQuestions; break;
+        case 4: quizQuestions = wordChoiceQuestions; break;
+        default: quizQuestions = wordMeaningQuestions;
     }
-}
-
-function logFinalScore(totalCorrect, totalAttempted) {
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    localStorage.setItem("finalScore", JSON.stringify({
-        correct: totalCorrect,
-        attempted: totalAttempted,
-        percentage: percentage,
-        lesson: currentLesson
-    }));
-    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
+    showNextQuizQuestion(quizQuestions);
 }
 
 function showFinalScore() {
@@ -998,17 +1031,16 @@ function showFinalScore() {
     const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = '';
-    finalScoreElement.style.display = 'block';
+    finalScoreElement.classList.remove('hide');
     finalScoreElement.innerHTML = `
         <h2>Final Score</h2>
         <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
-        <button id="continue-button">Continue</button>
+        <button id="continue-button" class="btn continue-btn">Continue</button>
     `;
-
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    });
+    }, { once: true });
 
     recordTestResults();
 }
@@ -1028,6 +1060,17 @@ function recordTestResults() {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
+}
+
+function logFinalScore(totalCorrect, totalAttempted) {
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    localStorage.setItem("finalScore", JSON.stringify({
+        correct: totalCorrect,
+        attempted: totalAttempted,
+        percentage: percentage,
+        lesson: currentLesson
+    }));
+    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
 }
 
 function saveScore(lessonId, score) {

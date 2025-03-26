@@ -16,25 +16,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-    <div class="header">
-        <header>
-            <a href="https://www.brainjelli.com/">
-                <img src="BrainJelliLOGO.png" height="170">
-            </a>
-        </header>
-    </div>
+    <header> 
+        <div class="header-container"> 
+            <img src="BrainJelli-header.png" class="logo"> 
+            <button class="login-button">Login</button> 
+        </div> 
+    </header>
+
+    <h1>Words in Context</h1>
 
     <div id="progress-container">
         <div id="progress-bar"></div>
     </div>
 
-    <div class="app">
-        <h1>Words in Context</h1>
-        <button id="start-lesson">Start Lesson</button>
+    <button id="start-lesson" class="btn">Start Lesson</button>
+    <div id="lesson-container">
         <div id="lesson-content"></div>
-        <div id="algebra-percentage"></div>
-        <div id="final-score" style="display: none;"></div>
     </div>
+    <div id="final-score" class="hide"></div>
 
     <script src="lesson-words-in-context.js" type="module"></script>
 </body>
