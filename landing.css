@@ -1,19 +1,4 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
 
-main {
-  flex-grow: 1; /* Ensures content expands but doesn't shrink */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers the chart properly */
-  min-height: 500px; /* Ensures enough space */
-  width: 100%;
-}
 @font-face {
     font-family: "Montserrat-SemiBold";
     src: url(Montserrat-SemiBold.ttf);
