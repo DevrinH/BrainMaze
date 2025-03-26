@@ -1079,6 +1079,9 @@ function showItem() {
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
             nextButton.classList.add('btn');
+            // Ensure purple styling matches example (adjust if landing.css differs)
+            nextButton.style.backgroundColor = '#800080'; // Purple
+            nextButton.style.color = '#fff'; // White text for contrast
             nextButton.addEventListener('click', nextItem, { once: true });
             console.log("Next button found and listener added");
         } else {
@@ -1092,7 +1095,7 @@ function showItem() {
                 <div class="right-column">
                     <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn hide">Next</button>
+                    <button id="submit-answer" class="btn" style="background-color: #800080; color: #fff; display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -1127,17 +1130,17 @@ function selectAnswer(selectedBtn, item) {
 
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
-        categoryStats["central-ideas"].correct++;
+        categoryStats["central-ideas-and-detail"].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats["central-ideas"].incorrect++;
+        categoryStats["central-ideas-and-detail"].incorrect++;
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
         lessonContent.querySelector('.right-column').appendChild(explanationDiv);
     }
 
-    submitButton.classList.remove('hide');
+    submitButton.style.display = 'inline-block'; // Show instead of class toggle
     submitButton.addEventListener('click', () => {
         if (!isQuizPhase) {
             nextItem();
@@ -1200,7 +1203,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <div class="right-column">
                     <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn hide">Next</button>
+                    <button id="submit-answer" class="btn" style="background-color: #800080; color: #fff; display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -1218,7 +1221,6 @@ function showNextQuizQuestion(quizQuestions) {
         showFinalScore();
     }
 }
-
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
     let totalCorrect = 0;
@@ -1244,7 +1246,7 @@ function showFinalScore() {
         <h2>Final Score</h2>
         <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
-        <button id="continue-button" class="btn">Continue</button>
+        <button id="continue-button" class="btn" style="background-color: #800080; color:_checkpoint #fff; width: 120px;">Continue</button>
     `;
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
