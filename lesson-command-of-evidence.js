@@ -407,7 +407,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Graph: Population grew from 1,000 to 1,200 over 5 years. What does this show?",
+                question: "Passage: 'Population grew from 1,000 to 1,200 over 5 years.' What does this show?",
                 options: [
                     { text: "A) Population growth", correct: true },
                     { text: "B) Population decline", correct: false },
