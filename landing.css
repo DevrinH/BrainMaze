@@ -1,7 +1,14 @@
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Allows the main content to expand */
+}
 @font-face {
     font-family: "Montserrat-SemiBold";
     src: url(Montserrat-SemiBold.ttf);
