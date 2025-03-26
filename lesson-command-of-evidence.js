@@ -1044,21 +1044,6 @@ function saveScore(lessonId, score) {
     console.log(`Saved command-of-evidence-lessonScore-${lessonId}: ${score}`);
 }
 
-// Placeholder quiz questions (expand with your full data)
-const textualEvidenceQuestions = [
-    {
-        question: "Passage: 'The species population increased by 30% after protections were enacted.' What evidence supports the protections’ success?",
-        answers: [
-            { text: "A) increased by 30%", correct: true },
-            { text: "B) protections were enacted", correct: false },
-            { text: "C) species population", correct: false },
-            { text: "D) after", correct: false }
-        ],
-        explanation: "'Increased by 30%' directly shows a successful outcome.",
-        difficulty: "easy",
-        category: "command-of-evidence"
-    }
-];
 
 function showScore() {
     console.log("showScore called (placeholder)");
