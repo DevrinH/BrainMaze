@@ -1079,9 +1079,8 @@ function showItem() {
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
             nextButton.classList.add('btn');
-            // Ensure purple styling matches example (adjust if landing.css differs)
-            nextButton.style.backgroundColor = '#800080'; // Purple
-            nextButton.style.color = '#fff'; // White text for contrast
+            nextButton.style.backgroundColor = '#800080';
+            nextButton.style.color = '#fff';
             nextButton.addEventListener('click', nextItem, { once: true });
             console.log("Next button found and listener added");
         } else {
@@ -1100,6 +1099,10 @@ function showItem() {
             </div>
         `;
         const answerButtons = document.getElementById('answer-buttons');
+        if (!answerButtons) {
+            console.error("answer-buttons div not found!");
+            return;
+        }
         item.options.forEach((option, index) => {
             const button = document.createElement("button");
             button.innerHTML = option.text;
@@ -1121,6 +1124,11 @@ function selectAnswer(selectedBtn, item) {
     const submitButton = document.getElementById('submit-answer');
     const lessonContent = document.getElementById('lesson-content');
 
+    if (!submitButton) {
+        console.error("submit-answer button not found after answer selection!");
+        return;
+    }
+
     answerButtons.forEach(btn => {
         btn.disabled = true;
         if (btn.dataset.correct === "true") {
@@ -1130,17 +1138,18 @@ function selectAnswer(selectedBtn, item) {
 
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
-        categoryStats["central-ideas-and-detail"].correct++;
+        categoryStats["central-ideas"].correct++; // Fixed key mismatch
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats["central-ideas-and-detail"].incorrect++;
+        categoryStats["central-ideas"].incorrect++; // Fixed key mismatch
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
         lessonContent.querySelector('.right-column').appendChild(explanationDiv);
     }
 
-    submitButton.style.display = 'inline-block'; // Show instead of class toggle
+    console.log("Showing submit button");
+    submitButton.style.display = 'inline-block';
     submitButton.addEventListener('click', () => {
         if (!isQuizPhase) {
             nextItem();
