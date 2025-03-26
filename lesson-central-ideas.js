@@ -1078,9 +1078,7 @@ function showItem() {
         `;
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
-            nextButton.classList.add('btn');
-            nextButton.style.backgroundColor = '#800080';
-            nextButton.style.color = '#fff';
+            nextButton.classList.add('btn', 'next-btn'); // Add next-btn class
             nextButton.addEventListener('click', nextItem, { once: true });
             console.log("Next button found and listener added");
         } else {
@@ -1094,7 +1092,7 @@ function showItem() {
                 <div class="right-column">
                     <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn" style="background-color: #800080; color: #fff; display: none;">Next</button>
+                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -1113,7 +1111,6 @@ function showItem() {
         });
     }
 }
-
 function extractPassage(content) {
     const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
     return passageMatch ? passageMatch[0] : "";
@@ -1212,7 +1209,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <div class="right-column">
                     <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn" style="background-color: #800080; color: #fff; display: none;">Next</button>
+                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
