@@ -1,6 +1,11 @@
-// Ensure scores display on page load by calling showScore
+// Consolidated DOMContentLoaded listener
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = urlParams.get('lesson') || 1;
+    console.log(`Loading lesson ${lessonId}`);
+    currentLesson = lessonId;
 
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
@@ -10,15 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Start lesson button not found.");
     }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || 1;
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId;
-
     showScore();
 });
-
-
 
 // Define all lessons
 const lessons = {
@@ -838,7 +836,8 @@ function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
-        startLessonButton.classList.add('hide');
+        startLessonButton.style.display = 'none'; // Reverted to direct style change
+        console.log("Start Lesson button hidden with style.display = 'none'");
         currentItemIndex = 0;
         totalSteps = lessons[currentLesson].content.length + 1;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
@@ -878,7 +877,8 @@ function showItem() {
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
             nextButton.classList.add('btn');
-            nextButton.addEventListener('click', nextItem);
+            nextButton.addEventListener('click', nextItem, { once: true }); // Prevent multiple listeners
+            console.log("Next button event listener added");
         } else {
             console.error("Next item button not found!");
         }
@@ -930,7 +930,7 @@ function selectAnswer(selectedBtn, item) {
         alert(`Incorrect. ${item.explanation}`);
     }
     submitButton.classList.remove('hide');
-    submitButton.addEventListener('click', nextItem);
+    submitButton.addEventListener('click', nextItem, { once: true });
 }
 
 function nextItem() {
@@ -984,11 +984,6 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
-// Remaining functions (checkQuizAnswer, showFinalScore, etc.) remain largely unchanged
-function checkQuizAnswer(question, quizQuestions) {
-    // This function is not needed with button-based answers; handled in selectAnswer
-}
-
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
     let totalCorrect = 0;
@@ -1018,7 +1013,7 @@ function showFinalScore() {
     `;
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    });
+    }, { once: true });
 
     recordTestResults();
 }
@@ -1058,19 +1053,6 @@ function saveScore(lessonId, score) {
 
 function showScore() {
     console.log("showScore called (placeholder)");
+    // Placeholder for now; add score display logic if needed
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Page loaded, initializing lesson:", currentLesson);
-    const urlParams = new URLSearchParams(window.location.search);
-    currentLesson = urlParams.get('lesson') || 1;
-    console.log("Set currentLesson to:", currentLesson);
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
-        console.log("Start lesson button event listener added");
-    } else {
-        console.error("Start lesson button not found on page load!");
-    }
-});
