@@ -3,16 +3,20 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
     const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || 1;
+    const lessonId = urlParams.get('lesson') || '1'; // Ensure string
     console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId;
+    currentLesson = lessonId; // Keep as string to match lessons object keys
 
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start lesson button found:", startLessonButton);
+        startLessonButton.addEventListener('click', () => {
+            console.log("Start Lesson button clicked!");
+            startLesson();
+        });
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found in DOM!");
     }
 
     showScore();
@@ -1020,31 +1024,39 @@ function updateProgressBar(step) {
         console.error("Progress bar element not found!");
     }
 }
-
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.style.display = 'none';
-        console.log("Start Lesson button hidden");
-        currentItemIndex = 0;
-        isQuizPhase = false;
-        totalSteps = lessons[currentLesson].content.length + 1;
-        console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
-        showItem();
-        progressSteps = 1;
-        updateProgressBar(progressSteps);
-    } else {
-        console.error("Start lesson button not found!");
+    if (!startLessonButton) {
+        console.error("Start lesson button missing when starting lesson!");
+        return;
     }
+    startLessonButton.style.display = 'none';
+    console.log("Start Lesson button hidden");
+
+    currentItemIndex = 0;
+    isQuizPhase = false;
+    if (!lessons[currentLesson]) {
+        console.error(`Lesson ${currentLesson} not found in lessons object!`);
+        return;
+    }
+    totalSteps = lessons[currentLesson].content.length + 1;
+    console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
+    progressSteps = 1;
+    updateProgressBar(progressSteps);
+    showItem();
 }
 
 function showItem() {
-    console.log("Showing item for lesson:", currentLesson, "at index:", currentItemIndex);
+    console.log("showItem called, lesson:", currentLesson, "index:", currentItemIndex);
     const lessonContent = document.getElementById('lesson-content');
+    if (!lessonContent) {
+        console.error("lesson-content element not found!");
+        return;
+    }
     const currentLessonData = lessons[currentLesson];
-    if (!lessonContent || !currentLessonData || !currentLessonData.content) {
-        console.error("Lesson content or data missing!");
+    if (!currentLessonData || !currentLessonData.content) {
+        console.error("Lesson data missing for lesson:", currentLesson);
         return;
     }
 
@@ -1068,9 +1080,9 @@ function showItem() {
         if (nextButton) {
             nextButton.classList.add('btn');
             nextButton.addEventListener('click', nextItem, { once: true });
-            console.log("Next button event listener added");
+            console.log("Next button found and listener added");
         } else {
-            console.error("Next item button not found!");
+            console.error("Next item button not found in example!");
         }
     } else if (item.type === "question") {
         const passage = extractPassage(item.question);
