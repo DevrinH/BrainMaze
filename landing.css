@@ -27,9 +27,8 @@ body {
     background-color: rgb(255, 255, 255);
     overflow-x: hidden; /* Prevents scrolling */
     position: relative; /* Ensures box-shadow is visible */
-      min-height: 100vh;
-  display: grid;
-  grid-template-rows: 1fr auto;
+      
+  
   }
 
 * {
