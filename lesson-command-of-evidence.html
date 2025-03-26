@@ -14,98 +14,6 @@
     <title>Command of Evidence</title>
     <link rel="stylesheet" href="https://www.brainjelli.com/landing.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        #progress-container {
-            width: 90%;
-            max-width: 900px;
-            height: 30px;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            margin: 20px auto;
-            overflow: hidden;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            border: 1px solid #e7e7e7;
-        }
-
-        #progress-bar {
-            height: 100%;
-            background-image: linear-gradient(#ffd51d, #ff42e6);
-            width: 0;
-            transition: width 0.9s ease-in-out;
-        }
-
-        .app {
-            text-align: center;
-            margin: 0 auto;
-            max-width: 900px;
-        }
-
-        h1 {
-            margin-bottom: 15px;
-            font-family: "Montserrat-SemiBold", sans-serif;
-        }
-
-        #lesson-container {
-            max-width: 900px;
-            margin: 30px auto;
-            display: block; /* Ensure it’s visible */
-        }
-
-        #lesson-content {
-            font-family: "Montserrat-SemiBold", sans-serif;
-            font-size: 1em;
-            line-height: 1.5;
-            display: block; /* Ensure content area is visible */
-        }
-
-        .btn {
-            align-items: center;
-            margin: 15px auto;
-            appearance: none;
-            background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
-            border: 0;
-            border-radius: 6px;
-            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
-            box-sizing: border-box;
-            color: #fff;
-            cursor: pointer;
-            display: block;
-            font-family: "Montserrat-SemiBold", sans-serif;
-            font-size: 15px;
-            height: 40px;
-            padding: 0 18px;
-            text-align: center;
-            text-decoration: none;
-            transition: box-shadow .15s, transform .15s;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            white-space: nowrap;
-            width: auto;
-            max-width: 250px;
-        }
-
-        .btn:hover {
-            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
-            transform: translateY(-2px);
-        }
-
-        .btn:active {
-            box-shadow: rgba(58, 65, 111, .5) 0 3px 7px inset;
-            transform: translateY(2px);
-        }
-
-        .submit-answer {
-            margin: 15px auto;
-            display: block;
-            width: auto;
-            max-width: 250px;
-        }
-
-        .hide {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <header> 
@@ -121,11 +29,11 @@
 
     <div class="app">
         <h1>Command of Evidence</h1>
-        <button id="start-lesson" class="btn">Start Lesson</button>
-        <div id="lesson-container">
-            <div id="lesson-content"></div>
-        </div>
-        <div id="final-score" class="hide"></div>
+        <button id="start-lesson">Start Lesson</button>
+        <br/>
+        <div id="lesson-content"></div>
+        <div id="algebra-percentage"></div>
+        <div id="final-score" style="display: none;"></div>
     </div>
 
     <script src="lesson-command-of-evidence.js" type="module"></script>
