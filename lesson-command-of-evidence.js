@@ -838,16 +838,13 @@ function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
-        // Hide the button using both class and inline style for reliability
-        startLessonButton.classList.add('hide');
-        startLessonButton.style.display = 'none'; // Fallback in case .hide is overridden
-        console.log("Start Lesson button hidden");
-        
+        startLessonButton.style.display = 'none';
         currentItemIndex = 0;
+        // Set totalSteps based on current lesson's content length + quiz
         totalSteps = lessons[currentLesson].content.length + 1;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
         showItem();
-        progressSteps = 1;
+        progressSteps = 1; // First item
         updateProgressBar(progressSteps);
     } else {
         console.error("Start lesson button not found!");
@@ -871,64 +868,124 @@ function showItem() {
     }
 
     if (item.type === "example") {
-        lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${extractPassage(item.content)}</div>
-                <div class="right-column">
-                    <div class="question-text">${item.content.replace(extractPassage(item.content), '')}</div>
-                </div>
-            </div>
-        `;
+        lessonContent.innerHTML = item.content;
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
-            nextButton.classList.add('btn');
             nextButton.addEventListener('click', nextItem);
         } else {
             console.error("Next item button not found!");
         }
     } else if (item.type === "question") {
-        const passage = extractPassage(item.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
-                <div class="right-column">
-                    <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
-                    <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn hide">Submit Answer</button>
-                </div>
-            </div>
-        `;
-        const answerButtons = document.getElementById('answer-buttons');
-        item.options.forEach((option, index) => {
-            const button = document.createElement("button");
-            button.innerHTML = option.text;
-            button.classList.add("btn");
-            button.dataset.correct = option.correct;
-            button.addEventListener("click", () => selectAnswer(button, item));
-            answerButtons.appendChild(button);
-        });
+        <h2>${item.title}</h2>
+        <p>${item.question}</p>
+        ${item.options.map((option, index) => `
+            <input type="radio" id="q${currentItemIndex}a${index}" name="q${currentItemIndex}" value="${option.correct}">
+            <label for="q${currentItemIndex}a${index}">${option.text}</label><br>
+        `).join('')}
+        <button class="submit-answer">Submit Answer</button>
+    `;
+    const submitButton = lessonContent.querySelector('.submit-answer');
+    if (submitButton) {
+        submitButton.addEventListener('click', () => checkItemAnswer(item));
+    } else {
+            console.error("Submit answer button not found!");
+        }
     }
 }
 
-// ... (extractPassage, selectAnswer, nextItem, showQuiz, showNextQuizQuestion remain unchanged)
+function nextItem() {
+    currentItemIndex++;
+    progressSteps = currentItemIndex + 1;
+    updateProgressBar(progressSteps);
+    showItem();
+}
 
-// Ensure initialization is correct
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Page loaded, initializing lesson:", currentLesson);
-    const urlParams = new URLSearchParams(window.location.search);
-    currentLesson = urlParams.get('lesson') || 1;
-    console.log("Set currentLesson to:", currentLesson);
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
-        console.log("Start lesson button event listener added");
+function checkItemAnswer(item) {
+    const selectedAnswer = document.querySelector(`input[name="q${currentItemIndex}"]:checked`);
+    if (selectedAnswer) {
+        if (selectedAnswer.value === "true") {
+            alert('Correct!');
+            categoryStats["command-of-evidence"].correct++;
+        } else {
+            alert(`Incorrect. ${item.explanation}`);
+            categoryStats["command-of-evidence"].incorrect++;
+        }
+        currentItemIndex++;
+        progressSteps = currentItemIndex + 1; // Increment progress after answering
+        updateProgressBar(progressSteps);
+        showItem();
     } else {
-        console.error("Start lesson button not found on page load!");
+        alert('Please select an answer.');
     }
-});
+}
+function showQuiz() {
+    currentQuestionIndex = 0;
+    let quizQuestions;
+    switch (parseInt(currentLesson)) {
+        case 1: quizQuestions = textualEvidenceQuestions; break;
+        case 2: quizQuestions = authorUseOfEvidenceQuestions; break;
+        case 3: quizQuestions = dataInterpretationQuestions; break;
+        case 4: quizQuestions = crossTextEvidenceQuestions; break;
+        default: quizQuestions = textualEvidenceQuestions;
+    }
+    progressSteps = totalSteps; // Final step (quiz)
+    updateProgressBar(progressSteps);
+    showNextQuizQuestion(quizQuestions);
+}
 
-// Placeholder for remaining functions (assuming they’re unchanged)
+function showNextQuizQuestion(quizQuestions) {
+    if (currentQuestionIndex < quizQuestions.length) {
+        const question = quizQuestions[currentQuestionIndex];
+        const lessonContent = document.getElementById('lesson-content');
+        lessonContent.innerHTML = `
+        <h2>Question ${currentQuestionIndex + 1}</h2>
+        <p>${question.question}</p>
+        ${question.answers.map((answer, index) => `
+            <input type="radio" id="q${currentQuestionIndex}a${index}" name="q${currentQuestionIndex}" value="${answer.correct}">
+            <label for="q${currentQuestionIndex}a${index}">${answer.text}</label><br>
+        `).join('')}
+        <button class="submit-answer">Submit Answer</button>
+    `;
+    lessonContent.querySelector('.submit-answer').addEventListener('click', () => checkQuizAnswer(question, quizQuestions));
+    } else {
+        showFinalScore();
+    }
+}
+
+function checkQuizAnswer(question, quizQuestions) {
+    const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
+    if (selectedAnswer) {
+        if (selectedAnswer.value === "true") {
+            alert('Correct!');
+            categoryStats[question.category].correct++;
+        } else {
+            alert(`Incorrect. ${question.explanation}`);
+            categoryStats[question.category].incorrect++;
+        }
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizQuestions.length) {
+            showNextQuizQuestion(quizQuestions);
+        } else {
+            console.log("Quiz complete, calling showFinalScore");
+            showFinalScore();
+        }
+    } else {
+        alert('Please select an answer.');
+    }
+}
+
+function logFinalScore(totalCorrect, totalAttempted) {
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    localStorage.setItem("finalScore", JSON.stringify({
+        correct: totalCorrect,
+        attempted: totalAttempted,
+        percentage: percentage,
+        lesson: currentLesson
+    }));
+    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
+}
+
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
     let totalCorrect = 0;
@@ -949,13 +1006,14 @@ function showFinalScore() {
     const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = '';
-    finalScoreElement.classList.remove('hide');
+    finalScoreElement.style.display = 'block';
     finalScoreElement.innerHTML = `
         <h2>Final Score</h2>
         <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
-        <button id="continue-button" class="btn">Continue</button>
+        <button id="continue-button">Continue</button>
     `;
+
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     });
@@ -980,22 +1038,32 @@ function recordTestResults() {
     }
 }
 
-function logFinalScore(totalCorrect, totalAttempted) {
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    localStorage.setItem("finalScore", JSON.stringify({
-        correct: totalCorrect,
-        attempted: totalAttempted,
-        percentage: percentage,
-        lesson: currentLesson
-    }));
-    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
-}
-
 function saveScore(lessonId, score) {
     localStorage.setItem(`command-of-evidence-lessonScore-${lessonId}`, score);
     console.log(`Saved command-of-evidence-lessonScore-${lessonId}: ${score}`);
 }
 
+function getScore(lessonId) {
+    return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
+}
+
+// Placeholder for showScore (assuming it exists elsewhere or is intended to be empty)
 function showScore() {
     console.log("showScore called (placeholder)");
 }
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Page loaded, initializing lesson:", currentLesson);
+    const urlParams = new URLSearchParams(window.location.search);
+    currentLesson = urlParams.get('lesson') || 1;
+    console.log("Set currentLesson to:", currentLesson);
+
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start lesson button event listener added");
+    } else {
+        console.error("Start lesson button not found on page load!");
+    }
+});
