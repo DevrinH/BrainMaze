@@ -748,8 +748,6 @@ const lessons = {
     }
 };
 
-// lesson-command-of-evidence.js
-
 // Command of Evidence question arrays
 const textualEvidenceQuestions = [
     {
@@ -811,7 +809,7 @@ const crossTextEvidenceQuestions = [
     }
 ];
 
-// Core variables and functions
+// lesson-command-of-evidence.js
 let categoryStats = {
     "command-of-evidence": { correct: 0, incorrect: 0 }
 };
@@ -821,6 +819,7 @@ let currentLesson = 1;
 let currentItemIndex = 0;
 let progressSteps = 0;
 let totalSteps = 15; // Default for Lesson 1: 14 items + 1 quiz
+let isQuizPhase = false; // Track lesson vs. quiz phase
 
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
@@ -841,6 +840,7 @@ function startLesson() {
         startLessonButton.style.display = 'none';
         console.log("Start Lesson button hidden with style.display = 'none'");
         currentItemIndex = 0;
+        isQuizPhase = false; // Start in lesson phase
         totalSteps = lessons[currentLesson].content.length + 1;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
         showItem();
@@ -939,9 +939,9 @@ function selectAnswer(selectedBtn, item) {
 
     submitButton.classList.remove('hide');
     submitButton.addEventListener('click', () => {
-        if (currentQuestionIndex < 0) { // Lesson phase
+        if (!isQuizPhase) {
             nextItem();
-        } else { // Quiz phase
+        } else {
             nextQuizItem();
         }
     }, { once: true });
@@ -951,12 +951,13 @@ function nextItem() {
     currentItemIndex++;
     progressSteps = currentItemIndex + 1;
     updateProgressBar(progressSteps);
+    console.log("nextItem called, currentItemIndex:", currentItemIndex);
     showItem();
 }
 
 function nextQuizItem() {
     currentQuestionIndex++;
-    console.log("Advancing quiz: currentQuestionIndex =", currentQuestionIndex);
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
     let quizQuestions;
     switch (parseInt(currentLesson)) {
         case 1: quizQuestions = textualEvidenceQuestions; break;
@@ -969,8 +970,9 @@ function nextQuizItem() {
 }
 
 function showQuiz() {
-    currentQuestionIndex = 0;
     console.log("Starting quiz for lesson:", currentLesson);
+    isQuizPhase = true; // Switch to quiz phase
+    currentQuestionIndex = 0;
     let quizQuestions;
     switch (parseInt(currentLesson)) {
         case 1: quizQuestions = textualEvidenceQuestions; break;
@@ -1086,21 +1088,3 @@ function showScore() {
     console.log("showScore called (placeholder)");
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || 1;
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId;
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
-        console.log("Start Lesson Button event listener added.");
-    } else {
-        console.error("Start lesson button not found.");
-    }
-
-    showScore();
-});
