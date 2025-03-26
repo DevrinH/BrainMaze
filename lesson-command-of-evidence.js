@@ -836,7 +836,7 @@ function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
-        startLessonButton.style.display = 'none'; // Reverted to direct style change
+        startLessonButton.style.display = 'none';
         console.log("Start Lesson button hidden with style.display = 'none'");
         currentItemIndex = 0;
         totalSteps = lessons[currentLesson].content.length + 1;
@@ -877,7 +877,7 @@ function showItem() {
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
             nextButton.classList.add('btn');
-            nextButton.addEventListener('click', nextItem, { once: true }); // Prevent multiple listeners
+            nextButton.addEventListener('click', nextItem, { once: true });
             console.log("Next button event listener added");
         } else {
             console.error("Next item button not found!");
@@ -890,7 +890,7 @@ function showItem() {
                 <div class="right-column">
                     <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn hide">Submit Answer</button>
+                    <button id="submit-answer" class="btn hide">Next</button>
                 </div>
             </div>
         `;
@@ -914,21 +914,32 @@ function extractPassage(content) {
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
+    const lessonContent = document.getElementById('lesson-content');
+    
+    // Disable all answer buttons and highlight the correct one
     answerButtons.forEach(btn => {
         btn.disabled = true;
         if (btn.dataset.correct === "true") {
             btn.classList.add("correct");
         }
     });
+
+    // Handle correct/incorrect logic
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
         categoryStats["command-of-evidence"].correct++;
-        alert('Correct!');
+        // No alert for correct answers
     } else {
         selectedBtn.classList.add("incorrect");
         categoryStats["command-of-evidence"].incorrect++;
-        alert(`Incorrect. ${item.explanation}`);
+        // Append explanation to the lesson content
+        const explanationDiv = document.createElement("div");
+        explanationDiv.classList.add("explanation");
+        explanationDiv.innerHTML = item.explanation;
+        lessonContent.querySelector('.right-column').appendChild(explanationDiv);
     }
+
+    // Show the "Next" button (renamed from "Submit Answer")
     submitButton.classList.remove('hide');
     submitButton.addEventListener('click', nextItem, { once: true });
 }
@@ -966,7 +977,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <div class="right-column">
                     <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn hide">Submit Answer</button>
+                    <button id="submit-answer" class="btn hide">Next</button>
                 </div>
             </div>
         `;
@@ -1053,6 +1064,5 @@ function saveScore(lessonId, score) {
 
 function showScore() {
     console.log("showScore called (placeholder)");
-    // Placeholder for now; add score display logic if needed
 }
 
