@@ -1,6 +1,4 @@
-html, body {
-  height: 100%;
-}
+
 
 @font-face {
     font-family: "Montserrat-SemiBold";
@@ -29,6 +27,8 @@ body {
     background-color: rgb(255, 255, 255);
     overflow-x: hidden; /* Prevents scrolling */
     position: relative; /* Ensures box-shadow is visible */
+      
+  
   }
 
 * {
