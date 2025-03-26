@@ -1227,6 +1227,8 @@ function showNextQuizQuestion(quizQuestions) {
         showFinalScore();
     }
 }
+// ... (all other functions unchanged up to showFinalScore)
+
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
     let totalCorrect = 0;
@@ -1252,7 +1254,7 @@ function showFinalScore() {
         <h2>Final Score</h2>
         <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
-        <button id="continue-button" class="btn" style="background-color: #800080; color:_checkpoint #fff; width: 120px;">Continue</button>
+        <button id="continue-button" class="btn continue-btn">Continue</button>
     `;
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
@@ -1260,6 +1262,8 @@ function showFinalScore() {
 
     recordTestResults();
 }
+
+// ... (rest of the code unchanged)
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
