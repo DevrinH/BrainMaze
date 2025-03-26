@@ -500,11 +500,10 @@ footer {
   background-image: linear-gradient(#4b1c81, #c890fd);
   color: white;
   padding: 15px 0;
-  position: relative;
-  margin-top: auto; /* Moves the footer to the bottom */
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: auto; /* Keeps footer at bottom */
 }
 
 h3 {
