@@ -1127,10 +1127,10 @@ function selectAnswer(selectedBtn, item) {
 
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
-        categoryStats["central-ideas-and-detail"].correct++;
+        categoryStats["central-ideas"].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats["central-ideas-and-detail"].incorrect++;
+        categoryStats["central-ideas"].incorrect++;
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
