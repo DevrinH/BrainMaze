@@ -748,6 +748,8 @@ const lessons = {
     }
 };
 
+// lesson-command-of-evidence.js
+
 // Command of Evidence question arrays
 const textualEvidenceQuestions = [
     {
@@ -809,7 +811,7 @@ const crossTextEvidenceQuestions = [
     }
 ];
 
-// lesson-command-of-evidence.js
+// Core variables and functions
 let categoryStats = {
     "command-of-evidence": { correct: 0, incorrect: 0 }
 };
@@ -916,7 +918,6 @@ function selectAnswer(selectedBtn, item) {
     const submitButton = document.getElementById('submit-answer');
     const lessonContent = document.getElementById('lesson-content');
     
-    // Disable all answer buttons and highlight the correct one
     answerButtons.forEach(btn => {
         btn.disabled = true;
         if (btn.dataset.correct === "true") {
@@ -924,24 +925,26 @@ function selectAnswer(selectedBtn, item) {
         }
     });
 
-    // Handle correct/incorrect logic
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
         categoryStats["command-of-evidence"].correct++;
-        // No alert for correct answers
     } else {
         selectedBtn.classList.add("incorrect");
         categoryStats["command-of-evidence"].incorrect++;
-        // Append explanation to the lesson content
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
         lessonContent.querySelector('.right-column').appendChild(explanationDiv);
     }
 
-    // Show the "Next" button (renamed from "Submit Answer")
     submitButton.classList.remove('hide');
-    submitButton.addEventListener('click', nextItem, { once: true });
+    submitButton.addEventListener('click', () => {
+        if (currentQuestionIndex < 0) { // Lesson phase
+            nextItem();
+        } else { // Quiz phase
+            nextQuizItem();
+        }
+    }, { once: true });
 }
 
 function nextItem() {
@@ -951,8 +954,23 @@ function nextItem() {
     showItem();
 }
 
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("Advancing quiz: currentQuestionIndex =", currentQuestionIndex);
+    let quizQuestions;
+    switch (parseInt(currentLesson)) {
+        case 1: quizQuestions = textualEvidenceQuestions; break;
+        case 2: quizQuestions = authorUseOfEvidenceQuestions; break;
+        case 3: quizQuestions = dataInterpretationQuestions; break;
+        case 4: quizQuestions = crossTextEvidenceQuestions; break;
+        default: quizQuestions = textualEvidenceQuestions;
+    }
+    showNextQuizQuestion(quizQuestions);
+}
+
 function showQuiz() {
     currentQuestionIndex = 0;
+    console.log("Starting quiz for lesson:", currentLesson);
     let quizQuestions;
     switch (parseInt(currentLesson)) {
         case 1: quizQuestions = textualEvidenceQuestions; break;
@@ -967,6 +985,7 @@ function showQuiz() {
 }
 
 function showNextQuizQuestion(quizQuestions) {
+    console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
@@ -991,6 +1010,7 @@ function showNextQuizQuestion(quizQuestions) {
             answerButtons.appendChild(button);
         });
     } else {
+        console.log("All quiz questions answered, showing final score");
         showFinalScore();
     }
 }
@@ -1066,3 +1086,21 @@ function showScore() {
     console.log("showScore called (placeholder)");
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = urlParams.get('lesson') || 1;
+    console.log(`Loading lesson ${lessonId}`);
+    currentLesson = lessonId;
+
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start Lesson Button event listener added.");
+    } else {
+        console.error("Start lesson button not found.");
+    }
+
+    showScore();
+});
