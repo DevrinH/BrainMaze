@@ -840,7 +840,7 @@ function startLesson() {
         startLessonButton.style.display = 'none';
         console.log("Start Lesson button hidden with style.display = 'none'");
         currentItemIndex = 0;
-        isQuizPhase = false; // Start in lesson phase
+        isQuizPhase = false;
         totalSteps = lessons[currentLesson].content.length + 1;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
         showItem();
@@ -878,7 +878,7 @@ function showItem() {
         `;
         const nextButton = document.getElementById('next-item');
         if (nextButton) {
-            nextButton.classList.add('btn');
+            nextButton.classList.add('btn', 'next-btn');
             nextButton.addEventListener('click', nextItem, { once: true });
             console.log("Next button event listener added");
         } else {
@@ -892,7 +892,7 @@ function showItem() {
                 <div class="right-column">
                     <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn hide">Next</button>
+                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -937,7 +937,7 @@ function selectAnswer(selectedBtn, item) {
         lessonContent.querySelector('.right-column').appendChild(explanationDiv);
     }
 
-    submitButton.classList.remove('hide');
+    submitButton.style.display = 'inline-block'; // Show button instead of class toggle
     submitButton.addEventListener('click', () => {
         if (!isQuizPhase) {
             nextItem();
@@ -971,7 +971,7 @@ function nextQuizItem() {
 
 function showQuiz() {
     console.log("Starting quiz for lesson:", currentLesson);
-    isQuizPhase = true; // Switch to quiz phase
+    isQuizPhase = true;
     currentQuestionIndex = 0;
     let quizQuestions;
     switch (parseInt(currentLesson)) {
@@ -998,7 +998,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <div class="right-column">
                     <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn hide">Next</button>
+                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -1042,7 +1042,7 @@ function showFinalScore() {
         <h2>Final Score</h2>
         <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
-        <button id="continue-button" class="btn">Continue</button>
+        <button id="continue-button" class="btn continue-btn">Continue</button>
     `;
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
@@ -1087,4 +1087,3 @@ function saveScore(lessonId, score) {
 function showScore() {
     console.log("showScore called (placeholder)");
 }
-
