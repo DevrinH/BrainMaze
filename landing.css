@@ -1292,7 +1292,38 @@ margin-bottom: 7px;
 
 
 
-
+.next-btn {
+  align-items: center;
+  margin: 15px auto;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 21px;
+  height: 60px;
+  justify-content: center;
+  line-height: 1.2;
+  list-style: none;
+  overflow: visible;
+  padding: 0 18px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  width: auto;
+  min-width: 115px;
+  max-width: 250px;
+}
 
 
 
