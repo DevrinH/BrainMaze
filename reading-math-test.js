@@ -130,21 +130,19 @@ const mathQuestions = [
 function startReadingWritingTest() {
     isMathTest = false;
     time = 64 * 60;
-    userResponses = []; // Reset userResponses only at the start of the full test
+    userResponses = [];
     refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endReadingWritingTest, 3840000); // 64 minutes in milliseconds
+    setTimeout(endReadingWritingTest, 3840000);
     startQuiz(readingWritingQuestions, 18, 18, 18);
 }
-
 
 function startMathTest() {
     isMathTest = true;
     time = 44 * 60;
     refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endMathTest, 2640000); // 44 minutes in milliseconds
+    setTimeout(endMathTest, 2640000);
     startQuiz(mathQuestions, 14, 15, 15);
 }
-
 
 function updateCountdown() {
     const minutes = Math.floor(time / 60);
@@ -163,17 +161,11 @@ function updateCountdown() {
     }
 }
 
-
 function endReadingWritingTest() {
     clearInterval(refreshIntervalId);
     resetState();
     showScore();
-    document.getElementById("question-container").classList.add("hide");
-    document.getElementById("break-message").classList.remove("hide");
-    document.querySelector(".question-row").classList.remove("score-display");
-    nextButton.classList.remove("centered-btn"); // Reset button centering
 }
-
 
 function endMathTest() {
     clearInterval(refreshIntervalId);
@@ -181,46 +173,34 @@ function endMathTest() {
     showScore();
 }
 
-
 function startQuiz(questions, numEasy, numMedium, numHard) {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
     categoryStats = {};
-    // Removed userResponses = []; to preserve responses across sections
     selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
     nextButton.innerHTML = "Next";
     showQuestion();
 }
-
 
 function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     const easyQuestions = questions.filter(q => q.difficulty === "easy");
     const mediumQuestions = questions.filter(q => q.difficulty === "medium");
     const hardQuestions = questions.filter(q => q.difficulty === "hard");
 
-
     function getRandom(arr, num) {
         return arr.sort(() => 0.5 - Math.random()).slice(0, num);
     }
 
-
-    const selectedEasy = getRandom(easyQuestions, numEasy);
-    const selectedMedium = getRandom(mediumQuestions, numMedium);
-    const selectedHard = getRandom(hardQuestions, numHard);
-
-
-    return [...selectedEasy, ...selectedMedium, ...selectedHard];
+    return [...getRandom(easyQuestions, numEasy), ...getRandom(mediumQuestions, numMedium), ...getRandom(hardQuestions, numHard)];
 }
-
 
 function showQuestion() {
     resetState();
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    passageElement.innerHTML = currentQuestion.passage;  // Display passage
-    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;  // Display question
-
+    passageElement.innerHTML = currentQuestion.passage;
+    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -233,19 +213,16 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
 
-
     updateProgressBar();
 }
 
-
 function resetState() {
     nextButton.style.display = "none";
-    nextButton.classList.remove("centered-btn"); // Reset centering class
+    nextButton.classList.remove("centered-btn");
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
-
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
@@ -254,44 +231,31 @@ function selectAnswer(e) {
     let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
     let questionDifficulty = currentQuestion.difficulty;
 
-
     if (!categoryStats[questionCategory]) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
 
-
     const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
     userResponses.push({
-        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,  // Combine for review
+        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
         userAnswer: selectedBtn.innerHTML,
         correctAnswer: correctAnswer,
         wasCorrect: isCorrect
     });
 
-
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-
-
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
-        }
-
-
+        if (questionDifficulty === "easy") score += 1;
+        else if (questionDifficulty === "medium") score += 2;
+        else if (questionDifficulty === "hard") score += 3;
         categoryStats[questionCategory].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
         categoryStats[questionCategory].incorrect++;
     }
 
-
     recordTestResults();
-
 
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
@@ -300,79 +264,60 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-
     nextButton.style.display = "block";
     nextButton.disabled = false;
 }
-
 
 function showScore() {
     clearInterval(refreshIntervalId);
     resetState();
 
-
-    let maxPossibleScore;
-    if (!isMathTest) {
-        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
-    } else {
-        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
-    }
+    let maxPossibleScore = !isMathTest ? (18 * 1) + (18 * 2) + (18 * 3) : (14 * 1) + (15 * 2) + (15 * 3);
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-
-    // Ensure question-container is visible when showing the score
     document.getElementById("question-container").classList.remove("hide");
-
 
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
-        passageElement.innerHTML = "";  // Clear passage
+        passageElement.innerHTML = "";
         questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
         questionElement.classList.add("centered-score");
-        // Adjust the question-row to center content
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn"); // Add class for centering
+        nextButton.classList.add("centered-btn");
     } else {
-        let readingScore = localStorage.getItem("readingScore") || 0;
-        readingScore = parseInt(readingScore, 10);
+        let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
         let mathScore = scaledScore;
         localStorage.setItem("mathScore", mathScore);
 
-
         let totalSATScore = readingScore + mathScore;
-
-
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
         scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
-
-        passageElement.innerHTML = "";  // Clear passage
+        passageElement.innerHTML = "";
         questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
                                     <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
                                     <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
         questionElement.classList.add("centered-score");
-        // Adjust the question-row to center content
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn"); // Add class for centering
+        nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }
 }
+
 function showExplanations() {
     resetState();
-    passageElement.innerHTML = "";  // Clear passage
+    passageElement.innerHTML = "";
     questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
 
-
     const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
-
 
     if (incorrectResponses.length === 0) {
         questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
@@ -391,7 +336,6 @@ function showExplanations() {
         });
     }
 
-
     nextButton.innerHTML = "Finish";
     nextButton.style.display = "block";
     nextButton.removeEventListener("click", showExplanations);
@@ -400,33 +344,27 @@ function showExplanations() {
     });
 }
 
-
 function generateExplanation(response) {
     const questionText = response.question;
-
-
     if (questionText.includes("Emma stepped into the grand ballroom")) {
-        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation. The text highlights her discomfort rather than excitement or confidence.";
+        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation.";
     } else if (questionText.includes("Daniel stepped into the office")) {
-        return "Daniel’s doubt and deep breath indicate uncertainty, but his reminder that 'everyone had to start somewhere' shows determination, not disinterest or regret.";
+        return "Daniel’s doubt and deep breath indicate uncertainty, but his determination shines through.";
     } else if (questionText.includes("Liam set his pen down")) {
-        return "The best evidence is the explicit mention of 'nagging doubt,' directly showing his uncertainty about the manuscript’s quality.";
+        return "The 'nagging doubt' directly shows his uncertainty about the manuscript.";
     } else if (questionText.includes("The scientist adjusted her glasses")) {
-        return "The scientist’s struggle to accept the findings is best supported by her disbelief in the consistent results, despite repeated checks.";
+        return "Her disbelief despite consistent results shows her struggle to accept the findings.";
     } else if (questionText.includes("An airplane is flying from City A to City B")) {
-        return "The trip is split into two 750-mile segments. Time against the wind = 750 / 500 = 1.5 hours. Time with the wind = 750 / 600 = 1.25 hours. Total time = 1.5 + 1.25 = 2.75 hours.";
+        return "Time = 750 / 500 + 750 / 600 = 1.5 + 1.25 = 2.75 hours.";
     } else if (questionText.includes("A car's value depreciates by 15%")) {
-        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $25,500 × 0.85 = $21,675. Year 3: $21,675 × 0.85 = $18,423.75 ≈ $19,275 (rounded).";
+        return "Year 3 value = $30,000 × 0.85³ ≈ $19,275.";
     } else if (questionText.includes("The function f(x) is defined")) {
-        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(4²) - 3(4) + 5 = 2(16) - 12 + 5 = 32 - 12 + 5 = 25.";
+        return "f(4) = 2(4²) - 3(4) + 5 = 32 - 12 + 5 = 25.";
     } else if (questionText.includes("A company rents out bicycles")) {
-        return "Equation: $12 + $3h ≤ $45. Subtract 12: $3h ≤ $33. Divide by 3: h ≤ 11. Maximum whole hours = 9 (since $12 + $3 × 9 = $39 ≤ $45).";
+        return "Max hours = ($45 - $12) / $3 = 11, but 9 is the max whole number within budget.";
     }
-
-
-    return "No specific explanation available for this question.";
+    return "No specific explanation available.";
 }
-
 
 function handleNextButton() {
     recordTestResults();
@@ -438,78 +376,46 @@ function handleNextButton() {
     }
 }
 
-
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar-test");
     let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
     progressBar.firstElementChild.style.width = progress + "%";
 }
 
-
 function recordTestResults() {
-    console.log("Recording results. Current categoryStats:", categoryStats);
-
-
-    let storedResults = localStorage.getItem("testResults");
-    let results = storedResults ? JSON.parse(storedResults) : {};
-
-
-    console.log("Previous testResults from localStorage:", results);
-
-
-    if (typeof results !== "object" || Array.isArray(results)) {
-        console.error("Error: results should be an object but got", results);
-        results = {};
-    }
-
-
+    let storedResults = JSON.parse(localStorage.getItem("testResults") || "{}");
     for (let category in categoryStats) {
-        if (!results[category]) {
-            results[category] = { correct: 0, incorrect: 0 };
+        if (!storedResults[category]) {
+            storedResults[category] = { correct: 0, incorrect: 0 };
         }
-
-
-        console.log(
-            `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
-
-
-        results[category].correct += categoryStats[category].correct || 0;
-        results[category].incorrect += categoryStats[category].incorrect || 0;
-
-
-        console.log(
-            `After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
+        storedResults[category].correct += categoryStats[category].correct || 0;
+        storedResults[category].incorrect += categoryStats[category].incorrect || 0;
     }
-
-
-    localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
-
-
+    localStorage.setItem("testResults", JSON.stringify(storedResults));
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
 }
 
-
 nextButton.addEventListener("click", () => {
-    if (nextButton.innerHTML === "Continue") {
-        document.getElementById("break-message").classList.remove("hide");
+    if (nextButton.innerHTML === "Continue" && !isMathTest) {
+        questionElement.innerHTML = ""; // Clear score
+        questionElement.classList.remove("centered-score");
+        document.querySelector(".question-row").classList.remove("score-display");
         document.getElementById("question-container").classList.add("hide");
+        document.getElementById("break-message").classList.remove("hide");
     } else {
         handleNextButton();
     }
 });
 
-
 continueButton.addEventListener("click", () => {
     document.getElementById("break-message").classList.add("hide");
     document.getElementById("question-container").classList.remove("hide");
+    passageElement.innerHTML = "";
+    questionElement.innerHTML = "";
     startMathTest();
 });
-
 
 startReadingWritingTest();
