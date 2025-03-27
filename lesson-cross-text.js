@@ -40,7 +40,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Text 1: 'Social media connects people.' Text 2: 'Social media isolates us.' How do the main ideas compare?",
+                question: "Text 1: 'Social media connects people.' <br/> Text 2: 'Social media isolates us.' How do the main ideas compare?",
                 options: [
                     { text: "A) They conflict", correct: true },
                     { text: "B) They agree", correct: false },
