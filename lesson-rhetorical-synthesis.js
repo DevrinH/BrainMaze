@@ -1,17 +1,4 @@
-// Ensure scores display on page load by calling showScore
 
-
-// Declare global variables at the top
-let totalItems = 0;
-let completedItems = 0;
-let categoryStats = {
-    "rhetorical-synthesis": { correct: 0, incorrect: 0 }
-};
-let currentQuestionIndex = 0;
-let currentLesson = 1;
-let currentItemIndex = 0;
-// Define all lessons
-// Define all lessons
 const lessons = {
     1: {
         title: "Choosing the Best Sentence for Clarity and Impact",
