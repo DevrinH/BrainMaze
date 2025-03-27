@@ -1,19 +1,17 @@
-// Ensure scores display on page load by calling showScore
+// Initialize on page load
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
+    console.log("Page loaded, initializing lesson:", currentLesson);
+    const urlParams = new URLSearchParams(window.location.search);
+    currentLesson = urlParams.get('lesson') || 1;
+    console.log("Set currentLesson to:", currentLesson);
 
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
         startLessonButton.addEventListener('click', startLesson);
-        console.log("Start Lesson Button event listener added.");
+        console.log("Start lesson button event listener added");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found on page load!");
     }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || 1;
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId;
 
     showScore();
 });
@@ -1327,20 +1325,3 @@ function showScore() {
     }
 }
 
-// Initialize on page load
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Page loaded, initializing lesson:", currentLesson);
-    const urlParams = new URLSearchParams(window.location.search);
-    currentLesson = urlParams.get('lesson') || 1;
-    console.log("Set currentLesson to:", currentLesson);
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
-        console.log("Start lesson button event listener added");
-    } else {
-        console.error("Start lesson button not found on page load!");
-    }
-
-    showScore();
-});
