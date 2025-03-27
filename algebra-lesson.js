@@ -869,14 +869,10 @@ function showItem() {
     }
 
     if (item.type === "example") {
-        const passage = extractPassage(item.content);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
-                <div class="right-column">
-                    <div class="question-text">${item.content.replace(passage, '').replace(/<button id="next-item">Next<\/button>/, '')}</div>
-                    <button id="next-item" class="btn next-btn">Next</button>
-                </div>
+            <div class="content-block">
+                ${item.content.replace(/<button id="next-item">Next<\/button>/, '')}
+                <button id="next-item" class="btn next-btn">Next</button>
             </div>
         `;
         const nextButton = document.getElementById('next-item');
@@ -887,15 +883,12 @@ function showItem() {
             console.error("Next item button not found in example!");
         }
     } else if (item.type === "question") {
-        const passage = extractPassage(item.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
-                <div class="right-column">
-                    <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
-                    <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
-                </div>
+            <div class="content-block">
+                <h2>${item.title}</h2>
+                <p>${item.question}</p>
+                <div class="answer-choices" id="answer-buttons"></div>
+                <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
             </div>
         `;
         const answerButtons = document.getElementById('answer-buttons');
@@ -908,12 +901,6 @@ function showItem() {
             answerButtons.appendChild(button);
         });
     }
-}
-
-function extractPassage(content) {
-    const passageMatch = content.match(/<p>(Consider|Equation|System):.*?(?=<p>Step|$)/is) || 
-                        content.match(/Solve:.*?(?=$)/is);
-    return passageMatch ? passageMatch[0] : "";
 }
 
 function selectAnswer(selectedBtn, item) {
@@ -937,7 +924,7 @@ function selectAnswer(selectedBtn, item) {
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
-        lessonContent.querySelector('.right-column').appendChild(explanationDiv);
+        lessonContent.querySelector('.content-block').appendChild(explanationDiv);
     }
 
     submitButton.style.display = 'inline-block';
@@ -979,15 +966,12 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
-                <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
-                    <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
-                </div>
+            <div class="content-block">
+                <h2>Question ${currentQuestionIndex + 1}</h2>
+                <p>${question.question}</p>
+                <div class="answer-choices" id="answer-buttons"></div>
+                <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
             </div>
         `;
         const answerButtons = document.getElementById('answer-buttons');
