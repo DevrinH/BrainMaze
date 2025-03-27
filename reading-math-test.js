@@ -1,4 +1,5 @@
-const questionElement = document.getElementById("question");
+const passageElement = document.getElementById("passage");  // Changed from questionElement
+const questionElement = document.getElementById("question"); // New element for question
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const continueButton = document.getElementById("continue-btn");
@@ -20,31 +21,34 @@ let userResponses = []; // Stores { question, userAnswer, correctAnswer, wasCorr
 
 const readingWritingQuestions = [
     {
-        question: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.<br/><br/>What does the passage suggest about Emma’s feelings?",
+        passage: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.",
+        question: "What does the passage suggest about Emma’s feelings?",
         answers: [
-            { text: "She feels out of place despite having anticipated this moment for a long time.", correct: true },
-            { text: "She is overwhelmed by the beauty of the ballroom and struggles to contain her excitement.", correct: false },
-            { text: "She is intimidated by the other guests and decides to leave before entering the ballroom.", correct: false },
-            { text: "She is eager to impress others and makes a confident entrance into the event.", correct: false },
+            { text: "A) She feels out of place despite having anticipated this moment for a long time.", correct: true },
+            { text: "B) She is overwhelmed by the beauty of the ballroom and struggles to contain her excitement.", correct: false },
+            { text: "C) She is intimidated by the other guests and decides to leave before entering the ballroom.", correct: false },
+            { text: "D) She is eager to impress others and makes a confident entrance into the event.", correct: false },
         ],
         type: "reading",
         difficulty: "easy",
         category: "inference"
     },
     {
-        question: "Daniel stepped into the office, straightening his tie as he took in the bustling atmosphere. Conversations hummed around him, and the clatter of keyboards filled the air. He had spent weeks preparing for this moment, yet a small knot of doubt twisted in his stomach. He took a deep breath and walked toward his desk, reminding himself that everyone had to start somewhere.<br/><br/>What does the passage suggest about Daniel's attitude toward his new job?",
+        passage: "Daniel stepped into the office, straightening his tie as he took in the bustling atmosphere. Conversations hummed around him, and the clatter of keyboards filled the air. He had spent weeks preparing for this moment, yet a small knot of doubt twisted in his stomach. He took a deep breath and walked toward his desk, reminding himself that everyone had to start somewhere.",
+        question: "What does the passage suggest about Daniel's attitude toward his new job?",
         answers: [
-            { text: "He is uncertain about his abilities but determined to prove himself.", correct: true },
-            { text: "He is uninterested in the work and only took the job for financial reasons.", correct: false },
-            { text: "He is confident that he will excel without any major challenges.", correct: false },
-            { text: "He regrets accepting the position and is considering quitting.", correct: false },
+            { text: "A) He is uncertain about his abilities but determined to prove himself.", correct: true },
+            { text: "B) He is uninterested in the work and only took the job for financial reasons.", correct: false },
+            { text: "C) He is confident that he will excel without any major challenges.", correct: false },
+            { text: "D) He regrets accepting the position and is considering quitting.", correct: false },
         ],
         type: "reading",
         difficulty: "medium",
         category: "inference"
     },
     {
-        question: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.<br/><br/>Which choice provides the best evidence for the idea that Liam is uncertain about his work?",
+        passage: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.",
+        question: "Which choice provides the best evidence for the idea that Liam is uncertain about his work?",
         answers: [
             { text: "A) 'Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind.'", correct: true },
             { text: "B) 'He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.'", correct: false },
@@ -56,7 +60,8 @@ const readingWritingQuestions = [
         category: "command-of-evidence"
     },
     {
-        question: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.<br/><br/>Which sentence best supports the idea that the scientist is struggling to accept her findings?",
+        passage: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.",
+        question: "Which sentence best supports the idea that the scientist is struggling to accept her findings?",
         answers: [
             { text: "A) 'The scientist adjusted her glasses, peering at the data displayed on the screen.'", correct: false },
             { text: "B) 'She tapped her fingers against the desk, reviewing each calculation.'", correct: false },
@@ -72,17 +77,19 @@ const readingWritingQuestions = [
 
 const mathQuestions = [
     {
+        passage: "", // Empty passage for math questions
         question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
         answers: [
-            { text: "2.5 hours", correct: false },
-            { text: "2.6 hours", correct: false },
-            { text: "2.8 hours", correct: false },
-            { text: "2.75 hours", correct: true }
+            { text: "A) 2.5 hours", correct: false },
+            { text: "B) 2.6 hours", correct: false },
+            { text: "C) 2.8 hours", correct: false },
+            { text: "D) 2.75 hours", correct: true }
         ],
         difficulty: "hard",
         category: "advanced-math"
     },
     {
+        passage: "",
         question: "A car's value depreciates by 15% each year. If the car was originally purchased for $30,000, what will its value be after 3 years, rounded to the nearest dollar?",
         answers: [
             { text: "A) $18,520", correct: false },
@@ -94,6 +101,7 @@ const mathQuestions = [
         category: "advanced-math"
     },    
     {
+        passage: "",
         question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
         answers: [
             { text: "A) 27", correct: false },
@@ -105,6 +113,7 @@ const mathQuestions = [
         category: "algebra"
     },
     {
+        passage: "",
         question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
         answers: [
             { text: "A) 10 hours", correct: false },
@@ -161,6 +170,8 @@ function endReadingWritingTest() {
     showScore();
     document.getElementById("question-container").classList.add("hide");
     document.getElementById("break-message").classList.remove("hide");
+    document.querySelector(".question-row").classList.remove("score-display");
+    nextButton.classList.remove("centered-btn"); // Reset button centering
 }
 
 
@@ -207,7 +218,8 @@ function showQuestion() {
     resetState();
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+    passageElement.innerHTML = currentQuestion.passage;  // Display passage
+    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;  // Display question
 
 
     currentQuestion.answers.forEach(answer => {
@@ -228,6 +240,7 @@ function showQuestion() {
 
 function resetState() {
     nextButton.style.display = "none";
+    nextButton.classList.remove("centered-btn"); // Reset centering class
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -249,7 +262,7 @@ function selectAnswer(e) {
 
     const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
     userResponses.push({
-        question: currentQuestion.question,
+        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,  // Combine for review
         userAnswer: selectedBtn.innerHTML,
         correctAnswer: correctAnswer,
         wasCorrect: isCorrect
@@ -308,11 +321,20 @@ function showScore() {
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
 
+    // Ensure question-container is visible when showing the score
+    document.getElementById("question-container").classList.remove("hide");
+
+
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
+        passageElement.innerHTML = "";  // Clear passage
         questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
+        questionElement.classList.add("centered-score");
+        // Adjust the question-row to center content
+        document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
+        nextButton.classList.add("centered-btn"); // Add class for centering
     } else {
         let readingScore = localStorage.getItem("readingScore") || 0;
         readingScore = parseInt(readingScore, 10);
@@ -329,19 +351,23 @@ function showScore() {
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
 
+        passageElement.innerHTML = "";  // Clear passage
         questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
                                     <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
                                     <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
+        questionElement.classList.add("centered-score");
+        // Adjust the question-row to center content
+        document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
+        nextButton.classList.add("centered-btn"); // Add class for centering
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }
 }
-
-
 function showExplanations() {
     resetState();
+    passageElement.innerHTML = "";  // Clear passage
     questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
 
 
@@ -359,7 +385,7 @@ function showExplanations() {
                     <p><strong>Question:</strong> ${response.question}</p>
                     <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
                     <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
-                    <p><strong>Explanation:</strong> ${explanation}</p> <!-- Fixed typo here -->
+                    <p><strong>Explanation:</strong> ${explanation}</p>
                 </div>
             `;
         });
@@ -414,7 +440,7 @@ function handleNextButton() {
 
 
 function updateProgressBar() {
-    const progressBar = document.getElementById("progress-bar");
+    const progressBar = document.getElementById("progress-bar-test");
     let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
     progressBar.firstElementChild.style.width = progress + "%";
 }
