@@ -1282,6 +1282,7 @@ margin-bottom: 7px;
   margin: 0 auto;
   display: block;
   overflow: hidden;
+  margin-bottom: 15px; /* Adds space between containers */
 }
 
 /* Flex container setup */
