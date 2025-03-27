@@ -1399,7 +1399,22 @@ margin-bottom: 7px;
   margin: 15px auto; /* Keeps centering consistent with .continue-btn */
 }
 
+#math-container {
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  max-width: 900px;
+  padding: 20px;
+  text-align: center;
+}
 
+#math-container h2 {
+  margin-bottom: 10px;
+}
+
+#math-container p {
+  margin: 5px 0;
+}
 
 
 
