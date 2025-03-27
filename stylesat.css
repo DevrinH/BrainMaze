@@ -1385,8 +1385,8 @@ margin-bottom: 7px;
         cursor: pointer;
         display: block;
         font-family: "Montserrat-SemiBold", sans-serif;
-        font-size: 19px; /* Reduced from 16px to fit better */
-        height: 50px;
+        font-size: 24px; /* Reduced from 16px to fit better */
+        height: 57px;
         justify-content: center;
         line-height: 1.2;
         list-style: none;
@@ -1402,7 +1402,7 @@ margin-bottom: 7px;
         white-space: nowrap;
         width: auto;
         min-width: 0;
-        max-width: 250px; /* Increased from 220px to accommodate full text */
+        max-width: 300px; /* Increased from 220px to accommodate full text */
     }
    
     #next-btn:hover {
