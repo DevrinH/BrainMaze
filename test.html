@@ -19,15 +19,19 @@
     <div id="progress-bar-test"><div></div></div>
     <div id="question-container">
         <div class="question-row">
-            <div id="passage"></div>
-            <div id="question"></div>
-            <div id="answer-buttons" class="btn-container"></div>
-            <button id="next-btn" class="btn hide">Next</button>
+            <div id="passage" class="passage-text"></div>
+            <div class="right-column">
+                <div id="question" class="question-text"></div>
+                <div id="answer-buttons" class="answer-choices"></div>
+            </div>
         </div>
+        <button id="next-btn" class="btn hide">Next</button>
     </div>
+
+    <div id="countdown"></div>
     <div id="break-message" class="hide">
         <p>Take a short break! Press continue to start the Math test.</p>
-        <button id="continue-btn" class="btn">Continue</button>
+        <button id="continue-btn" class="continue-btn">Continue</button>
     </div>
     
     <script src="reading-math-test.js"></script>
