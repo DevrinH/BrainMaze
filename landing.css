@@ -509,7 +509,7 @@ footer {
   color: white;
   padding: 15px 0;
   
-  margin-top: auto; /* Moves the footer to the bottom */
+  margin-top: 10px; /* Moves the footer to the bottom */
   display: flex;
   flex-direction: column;
   align-items: center;
