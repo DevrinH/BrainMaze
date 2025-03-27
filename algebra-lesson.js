@@ -868,6 +868,8 @@ function showItem() {
         return;
     }
 
+    lessonContent.innerHTML = ''; // Clear previous content
+
     if (item.type === "example") {
         lessonContent.innerHTML = `
             <div id="math-container">
@@ -906,7 +908,7 @@ function showItem() {
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
-    const lessonContent = document.getElementById('lesson-content');
+    const mathContainer = document.getElementById('math-container');
 
     answerButtons.forEach(btn => {
         btn.disabled = true;
@@ -924,7 +926,7 @@ function selectAnswer(selectedBtn, item) {
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
-        lessonContent.querySelector('#math-container').appendChild(explanationDiv);
+        mathContainer.appendChild(explanationDiv);
     }
 
     submitButton.style.display = 'inline-block';
