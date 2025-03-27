@@ -40,7 +40,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Text 1: 'Social media connects people.' <br/> Text 2: 'Social media isolates us.' How do the main ideas compare?",
+                question: "Text 1: 'Social media connects people.' <br/><br/> Text 2: 'Social media isolates us.' How do the main ideas compare?",
                 options: [
                     { text: "A) They conflict", correct: true },
                     { text: "B) They agree", correct: false },
@@ -66,7 +66,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Text 1: 'Exercise improves health.' Text 2: 'Exercise risks injury.' How do the arguments differ?",
+                question: "Text 1: 'Exercise improves health.' <br/><br/>Text 2: 'Exercise risks injury.' How do the arguments differ?",
                 options: [
                     { text: "A) Benefits vs. risks", correct: true },
                     { text: "B) Methods vs. results", correct: false },
@@ -92,7 +92,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Text 1: 'Voting shapes democracy.' Text 2: 'Voting is a waste of time.' How do the main ideas compare?",
+                question: "Text 1: 'Voting shapes democracy.'<br/><br/> Text 2: 'Voting is a waste of time.' How do the main ideas compare?",
                 options: [
                     { text: "A) They oppose each other", correct: true },
                     { text: "B) They support each other", correct: false },
@@ -118,7 +118,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Text 1: 'Cities foster innovation.' Text 2: 'Urban areas spark creativity.' How do the main ideas compare?",
+                question: "Text 1: 'Cities foster innovation.'<br/><br/> Text 2: 'Urban areas spark creativity.' How do the main ideas compare?",
                 options: [
                     { text: "A) They agree", correct: true },
                     { text: "B) They conflict", correct: false },
@@ -144,7 +144,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Text 1: 'Sleep aids memory, per research.' Text 2: 'Sleep is overrated, I’m fine without.' How do the arguments differ?",
+                question: "Text 1: 'Sleep aids memory, per research.'<br/><br/> Text 2: 'Sleep is overrated, I’m fine without.' How do the arguments differ?",
                 options: [
                     { text: "A) Evidence vs. opinion", correct: true },
                     { text: "B) Benefits vs. risks", correct: false },
@@ -170,7 +170,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Text 1: 'Books enrich minds.' Text 2: 'Books educate but can bore.' How do the main ideas compare?",
+                question: "Text 1: 'Books enrich minds.'<br/><br/> Text 2: 'Books educate but can bore.' How do the main ideas compare?",
                 options: [
                     { text: "A) Partial agreement with a twist", correct: true },
                     { text: "B) Complete disagreement", correct: false },
@@ -196,7 +196,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Text 1: 'Phones aid communication.' Text 2: 'Phones disrupt real talk.' How do the arguments differ?",
+                question: "Text 1: 'Phones aid communication.'<br/><br/> Text 2: 'Phones disrupt real talk.' How do the arguments differ?",
                 options: [
                     { text: "A) Positive vs. negative impact", correct: true },
                     { text: "B) Cost vs. benefit", correct: false },
