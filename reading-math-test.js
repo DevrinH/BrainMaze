@@ -1,5 +1,5 @@
-const passageElement = document.getElementById("passage");  // Changed from questionElement
-const questionElement = document.getElementById("question"); // New element for question
+const passageElement = document.getElementById("passage");
+const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const continueButton = document.getElementById("continue-btn");
@@ -9,7 +9,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
 let selectedQuestions = [];
-let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+let categoryStats = {};
 let results = localStorage.getItem("testResults");
 results = results ? JSON.parse(results) : {};
 let refreshIntervalId;
@@ -128,7 +128,7 @@ function startReadingWritingTest() {
     time = 64 * 60;
     userResponses = []; // Reset userResponses only at the start of the full test
     refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endReadingWritingTest, 3840000); // 64 minutes in milliseconds
+    setTimeout(endReadingWritingTest, 3840000);
     startQuiz(readingWritingQuestions, 18, 18, 18);
 }
 
@@ -136,7 +136,7 @@ function startMathTest() {
     isMathTest = true;
     time = 44 * 60;
     refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endMathTest, 2640000); // 44 minutes in milliseconds
+    setTimeout(endMathTest, 2640000);
     startQuiz(mathQuestions, 14, 15, 15);
 }
 
@@ -161,10 +161,7 @@ function endReadingWritingTest() {
     clearInterval(refreshIntervalId);
     resetState();
     showScore();
-    document.getElementById("question-container").classList.add("hide");
-    document.getElementById("break-message").classList.remove("hide");
-    document.querySelector(".question-row").classList.remove("score-display");
-    nextButton.classList.remove("centered-btn"); // Reset button centering
+    // Remove the immediate break message display from here
 }
 
 function endMathTest() {
@@ -178,7 +175,6 @@ function startQuiz(questions, numEasy, numMedium, numHard) {
     score = 0;
     correctAnswers = 0;
     categoryStats = {};
-    // Removed userResponses = []; to preserve responses across sections
     selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
     nextButton.innerHTML = "Next";
     showQuestion();
@@ -204,8 +200,8 @@ function showQuestion() {
     resetState();
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    passageElement.innerHTML = currentQuestion.passage;  // Display passage
-    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;  // Display question
+    passageElement.innerHTML = currentQuestion.passage;
+    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -223,7 +219,7 @@ function showQuestion() {
 
 function resetState() {
     nextButton.style.display = "none";
-    nextButton.classList.remove("centered-btn"); // Reset centering class
+    nextButton.classList.remove("centered-btn");
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -242,7 +238,7 @@ function selectAnswer(e) {
 
     const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
     userResponses.push({
-        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,  // Combine for review
+        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
         userAnswer: selectedBtn.innerHTML,
         correctAnswer: correctAnswer,
         wasCorrect: isCorrect
@@ -292,19 +288,17 @@ function showScore() {
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-    // Ensure question-container is visible when showing the score
     document.getElementById("question-container").classList.remove("hide");
 
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
-        passageElement.innerHTML = "";  // Clear passage
+        passageElement.innerHTML = "";
         questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
         questionElement.classList.add("centered-score");
-        // Adjust the question-row to center content
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn"); // Add class for centering
+        nextButton.classList.add("centered-btn");
     } else {
         let readingScore = localStorage.getItem("readingScore") || 0;
         readingScore = parseInt(readingScore, 10);
@@ -318,23 +312,23 @@ function showScore() {
         scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
-        passageElement.innerHTML = "";  // Clear passage
+        passageElement.innerHTML = "";
         questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
                                     <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
                                     <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
         questionElement.classList.add("centered-score");
-        // Adjust the question-row to center content
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn"); // Add class for centering
+        nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }
 }
+
 function showExplanations() {
     resetState();
-    passageElement.innerHTML = "";  // Clear passage
+    passageElement.innerHTML = "";
     questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
 
     const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
@@ -444,7 +438,13 @@ function recordTestResults() {
 }
 
 nextButton.addEventListener("click", () => {
-    if (nextButton.innerHTML === "Continue") {
+    if (nextButton.innerHTML === "Continue" && !isMathTest) {
+        // Clear the score display
+        questionElement.innerHTML = "";
+        questionElement.classList.remove("centered-score");
+        document.querySelector(".question-row").classList.remove("score-display");
+        nextButton.classList.remove("centered-btn");
+        // Show the break message
         document.getElementById("break-message").classList.remove("hide");
         document.getElementById("question-container").classList.add("hide");
     } else {
@@ -455,6 +455,8 @@ nextButton.addEventListener("click", () => {
 continueButton.addEventListener("click", () => {
     document.getElementById("break-message").classList.add("hide");
     document.getElementById("question-container").classList.remove("hide");
+    passageElement.innerHTML = ""; // Clear passage for math section
+    questionElement.innerHTML = ""; // Clear question for math section
     startMathTest();
 });
 
