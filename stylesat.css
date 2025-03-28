@@ -1,101 +1,108 @@
+#question-container{
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  max-width: 900px; /* Prevents it from being too wide on large screens */
+}
+
 @font-face {
-  font-family: "Montserrat-SemiBold";
-  src: url(Montserrat-SemiBold.ttf);
+    font-family: "Montserrat-SemiBold";
+    src: url(Montserrat-SemiBold.ttf);
+ 
+   
+  }
+
+
+
+
+@font-face {
+  font-family: "Bungee";
+  src: url(Bungee-Regular.ttf);
+
 
  
 }
 
 
-
-
-@font-face {
-font-family: "Bungee";
-src: url(Bungee-Regular.ttf);
-
-
-
-}
-
-
-@font-face {
-  font-family: "Montserrat-ExtraBold";
-  src: url(Montserrat-ExtraBold.ttf);
-
+  @font-face {
+    font-family: "Montserrat-ExtraBold";
+    src: url(Montserrat-ExtraBold.ttf);
  
-}
+   
+  }
 body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(255, 255, 255);
-  overflow-x: hidden; /* Prevents scrolling */
-  position: relative; /* Ensures box-shadow is visible */
-}
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden; /* Prevents scrolling */
+    position: relative; /* Ensures box-shadow is visible */
+  }
 
 
 * {
-box-sizing: border-box; /* Ensures padding/margin do not cause overflow */
-margin: 0;
-padding: 0;
+  box-sizing: border-box; /* Ensures padding/margin do not cause overflow */
+  margin: 0;
+  padding: 0;
 }
 
 
 header {
-width: 100%;
-height: 80px;
-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.55);
-background-color: white;
-display: flex;
-align-items: center;
-padding: 0 20px;
-position: relative; /* Ensures stacking context */
-z-index: 10; /* Moves header above the image */
+  width: 100%;
+  height: 80px;
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.55);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: relative; /* Ensures stacking context */
+  z-index: 10; /* Moves header above the image */
 }
 
 
 .header-container {
-width: 100%;
-
-display: flex;
-justify-content: space-between; /* Pushes logo left, login right */
-align-items: center;
+  width: 100%;
+ 
+  display: flex;
+  justify-content: space-between; /* Pushes logo left, login right */
+  align-items: center;
 }
 
 
 .logo {
-height: 45px;
+  height: 45px;
 }
 
 
 .login-button {
-background-color: #007bff;
-color: white;
-border: none;
-padding: 10px 20px;
-font-size: 16px;
-border-radius: 5px;
-cursor: pointer;
-transition: background 0.3s ease;
-margin-left: auto; /* Ensures it sticks to the right */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-left: auto; /* Ensures it sticks to the right */
 }
 
 
 .login-button:hover {
-background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 
 .center-text-container {
-text-align: center; /* ✅ Centers text */
-margin: 15px 0; /* ✅ Adds spacing above and below */
-display: block; /* ✅ Ensure it is visible */
+  text-align: center; /* ✅ Centers text */
+  margin: 15px 0; /* ✅ Adds spacing above and below */
+  display: block; /* ✅ Ensure it is visible */
 }
 
 
 .center-text {
-font-size: 18px; /* ✅ Adjust size */
-font-weight: bold;
-color: black;
-display: block; /* ✅ Ensure it's visible */
+  font-size: 18px; /* ✅ Adjust size */
+  font-weight: bold;
+  color: black;
+  display: block; /* ✅ Ensure it's visible */
 }
 
 
@@ -104,32 +111,32 @@ display: block; /* ✅ Ensure it's visible */
 
 
 
-.image-container {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-
-/* Position the text over the image */
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  font-family: "Montserrat-SemiBold", sans-serif;
-  font-size: clamp(0.5rem, 4vw, 1.5rem); /* Responsive text size */
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px 20px;
-  border-radius: 10px;
-  width: 60%; /* Reduces textbox width */
-  max-width: 500px; /* Prevents excessive stretching */
-  min-width: 250px; /* Ensures it doesn't get too small */
-  box-sizing: border-box; /* Prevents padding from causing overflow */
-  overflow-wrap: break-word;
-  white-space: normal;
+  .image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+ 
+ 
+  /* Position the text over the image */
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: "Montserrat-SemiBold", sans-serif;
+    font-size: clamp(0.5rem, 4vw, 1.5rem); /* Responsive text size */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 60%; /* Reduces textbox width */
+    max-width: 500px; /* Prevents excessive stretching */
+    min-width: 250px; /* Ensures it doesn't get too small */
+    box-sizing: border-box; /* Prevents padding from causing overflow */
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 
@@ -143,9 +150,9 @@ padding: 30px;
 .subject{
 
 
-font-family: "Montserrat-SemiBold", sans-serif;
-align-items: left;
-color: #ffffff;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  align-items: left;
+  color: #ffffff;
 }
 .subject-dark{
 margin-bottom: 40px;
@@ -180,19 +187,19 @@ color:#1e0144
 }
 
 
-.try-it{
-  font-family: "Montserrat-SemiBold", sans-serif;
-  background-image: linear-gradient(#4568dc , #b06ab3);
-  border-radius: 12px;
-  height: 65px;
-  width: 200px;
-  color: #ffffff;
-  font-size: 20px;
+  .try-it{
+    font-family: "Montserrat-SemiBold", sans-serif;
+    background-image: linear-gradient(#4568dc , #b06ab3);
+    border-radius: 12px;
+    height: 65px;
+    width: 200px;
+    color: #ffffff;
+    font-size: 20px;
 
 
 
 
-}
+  }
 
 
 
@@ -200,52 +207,52 @@ color:#1e0144
 .left-container,
 .center-container,
 .right-container {
-  min-height: 500px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  flex: 1;
-  min-width: 300px;
-  max-width: 900px;
-  padding: 20px;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column; /* Ensures internal elements stack properly */
-  align-items: center; /* Centers content */
-  overflow: hidden; /* Prevents legends from escaping */
-  margin: 0 auto;
+    min-height: 500px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 900px;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Ensures internal elements stack properly */
+    align-items: center; /* Centers content */
+    overflow: hidden; /* Prevents legends from escaping */
+    margin: 0 auto;
 }
-
-/* Responsive design for stacking on smaller screens */
-@media (max-width: 900px) {
-  .flex-container {
-    flex-direction: column;
-    align-items: center; /* Centers stacked items */
+ 
+  /* Responsive design for stacking on smaller screens */
+  @media (max-width: 900px) {
+    .flex-container {
+      flex-direction: column;
+      align-items: center; /* Centers stacked items */
+    }
+ 
+    .left-container,
+    .center-container,
+    .right-container {
+      width: 90%; /* Expands to fit the screen */
+      max-width: 500px; /* Prevents excessive stretching */
+    }
   }
-
-  .left-container,
-  .center-container,
-  .right-container {
-    width: 90%; /* Expands to fit the screen */
-    max-width: 500px; /* Prevents excessive stretching */
-  }
-}
 
 
 .button-container {
 
 
-  display: flex;
+    display: flex;
 
 
-  gap: 15px;
+    gap: 15px;
 
 
-  justify-content: center;
+    justify-content: center;
 
 
-  padding: 20px;
- 
+    padding: 20px;
+   
 
 
 }
@@ -262,34 +269,34 @@ column-gap: 15px;
 .exam-button {
 
 
-  background: white;
+    background: white;
 
 
-  border: 2px solid #ddd;
+    border: 2px solid #ddd;
 
 
-  color: #333;
+    color: #333;
 
 
-  font-size: 18px;
+    font-size: 18px;
 
 
-  font-weight: bold;
+    font-weight: bold;
 
 
-  padding: 12px 24px;
+    padding: 12px 24px;
 
 
-  border-radius: 12px;
+    border-radius: 12px;
 
 
-  cursor: pointer;
+    cursor: pointer;
 
 
-  transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
 
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 
 
 }
@@ -323,16 +330,16 @@ font-family: "Montserrat-SemiBold", sans-serif;
 .exam-button:hover {
 
 
-  background: linear-gradient(135deg, #a2d2ff, #ffe5ec);
+    background: linear-gradient(135deg, #a2d2ff, #ffe5ec);
 
 
-  border-color: #888;
+    border-color: #888;
 
 
-  color: black;
+    color: black;
 
 
-  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
 
 
 }
@@ -348,19 +355,19 @@ font-family: "Montserrat-SemiBold", sans-serif;
 @media screen and (min-width: 1024px) {
 
 
-  .exam-button {
+    .exam-button {
 
 
-      font-size: 22px;  /* Increase font size */
+        font-size: 22px;  /* Increase font size */
 
 
-      padding: 16px 32px; /* Increase button size */
+        padding: 16px 32px; /* Increase button size */
 
 
-      border-radius: 16px; /* More rounded corners */
+        border-radius: 16px; /* More rounded corners */
 
 
-  }
+    }
 
 
 }
@@ -376,28 +383,28 @@ font-family: "Montserrat-SemiBold", sans-serif;
 @media screen and (min-width: 1440px) {
 
 
-  .exam-button {
+    .exam-button {
 
 
-      font-size: 26px;
+        font-size: 26px;
 
 
-      padding: 20px 40px;
+        padding: 20px 40px;
 
 
-      border-radius: 20px;
+        border-radius: 20px;
 
 
+    }
+
+
+    .subject {
+      width: 200px; /* Same as .bar-label width */
+      text-align: right; /* Align text like bar labels */
+      padding-right: 10px; /* Match padding */
+      font-family: "Montserrat-SemiBold", sans-serif;
+      color: #ffffff;
   }
-
-
-  .subject {
-    width: 200px; /* Same as .bar-label width */
-    text-align: right; /* Align text like bar labels */
-    padding-right: 10px; /* Match padding */
-    font-family: "Montserrat-SemiBold", sans-serif;
-    color: #ffffff;
-}
 
 
 
@@ -411,47 +418,47 @@ box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rg
 margin: auto;
 }
 .chart-container {
-width: 97%;
-max-width: 1200px;
-margin: 20px auto;
-display: flex;
-flex-direction: column;
+  width: 97%;
+  max-width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
 }
 .bar {
-display: flex;
-align-items: center;
-margin: 8px 0;
-width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  width: 100%;
 }
 .bar-label {
-width: 200px;
-text-align: right;
-padding-right: 10px;
-font-family: "Montserrat-SemiBold", sans-serif;
-color: white;
-white-space: nowrap;
+  width: 200px;
+  text-align: right;
+  padding-right: 10px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  color: white;
+  white-space: nowrap;
 }
 .bar-container {
-flex-grow: 1;
-display: flex;
-align-items: center;
-overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 .bar-value {
-height: 30px;
-line-height: 20px;
-padding-left: 5px;
-text-align: left;
-color: white;
-font-family: "Montserrat-SemiBold", sans-serif;
-display: flex;
-align-items: center;
-justify-content: flex-start;
-min-width: 50px;
-width: 0;
-transition: width 5s linear;
-border-radius: 10px;
-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
+  height: 30px;
+  line-height: 20px;
+  padding-left: 5px;
+  text-align: left;
+  color: white;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 50px;
+  width: 0;
+  transition: width 5s linear;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
 }
 
 
@@ -462,77 +469,77 @@ box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds shadow effect */
 
 /* Center the donut chart */
 .donut-chart-container {
-position: relative;
-width: 300px;
-height: 300px;
-margin: 0 auto; /* Centers the chart horizontally */
-display: flex;
-justify-content: center;
-align-items: center;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto; /* Centers the chart horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
 /* Add shadow to the donut chart */
 .donut-chart-container {
-position: relative;
-width: 300px;
-height: 300px;
-margin: 0 auto;
-display: flex;
-justify-content: center;
-align-items: center;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
 /* Center the score text */
 .center-text {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-font-size: 28px;
-font-weight: bold;
-font-family: "Montserrat-SemiBold", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  font-weight: bold;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 
 
 /* Position legend below the chart */
 /* Ensures legends stay inside the flex boxes */
 .donut-legend {
-display: flex;
-flex-wrap: wrap; /* Ensures legends don't overflow */
-justify-content: center; /* Centers legends */
-align-items: center;
-max-width: 100%; /* Prevents overflow */
-gap: 10px;
-margin-top: 15px;
-padding: 10px;
+  display: flex;
+  flex-wrap: wrap; /* Ensures legends don't overflow */
+  justify-content: center; /* Centers legends */
+  align-items: center;
+  max-width: 100%; /* Prevents overflow */
+  gap: 10px;
+  margin-top: 15px;
+  padding: 10px;
 }
 
 
 .legend-item {
-display: flex;
-align-items: center;
-gap: 8px;
-white-space: nowrap; /* Prevents text from wrapping */
-font-family: "Montserrat-SemiBold", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap; /* Prevents text from wrapping */
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 
 
 .legend-color {
-width: 15px;
-height: 15px;
-border-radius: 50%;
-display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 
 .exam{
-align-items: center;
-text-align: center;
-font-size: 24px;
-font-family: "Montserrat-SemiBold", sans-serif;
-margin-top: 4px;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  margin-top: 4px;
 
 
 }
@@ -540,29 +547,29 @@ margin-top: 4px;
 
 /* Apply gradient colors */
 .math-gradient {
-background: linear-gradient(45deg, #3498db, #1f77d0);
+  background: linear-gradient(45deg, #3498db, #1f77d0);
 }
 .reading-gradient {
-background: linear-gradient(45deg, #2ecc71, #23a859);
+  background: linear-gradient(45deg, #2ecc71, #23a859);
 }
 .unfilled-gradient {
-background: linear-gradient(45deg, #d3d3d3, #bfbfbf);
+  background: linear-gradient(45deg, #d3d3d3, #bfbfbf);
 }
 .science-gradient { background: linear-gradient(to bottom, #f39c12, #e67e22); }
 .social-gradient { background: linear-gradient(to bottom, #9b59b6, #8e44ad); }
 .english-gradient {
-background: linear-gradient(to bottom, #9b59b6, #8e44ad); /* Example: purple shades */
+  background: linear-gradient(to bottom, #9b59b6, #8e44ad); /* Example: purple shades */
 }
 
 
 /* SAT & GED Specific Colors */
 .sat-chart canvas {
-filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
 }
 
 
 .ged-chart canvas {
-filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
 }
 
 
@@ -575,18 +582,18 @@ filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
 
 
 footer {
-width: 100%;
-text-align: center;
-background-image: linear-gradient(#4b1c81, #c890fd);
-color: white;
-padding: 15px 0;
-position: relative; /* Ensures it stays in flow */
-bottom: 0;
-left: 0;
-margin-top: 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
+  width: 100%;
+  text-align: center;
+  background-image: linear-gradient(#4b1c81, #c890fd);
+  color: white;
+  padding: 15px 0;
+  position: relative; /* Ensures it stays in flow */
+  bottom: 0;
+  left: 0;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -595,10 +602,10 @@ align-items: center;
 h3 {
 
 
-font-size: 14px;
-font-family: "Montserrat-SemiBold", sans-serif;
-text-align: center;
-color: #ffffff;
+  font-size: 14px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  text-align: center;
+  color: #ffffff;
 
 
 }
@@ -609,229 +616,229 @@ color: #ffffff;
 
 
 .video-container {
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100%;
-margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px auto;
 }
 
 
 .video-container video {
-width: 90%;
-max-width: 1040px;
-height: auto;
-display: block;
-border-radius: 12px;
+  width: 90%;
+  max-width: 1040px;
+  height: auto;
+  display: block;
+  border-radius: 12px;
 }
 .img-container {
-display: flex;
-justify-content: center; /* Horizontally center */
-align-items: center; /* Vertically center (if parent has height) */
-text-align: center; /* For inline elements */
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center (if parent has height) */
+  text-align: center; /* For inline elements */
 }
 
 
 .img {
-display: block; /* Removes extra spacing below the image */
-margin: 0 auto; /* Centers inside a block */
+  display: block; /* Removes extra spacing below the image */
+  margin: 0 auto; /* Centers inside a block */
 }
 
 
 .social-container {
-display: flex;
-column-gap: 10px; /* Adjust the spacing between images */
-align-items: center; /* Align images vertically */
-justify-content: center;
+  display: flex;
+  column-gap: 10px; /* Adjust the spacing between images */
+  align-items: center; /* Align images vertically */
+  justify-content: center;
 }
 #scoreChart {
-width: 100% !important;
-min-height: 400px !important; /* Set a minimum height */
-max-height: 500px;
+  width: 100% !important;
+  min-height: 400px !important; /* Set a minimum height */
+  max-height: 500px;
 }
 
 
 .container{
-display: flex;
-column-gap: 15px;
-margin-left: 5%;
-margin-bottom: 12px;
-flex-direction: column;
-}
-.seccontainer{
   display: flex;
   column-gap: 15px;
- width: 98%;
+  margin-left: 5%;
   margin-bottom: 12px;
- 
+  flex-direction: column;
   }
-
-
-.satdesc{
-  font-size: 14px;
-  font-style: "Montserrat-ExtraBold";
-  height: max-content;
-  color: #000000;
-  margin-top: 8px;
-  margin-bottom: 6px;
-  }
-.pbungee{
-    font-family: "Montserrat-ExtraBold";
-    font-size: 13px;
+  .seccontainer{
+    display: flex;
+    column-gap: 15px;
+   width: 98%;
+    margin-bottom: 12px;
    
     }
-.title{
-  font-family: "Montserrat-ExtraBold";
-  text-align: center;
 
 
-}
-.chart-container-bar {
-  width: 60%; /* Only half of the screen width */
-  max-width: 600px;
-  height: 60px; /* Thinner bar */
-  margin: auto;
-  border-radius: 12px;
-  margin-top: -20px;
- 
+  .satdesc{
+    font-size: 14px;
+    font-style: "Montserrat-ExtraBold";
+    height: max-content;
+    color: #000000;
+    margin-top: 8px;
+    margin-bottom: 6px;
+    }
+ .pbungee{
+      font-family: "Montserrat-ExtraBold";
+      font-size: 13px;
+     
+      }
+  .title{
+    font-family: "Montserrat-ExtraBold";
+    text-align: center;
+
+
+  }
+  .chart-container-bar {
+    width: 60%; /* Only half of the screen width */
+    max-width: 600px;
+    height: 60px; /* Thinner bar */
+    margin: auto;
+    border-radius: 12px;
+    margin-top: -20px;
+   
 }
 
 
 .title-small{
-font-family: "Montserrat-SemiBold";
-text-align: center;
-font-size: 16px;
+  font-family: "Montserrat-SemiBold";
+  text-align: center;
+  font-size: 16px;
 
 
 }
 
 
 .line-chart-container {
-min-height: 500px;
-background-color: rgb(252, 252, 252);
-border-radius: 12px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-flex: 1;
-min-width: 300px;
-margin: 15px auto 0 auto; /* Adds margin to the top while keeping it centered */
-padding: 5px;
-transition: all 0.3s ease-in-out;
-display: flex;
-flex-direction: column; /* Ensures internal elements stack properly */
-align-items: center; /* Centers content */
-overflow: hidden; /* Prevents legends from escaping */
-max-width: 1200px; /* Ensures it doesn't stretch too wide */
+  min-height: 500px;
+  background-color: rgb(252, 252, 252);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex: 1;
+  min-width: 300px;
+  margin: 15px auto 0 auto; /* Adds margin to the top while keeping it centered */
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Ensures internal elements stack properly */
+  align-items: center; /* Centers content */
+  overflow: hidden; /* Prevents legends from escaping */
+  max-width: 1200px; /* Ensures it doesn't stretch too wide */
 }
 
 
 .align-center{
-display: flex;
-justify-content: center; /* Centers horizontally */
-column-gap: 15px;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  column-gap: 15px;
 }
 
 
 .left-align{
-text-align: left;
-margin-left: left;
+  text-align: left;
+  margin-left: left;
 }
 .last-score-container {
-text-align: center;
-font-family: "Montserrat-SemiBold", sans-serif;
-font-size: 12px;
-color: #1e0144; /* Matches your heading color */
-margin-bottom: 16px; /* Space between text and bar chart */
+  text-align: center;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 12px;
+  color: #1e0144; /* Matches your heading color */
+  margin-bottom: 16px; /* Space between text and bar chart */
 }
 
 
 .last-score-text {
-font-size: 16px;
-font-weight: bold;
-margin-bottom: 10px; /* Space between text and bar chart */
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Space between text and bar chart */
 }
 .progress-title {
-text-align: left;
-width: 100%;
-font-family: "Montserrat-SemiBold", sans-serif;
-font-size: 24px;
-margin-bottom: 10px; /* Adjust spacing */
-padding-left: 10px; /* Moves it slightly from the edge */
+  text-align: left;
+  width: 100%;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px; /* Adjust spacing */
+  padding-left: 10px; /* Moves it slightly from the edge */
 }
 .chart-container h2 {
-text-align: left;
-width: 100%;
-margin-left: 10px; /* Adjust spacing */
+  text-align: left;
+  width: 100%;
+  margin-left: 10px; /* Adjust spacing */
 }
 
 
 .progress-item {
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .progress-label {
-font-weight: bold;
-margin-bottom: 5px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-font-family: "Montserrat-SemiBold", sans-serif;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 .progress-bar {
-width: 100%;
-background: #e0e0e0;
-border-radius: 5px;
-overflow: hidden;
-height: 15px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 100%;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .progress-fill {
-height: 100%;
-width: 0;
-transition: width 0.5s ease-in-out;
-background: linear-gradient(to right,#8d1fe7, #05cca1 );
+  height: 100%;
+  width: 0;
+  transition: width 0.5s ease-in-out;
+  background: linear-gradient(to right,#8d1fe7, #05cca1 );
 }
 .progress-percentage {
-font-size: 14px;
-margin-top: 5px;
-font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 14px;
+  margin-top: 5px;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 .arrow {
-font-size: 20px;
-font-weight: bold;
-margin-left: 5px;
-font-family: "Bungee", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 5px;
+  font-family: "Bungee", sans-serif;
 }
 .up {
-color: green;
+  color: green;
 }
 .down {
-color: red;
+  color: red;
 }
 .flex-container {
-display: flex;
-justify-content: center; /* Centers the elements */
-align-items: flex-start;
-gap: 20px;
-width: 100%;
-padding: 20px;
-box-sizing: border-box;
-flex-wrap: wrap; /* Ensures wrapping on smaller screens */
-margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Centers the elements */
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+  margin: 0 auto;
 }
 
 
 .app{
-flex: 1;
-align-items: center;
-min-width: 48%;
-max-width: 600px;
-background-color: rgb(255, 255, 255);
-border-radius: 12px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-padding: 20px;
-margin: 0 auto; /* Centers the elements when in column mode */
-margin-top: 30px;
-display: block;
-overflow: hidden; /* Ensures content stays within the container */
+  flex: 1;
+  align-items: center;
+  min-width: 48%;
+  max-width: 600px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  margin: 0 auto; /* Centers the elements when in column mode */
+  margin-top: 30px;
+  display: block;
+  overflow: hidden; /* Ensures content stays within the container */
 
 
 
@@ -851,26 +858,26 @@ margin-bottom: 7px;
 
 
 .testlessonscontainer, .progress-container {
-flex: 1;
-min-width: 48%;
-max-width: 900px;
-background-color: rgb(255, 255, 255);
-border-radius: 12px;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-padding: 20px;
-margin: 0 auto; /* Centers the elements when in column mode */
-display: block;
-overflow: hidden; /* Ensures content stays within the container */
+  flex: 1;
+  min-width: 48%;
+  max-width: 900px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  margin: 0 auto; /* Centers the elements when in column mode */
+  display: block;
+  overflow: hidden; /* Ensures content stays within the container */
 }
 .progress-container, h2{
 
 
-font-family: "Montserrat-SemiBold", sans-serif;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 .testlessoncontainer, h2{
 
 
-font-family: "Montserrat-SemiBold", sans-serif;
+  font-family: "Montserrat-SemiBold", sans-serif;
 }
 
 
@@ -878,51 +885,51 @@ font-family: "Montserrat-SemiBold", sans-serif;
 
 /* CSS */
 .button-29 {
-align-items: center;
-appearance: none;
-background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
-border: 0;
-border-radius: 6px;
-box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-box-sizing: border-box;
-color: #fff;
-cursor: pointer;
-display: inline-flex;
-font-family: "Montserrat-SemiBold", sans-serif;
-height: 48px;
-justify-content: center;
-line-height: 1;
-list-style: none;
-overflow: hidden;
-padding-left: 14px;
-padding-right: 14px;
-position: relative;
-text-align: left;
-text-decoration: none;
-transition: box-shadow .15s,transform .15s;
-user-select: none;
--webkit-user-select: none;
-touch-action: manipulation;
-white-space: nowrap;
-will-change: box-shadow,transform;
-font-size: 18px;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 14px;
+  padding-right: 14px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
 }
 
 
 .button-29:focus {
-box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 }
 
 
 .button-29:hover {
-box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-transform: translateY(-2px);
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
 
 
 .button-29:active {
-box-shadow: #3c4fe0 0 3px 7px inset;
-transform: translateY(2px);
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 
@@ -933,56 +940,56 @@ transform: translateY(2px);
 
 /* CSS */
 .button-30 {
-align-items: center;
-appearance: none;
-background-color: #fdfcfd;
-border-radius: 4px;
-border-width: 0;
-box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
-box-sizing: border-box;
-color: #36395A;
-cursor: pointer;
-display: inline-flex;
-font-family: "Montserrat-SemiBold", sans-serif;
-height: 48px;
-justify-content: center;
-line-height: 1;
-list-style: none;
-overflow: hidden;
-padding-left: 16px;
-padding-right: 16px;
-position: relative;
-text-align: left;
-text-decoration: none;
-transition: box-shadow .15s,transform .15s;
-user-select: none;
--webkit-user-select: none;
-touch-action: manipulation;
-white-space: nowrap;
-will-change: box-shadow,transform;
-font-size: 18px;
+  align-items: center;
+  appearance: none;
+  background-color: #fdfcfd;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
 }
 
 
 .button-30:focus {
-box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
 
 .button-30:hover {
-box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-transform: translateY(-2px);
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
 
 
 .button-30:active {
-box-shadow: #D6D6E7 0 3px 7px inset;
-transform: translateY(2px);
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 
 .hidden {
-display: none !important;
+  display: none !important;
 }
 
 
@@ -991,31 +998,31 @@ display: none !important;
 #progress-container {
 
 
-width: 90%;
+  width: 90%;
 
 
-max-width: 800px;
+  max-width: 800px;
 
 
-height: 30px;
+  height: 30px;
 
 
-background-color: #e0e0e0;
+  background-color: #e0e0e0;
 
 
-border-radius: 10px;
+  border-radius: 10px;
 
 
-margin: 50px auto 5px; /* Adjusted margin */
+  margin: 50px auto 5px; /* Adjusted margin */
 
 
-overflow: hidden;
+  overflow: hidden;
 
 
-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Fix shadow */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Fix shadow */
 
 
-border: 1px solid #e7e7e7; /* Border fix */
+  border: 1px solid #e7e7e7; /* Border fix */
 
 
 }
@@ -1028,56 +1035,56 @@ border: 1px solid #e7e7e7; /* Border fix */
 #progress-bar {
 
 
-height: 100%;
+  height: 100%;
 
 
-width: 0%; /* Default width */
+  width: 0%; /* Default width */
 
 
-background-color: #e5ff52;
-background-image: linear-gradient(#ffd51d, #ff42e6);
+  background-color: #e5ff52;
+  background-image: linear-gradient(#ffd51d, #ff42e6);
 
 
-transition: width 0.9s ease-in-out;
+  transition: width 0.9s ease-in-out;
 
 
-
+ 
 
 
 }
 
 
 #next-item {
-align-items: center;
-margin: auto;
-margin-top: 15px;
-appearance: none;
-background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
-border: 0;
-border-radius: 6px;
-box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-box-sizing: border-box;
-color: #fff;
-cursor: pointer;
-display: block;
-font-family: "Montserrat-SemiBold", sans-serif;
-height: 48px;
-justify-content: center;
-line-height: 1;
-list-style: none;
-overflow: hidden;
-padding-left: 14px;
-padding-right: 14px;
-position: relative;
-text-align: center;
-text-decoration: none;
-transition: box-shadow .15s,transform .15s;
-user-select: none;
--webkit-user-select: none;
-touch-action: manipulation;
-white-space: nowrap;
-will-change: box-shadow,transform;
-font-size: 18px;
+  align-items: center;
+  margin: auto;
+  margin-top: 15px;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 14px;
+  padding-right: 14px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
 }
 
 
@@ -1086,70 +1093,70 @@ font-size: 18px;
 
 
 .submit-answer {
-align-items: center;
-margin: auto;
-margin-top: 15px;
-appearance: none;
-background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
-border: 0;
-border-radius: 6px;
-box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-box-sizing: border-box;
-color: #fff;
-cursor: pointer;
-display: block;
-font-family: "Montserrat-SemiBold", sans-serif;
-height: 48px;
-justify-content: center;
-line-height: 1;
-list-style: none;
-overflow: hidden;
-padding-left: 14px;
-padding-right: 14px;
-position: relative;
-text-align: center;
-text-decoration: none;
-transition: box-shadow .15s,transform .15s;
-user-select: none;
--webkit-user-select: none;
-touch-action: manipulation;
-white-space: nowrap;
-will-change: box-shadow,transform;
-font-size: 18px;
+  align-items: center;
+  margin: auto;
+  margin-top: 15px;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 14px;
+  padding-right: 14px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
 }
 
 
 #start-lesson {
-align-items: center;
-margin: auto;
-margin-top: 15px;
-appearance: none;
-background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
-border: 0;
-border-radius: 6px;
-box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-box-sizing: border-box;
-color: #fff;
-cursor: pointer;
-display: block;
-font-family: "Montserrat-SemiBold", sans-serif;
-height: 48px;
-justify-content: center;
-line-height: 1;
-list-style: none;
-overflow: hidden;
-padding-left: 14px;
-padding-right: 14px;
-position: relative;
-text-align: center;
-text-decoration: none;
-transition: box-shadow .15s,transform .15s;
-user-select: none;
--webkit-user-select: none;
-touch-action: manipulation;
-white-space: nowrap;
-will-change: box-shadow,transform;
-font-size: 18px;
+  align-items: center;
+  margin: auto;
+  margin-top: 15px;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 14px;
+  padding-right: 14px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
 
 
 
@@ -1162,7 +1169,7 @@ font-size: 18px;
 
 
 .app, h1, h2 {
-margin-bottom: 15px;  
+  margin-bottom: 15px;  
 
 
 }
@@ -1172,273 +1179,272 @@ margin-bottom: 15px;
 
 
 
-      /* CSS moved inline for this example */
-      #lesson-content p {
-          margin-bottom: 20px;
+        /* CSS moved inline for this example */
+        #lesson-content p {
+            margin-bottom: 20px;
+        }
+
+
+        .hide {
+            display: none;
+        }
+
+
+        .btn {
+          padding: 10px 15px;
+          margin: 5px 0;
+          color: #36395A;
+          border: none;
+          border-radius: 4px;
+          width: 100%;
+          text-align: left;
+          font-family: "Montserrat-SemiBold", sans-serif;
+          font-size: 15px;
+          cursor: pointer;
+          transition: background-color 0.3s, box-shadow 0.15s, transform 0.15s;
+          appearance: none;
+          background-color: #FCFCFD;
+          box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+          justify-content: center;
+          line-height: 1.4; /* Increased for better readability */
+          list-style: none;
+          text-decoration: none;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          white-space: normal; /* Changed from nowrap to allow text wrapping */
+          word-wrap: break-word; /* Ensures long words break if needed */
+          overflow: visible; /* Changed from hidden to allow text to expand */
+          min-height: 40px; /* Ensures buttons have enough height for text */
+      }
+     
+      .btn:focus {
+          box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+      }
+     
+      .btn:hover {
+          box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+          transform: translateY(-2px);
+      }
+     
+      .btn:active {
+          box-shadow: #D6D6E7 0 3px 7px inset;
+          transform: translateY(2px);
+      }
+     
+      .btn.correct {
+          background-color: #28a745;
+          color: white; /* Ensure text is readable on green background */
+      }
+     
+      .btn.incorrect {
+          background-color: #dc3545;
+          color: white; /* Ensure text is readable on red background */
       }
 
 
-      .hide {
-          display: none;
+        #countdown {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            font-family: "Montserrat-SemiBold", sans-serif;
+        }
+
+
+       
+
+
+        .explanation {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px auto;
+            border-radius: 5px;
+            max-width: 900px;
+            font-family: "Montserrat-SemiBold", sans-serif;
+        }
+
+
+        .explanation h3 {
+            margin-top: 0;
+        }
+
+
+        .question-row {
+            display: flex;
+            justify-content: space-between;
+            max-width: 900px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+            padding: 20px;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+
+
+        .passage-text {
+            width: 45%; /* Reduced from 50% to give more room to answers */
+            padding-right: 15px;
+            font-family: "Montserrat-SemiBold", sans-serif;
+            font-size: 1em;
+            line-height: 1.5;
+            max-height: 400px; /* Limits passage height */
+            overflow-y: auto; /* Adds scrollbar if passage is too long */
+        }
+
+
+        .right-column {
+            width: 55%; /* Increased from 50% to balance layout */
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .question-text {
+            margin-bottom: 15px;
+            font-family: "Montserrat-SemiBold", sans-serif;
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+
+
+        .answer-choices {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+
+
+
+        #break-message {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+
+
+        #break-message p {
+            font-family: "Montserrat-SemiBold", sans-serif;
+            font-size: 1.2em;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .question-row {
+                flex-direction: column;
+                margin: 20px auto;
+                padding: 15px;
+            }
+
+
+            .passage-text, .right-column {
+                width: 100%;
+                padding: 0;
+            }
+
+
+            .passage-text {
+                margin-bottom: 20px;
+                max-height: 300px;
+            }
+
+
+        }
+        #progress-bar-test {
+          width: 90%;
+          max-width: 900px;
+          height: 30px;
+          background-color: #e0e0e0;
+          border-radius: 10px;
+          margin: 20px auto;
+          overflow: hidden;
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          border: 1px solid #e7e7e7;
       }
 
 
-      .btn {
-        padding: 10px 15px;
-        margin: 5px 0;
-        color: #36395A;
-        border: none;
-        border-radius: 4px;
-        width: 100%;
-        text-align: left;
-        font-family: "Montserrat-SemiBold", sans-serif;
-        font-size: 15px;
-        cursor: pointer;
-        transition: background-color 0.3s, box-shadow 0.15s, transform 0.15s;
+      #progress-bar-test > div {
+          height: 100%;
+          background-image: linear-gradient(#ffd51d, #ff42e6);
+          width: 0;
+          transition: width 0.9s ease-in-out;
+      }
+
+
+
+
+   
+      #next-btn {
+        align-items: center;
+        margin: 15px auto;
         appearance: none;
-        background-color: #FCFCFD;
-        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+        background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
+        border: 0;
+        border-radius: 6px;
+        box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-family: "Montserrat-SemiBold", sans-serif;
+        font-size: 24px; /* Reduced from 16px to fit better */
+        height: 57px;
         justify-content: center;
-        line-height: 1.4; /* Increased for better readability */
+        line-height: 1.2;
         list-style: none;
+        overflow: visible; /* Changed from hidden to prevent cutoff */
+        padding: 0 18px; /* Increased from 16px to give more space */
+        position: relative;
+        text-align: center;
         text-decoration: none;
+        transition: box-shadow .15s, transform .15s;
         user-select: none;
         -webkit-user-select: none;
         touch-action: manipulation;
-        white-space: normal; /* Changed from nowrap to allow text wrapping */
-        word-wrap: break-word; /* Ensures long words break if needed */
-        overflow: visible; /* Changed from hidden to allow text to expand */
-        min-height: 40px; /* Ensures buttons have enough height for text */
+        white-space: nowrap;
+        width: auto;
+        min-width: 0;
+        max-width: 300px; /* Increased from 220px to accommodate full text */
     }
    
-    .btn:focus {
-        box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    }
-   
-    .btn:hover {
-        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    #next-btn:hover {
+        box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
         transform: translateY(-2px);
     }
    
-    .btn:active {
-        box-shadow: #D6D6E7 0 3px 7px inset;
+    #next-btn:active {
+        box-shadow: rgba(58, 65, 111, .5) 0 3px 7px inset;
         transform: translateY(2px);
     }
    
-    .btn.correct {
-        background-color: #28a745;
-        color: white; /* Ensure text is readable on green background */
+    .centered-btn {
+        margin: 15px auto;
+        display: block;
+        padding: 0 18px; /* Match #next-btn */
+        width: auto;
+        font-size: 15px; /* Match #next-btn */
+        height: 40px;
+        max-width: 250px; /* Match #next-btn */
     }
    
-    .btn.incorrect {
-        background-color: #dc3545;
-        color: white; /* Ensure text is readable on red background */
+    /* Ensure consistency with score-display */
+    .score-display {
+        display: block;
+        text-align: center;
+        padding: 20px;
     }
-
-
-      #countdown {
-          text-align: center;
-          font-size: 1.5em;
-          margin: 20px 0;
-          font-family: "Montserrat-SemiBold", sans-serif;
-      }
-
-
-     
-
-
-      .explanation {
-          border: 1px solid #ccc;
-          padding: 15px;
-          margin: 10px auto;
-          border-radius: 5px;
-          max-width: 900px;
-          font-family: "Montserrat-SemiBold", sans-serif;
-      }
-
-
-      .explanation h3 {
-          margin-top: 0;
-      }
-
-
-      .question-row {
-          display: flex;
-          justify-content: space-between;
-          max-width: 900px;
-          background-color: #fff;
-          border-radius: 12px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
-          padding: 20px;
-          margin: 30px auto;
-          overflow: hidden;
-      }
-
-
-      .passage-text {
-          width: 45%; /* Reduced from 50% to give more room to answers */
-          padding-right: 15px;
-          font-family: "Montserrat-SemiBold", sans-serif;
-          font-size: 1em;
-          line-height: 1.5;
-          max-height: 400px; /* Limits passage height */
-          overflow-y: auto; /* Adds scrollbar if passage is too long */
-      }
-
-
-      .right-column {
-          width: 55%; /* Increased from 50% to balance layout */
-          display: flex;
-          flex-direction: column;
-      }
-
-
-      .question-text {
-          margin-bottom: 15px;
-          font-family: "Montserrat-SemiBold", sans-serif;
-          font-size: 1.1em;
-          line-height: 1.4;
-      }
-
-
-      .answer-choices {
-          display: flex;
-          flex-direction: column;
-      }
-
-
-
-
-
-
-      #break-message {
-          text-align: center;
-          margin: 20px auto;
-          max-width: 900px;
-      }
-
-
-      #break-message p {
-          font-family: "Montserrat-SemiBold", sans-serif;
-          font-size: 1.2em;
-      }
-
-
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-          .question-row {
-              flex-direction: column;
-              margin: 20px auto;
-              padding: 15px;
-          }
-
-
-          .passage-text, .right-column {
-              width: 100%;
-              padding: 0;
-          }
-
-
-          .passage-text {
-              margin-bottom: 20px;
-              max-height: 300px;
-          }
-
-
-      }
-      #progress-bar-test {
-        width: 90%;
-        max-width: 900px;
-        height: 30px;
-        background-color: #e0e0e0;
-        border-radius: 10px;
-        margin: 20px auto;
-        overflow: hidden;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        border: 1px solid #e7e7e7;
+   
+    .question-row.score-display .right-column {
+        width: 100%;
+        margin: 0 auto;
     }
-
-
-    #progress-bar-test > div {
-        height: 100%;
-        background-image: linear-gradient(#ffd51d, #ff42e6);
-        width: 0;
-        transition: width 0.9s ease-in-out;
+   
+    .question-row.score-display .passage-text {
+        display: none;
     }
-
-
-
-
- 
-    #next-btn {
-      align-items: center;
-      margin: 15px auto;
-      appearance: none;
-      background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
-      border: 0;
-      border-radius: 6px;
-      box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
-      box-sizing: border-box;
-      color: #fff;
-      cursor: pointer;
-      display: block;
-      font-family: "Montserrat-SemiBold", sans-serif;
-      font-size: 15px; /* Reduced from 16px to fit better */
-      height: 40px;
-      justify-content: center;
-      line-height: 1.2;
-      list-style: none;
-      overflow: visible; /* Changed from hidden to prevent cutoff */
-      padding: 0 18px; /* Increased from 16px to give more space */
-      position: relative;
-      text-align: center;
-      text-decoration: none;
-      transition: box-shadow .15s, transform .15s;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      white-space: nowrap;
-      width: auto;
-      min-width: 0;
-      max-width: 250px; /* Increased from 220px to accommodate full text */
-  }
- 
-  #next-btn:hover {
-      box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
-      transform: translateY(-2px);
-  }
- 
-  #next-btn:active {
-      box-shadow: rgba(58, 65, 111, .5) 0 3px 7px inset;
-      transform: translateY(2px);
-  }
- 
-  .centered-btn {
-      margin: 15px auto;
-      display: block;
-      padding: 0 18px; /* Match #next-btn */
-      width: auto;
-      font-size: 15px; /* Match #next-btn */
-      height: 40px;
-      max-width: 250px; /* Match #next-btn */
-  }
- 
-  /* Ensure consistency with score-display */
-  .score-display {
-      display: block;
-      text-align: center;
-      padding: 20px;
-  }
- 
-  .question-row.score-display .right-column {
-      width: 100%;
-      margin: 0 auto;
-  }
- 
-  .question-row.score-display .passage-text {
-      display: none;
-  }
-
 
     .continue-btn {
         align-items: center;
