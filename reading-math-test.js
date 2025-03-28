@@ -230,12 +230,14 @@ function showQuestion() {
 }
 
 function resetState() {
-    nextButton.style.display = "none";
-    nextButton.classList.remove("centered-btn"); // Reset centering class
+    console.log("Resetting state...");
+    nextButton.style.display = "none"; // Hide button initially
+    nextButton.classList.remove("centered-btn");
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
+
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
@@ -250,7 +252,7 @@ function selectAnswer(e) {
 
     const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
     userResponses.push({
-        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,  // Combine for review
+        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
         userAnswer: selectedBtn.innerHTML,
         correctAnswer: correctAnswer,
         wasCorrect: isCorrect
@@ -259,7 +261,6 @@ function selectAnswer(e) {
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-
         if (questionDifficulty === "easy") {
             score += 1;
         } else if (questionDifficulty === "medium") {
@@ -267,7 +268,6 @@ function selectAnswer(e) {
         } else if (questionDifficulty === "hard") {
             score += 3;
         }
-
         categoryStats[questionCategory].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
@@ -283,9 +283,14 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    nextButton.style.display = "block";
+    // Debug logging
+    console.log("Answer selected. Showing Next button...");
+    nextButton.style.display = "block"; // Should show the button
     nextButton.disabled = false;
+    console.log("Next button display:", nextButton.style.display); // Verify style
+    console.log("Next button disabled:", nextButton.disabled); // Verify enabled state
 }
+
 
 function showScore() {
     clearInterval(refreshIntervalId);
