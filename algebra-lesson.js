@@ -812,6 +812,7 @@ const quadraticQuestions = [
 // Define additional quiz arrays for lessons 4-10 similarly...
 
 // algebra-lesson.js
+// algebra-lesson.js
 let categoryStats = {
     "algebra": { correct: 0, incorrect: 0 }
 };
@@ -838,8 +839,10 @@ function updateProgressBar(step) {
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
+    const appContainer = document.querySelector('.app');
+    if (startLessonButton && appContainer) {
         startLessonButton.style.display = 'none';
+        appContainer.style.display = 'block'; // Show the app container
         currentItemIndex = 0;
         isQuizPhase = false;
         totalSteps = lessons[currentLesson].content.length + 1;
@@ -848,7 +851,7 @@ function startLesson() {
         progressSteps = 1;
         updateProgressBar(progressSteps);
     } else {
-        console.error("Start lesson button not found!");
+        console.error("Start lesson button or app container not found!");
     }
 }
 
@@ -1023,7 +1026,7 @@ function showFinalScore() {
 
     const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = '';
+    lessonContent.innerHTML = ''; // Clear lesson content
     finalScoreElement.classList.remove('hide');
     finalScoreElement.innerHTML = `
         <h2>Final Score</h2>
@@ -1071,26 +1074,6 @@ function saveScore(lessonId, score) {
     console.log(`Saved algebra-lessonScore-${lessonId}: ${score}`);
 }
 
-function getScore(lessonId) {
-    return localStorage.getItem(`algebra-lessonScore-${lessonId}`) || "Not completed yet";
-}
-
-function showScore() {
-    const finalScoreElement = document.getElementById('final-score');
-    if (finalScoreElement) {
-        const score = getScore(currentLesson);
-        if (score !== "Not completed yet") {
-            finalScoreElement.innerHTML = `
-                <h2>Previous Score</h2>
-                <p>Your previous score for this lesson: ${score}</p>
-            `;
-            finalScoreElement.classList.remove('hide');
-        } else {
-            finalScoreElement.classList.add('hide');
-        }
-    }
-}
-
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Page loaded, initializing lesson:", currentLesson);
@@ -1105,6 +1088,4 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.error("Start lesson button not found on page load!");
     }
-
-    showScore();
 });
