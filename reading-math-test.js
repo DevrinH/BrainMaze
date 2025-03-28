@@ -1,10 +1,9 @@
-cpassageElement = document.getElementById("passage");  // Changed from questionElement
+const passageElement = document.getElementById("passage");  // Changed from questionElement
 const questionElement = document.getElementById("question"); // New element for question
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const continueButton = document.getElementById("continue-btn");
 const countdownEl = document.getElementById('countdown');
-
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -16,8 +15,7 @@ results = results ? JSON.parse(results) : {};
 let refreshIntervalId;
 let isMathTest = false;
 let time;
-let userResponses = []; //onst  Stores { question, userAnswer, correctAnswer, wasCorrect }
-
+let userResponses = []; // Stores { question, userAnswer, correctAnswer, wasCorrect }
 
 const readingWritingQuestions = [
     {
@@ -74,7 +72,6 @@ const readingWritingQuestions = [
     },
 ];
 
-
 const mathQuestions = [
     {
         passage: "", // Empty passage for math questions
@@ -126,7 +123,6 @@ const mathQuestions = [
     },
 ];
 
-
 function startReadingWritingTest() {
     isMathTest = false;
     time = 64 * 60;
@@ -136,7 +132,6 @@ function startReadingWritingTest() {
     startQuiz(readingWritingQuestions, 18, 18, 18);
 }
 
-
 function startMathTest() {
     isMathTest = true;
     time = 44 * 60;
@@ -144,7 +139,6 @@ function startMathTest() {
     setTimeout(endMathTest, 2640000); // 44 minutes in milliseconds
     startQuiz(mathQuestions, 14, 15, 15);
 }
-
 
 function updateCountdown() {
     const minutes = Math.floor(time / 60);
@@ -163,7 +157,6 @@ function updateCountdown() {
     }
 }
 
-
 function endReadingWritingTest() {
     clearInterval(refreshIntervalId);
     resetState();
@@ -174,13 +167,11 @@ function endReadingWritingTest() {
     nextButton.classList.remove("centered-btn"); // Reset button centering
 }
 
-
 function endMathTest() {
     clearInterval(refreshIntervalId);
     resetState();
     showScore();
 }
-
 
 function startQuiz(questions, numEasy, numMedium, numHard) {
     currentQuestionIndex = 0;
@@ -193,26 +184,21 @@ function startQuiz(questions, numEasy, numMedium, numHard) {
     showQuestion();
 }
 
-
 function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     const easyQuestions = questions.filter(q => q.difficulty === "easy");
     const mediumQuestions = questions.filter(q => q.difficulty === "medium");
     const hardQuestions = questions.filter(q => q.difficulty === "hard");
 
-
     function getRandom(arr, num) {
         return arr.sort(() => 0.5 - Math.random()).slice(0, num);
     }
-
 
     const selectedEasy = getRandom(easyQuestions, numEasy);
     const selectedMedium = getRandom(mediumQuestions, numMedium);
     const selectedHard = getRandom(hardQuestions, numHard);
 
-
     return [...selectedEasy, ...selectedMedium, ...selectedHard];
 }
-
 
 function showQuestion() {
     resetState();
@@ -220,7 +206,6 @@ function showQuestion() {
     let questionNo = currentQuestionIndex + 1;
     passageElement.innerHTML = currentQuestion.passage;  // Display passage
     questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;  // Display question
-
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -233,10 +218,8 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
 
-
     updateProgressBar();
 }
-
 
 function resetState() {
     nextButton.style.display = "none";
@@ -246,7 +229,6 @@ function resetState() {
     }
 }
 
-
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -254,11 +236,9 @@ function selectAnswer(e) {
     let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
     let questionDifficulty = currentQuestion.difficulty;
 
-
     if (!categoryStats[questionCategory]) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
-
 
     const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
     userResponses.push({
@@ -268,11 +248,9 @@ function selectAnswer(e) {
         wasCorrect: isCorrect
     });
 
-
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-
 
         if (questionDifficulty === "easy") {
             score += 1;
@@ -282,16 +260,13 @@ function selectAnswer(e) {
             score += 3;
         }
 
-
         categoryStats[questionCategory].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
         categoryStats[questionCategory].incorrect++;
     }
 
-
     recordTestResults();
-
 
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
@@ -300,16 +275,13 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-
     nextButton.style.display = "block";
     nextButton.disabled = false;
 }
 
-
 function showScore() {
     clearInterval(refreshIntervalId);
     resetState();
-
 
     let maxPossibleScore;
     if (!isMathTest) {
@@ -320,10 +292,8 @@ function showScore() {
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-
     // Ensure question-container is visible when showing the score
     document.getElementById("question-container").classList.remove("hide");
-
 
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
@@ -341,15 +311,12 @@ function showScore() {
         let mathScore = scaledScore;
         localStorage.setItem("mathScore", mathScore);
 
-
         let totalSATScore = readingScore + mathScore;
-
 
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
         scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
-
 
         passageElement.innerHTML = "";  // Clear passage
         questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
@@ -370,9 +337,7 @@ function showExplanations() {
     passageElement.innerHTML = "";  // Clear passage
     questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
 
-
     const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
-
 
     if (incorrectResponses.length === 0) {
         questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
@@ -391,7 +356,6 @@ function showExplanations() {
         });
     }
 
-
     nextButton.innerHTML = "Finish";
     nextButton.style.display = "block";
     nextButton.removeEventListener("click", showExplanations);
@@ -400,10 +364,8 @@ function showExplanations() {
     });
 }
 
-
 function generateExplanation(response) {
     const questionText = response.question;
-
 
     if (questionText.includes("Emma stepped into the grand ballroom")) {
         return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation. The text highlights her discomfort rather than excitement or confidence.";
@@ -423,10 +385,8 @@ function generateExplanation(response) {
         return "Equation: $12 + $3h ≤ $45. Subtract 12: $3h ≤ $33. Divide by 3: h ≤ 11. Maximum whole hours = 9 (since $12 + $3 × 9 = $39 ≤ $45).";
     }
 
-
     return "No specific explanation available for this question.";
 }
-
 
 function handleNextButton() {
     recordTestResults();
@@ -438,62 +398,50 @@ function handleNextButton() {
     }
 }
 
-
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar-test");
     let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
     progressBar.firstElementChild.style.width = progress + "%";
 }
 
-
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
-
 
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
 
-
     console.log("Previous testResults from localStorage:", results);
-
 
     if (typeof results !== "object" || Array.isArray(results)) {
         console.error("Error: results should be an object but got", results);
         results = {};
     }
 
-
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
 
-
         console.log(
             `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
         );
 
-
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
-
 
         console.log(
             `After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
         );
     }
 
-
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
-
 
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
 }
-
 
 nextButton.addEventListener("click", () => {
     if (nextButton.innerHTML === "Continue") {
@@ -504,12 +452,10 @@ nextButton.addEventListener("click", () => {
     }
 });
 
-
 continueButton.addEventListener("click", () => {
     document.getElementById("break-message").classList.add("hide");
     document.getElementById("question-container").classList.remove("hide");
     startMathTest();
 });
-
 
 startReadingWritingTest();
