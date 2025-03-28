@@ -458,4 +458,20 @@ continueButton.addEventListener("click", () => {
     startMathTest();
 });
 
+function showIntroMessage() {
+    resetState();
+    passageElement.innerHTML = ""; // Clear passage
+    questionElement.innerHTML = "This is a timed SAT Test. The Reading portion will be 64 minutes and the math portion will be 44 minutes.";
+    questionElement.classList.add("centered-score"); // Optional: Center the text if your CSS supports it
+
+    const startButton = document.createElement("button");
+    startButton.innerHTML = "Start Test";
+    startButton.classList.add("btn", "centered-btn"); // Add styling classes
+    startButton.addEventListener("click", () => {
+        questionElement.classList.remove("centered-score"); // Remove centering class
+        startReadingWritingTest();
+    });
+    answerButtons.appendChild(startButton);
+}
+
 startReadingWritingTest();

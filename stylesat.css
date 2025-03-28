@@ -1499,4 +1499,11 @@ margin-bottom: 7px;
         overflow: visible; /* Changed from hidden to allow text to expand */
         min-height: 40px; /* Ensures buttons have enough height for text */
     }
-    
+    .centered-score {
+      text-align: center;
+      margin: 20px 0;
+  }
+  .centered-btn {
+      display: block;
+      margin: 20px auto;
+  }
