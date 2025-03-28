@@ -1511,12 +1511,16 @@ margin-bottom: 7px;
   
 
 #sat-intro-container {
-    text-align: center;
-    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 20px;
-    max-width: 600px;
+    margin: 0 auto; /* Centers the container horizontally */
+    display: block;
+    overflow: hidden; /* Ensures content stays within the container */
+    text-align: center; /* Centers the text and button inside */
+    max-width: 600px; /* Optional: Limits the width for better appearance */
+    background-color: #fff; /* Optional: Adds a white background for contrast */
 }
-
 #intro-message {
     font-size: 1.2em;
     margin-bottom: 20px;
