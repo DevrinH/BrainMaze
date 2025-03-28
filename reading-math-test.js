@@ -4,6 +4,8 @@ const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const continueButton = document.getElementById("continue-btn");
 const countdownEl = document.getElementById('countdown');
+const satIntroContainer = document.getElementById("sat-intro-container");
+const startTestButton = document.getElementById("start-test-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -122,6 +124,12 @@ const mathQuestions = [
         category: "algebra"
     },
 ];
+
+function startTest() {
+    satIntroContainer.classList.add("hide"); // Hide the intro container
+    document.getElementById("question-container").classList.remove("hide"); // Show the question container
+    startReadingWritingTest(); // Start the test
+}
 
 function startReadingWritingTest() {
     isMathTest = false;
@@ -474,4 +482,4 @@ function showIntroMessage() {
     answerButtons.appendChild(startButton);
 }
 
-showIntroMessage();
+startTestButton.addEventListener("click", startTest);

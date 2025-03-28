@@ -1551,3 +1551,21 @@ margin-bottom: 7px;
 }
 
 
+#sat-intro-container {
+  text-align: center;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+}
+
+#intro-message {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+#start-test-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
