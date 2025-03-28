@@ -1553,9 +1553,18 @@ margin-bottom: 7px;
 
 #sat-intro-container {
   text-align: center;
-  margin: 20px auto;
+  
   padding: 20px;
-  max-width: 600px;
+  
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  padding: 20px;
+  margin: 30px auto;
+  overflow: hidden;
 }
 
 #intro-message {
@@ -1564,8 +1573,19 @@ margin-bottom: 7px;
 }
 
 #start-test-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1em;
+  align-items: center;
+  margin: 15px auto;
+  background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  color: #fff;
   cursor: pointer;
+  display: block;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  height: 48px;
+  font-size: 18px;
+  padding: 0 14px;
+  text-align: center;
+  max-width: 250px;
 }
