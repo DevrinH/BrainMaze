@@ -1572,7 +1572,7 @@ margin-bottom: 7px;
   margin-bottom: 20px;
 }
 
-#start-test-btn {
+.start-test-btn {
   align-items: center;
   margin: 15px auto;
   background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
