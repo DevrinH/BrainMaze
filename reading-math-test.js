@@ -142,9 +142,9 @@ function startReadingWritingTest() {
 
 function startMathTest() {
     isMathTest = true;
-    time = 44 * 60;
+    time = 70 * 60;
     refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endMathTest, 2640000); // 44 minutes in milliseconds
+    setTimeout(endMathTest, 4200000); // 44 minutes in milliseconds
     startQuiz(mathQuestions, 14, 15, 15);
 }
 
