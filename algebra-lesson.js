@@ -1,4 +1,26 @@
+// DOMContentLoaded listener
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = urlParams.get('lesson') || '1'; // Ensure string
+    console.log(`Loading lesson ${lessonId}`);
+    currentLesson = lessonId; // Keep as string to match lessons object keys
+
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        console.log("Start lesson button found:", startLessonButton);
+        startLessonButton.addEventListener('click', () => {
+            console.log("Start Lesson button clicked!");
+            startLesson();
+        });
+        console.log("Start Lesson Button event listener added.");
+    } else {
+        console.error("Start lesson button not found in DOM!");
+    }
+
+    showScore();
+});
 // Define all lessons
 const lessons = {
     1: {
