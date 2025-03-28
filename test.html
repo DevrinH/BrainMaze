@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAT Test</title>
-<link rel="stylesheet" href="https://www.brainjelli.com/stylesat.css">
+    <link rel="stylesheet" href="https://www.brainjelli.com/stylesat.css">
 </head>
 <body>
-
-
-
     <header>
         <div class="header-container">
             <img src="BrainJelli-header.png" class="logo">
@@ -17,10 +14,17 @@
         </div>
     </header>
 
-
     <h1>SAT Timed Prep Test</h1>
     <div id="progress-bar-test"><div></div></div>
-    <div id="question-container">
+    
+    <!-- New SAT Intro Container -->
+    <div id="sat-intro-container">
+        <p id="intro-message">This is a timed SAT Test. The Reading portion will be 64 minutes and the math portion will be 44 minutes.</p>
+        <button id="start-test-btn" class="btn">Start Test</button>
+    </div>
+
+    <!-- Question Container (hidden initially) -->
+    <div id="question-container" class="hide">
         <div class="question-row">
             <div id="passage" class="passage-text"></div>
             <div class="right-column">
@@ -30,7 +34,6 @@
         </div>
         <button id="next-btn" class="btn hide">Next</button>
     </div>
-
 
     <div id="countdown"></div>
     <div id="break-message" class="hide">
