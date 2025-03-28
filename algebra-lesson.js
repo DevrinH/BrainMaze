@@ -1,22 +1,3 @@
-// Ensure scores display on page load by calling showScore
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
-        console.log("Start Lesson Button event listener added.");
-    } else {
-        console.error("Start lesson button not found.");
-    }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || 1;
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId;
-
-    showScore();
-});
 
 // Define all lessons
 const lessons = {
@@ -843,6 +824,7 @@ function startLesson() {
     if (startLessonButton && appContainer) {
         startLessonButton.style.display = 'none';
         appContainer.style.display = 'block'; // Show the app container
+        console.log("App container displayed");
         currentItemIndex = 0;
         isQuizPhase = false;
         totalSteps = lessons[currentLesson].content.length + 1;
@@ -876,7 +858,7 @@ function showItem() {
     if (item.type === "example") {
         lessonContent.innerHTML = `
             <div id="math-container">
-                ${item.content.replace(/<button id="next-item">Next<\/button>/, '')}
+                ${item.content}
                 <button id="next-item" class="btn next-btn">Next</button>
             </div>
         `;
