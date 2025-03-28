@@ -14,7 +14,7 @@ const lessons = {
                     <p>Step 2: Simplify: 2x = 4</p>
                     <p>Step 3: Divide both sides by 2: 2x / 2 = 4 / 2</p>
                     <p>Step 4: Simplify: x = 2</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -37,7 +37,7 @@ const lessons = {
                     <p>Consider the equation: y - 4 = 10</p>
                     <p>Step 1: Add 4 to both sides: y - 4 + 4 = 10 + 4</p>
                     <p>Step 2: Simplify: y = 14</p>
-                    <button id="next-item">Next</button>
+                    
                 `
             },
             {
@@ -60,7 +60,7 @@ const lessons = {
                     <p>Consider: 4x + 6 = 14</p>
                     <p>Step 1: Subtract 6: 4x = 8</p>
                     <p>Step 2: Divide by 4: x = 2</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -84,7 +84,7 @@ const lessons = {
                     <p>Step 1: Distribute: 2x + 6 = 10</p>
                     <p>Step 2: Subtract 6: 2x = 4</p>
                     <p>Step 3: Divide by 2: x = 2</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -108,7 +108,7 @@ const lessons = {
                     <p>Step 1: Subtract x: 2x - 4 = 2</p>
                     <p>Step 2: Add 4: 2x = 6</p>
                     <p>Step 3: Divide by 2: x = 3</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -131,7 +131,7 @@ const lessons = {
                     <p>Consider: -2x + 7 = 1</p>
                     <p>Step 1: Subtract 7: -2x = -6</p>
                     <p>Step 2: Divide by -2: x = 3</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -154,7 +154,7 @@ const lessons = {
                     <p>Consider: (1/2)x - 3 = 2</p>
                     <p>Step 1: Add 3: (1/2)x = 5</p>
                     <p>Step 2: Multiply by 2: x = 10</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -185,7 +185,7 @@ const lessons = {
                     <p>Step 3: Simplify: 10 - 2y = 4</p>
                     <p>Step 4: Solve: -2y = -6, y = 3</p>
                     <p>Step 5: Find x: x = 10 - 3 = 7</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -212,7 +212,7 @@ const lessons = {
                     <p>Step 4: Substitute x = 1 + y into first: 2(1 + y) + 3y = 12</p>
                     <p>Step 5: Solve: 2 + 5y = 12, y = 2</p>
                     <p>Step 6: Find x: x = 1 + 2 = 3</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -235,7 +235,7 @@ const lessons = {
                     <p>System: x + y = 6, x - y = 2</p>
                     <p>Step 1: Plot lines, find intersection: (4, 2)</p>
                     <p>Step 2: Verify: 4 + 2 = 6, 4 - 2 = 2</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -261,7 +261,7 @@ const lessons = {
                     <p>Step 3: Simplify: 3 + 7y = 9</p>
                     <p>Step 4: Solve: 7y = 6, y = 6/7</p>
                     <p>Step 5: Find x: x = 1 + 2(6/7) = 20/7</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -286,7 +286,7 @@ const lessons = {
                     <p>Step 2: Add: 7x = 19</p>
                     <p>Step 3: Solve: x = 19/7</p>
                     <p>Step 4: Substitute: 2(19/7) - y = 4, y = 10/7</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -309,7 +309,7 @@ const lessons = {
                     <p>System: x + y = 5, x + y = 7</p>
                     <p>Step 1: Subtract: 0 = 2 (contradiction)</p>
                     <p>Conclusion: No solution</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -333,7 +333,7 @@ const lessons = {
                     <p>Step 1: Multiply second by 2: 2x + 4y = 8</p>
                     <p>Step 2: Subtract: 0 = 0 (identity)</p>
                     <p>Conclusion: Infinite solutions</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -361,7 +361,7 @@ const lessons = {
                     <p>Equation: x² - 5x + 6 = 0</p>
                     <p>Step 1: Factor: (x - 2)(x - 3) = 0</p>
                     <p>Step 2: Solve: x = 2 or x = 3</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -386,7 +386,7 @@ const lessons = {
                     <p>Step 2: x = (-5 ± √(25 + 24)) / 4</p>
                     <p>Step 3: Simplify: x = (-5 ± 7) / 4</p>
                     <p>Step 4: x = 0.5 or x = -3</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -411,7 +411,7 @@ const lessons = {
                     <p>Step 2: Add (6/2)² = 9: (x + 3)² = 1</p>
                     <p>Step 3: Solve: x + 3 = ±1</p>
                     <p>Step 4: x = -2 or x = -4</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -434,7 +434,7 @@ const lessons = {
                     <p>Equation: x² - 16 = 0</p>
                     <p>Step 1: x² = 16</p>
                     <p>Step 2: x = ±4</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -457,7 +457,7 @@ const lessons = {
                     <p>Equation: x² + 1 = 0</p>
                     <p>Step 1: x² = -1</p>
                     <p>Step 2: No real solutions (negative under square root)</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -480,7 +480,7 @@ const lessons = {
                     <p>Equation: x² - 6x + 9 = 0</p>
                     <p>Step 1: Factor: (x - 3)² = 0</p>
                     <p>Step 2: Solve: x = 3</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
@@ -504,7 +504,7 @@ const lessons = {
                     <p>Step 1: Multiply by 2: x² - 4x + 4 = 0</p>
                     <p>Step 2: Factor: (x - 2)² = 0</p>
                     <p>Step 3: Solve: x = 2</p>
-                    <button id="next-item">Next</button>
+                   
                 `
             },
             {
