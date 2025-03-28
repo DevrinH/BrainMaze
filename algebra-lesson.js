@@ -858,7 +858,7 @@ function showItem() {
         lessonContent.innerHTML = `
             <div id="math-container">
                 ${item.content}
-                <button id="next-item" class="btn next-btn">Next</button>
+                <button id="next-item" class="btn-next-btn">Next</button>
             </div>
         `;
         const nextButton = document.getElementById('next-item');
@@ -874,7 +874,7 @@ function showItem() {
                 <h2>${item.title}</h2>
                 <p>${item.question}</p>
                 <div class="answer-choices" id="answer-buttons"></div>
-                <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
             </div>
         `;
         const answerButtons = document.getElementById('answer-buttons');
@@ -957,7 +957,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <h2>Question ${currentQuestionIndex + 1}</h2>
                 <p>${question.question}</p>
                 <div class="answer-choices" id="answer-buttons"></div>
-                <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
             </div>
         `;
         const answerButtons = document.getElementById('answer-buttons');
