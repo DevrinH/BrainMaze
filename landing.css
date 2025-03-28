@@ -1431,3 +1431,22 @@ margin-bottom: 7px;
 
 
 
+#lesson-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  min-height: 400px; /* Ensure container has height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#final-score {
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
