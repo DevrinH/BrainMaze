@@ -1544,9 +1544,7 @@ margin-bottom: 7px;
 
 
 
-.hide {
-    display: none !important; /* Ensure this applies globally with high priority */
-}
+
 /* Ensure the hide class works */
 .hide {
     display: none;
