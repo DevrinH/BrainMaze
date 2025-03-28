@@ -1,26 +1,4 @@
-// DOMContentLoaded listener
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || '1'; // Ensure string
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId; // Keep as string to match lessons object keys
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        console.log("Start lesson button found:", startLessonButton);
-        startLessonButton.addEventListener('click', () => {
-            console.log("Start Lesson button clicked!");
-            startLesson();
-        });
-        console.log("Start Lesson Button event listener added.");
-    } else {
-        console.error("Start lesson button not found in DOM!");
-    }
-
-    showScore();
-});
 // Define all lessons
 const lessons = {
     1: {
@@ -815,7 +793,6 @@ const quadraticQuestions = [
 // Define additional quiz arrays for lessons 4-10 similarly...
 
 // algebra-lesson.js
-// algebra-lesson.js
 let categoryStats = {
     "algebra": { correct: 0, incorrect: 0 }
 };
@@ -841,8 +818,8 @@ function updateProgressBar(step) {
 
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
-    const startLessonButton = document.getElementById('start-math-lesson'); // Updated ID
-    const appContainer = document.querySelector('.mathapp'); // Updated class
+    const startLessonButton = document.getElementById('start-math-lesson');
+    const appContainer = document.querySelector('.mathapp');
     if (startLessonButton && appContainer) {
         startLessonButton.style.display = 'none';
         appContainer.style.display = 'block';
@@ -1078,6 +1055,9 @@ function saveScore(lessonId, score) {
     console.log(`Saved algebra-lessonScore-${lessonId}: ${score}`);
 }
 
+// Define lessons and quiz questions here (with buttons removed from examples)
+// ... (insert updated lessons object from above, followed by linearEquationsQuestions, systemsQuestions, quadraticQuestions)
+
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Page loaded, initializing lesson:", currentLesson);
@@ -1085,7 +1065,7 @@ document.addEventListener("DOMContentLoaded", function() {
     currentLesson = urlParams.get('lesson') || 1;
     console.log("Set currentLesson to:", currentLesson);
 
-    const startLessonButton = document.getElementById('start-math-lesson'); // Updated ID
+    const startLessonButton = document.getElementById('start-math-lesson');
     if (startLessonButton) {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start math lesson button event listener added");
