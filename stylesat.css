@@ -1510,22 +1510,12 @@ margin-bottom: 7px;
 
   
 
-  #sat-intro-container {
+#sat-intro-container {
     text-align: center;
-    
+    margin: 20px auto;
     padding: 20px;
-    
-    display: flex;
-    justify-content: space-between;
-    max-width: 900px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
-    padding: 20px;
-    margin: 30px auto;
-    overflow: hidden;
-  }
-
+    max-width: 600px;
+}
 
 #intro-message {
     font-size: 1.2em;
