@@ -474,4 +474,4 @@ function showIntroMessage() {
     answerButtons.appendChild(startButton);
 }
 
-startReadingWritingTest();
+showIntroMessage();
