@@ -8,12 +8,7 @@
             min-height: 200px; /* Ensures visibility even when empty */
 }
 
-#question-container{
-  display: block;
-  margin: 0 auto;
-  width: 95%;
-  max-width: 900px; /* Prevents it from being too wide on large screens */
-}
+
 
   
 
