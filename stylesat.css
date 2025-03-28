@@ -1514,13 +1514,18 @@ margin-bottom: 7px;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 20px;
-    margin: 0 auto; /* Centers the container horizontally */
+    margin: 0 auto;
     display: block;
-    overflow: hidden; /* Ensures content stays within the container */
-    text-align: center; /* Centers the text and button inside */
-    max-width: 600px; /* Optional: Limits the width for better appearance */
-    background-color: #fff; /* Optional: Adds a white background for contrast */
+    overflow: hidden;
+    text-align: center;
+    max-width: 600px;
+    background-color: #fff;
 }
+
+#sat-intro-container.hide {
+    display: none !important; /* Increased specificity and !important to ensure it hides */
+}
+
 #intro-message {
     font-size: 1.2em;
     margin-bottom: 20px;
@@ -1531,8 +1536,17 @@ margin-bottom: 7px;
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
 }
 
+
+
+.hide {
+    display: none !important; /* Ensure this applies globally with high priority */
+}
 /* Ensure the hide class works */
 .hide {
     display: none;
