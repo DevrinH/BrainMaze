@@ -1542,7 +1542,7 @@ function selectAnswer(button, question) {
     const isCorrect = button.getAttribute('data-correct') === "true";
     const explanationDiv = document.getElementById('explanation');
     const submitButton = document.getElementById('submit-answer');
-    const answerButtons = document.querySelectorAll('.answer-btn');
+    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
 
     answerButtons.forEach(btn => btn.disabled = true);
     if (isCorrect) {
