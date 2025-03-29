@@ -1517,9 +1517,11 @@ function showItem() {
                     `).join('')}
                 </div>
                 <p id="explanation" class="explanation" style="display: none;"></p>
-                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
+                <div class="button-container">
+                    <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
+                </div>
             `;
-            const answerButtons = document.querySelectorAll('.answer-btn'); // Corrected selector
+            const answerButtons = document.querySelectorAll('.answer-btn');
             answerButtons.forEach(btn => btn.addEventListener('click', () => selectAnswer(btn, item)));
         }
         progressSteps = currentItemIndex + 1;
@@ -1598,9 +1600,11 @@ function showNextQuizQuestion(quizQuestions) {
                 `).join('')}
             </div>
             <p id="explanation" class="explanation" style="display: none;"></p>
-            <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
+            <div class="button-container">
+                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
+            </div>
         `;
-        const answerButtons = document.querySelectorAll('.answer-btn'); // Corrected selector
+        const answerButtons = document.querySelectorAll('.answer-btn');
         answerButtons.forEach(btn => btn.addEventListener('click', () => selectQuizAnswer(btn, question, quizQuestions)));
         progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
         updateProgressBar(progressSteps);
