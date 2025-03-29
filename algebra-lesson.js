@@ -792,7 +792,6 @@ const quadraticQuestions = [
 
 // Define additional quiz arrays for lessons 4-10 similarly...
 
-// algebra-lesson.js
 let categoryStats = {
     "algebra": { correct: 0, incorrect: 0 }
 };
@@ -801,13 +800,14 @@ let currentQuestionIndex = 0;
 let currentLesson = 1;
 let currentItemIndex = 0;
 let progressSteps = 0;
-let totalSteps = 21; // Default for Lesson 1: 14 items + 7 quiz
+let totalSteps = 0; // Default for Lesson 1: 14 items + 7 quiz
 let isQuizPhase = false;
+let showingQuizTransition = false; // New flag for quiz transition
 
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
-        const percentage = (step / totalSteps) * 100;
+        const percentage = totalSteps > 0 ? (step / totalSteps) * 100 : 0;
         progressBar.style.width = `${percentage}%`;
         progressBar.setAttribute('aria-valuenow', percentage);
         console.log(`Progress updated: ${step}/${totalSteps} (${percentage}%)`);
@@ -826,7 +826,7 @@ function startLesson() {
         console.log("Math app container displayed");
         currentItemIndex = 0;
         isQuizPhase = false;
-        totalSteps = lessons[currentLesson].content.length + 1;
+        totalSteps = lessons[currentLesson].content.length + getQuizQuestions(currentLesson).length; // Adjusted total steps
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
         showItem();
         progressSteps = 1;
@@ -847,8 +847,8 @@ function showItem() {
 
     const item = currentLessonData.content[currentItemIndex];
     if (!item) {
-        console.log("No more items, proceeding to quiz");
-        showQuiz();
+        console.log("No more items, proceeding to quiz transition");
+        showQuizTransition(); // Changed to show transition instead of quiz
         return;
     }
 
@@ -887,6 +887,8 @@ function showItem() {
             answerButtons.appendChild(button);
         });
     }
+    progressSteps = currentItemIndex + 1;
+    updateProgressBar(progressSteps);
 }
 
 function selectAnswer(selectedBtn, item) {
@@ -925,26 +927,60 @@ function selectAnswer(selectedBtn, item) {
 
 function nextItem() {
     currentItemIndex++;
-    progressSteps = currentItemIndex + 1;
-    updateProgressBar(progressSteps);
     console.log("nextItem called, currentItemIndex:", currentItemIndex);
-    showItem();
+    if (currentItemIndex < lessons[currentLesson].content.length) {
+        showItem();
+    } else if (!showingQuizTransition) {
+        showQuizTransition(); // Show transition screen instead of quiz
+    }
+    // If showingQuizTransition is true, the Next button on transition will call showQuiz
+}
+
+function showQuizTransition() {
+    console.log("Showing quiz transition for lesson:", currentLesson);
+    showingQuizTransition = true;
+    const lessonContent = document.getElementById('lesson-content');
+    if (lessonContent) {
+        lessonContent.innerHTML = `
+            <div class="quiz-transition">
+                <h2>Lesson Complete!</h2>
+                <p>Now it's time for the quiz.</p>
+                <button id="start-quiz-btn" class="btn-next-btn">Next</button>
+            </div>
+        `;
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        if (startQuizBtn) {
+            startQuizBtn.addEventListener('click', () => {
+                showingQuizTransition = false; // Reset flag
+                showQuiz(); // Proceed to quiz
+            }, { once: true });
+        } else {
+            console.error("Start quiz button not found in transition!");
+        }
+        progressSteps = lessons[currentLesson].content.length; // End of lesson content
+        updateProgressBar(progressSteps);
+    } else {
+        console.error("Lesson content element not found for quiz transition!");
+    }
 }
 
 function showQuiz() {
     console.log("Starting quiz for lesson:", currentLesson);
     isQuizPhase = true;
     currentQuestionIndex = 0;
-    let quizQuestions;
-    switch (parseInt(currentLesson)) {
-        case 1: quizQuestions = linearEquationsQuestions; break;
-        case 2: quizQuestions = systemsQuestions; break;
-        case 3: quizQuestions = quadraticQuestions; break;
-        default: quizQuestions = linearEquationsQuestions;
-    }
-    progressSteps = totalSteps;
+    let quizQuestions = getQuizQuestions(currentLesson);
+    progressSteps = lessons[currentLesson].content.length + 1; // Start quiz progress
     updateProgressBar(progressSteps);
     showNextQuizQuestion(quizQuestions);
+}
+
+function getQuizQuestions(lessonId) {
+    switch (parseInt(lessonId)) {
+        case 1: return linearEquationsQuestions;
+        case 2: return systemsQuestions;
+        case 3: return quadraticQuestions;
+        default: return linearEquationsQuestions;
+    }
 }
 
 function showNextQuizQuestion(quizQuestions) {
@@ -969,6 +1005,8 @@ function showNextQuizQuestion(quizQuestions) {
             button.addEventListener("click", () => selectAnswer(button, question));
             answerButtons.appendChild(button);
         });
+        progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
+        updateProgressBar(progressSteps);
     } else {
         console.log("All quiz questions answered, showing final score");
         showFinalScore();
@@ -978,13 +1016,7 @@ function showNextQuizQuestion(quizQuestions) {
 function nextQuizItem() {
     currentQuestionIndex++;
     console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions;
-    switch (parseInt(currentLesson)) {
-        case 1: quizQuestions = linearEquationsQuestions; break;
-        case 2: quizQuestions = systemsQuestions; break;
-        case 3: quizQuestions = quadraticQuestions; break;
-        default: quizQuestions = linearEquationsQuestions;
-    }
+    let quizQuestions = getQuizQuestions(currentLesson);
     showNextQuizQuestion(quizQuestions);
 }
 
@@ -1055,9 +1087,6 @@ function saveScore(lessonId, score) {
     console.log(`Saved algebra-lessonScore-${lessonId}: ${score}`);
 }
 
-// Define lessons and quiz questions here (with buttons removed from examples)
-// ... (insert updated lessons object from above, followed by linearEquationsQuestions, systemsQuestions, quadraticQuestions)
-
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Page loaded, initializing lesson:", currentLesson);
@@ -1073,3 +1102,4 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Start math lesson button not found on page load!");
     }
 });
+
