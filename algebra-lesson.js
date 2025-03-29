@@ -801,7 +801,7 @@ let currentQuestionIndex = 0;
 let currentLesson = 1;
 let currentItemIndex = 0;
 let progressSteps = 0;
-let totalSteps = 15; // Default for Lesson 1: 14 items + 1 quiz
+let totalSteps = 21; // Default for Lesson 1: 14 items + 7 quiz
 let isQuizPhase = false;
 
 function updateProgressBar(step) {
