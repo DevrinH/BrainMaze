@@ -1397,98 +1397,40 @@ const lessons = {
     }
 };
 
-// Advanced Math question arrays (expanded to 7 questions per category)
-const nonlinearQuestions = [
-    { question: "Solve: x² - 16 = 0", answers: [{ text: "A) x = ±4", correct: true }, { text: "B) x = 4", correct: false }, { text: "C) x = -4", correct: false }, { text: "D) x = 0", correct: false }], explanation: "x² = 16, x = ±4.", difficulty: "easy", category: "advanced-math" },
-    { question: "Solve: x³ - 8 = 0", answers: [{ text: "A) x = 2", correct: true }, { text: "B) x = 8", correct: false }, { text: "C) x = -2", correct: false }, { text: "D) x = 4", correct: false }], explanation: "x³ = 8, x = 2.", difficulty: "easy", category: "advanced-math" },
-    { question: "Solve: |x - 4| = 6", answers: [{ text: "A) x = 10 or x = -2", correct: true }, { text: "B) x = 6 or x = -6", correct: false }, { text: "C) x = 4", correct: false }, { text: "D) x = -4", correct: false }], explanation: "x - 4 = 6 or x - 4 = -6, x = 10 or -2.", difficulty: "easy", category: "advanced-math" },
-    { question: "Solve: 2^x = 16", answers: [{ text: "A) x = 4", correct: true }, { text: "B) x = 2", correct: false }, { text: "C) x = 8", correct: false }, { text: "D) x = 16", correct: false }], explanation: "2^x = 2⁴, x = 4.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: √(x + 3) = 5", answers: [{ text: "A) x = 22", correct: true }, { text: "B) x = 25", correct: false }, { text: "C) x = 2", correct: false }, { text: "D) x = 28", correct: false }], explanation: "x + 3 = 25, x = 22.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: x² - 6x + 8 = 0", answers: [{ text: "A) x = 2 or x = 4", correct: true }, { text: "B) x = 1 or x = 8", correct: false }, { text: "C) x = -2 or x = -4", correct: false }, { text: "D) x = 3 or x = 5", correct: false }], explanation: "(x - 2)(x - 4) = 0, x = 2 or 4.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: x⁴ - 13x² + 36 = 0", answers: [{ text: "A) x = ±2 or x = ±3", correct: true }, { text: "B) x = ±1 or x = ±6", correct: false }, { text: "C) x = ±4", correct: false }, { text: "D) x = ±5", correct: false }], explanation: "Let u = x², u² - 13u + 36 = 0, (u - 4)(u - 9) = 0, u = 4 or 9, x = ±2 or ±3.", difficulty: "hard", category: "advanced-math" }
-];
-
-const nonlinearSystemsQuestions = [
-    { question: "Solve: y = x² - 1, y = 3", answers: [{ text: "A) (2, 3) and (-2, 3)", correct: true }, { text: "B) (1, 3)", correct: false }, { text: "C) (0, 0)", correct: false }, { text: "D) No solutions", correct: false }], explanation: "x² - 1 = 3, x² = 4, x = ±2.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: x² + y² = 5, y = x", answers: [{ text: "A) (√2.5, √2.5), (-√2.5, -√2.5)", correct: true }, { text: "B) (1, 1)", correct: false }, { text: "C) (2, 2)", correct: false }, { text: "D) (0, 0)", correct: false }], explanation: "x² + x² = 5, 2x² = 5, x² = 2.5, x = ±√2.5.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: y = x² - 4, y = 2x", answers: [{ text: "A) (4, 8) and (1, 2)", correct: true }, { text: "B) (2, 4)", correct: false }, { text: "C) (0, 0)", correct: false }, { text: "D) No solutions", correct: false }], explanation: "x² - 4 = 2x, x² - 2x - 4 = 0, x = 1 ± √5, adjust: x = 4 or 1.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: xy = 8, y = 4x", answers: [{ text: "A) (√2, 4√2) and (-√2, -4√2)", correct: true }, { text: "B) (2, 8)", correct: false }, { text: "C) (4, 4)", correct: false }, { text: "D) (1, 8)", correct: false }], explanation: "x(4x) = 8, 4x² = 8, x² = 2, x = ±√2.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: y = x³, y = 8", answers: [{ text: "A) (2, 8)", correct: true }, { text: "B) (4, 8)", correct: false }, { text: "C) (8, 8)", correct: false }, { text: "D) No solutions", correct: false }], explanation: "x³ = 8, x = 2.", difficulty: "easy", category: "advanced-math" },
-    { question: "Solve: x² + y² = 13, x + y = 5", answers: [{ text: "A) (2, 3) and (3, 2)", correct: true }, { text: "B) (1, 4)", correct: false }, { text: "C) (5, 0)", correct: false }, { text: "D) No solutions", correct: false }], explanation: "y = 5 - x, x² + (5 - x)² = 13, 2x² - 10x + 12 = 0, x = 2 or 3.", difficulty: "hard", category: "advanced-math" },
-    { question: "Solve: y = 2^x, y = x + 1", answers: [{ text: "A) (1, 2)", correct: true }, { text: "B) (2, 4)", correct: false }, { text: "C) (0, 1)", correct: false }, { text: "D) No solutions", correct: false }], explanation: "2^x = x + 1, test x = 1: 2¹ = 2, true.", difficulty: "hard", category: "advanced-math" }
-];
-
-const functionTransformQuestions = [
-    { question: "f(x) = x² becomes f(x) = 2(x - 1)². What’s the transformation?", answers: [{ text: "A) Right 1, stretch by 2", correct: true }, { text: "B) Left 1, compress by 2", correct: false }, { text: "C) Right 1, down 2", correct: false }, { text: "D) Left 1, up 2", correct: false }], explanation: "x - 1 shifts right 1, 2 stretches vertically.", difficulty: "medium", category: "advanced-math" },
-    { question: "f(x) = x³ becomes f(x) = -x³ + 2. What’s the transformation?", answers: [{ text: "A) Reflect over x-axis, up 2", correct: true }, { text: "B) Reflect over y-axis, down 2", correct: false }, { text: "C) Up 2 only", correct: false }, { text: "D) Reflect over x-axis only", correct: false }], explanation: "-x³ reflects, +2 shifts up.", difficulty: "medium", category: "advanced-math" },
-    { question: "f(x) = √x, g(x) = √(x + 3). What’s the transformation?", answers: [{ text: "A) Left 3", correct: true }, { text: "B) Right 3", correct: false }, { text: "C) Up 3", correct: false }, { text: "D) Down 3", correct: false }], explanation: "x + 3 shifts left 3.", difficulty: "easy", category: "advanced-math" },
-    { question: "f(x) = x², g(x) = (x/2)². What’s the transformation?", answers: [{ text: "A) Horizontal stretch by 2", correct: true }, { text: "B) Vertical stretch by 2", correct: false }, { text: "C) Horizontal compress by 2", correct: false }, { text: "D) Vertical compress by 2", correct: false }], explanation: "x/2 stretches horizontally by 2.", difficulty: "medium", category: "advanced-math" },
-    { question: "f(x) = |x|, g(x) = 3|x - 2| - 1. What’s the transformation?", answers: [{ text: "A) Right 2, stretch by 3, down 1", correct: true }, { text: "B) Left 2, stretch by 3, up 1", correct: false }, { text: "C) Right 2, compress by 3, down 1", correct: false }, { text: "D) Right 2, stretch by 3, up 1", correct: false }], explanation: "x - 2 right 2, 3 stretches, -1 down.", difficulty: "medium", category: "advanced-math" },
-    { question: "f(x) = x, g(x) = -2x + 4. What’s the transformation?", answers: [{ text: "A) Reflect over x-axis, stretch by 2, up 4", correct: true }, { text: "B) Stretch by 2, down 4", correct: false }, { text: "C) Reflect over y-axis, up 4", correct: false }, { text: "D) Stretch by 2 only", correct: false }], explanation: "-2x reflects and stretches, +4 up.", difficulty: "medium", category: "advanced-math" },
-    { question: "(f ∘ g)(x) where f(x) = x², g(x) = x - 1", answers: [{ text: "A) (x - 1)²", correct: true }, { text: "B) x² - 1", correct: false }, { text: "C) x² + 1", correct: false }, { text: "D) x - 1", correct: false }], explanation: "f(g(x)) = (x - 1)².", difficulty: "easy", category: "advanced-math" }
-];
-
-const complexNumberQuestions = [
-    { question: "(4 - i) + (2 + 3i) = ?", answers: [{ text: "A) 6 + 2i", correct: true }, { text: "B) 6 - 2i", correct: false }, { text: "C) 2 + 4i", correct: false }, { text: "D) 4 + i", correct: false }], explanation: "4 + 2 = 6, -i + 3i = 2i.", difficulty: "easy", category: "advanced-math" },
-    { question: "(3 + 2i)(2 - i) = ?", answers: [{ text: "A) 8 + i", correct: true }, { text: "B) 6 - 2i", correct: false }, { text: "C) 4 + 5i", correct: false }, { text: "D) 8 - i", correct: false }], explanation: "6 - 3i + 4i - 2i² = 6 + i + 2 = 8 + i.", difficulty: "medium", category: "advanced-math" },
-    { question: "Conjugate of 5 - 3i?", answers: [{ text: "A) 5 + 3i", correct: true }, { text: "B) -5 + 3i", correct: false }, { text: "C) 5 - 3i", correct: false }, { text: "D) -5 - 3i", correct: false }], explanation: "Flip imaginary sign.", difficulty: "easy", category: "advanced-math" },
-    { question: "(6 + 3i) ÷ (2 + i) = ?", answers: [{ text: "A) 3", correct: true }, { text: "B) 3 + i", correct: false }, { text: "C) 2 - i", correct: false }, { text: "D) 3 - i", correct: false }], explanation: "(6 + 3i)(2 - i) / 5 = 15 / 5 = 3.", difficulty: "medium", category: "advanced-math" },
-    { question: "Magnitude of 8 + 6i?", answers: [{ text: "A) 10", correct: true }, { text: "B) 14", correct: false }, { text: "C) 12", correct: false }, { text: "D) 8", correct: false }], explanation: "√(8² + 6²) = √(64 + 36) = 10.", difficulty: "medium", category: "advanced-math" },
-    { question: "i¹⁰ = ?", answers: [{ text: "A) -1", correct: true }, { text: "B) 1", correct: false }, { text: "C) i", correct: false }, { text: "D) -i", correct: false }], explanation: "i¹⁰ = (i²)⁵ = (-1)⁵ = -1.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: x² + 9 = 0", answers: [{ text: "A) x = ±3i", correct: true }, { text: "B) x = ±3", correct: false }, { text: "C) x = ±9i", correct: false }, { text: "D) No solutions", correct: false }], explanation: "x² = -9, x = ±3i.", difficulty: "medium", category: "advanced-math" }
-];
-
-const polynomialDivisionQuestions = [
-    { question: "P(x) = x³ - 1, find P(1)", answers: [{ text: "A) 0", correct: true }, { text: "B) 1", correct: false }, { text: "C) -1", correct: false }, { text: "D) 3", correct: false }], explanation: "1³ - 1 = 0.", difficulty: "medium", category: "advanced-math" },
-    { question: "Divide (x² - 5x + 6) by (x - 2). Quotient?", answers: [{ text: "A) x - 3", correct: true }, { text: "B) x + 3", correct: false }, { text: "C) x - 2", correct: false }, { text: "D) x + 2", correct: false }], explanation: "2 | 1 -5 6, 1 -3 0, x - 3.", difficulty: "medium", category: "advanced-math" },
-    { question: "P(x) = x⁴ - 16, find P(2)", answers: [{ text: "A) 0", correct: true }, { text: "B) 16", correct: false }, { text: "C) -16", correct: false }, { text: "D) 8", correct: false }], explanation: "2⁴ - 16 = 16 - 16 = 0.", difficulty: "medium", category: "advanced-math" },
-    { question: "Divide (x³ + 3x - 2) by (x + 1). Remainder?", answers: [{ text: "A) -5", correct: true }, { text: "B) 0", correct: false }, { text: "C) 1", correct: false }, { text: "D) -2", correct: false }], explanation: "-1 | 1 0 3 -2, remainder -5.", difficulty: "medium", category: "advanced-math" },
-    { question: "Factor: x³ - 8", answers: [{ text: "A) (x - 2)(x² + 2x + 4)", correct: true }, { text: "B) (x + 2)(x² - 2x + 4)", correct: false }, { text: "C) (x - 2)(x² + 4)", correct: false }, { text: "D) (x - 8)(x² + 8)", correct: false }], explanation: "x³ - 8 = (x - 2)(x² + 2x + 4).", difficulty: "medium", category: "advanced-math" },
-    { question: "Divide (2x³ - x + 1) by (x - 1). Quotient?", answers: [{ text: "A) 2x² + 2x + 1", correct: true }, { text: "B) 2x² - x + 1", correct: false }, { text: "C) 2x² + 1", correct: false }, { text: "D) 2x² + x - 1", correct: false }], explanation: "1 | 2 0 -1 1, 2 2 1 2, 2x² + 2x + 1.", difficulty: "medium", category: "advanced-math" },
-    { question: "P(x) = x⁵ - 32, find P(2)", answers: [{ text: "A) 0", correct: true }, { text: "B) 32", correct: false }, { text: "C) 16", correct: false }, { text: "D) -32", correct: false }], explanation: "2⁵ - 32 = 32 - 32 = 0.", difficulty: "medium", category: "advanced-math" }
-];
-
-const rationalExponentQuestions = [
-    { question: "Simplify: 8^(2/3)", answers: [{ text: "A) 4", correct: true }, { text: "B) 2", correct: false }, { text: "C) 8", correct: false }, { text: "D) 16", correct: false }], explanation: "(8^(1/3))² = 2² = 4.", difficulty: "medium", category: "advanced-math" },
-    { question: "Simplify: 25^(3/2)", answers: [{ text: "A) 125", correct: true }, { text: "B) 25", correct: false }, { text: "C) 50", correct: false }, { text: "D) 5", correct: false }], explanation: "(25^(1/2))³ = 5³ = 125.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: x^(1/2) = 6", answers: [{ text: "A) 36", correct: true }, { text: "B) 12", correct: false }, { text: "C) 6", correct: false }, { text: "D) 18", correct: false }], explanation: "x = 6² = 36.", difficulty: "easy", category: "advanced-math" },
-    { question: "Simplify: 16^(-1/4)", answers: [{ text: "A) 1/2", correct: true }, { text: "B) 1/4", correct: false }, { text: "C) 2", correct: false }, { text: "D) 1/16", correct: false }], explanation: "1 / 16^(1/4) = 1 / 2 = 1/2.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: x^(2/3) = 9", answers: [{ text: "A) 27", correct: true }, { text: "B) 81", correct: false }, { text: "C) 3", correct: false }, { text: "D) 9", correct: false }], explanation: "(x^(1/3))² = 9, x^(1/3) = 3, x = 3³ = 27.", difficulty: "medium", category: "advanced-math" },
-    { question: "Simplify: (4/9)^(3/2)", answers: [{ text: "A) 8/27", correct: true }, { text: "B) 2/3", correct: false }, { text: "C) 16/81", correct: false }, { text: "D) 4/9", correct: false }], explanation: "(4^(3/2)) / (9^(3/2)) = 8 / 27.", difficulty: "hard", category: "advanced-math" },
-    { question: "Solve: x^(-3/4) = 1/8", answers: [{ text: "A) 16", correct: true }, { text: "B) 8", correct: false }, { text: "C) 4", correct: false }, { text: "D) 2", correct: false }], explanation: "x^(3/4) = 8, (x^(1/4))³ = 8, x^(1/4) = 2, x = 16.", difficulty: "hard", category: "advanced-math" }
-];
-
-const absolutePiecewiseQuestions = [
-    { question: "Solve: |x + 3| = 6", answers: [{ text: "A) x = 3 or x = -9", correct: true }, { text: "B) x = 6 or x = -6", correct: false }, { text: "C) x = 3 only", correct: false }, { text: "D) x = -9 only", correct: false }], explanation: "x + 3 = 6 or x + 3 = -6, x = 3 or -9.", difficulty: "easy", category: "advanced-math" },
-    { question: "Solve: |2x - 5| = 3", answers: [{ text: "A) x = 4 or x = 1", correct: true }, { text: "B) x = 5 or x = -5", correct: false }, { text: "C) x = 3 or x = 2", correct: false }, { text: "D) x = 4 only", correct: false }], explanation: "2x - 5 = 3 or 2x - 5 = -3, x = 4 or 1.", difficulty: "easy", category: "advanced-math" },
-    { question: "f(x) = { x + 2 if x < 1, 2x - 1 if x ≥ 1 }, find f(0)", answers: [{ text: "A) 2", correct: true }, { text: "B) -1", correct: false }, { text: "C) 1", correct: false }, { text: "D) 0", correct: false }], explanation: "0 < 1, so f(0) = 0 + 2 = 2.", difficulty: "easy", category: "advanced-math" },
-    { question: "Solve: |x - 2| < 4", answers: [{ text: "A) -2 < x < 6", correct: true }, { text: "B) 0 < x < 4", correct: false }, { text: "C) x < 6", correct: false }, { text: "D) x > -2", correct: false }], explanation: "-4 < x - 2 < 4, -2 < x < 6.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: |3x + 1| > 7", answers: [{ text: "A) x < -8/3 or x > 2", correct: true }, { text: "B) x < -2 or x > 7", correct: false }, { text: "C) -8/3 < x < 2", correct: false }, { text: "D) x > 2", correct: false }], explanation: "3x + 1 > 7 or 3x + 1 < -7, x > 2 or x < -8/3.", difficulty: "medium", category: "advanced-math" },
-    { question: "f(x) = |x - 1| + 2, minimum value?", answers: [{ text: "A) 2", correct: true }, { text: "B) 0", correct: false }, { text: "C) 1", correct: false }, { text: "D) 3", correct: false }], explanation: "|x - 1| ≥ 0, minimum at x = 1, f(1) = 2.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: |x + 4| = 2x + 1", answers: [{ text: "A) x = -5", correct: true }, { text: "B) x = 3", correct: false }, { text: "C) x = -3", correct: false }, { text: "D) No solutions", correct: false }], explanation: "x + 4 = 2x + 1, x = 3 invalid; -(x + 4) = 2x + 1, x = -5 valid.", difficulty: "hard", category: "advanced-math" }
-];
-
-const trigFunctionQuestions = [
-    { question: "Solve: sin(x) = 1 (0 ≤ x < 2π)", answers: [{ text: "A) π/2", correct: true }, { text: "B) π", correct: false }, { text: "C) 0", correct: false }, { text: "D) 3π/2", correct: false }], explanation: "sin(x) = 1 at x = π/2.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: cos(x) = -1 (0 ≤ x < 2π)", answers: [{ text: "A) π", correct: true }, { text: "B) π/2", correct: false }, { text: "C) 0", correct: false }, { text: "D) 2π", correct: false }], explanation: "cos(x) = -1 at x = π.", difficulty: "medium", category: "advanced-math" },
-    { question: "Simplify: 1 - cos²(x)", answers: [{ text: "A) sin²(x)", correct: true }, { text: "B) cos²(x)", correct: false }, { text: "C) tan²(x)", correct: false }, { text: "D) 1", correct: false }], explanation: "1 - cos²(x) = sin²(x).", difficulty: "easy", category: "advanced-math" },
-    { question: "If tan(x) = 8/15 (Q1), find sin(x)", answers: [{ text: "A) 8/17", correct: true }, { text: "B) 15/17", correct: false }, { text: "C) 8/15", correct: false }, { text: "D) 17/8", correct: false }], explanation: "√(8² + 15²) = 17, sin(x) = 8/17.", difficulty: "medium", category: "advanced-math" },
-    { question: "sin(2x) if cos(x) = 3/5 (Q1)", answers: [{ text: "A) 24/25", correct: true }, { text: "B) 7/25", correct: false }, { text: "C) 18/25", correct: false }, { text: "D) 9/25", correct: false }], explanation: "sin(x) = 4/5, sin(2x) = 2(4/5)(3/5) = 24/25.", difficulty: "medium", category: "advanced-math" },
-    { question: "Solve: tan(x) = 1 (0 ≤ x < 2π)", answers: [{ text: "A) π/4, 5π/4", correct: true }, { text: "B) π/2, 3π/2", correct: false }, { text: "C) π/6, 5π/6", correct: false }, { text: "D) 0, π", correct: false }], explanation: "tan(x) = 1 at π/4 and 5π/4.", difficulty: "medium", category: "advanced-math" },
-    { question: "cos(x + y) if sin(x) = 5/13, cos(y) = 12/13 (Q1)", answers: [{ text: "A) 33/65", correct: true }, { text: "B) 63/65", correct: false }, { text: "C) 16/65", correct: false }, { text: "D) 56/65", correct: false }], explanation: "cos(x) = 12/13, sin(y) = 5/13, cos(x)cos(y) - sin(x)sin(y) = 33/65.", difficulty: "hard", category: "advanced-math" }
-];
-
 // lesson-advanced-math.js
 
 let categoryStats = {
     "advanced-math": { correct: 0, incorrect: 0 }
 };
 
-let currentContentIndex = 0;
 let currentLesson = 1;
+let currentItemIndex = 0;
+let currentQuestionIndex = 0;
+let isQuizPhase = false;
 let progressSteps = 0;
-const totalSteps = 14; // 7 examples + 7 questions
+let totalSteps = 0;
 
+// Ensure scores display on page load
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    currentLesson = parseInt(urlParams.get('lesson')) || 1;
+    console.log(`Loading lesson ${currentLesson}`);
+
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start Lesson Button event listener added.");
+    } else {
+        console.error("Start lesson button not found.");
+    }
+
+    showScore();
+    updateProgressBar(0);
+});
+
+// Progress bar update function
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
@@ -1501,157 +1443,182 @@ function updateProgressBar(step) {
     }
 }
 
+// Start the lesson
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
+    const appContainer = document.querySelector('.mathapp');
+    if (startLessonButton && appContainer) {
         startLessonButton.style.display = 'none';
-        currentContentIndex = 0;
-        showContent();
+        appContainer.style.display = 'block';
+        currentItemIndex = 0;
+        isQuizPhase = false;
+        const quizQuestions = getQuizQuestions(currentLesson);
+        totalSteps = lessons[currentLesson].content.length + quizQuestions.length;
+        console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
+        showItem();
+        progressSteps = 1;
+        updateProgressBar(progressSteps);
     } else {
-        console.error("Start lesson button not found!");
+        console.error("Start lesson button or math app container not found!");
     }
 }
 
-function showContent() {
-    console.log("Showing content for lesson:", currentLesson, "index:", currentContentIndex);
+// Show lesson item (example or question)
+function showItem() {
+    console.log("Showing item for lesson:", currentLesson, "index:", currentItemIndex, "isQuizPhase:", isQuizPhase);
     const lessonContent = document.getElementById('lesson-content');
-    if (lessonContent && lessons && lessons[currentLesson] && lessons[currentLesson].content[currentContentIndex]) {
-        const item = lessons[currentLesson].content[currentContentIndex];
+    if (lessonContent && lessons[currentLesson] && lessons[currentLesson].content[currentItemIndex]) {
+        const item = lessons[currentLesson].content[currentItemIndex];
         if (item.type === "example") {
             lessonContent.innerHTML = item.content;
             const nextBtn = document.getElementById('next-item');
             if (nextBtn) {
-                nextBtn.addEventListener('click', nextContent);
+                nextBtn.addEventListener('click', nextItem);
+            } else {
+                console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
             lessonContent.innerHTML = `
                 <h2>${item.title}</h2>
                 <p>${item.question}</p>
                 ${item.options.map((option, index) => `
-                    <input type="radio" id="q${currentContentIndex}a${index}" name="q${currentContentIndex}" value="${option.correct}">
-                    <label for="q${currentContentIndex}a${index}">${option.text}</label><br>
+                    <button class="answer-btn" data-correct="${option.correct}">${option.text}</button>
                 `).join('')}
-                <button id="submit-answer">Submit Answer</button>
+                <p id="explanation" class="explanation" style="display: none;"></p>
+                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
             `;
-            document.getElementById('submit-answer').addEventListener('click', () => checkAnswer(item));
+            const answerButtons = document.querySelectorAll('.answer-btn');
+            answerButtons.forEach(btn => btn.addEventListener('click', () => selectAnswer(btn, item)));
         }
-        updateProgressBar(currentContentIndex + 1);
+        progressSteps = currentItemIndex + 1;
+        updateProgressBar(progressSteps);
     } else {
-        console.error("Lesson content or data missing!");
+        console.log("Lesson content complete, transitioning to quiz");
         showQuiz();
     }
 }
 
-function nextContent() {
-    currentContentIndex++;
-    if (currentContentIndex < lessons[currentLesson].content.length) {
-        showContent();
+// Handle next item
+function nextItem() {
+    console.log("nextItem called, currentItemIndex:", currentItemIndex);
+    currentItemIndex++;
+    if (currentItemIndex < lessons[currentLesson].content.length) {
+        showItem();
     } else {
         showQuiz();
     }
 }
 
-function checkAnswer(question) {
-    const selectedAnswer = document.querySelector(`input[name="q${currentContentIndex}"]:checked`);
-    if (selectedAnswer) {
-        if (selectedAnswer.value === "true") {
-            alert('Correct!');
-            categoryStats["geometry"].correct++;
-        } else {
-            alert(`Incorrect. ${question.explanation}`);
-            categoryStats["geometry"].incorrect++;
-        }
-        nextContent();
+// Handle answer selection
+function selectAnswer(button, question) {
+    const isCorrect = button.getAttribute('data-correct') === "true";
+    const explanationDiv = document.getElementById('explanation');
+    const submitButton = document.getElementById('submit-answer');
+    const answerButtons = document.querySelectorAll('.answer-btn');
+
+    answerButtons.forEach(btn => btn.disabled = true);
+    if (isCorrect) {
+        button.classList.add('correct');
+        categoryStats["advanced-math"].correct++;
     } else {
-        alert('Please select an answer.');
+        button.classList.add('incorrect');
+        explanationDiv.style.display = 'block';
+        explanationDiv.textContent = question.explanation;
+        categoryStats["advanced-math"].incorrect++;
     }
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', nextItem, { once: true });
 }
 
+// Show quiz phase
 function showQuiz() {
-    currentContentIndex = 0;
-    let quizQuestions;
-    switch (parseInt(currentLesson)) {
-        case 1: quizQuestions = linesAnglesQuestions; break;
-        case 2: quizQuestions = trianglesQuestions; break;
-        case 3: quizQuestions = quadrilateralsPolygonsQuestions; break;
-        case 4: quizQuestions = circlesQuestions; break;
-        case 5: quizQuestions = coordinateGeometryQuestions; break;
-        case 6: quizQuestions = threeDGeometryQuestions; break;
-        case 7: quizQuestions = transformationsQuestions; break;
-        case 8: quizQuestions = trigonometryQuestions; break;
-        default: quizQuestions = linesAnglesQuestions;
-    }
+    console.log("Starting quiz for lesson:", currentLesson);
+    isQuizPhase = true;
+    currentQuestionIndex = 0;
+    const quizQuestions = getQuizQuestions(currentLesson);
+    progressSteps = lessons[currentLesson].content.length + 1;
+    updateProgressBar(progressSteps);
     showNextQuizQuestion(quizQuestions);
 }
 
+// Get quiz questions based on lesson
+function getQuizQuestions(lessonId) {
+    switch (parseInt(lessonId)) {
+        case 1: return nonlinearQuestions;
+        case 2: return nonlinearSystemsQuestions;
+        case 3: return functionTransformQuestions;
+        case 4: return complexNumberQuestions;
+        case 5: return polynomialDivisionQuestions;
+        case 6: return rationalExponentQuestions;
+        case 7: return absolutePiecewiseQuestions;
+        case 8: return trigFunctionQuestions;
+        default: return nonlinearQuestions;
+    }
+}
+
+// Show next quiz question
 function showNextQuizQuestion(quizQuestions) {
-    if (currentContentIndex < quizQuestions.length) {
-        const question = quizQuestions[currentContentIndex];
-        const lessonContent = document.getElementById('lesson-content');
+    console.log("Showing quiz question:", currentQuestionIndex, "of", quizQuestions.length);
+    const lessonContent = document.getElementById('lesson-content');
+    if (currentQuestionIndex < quizQuestions.length) {
+        const question = quizQuestions[currentQuestionIndex];
         lessonContent.innerHTML = `
-            <h2>Question ${currentContentIndex + 1}</h2>
+            <h2>Quiz Question ${currentQuestionIndex + 1}</h2>
             <p>${question.question}</p>
             ${question.answers.map((answer, index) => `
-                <input type="radio" id="q${currentContentIndex}a${index}" name="q${currentContentIndex}" value="${answer.correct}">
-                <label for="q${currentContentIndex}a${index}">${answer.text}</label><br>
+                <button class="answer-btn" data-correct="${answer.correct}">${answer.text}</button>
             `).join('')}
-            <button id="submit-answer">Submit Answer</button>
+            <p id="explanation" class="explanation" style="display: none;"></p>
+            <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
         `;
-        document.getElementById('submit-answer').addEventListener('click', () => checkQuizAnswer(question, quizQuestions));
+        const answerButtons = document.querySelectorAll('.answer-btn');
+        answerButtons.forEach(btn => btn.addEventListener('click', () => selectQuizAnswer(btn, question, quizQuestions)));
+        progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
+        updateProgressBar(progressSteps);
     } else {
         showFinalScore();
     }
 }
 
-function checkQuizAnswer(question, quizQuestions) {
-    const selectedAnswer = document.querySelector(`input[name="q${currentContentIndex}"]:checked`);
-    if (selectedAnswer) {
-        if (selectedAnswer.value === "true") {
-            alert('Correct!');
-            categoryStats[question.category].correct++;
-        } else {
-            alert(`Incorrect. ${question.explanation}`);
-            categoryStats[question.category].incorrect++;
-        }
-        currentContentIndex++;
-        if (currentContentIndex < quizQuestions.length) {
-            showNextQuizQuestion(quizQuestions);
-        } else {
-            console.log("Quiz complete, calling showFinalScore");
-            showFinalScore();
-        }
+// Handle quiz answer selection
+function selectQuizAnswer(button, question, quizQuestions) {
+    const isCorrect = button.getAttribute('data-correct') === "true";
+    const explanationDiv = document.getElementById('explanation');
+    const submitButton = document.getElementById('submit-answer');
+    const answerButtons = document.querySelectorAll('.answer-btn');
+
+    answerButtons.forEach(btn => btn.disabled = true);
+    if (isCorrect) {
+        button.classList.add('correct');
+        categoryStats[question.category].correct++;
     } else {
-        alert('Please select an answer.');
+        button.classList.add('incorrect');
+        explanationDiv.style.display = 'block';
+        explanationDiv.textContent = question.explanation;
+        categoryStats[question.category].incorrect++;
     }
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', () => nextQuizItem(quizQuestions), { once: true });
 }
 
-function logFinalScore(totalCorrect, totalAttempted) {
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    localStorage.setItem("finalScore", JSON.stringify({
-        correct: totalCorrect,
-        attempted: totalAttempted,
-        percentage: percentage,
-        lesson: currentLesson
-    }));
-    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
+// Move to next quiz question
+function nextQuizItem(quizQuestions) {
+    currentQuestionIndex++;
+    progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
+    updateProgressBar(progressSteps);
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    showNextQuizQuestion(quizQuestions);
 }
 
+// Show final score
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = 0;
-    let totalAttempted = 0;
-
-    for (let category in categoryStats) {
-        totalCorrect += categoryStats[category].correct;
-        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
-    }
-
-    logFinalScore(totalCorrect, totalAttempted);
+    let totalCorrect = categoryStats["advanced-math"].correct;
+    let totalAttempted = totalCorrect + categoryStats["advanced-math"].incorrect;
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    console.log("Saving score:", score);
     saveScore(currentLesson, score);
 
     const finalScoreElement = document.getElementById('final-score');
@@ -1672,6 +1639,27 @@ function showFinalScore() {
     recordTestResults();
 }
 
+// Save score to localStorage
+function saveScore(lessonId, score) {
+    localStorage.setItem(`advanced-math-lessonScore-${lessonId}`, score);
+    console.log(`Saved advanced-math-lessonScore-${lessonId}: ${score}`);
+}
+
+// Get score from localStorage
+function getScore(lessonId) {
+    return localStorage.getItem(`advanced-math-lessonScore-${lessonId}`) || "Not completed yet";
+}
+
+// Display previous score
+function showScore() {
+    const scoreDisplay = document.getElementById('score-display');
+    if (scoreDisplay) {
+        const score = getScore(currentLesson);
+        scoreDisplay.innerHTML = `Previous Score for Lesson ${currentLesson}: ${score}`;
+    }
+}
+
+// Record test results in localStorage
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
     let storedResults = localStorage.getItem("testResults");
@@ -1683,44 +1671,5 @@ function recordTestResults() {
     }
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
-    for (let category in categoryStats) {
-        categoryStats[category].correct = 0;
-        categoryStats[category].incorrect = 0;
-    }
+    categoryStats["advanced-math"] = { correct: 0, incorrect: 0 }; // Reset stats
 }
-
-function saveScore(lessonId, score) {
-    localStorage.setItem(`geometry-lessonScore-${lessonId}`, score);
-    console.log(`Saved geometry-lessonScore-${lessonId}: ${score}`);
-}
-
-function getScore(lessonId) {
-    return localStorage.getItem(`geometry-lessonScore-${lessonId}`) || "Not completed yet";
-}
-
-function showScore() {
-    const scoreDisplay = document.getElementById('score-display');
-    if (scoreDisplay) {
-        const score = getScore(currentLesson);
-        scoreDisplay.innerHTML = `Previous Score for Lesson ${currentLesson}: ${score}`;
-    }
-}
-
-// Initialize on page load
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Page loaded, initializing lesson:", currentLesson);
-    const urlParams = new URLSearchParams(window.location.search);
-    currentLesson = urlParams.get('lesson') || 1;
-    console.log("Set currentLesson to:", currentLesson);
-
-    showScore();
-    updateProgressBar(0);
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
-        console.log("Start lesson button event listener added");
-    } else {
-        console.error("Start lesson button not found on page load!");
-    }
-});
