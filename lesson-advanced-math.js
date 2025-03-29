@@ -1396,7 +1396,32 @@ const lessons = {
         ]
     }
 };
-
+const nonlinearQuestions = [
+    {
+        question: "Solve: x² - 16 = 0",
+        answers: [
+            { text: "A) x = ±4", correct: true },
+            { text: "B) x = 4", correct: false },
+            { text: "C) x = -4", correct: false },
+            { text: "D) x = 0", correct: false }
+        ],
+        explanation: "x² = 16, so x = ±4.",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        question: "What is the vertex of y = x² + 2x + 1?",
+        answers: [
+            { text: "A) (-1, 0)", correct: true },
+            { text: "B) (0, 1)", correct: false },
+            { text: "C) (1, 0)", correct: false },
+            { text: "D) (-1, 1)", correct: false }
+        ],
+        explanation: "Complete the square: y = (x + 1)², vertex at (-1, 0).",
+        difficulty: "medium",
+        category: "advanced-math"
+    }
+];
 // lesson-advanced-math.js
 
 let categoryStats = {
