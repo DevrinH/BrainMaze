@@ -1517,7 +1517,7 @@ function showItem() {
                 <p id="explanation" class="explanation" style="display: none;"></p>
                 <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
             `;
-            const answerButtons = document.querySelectorAll('.answer-btn');
+            const answerButtons = document.querySelectorAll('#answer-buttons .btn');
             answerButtons.forEach(btn => btn.addEventListener('click', () => selectAnswer(btn, item)));
         }
         progressSteps = currentItemIndex + 1;
@@ -1596,7 +1596,7 @@ function showNextQuizQuestion(quizQuestions) {
             <p id="explanation" class="explanation" style="display: none;"></p>
             <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
         `;
-        const answerButtons = document.querySelectorAll('.answer-btn');
+        const answerButtons = document.querySelectorAll('.answer-buttons');
         answerButtons.forEach(btn => btn.addEventListener('click', () => selectQuizAnswer(btn, question, quizQuestions)));
         progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
         updateProgressBar(progressSteps);
@@ -1609,7 +1609,7 @@ function selectQuizAnswer(button, question, quizQuestions) {
     const isCorrect = button.getAttribute('data-correct') === "true";
     const explanationDiv = document.getElementById('explanation');
     const submitButton = document.getElementById('submit-answer');
-    const answerButtons = document.querySelectorAll('.answer-btn');
+    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
 
     answerButtons.forEach(btn => btn.disabled = true);
     if (isCorrect) {
