@@ -1532,13 +1532,48 @@ function showItem() {
     }
 }
 
+// Add a flag to track if we're showing the quiz transition
+let showingQuizTransition = false;
+
+// Modify nextItem to show the transition screen when lesson content ends
 function nextItem() {
     console.log("nextItem called, currentItemIndex:", currentItemIndex);
     currentItemIndex++;
     if (currentItemIndex < lessons[currentLesson].content.length) {
         showItem();
+    } else if (!showingQuizTransition) {
+        // Show the quiz transition screen instead of jumping straight to quiz
+        showQuizTransition();
+    }
+    // If showingQuizTransition is true, the Next button on the transition screen will handle moving to showQuiz
+}
+
+// New function to display the quiz transition screen
+function showQuizTransition() {
+    console.log("Showing quiz transition for lesson:", currentLesson);
+    showingQuizTransition = true;
+    const lessonContent = document.getElementById('lesson-content');
+    if (lessonContent) {
+        lessonContent.innerHTML = `
+            <div class="quiz-transition">
+                <h2>Lesson Complete!</h2>
+                <p>Now it's time for the quiz.</p>
+                <button id="start-quiz-btn" class="btn-next-btn">Next</button>
+            </div>
+        `;
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        if (startQuizBtn) {
+            startQuizBtn.addEventListener('click', () => {
+                showingQuizTransition = false; // Reset flag
+                showQuiz(); // Proceed to quiz
+            }, { once: true });
+        } else {
+            console.error("Start quiz button not found in transition!");
+        }
+        progressSteps = lessons[currentLesson].content.length; // Set progress to end of lesson content
+        updateProgressBar(progressSteps);
     } else {
-        showQuiz();
+        console.error("Lesson content element not found for quiz transition!");
     }
 }
 
@@ -1562,12 +1597,13 @@ function selectAnswer(button, question) {
     submitButton.addEventListener('click', nextItem, { once: true });
 }
 
+// Update showQuiz to adjust progress correctly after transition
 function showQuiz() {
     console.log("Starting quiz for lesson:", currentLesson);
     isQuizPhase = true;
     currentQuestionIndex = 0;
     const quizQuestions = getQuizQuestions(currentLesson);
-    progressSteps = lessons[currentLesson].content.length + 1;
+    progressSteps = lessons[currentLesson].content.length + 1; // Start quiz progress
     updateProgressBar(progressSteps);
     showNextQuizQuestion(quizQuestions);
 }
