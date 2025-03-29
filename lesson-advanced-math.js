@@ -1654,7 +1654,7 @@ function showFinalScore() {
         <h2>Final Score</h2>
         <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
-        <button id="continue-button">Continue</button>
+        <button id="continue-button" class="continue-btn">Continue</button>
     `;
 
     document.getElementById('continue-button').addEventListener('click', () => {
