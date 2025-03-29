@@ -1511,13 +1511,15 @@ function showItem() {
             lessonContent.innerHTML = `
                 <h2>${item.title}</h2>
                 <p>${item.question}</p>
-                ${item.options.map((option, index) => `
-                    <button class="answer-btn" data-correct="${option.correct}">${option.text}</button>
-                `).join('')}
+                <div id="answer-buttons">
+                    ${item.options.map((option, index) => `
+                        <button class="answer-btn btn" data-correct="${option.correct}">${option.text}</button>
+                    `).join('')}
+                </div>
                 <p id="explanation" class="explanation" style="display: none;"></p>
                 <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
             `;
-            const answerButtons = document.querySelectorAll('#answer-buttons .btn');
+            const answerButtons = document.querySelectorAll('.answer-btn'); // Corrected selector
             answerButtons.forEach(btn => btn.addEventListener('click', () => selectAnswer(btn, item)));
         }
         progressSteps = currentItemIndex + 1;
@@ -1542,7 +1544,7 @@ function selectAnswer(button, question) {
     const isCorrect = button.getAttribute('data-correct') === "true";
     const explanationDiv = document.getElementById('explanation');
     const submitButton = document.getElementById('submit-answer');
-    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
+    const answerButtons = document.querySelectorAll('.answer-btn'); // Corrected selector
 
     answerButtons.forEach(btn => btn.disabled = true);
     if (isCorrect) {
@@ -1590,13 +1592,15 @@ function showNextQuizQuestion(quizQuestions) {
         lessonContent.innerHTML = `
             <h2>Quiz Question ${currentQuestionIndex + 1}</h2>
             <p>${question.question}</p>
-            ${question.answers.map((answer, index) => `
-                <button class="answer-btn" data-correct="${answer.correct}">${answer.text}</button>
-            `).join('')}
+            <div id="answer-buttons">
+                ${question.answers.map((answer, index) => `
+                    <button class="answer-btn btn" data-correct="${answer.correct}">${answer.text}</button>
+                `).join('')}
+            </div>
             <p id="explanation" class="explanation" style="display: none;"></p>
             <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
         `;
-        const answerButtons = document.querySelectorAll('.answer-buttons');
+        const answerButtons = document.querySelectorAll('.answer-btn'); // Corrected selector
         answerButtons.forEach(btn => btn.addEventListener('click', () => selectQuizAnswer(btn, question, quizQuestions)));
         progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
         updateProgressBar(progressSteps);
@@ -1609,7 +1613,7 @@ function selectQuizAnswer(button, question, quizQuestions) {
     const isCorrect = button.getAttribute('data-correct') === "true";
     const explanationDiv = document.getElementById('explanation');
     const submitButton = document.getElementById('submit-answer');
-    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
+    const answerButtons = document.querySelectorAll('.answer-btn'); // Corrected selector
 
     answerButtons.forEach(btn => btn.disabled = true);
     if (isCorrect) {
