@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
-    const startLessonButton = document.getElementById('sstart-math-lesson);
+    const startLessonButton = document.getElementById('sstart-math-lesson');
     if (startLessonButton) {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
