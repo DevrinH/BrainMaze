@@ -1411,6 +1411,14 @@ let progressSteps = 0;
 let totalSteps = 0;
 
 // Ensure scores display on page load
+const nonlinearSystemsQuestions = [];
+const functionTransformQuestions = [];
+const complexNumberQuestions = [];
+const polynomialDivisionQuestions = [];
+const rationalExponentQuestions = [];
+const absolutePiecewiseQuestions = [];
+const trigFunctionQuestions = [];
+
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
@@ -1426,15 +1434,13 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Start lesson button not found.");
     }
 
-    showScore();
     updateProgressBar(0);
 });
 
-// Progress bar update function
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
-        const percentage = (step / totalSteps) * 100;
+        const percentage = totalSteps > 0 ? (step / totalSteps) * 100 : 0;
         progressBar.style.width = `${percentage}%`;
         progressBar.setAttribute('aria-valuenow', percentage);
         console.log(`Progress updated: ${step}/${totalSteps} (${percentage}%)`);
@@ -1443,7 +1449,6 @@ function updateProgressBar(step) {
     }
 }
 
-// Start the lesson
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-math-lesson');
@@ -1464,7 +1469,6 @@ function startLesson() {
     }
 }
 
-// Show lesson item (example or question)
 function showItem() {
     console.log("Showing item for lesson:", currentLesson, "index:", currentItemIndex, "isQuizPhase:", isQuizPhase);
     const lessonContent = document.getElementById('lesson-content');
@@ -1499,7 +1503,6 @@ function showItem() {
     }
 }
 
-// Handle next item
 function nextItem() {
     console.log("nextItem called, currentItemIndex:", currentItemIndex);
     currentItemIndex++;
@@ -1510,7 +1513,6 @@ function nextItem() {
     }
 }
 
-// Handle answer selection
 function selectAnswer(button, question) {
     const isCorrect = button.getAttribute('data-correct') === "true";
     const explanationDiv = document.getElementById('explanation');
@@ -1531,7 +1533,6 @@ function selectAnswer(button, question) {
     submitButton.addEventListener('click', nextItem, { once: true });
 }
 
-// Show quiz phase
 function showQuiz() {
     console.log("Starting quiz for lesson:", currentLesson);
     isQuizPhase = true;
@@ -1542,7 +1543,6 @@ function showQuiz() {
     showNextQuizQuestion(quizQuestions);
 }
 
-// Get quiz questions based on lesson
 function getQuizQuestions(lessonId) {
     switch (parseInt(lessonId)) {
         case 1: return nonlinearQuestions;
@@ -1557,7 +1557,6 @@ function getQuizQuestions(lessonId) {
     }
 }
 
-// Show next quiz question
 function showNextQuizQuestion(quizQuestions) {
     console.log("Showing quiz question:", currentQuestionIndex, "of", quizQuestions.length);
     const lessonContent = document.getElementById('lesson-content');
@@ -1581,7 +1580,6 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
-// Handle quiz answer selection
 function selectQuizAnswer(button, question, quizQuestions) {
     const isCorrect = button.getAttribute('data-correct') === "true";
     const explanationDiv = document.getElementById('explanation');
@@ -1602,7 +1600,6 @@ function selectQuizAnswer(button, question, quizQuestions) {
     submitButton.addEventListener('click', () => nextQuizItem(quizQuestions), { once: true });
 }
 
-// Move to next quiz question
 function nextQuizItem(quizQuestions) {
     currentQuestionIndex++;
     progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
@@ -1611,7 +1608,6 @@ function nextQuizItem(quizQuestions) {
     showNextQuizQuestion(quizQuestions);
 }
 
-// Show final score
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
     let totalCorrect = categoryStats["advanced-math"].correct;
@@ -1639,18 +1635,15 @@ function showFinalScore() {
     recordTestResults();
 }
 
-// Save score to localStorage
 function saveScore(lessonId, score) {
     localStorage.setItem(`advanced-math-lessonScore-${lessonId}`, score);
     console.log(`Saved advanced-math-lessonScore-${lessonId}: ${score}`);
 }
 
-// Get score from localStorage
 function getScore(lessonId) {
     return localStorage.getItem(`advanced-math-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
-// Display previous score
 function showScore() {
     const scoreDisplay = document.getElementById('score-display');
     if (scoreDisplay) {
@@ -1659,7 +1652,6 @@ function showScore() {
     }
 }
 
-// Record test results in localStorage
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
     let storedResults = localStorage.getItem("testResults");
@@ -1671,5 +1663,5 @@ function recordTestResults() {
     }
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
-    categoryStats["advanced-math"] = { correct: 0, incorrect: 0 }; // Reset stats
+    categoryStats["advanced-math"] = { correct: 0, incorrect: 0 };
 }
