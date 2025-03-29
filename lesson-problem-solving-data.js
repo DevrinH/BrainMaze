@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function() {
     showScore();
     updateProgressBar(0);
 
-    const startLessonButton = document.getElementById('start-lesson');
+    const startLessonButton = document.getElementById('start-math-lesson');
     if (startLessonButton) {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start lesson button event listener added");
@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
-    const startLessonButton = document.getElementById('start-lesson');
+    const startLessonButton = document.getElementById('start-math-lesson');
     const appContainer = document.querySelector('.mathapp'); // Assuming a container like in other lessons
     if (startLessonButton && appContainer) {
         startLessonButton.style.display = 'none';
