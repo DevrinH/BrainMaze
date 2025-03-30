@@ -1048,7 +1048,7 @@ margin-bottom: 7px;
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 18px;
-  width: 95%; /* Override landing.css full-width */
+  width: auto; /* Override landing.css full-width */
   max-width: 200px; /* Slightly smaller than other buttons */
 
 
