@@ -16,9 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     showScore();
+    updateProgressBar(0); // Initialize progress bar
 });
 
-// Define all lessons
+// Define all lessons (unchanged from your code)
 const lessons = {
     1: {
         title: "Textual Evidence",
@@ -28,15 +29,10 @@ const lessons = {
                 title: "Example: Identifying Textual Evidence",
                 content: `
                     <h2>Example: Identifying Textual Evidence</h2>
-                    
                     <p>Passage: 'The new policy reduced emissions by 20% in its first year.'</p>
-                    
                     <p>Question: What evidence supports the claim that the policy was effective?</p>
-                    
                     <p>Step 1: Identify the claim: The policy was effective.</p>
-                    
                     <p>Step 2: Find supporting evidence: 'reduced emissions by 20% in its first year.'</p>
-                    
                     <p>The evidence is the specific reduction percentage.</p>
                     <button id="next-item">Next</button>
                 `
@@ -748,7 +744,7 @@ const lessons = {
     }
 };
 
-// Command of Evidence question arrays
+// Command of Evidence question arrays (unchanged from your code)
 const textualEvidenceQuestions = [
     {
         question: "Passage: 'The species population increased by 30% after protections were enacted.' What evidence supports the protections’ success?",
@@ -818,13 +814,14 @@ let currentQuestionIndex = 0;
 let currentLesson = 1;
 let currentItemIndex = 0;
 let progressSteps = 0;
-let totalSteps = 15; // Default for Lesson 1: 14 items + 1 quiz
-let isQuizPhase = false; // Track lesson vs. quiz phase
+let totalSteps = 0; // Set dynamically in startLesson
+let isQuizPhase = false;
+let showingQuizTransition = false; // New flag for quiz transition
 
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
-        const percentage = (step / totalSteps) * 100;
+        const percentage = totalSteps > 0 ? (step / totalSteps) * 100 : 0;
         progressBar.style.width = `${percentage}%`;
         progressBar.setAttribute('aria-valuenow', percentage);
         console.log(`Progress updated: ${step}/${totalSteps} (${percentage}%)`);
@@ -836,18 +833,20 @@ function updateProgressBar(step) {
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
+    const appContainer = document.querySelector('.mathapp');
+    if (startLessonButton && appContainer) {
         startLessonButton.style.display = 'none';
-        console.log("Start Lesson button hidden with style.display = 'none'");
+        appContainer.style.display = 'block';
+        console.log("Math app container displayed");
         currentItemIndex = 0;
         isQuizPhase = false;
-        totalSteps = lessons[currentLesson].content.length + 1;
+        totalSteps = lessons[currentLesson].content.length + getQuizQuestions(currentLesson).length;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
         showItem();
         progressSteps = 1;
         updateProgressBar(progressSteps);
     } else {
-        console.error("Start lesson button not found!");
+        console.error("Start lesson button or math app container not found!");
     }
 }
 
@@ -862,10 +861,12 @@ function showItem() {
 
     const item = currentLessonData.content[currentItemIndex];
     if (!item) {
-        console.log("No more items, proceeding to quiz");
-        showQuiz();
+        console.log("No more items, proceeding to quiz transition");
+        showQuizTransition();
         return;
     }
+
+    lessonContent.innerHTML = ''; // Clear previous content
 
     if (item.type === "example") {
         lessonContent.innerHTML = `
@@ -882,7 +883,7 @@ function showItem() {
             nextButton.addEventListener('click', nextItem, { once: true });
             console.log("Next button event listener added");
         } else {
-            console.error("Next item button not found!");
+            console.error("Next item button not found in example!");
         }
     } else if (item.type === "question") {
         const passage = extractPassage(item.question);
@@ -906,6 +907,8 @@ function showItem() {
             answerButtons.appendChild(button);
         });
     }
+    progressSteps = currentItemIndex + 1;
+    updateProgressBar(progressSteps);
 }
 
 function extractPassage(content) {
@@ -916,8 +919,8 @@ function extractPassage(content) {
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
-    const lessonContent = document.getElementById('lesson-content');
-    
+    const rightColumn = document.querySelector('.right-column');
+
     answerButtons.forEach(btn => {
         btn.disabled = true;
         if (btn.dataset.correct === "true") {
@@ -934,10 +937,10 @@ function selectAnswer(selectedBtn, item) {
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
-        lessonContent.querySelector('.right-column').appendChild(explanationDiv);
+        rightColumn.appendChild(explanationDiv);
     }
 
-    submitButton.style.display = 'inline-block'; // Show button instead of class toggle
+    submitButton.style.display = 'inline-block';
     submitButton.addEventListener('click', () => {
         if (!isQuizPhase) {
             nextItem();
@@ -949,41 +952,60 @@ function selectAnswer(selectedBtn, item) {
 
 function nextItem() {
     currentItemIndex++;
-    progressSteps = currentItemIndex + 1;
-    updateProgressBar(progressSteps);
     console.log("nextItem called, currentItemIndex:", currentItemIndex);
-    showItem();
+    if (currentItemIndex < lessons[currentLesson].content.length) {
+        showItem();
+    } else if (!showingQuizTransition) {
+        showQuizTransition();
+    }
 }
 
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions;
-    switch (parseInt(currentLesson)) {
-        case 1: quizQuestions = textualEvidenceQuestions; break;
-        case 2: quizQuestions = authorUseOfEvidenceQuestions; break;
-        case 3: quizQuestions = dataInterpretationQuestions; break;
-        case 4: quizQuestions = crossTextEvidenceQuestions; break;
-        default: quizQuestions = textualEvidenceQuestions;
+function showQuizTransition() {
+    console.log("Showing quiz transition for lesson:", currentLesson);
+    showingQuizTransition = true;
+    const lessonContent = document.getElementById('lesson-content');
+    if (lessonContent) {
+        lessonContent.innerHTML = `
+            <div class="quiz-transition">
+                <h2>Lesson Complete!</h2>
+                <p>Now it's time for the quiz.</p>
+                <button id="start-quiz-btn" class="btn next-btn">Next</button>
+            </div>
+        `;
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        if (startQuizBtn) {
+            startQuizBtn.addEventListener('click', () => {
+                showingQuizTransition = false;
+                showQuiz();
+            }, { once: true });
+        } else {
+            console.error("Start quiz button not found in transition!");
+        }
+        progressSteps = lessons[currentLesson].content.length;
+        updateProgressBar(progressSteps);
+    } else {
+        console.error("Lesson content element not found for quiz transition!");
     }
-    showNextQuizQuestion(quizQuestions);
 }
 
 function showQuiz() {
     console.log("Starting quiz for lesson:", currentLesson);
     isQuizPhase = true;
     currentQuestionIndex = 0;
-    let quizQuestions;
-    switch (parseInt(currentLesson)) {
-        case 1: quizQuestions = textualEvidenceQuestions; break;
-        case 2: quizQuestions = authorUseOfEvidenceQuestions; break;
-        case 3: quizQuestions = dataInterpretationQuestions; break;
-        case 4: quizQuestions = crossTextEvidenceQuestions; break;
-        default: quizQuestions = textualEvidenceQuestions;
-    }
-    progressSteps = totalSteps;
+    let quizQuestions = getQuizQuestions(currentLesson);
+    progressSteps = lessons[currentLesson].content.length + 1;
     updateProgressBar(progressSteps);
     showNextQuizQuestion(quizQuestions);
+}
+
+function getQuizQuestions(lessonId) {
+    switch (parseInt(lessonId)) {
+        case 1: return textualEvidenceQuestions;
+        case 2: return authorUseOfEvidenceQuestions;
+        case 3: return dataInterpretationQuestions;
+        case 4: return crossTextEvidenceQuestions;
+        default: return textualEvidenceQuestions;
+    }
 }
 
 function showNextQuizQuestion(quizQuestions) {
@@ -1011,27 +1033,29 @@ function showNextQuizQuestion(quizQuestions) {
             button.addEventListener("click", () => selectAnswer(button, question));
             answerButtons.appendChild(button);
         });
+        progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
+        updateProgressBar(progressSteps);
     } else {
         console.log("All quiz questions answered, showing final score");
         showFinalScore();
     }
 }
 
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
+}
+
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = 0;
-    let totalAttempted = 0;
-
-    for (let category in categoryStats) {
-        totalCorrect += categoryStats[category].correct;
-        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
-    }
-
-    logFinalScore(totalCorrect, totalAttempted);
+    let totalCorrect = categoryStats["command-of-evidence"].correct;
+    let totalAttempted = totalCorrect + categoryStats["command-of-evidence"].incorrect;
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    console.log("Saving score:", score);
+    logFinalScore(totalCorrect, totalAttempted);
     saveScore(currentLesson, score);
 
     const finalScoreElement = document.getElementById('final-score');
@@ -1062,10 +1086,7 @@ function recordTestResults() {
     }
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
-    for (let category in categoryStats) {
-        categoryStats[category].correct = 0;
-        categoryStats[category].incorrect = 0;
-    }
+    categoryStats["command-of-evidence"] = { correct: 0, incorrect: 0 };
 }
 
 function logFinalScore(totalCorrect, totalAttempted) {
