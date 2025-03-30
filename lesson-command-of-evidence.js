@@ -962,22 +962,24 @@ function showQuizTransition() {
     const lessonContent = document.getElementById('lesson-content');
     if (lessonContent) {
         lessonContent.innerHTML = `
-            <div class="quiz-transition">
-                <h2>Lesson Complete!</h2>
-                <p>Now it's time for the quiz.</p>
-                <button id="start-quiz-btn" class="btn-next-btn">Next</button>
+            <div class="transition-box">
+                <div class="centered-content">
+                    <h2>Lesson Complete!</h2>
+                    <p>Now it's time for the quiz.</p>
+                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                </div>
             </div>
         `;
         const startQuizBtn = document.getElementById('start-quiz-btn');
         if (startQuizBtn) {
             startQuizBtn.addEventListener('click', () => {
-                showingQuizTransition = false; // Reset flag
-                showQuiz(); // Proceed to quiz
+                showingQuizTransition = false;
+                showQuiz();
             }, { once: true });
         } else {
             console.error("Start quiz button not found in transition!");
         }
-        progressSteps = lessons[currentLesson].content.length; // End of lesson content
+        progressSteps = lessons[currentLesson].content.length;
         updateProgressBar(progressSteps);
     } else {
         console.error("Lesson content element not found for quiz transition!");
@@ -1054,16 +1056,19 @@ function showFinalScore() {
     logFinalScore(totalCorrect, totalAttempted);
     saveScore(currentLesson, score);
 
-    const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = '';
-    finalScoreElement.classList.remove('hide');
-    finalScoreElement.innerHTML = `
-        <h2>Final Score</h2>
-        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-        <p>Your score: ${percentage}%</p>
-        <button id="continue-button" class="btn continue-btn">Continue</button>
+    const finalScoreElement = document.getElementById('final-score');
+    lessonContent.innerHTML = `
+        <div class="score-box">
+            <div class="centered-content">
+                <h2>Final Score</h2>
+                <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+                <p>Your score: ${percentage}%</p>
+                <button id="continue-button" class="btn continue-btn">Continue</button>
+            </div>
+        </div>
     `;
+    finalScoreElement.classList.add('hide'); // Keep it hidden since we’re using lesson-content
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     }, { once: true });
