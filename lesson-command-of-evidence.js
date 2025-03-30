@@ -833,11 +833,9 @@ function updateProgressBar(step) {
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
-    const appContainer = document.querySelector('.mathapp');
-    if (startLessonButton && appContainer) {
+    if (startLessonButton) {
         startLessonButton.style.display = 'none';
-        appContainer.style.display = 'block';
-        console.log("Math app container displayed");
+        console.log("Start Lesson button hidden with style.display = 'none'");
         currentItemIndex = 0;
         isQuizPhase = false;
         totalSteps = lessons[currentLesson].content.length + getQuizQuestions(currentLesson).length;
@@ -846,7 +844,7 @@ function startLesson() {
         progressSteps = 1;
         updateProgressBar(progressSteps);
     } else {
-        console.error("Start lesson button or math app container not found!");
+        console.error("Start lesson button not found!");
     }
 }
 
@@ -866,8 +864,6 @@ function showItem() {
         return;
     }
 
-    lessonContent.innerHTML = ''; // Clear previous content
-
     if (item.type === "example") {
         lessonContent.innerHTML = `
             <div class="question-row">
@@ -883,7 +879,7 @@ function showItem() {
             nextButton.addEventListener('click', nextItem, { once: true });
             console.log("Next button event listener added");
         } else {
-            console.error("Next item button not found in example!");
+            console.error("Next item button not found!");
         }
     } else if (item.type === "question") {
         const passage = extractPassage(item.question);
@@ -919,8 +915,8 @@ function extractPassage(content) {
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
-    const rightColumn = document.querySelector('.right-column');
-
+    const lessonContent = document.getElementById('lesson-content');
+    
     answerButtons.forEach(btn => {
         btn.disabled = true;
         if (btn.dataset.correct === "true") {
@@ -937,7 +933,7 @@ function selectAnswer(selectedBtn, item) {
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
-        rightColumn.appendChild(explanationDiv);
+        lessonContent.querySelector('.right-column').appendChild(explanationDiv);
     }
 
     submitButton.style.display = 'inline-block';
@@ -1086,7 +1082,10 @@ function recordTestResults() {
     }
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
-    categoryStats["command-of-evidence"] = { correct: 0, incorrect: 0 };
+    for (let category in categoryStats) {
+        categoryStats[category].correct = 0;
+        categoryStats[category].incorrect = 0;
+    }
 }
 
 function logFinalScore(totalCorrect, totalAttempted) {
