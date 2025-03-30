@@ -1065,7 +1065,6 @@ margin-bottom: 7px;
         /* CSS moved inline for this example */
         #lesson-content p {
             margin-bottom: 20px;
-            background-color: #000000;
             
         }
 
@@ -1610,4 +1609,16 @@ margin-bottom: 7px;
   padding: 20px;
   border-radius: 5px;
   margin: 10px 0;
+}
+
+/* New class for quiz transition and final score boxes */
+.transition-box, .score-box {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  background-color: #f5f5f5; /* Light gray background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  min-height: 200px; /* Ensure enough space */
+  align-items: center; /* Center vertically */
 }
