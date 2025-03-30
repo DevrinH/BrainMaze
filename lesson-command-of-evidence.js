@@ -965,19 +965,19 @@ function showQuizTransition() {
             <div class="quiz-transition">
                 <h2>Lesson Complete!</h2>
                 <p>Now it's time for the quiz.</p>
-                <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                <button id="start-quiz-btn" class="btn-next-btn">Next</button>
             </div>
         `;
         const startQuizBtn = document.getElementById('start-quiz-btn');
         if (startQuizBtn) {
             startQuizBtn.addEventListener('click', () => {
-                showingQuizTransition = false;
-                showQuiz();
+                showingQuizTransition = false; // Reset flag
+                showQuiz(); // Proceed to quiz
             }, { once: true });
         } else {
             console.error("Start quiz button not found in transition!");
         }
-        progressSteps = lessons[currentLesson].content.length;
+        progressSteps = lessons[currentLesson].content.length; // End of lesson content
         updateProgressBar(progressSteps);
     } else {
         console.error("Lesson content element not found for quiz transition!");
