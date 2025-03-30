@@ -1,11 +1,10 @@
 #lesson-container {
   display: block;
-  margin: 0 auto;
   width: 95%;
-  max-width: 900px; /* Prevents it from being too wide on large screens */
-
-            padding: 20px;
-            min-height: 200px; /* Ensures visibility even when empty */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 200px;
 }
 
 #question-container{
