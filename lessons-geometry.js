@@ -261,7 +261,6 @@ const trigonometryQuestions = [
     { question: "In a right triangle, tan(θ) = 1. What is θ?", answers: [{ text: "A) 45°", correct: true }, { text: "B) 30°", correct: false }, { text: "C) 60°", correct: false }, { text: "D) 90°", correct: false }], explanation: "tan(θ) = 1 when opp = adj, so θ = 45°.", difficulty: "medium", category: "geometry" }
 ];
 
-// lesson-geometry.js
 
 // lesson-geometry.js
 
@@ -269,125 +268,258 @@ let categoryStats = {
     geometry: { correct: 0, incorrect: 0 }
 };
 
-let currentStep = 0; // Tracks the current step (0-13 for 14 steps: 7 examples + 7 questions)
+let currentItemIndex = 0; // For lesson content
+let currentQuestionIndex = 0; // For quiz questions
 let currentLesson = 1;
-const totalSteps = 14; // 7 examples + 7 questions
+let progressSteps = 0;
+let totalSteps = 0; // Set dynamically in startLesson
+let isQuizPhase = false;
+let showingQuizTransition = false; // New flag for quiz transition
 
-function startLesson() {
-    console.log("startLesson called for lesson:", currentLesson);
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.style.display = 'none';
-        updateProgressBar();
-        showContent();
-    } else {
-        console.error("Start lesson button not found!");
-    }
-}
-
-function updateProgressBar() {
+function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
-        const progress = (currentStep / (totalSteps - 1)) * 100;
-        progressBar.style.width = `${progress}%`;
-        progressBar.setAttribute('aria-valuenow', progress);
-        console.log(`Progress updated: ${currentStep}/${totalSteps-1} (${progress}%)`);
+        const percentage = totalSteps > 0 ? (step / totalSteps) * 100 : 0;
+        progressBar.style.width = `${percentage}%`;
+        progressBar.setAttribute('aria-valuenow', percentage);
+        console.log(`Progress updated: ${step}/${totalSteps} (${percentage}%)`);
     } else {
         console.error("Progress bar element not found!");
     }
 }
 
-function showContent() {
-    console.log("Showing content for lesson:", currentLesson, "step:", currentStep);
-    const lessonContent = document.getElementById('lesson-content');
-    const lessonData = lessons[currentLesson].content[currentStep];
-    
-    if (lessonContent && lessonData) {
-        if (lessonData.type === "example") {
-            lessonContent.innerHTML = lessonData.content;
-            lessonContent.innerHTML += '<button id="next-btn">Next</button>';
-            document.getElementById('next-btn').addEventListener('click', nextStep);
-        } else if (lessonData.type === "question") {
-            lessonContent.innerHTML = `
-                <h2>${lessonData.title}</h2>
-                <p>${lessonData.question}</p>
-                ${lessonData.options.map((opt, index) => `
-                    <input type="radio" id="opt${index}" name="q${currentStep}" value="${opt.correct}">
-                    <label for="opt${index}">${opt.text}</label><br>
-                `).join('')}
-                <button id="submit-btn">Submit Answer</button>
-            `;
-            document.getElementById('submit-btn').addEventListener('click', () => checkAnswer(lessonData));
-        }
+function startLesson() {
+    console.log("startLesson called for lesson:", currentLesson);
+    const startLessonButton = document.getElementById('start-lesson');
+    const appContainer = document.querySelector('.mathapp');
+    if (startLessonButton && appContainer) {
+        startLessonButton.style.display = 'none';
+        appContainer.style.display = 'block';
+        console.log("Math app container displayed");
+        currentItemIndex = 0;
+        isQuizPhase = false;
+        totalSteps = lessons[currentLesson].content.length + getQuizQuestions(currentLesson).length;
+        console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
+        showItem();
+        progressSteps = 1;
+        updateProgressBar(progressSteps);
     } else {
-        console.error("Lesson content or data missing for lesson:", currentLesson, "step:", currentStep);
+        console.error("Start lesson button or math app container not found!");
     }
 }
 
-function nextStep() {
-    currentStep++;
-    updateProgressBar();
-    if (currentStep < totalSteps) {
-        showContent();
+function showItem() {
+    console.log("Showing item for lesson:", currentLesson, "at index:", currentItemIndex);
+    const lessonContent = document.getElementById('lesson-content');
+    const currentLessonData = lessons[currentLesson];
+    if (!lessonContent || !currentLessonData || !currentLessonData.content) {
+        console.error("Lesson content or data missing!");
+        return;
+    }
+
+    const item = currentLessonData.content[currentItemIndex];
+    if (!item) {
+        console.log("No more items, proceeding to quiz transition");
+        showQuizTransition();
+        return;
+    }
+
+    lessonContent.innerHTML = ''; // Clear previous content
+
+    if (item.type === "example") {
+        lessonContent.innerHTML = `
+            <div id="math-container">
+                ${item.content}
+                <button id="next-item" class="btn-next-btn">Next</button>
+            </div>
+        `;
+        const nextButton = document.getElementById('next-item');
+        if (nextButton) {
+            nextButton.addEventListener('click', nextItem, { once: true });
+            console.log("Next button styled and listener added");
+        } else {
+            console.error("Next item button not found in example!");
+        }
+    } else if (item.type === "question") {
+        lessonContent.innerHTML = `
+            <div id="math-container">
+                <h2>${item.title}</h2>
+                <p>${item.question}</p>
+                <div class="answer-choices" id="answer-buttons"></div>
+                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
+            </div>
+        `;
+        const answerButtons = document.getElementById('answer-buttons');
+        item.options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = option.text;
+            button.classList.add("btn");
+            button.dataset.correct = option.correct;
+            button.addEventListener("click", () => selectAnswer(button, item));
+            answerButtons.appendChild(button);
+        });
+    }
+    progressSteps = currentItemIndex + 1;
+    updateProgressBar(progressSteps);
+}
+
+function selectAnswer(selectedBtn, item) {
+    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
+    const submitButton = document.getElementById('submit-answer');
+    const mathContainer = document.getElementById('math-container');
+
+    answerButtons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.correct === "true") {
+            btn.classList.add("correct");
+        }
+    });
+
+    if (selectedBtn.dataset.correct === "true") {
+        selectedBtn.classList.add("correct");
+        categoryStats.geometry.correct++;
     } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats.geometry.incorrect++;
+        const explanationDiv = document.createElement("div");
+        explanationDiv.classList.add("explanation");
+        explanationDiv.innerHTML = item.explanation;
+        mathContainer.appendChild(explanationDiv);
+    }
+
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', () => {
+        if (!isQuizPhase) {
+            nextItem();
+        } else {
+            nextQuizItem();
+        }
+    }, { once: true });
+}
+
+function nextItem() {
+    currentItemIndex++;
+    console.log("nextItem called, currentItemIndex:", currentItemIndex);
+    if (currentItemIndex < lessons[currentLesson].content.length) {
+        showItem();
+    } else if (!showingQuizTransition) {
+        showQuizTransition();
+    }
+}
+
+function showQuizTransition() {
+    console.log("Showing quiz transition for lesson:", currentLesson);
+    showingQuizTransition = true;
+    const lessonContent = document.getElementById('lesson-content');
+    if (lessonContent) {
+        lessonContent.innerHTML = `
+            <div class="quiz-transition">
+                <h2>Lesson Complete!</h2>
+                <p>Now it's time for the quiz.</p>
+                <button id="start-quiz-btn" class="btn-next-btn">Next</button>
+            </div>
+        `;
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        if (startQuizBtn) {
+            startQuizBtn.addEventListener('click', () => {
+                showingQuizTransition = false;
+                showQuiz();
+            }, { once: true });
+        } else {
+            console.error("Start quiz button not found in transition!");
+        }
+        progressSteps = lessons[currentLesson].content.length;
+        updateProgressBar(progressSteps);
+    } else {
+        console.error("Lesson content element not found for quiz transition!");
+    }
+}
+
+function showQuiz() {
+    console.log("Starting quiz for lesson:", currentLesson);
+    isQuizPhase = true;
+    currentQuestionIndex = 0;
+    let quizQuestions = getQuizQuestions(currentLesson);
+    progressSteps = lessons[currentLesson].content.length + 1;
+    updateProgressBar(progressSteps);
+    showNextQuizQuestion(quizQuestions);
+}
+
+function getQuizQuestions(lessonId) {
+    switch (parseInt(lessonId)) {
+        case 1: return linesAnglesQuestions;
+        case 2: return trianglesQuestions;
+        case 3: return quadrilateralsPolygonsQuestions;
+        case 4: return circlesQuestions;
+        case 5: return coordinateGeometryQuestions;
+        case 6: return threeDGeometryQuestions;
+        case 7: return transformationsQuestions;
+        case 8: return trigonometryQuestions;
+        default: return linesAnglesQuestions;
+    }
+}
+
+function showNextQuizQuestion(quizQuestions) {
+    console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
+    if (currentQuestionIndex < quizQuestions.length) {
+        const question = quizQuestions[currentQuestionIndex];
+        const lessonContent = document.getElementById('lesson-content');
+        lessonContent.innerHTML = `
+            <div id="math-container">
+                <h2>Question ${currentQuestionIndex + 1}</h2>
+                <p>${question.question}</p>
+                <div class="answer-choices" id="answer-buttons"></div>
+                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
+            </div>
+        `;
+        const answerButtons = document.getElementById('answer-buttons');
+        question.answers.forEach((answer, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            button.dataset.correct = answer.correct;
+            button.addEventListener("click", () => selectAnswer(button, question));
+            answerButtons.appendChild(button);
+        });
+        progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
+        updateProgressBar(progressSteps);
+    } else {
+        console.log("All quiz questions answered, showing final score");
         showFinalScore();
     }
 }
 
-function checkAnswer(question) {
-    const selectedAnswer = document.querySelector(`input[name="q${currentStep}"]:checked`);
-    if (selectedAnswer) {
-        const isCorrect = selectedAnswer.value === "true";
-        if (isCorrect) {
-            alert('Correct!');
-            categoryStats.geometry.correct++;
-        } else {
-            alert(`Incorrect. ${question.explanation}`);
-            categoryStats.geometry.incorrect++;
-        }
-        nextStep();
-    } else {
-        alert('Please select an answer.');
-    }
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    const totalCorrect = categoryStats.geometry.correct;
-    const totalAttempted = categoryStats.geometry.correct + categoryStats.geometry.incorrect;
+    let totalCorrect = categoryStats.geometry.correct;
+    let totalAttempted = totalCorrect + categoryStats.geometry.incorrect;
+
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-
-    logFinalScore(totalCorrect, totalAttempted);
     saveScore(currentLesson, score);
 
     const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = '';
-    finalScoreElement.style.display = 'block';
+    finalScoreElement.classList.remove('hide');
     finalScoreElement.innerHTML = `
         <h2>Final Score</h2>
         <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
-        <button id="continue-button">Continue</button>
+        <button id="continue-button" class="continue-btn">Continue</button>
     `;
-
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    });
+    }, { once: true });
 
     recordTestResults();
-}
-
-function logFinalScore(totalCorrect, totalAttempted) {
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    localStorage.setItem("finalScore", JSON.stringify({
-        correct: totalCorrect,
-        attempted: totalAttempted,
-        percentage: percentage,
-        lesson: currentLesson
-    }));
-    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
 }
 
 function recordTestResults() {
@@ -399,8 +531,7 @@ function recordTestResults() {
     results.geometry.incorrect += categoryStats.geometry.incorrect || 0;
     localStorage.setItem("testResults", JSON.stringify(results));
     console.log("Final stored testResults:", results);
-    categoryStats.geometry.correct = 0;
-    categoryStats.geometry.incorrect = 0;
+    categoryStats.geometry = { correct: 0, incorrect: 0 };
 }
 
 function saveScore(lessonId, score) {
@@ -410,6 +541,18 @@ function saveScore(lessonId, score) {
 
 function getScore(lessonId) {
     return localStorage.getItem(`geometry-lessonScore-${lessonId}`) || "Not completed yet";
+}
+
+function showScore() {
+    console.log("Showing scores for all lessons");
+    const scoresElement = document.getElementById('scores');
+    if (scoresElement) {
+        scoresElement.innerHTML = Object.keys(lessons).map(lessonId => `
+            <p>Lesson ${lessonId}: ${getScore(lessonId)}</p>
+        `).join('');
+    } else {
+        console.error("Scores element not found!");
+    }
 }
 
 // Initialize on page load
@@ -426,9 +569,6 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.error("Start lesson button not found on page load!");
     }
-
-    // Ensure progress bar exists in the DOM
-    if (!document.getElementById('progress-bar')) {
-        console.error("Progress bar not found in DOM!");
-    }
+    showScore();
+    updateProgressBar(0);
 });
