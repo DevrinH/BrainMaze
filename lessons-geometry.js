@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
-    const startLessonButton = document.getElementById('start-lesson');
+    const startLessonButton = document.getElementById('start-math-lesson');
     if (startLessonButton) {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
@@ -290,7 +290,7 @@ function updateProgressBar(step) {
 
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
-    const startLessonButton = document.getElementById('start-lesson');
+    const startLessonButton = document.getElementById('start-math-lesson');
     const appContainer = document.querySelector('.mathapp');
     if (startLessonButton && appContainer) {
         startLessonButton.style.display = 'none';
@@ -562,7 +562,7 @@ document.addEventListener("DOMContentLoaded", function() {
     currentLesson = urlParams.get('lesson') || 1;
     console.log("Set currentLesson to:", currentLesson);
 
-    const startLessonButton = document.getElementById('start-lesson');
+    const startLessonButton = document.getElementById('start-math-lesson');
     if (startLessonButton) {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start lesson button event listener added");
