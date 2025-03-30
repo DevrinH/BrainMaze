@@ -1065,6 +1065,7 @@ margin-bottom: 7px;
         /* CSS moved inline for this example */
         #lesson-content p {
             margin-bottom: 20px;
+            background-color: #000000;
             
         }
 
