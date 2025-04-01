@@ -804,23 +804,21 @@ const wordChoiceQuestions = [
 ];
 
 // lesson-words-in-context.js
-// Variables
 let categoryStats = {
     "words-in-context": { correct: 0, incorrect: 0 }
 };
-let currentItemIndex = 0;
-let currentLesson = "1"; // Default as string to match lessons object keys
-let progressSteps = 0;
-let totalSteps = 0; // Set dynamically in startLesson
-let isQuizPhase = false;
-let showingQuizTransition = false; // Flag for quiz transition
-let currentQuestionIndex = 0;
 
-// Progress bar update function
+let currentQuestionIndex = 0;
+let currentLesson = 1;
+let currentItemIndex = 0;
+let progressSteps = 0;
+let totalSteps = 15; // Default for Lesson 1: 14 items + 1 quiz
+let isQuizPhase = false;
+
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
-        const percentage = totalSteps > 0 ? (step / totalSteps) * 100 : 0;
+        const percentage = (step / totalSteps) * 100;
         progressBar.style.width = `${percentage}%`;
         progressBar.setAttribute('aria-valuenow', percentage);
         console.log(`Progress updated: ${step}/${totalSteps} (${percentage}%)`);
@@ -829,27 +827,6 @@ function updateProgressBar(step) {
     }
 }
 
-// DOMContentLoaded listener
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || '1'; // Ensure string
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId;
-
-    const startLessonButton = document.getElementById('start-lesson');
-    if (startLessonButton) {
-        startLessonButton.addEventListener('click', startLesson);
-        console.log("Start Lesson Button event listener added.");
-    } else {
-        console.error("Start lesson button not found.");
-    }
-
-    showScore();
-    updateProgressBar(0);
-});
-
-// Start lesson
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
@@ -857,81 +834,83 @@ function startLesson() {
         startLessonButton.style.display = 'none';
         currentItemIndex = 0;
         isQuizPhase = false;
-        showingQuizTransition = false;
-        totalSteps = lessons[currentLesson].content.length + getQuizQuestions(currentLesson).length;
+        totalSteps = lessons[currentLesson].content.length + 1;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
+        showItem();
         progressSteps = 1;
         updateProgressBar(progressSteps);
-        showItem();
     } else {
         console.error("Start lesson button not found!");
     }
 }
 
-// Show lesson item
 function showItem() {
-    console.log("Showing item for lesson:", currentLesson, "index:", currentItemIndex);
+    console.log("Showing item for lesson:", currentLesson, "at index:", currentItemIndex);
     const lessonContent = document.getElementById('lesson-content');
-    if (lessonContent && lessons && lessons[currentLesson] && lessons[currentLesson].content[currentItemIndex]) {
-        const item = lessons[currentLesson].content[currentItemIndex];
-        lessonContent.innerHTML = '';
-        if (item.type === "example") {
-            lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${extractPassage(item.content)}</div>
-                    <div class="right-column">
-                        <div class="question-text">${item.content.replace(extractPassage(item.content), '')}</div>
-                    </div>
+    const currentLessonData = lessons[currentLesson];
+    if (!lessonContent || !currentLessonData || !currentLessonData.content) {
+        console.error("Lesson content or data missing!");
+        return;
+    }
+
+    const item = currentLessonData.content[currentItemIndex];
+    if (!item) {
+        console.log("No more items, proceeding to quiz");
+        showQuiz();
+        return;
+    }
+
+    if (item.type === "example") {
+        const passage = extractPassage(item.content);
+        lessonContent.innerHTML = `
+            <div class="question-row">
+                <div class="passage-text">${passage}</div>
+                <div class="right-column">
+                    <div class="question-text">${item.content.replace(passage, '').replace(/<button id="next-item">Next<\/button>/, '')}</div>
+                    <button id="next-item" class="btn next-btn">Next</button>
                 </div>
-            `;
-            const nextButton = document.getElementById('next-item');
-            if (nextButton) {
-                nextButton.classList.add('btn', 'next-btn');
-                nextButton.addEventListener('click', nextItem, { once: true });
-            } else {
-                console.error("Next button not found in example!");
-            }
-        } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
-            lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
-                    <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
-                        <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
-                    </div>
-                </div>
-            `;
-            const answerButtons = document.getElementById('answer-buttons');
-            item.options.forEach((option, index) => {
-                const button = document.createElement("button");
-                button.innerHTML = option.text;
-                button.classList.add("btn");
-                button.dataset.correct = option.correct;
-                button.addEventListener("click", () => selectAnswer(button, item));
-                answerButtons.appendChild(button);
-            });
+            </div>
+        `;
+        const nextButton = document.getElementById('next-item');
+        if (nextButton) {
+            nextButton.addEventListener('click', nextItem, { once: true });
+            console.log("Next button styled and listener added");
+        } else {
+            console.error("Next item button not found in example!");
         }
-        progressSteps = currentItemIndex + 1;
-        updateProgressBar(progressSteps);
-    } else {
-        console.log("No more lesson content, proceeding to quiz transition");
-        showQuizTransition();
+    } else if (item.type === "question") {
+        const passage = extractPassage(item.question);
+        lessonContent.innerHTML = `
+            <div class="question-row">
+                <div class="passage-text">${passage}</div>
+                <div class="right-column">
+                    <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                    <div class="answer-choices" id="answer-buttons"></div>
+                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                </div>
+            </div>
+        `;
+        const answerButtons = document.getElementById('answer-buttons');
+        item.options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = option.text;
+            button.classList.add("btn");
+            button.dataset.correct = option.correct;
+            button.addEventListener("click", () => selectAnswer(button, item));
+            answerButtons.appendChild(button);
+        });
     }
 }
 
-// Extract passage from content
 function extractPassage(content) {
     const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
     return passageMatch ? passageMatch[0] : "";
 }
 
-// Handle코코Handle answer selection
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
-    const rightColumn = document.querySelector('.right-column');
+    const lessonContent = document.getElementById('lesson-content');
 
     answerButtons.forEach(btn => {
         btn.disabled = true;
@@ -949,7 +928,7 @@ function selectAnswer(selectedBtn, item) {
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
-        rightColumn.appendChild(explanationDiv);
+        lessonContent.querySelector('.right-column').appendChild(explanationDiv);
     }
 
     submitButton.style.display = 'inline-block';
@@ -962,71 +941,31 @@ function selectAnswer(selectedBtn, item) {
     }, { once: true });
 }
 
-// Next lesson item
 function nextItem() {
     currentItemIndex++;
+    progressSteps = currentItemIndex + 1;
+    updateProgressBar(progressSteps);
     console.log("nextItem called, currentItemIndex:", currentItemIndex);
-    if (currentItemIndex < lessons[currentLesson].content.length) {
-        showItem();
-    } else if (!showingQuizTransition) {
-        showQuizTransition();
-    }
+    showItem();
 }
 
-// Show quiz transition screen
-function showQuizTransition() {
-    console.log("Showing quiz transition for lesson:", currentLesson);
-    showingQuizTransition = true;
-    const lessonContent = document.getElementById('lesson-content');
-    if (lessonContent) {
-        lessonContent.innerHTML = `
-            <div class="transition-box">
-                <div class="centered-content">
-                    <h2>Lesson Complete!</h2>
-                    <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
-                </div>
-            </div>
-        `;
-        const startQuizBtn = document.getElementById('start-quiz-btn');
-        if (startQuizBtn) {
-            startQuizBtn.addEventListener('click', () => {
-                showingQuizTransition = false;
-                showQuiz();
-            }, { once: true });
-        } else {
-            console.error("Start quiz button not found in transition!");
-        }
-        progressSteps = lessons[currentLesson].content.length;
-        updateProgressBar(progressSteps);
-    } else {
-        console.error("Lesson content element not found for quiz transition!");
-    }
-}
-
-// Start quiz
 function showQuiz() {
     console.log("Starting quiz for lesson:", currentLesson);
     isQuizPhase = true;
     currentQuestionIndex = 0;
-    let quizQuestions = getQuizQuestions(currentLesson);
-    progressSteps = lessons[currentLesson].content.length + 1;
+    let quizQuestions;
+    switch (parseInt(currentLesson)) {
+        case 1: quizQuestions = wordMeaningQuestions; break;
+        case 2: quizQuestions = nuancedMeaningsQuestions; break;
+        case 3: quizQuestions = figurativeConnotativeQuestions; break;
+        case 4: quizQuestions = wordChoiceQuestions; break;
+        default: quizQuestions = wordMeaningQuestions;
+    }
+    progressSteps = totalSteps;
     updateProgressBar(progressSteps);
     showNextQuizQuestion(quizQuestions);
 }
 
-// Get quiz questions based on lesson
-function getQuizQuestions(lessonId) {
-    switch (parseInt(lessonId)) {
-        case 1: return wordMeaningQuestions;
-        case 2: return nuancedMeaningsQuestions;
-        case 3: return figurativeConnotativeQuestions;
-        case 4: return wordChoiceQuestions;
-        default: return wordMeaningQuestions;
-    }
-}
-
-// Show next quiz question
 function showNextQuizQuestion(quizQuestions) {
     console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
     if (currentQuestionIndex < quizQuestions.length) {
@@ -1052,46 +991,53 @@ function showNextQuizQuestion(quizQuestions) {
             button.addEventListener("click", () => selectAnswer(button, question));
             answerButtons.appendChild(button);
         });
-        progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
-        updateProgressBar(progressSteps);
     } else {
-        console.log("Quiz complete, showing final score");
+        console.log("All quiz questions answered, showing final score");
         showFinalScore();
     }
 }
 
-// Next quiz item
 function nextQuizItem() {
     currentQuestionIndex++;
     console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
+    let quizQuestions;
+    switch (parseInt(currentLesson)) {
+        case 1: quizQuestions = wordMeaningQuestions; break;
+        case 2: quizQuestions = nuancedMeaningsQuestions; break;
+        case 3: quizQuestions = figurativeConnotativeQuestions; break;
+        case 4: quizQuestions = wordChoiceQuestions; break;
+        default: quizQuestions = wordMeaningQuestions;
+    }
     showNextQuizQuestion(quizQuestions);
 }
 
-// Show final score
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = categoryStats["words-in-context"].correct;
-    let totalAttempted = totalCorrect + categoryStats["words-in-context"].incorrect;
+    let totalCorrect = 0;
+    let totalAttempted = 0;
+
+    for (let category in categoryStats) {
+        totalCorrect += categoryStats[category].correct;
+        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
+    }
+
+    logFinalScore(totalCorrect, totalAttempted);
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    logFinalScore(totalCorrect, totalAttempted);
+    console.log("Saving score:", score);
     saveScore(currentLesson, score);
 
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <div class="score-box">
-            <div class="centered-content">
-                <h2>Final Score</h2>
-                <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-                <p>Your score: ${percentage}%</p>
-                <button id="continue-button" class="btn continue-btn">Continue</button>
-            </div>
-        </div>
-    `;
     const finalScoreElement = document.getElementById('final-score');
-    if (finalScoreElement) finalScoreElement.classList.add('hide'); // Hide if exists
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = '';
+    finalScoreElement.classList.remove('hide');
+    finalScoreElement.innerHTML = `
+        <h2>Final Score</h2>
+        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+        <p>Your score: ${percentage}%</p>
+        <button id="continue-button" class="btn continue-btn">Continue</button>
+    `;
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     }, { once: true });
@@ -1099,7 +1045,6 @@ function showFinalScore() {
     recordTestResults();
 }
 
-// Record test results
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
     let storedResults = localStorage.getItem("testResults");
@@ -1117,7 +1062,6 @@ function recordTestResults() {
     }
 }
 
-// Log final score
 function logFinalScore(totalCorrect, totalAttempted) {
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     localStorage.setItem("finalScore", JSON.stringify({
@@ -1129,24 +1073,31 @@ function logFinalScore(totalCorrect, totalAttempted) {
     console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
 }
 
-// Save score
 function saveScore(lessonId, score) {
     localStorage.setItem(`words-in-context-lessonScore-${lessonId}`, score);
     console.log(`Saved words-in-context-lessonScore-${lessonId}: ${score}`);
 }
 
-// Get score
 function getScore(lessonId) {
     return localStorage.getItem(`words-in-context-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
-// Show score on page load
 function showScore() {
-    const scoreDisplay = document.getElementById('score-display');
-    if (scoreDisplay) {
-        const score = getScore(currentLesson);
-        scoreDisplay.innerHTML = `Previous Score for Lesson ${currentLesson}: ${score}`;
-    } else {
-        console.log("Score display element not found, skipping showScore");
-    }
+    console.log("showScore called (placeholder)");
 }
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Page loaded, initializing lesson:", currentLesson);
+    const urlParams = new URLSearchParams(window.location.search);
+    currentLesson = urlParams.get('lesson') || 1;
+    console.log("Set currentLesson to:", currentLesson);
+
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start lesson button event listener added");
+    } else {
+        console.error("Start lesson button not found on page load!");
+    }
+});
