@@ -3,9 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAT Untimed Math Test</title>
+    <title>SAT Timed Prep Test</title>
     <link rel="stylesheet" href="https://www.brainjelli.com/stylesat.css">
-
+    <style>
+        .mathapp {
+            flex: 1;
+            min-width: 48%;
+            max-width: 900px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 12px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 20px;
+            margin: 0 auto;
+            margin-top: 30px;
+            display: none; /* Initially hidden */
+            overflow: hidden;
+            text-align: center; /* Center content */
+        }
+        #start-test-btn, #continue-btn {
+            display: block;
+            margin: 20px auto; /* Center the buttons */
+            padding: 10px 20px; /* Better button appearance */
+        }
+        #passage, #question, #answer-buttons {
+            text-align: left; /* Reset alignment for test content */
+        }
+        #answer-buttons button {
+            display: block;
+            margin: 10px auto; /* Increased margin for spacing */
+            padding: 10px 20px; /* Add padding for better size */
+            min-width: 200px; /* Set a minimum width for consistency */
+            text-align: center; /* Center text within buttons */
+            box-sizing: border-box; /* Include padding in width */
+        }
+        #sat-intro-container, #break-message {
+            text-align: center; /* Center intro and break content */
+        }
+        #countdown {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,22 +53,27 @@
         </div>
     </header>
 
-    <h1>SAT Untimed Math Prep Test</h1>
+    <h1>SAT Timed Prep Test</h1>
     <div id="progress-bar-test"><div></div></div>
 
     <div id="sat-intro-container">
-        <p id="intro-message">This is an untimed SAT Math preparation test. It includes 44 questions, randomly chosen from a pool, varying in difficulty (14 easy, 15 medium, 15 hard). Take as long as you need. Good luck!</p>
+        <p id="intro-message">This is a timed SAT preparation test. The Reading portion will be 64 minutes with 54 questions, and the Math portion will be 70 minutes with 44 questions. There are 500 questions randomly chosen, varying in difficulty, with consistent allocation per test. There will be a break between sections. Good luck!</p>
         <button id="start-test-btn" class="start-test-btn">Start Test</button>
     </div>
 
     <div class="mathapp">
-        <!-- Test Content (hidden initially) -->
         <div id="passage" class="passage-text" style="display: none;"></div>
         <div id="question" class="question-text" style="display: none;"></div>
         <div id="answer-buttons" class="answer-choices" style="display: none;"></div>
         <button id="next-btn" class="btn" style="display: none;">Next</button>
     </div>
 
-    <script src="sat-untimed-math-test.js"></script>
+    <div id="countdown"></div>
+    <div id="break-message" class="hide">
+        <p>Take a short break! Press continue to start the Math test.</p>
+        <button id="continue-btn" class="continue-btn">Continue</button>
+    </div>
+
+    <script src="reading-math-test.js"></script>
 </body>
 </html>
