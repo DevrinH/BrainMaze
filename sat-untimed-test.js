@@ -139,20 +139,6 @@ function startMathTest() {
     startQuiz(mathQuestions, 14, 15, 15);
 }
 
-function endReadingWritingTest() {
-    resetState();
-    showScore();
-    document.getElementById("question-container").classList.add("hide");
-    document.getElementById("break-message").classList.remove("hide");
-    document.querySelector(".question-row").classList.remove("score-display");
-    nextButton.classList.remove("centered-btn");
-}
-
-function endMathTest() {
-    resetState();
-    showScore();
-}
-
 function startQuiz(questions, numEasy, numMedium, numHard) {
     currentQuestionIndex = 0;
     score = 0;
@@ -305,7 +291,6 @@ function showScore() {
         nextButton.addEventListener("click", showExplanations);
     }
 }
-
 function showExplanations() {
     resetState();
     passageElement.innerHTML = "";
@@ -368,11 +353,7 @@ function handleNextButton() {
     if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
     } else {
-        if (isMathTest) {
-            endMathTest();
-        } else {
-            endReadingWritingTest();
-        }
+        showScore();
     }
 }
 
@@ -394,6 +375,7 @@ function recordTestResults() {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
+
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
@@ -424,7 +406,7 @@ continueButton.addEventListener("click", () => {
 function showIntroMessage() {
     resetState();
     passageElement.innerHTML = "";
-    questionElement.innerHTML = "This is an untimed SAT Test. Take as long as you need for each section.";
+    questionElement.innerHTML = "This is a timed SAT Test. The Reading portion will be 64 minutes and the math portion will be 44 minutes.";
     questionElement.classList.add("centered-score");
 
     const startButton = document.createElement("button");
