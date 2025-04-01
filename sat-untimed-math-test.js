@@ -3,7 +3,7 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const startTestButton = document.getElementById("start-test-btn");
-const satIntroContainer = document.getElementById("sat-intro-container");
+const introContainer = document.getElementById("sat-intro-container");
 const mathApp = document.querySelector(".mathapp");
 
 let currentQuestionIndex = 0;
@@ -11,7 +11,8 @@ let score = 0;
 let correctAnswers = 0;
 let selectedQuestions = [];
 let categoryStats = {};
-let results = localStorage.getItem("testResults") ? JSON.parse(localStorage.getItem("testResults")) : {};
+let results = localStorage.getItem("testResults");
+results = results ? JSON.parse(results) : {};
 let userResponses = [];
 
 const mathQuestions = [
@@ -66,9 +67,9 @@ const mathQuestions = [
 ];
 
 function startTest() {
-    satIntroContainer.style.display = "none";
-    mathApp.style.display = "block";
-    passageElement.style.display = "block";
+    introContainer.style.display = "none"; // Hide intro container
+    mathApp.style.display = "block"; // Show mathapp
+    passageElement.style.display = "block"; // Show test content
     questionElement.style.display = "block";
     answerButtons.style.display = "block";
     startMathTest();
@@ -76,7 +77,7 @@ function startTest() {
 
 function startMathTest() {
     userResponses = [];
-    startQuiz(mathQuestions, 14, 15, 15); // 44 questions
+    startQuiz(mathQuestions, 14, 15, 15);
 }
 
 function startQuiz(questions, numEasy, numMedium, numHard) {
@@ -181,7 +182,7 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
 
-    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3); // 44 questions
+    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
