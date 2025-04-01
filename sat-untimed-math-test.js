@@ -67,12 +67,9 @@ const mathQuestions = [
 ];
 
 function startTest() {
-    introContainer.style.display = "none"; // Hide intro container
-    mathApp.style.display = "block"; // Show mathapp
-    passageElement.style.display = "block"; // Show test content
-    questionElement.style.display = "block";
-    answerButtons.style.display = "block";
-    startMathTest();
+    introContainer.style.display = "none"; // Hide intro
+    mathApp.style.display = "block"; // Show mathapp container only
+    startMathTest(); // Start the test
 }
 
 function startMathTest() {
@@ -111,7 +108,10 @@ function showQuestion() {
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     passageElement.innerHTML = currentQuestion.passage;
+    passageElement.style.display = "block";
     questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+    questionElement.style.display = "block";
+    answerButtons.style.display = "block";
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -181,19 +181,14 @@ function selectAnswer(e) {
 
 function showScore() {
     resetState();
-
-    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
-    let rawScore = score;
-    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
-
     passageElement.style.display = "none";
-    questionElement.innerHTML = `Math SAT Score: ${scaledScore} / 800`;
+    questionElement.innerHTML = `Math SAT Score: ${Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200)} / 800`;
     questionElement.classList.add("centered-score");
 
-    localStorage.setItem("mathScore", scaledScore);
+    localStorage.setItem("mathScore", Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200));
     let today = new Date().toLocaleDateString("en-CA");
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    scoreHistory[today] = { math: scaledScore };
+    scoreHistory[today] = { math: Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200) };
     localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
     nextButton.innerHTML = "Review Incorrect Answers";
