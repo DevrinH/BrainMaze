@@ -2,8 +2,8 @@ const passageElement = document.getElementById("passage");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
-const satIntroContainer = document.getElementById("sat-intro-container");
 const startTestButton = document.getElementById("start-test-btn");
+const introMessage = document.getElementById("intro-message");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -15,6 +15,7 @@ results = results ? JSON.parse(results) : {};
 let userResponses = [];
 
 const mathQuestions = [
+    // [Same mathQuestions array as before]
     {
         passage: "",
         question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
@@ -66,14 +67,17 @@ const mathQuestions = [
 ];
 
 function startTest() {
-    satIntroContainer.classList.add("hide");
-    document.getElementById("question-container").classList.remove("hide");
+    introMessage.style.display = "none";
+    startTestButton.style.display = "none";
+    passageElement.style.display = "block";
+    questionElement.style.display = "block";
+    answerButtons.style.display = "block";
     startMathTest();
 }
 
 function startMathTest() {
     userResponses = [];
-    startQuiz(mathQuestions, 14, 15, 15); // Keeping your original question counts
+    startQuiz(mathQuestions, 14, 15, 15);
 }
 
 function startQuiz(questions, numEasy, numMedium, numHard) {
@@ -95,18 +99,18 @@ function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
         return arr.sort(() => 0.5 - Math.random()).slice(0, Math.min(num, arr.length));
     }
 
-    const selectedEasy = getRandom(easyQuestions, numEasy);
-    const selectedMedium = getRandom(mediumQuestions, numMedium);
-    const selectedHard = getRandom(hardQuestions, numHard);
-
-    return [...selectedEasy, ...selectedMedium, ...selectedHard];
+    return [
+        ...getRandom(easyQuestions, numEasy),
+        ...getRandom(mediumQuestions, numMedium),
+        ...getRandom(hardQuestions, numHard)
+    ];
 }
 
 function showQuestion() {
     resetState();
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    passageElement.innerHTML = currentQuestion.passage; // Empty for Math, but kept for consistency
+    passageElement.innerHTML = currentQuestion.passage;
     questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
     currentQuestion.answers.forEach(answer => {
@@ -153,13 +157,9 @@ function selectAnswer(e) {
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
-        }
+        if (questionDifficulty === "easy") score += 1;
+        else if (questionDifficulty === "medium") score += 2;
+        else if (questionDifficulty === "hard") score += 3;
         categoryStats[questionCategory].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
@@ -182,15 +182,13 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
 
-    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3); // Based on your original Math question counts
+    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-    document.getElementById("question-container").classList.remove("hide");
-    passageElement.innerHTML = "";
+    passageElement.style.display = "none";
     questionElement.innerHTML = `Math SAT Score: ${scaledScore} / 800`;
     questionElement.classList.add("centered-score");
-    document.querySelector(".question-row").classList.add("score-display");
 
     localStorage.setItem("mathScore", scaledScore);
     let today = new Date().toLocaleDateString("en-CA");
@@ -207,7 +205,7 @@ function showScore() {
 
 function showExplanations() {
     resetState();
-    passageElement.innerHTML = "";
+    passageElement.style.display = "none";
     questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
 
     const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
@@ -231,7 +229,6 @@ function showExplanations() {
 
     nextButton.innerHTML = "Finish";
     nextButton.style.display = "block";
-    nextButton.removeEventListener("click", showExplanations);
     nextButton.addEventListener("click", () => {
         window.location.href = "https://www.brainjelli.com/user-profile";
     });
@@ -294,21 +291,4 @@ function recordTestResults() {
 }
 
 nextButton.addEventListener("click", handleNextButton);
-
-function showIntroMessage() {
-    resetState();
-    passageElement.innerHTML = "";
-    questionElement.innerHTML = "This is an untimed SAT Math Test. Take as long as you need.";
-    questionElement.classList.add("centered-score");
-
-    const startButton = document.createElement("button");
-    startButton.innerHTML = "Start Test";
-    startButton.classList.add("btn", "centered-btn");
-    startButton.addEventListener("click", () => {
-        questionElement.classList.remove("centered-score");
-        startMathTest();
-    });
-    answerButtons.appendChild(startButton);
-}
-
 startTestButton.addEventListener("click", startTest);
