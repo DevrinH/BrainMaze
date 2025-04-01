@@ -3,7 +3,8 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const startTestButton = document.getElementById("start-test-btn");
-const introMessage = document.getElementById("intro-message");
+const introContainer = document.getElementById("sat-intro-container");
+const mathApp = document.querySelector(".mathapp");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -66,9 +67,9 @@ const mathQuestions = [
 ];
 
 function startTest() {
-    introMessage.style.display = "none";
-    startTestButton.style.display = "none";
-    passageElement.style.display = "block";
+    introContainer.style.display = "none"; // Hide intro container
+    mathApp.style.display = "block"; // Show mathapp
+    passageElement.style.display = "block"; // Show test content
     questionElement.style.display = "block";
     answerButtons.style.display = "block";
     startMathTest();
