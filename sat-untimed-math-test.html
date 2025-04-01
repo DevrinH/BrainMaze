@@ -23,7 +23,7 @@
         #start-test-btn {
             display: block;
             margin: 20px auto; /* Center the button */
-            padding: 10px 20px; /* Optional: Better button appearance */
+            padding: 10px 20px; /* Better button appearance */
         }
         /* Reset alignment for test content */
         #passage, #question, #answer-buttons {
@@ -31,8 +31,15 @@
         }
         #answer-buttons button {
             display: block;
-            margin: 5px auto;
-            width: fit-content;
+            margin: 10px auto; /* Increased margin for spacing */
+            padding: 10px 20px; /* Add padding for better size */
+            min-width: 200px; /* Set a minimum width for consistency */
+            text-align: center; /* Center text within buttons */
+            box-sizing: border-box; /* Include padding in width */
+        }
+        /* Center intro container content if needed */
+        #sat-intro-container {
+            text-align: center;
         }
     </style>
 </head>
@@ -56,7 +63,7 @@
         <!-- Test Content (hidden initially) -->
         <div id="passage" class="passage-text" style="display: none;"></div>
         <div id="question" class="question-text" style="display: none;"></div>
-        <div id="answer-buttons" class="answer-choices"></div>
+        <div id="answer-buttons" class="answer-choices" style="display: none;"></div>
         <button id="next-btn" class="btn" style="display: none;">Next</button>
     </div>
 
