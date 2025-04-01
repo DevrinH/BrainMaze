@@ -688,7 +688,7 @@ h3 {
   font-family: "Montserrat-SemiBold", sans-serif;
 }
 .progress-bar {
-  width: 100%;
+  width: 95%;
   background: #e0e0e0;
   border-radius: 5px;
   overflow: hidden;
