@@ -23,7 +23,73 @@
         <button id="start-test-btn" class="start-test-btn">Start Test</button>
     </div>
 
-    <div class="mathapp">
+    <d<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SAT Untimed Math Test</title>
+            <link rel="stylesheet" href="https://www.brainjelli.com/stylesat.css">
+            <style>
+                .mathapp {
+                    flex: 1;
+                    min-width: 48%;
+                    max-width: 900px;
+                    background-color: rgb(255, 255, 255);
+                    border-radius: 12px;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    padding: 20px;
+                    margin: 0 auto;
+                    margin-top: 30px;
+                    display: none; /* Initially hidden */
+                    overflow: hidden;
+                    text-align: center; /* Center intro content */
+                }
+                #start-test-btn {
+                    display: block;
+                    margin: 20px auto; /* Center the button */
+                    padding: 10px 20px; /* Optional: Better button appearance */
+                }
+                /* Reset alignment for test content */
+                #passage, #question, #answer-buttons {
+                    text-align: left;
+                }
+                #answer-buttons button {
+                    display: block;
+                    margin: 5px auto;
+                    width: fit-content;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <div class="header-container">
+                    <img src="BrainJelli-header.png" class="logo" alt="BrainJelli Logo">
+                    <button class="login-button">Login</button>
+                </div>
+            </header>
+        
+            <h1>SAT Untimed Math Prep Test</h1>
+            <div id="progress-bar-test"><div></div></div>
+        
+            <div id="sat-intro-container">
+                <p id="intro-message">This is an untimed SAT Math preparation test. It includes 44 questions, randomly chosen from a pool, varying in difficulty (14 easy, 15 medium, 15 hard). Take as long as you need. Good luck!</p>
+                <button id="start-test-btn" class="start-test-btn">Start Test</button>
+            </div>
+        
+            <div class="mathapp">
+                <div class="math-lesson-container">
+                <!-- Test Content (hidden initially) -->
+                <div id="passage" class="passage-text" style="display: none;"></div>
+                <div id="question" class="question-text" style="display: none;"></div>
+                <div id="answer-buttons" class="answer-choices" style="display: none;"></div>
+                <button id="next-btn" class="btn" style="display: none;">Next</button>
+                </div>
+            </div>
+        
+            <script src="sat-untimed-math-test.js"></script>
+        </body>
+        </html>iv class="mathapp">
         <!-- Test Content (hidden initially) -->
         <div id="passage" class="passage-text" style="display: none;"></div>
         <div id="question" class="question-text" style="display: none;"></div>
