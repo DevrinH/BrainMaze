@@ -15,7 +15,6 @@ results = results ? JSON.parse(results) : {};
 let userResponses = [];
 
 const mathQuestions = [
-    // [Same mathQuestions array as before]
     {
         passage: "",
         question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
