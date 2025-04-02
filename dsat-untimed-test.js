@@ -1,9 +1,8 @@
-const passageElement = document.getElementById("passage");  // Changed from questionElement
-const questionElement = document.getElementById("question"); // New element for question
+const passageElement = document.getElementById("passage");
+const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const continueButton = document.getElementById("continue-btn");
-const countdownEl = document.getElementById('countdown');
 const satIntroContainer = document.getElementById("sat-intro-container");
 const startTestButton = document.getElementById("start-test-btn");
 
@@ -11,23 +10,23 @@ let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
 let selectedQuestions = [];
-let categoryStats = {}; // Tracks { category: { correct: 0, incorrect: 0 } }
+let categoryStats = {};
 let results = localStorage.getItem("testResults");
 results = results ? JSON.parse(results) : {};
-let refreshIntervalId;
 let isMathTest = false;
-let time;
-let userResponses = []; // Stores { question, userAnswer, correctAnswer, wasCorrect }
+let userResponses = [];
+let currentModule = 1; // Tracks module 1 or 2
+let module1Correct = 0; // Tracks correct answers in module 1 for adaptivity
 
 const readingWritingQuestions = [
     {
         passage: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.",
         question: "What does the passage suggest about Emma’s feelings?",
         answers: [
-            { text: "A) She feels out of place despite having anticipated this moment for a long time.", correct: true },
-            { text: "B) She is overwhelmed by the beauty of the ballroom and struggles to contain her excitement.", correct: false },
-            { text: "C) She is intimidated by the other guests and decides to leave before entering the ballroom.", correct: false },
-            { text: "D) She is eager to impress others and makes a confident entrance into the event.", correct: false },
+            { text: "A) She feels out of place despite having anticipated this moment.", correct: true },
+            { text: "B) She is overwhelmed by the beauty and struggles to contain excitement.", correct: false },
+            { text: "C) She is intimidated by the guests and decides to leave.", correct: false },
+            { text: "D) She is eager to impress others and makes a confident entrance.", correct: false },
         ],
         type: "reading",
         difficulty: "easy",
@@ -38,9 +37,9 @@ const readingWritingQuestions = [
         question: "What does the passage suggest about Daniel's attitude toward his new job?",
         answers: [
             { text: "A) He is uncertain about his abilities but determined to prove himself.", correct: true },
-            { text: "B) He is uninterested in the work and only took the job for financial reasons.", correct: false },
-            { text: "C) He is confident that he will excel without any major challenges.", correct: false },
-            { text: "D) He regrets accepting the position and is considering quitting.", correct: false },
+            { text: "B) He is uninterested and only took the job for financial reasons.", correct: false },
+            { text: "C) He is confident he will excel without challenges.", correct: false },
+            { text: "D) He regrets accepting the position and considers quitting.", correct: false },
         ],
         type: "reading",
         difficulty: "medium",
@@ -48,20 +47,20 @@ const readingWritingQuestions = [
     },
     {
         passage: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.",
-        question: "Which choice provides the best evidence for the idea that Liam is uncertain about his work?",
+        question: "Which choice provides the best evidence for Liam’s uncertainty about his work?",
         answers: [
             { text: "A) 'Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind.'", correct: true },
             { text: "B) 'He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.'", correct: false },
             { text: "C) 'Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript.'", correct: false },
-            { text: "D) 'He had imagined this moment countless times, picturing the satisfaction of a completed draft.'", correct: false },
+            { text: "D) 'He had imagined this moment countless times, picturing satisfaction.'", correct: false },
         ],
         type: "reading",
-        difficulty: "medium",
+        difficulty: "hard",
         category: "command-of-evidence"
     },
     {
         passage: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.",
-        question: "Which sentence best supports the idea that the scientist is struggling to accept her findings?",
+        question: "Which sentence best supports the idea that the scientist struggles to accept her findings?",
         answers: [
             { text: "A) 'The scientist adjusted her glasses, peering at the data displayed on the screen.'", correct: false },
             { text: "B) 'She tapped her fingers against the desk, reviewing each calculation.'", correct: false },
@@ -76,12 +75,12 @@ const readingWritingQuestions = [
 
 const mathQuestions = [
     {
-        passage: "", // Empty passage for math questions
+        passage: "",
         question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
         answers: [
             { text: "A) 2.5 hours", correct: false },
             { text: "B) 2.6 hours", correct: false },
-            { text: "C) 2.8 hours", correct: false },
+            { text: "C) leiding2.8 hours", correct: false },
             { text: "D) 2.75 hours", correct: true }
         ],
         difficulty: "hard",
@@ -126,59 +125,54 @@ const mathQuestions = [
 ];
 
 function startTest() {
-    satIntroContainer.classList.add("hide"); // Hide the intro container
-    document.getElementById("question-container").classList.remove("hide"); // Show the question container
-    startReadingWritingTest(); // Start the test
+    satIntroContainer.classList.add("hide");
+    document.getElementById("question-container").classList.remove("hide");
+    startReadingWritingTest();
 }
 
 function startReadingWritingTest() {
     isMathTest = false;
-    time = 64 * 60;
-    userResponses = []; // Reset userResponses only at the start of the full test
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endReadingWritingTest, 3840000); // 64 minutes in milliseconds
-    startQuiz(readingWritingQuestions, 18, 18, 18);
+    userResponses = [];
+    currentModule = 1;
+    module1Correct = 0;
+    startQuiz(readingWritingQuestions, 9, 9, 9); // 27 questions per module
 }
 
 function startMathTest() {
     isMathTest = true;
-    time = 70 * 60;
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endMathTest, 4200000); // 44 minutes in milliseconds
-    startQuiz(mathQuestions, 14, 15, 15);
+    currentModule = 1;
+    module1Correct = 0;
+    startQuiz(mathQuestions, 7, 8, 7); // 22 questions per module
 }
 
-function updateCountdown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    countdownEl.innerHTML = `${minutes} : ${seconds}`;
-    if (time === 0) {
-        clearInterval(refreshIntervalId);
-        if (isMathTest) {
-            endMathTest();
-        } else {
-            endReadingWritingTest();
-        }
+function endModule() {
+    resetState();
+    if (currentModule === 1) {
+        module1Correct = correctAnswers;
+        currentModule = 2;
+        startNextModule();
     } else {
-        time--;
+        showScore();
+        if (!isMathTest) {
+            document.getElementById("question-container").classList.add("hide");
+            document.getElementById("break-message").classList.remove("hide");
+        }
     }
 }
 
-function endReadingWritingTest() {
-    clearInterval(refreshIntervalId);
-    resetState();
-    showScore();
-    document.getElementById("question-container").classList.add("hide");
-    document.getElementById("break-message").classList.remove("hide");
-    document.querySelector(".question-row").classList.remove("score-display");
-    nextButton.classList.remove("centered-btn"); // Reset button centering
-}
-
-function endMathTest() {
-    clearInterval(refreshIntervalId);
-    resetState();
-    showScore();
+function startNextModule() {
+    currentQuestionIndex = 0;
+    correctAnswers = 0;
+    score = 0;
+    
+    const threshold = isMathTest ? 11 : 13; // 50% correct threshold for adaptivity
+    if (module1Correct >= threshold) {
+        // Harder module 2
+        startQuiz(isMathTest ? mathQuestions : readingWritingQuestions, 0, 9, 13); // More hard questions
+    } else {
+        // Easier module 2
+        startQuiz(isMathTest ? mathQuestions : readingWritingQuestions, 13, 9, 0); // More easy questions
+    }
 }
 
 function startQuiz(questions, numEasy, numMedium, numHard) {
@@ -186,7 +180,6 @@ function startQuiz(questions, numEasy, numMedium, numHard) {
     score = 0;
     correctAnswers = 0;
     categoryStats = {};
-    // Removed userResponses = []; to preserve responses across sections
     selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
     nextButton.innerHTML = "Next";
     showQuestion();
@@ -198,7 +191,7 @@ function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     const hardQuestions = questions.filter(q => q.difficulty === "hard");
 
     function getRandom(arr, num) {
-        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
+        return arr.sort(() => 0.5 - Math.random()).slice(0, Math.min(num, arr.length));
     }
 
     const selectedEasy = getRandom(easyQuestions, numEasy);
@@ -212,8 +205,8 @@ function showQuestion() {
     resetState();
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    passageElement.innerHTML = currentQuestion.passage;  // Display passage
-    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;  // Display question
+    passageElement.innerHTML = currentQuestion.passage;
+    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -230,14 +223,12 @@ function showQuestion() {
 }
 
 function resetState() {
-    console.log("Resetting state...");
-    nextButton.style.display = "none"; // Hide button initially
+    nextButton.style.display = "none";
     nextButton.classList.remove("centered-btn");
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
-
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
@@ -283,71 +274,58 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
-    // Debug logging
-    console.log("Answer selected. Showing Next button...");
-    nextButton.style.display = "block"; // Should show the button
+    nextButton.style.display = "block";
     nextButton.disabled = false;
-    console.log("Next button display:", nextButton.style.display); // Verify style
-    console.log("Next button disabled:", nextButton.disabled); // Verify enabled state
 }
 
-
 function showScore() {
-    clearInterval(refreshIntervalId);
     resetState();
 
-    let maxPossibleScore;
-    if (!isMathTest) {
-        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
-    } else {
-        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
-    }
+    let maxPossibleScore = (isMathTest ? 7 : 9) * 1 + (isMathTest ? 8 : 9) * 2 + (isMathTest ? 7 : 9) * 3; // Per module
+    maxPossibleScore *= 2; // Two modules
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-    // Ensure question-container is visible when showing the score
     document.getElementById("question-container").classList.remove("hide");
 
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
-        passageElement.innerHTML = "";  // Clear passage
-        questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
+        passageElement.innerHTML = "";
+        questionElement.innerHTML = `Reading and Writing DSAT Score: ${scaledScore} / 800`;
         questionElement.classList.add("centered-score");
-        // Adjust the question-row to center content
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn"); // Add class for centering
+        nextButton.classList.add("centered-btn");
     } else {
-        let readingScore = localStorage.getItem("readingScore") || 0;
-        readingScore = parseInt(readingScore, 10);
+        let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
         let mathScore = scaledScore;
         localStorage.setItem("mathScore", mathScore);
 
-        let totalSATScore = readingScore + mathScore;
+        let totalDSATScore = readingScore + mathScore;
 
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-        scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
+        scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalDSATScore };
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
-        passageElement.innerHTML = "";  // Clear passage
-        questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
-                                    <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
-                                    <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
+        passageElement.innerHTML = "";
+        questionElement.innerHTML = `<p><strong>Reading and Writing DSAT Score:</strong> ${readingScore} / 800</p>
+                                    <p><strong>Math DSAT Score:</strong> ${mathScore} / 800</p>
+                                    <p><strong>Total DSAT Score:</strong> ${totalDSATScore} / 1600</p>`;
         questionElement.classList.add("centered-score");
-        // Adjust the question-row to center content
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn"); // Add class for centering
+        nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }
 }
+
 function showExplanations() {
     resetState();
-    passageElement.innerHTML = "";  // Clear passage
+    passageElement.innerHTML = "";
     questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
 
     const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
@@ -381,24 +359,23 @@ function generateExplanation(response) {
     const questionText = response.question;
 
     if (questionText.includes("Emma stepped into the grand ballroom")) {
-        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation. The text highlights her discomfort rather than excitement or confidence.";
+        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation.";
     } else if (questionText.includes("Daniel stepped into the office")) {
-        return "Daniel’s doubt and deep breath indicate uncertainty, but his reminder that 'everyone had to start somewhere' shows determination, not disinterest or regret.";
+        return "Daniel’s doubt and deep breath indicate uncertainty, but his reminder shows determination.";
     } else if (questionText.includes("Liam set his pen down")) {
-        return "The best evidence is the explicit mention of 'nagging doubt,' directly showing his uncertainty about the manuscript’s quality.";
+        return "The explicit mention of 'nagging doubt' directly shows his uncertainty.";
     } else if (questionText.includes("The scientist adjusted her glasses")) {
-        return "The scientist’s struggle to accept the findings is best supported by her disbelief in the consistent results, despite repeated checks.";
+        return "Her disbelief in consistent results despite repeated checks shows her struggle.";
     } else if (questionText.includes("An airplane is flying from City A to City B")) {
-        return "The trip is split into two 750-mile segments. Time against the wind = 750 / 500 = 1.5 hours. Time with the wind = 750 / 600 = 1.25 hours. Total time = 1.5 + 1.25 = 2.75 hours.";
+        return "Time against wind = 750 / 500 = 1.5 hours. Time with wind = 750 / 600 = 1.25 hours. Total = 2.75 hours.";
     } else if (questionText.includes("A car's value depreciates by 15%")) {
-        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $25,500 × 0.85 = $21,675. Year 3: $21,675 × 0.85 = $18,423.75 ≈ $19,275 (rounded).";
+        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $21,675. Year 3: $18适应423.75 ≈ $19,275.";
     } else if (questionText.includes("The function f(x) is defined")) {
-        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(4²) - 3(4) + 5 = 2(16) - 12 + 5 = 32 - 12 + 5 = 25.";
+        return "f(4) = 2(4²) - 3(4) + 5 = 32 - 12 + 5 = 25.";
     } else if (questionText.includes("A company rents out bicycles")) {
-        return "Equation: $12 + $3h ≤ $45. Subtract 12: $3h ≤ $33. Divide by 3: h ≤ 11. Maximum whole hours = 9 (since $12 + $3 × 9 = $39 ≤ $45).";
+        return "$12 + $3h ≤ $45. h ≤ 11. Maximum whole hours = 9.";
     }
-
-    return "No specific explanation available for this question.";
+    return "No specific explanation available.";
 }
 
 function handleNextButton() {
@@ -407,7 +384,7 @@ function handleNextButton() {
     if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
     } else {
-        showScore();
+        endModule();
     }
 }
 
@@ -418,37 +395,18 @@ function updateProgressBar() {
 }
 
 function recordTestResults() {
-    console.log("Recording results. Current categoryStats:", categoryStats);
-
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
-
-    console.log("Previous testResults from localStorage:", results);
-
-    if (typeof results !== "object" || Array.isArray(results)) {
-        console.error("Error: results should be an object but got", results);
-        results = {};
-    }
 
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
-
-        console.log(
-            `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
-
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
-
-        console.log(
-            `After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-        );
     }
 
     localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
 
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
@@ -470,21 +428,5 @@ continueButton.addEventListener("click", () => {
     document.getElementById("question-container").classList.remove("hide");
     startMathTest();
 });
-
-function showIntroMessage() {
-    resetState();
-    passageElement.innerHTML = ""; // Clear passage
-    questionElement.innerHTML = "This is a timed SAT Test. The Reading portion will be 64 minutes and the math portion will be 44 minutes.";
-    questionElement.classList.add("centered-score"); // Optional: Center the text if your CSS supports it
-
-    const startButton = document.createElement("button");
-    startButton.innerHTML = "Start Test";
-    startButton.classList.add("btn", "centered-btn"); // Add styling classes
-    startButton.addEventListener("click", () => {
-        questionElement.classList.remove("centered-score"); // Remove centering class
-        startReadingWritingTest();
-    });
-    answerButtons.appendChild(startButton);
-}
 
 startTestButton.addEventListener("click", startTest);
