@@ -712,7 +712,7 @@ const readingWritingQuestions = [
             category: "text-structure-and-purpose"
         },
 
-        //Text Atructure HARD Questions
+        //Text Structure HARD Questions
         {
             passage: "The ecologist opened with a vivid tableau: a forest razed by wildfire, its ashes a testament to nature’s fury. She then pivoted to data—carbon emissions spiking post-blaze—before circling back to the scene, now framed as a call to curb deforestation. This oscillation between imagery and evidence aimed to meld emotion with reason.",
             question: "The passage is structured primarily to",
@@ -1233,6 +1233,7 @@ const readingWritingQuestions = [
             difficulty: "hard",
             category: "rhetorical-synthesis"
         },
+ //Boundaires MEDIUM Questions       
 
         {
             passage: "The architect unveiled a bold design for the community center [____] a structure blending modern aesthetics with sustainable materials drew widespread praise.",
@@ -1244,7 +1245,7 @@ const readingWritingQuestions = [
                 { text: "D) .", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "boundaries"
         },
         {
@@ -1257,7 +1258,7 @@ const readingWritingQuestions = [
                 { text: "D) :", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "boundaries"
         },
         {
@@ -1270,7 +1271,7 @@ const readingWritingQuestions = [
                 { text: "D) .", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "boundaries"
         },
         {
@@ -1283,7 +1284,7 @@ const readingWritingQuestions = [
                 { text: "D) .", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "boundaries"
         },
         {
@@ -1296,9 +1297,88 @@ const readingWritingQuestions = [
                 { text: "D) .", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "boundaries"
-        }
+        },
+    //Boundaries HARD Questions
+    {
+        passage: "The expedition uncovered artifacts from a lost civilization [____] pottery shards and tools buried for centuries hinted at a sophisticated culture.",
+        question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+        answers: [
+            { text: "A) :", correct: true },
+            { text: "B) ,", correct: false },
+            { text: "C) ;", correct: false },
+            { text: "D) .", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },
+    {
+        passage: "Critics dismissed the theory as speculative [____] its proponents marshaled compelling evidence from newly digitized archives to refute such claims.",
+        question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+        answers: [
+            { text: "A) ;", correct: true },
+            { text: "B) :", correct: false },
+            { text: "C) ,", correct: false },
+            { text: "D) .", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },
+    {
+        passage: "The artist blended surrealism with stark realism [____] her latest work a dreamlike tableau pierced by gritty urban details captivated viewers.",
+        question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+        answers: [
+            { text: "A) :", correct: true },
+            { text: "B) ,", correct: false },
+            { text: "C) ;", correct: false },
+            { text: "D) .", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },
+    {
+        passage: "The storm disrupted supply chains across the region [____] manufacturers scrambled to reroute shipments while retailers faced empty shelves.",
+        question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+        answers: [
+            { text: "A) ;", correct: true },
+            { text: "B) :", correct: false },
+            { text: "C) ,", correct: false },
+            { text: "D) .", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },
+    {
+        passage: "Volunteers restored the historic site with meticulous care [____] their efforts yielding a pristine landmark drew tourists from afar.",
+        question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+        answers: [
+            { text: "A) ,", correct: true },
+            { text: "B) ;", correct: false },
+            { text: "C) :", correct: false },
+            { text: "D) .", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },
+    {
+        passage: "The debate hinged on a single contentious issue [____] whether funding should prioritize research or infrastructure divided the panel sharply.",
+        question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+        answers: [
+            { text: "A) :", correct: true },
+            { text: "B) ,", correct: false },
+            { text: "C) ;", correct: false },
+            { text: "D) .", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },    
 
 
 ]
@@ -2358,6 +2438,21 @@ else if (questionText.includes("Which of the following sentences should the scie
     return "Addressing skepticism needs direct rebuttal. A) uses 'contrary,' tying 95% uptime and 30% cuts to dispel reliability doubts. B) is tentative. C) sidesteps weather focus. D) omits skepticism’s core. A) is correct.";
 } else if (questionText.includes("Which of the following sentences should the professor use to underscore the global relevance")) {
     return "Relevance needs a global frame. A) uses 'pressing' and 'priority,' weaving 70%, 40%, and 25 countries into a compelling case. B) is disjointed. C) downplays threats. D) lacks emphasis. A) is correct.";
+}
+// --- NEW Explanations for the 6 Boundaries Questions ---
+
+else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("expedition uncovered artifacts")) {
+    return "The first clause introduces a discovery; the second specifies it (pottery, tools). A colon (A) introduces this list-like elaboration. A comma (B) is too weak for the full clause. A semicolon (C) suggests independence, not specification. A period (D) over-separates. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("Critics dismissed the theory")) {
+    return "The first clause states dismissal; the second contrasts with proponents’ rebuttal—both independent. A semicolon (A) joins these related opposites. A colon (B) implies explanation, not contrast. A comma (C) can’t separate independent clauses. A period (D) breaks flow. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("artist blended surrealism")) {
+    return "The first clause describes a style; the second defines her work as an example. A colon (A) introduces this definition. A comma (B) is insufficient for the full clause. A semicolon (C) suggests independence, not elaboration. A period (D) disrupts unity. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("storm disrupted supply chains")) {
+    return "The first clause states disruption; the second details simultaneous responses—both independent. A semicolon (A) links these related actions. A colon (B) implies a list, not coordination. A comma (C) is too weak for independence. A period (D) over-separates. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("Volunteers restored the historic site")) {
+    return "The first clause describes action; the second is a participial phrase ('yielding') modifying it. A comma (A) correctly joins this dependent phrase. A semicolon (B) or colon (C) requires independence. A period (D) breaks the sentence. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("debate hinged on a single contentious issue")) {
+    return "The first clause sets up an issue; the second specifies it (whether funding...). A colon (A) introduces this clarification. A comma (B) is too light for the full clause. A semicolon (C) suggests independence, not definition. A period (D) splits the thought. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
