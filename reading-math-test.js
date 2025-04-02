@@ -1807,6 +1807,88 @@ const readingWritingQuestions = [
             difficulty: "hard",
             category: "rhetorical-synthesis"
         },
+ //Boundaires EASY Questions  
+ 
+        {
+            passage: "The hiker packed essentials [____] water snacks and a map were all she needed for the trail.",
+            question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+            answers: [
+                { text: "A) :", correct: true },
+                { text: "B) ,", correct: false },
+                { text: "C) ;", correct: false },
+                { text: "D) .", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "boundaries"
+        },
+        {
+            passage: "The chef prepared a special dish [____] it featured fresh herbs and a tangy sauce.",
+            question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+            answers: [
+                { text: "A) :", correct: true },
+                { text: "B) ,", correct: false },
+                { text: "C) ;", correct: false },
+                { text: "D) .", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "boundaries"
+        },
+        {
+            passage: "The team trained hard all week [____] their effort paid off with a big win on Saturday.",
+            question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+            answers: [
+                { text: "A) ;", correct: true },
+                { text: "B) :", correct: false },
+                { text: "C) ,", correct: false },
+                { text: "D) .", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "boundaries"
+        },
+        {
+            passage: "The book club met monthly [____] members discussed their favorite novels and shared snacks.",
+            question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+            answers: [
+                { text: "A) ;", correct: true },
+                { text: "B) :", correct: false },
+                { text: "C) ,", correct: false },
+                { text: "D) .", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "boundaries"
+        },
+        {
+            passage: "The gardener planted flowers [____] roses tulips and daisies brightened the yard.",
+            question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+            answers: [
+                { text: "A) :", correct: true },
+                { text: "B) ,", correct: false },
+                { text: "C) ;", correct: false },
+                { text: "D) .", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "boundaries"
+        },
+        {
+            passage: "The concert was delayed by rain [____] the band played an extra song to thank patient fans.",
+            question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
+            answers: [
+                { text: "A) ;", correct: true },
+                { text: "B) :", correct: false },
+                { text: "C) ,", correct: false },
+                { text: "D) .", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "boundaries"
+        },
+
+
  //Boundaires MEDIUM Questions       
 
         {
@@ -3579,6 +3661,21 @@ else if (questionText.includes("Which of the following sentences should the teac
     return "Stress needs strong benefits. A) uses 20%, 100 calories, and 'happier' with 'boosts,' covering all notes. B) skips calories and mood. C) omits %. D) misses focus. A) is correct.";
 } else if (questionText.includes("Which of the following sentences should the chef use to highlight the dish’s flavor appeal")) {
     return "Flavor appeal needs all taste notes. A) uses 'fresh,' 'tangy,' and 30% with 'popular,' tying all points. B) skips sauce. C) omits herbs. D) misses %. A) is correct.";
+}
+// --- NEW Explanations for the 6 Boundaries Questions (Medium Difficulty) ---
+
+else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("hiker packed essentials")) {
+    return "The first clause sets up a list; the second lists items (water, snacks, map). A colon (A) introduces this list clearly. A comma (B) is too weak for a full list. A semicolon (C) fits independent clauses. A period (D) breaks flow. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("chef prepared a special dish")) {
+    return "The first clause introduces a dish; the second describes it (herbs, sauce). A colon (A) specifies this detail well. A comma (B) is insufficient for description. A semicolon (C) suggests independence. A period (D) splits too much. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("team trained hard all week")) {
+    return "Both clauses are independent but related (training; payoff). A semicolon (A) links them smoothly. A colon (B) implies a list. A comma (C) can’t join full clauses. A period (D) over-separates. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("book club met monthly")) {
+    return "Two independent clauses (met; discussed). A semicolon (A) connects them logically. A colon (B) suggests a list. A comma (C) is too weak for independence. A period (D) splits flow. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("gardener planted flowers")) {
+    return "The first clause sets up planting; the second lists flowers (roses, tulips, daisies). A colon (A) introduces this list. A comma (B) lacks strength for a list. A semicolon (C) fits independent ideas. A period (D) breaks continuity. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("concert was delayed by rain")) {
+    return "Independent clauses (delayed; played). A semicolon (A) joins them well. A colon (B) implies explanation. A comma (C) is insufficient for independence. A period (D) separates too much. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
