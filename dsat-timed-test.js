@@ -176,9 +176,9 @@ function endModule() {
         startNextModule();
     } else {
         if (!isMathTest) {
-            showReadingWritingScore();
+            showReadingWritingScore(); // Show score after Reading/Writing module 2
         } else {
-            showFinalScore();
+            showFinalScore(); // Show final score after Math module 2
         }
     }
 }
@@ -456,7 +456,7 @@ nextButton.addEventListener("click", () => {
     if (nextButton.innerHTML === "Continue") {
         document.getElementById("break-message").classList.remove("hide");
         document.getElementById("question-container").classList.add("hide");
-        startMathTest();
+        // Do not start Math section here; wait for continueButton click
     } else {
         handleNextButton();
     }
