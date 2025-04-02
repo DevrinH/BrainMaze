@@ -2907,6 +2907,101 @@ const mathQuestions = [
         difficulty: "hard",
         category: "problem-solving"
     },
+
+//Geometry EASY
+
+{
+    passage: "",
+    question: "A rectangle has a length of 8 units and a width of 5 units. What is its perimeter?",
+    answers: [
+        { text: "A) 26", correct: true },
+        { text: "B) 24", correct: false },
+        { text: "C) 28", correct: false },
+        { text: "D) 30", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "geometry"
+},
+{
+    passage: "",
+    question: "A triangle has a base of 6 units and a height of 4 units. What is its area?",
+    answers: [
+        { text: "A) 12", correct: true },
+        { text: "B) 10", correct: false },
+        { text: "C) 15", correct: false },
+        { text: "D) 8", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "geometry"
+},
+{
+    passage: "",
+    question: "In a right triangle, one leg is 3 units and the hypotenuse is 5 units. What is the length of the other leg?",
+    answers: [
+        { text: "A) 4", correct: true },
+        { text: "B) 3", correct: false },
+        { text: "C) 5", correct: false },
+        { text: "D) 6", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "geometry"
+},
+{
+    passage: "",
+    question: "A circle has a radius of 3 units. What is its circumference? (Use π ≈ 3.14)",
+    answers: [
+        { text: "A) 18.84", correct: true },
+        { text: "B) 9.42", correct: false },
+        { text: "C) 28.26", correct: false },
+        { text: "D) 6.28", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "geometry"
+},
+{
+    passage: "",
+    question: "The angles in a triangle are in the ratio 1:2:3. What is the measure of the largest angle?",
+    answers: [
+        { text: "A) 90", correct: true },
+        { text: "B) 60", correct: false },
+        { text: "C) 45", correct: false },
+        { text: "D) 120", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "geometry"
+},
+{
+    passage: "",
+    question: "A square has a perimeter of 20 units. What is its area?",
+    answers: [
+        { text: "A) 25", correct: true },
+        { text: "B) 20", correct: false },
+        { text: "C) 16", correct: false },
+        { text: "D) 30", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "geometry"
+},
+{
+    passage: "",
+    question: "A right triangle has legs of 6 units and 8 units. What is the length of its hypotenuse?",
+    answers: [
+        { text: "A) 10", correct: true },
+        { text: "B) 12", correct: false },
+        { text: "C) 14", correct: false },
+        { text: "D) 8", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "geometry"
+}
+
 //Geometry MEDIIUM
 
     {
@@ -4011,6 +4106,23 @@ else if (questionText.includes("A store offers a 20% discount on a shirt origina
     return "Leak = 20% of 50 = 0.2 · 50 = 10. Remain = 50 - 10 = 40. A) 40 is correct. B) 45: 10% leak. C) 30: 40% leak. D) 35: 30% leak.";
 } else if (questionText.includes("A fruit stand sells apples at 2 for $1")) {
     return "Cost per apple = 1 / 2 = $0.50. For 10: 0.50 · 10 = 5. Or: 10 / 2 · 1 = 5. A) $5 is correct. B) $4: 8 apples. C) $6: 12 apples. D) $3: 6 apples.";
+}
+// --- NEW Explanations for the 7 Geometry Math Questions (Medium Difficulty) ---
+
+else if (questionText.includes("A rectangle has a length of 8 units and a width of 5 units")) {
+    return "Perimeter = 2(length + width) = 2(8 + 5) = 2·13 = 26. A) 26 is correct. B) 24: 2·12. C) 28: 2·14. D) 30: 2·15.";
+} else if (questionText.includes("A triangle has a base of 6 units and a height of 4 units")) {
+    return "Area = (1/2) · base · height = (1/2) · 6 · 4 = 12. A) 12 is correct. B) 10: 5·2 error. C) 15: 6·2.5. D) 8: 4·2.";
+} else if (questionText.includes("In a right triangle, one leg is 3 units and the hypotenuse is 5 units")) {
+    return "Pythagorean: 3² + b² = 5², 9 + b² = 25, b² = 16, b = 4. A) 4 is correct. B) 3: leg repeat. C) 5: hyp repeat. D) 6: 9 + 36 ≠ 25.";
+} else if (questionText.includes("A circle has a radius of 3 units")) {
+    return "Circumference = 2πr = 2 · 3.14 · 3 = 18.84. A) 18.84 is correct. B) 9.42: πr. C) 28.26: πr². D) 6.28: 2π.";
+} else if (questionText.includes("The angles in a triangle are in the ratio 1:2:3")) {
+    return "Sum = 180°. Ratio 1x + 2x + 3x = 6x = 180, x = 30. Largest = 3x = 3·30 = 90. A) 90 is correct. B) 60: 2x. C) 45: miscalc. D) 120: exceeds 180.";
+} else if (questionText.includes("A square has a perimeter of 20 units")) {
+    return "Perimeter = 4s = 20, s = 5. Area = s² = 5² = 25. A) 25 is correct. B) 20: perimeter. C) 16: s = 4. D) 30: miscalc.";
+} else if (questionText.includes("A right triangle has legs of 6 units and 8 units")) {
+    return "Pythagorean: 6² + 8² = c², 36 + 64 = 100, c = 10. A) 10 is correct. B) 12: 6 + 6. C) 14: 6 + 8. D) 8: leg repeat.";
 }
     // Fallback
     return "No specific explanation available for this question.";
