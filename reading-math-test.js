@@ -937,7 +937,7 @@ const mathQuestions = [
     },
     {
         passage: "A store offers a 20% discount on all items during a sale. After the discount, a tax of 8% is applied to the reduced price. If a customer pays $64.80 for an item after both discount and tax, what was the original price?",
-        question: "What was the original price of the item?",
+        question: "A store offers a 20% discount on all items during a sale. After the discount, a tax of 8% is applied to the reduced price. If a customer pays $64.80 for an item after both discount and tax, what was the original price?",
         answers: [
             { text: "A) $75", correct: true },
             { text: "B) $70", correct: false },
@@ -950,7 +950,7 @@ const mathQuestions = [
     },
     {
         passage: "A tank is filled with water at a rate of 2 gallons per minute for the first 5 minutes, then at 3 gallons per minute until it reaches its capacity of 40 gallons.",
-        question: "How many minutes does it take to fill the tank?",
+        question: "A tank is filled with water at a rate of 2 gallons per minute for the first 5 minutes, then at 3 gallons per minute until it reaches its capacity of 40 gallons. How many minutes does it take to fill the tank?",
         answers: [
             { text: "A) 15", correct: true },
             { text: "B) 14", correct: false },
