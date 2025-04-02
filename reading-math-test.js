@@ -461,6 +461,71 @@ const readingWritingQuestions = [
             type: "reading",
             difficulty: "hard",
             category: "text-structure-and-purpose"
+        },
+        {
+            passage: "Passage 1: Dr. Patel argues that genetic engineering holds unparalleled potential to eradicate hereditary diseases, citing recent trials where gene edits reduced disease markers by 80%. She dismisses ethical concerns as secondary, insisting that the urgency of human suffering justifies bold action.\nPassage 2: Professor Kline warns that genetic engineering, while promising, risks unforeseen consequences, such as ecological imbalances from altered gene pools. He advocates a cautious approach, prioritizing long-term studies over immediate application to ensure safety.",
+            question: "How would Dr. Patel from Passage 1 most likely respond to Professor Kline’s concerns in Passage 2?",
+            answers: [
+                { text: "A) She would argue that the immediate benefits to human health outweigh the speculative risks Kline highlights.", correct: true },
+                { text: "B) She would concede that ecological risks deserve more study but maintain that trials should continue.", correct: false },
+                { text: "C) She would dismiss Kline’s caution as irrelevant, focusing solely on technical feasibility.", correct: false },
+                { text: "D) She would agree that long-term studies are necessary and propose delaying all genetic interventions.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The historian traces the rise of industrial cities to coal-powered factories, noting how they centralized labor and spurred economic growth, despite harsh working conditions. She views this as a necessary trade-off for progress.\nPassage 2: The sociologist examines the same cities, emphasizing how coal dependency entrenched social inequalities, as wealth concentrated among factory owners while workers faced poverty and pollution. He questions whether progress justified such costs.",
+            question: "Which of the following best describes a key difference in how the authors of Passage 1 and Passage 2 evaluate the impact of coal-powered factories?",
+            answers: [
+                { text: "A) The historian accepts social costs as inevitable for economic gains, while the sociologist challenges this justification.", correct: true },
+                { text: "B) The historian focuses on labor centralization, while the sociologist prioritizes technological innovation.", correct: false },
+                { text: "C) The historian critiques working conditions, while the sociologist praises economic growth.", correct: false },
+                { text: "D) The historian emphasizes pollution’s effects, while the sociologist highlights wealth distribution.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: A biologist asserts that invasive species often enhance biodiversity by filling ecological niches left vacant by native declines, citing examples like the zebra mussel’s water-filtering benefits. She downplays their disruptive reputation.\nPassage 2: An ecologist counters that invasive species destabilize ecosystems, pointing to the zebra mussel’s role in outcompeting native shellfish and altering food webs. He stresses the need for aggressive control measures.",
+            question: "How do the authors of Passage 1 and Passage 2 differ in their assessment of the zebra mussel’s ecological role?",
+            answers: [
+                { text: "A) The biologist views it as a net positive for biodiversity, while the ecologist sees it as a threat to ecosystem stability.", correct: true },
+                { text: "B) The biologist focuses on its decline of native species, while the ecologist highlights its water-filtering capacity.", correct: false },
+                { text: "C) The biologist advocates for control measures, while the ecologist dismisses its ecological impact.", correct: false },
+                { text: "D) The biologist emphasizes food web changes, while the ecologist praises its niche-filling potential.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The critic praises the poet’s latest collection for its raw emotionality, arguing that its unstructured form mirrors the chaos of human experience and invites reader interpretation.\nPassage 2: The reviewer finds the same collection indulgent, suggesting that its lack of structure reflects laziness rather than intent, and that it burdens readers with deciphering incoherent verses.",
+            question: "How would the reviewer from Passage 2 likely critique the critic’s perspective in Passage 1?",
+            answers: [
+                { text: "A) By arguing that the critic misinterprets the poet’s lack of structure as purposeful rather than careless.", correct: true },
+                { text: "B) By agreeing that the emotionality is raw but insisting it lacks interpretive depth.", correct: false },
+                { text: "C) By claiming the critic overlooks the collection’s coherence and structured intent.", correct: false },
+                { text: "D) By suggesting the critic undervalues the chaos as a deliberate artistic choice.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: An economist contends that automation boosts productivity and creates new job sectors, using historical data from the Industrial Revolution to predict a net gain in employment over time.\nPassage 2: A labor analyst disputes this, arguing that automation displaces workers faster than it generates jobs, citing current trends in manufacturing where robotics outpace human hiring.",
+            question: "Which of the following best captures how the labor analyst in Passage 2 would challenge the economist’s argument in Passage 1?",
+            answers: [
+                { text: "A) By asserting that current automation trends contradict the historical precedent the economist relies on.", correct: true },
+                { text: "B) By agreeing that productivity rises but denying that new job sectors emerge.", correct: false },
+                { text: "C) By arguing that the Industrial Revolution data supports a net job loss, not gain.", correct: false },
+                { text: "D) By claiming the economist ignores robotics’ role in historical job creation.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
         }
     
 
@@ -883,6 +948,19 @@ else if (questionText.includes("The passage is structured primarily to") && pass
     return "The passage links 19th-century electricity reactions (awe, apprehension) to modern AI responses, emphasizing a recurring pattern of hope and hesitation. Its purpose is a historical-modern comparison, matching A). B) doesn’t warn but observes. C) doesn’t celebrate, it balances positives and negatives. D) mentions ethics but focuses on reaction parallels, not analysis.";
 } else if (questionText.includes("The passage is structured primarily to") && passageText.includes("economist opened with a dry statistic")) {
     return "The passage moves from a statistic to vivid imagery (ships, workers) and back to an explanation, using storytelling to make data relatable and urgent. This blend of data and narrative fits A). B) offers no solutions. C) doesn’t critique statistics’ reliability. D) uses worker imagery as an example, not a documentation focus.";
+}
+// --- NEW Explanations for the 5 Cross-Text Connection Questions ---
+
+else if (questionText.includes("How would Dr. Patel from Passage 1 most likely respond to Professor Kline’s concerns")) {
+    return "Dr. Patel prioritizes immediate health benefits (80% disease reduction) and dismisses ethical concerns as secondary, suggesting she’d argue that human suffering’s urgency trumps Kline’s speculative ecological risks, fitting A). B) is too conciliatory for her bold stance. C) ignores her focus on suffering, not just feasibility. D) contradicts her push for action.";
+} else if (questionText.includes("Which of the following best describes a key difference in how the authors of Passage 1 and Passage 2 evaluate the impact of coal-powered factories")) {
+    return "The historian sees social costs (harsh conditions) as a necessary trade-off for progress, while the sociologist questions if progress justifies inequality and poverty, matching A). B) misaligns focus—labor centralization isn’t contrasted with technology. C) reverses their views. D) swaps their emphases (pollution vs. wealth).";
+} else if (questionText.includes("How do the authors of Passage 1 and Passage 2 differ in their assessment of the zebra mussel’s ecological role")) {
+    return "The biologist highlights the zebra mussel’s benefits (biodiversity, water-filtering), while the ecologist stresses its harm (outcompeting natives, destabilizing ecosystems), aligning with A). B) reverses their positions. C) misattributes control advocacy. D) flips their focuses (food webs vs. niches).";
+} else if (questionText.includes("How would the reviewer from Passage 2 likely critique the critic’s perspective in Passage 1")) {
+    return "The reviewer sees the poet’s lack of structure as lazy, not intentional, so they’d argue the critic misreads it as purposeful chaos, fitting A). B) doesn’t address structure, the core disagreement. C) contradicts the reviewer’s view of incoherence. D) suggests the critic undervalues chaos, opposite to the reviewer’s stance.";
+} else if (questionText.includes("Which of the following best captures how the labor analyst in Passage 2 would challenge the economist’s argument in Passage 1")) {
+    return "The economist uses historical job gains to predict automation’s benefits, but the analyst cites current manufacturing trends (robotics outpacing hiring) to argue this precedent doesn’t hold, matching A). B) overstates denial of new sectors. C) misreads the economist’s data. D) wrongly ties robotics to history.";
 }
     // Fallback
     return "No specific explanation available for this question.";
