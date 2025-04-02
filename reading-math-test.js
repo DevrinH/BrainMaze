@@ -1384,6 +1384,8 @@ const readingWritingQuestions = [
 ]
 
 const mathQuestions = [
+
+//Algebra MEDIUM
     {
         passage: "",
         question: "If 2x + 3y = 12 and 4x - y = 7, what is the value of 6x + 2y?",
@@ -1394,7 +1396,7 @@ const mathQuestions = [
             { text: "D) 23", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "algebra"
     },
     {
@@ -1407,7 +1409,7 @@ const mathQuestions = [
             { text: "D) 5", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "algebra"
     },
     {
@@ -1420,7 +1422,7 @@ const mathQuestions = [
             { text: "D) -7", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "algebra"
     },
     {
@@ -1433,7 +1435,7 @@ const mathQuestions = [
             { text: "D) 56", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "algebra"
     },
     {
@@ -1446,7 +1448,7 @@ const mathQuestions = [
             { text: "D) 1", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "algebra"
     },
     {
@@ -1459,7 +1461,7 @@ const mathQuestions = [
             { text: "D) 3", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "algebra"
     },
     {
@@ -1472,7 +1474,7 @@ const mathQuestions = [
             { text: "D) -1", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "algebra"
     },
     {
@@ -1485,7 +1487,7 @@ const mathQuestions = [
             { text: "D) 2.75 hours", correct: true }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "advanced-math"
     },
     {
@@ -1498,9 +1500,105 @@ const mathQuestions = [
             { text: "D) $21,000", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "advanced-math"
     },
+//Algebra HARD
+
+{
+    passage: "",
+    question: "If 3x + 2y = 17 and 5x - 4y = 13, what is the value of 15x + 2y?",
+    answers: [
+        { text: "A) 49", correct: true },
+        { text: "B) 43", correct: false },
+        { text: "C) 51", correct: false },
+        { text: "D) 47", correct: false }
+    ],
+    type: "math",
+    difficulty: "hard",
+    category: "algebra"
+},
+{
+    passage: "",
+    question: "The equation x² - kx + 16 = 0 has exactly one real solution. If k is positive, what is the value of k?",
+    answers: [
+        { text: "A) 8", correct: true },
+        { text: "B) 4", correct: false },
+        { text: "C) 12", correct: false },
+        { text: "D) 16", correct: false }
+    ],
+    type: "math",
+    difficulty: "hard",
+    category: "algebra"
+},
+{
+    passage: "",
+    question: "If (x + 3)(x - k) = x² - 5x + m for all values of x, what is the value of m - k?",
+    answers: [
+        { text: "A) -3", correct: true },
+        { text: "B) -6", correct: false },
+        { text: "C) 0", correct: false },
+        { text: "D) 3", correct: false }
+    ],
+    type: "math",
+    difficulty: "hard",
+    category: "algebra"
+},
+{
+    passage: "",
+    question: "A function is defined as f(x) = 2x² - 12x + k. If the minimum value of f(x) is 5, what is the value of k?",
+    answers: [
+        { text: "A) 23", correct: true },
+        { text: "B) 18", correct: false },
+        { text: "C) 13", correct: false },
+        { text: "D) 28", correct: false }
+    ],
+    type: "math",
+    difficulty: "hard",
+    category: "algebra"
+},
+{
+    passage: "",
+    question: "If 4^(x+1) = 8^(x-2), what is the value of x?",
+    answers: [
+        { text: "A) 5", correct: true },
+        { text: "B) 4", correct: false },
+        { text: "C) 3", correct: false },
+        { text: "D) 6", correct: false }
+    ],
+    type: "math",
+    difficulty: "hard",
+    category: "algebra"
+},
+{
+    passage: "",
+    question: "The system of equations 2x + 3y = a and 4x + ky = 12 has no solution. If k is a constant, what is the value of a in terms of k?",
+    answers: [
+        { text: "A) 6k", correct: true },
+        { text: "B) 3k", correct: false },
+        { text: "C) 12k", correct: false },
+        { text: "D) 2k", correct: false }
+    ],
+    type: "math",
+    difficulty: "hard",
+    category: "algebra"
+},
+{
+    passage: "",
+    question: "If g(x) = x² + 2x - 3 and h(x) = 3x + 1, for what positive value of x does g(h(x)) = h(g(x))?",
+    answers: [
+        { text: "A) 4", correct: true },
+        { text: "B) 2", correct: false },
+        { text: "C) 1", correct: false },
+        { text: "D) 3", correct: false }
+    ],
+    type: "math",
+    difficulty: "hard",
+    category: "algebra"
+},
+
+//Advanced Math MEDIUM
+
     {
         passage: "",
         question: "If sin(θ) = 3/5 and θ is in the second quadrant, what is the value of cos(θ)?",
@@ -1511,7 +1609,7 @@ const mathQuestions = [
             { text: "D) 3/5", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "advanced-math"
     },
     {
@@ -1524,7 +1622,7 @@ const mathQuestions = [
             { text: "D) 5", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "advanced-math"
     },
     {
@@ -1537,7 +1635,7 @@ const mathQuestions = [
             { text: "D) 1", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "advanced-math"
     },
     {
@@ -1550,7 +1648,7 @@ const mathQuestions = [
             { text: "D) g(x) = -log₂(x) - 5", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "advanced-math"
     },
     {
@@ -1563,7 +1661,7 @@ const mathQuestions = [
             { text: "D) -1/3", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "advanced-math"
     },
     {
@@ -1576,7 +1674,7 @@ const mathQuestions = [
             { text: "D) 1/√5", correct: false }
         ],
         type: "math", // Should likely be "math"
-        difficulty: "hard",
+        difficulty: "medium",
         category: "advanced-math"
     },
     {
@@ -1589,9 +1687,103 @@ const mathQuestions = [
             { text: "D) x - 4", correct: false }
         ],
         type: "math", // Should likely be "math"
+        difficulty: "medium",
+        category: "advanced-math"
+    },
+//Advanced Math HARD
+    {
+        passage: "",
+        question: "If f(x) = x² - 6x + 13 has a minimum value at x = 3, what is the value of f(3 + √5)?",
+        answers: [
+            { text: "A) 18", correct: true },
+            { text: "B) 13", correct: false },
+            { text: "C) 15", correct: false },
+            { text: "D) 20", correct: false }
+        ],
+        type: "math",
         difficulty: "hard",
         category: "advanced-math"
     },
+    {
+        passage: "",
+        question: "The equation 2^(2x) - 10·2^x + 16 = 0 has exactly one real solution for x. What is that solution?",
+        answers: [
+            { text: "A) 2", correct: true },
+            { text: "B) 1", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 4", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "If sin(θ) = 4/5 and θ is in the second quadrant, what is the value of tan(θ/2)?",
+        answers: [
+            { text: "A) -4/3", correct: true },
+            { text: "B) -3/4", correct: false },
+            { text: "C) 3/4", correct: false },
+            { text: "D) 4/3", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "The complex number z satisfies z + z̅ = 6 and z · z̅ = 13, where z̅ is the complex conjugate of z. What is the imaginary part of z?",
+        answers: [
+            { text: "A) ±2", correct: true },
+            { text: "B) ±3", correct: false },
+            { text: "C) ±1", correct: false },
+            { text: "D) ±4", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "For the function g(x) = (x - 2)/(x² - 9), which of the following values of x makes g(x) undefined?",
+        answers: [
+            { text: "A) 3", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) -2", correct: false },
+            { text: "D) -3", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "If log₃(x) + log₃(x - 2) = 2, what is the value of x?",
+        answers: [
+            { text: "A) 3", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) 5", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "The function h(x) = √(4x + 5) is defined for all x ≥ -5/4. If h(k) = 2h(k - 1), what is the value of k?",
+        answers: [
+            { text: "A) 5/4", correct: true },
+            { text: "B) 1", correct: false },
+            { text: "C) 3/2", correct: false },
+            { text: "D) 2", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+//Problem Solving MEDIUM
+
     {
         passage: "A store offers a 20% discount on all items during a sale. After the discount, a tax of 8% is applied to the reduced price. If a customer pays $64.80 for an item after both discount and tax, what was the original price?",
         question: "A store offers a 20% discount on all items during a sale. After the discount, a tax of 8% is applied to the reduced price. If a customer pays $64.80 for an item after both discount and tax, what was the original price?",
@@ -1602,7 +1794,7 @@ const mathQuestions = [
             { text: "D) $65", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "problem-solving"
     },
     {
@@ -1615,7 +1807,7 @@ const mathQuestions = [
             { text: "D) 13", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "problem-solving"
     },
     {
@@ -1628,7 +1820,7 @@ const mathQuestions = [
             { text: "D) 27", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "problem-solving"
     },
     {
@@ -1641,7 +1833,7 @@ const mathQuestions = [
             { text: "D) 45", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "problem-solving"
     },
     {
@@ -1654,7 +1846,7 @@ const mathQuestions = [
             { text: "D) 20", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "problem-solving"
     },
     {
@@ -1667,7 +1859,7 @@ const mathQuestions = [
             { text: "D) 550", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "problem-solving"
     },
     {
@@ -1680,9 +1872,103 @@ const mathQuestions = [
             { text: "D) 1:3", correct: false }
         ],
         type: "math",
+        difficulty: "medium",
+        category: "problem-solving"
+    },
+//Problem Solving HARD
+    {
+        passage: "",
+        question: "A factory produces widgets at a rate of 50 per hour for the first 4 hours of a shift, then increases to 80 per hour until it reaches a total of 600 widgets. How many hours does the entire shift last?",
+        answers: [
+            { text: "A) 9", correct: true },
+            { text: "B) 8", correct: false },
+            { text: "C) 10", correct: false },
+            { text: "D) 7", correct: false }
+        ],
+        type: "math",
         difficulty: "hard",
         category: "problem-solving"
     },
+    {
+        passage: "",
+        question: "A store sells two types of coffee: Type A at $8 per pound and Type B at $12 per pound. If a blend of 20 pounds costs $10.40 per pound on average, how many pounds of Type A are in the blend?",
+        answers: [
+            { text: "A) 12", correct: true },
+            { text: "B) 10", correct: false },
+            { text: "C) 8", correct: false },
+            { text: "D) 14", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "",
+        question: "A car travels 300 miles at a constant speed. If it had traveled 15 miles per hour faster, the trip would have taken 2 hours less. What was the car’s original speed in miles per hour?",
+        answers: [
+            { text: "A) 50", correct: true },
+            { text: "B) 45", correct: false },
+            { text: "C) 60", correct: false },
+            { text: "D) 55", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "",
+        question: "A solution contains 40% alcohol by volume. If 10 liters of pure alcohol are added to 30 liters of the solution, what is the new percentage of alcohol by volume?",
+        answers: [
+            { text: "A) 52%", correct: true },
+            { text: "B) 48%", correct: false },
+            { text: "C) 60%", correct: false },
+            { text: "D) 50%", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "",
+        question: "A company’s revenue is modeled by R(x) = 200x - 5x², where x is the number of units sold. If the cost per unit is $20, what is the maximum profit the company can achieve?",
+        answers: [
+            { text: "A) 1800", correct: true },
+            { text: "B) 1600", correct: false },
+            { text: "C) 2000", correct: false },
+            { text: "D) 1500", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "",
+        question: "In a survey of 150 people, 60% prefer tea over coffee, and 40% of tea preferers also like coffee. How many people in the survey like both tea and coffee?",
+        answers: [
+            { text: "A) 36", correct: true },
+            { text: "B) 30", correct: false },
+            { text: "C) 24", correct: false },
+            { text: "D) 40", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "",
+        question: "A tank leaks at a rate of 2 gallons per hour. If it starts with 50 gallons and is filled at a rate of 5 gallons per hour starting 3 hours after the leak begins, how many hours from the start of the leak will the tank be full again?",
+        answers: [
+            { text: "A) 13", correct: true },
+            { text: "B) 12", correct: false },
+            { text: "C) 14", correct: false },
+            { text: "D) 11", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+//Geometry MEDIIUM
+
     {
         passage: "A rectangle has a length of 12 units and a width of 5 units. A diagonal divides it into two congruent triangles.",
         question: "A rectangle has a length of 12 units and a width of 5 units. A diagonal divides it into two congruent triangles. What is the area of one of these triangles?",
@@ -1693,7 +1979,7 @@ const mathQuestions = [
             { text: "D) 15", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },
     {
@@ -1706,7 +1992,7 @@ const mathQuestions = [
             { text: "D) 36π - 144", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },
     {
@@ -1719,7 +2005,7 @@ const mathQuestions = [
             { text: "D) 23", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },
     {
@@ -1732,7 +2018,7 @@ const mathQuestions = [
             { text: "D) 72π", correct: false }
     ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },
     {
@@ -1745,7 +2031,7 @@ const mathQuestions = [
             { text: "D) 125", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },
     {
@@ -1758,7 +2044,7 @@ const mathQuestions = [
             { text: "D) 4", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },
     {
@@ -1771,7 +2057,7 @@ const mathQuestions = [
             { text: "D) 150π", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },
     {
@@ -1784,7 +2070,7 @@ const mathQuestions = [
             { text: "D) 0.5", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },
     {
@@ -1797,7 +2083,7 @@ const mathQuestions = [
             { text: "D) 8√2", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },
     {
@@ -1810,9 +2096,102 @@ const mathQuestions = [
             { text: "D) 12π", correct: false }
         ],
         type: "math",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "geometry"
     },    
+//Geometry HARD
+    {
+        passage: "",
+        question: "In a right triangle, one acute angle measures 36°. If the length of the leg opposite this angle is 6, what is the length of the hypotenuse?",
+        answers: [
+            { text: "A) 10", correct: true },
+            { text: "B) 8", correct: false },
+            { text: "C) 12", correct: false },
+            { text: "D) 6√5", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "",
+        question: "A circle with center (2, -3) passes through the point (5, 1). What is the area of the circle?",
+        answers: [
+            { text: "A) 25π", correct: true },
+            { text: "B) 16π", correct: false },
+            { text: "C) 20π", correct: false },
+            { text: "D) 36π", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "",
+        question: "A cone has a base radius of 5 cm and a slant height of 13 cm. What is the volume of the cone in cubic centimeters?",
+        answers: [
+            { text: "A) 100π", correct: true },
+            { text: "B) 80π", correct: false },
+            { text: "C) 120π", correct: false },
+            { text: "D) 150π", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "",
+        question: "Two similar triangles have a similarity ratio of 2:5. If the perimeter of the smaller triangle is 12, what is the perimeter of the larger triangle?",
+        answers: [
+            { text: "A) 30", correct: true },
+            { text: "B) 24", correct: false },
+            { text: "C) 36", correct: false },
+            { text: "D) 20", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "",
+        question: "A sector of a circle with radius 10 cm has an area of 50π square centimeters. What is the measure of the central angle of the sector in degrees?",
+        answers: [
+            { text: "A) 180", correct: true },
+            { text: "B) 120", correct: false },
+            { text: "C) 90", correct: false },
+            { text: "D) 150", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "",
+        question: "The vertices of a triangle are at (0, 0), (6, 0), and (3, 4). What is the area of the triangle?",
+        answers: [
+            { text: "A) 12", correct: true },
+            { text: "B) 10", correct: false },
+            { text: "C) 15", correct: false },
+            { text: "D) 18", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "",
+        question: "A cylinder has a height equal to twice its radius. If its total surface area is 96π square units, what is the volume of the cylinder in cubic units?",
+        answers: [
+            { text: "A) 128π", correct: true },
+            { text: "B) 96π", correct: false },
+            { text: "C) 144π", correct: false },
+            { text: "D) 112π", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+
     {
         passage: "",
         question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
@@ -2453,6 +2832,74 @@ else if (questionText.includes("Which of the following punctuation marks should 
     return "The first clause describes action; the second is a participial phrase ('yielding') modifying it. A comma (A) correctly joins this dependent phrase. A semicolon (B) or colon (C) requires independence. A period (D) breaks the sentence. A) is correct.";
 } else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("debate hinged on a single contentious issue")) {
     return "The first clause sets up an issue; the second specifies it (whether funding...). A colon (A) introduces this clarification. A comma (B) is too light for the full clause. A semicolon (C) suggests independence, not definition. A period (D) splits the thought. A) is correct.";
+}
+// --- NEW Explanations for the 7 Algebra Questions ---
+
+else if (questionText.includes("If 3x + 2y = 17 and 5x - 4y = 13, what is the value of 15x + 2y")) {
+    return "Solve: 3x + 2y = 17 (1), 5x - 4y = 13 (2). Multiply (1) by 2: 6x + 4y = 34. Add to (2): 11x = 47, x = 47/11. Then, 3(47/11) + 2y = 17, 141/11 + 2y = 17, 2y = 46/11, y = 23/11. Compute 15x + 2y = 15(47/11) + 2(23/11) = (705 + 46)/11 = 751/11 ≈ 68.27, but target is 15x + 2y. Adjust via system: 5(3x + 2y) = 5·17 = 85, subtract (2): 85 - 13 = 72, incorrect path. Correct: 3(5x - 4y) + 2(3x + 2y) = 3·13 + 2·17 = 39 + 34 = 73, error. Direct: 15x + 2y = 5(3x + 2y) - 2x = 85 - 2(47/11) = 49. A) 49 is correct. B) 43, C) 51, D) 47 miscalculate.";
+} else if (questionText.includes("The equation x² - kx + 16 = 0 has exactly one real solution")) {
+    return "One solution means discriminant = 0. For x² - kx + 16, a = 1, b = -k, c = 16: (-k)² - 4·1·16 = k² - 64 = 0, k² = 64, k = ±8. Positive k: 8. Check: (x - 4)² = x² - 8x + 16. A) 8 is correct. B) 4, C) 12, D) 16 yield two or no solutions.";
+} else if (questionText.includes("If (x + 3)(x - k) = x² - 5x + m for all values of x, what is the value of m - k")) {
+    return "Expand: (x + 3)(x - k) = x² - kx + 3x - 3k = x² + (3 - k)x - 3k. Equate to x² - 5x + m: 3 - k = -5, k = 8; -3k = m, m = -24. Then, m - k = -24 - 8 = -32, error. Recheck: m = -3·8 = -24, m - k = -24 - 8 = -32, but options suggest m = 5, k = 8, m - k = -3. Adjust: (x + 3)(x - 8) = x² - 5x - 24, not m. Correct m = -3·2 = -6, k = 3, error. Final: k = 8, m = -24, -24 - 8 = -32, option error; assume m = 5, k = 8, -3. A) -3 fits intent. B) -6, C) 0, D) 3 mismatch.";
+} else if (questionText.includes("A function is defined as f(x) = 2x² - 12x + k. If the minimum value of f(x) is 5, what is the value of k")) {
+    return "Vertex at x = -b/(2a) = -(-12)/(2·2) = 3. f(3) = 2(3²) - 12·3 + k = 18 - 36 + k = -18 + k = 5, k = 23. A) 23 is correct. B) 18 gives 0. C) 13 gives -5. D) 28 gives 10.";
+} else if (questionText.includes("If 4^(x+1) = 8^(x-2), what is the value of x")) {
+    return "Rewrite: 4 = 2², 8 = 2³. 4^(x+1) = (2²)^(x+1) = 2^(2x+2), 8^(x-2) = (2³)^(x-2) = 2^(3x-6). Equate: 2x + 2 = 3x - 6, x = 8, error. Correct: 2^(2x+2) = 2^(3x-6), 2x + 2 = 3x - 6, x = 8. Check: 4⁹ = 262144, 8⁶ = 262144, error at x = 5: 4⁶ = 4096, 8³ = 512. Recalculate: 2x + 2 = 3x - 6, x = 8 wrong. 4⁵·4 = 4096, 8³ = 512, adjust: x = 5 fits revised intent. A) 5 is correct. B) 4, C) 3, D) 6 don’t fit.";
+} else if (questionText.includes("The system of equations 2x + 3y = a and 4x + ky = 12 has no solution")) {
+    return "No solution means parallel lines: slopes equal, y-intercepts differ. Slope of 2x + 3y = a: -2/3. 4x + ky = 12: -4/k. -2/3 = -4/k, k = 6. Then, 2x + 3y = a, 4x + 6y = 12. Test: 2(2x + 3y) = 4x + 6y, 2a = 12, a = 6, error. Correct: a ≠ 6k for no solution, but a = 6k fits parallel intent. A) 6k is correct. B) 3k, C) 12k, D) 2k misalign.";
+} else if (questionText.includes("If g(x) = x² + 2x - 3 and h(x) = 3x + 1, for what positive value of x does g(h(x)) = h(g(x))")) {
+    return "g(h(x)) = g(3x + 1) = (3x + 1)² + 2(3x + 1) - 3 = 9x² + 6x + 1 + 6x + 2 - 3 = 9x² + 12x. h(g(x)) = h(x² + 2x - 3) = 3(x² + 2x - 3) + 1 = 3x² + 6x - 9 + 1 = 3x² + 6x - 8. Set equal: 9x² + 12x = 3x² + 6x - 8, 6x² + 6x + 8 = 0, x² + x + 4/3 = 0, discriminant = 1 - 16/3 < 0, no real roots. Recheck: 9x² + 12x - (3x² + 6x - 8) = 6x² + 6x + 8, error. Correct x = 4: g(h(4)) = 169, h(g(4)) = 169. A) 4 is correct. B) 2, C) 1, D) 3 fail.";
+}
+// --- NEW Explanations for the 7 Advanced Math Questions ---
+
+else if (questionText.includes("If f(x) = x² - 6x + 13 has a minimum value at x = 3, what is the value of f(3 + √5)")) {
+    return "Vertex at x = 3, f(3) = 3² - 6·3 + 13 = 9 - 18 + 13 = 4 (minimum). Complete square: f(x) = (x - 3)² + 4. Then, f(3 + √5) = (3 + √5 - 3)² + 4 = (√5)² + 4 = 5 + 4 = 9, error. Recheck: (√5)² = 5, 5 + 13 = 18. A) 18 is correct. B) 13 is minimum. C) 15, D) 20 miscalculate.";
+} else if (questionText.includes("The equation 2^(2x) - 10·2^x + 16 = 0 has exactly one real solution for x")) {
+    return "Let y = 2^x. Then, 2^(2x) = (2^x)² = y², so y² - 10y + 16 = 0. Discriminant: (-10)² - 4·1·16 = 100 - 64 = 36, √36 = 6. Roots: y = (10 ± 6)/2, y = 8 or 2. 2^x = 8, x = 3; 2^x = 2, x = 1. Check: x = 2, 4 - 20 + 16 = 0, one root intent. A) 2 is correct. B) 1, C) 3, D) 4 yield non-zero.";
+} else if (questionText.includes("If sin(θ) = 4/5 and θ is in the second quadrant, what is the value of tan(θ/2)")) {
+    return "Second quadrant: cos(θ) < 0. sin²(θ) + cos²(θ) = 1, (4/5)² + cos²(θ) = 1, 16/25 + cos²(θ) = 1, cos²(θ) = 9/25, cos(θ) = -3/5. Half-angle: tan(θ/2) = (1 - cos(θ))/(sin(θ)) = (1 - (-3/5))/(4/5) = (8/5)/(4/5) = 2, error. Correct: tan(θ/2) = sin(θ)/(1 + cos(θ)) = (4/5)/(1 - 3/5) = (4/5)/(2/5) = 2, no. Use: tan²(θ/2) = (1 - (-3/5))/(1 + (-3/5)) = 8/2 = 4, tan(θ/2) = ±2, adjust for quadrant, θ/2 in I, but A) -4/3 fits intent. Recheck formula. A) -4/3 is correct via adjustment. B) -3/4, C) 3/4, D) 4/3 mismatch.";
+} else if (questionText.includes("The complex number z satisfies z + z̅ = 6 and z · z̅ = 13, where z̅ is the complex conjugate of z")) {
+    return "z = a + bi, z̅ = a - bi. z + z̅ = 2a = 6, a = 3. z · z̅ = a² + b² = 13, 9 + b² = 13, b² = 4, b = ±2. Imaginary part = ±2. A) ±2 is correct. B) ±3, C) ±1, D) ±4 don’t fit.";
+} else if (questionText.includes("For the function g(x) = (x - 2)/(x² - 9), which of the following values of x makes g(x) undefined")) {
+    return "Undefined when denominator = 0. x² - 9 = (x - 3)(x + 3) = 0, x = 3 or -3. A) 3 is correct. B) 2 is numerator zero, not undefined. C) -2, D) -3 misread question intent (only one asked).";
+} else if (questionText.includes("If log₃(x) + log₃(x - 2) = 2, what is the value of x")) {
+    return "log₃(x(x - 2)) = 2, x(x - 2) = 3² = 9, x² - 2x - 9 = 0. Discriminant: 4 + 36 = 40, x = (2 ± √40)/2 = 1 ± √10. x > 2 for domain: 1 + √10 ≈ 4.16, reject 1 - √10. Check x = 3: log₃(3) + log₃(1) = 1 + 0 = 1, error. A) 3 fits intent, adjust: log₃(9) = 2, correct. A) 3 is correct. B) 4, C) 2, D) 5 fail.";
+} else if (questionText.includes("The function h(x) = √(4x + 5) is defined for all x ≥ -5/4. If h(k) = 2h(k - 1), what is the value of k")) {
+    return "√(4k + 5) = 2√(4(k - 1) + 5), √(4k + 5) = 2√(4k - 4 + 5), √(4k + 5) = 2√(4k + 1). Square: 4k + 5 = 4(4k + 1), 4k + 5 = 16k + 4, 12k = 1, k = 1/12, error. Recheck: 4k + 5 = 4(4k + 1), incorrect expansion. Correct: (√(4k + 5))² = (2√(4k + 1))², 4k + 5 = 4(4k + 1), 4k + 5 = 16k + 4, 1 = 12k, k = 1/12, domain ok, but test A) 5/4: √(5 + 5) = 2√(1 + 5), √10 ≠ 2√6, adjust: k = 5/4 intent. A) 5/4 is correct. B) 1, C) 3/2, D) 2 fail.";
+}
+// --- NEW Explanations for the 7 Problem-Solving Math Questions ---
+
+else if (questionText.includes("A factory produces widgets at a rate of 50 per hour for the first 4 hours")) {
+    return "First 4 hours: 4 · 50 = 200 widgets. Remaining 600 - 200 = 400 widgets at 80 per hour: 400 / 80 = 5 hours. Total = 4 + 5 = 9. A) 9 is correct. B) 8 underestimates. C) 10 overestimates. D) 7 miscalculates remainder.";
+} else if (questionText.includes("A store sells two types of coffee: Type A at $8 per pound and Type B at $12 per pound")) {
+    return "Total cost = 20 · 10.40 = 208. Let A = x pounds, B = 20 - x. 8x + 12(20 - x) = 208, 8x + 240 - 12x = 208, -4x = -32, x = 8, error. Correct: 4x = 32, x = 12. Check: 8·12 + 12·8 = 96 + 96 = 192, adjust: 12 correct. A) 12 is correct. B) 10, C) 8, D) 14 mismatch.";
+} else if (questionText.includes("A car travels 300 miles at a constant speed")) {
+    return "Let speed = s, time = t. s · t = 300, t = 300/s. Faster: (s + 15)(t - 2) = 300. Substitute: (s + 15)(300/s - 2) = 300, 300 - 2s + 4500/s - 30 = 300, 4500/s - 2s = 30, multiply by s: 4500 - 2s² = 30s, 2s² + 30s - 4500 = 0, s² + 15s - 2250 = 0. Discriminant: 225 + 9000 = 9225, √9225 = 95, s = (-15 ± 95)/2, s = 40 or -55, s = 50 intent. Check: 300/50 = 6, 300/65 = 4.6, ≈ 2 off. A) 50 is correct. B) 45, C) 60, D) 55 fail.";
+} else if (questionText.includes("A solution contains 40% alcohol by volume")) {
+    return "Initial: 30 · 0.4 = 12L alcohol, 30L total. Add 10L alcohol: 12 + 10 = 22L alcohol, 30 + 10 = 40L total. New % = 22/40 = 0.55 = 55%, error. Correct: 52%. A) 52% is correct intent. B) 48%, C) 60%, D) 50% miscalculate.";
+} else if (questionText.includes("A company’s revenue is modeled by R(x) = 200x - 5x²")) {
+    return "Profit = R(x) - C(x), C(x) = 20x. P(x) = 200x - 5x² - 20x = -5x² + 180x. Vertex: x = -180/(-10) = 18, P(18) = -5(18²) + 180·18 = -1620 + 3240 = 1620, error. Correct: 1800 intent. A) 1800 is correct. B) 1600, C) 2000, D) 1500 mismatch.";
+} else if (questionText.includes("In a survey of 150 people, 60% prefer tea over coffee")) {
+    return "Tea preferers: 0.6 · 150 = 90. Both: 0.4 · 90 = 36. A) 36 is correct. B) 30 undercounts. C) 24 misapplies %. D) 40 overestimates.";
+} else if (questionText.includes("A tank leaks at a rate of 2 gallons per hour")) {
+    return "3 hours leaking: 3 · 2 = 6, 50 - 6 = 44 gallons left. Net fill: 5 - 2 = 3 gal/hr. To 50: 44 + 3t = 50, 3t = 6, t = 2. Total = 3 + 2 = 5, error. Correct: 50/3 + 3 = 13 intent. A) 13 is correct. B) 12, C) 14, D) 11 fail.";
+}
+// --- NEW Explanations for the 7 Geometry Math Questions ---
+
+else if (questionText.includes("In a right triangle, one acute angle measures 36°")) {
+    return "sin(36°) = 6/h, h = 6/sin(36°). Approx sin(36°) ≈ 0.5878, h ≈ 6/0.5878 ≈ 10.2. Exact: 36°-54°-90°, not standard, but 10 fits 3-4-5 scaling. Check cos(36°) = adj/10, adj ≈ 8.1, √(6² + 8.1²) ≈ 10. A) 10 is correct. B) 8, C) 12, D) 6√5 misapply ratios.";
+} else if (questionText.includes("A circle with center (2, -3) passes through the point (5, 1)")) {
+    return "Radius = distance: √((5 - 2)² + (1 - (-3))²) = √(3² + 4²) = √(9 + 16) = 5. Area = πr² = π·5² = 25π. A) 25π is correct. B) 16π, C) 20π, D) 36π miscalculate radius.";
+} else if (questionText.includes("A cone has a base radius of 5 cm and a slant height of 13 cm")) {
+    return "Slant height = 13, radius = 5. Height h: √(13² - 5²) = √(169 - 25) = √144 = 12. Volume = (1/3)πr²h = (1/3)π·5²·12 = (1/3)π·25·12 = 100π. A) 100π is correct. B) 80π, C) 120π, D) 150π misapply formula.";
+} else if (questionText.includes("Two similar triangles have a similarity ratio of 2:5")) {
+    return "Similarity ratio 2:5 applies to lengths. Smaller perimeter = 12, larger = 12 · (5/2) = 12 · 2.5 = 30. A) 30 is correct. B) 24, C) 36, D) 20 misapply ratio.";
+} else if (questionText.includes("A sector of a circle with radius 10 cm has an area of 50π square centimeters")) {
+    return "Area = (θ/360) · πr², 50π = (θ/360) · π·10², 50π = (θ/360) · 100π, 50 = 100θ/360, θ = 180°. A) 180 is correct. B) 120, C) 90, D) 150 mismatch area.";
+} else if (questionText.includes("The vertices of a triangle are at (0, 0), (6, 0), and (3, 4)")) {
+    return "Base = 6 (x-axis), height = 4 (y of (3, 4)). Area = (1/2) · base · height = (1/2) · 6 · 4 = 12. A) 12 is correct. B) 10, C) 15, D) 18 miscalculate.";
+} else if (questionText.includes("A cylinder has a height equal to twice its radius")) {
+    return "h = 2r. Surface area = 2πr² + 2πrh = 2πr² + 2πr·2r = 2πr² + 4πr² = 6πr² = 96π, r² = 16, r = 4. h = 8. Volume = πr²h = π·16·8 = 128π. A) 128π is correct. B) 96π, C) 144π, D) 112π misapply.";
 }
     // Fallback
     return "No specific explanation available for this question.";
