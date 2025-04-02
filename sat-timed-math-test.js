@@ -2,9 +2,10 @@ const passageElement = document.getElementById("passage");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
-const countdownEl = document.getElementById('countdown');
-const satIntroContainer = document.getElementById("sat-intro-container");
 const startTestButton = document.getElementById("start-test-btn");
+const introContainer = document.getElementById("sat-intro-container");
+const mathApp = document.querySelector(".mathapp");
+const countdownEl = document.getElementById("countdown");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -13,9 +14,9 @@ let selectedQuestions = [];
 let categoryStats = {};
 let results = localStorage.getItem("testResults");
 results = results ? JSON.parse(results) : {};
-let refreshIntervalId;
-let time;
 let userResponses = [];
+let time = 70 * 60; // 70 minutes in seconds
+let refreshIntervalId;
 
 const mathQuestions = [
     {
@@ -69,23 +70,23 @@ const mathQuestions = [
 ];
 
 function startTest() {
-    satIntroContainer.classList.add("hide");
-    document.getElementById("question-container").classList.remove("hide");
+    introContainer.style.display = "none";
+    mathApp.style.display = "block";
     startMathTest();
 }
 
 function startMathTest() {
-    time = 70 * 60; // 70 minutes
     userResponses = [];
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endMathTest, 4200000); // 70 minutes in milliseconds
-    startQuiz(mathQuestions, 14, 15, 15); // Keeping your original question counts
+    time = 70 * 60; // Reset timer to 70 minutes
+    refreshIntervalId = setInterval(updateCountdown, 1000); // Start countdown
+    setTimeout(endMathTest, 70 * 60 * 1000); // End test after 70 minutes
+    startQuiz(mathQuestions, 14, 15, 15);
 }
 
 function updateCountdown() {
     const minutes = Math.floor(time / 60);
     let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
     countdownEl.innerHTML = `${minutes} : ${seconds}`;
     if (time === 0) {
         clearInterval(refreshIntervalId);
@@ -120,19 +121,22 @@ function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
         return arr.sort(() => 0.5 - Math.random()).slice(0, Math.min(num, arr.length));
     }
 
-    const selectedEasy = getRandom(easyQuestions, numEasy);
-    const selectedMedium = getRandom(mediumQuestions, numMedium);
-    const selectedHard = getRandom(hardQuestions, numHard);
-
-    return [...selectedEasy, ...selectedMedium, ...selectedHard];
+    return [
+        ...getRandom(easyQuestions, numEasy),
+        ...getRandom(mediumQuestions, numMedium),
+        ...getRandom(hardQuestions, numHard)
+    ];
 }
 
 function showQuestion() {
     resetState();
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    passageElement.innerHTML = currentQuestion.passage; // Empty for Math, but kept for consistency
+    passageElement.innerHTML = currentQuestion.passage;
+    passageElement.style.display = "block";
     questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+    questionElement.style.display = "block";
+    answerButtons.style.display = "block";
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -178,13 +182,9 @@ function selectAnswer(e) {
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
-        }
+        if (questionDifficulty === "easy") score += 1;
+        else if (questionDifficulty === "medium") score += 2;
+        else if (questionDifficulty === "hard") score += 3;
         categoryStats[questionCategory].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
@@ -205,23 +205,15 @@ function selectAnswer(e) {
 }
 
 function showScore() {
-    clearInterval(refreshIntervalId);
     resetState();
-
-    let maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3); // Based on your original Math question counts
-    let rawScore = score;
-    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
-
-    document.getElementById("question-container").classList.remove("hide");
-    passageElement.innerHTML = "";
-    questionElement.innerHTML = `Math SAT Score: ${scaledScore} / 800`;
+    passageElement.style.display = "none";
+    questionElement.innerHTML = `Math SAT Score: ${Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200)} / 800`;
     questionElement.classList.add("centered-score");
-    document.querySelector(".question-row").classList.add("score-display");
 
-    localStorage.setItem("mathScore", scaledScore);
+    localStorage.setItem("mathScore", Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200));
     let today = new Date().toLocaleDateString("en-CA");
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    scoreHistory[today] = { math: scaledScore };
+    scoreHistory[today] = { math: Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200) };
     localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
     nextButton.innerHTML = "Review Incorrect Answers";
@@ -233,7 +225,7 @@ function showScore() {
 
 function showExplanations() {
     resetState();
-    passageElement.innerHTML = "";
+    passageElement.style.display = "none";
     questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
 
     const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
@@ -257,7 +249,6 @@ function showExplanations() {
 
     nextButton.innerHTML = "Finish";
     nextButton.style.display = "block";
-    nextButton.removeEventListener("click", showExplanations);
     nextButton.addEventListener("click", () => {
         window.location.href = "https://www.brainjelli.com/user-profile";
     });
@@ -285,6 +276,7 @@ function handleNextButton() {
     if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
     } else {
+        clearInterval(refreshIntervalId); // Stop timer if finished early
         showScore();
     }
 }
@@ -320,21 +312,4 @@ function recordTestResults() {
 }
 
 nextButton.addEventListener("click", handleNextButton);
-
-function showIntroMessage() {
-    resetState();
-    passageElement.innerHTML = "";
-    questionElement.innerHTML = "This is a timed SAT Math Test. You will have 70 minutes.";
-    questionElement.classList.add("centered-score");
-
-    const startButton = document.createElement("button");
-    startButton.innerHTML = "Start Test";
-    startButton.classList.add("btn", "centered-btn");
-    startButton.addEventListener("click", () => {
-        questionElement.classList.remove("centered-score");
-        startMathTest();
-    });
-    answerButtons.appendChild(startButton);
-}
-
 startTestButton.addEventListener("click", startTest);
