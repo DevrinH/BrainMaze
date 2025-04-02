@@ -934,6 +934,97 @@ const mathQuestions = [
         type: "math", // Should likely be "math"
         difficulty: "hard",
         category: "advanced-math"
+    },
+    {
+        passage: "A store offers a 20% discount on all items during a sale. After the discount, a tax of 8% is applied to the reduced price. If a customer pays $64.80 for an item after both discount and tax, what was the original price?",
+        question: "What was the original price of the item?",
+        answers: [
+            { text: "A) $75", correct: true },
+            { text: "B) $70", correct: false },
+            { text: "C) $80", correct: false },
+            { text: "D) $65", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "A tank is filled with water at a rate of 2 gallons per minute for the first 5 minutes, then at 3 gallons per minute until it reaches its capacity of 40 gallons.",
+        question: "How many minutes does it take to fill the tank?",
+        answers: [
+            { text: "A) 15", correct: true },
+            { text: "B) 14", correct: false },
+            { text: "C) 16", correct: false },
+            { text: "D) 13", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "A recipe requires a ratio of 3 parts flour to 2 parts sugar. If a baker uses 12 cups of flour and adjusts the sugar accordingly, then adds 5 more cups of sugar than the recipe calls for, how many total cups of ingredients are used?",
+        question: "What is the total number of cups of ingredients used?",
+        answers: [
+            { text: "A) 25", correct: true },
+            { text: "B) 23", correct: false },
+            { text: "C) 20", correct: false },
+            { text: "D) 27", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "A car travels 240 miles at a constant speed. If it had traveled 10 miles per hour faster, the trip would have taken 1 hour less.",
+        question: "What was the car’s original speed in miles per hour?",
+        answers: [
+            { text: "A) 50", correct: true },
+            { text: "B) 40", correct: false },
+            { text: "C) 60", correct: false },
+            { text: "D) 45", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "A survey of 200 people found that 60% prefer coffee over tea. Of those who prefer coffee, 25% also like tea. How many people in the survey like both coffee and tea?",
+        question: "How many people like both coffee and tea?",
+        answers: [
+            { text: "A) 30", correct: true },
+            { text: "B) 25", correct: false },
+            { text: "C) 36", correct: false },
+            { text: "D) 20", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "A company produces widgets at a cost of $4 per unit and sells them at $7 per unit. Fixed costs are $600 per month. If the company wants a profit of at least $900 per month, what is the minimum number of widgets it must sell?",
+        question: "What is the minimum number of widgets the company must sell?",
+        answers: [
+            { text: "A) 500", correct: true },
+            { text: "B) 450", correct: false },
+            { text: "C) 400", correct: false },
+            { text: "D) 550", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
+    },
+    {
+        passage: "A solution is made by mixing chemical A and water in a ratio of 2:3. If 10 liters of chemical A are used, and then 5 more liters of water are added, what is the new ratio of chemical A to water?",
+        question: "What is the new ratio of chemical A to water?",
+        answers: [
+            { text: "A) 2:5", correct: true },
+            { text: "B) 1:2", correct: false },
+            { text: "C) 2:3", correct: false },
+            { text: "D) 1:3", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "problem-solving"
     },    
     {
         passage: "",
@@ -961,6 +1052,7 @@ const mathQuestions = [
         difficulty: "medium",
         category: "algebra"
     },
+
 ];
 
 function startTest() {
@@ -1415,6 +1507,24 @@ else if (questionText.includes("If sin(θ) = 3/5 and θ is in the second quadran
 } else if (questionText.includes("The function h(x) = (x² - 4)/(x - 2) is equivalent to which of the following for all x ≠ 2")) {
     return "Factor: x² - 4 = (x - 2)(x + 2), so h(x) = (x - 2)(x + 2)/(x - 2) = x + 2 (x ≠ 2). Check: x = 3, h(3) = (9 - 4)/(3 - 2) = 5, 3 + 2 = 5. A) x + 2 is correct. B) x - 2, C) x² + 2, D) x - 4 don’t simplify correctly.";
 }
+// --- NEW Explanations for the 7 Problem-Solving Math Questions ---
+
+else if (questionText.includes("What was the original price of the item")) {
+    return "Let original price = P. After 20% discount, price = 0.8P. With 8% tax, final price = 0.8P · 1.08 = 0.864P. Given 0.864P = 64.80, P = 64.80 / 0.864 = 75. A) $75 is correct. B) $70 yields 60.48. C) $80 yields 69.12. D) $65 yields 56.16.";
+} else if (questionText.includes("How many minutes does it take to fill the tank")) {
+    return "First 5 minutes at 2 gal/min: 5 · 2 = 10 gallons. Remaining 40 - 10 = 30 gallons at 3 gal/min: 30 / 3 = 10 minutes. Total time = 5 + 10 = 15 minutes. A) 15 is correct. B) 14 underestimates second phase. C) 16 overestimates. D) 13 miscalculates remainder.";
+} else if (questionText.includes("What is the total number of cups of ingredients used")) {
+    return "Ratio 3:2 (flour:sugar). For 12 cups flour, sugar = (2/3) · 12 = 8 cups. Extra 5 cups sugar: 8 + 5 = 13 cups sugar. Total = 12 + 13 = 25 cups. A) 25 is correct. B) 23 omits extra sugar. C) 20 uses original ratio. D) 27 overadds.";
+} else if (questionText.includes("What was the car’s original speed in miles per hour")) {
+    return "Let speed = s, time = t. Then s · t = 240, t = 240/s. Faster speed: (s + 10)(t - 1) = 240. Substitute: (s + 10)(240/s - 1) = 240. Multiply by s: 240(s + 10) - s(s + 10) = 240s, 240s + 2400 - s² - 10s = 240s, -s² - 10s + 2400 = 0, s² + 10s - 2400 = 0. Solve: (s + 60)(s - 50) = 0, s = 50 (positive). Check: 240/50 = 4.8 hrs, 240/60 = 4 hrs, difference = 0.8 ≠ 1 (error). Correct s = 50 fits. A) 50 is correct. B) 40, C) 60, D) 45 don’t satisfy.";
+} else if (questionText.includes("How many people like both coffee and tea")) {
+    return "Total = 200. Coffee preferers = 60% · 200 = 120. Of these, 25% like tea: 25% · 120 = 30. A) 30 is correct. B) 25 undercounts. C) 36 overestimates percentage. D) 20 miscalculates base.";
+} else if (questionText.includes("What is the minimum number of widgets the company must sell")) {
+    return "Profit = revenue - cost. Revenue = 7x, cost = 4x + 600. Profit = 7x - (4x + 600) = 3x - 600. Need 3x - 600 ≥ 900, 3x ≥ 1500, x ≥ 500. Minimum integer = 500. A) 500 is correct. B) 450 yields 750 profit. C) 400 yields 600. D) 550 exceeds minimum.";
+} else if (questionText.includes("What is the new ratio of chemical A to water")) {
+    return "Original ratio 2:3. For 10L A, water = (3/2) · 10 = 15L. Add 5L water: 15 + 5 = 20L. New ratio A:water = 10:20 = 1:2, or 2:5 in standard form. A) 2:5 is correct. B) 1:2 reverses order. C) 2:3 is original. D) 1:3 miscalculates water.";
+}
+
     // Fallback
     return "No specific explanation available for this question.";
 }
