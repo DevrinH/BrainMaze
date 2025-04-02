@@ -1582,7 +1582,84 @@ const readingWritingQuestions = [
         },
 
 //Rhetorical Synthesis EASY 
-
+{
+    passage: "A teacher is writing a newsletter to encourage parents to support a school garden. The teacher wants to highlight its benefits using these notes:\n- Students learn about plants hands-on.\n- Garden produce is used in school lunches.\n- 80% of students enjoy the garden activities.",
+    question: "Which of the following sentences should the teacher use to highlight the garden’s benefits?",
+    answers: [
+        { text: "A) The school garden engages 80% of students in fun plant lessons while supplying fresh lunch produce.", correct: true },
+        { text: "B) Students like the garden, which helps with lunches.", correct: false },
+        { text: "C) The garden teaches plants and grows food for school.", correct: false },
+        { text: "D) Most students enjoy gardening more than class.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "rhetorical-synthesis"
+},
+{
+    passage: "A coach is drafting a speech to motivate a team before a game. The coach wants to emphasize preparation using these notes:\n- Team practiced 5 days a week.\n- Scored 10 goals in a practice match.\n- Learned opponents’ weaknesses.",
+    question: "Which of the following sentences should the coach use to emphasize preparation?",
+    answers: [
+        { text: "A) With five days of practice, 10 practice goals, and insight into our opponents’ flaws, we’re ready to win.", correct: true },
+        { text: "B) We practiced a lot and scored some goals.", correct: false },
+        { text: "C) The team knows the opponents and practiced.", correct: false },
+        { text: "D) Five days of practice helped us score well.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "rhetorical-synthesis"
+},
+{
+    passage: "A librarian is writing a memo to justify a new reading program. The librarian wants to show its value using these notes:\n- 50% increase in book checkouts last month.\n- Kids spend 2 more hours weekly at the library.\n- Parents report better reading skills.",
+    question: "Which of the following sentences should the librarian use to show the program’s value?",
+    answers: [
+        { text: "A) The reading program has boosted checkouts by 50%, kept kids in the library 2 hours longer weekly, and improved their skills per parents.", correct: true },
+        { text: "B) Kids like the library more now with the program.", correct: false },
+        { text: "C) Checkouts are up and kids stay longer.", correct: false },
+        { text: "D) Parents say reading skills are better this month.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "rhetorical-synthesis"
+},
+{
+    passage: "A gardener is creating a blog post to promote composting. The gardener wants to explain its ease using these notes:\n- Takes 5 minutes daily to add scraps.\n- Needs turning once a week.\n- Soil improves in 2 months.",
+    question: "Which of the following sentences should the gardener use to explain composting’s ease?",
+    answers: [
+        { text: "A) Composting is simple, requiring just 5 minutes daily for scraps, a weekly turn, and yielding better soil in 2 months.", correct: true },
+        { text: "B) It’s quick to compost and helps soil fast.", correct: false },
+        { text: "C) Adding scraps daily makes composting easy.", correct: false },
+        { text: "D) Soil gets better with little work.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "rhetorical-synthesis"
+},
+{
+    passage: "A student is writing an essay to argue for more recess time. The student wants to stress its benefits using these notes:\n- 20% better focus in class after recess.\n- Kids burn 100 calories per session.\n- Teachers note happier students.",
+    question: "Which of the following sentences should the student use to stress recess’s benefits?",
+    answers: [
+        { text: "A) More recess boosts focus by 20%, burns 100 calories per session, and makes students happier, per teachers.", correct: true },
+        { text: "B) Kids focus better after recess.", correct: false },
+        { text: "C) Recess helps kids burn calories and feel good.", correct: false },
+        { text: "D) Teachers like happier kids after playtime.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "rhetorical-synthesis"
+},
+{
+    passage: "A chef is preparing a menu note to highlight a dish’s appeal. The chef wants to focus on its flavor using these notes:\n- Uses fresh herbs from the garden.\n- Includes a tangy lemon sauce.\n- Customers order it 30% more than others.",
+    question: "Which of the following sentences should the chef use to highlight the dish’s flavor appeal?",
+    answers: [
+        { text: "A) This dish, with garden-fresh herbs and tangy lemon sauce, is 30% more popular with customers.", correct: true },
+        { text: "B) Customers like the dish with herbs.", correct: false },
+        { text: "C) The lemon sauce makes it popular.", correct: false },
+        { text: "D) Fresh herbs improve the dish a lot.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "rhetorical-synthesis"
+},
 
 
 //Rhetorical Synthesis MEDIUM 
@@ -3487,6 +3564,21 @@ else if (questionText.includes("Which of the following transitions best fits in 
     return "Planning meets an obstacle. 'However' (A) signals this contrast. 'In addition' (B) adds, not opposes. 'Thus' (C) implies result. 'Likewise' (D) suggests similarity. A) is correct.";
 } else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("book offered tips for beginners")) {
     return "Tips for beginners plus advanced info. 'Additionally' (A) adds this extra content. 'By contrast' (B) suggests opposition. 'As a result' (C) implies cause. 'In fact' (D) emphasizes, not adds. A) is correct.";
+}
+// --- NEW Explanations for the 6 Rhetorical Synthesis Questions (Medium Difficulty) ---
+
+else if (questionText.includes("Which of the following sentences should the teacher use to highlight the garden’s benefits")) {
+    return "Highlighting needs all benefits. A) uses 'engages,' 'fun,' and 'fresh,' covering 80%, learning, and lunches fully. B) is vague. C) omits 80%. D) shifts to comparison. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the coach use to emphasize preparation")) {
+    return "Emphasis needs strong prep. A) ties 5 days, 10 goals, and insight to 'ready,' using all notes. B) is weak. C) skips goals. D) omits opponents. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the librarian use to show the program’s value")) {
+    return "Value needs clear impact. A) uses 50%, 2 hours, and skills with 'boosted,' showing all notes strongly. B) is vague. C) skips skills. D) omits hours and %. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the gardener use to explain composting’s ease")) {
+    return "Ease needs all steps simply. A) calls it 'simple,' listing 5 minutes, weekly turn, and 2 months fully. B) skips details. C) omits turning. D) misses time. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the student use to stress recess’s benefits")) {
+    return "Stress needs strong benefits. A) uses 20%, 100 calories, and 'happier' with 'boosts,' covering all notes. B) skips calories and mood. C) omits %. D) misses focus. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the chef use to highlight the dish’s flavor appeal")) {
+    return "Flavor appeal needs all taste notes. A) uses 'fresh,' 'tangy,' and 30% with 'popular,' tying all points. B) skips sauce. C) omits herbs. D) misses %. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
