@@ -661,7 +661,88 @@ const readingWritingQuestions = [
             
         },
 
-        //Words in context MEDIUM Questions
+    //Words in context EASY
+
+        {
+            passage: "The mayor’s speech was so verbose that many listeners lost interest, wishing she had kept her remarks brief and to the point.",
+            question: "As used in the passage, 'verbose' most nearly means",
+            answers: [
+                { text: "A) wordy", correct: true },
+                { text: "B) loud", correct: false },
+                { text: "C) confusing", correct: false },
+                { text: "D) inspiring", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "words-in-context"
+        },
+        {
+            passage: "The hiker felt exhilarated after reaching the summit, her fatigue replaced by a surge of joy at the stunning view.",
+            question: "As used in the passage, 'exhilarated' most nearly means",
+            answers: [
+                { text: "A) thrilled", correct: true },
+                { text: "B) exhausted", correct: false },
+                { text: "C) nervous", correct: false },
+                { text: "D) relieved", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "words-in-context"
+        },
+        {
+            passage: "The chef’s meticulous approach ensured every dish was perfect, with each ingredient carefully measured and arranged.",
+            question: "As used in the passage, 'meticulous' most nearly means",
+            answers: [
+                { text: "A) precise", correct: true },
+                { text: "B) creative", correct: false },
+                { text: "C) quick", correct: false },
+                { text: "D) casual", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "words-in-context"
+        },
+        {
+            passage: "The debate grew contentious as both sides refused to compromise, raising their voices over each minor disagreement.",
+            question: "As used in the passage, 'contentious' most nearly means",
+            answers: [
+                { text: "A) heated", correct: true },
+                { text: "B) boring", correct: false },
+                { text: "C) friendly", correct: false },
+                { text: "D) quiet", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "words-in-context"
+        },
+        {
+            passage: "The scientist’s theory seemed plausible given the initial data, though more experiments were needed to confirm it.",
+            question: "As used in the passage, 'plausible' most nearly means",
+            answers: [
+                { text: "A) believable", correct: true },
+                { text: "B) proven", correct: false },
+                { text: "C) complicated", correct: false },
+                { text: "D) unlikely", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "words-in-context"
+        },
+        {
+            passage: "The old bridge was deemed obsolete after the new highway opened, no longer serving the town’s growing traffic needs.",
+            question: "As used in the passage, 'obsolete' most nearly means",
+            answers: [
+                { text: "A) outdated", correct: true },
+                { text: "B) dangerous", correct: false },
+                { text: "C) sturdy", correct: false },
+                { text: "D) narrow", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "words-in-context"
+        },
+
+    //Words in context MEDIUM Questions
 
         {
             passage: "The committee’s decision to allocate funds to the experimental project was met with vociferous opposition from the traditionalists, who argued that such untested ventures squandered resources better spent on proven methods. Yet the innovators, undeterred, pressed forward, their voices rising above the din to champion the potential of the unknown.",
@@ -3096,6 +3177,21 @@ else if (questionText.includes("What is the central idea of the passage") && pas
     return "The passage highlights local ingredients enhancing flavor via freshness. A) captures this with 'improve quality' and 'freshness,' tied to survey. B) overgeneralizes preference. C) limits to freshness. D) adds surveys as requirement. A) is correct.";
 } else if (questionText.includes("Which detail from the passage best supports the musician’s assertion")) {
     return "The assertion is practice sharpens skills. A) 'daily rehearsals mastered a piece' shows skill improvement. B) restates value, not evidence. C) repeats assertion. D) is a fragment. A) is correct.";
+}
+// --- NEW Explanations for the 6 Words in Context Questions (Easy Difficulty) ---
+
+else if (questionText.includes("As used in the passage, 'verbose' most nearly means") && passageText.includes("mayor’s speech")) {
+    return "'Verbose' describes a speech losing interest, contrasted with 'brief.' A) 'wordy' fits this excess length. B) 'loud' shifts to volume. C) 'confusing' adds complexity not implied. D) 'inspiring' contradicts boredom. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'exhilarated' most nearly means") && passageText.includes("hiker felt")) {
+    return "'Exhilarated' follows reaching the summit, tied to 'joy.' A) 'thrilled' matches this excitement. B) 'exhausted' fits fatigue, not surge. C) 'nervous' opposes joy. D) 'relieved' is too mild. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'meticulous' most nearly means") && passageText.includes("chef’s meticulous approach")) {
+    return "'Meticulous' ensures perfection, linked to 'carefully measured.' A) 'precise' aligns with this accuracy. B) 'creative' shifts to imagination. C) 'quick' contradicts care. D) 'casual' opposes perfection. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'contentious' most nearly means") && passageText.includes("debate grew contentious")) {
+    return "'Contentious' describes a debate with raised voices and no compromise. A) 'heated' fits this intensity. B) 'boring' contradicts conflict. C) 'friendly' opposes disagreement. D) 'quiet' denies voices. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'plausible' most nearly means") && passageText.includes("scientist’s theory seemed plausible")) {
+    return "'Plausible' describes a theory with initial data, needing confirmation. A) 'believable' fits this tentative support. B) 'proven' overstates unconfirmed status. C) 'complicated' adds unmentioned difficulty. D) 'unlikely' contradicts data. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'obsolete' most nearly means") && passageText.includes("old bridge was deemed obsolete")) {
+    return "'Obsolete' describes a bridge no longer meeting needs after a new highway. A) 'outdated' fits this irrelevance. B) 'dangerous' adds unmentioned risk. C) 'sturdy' opposes disuse. D) 'narrow' shifts focus. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
