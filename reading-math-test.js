@@ -1123,84 +1123,84 @@ const readingWritingQuestions = [
 
 //Cross Text EASY Questions
 
-{
-    passage: "Passage 1: The nutritionist claimed that cutting sugar improves energy, citing studies where participants felt more alert.\nPassage 2: The trainer argued that sugar boosts energy for workouts, pointing to its quick conversion to fuel.",
-    question: "How would the nutritionist from Passage 1 most likely respond to the trainer’s argument in Passage 2?",
-    answers: [
-        { text: "A) She would argue that sugar’s energy boost is short-lived compared to sustained alertness from cutting it.", correct: true },
-        { text: "B) She would agree that sugar fuels workouts but not daily energy.", correct: false },
-        { text: "C) She would deny that sugar converts to fuel quickly.", correct: false },
-        { text: "D) She would claim workouts don’t need energy boosts.", correct: false }
-    ],
-    type: "reading",
-    difficulty: "easy",
-    category: "cross-text-connections"
-},
-{
-    passage: "Passage 1: The teacher said small classes help students focus, noting better grades in such settings.\nPassage 2: The principal believed large classes build independence, citing students who thrived without close supervision.",
-    question: "Which of the following best describes a key difference between Passage 1 and Passage 2?",
-    answers: [
-        { text: "A) Passage 1 focuses on academic benefits of small classes, while Passage 2 emphasizes personal growth in large ones.", correct: true },
-        { text: "B) Passage 1 discusses class size preferences, while Passage 2 lists school rules.", correct: false },
-        { text: "C) Passage 1 supports large classes, while Passage 2 opposes them.", correct: false },
-        { text: "D) Passage 1 uses data, while Passage 2 relies on opinions.", correct: false }
-    ],
-    type: "reading",
-    difficulty: "easy",
-    category: "cross-text-connections"
-},
-{
-    passage: "Passage 1: The gardener favored organic methods, saying they protect soil health based on higher nutrient levels.\nPassage 2: The farmer preferred chemical fertilizers, arguing they increase crop yields with faster results.",
-    question: "How would the gardener from Passage 1 likely respond to the farmer’s argument in Passage 2?",
-    answers: [
-        { text: "A) She would argue that soil health matters more than quick crop yields.", correct: true },
-        { text: "B) She would agree that chemicals work faster but not better.", correct: false },
-        { text: "C) She would claim fertilizers don’t increase yields.", correct: false },
-        { text: "D) She would suggest organic methods are just as fast.", correct: false }
-    ],
-    type: "reading",
-    difficulty: "easy",
-    category: "cross-text-connections"
-},
-{
-    passage: "Passage 1: The chef praised home cooking, noting it saves money compared to dining out.\nPassage 2: The critic valued restaurant meals, highlighting their unique flavors from skilled preparation.",
-    question: "Which of the following best describes how the authors of Passage 1 and Passage 2 differ?",
-    answers: [
-        { text: "A) The chef emphasizes cost savings, while the critic focuses on culinary quality.", correct: true },
-        { text: "B) The chef dislikes restaurants, while the critic dislikes home cooking.", correct: false },
-        { text: "C) The chef discusses cooking skills, while the critic lists meal prices.", correct: false },
-        { text: "D) The chef uses data, while the critic uses personal taste.", correct: false }
-    ],
-    type: "reading",
-    difficulty: "easy",
-    category: "cross-text-connections"
-},
-{
-    passage: "Passage 1: The scientist linked exercise to better sleep, citing studies showing faster sleep onset.\nPassage 2: The doctor tied sleep quality to diet, mentioning how caffeine disrupts rest.",
-    question: "How would the scientist from Passage 1 likely respond to the doctor’s focus in Passage 2?",
-    answers: [
-        { text: "A) She would argue that exercise has a stronger effect on sleep than diet.", correct: true },
-        { text: "B) She would agree that caffeine disrupts sleep but not exercise.", correct: false },
-        { text: "C) She would deny that diet affects sleep quality.", correct: false },
-        { text: "D) She would suggest exercise and diet work the same way.", correct: false }
-    ],
-    type: "reading",
-    difficulty: "easy",
-    category: "cross-text-connections"
-},
-{
-    passage: "Passage 1: The librarian promoted e-books, saying they’re convenient for instant access.\nPassage 2: The bookseller favored print books, noting their tactile appeal draws readers.",
-    question: "Which of the following best describes a key difference between Passage 1 and Passage 2?",
-    answers: [
-        { text: "A) Passage 1 highlights practicality, while Passage 2 values sensory experience.", correct: true },
-        { text: "B) Passage 1 discusses book costs, while Passage 2 lists reader ages.", correct: false },
-        { text: "C) Passage 1 opposes print books, while Passage 2 opposes e-books.", correct: false },
-        { text: "D) Passage 1 uses surveys, while Passage 2 uses sales data.", correct: false }
-    ],
-    type: "reading",
-    difficulty: "easy",
-    category: "cross-text-connections"
-}
+        {
+            passage: "Passage 1: The nutritionist claimed that cutting sugar improves energy, citing studies where participants felt more alert.\nPassage 2: The trainer argued that sugar boosts energy for workouts, pointing to its quick conversion to fuel.",
+            question: "How would the nutritionist from Passage 1 most likely respond to the trainer’s argument in Passage 2?",
+            answers: [
+                { text: "A) She would argue that sugar’s energy boost is short-lived compared to sustained alertness from cutting it.", correct: true },
+                { text: "B) She would agree that sugar fuels workouts but not daily energy.", correct: false },
+                { text: "C) She would deny that sugar converts to fuel quickly.", correct: false },
+                { text: "D) She would claim workouts don’t need energy boosts.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The teacher said small classes help students focus, noting better grades in such settings.\nPassage 2: The principal believed large classes build independence, citing students who thrived without close supervision.",
+            question: "Which of the following best describes a key difference between Passage 1 and Passage 2?",
+            answers: [
+                { text: "A) Passage 1 focuses on academic benefits of small classes, while Passage 2 emphasizes personal growth in large ones.", correct: true },
+                { text: "B) Passage 1 discusses class size preferences, while Passage 2 lists school rules.", correct: false },
+                { text: "C) Passage 1 supports large classes, while Passage 2 opposes them.", correct: false },
+                { text: "D) Passage 1 uses data, while Passage 2 relies on opinions.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The gardener favored organic methods, saying they protect soil health based on higher nutrient levels.\nPassage 2: The farmer preferred chemical fertilizers, arguing they increase crop yields with faster results.",
+            question: "How would the gardener from Passage 1 likely respond to the farmer’s argument in Passage 2?",
+            answers: [
+                { text: "A) She would argue that soil health matters more than quick crop yields.", correct: true },
+                { text: "B) She would agree that chemicals work faster but not better.", correct: false },
+                { text: "C) She would claim fertilizers don’t increase yields.", correct: false },
+                { text: "D) She would suggest organic methods are just as fast.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The chef praised home cooking, noting it saves money compared to dining out.\nPassage 2: The critic valued restaurant meals, highlighting their unique flavors from skilled preparation.",
+            question: "Which of the following best describes how the authors of Passage 1 and Passage 2 differ?",
+            answers: [
+                { text: "A) The chef emphasizes cost savings, while the critic focuses on culinary quality.", correct: true },
+                { text: "B) The chef dislikes restaurants, while the critic dislikes home cooking.", correct: false },
+                { text: "C) The chef discusses cooking skills, while the critic lists meal prices.", correct: false },
+                { text: "D) The chef uses data, while the critic uses personal taste.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The scientist linked exercise to better sleep, citing studies showing faster sleep onset.\nPassage 2: The doctor tied sleep quality to diet, mentioning how caffeine disrupts rest.",
+            question: "How would the scientist from Passage 1 likely respond to the doctor’s focus in Passage 2?",
+            answers: [
+                { text: "A) She would argue that exercise has a stronger effect on sleep than diet.", correct: true },
+                { text: "B) She would agree that caffeine disrupts sleep but not exercise.", correct: false },
+                { text: "C) She would deny that diet affects sleep quality.", correct: false },
+                { text: "D) She would suggest exercise and diet work the same way.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The librarian promoted e-books, saying they’re convenient for instant access.\nPassage 2: The bookseller favored print books, noting their tactile appeal draws readers.",
+            question: "Which of the following best describes a key difference between Passage 1 and Passage 2?",
+            answers: [
+                { text: "A) Passage 1 highlights practicality, while Passage 2 values sensory experience.", correct: true },
+                { text: "B) Passage 1 discusses book costs, while Passage 2 lists reader ages.", correct: false },
+                { text: "C) Passage 1 opposes print books, while Passage 2 opposes e-books.", correct: false },
+                { text: "D) Passage 1 uses surveys, while Passage 2 uses sales data.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "cross-text-connections"
+        },
 
 
 //Cross Text MEDIUM Questions
