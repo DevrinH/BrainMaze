@@ -1106,7 +1106,7 @@ const mathQuestions = [
     },
     {
         passage: "A cylinder has a height of 10 units and a base area of 25π square units.",
-        question: "What is the volume of the cylinder?",
+        question: "A cylinder has a height of 10 units and a base area of 25π square units. What is the volume of the cylinder?",
         answers: [
             { text: "A) 250π", correct: true },
             { text: "B) 200π", correct: false },
@@ -1119,7 +1119,7 @@ const mathQuestions = [
     },
     {
         passage: "In a right triangle, the sine of one acute angle is 0.6.",
-        question: "What is the cosine of the other acute angle?",
+        question: "In a right triangle, the sine of one acute angle is 0.6. What is the cosine of the other acute angle?",
         answers: [
             { text: "A) 0.6", correct: true },
             { text: "B) 0.8", correct: false },
