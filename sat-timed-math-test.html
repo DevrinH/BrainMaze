@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAT Untimed Math Test</title>
+    <title>SAT Timed Math Test</title>
     <link rel="stylesheet" href="https://www.brainjelli.com/stylesat.css">
     <style>
         .mathapp {
@@ -45,6 +45,11 @@
         #sat-intro-container {
             text-align: center;
         }
+        #countdown {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
@@ -59,7 +64,7 @@
     <div id="progress-bar-test"><div></div></div>
 
     <div id="sat-intro-container">
-        <p id="intro-message">This is an untimed SAT Math preparation test. It includes 44 questions, randomly chosen from a pool, varying in difficulty (14 easy, 15 medium, 15 hard). Take as long as you need. Good luck!</p>
+        <p id="intro-message">This is a timed SAT Math preparation test. It includes 44 questions, randomly chosen from a pool, varying in difficulty (14 easy, 15 medium, 15 hard). You have 70 minutes to complete it. Good luck!</p>
         <button id="start-test-btn" class="start-test-btn">Start Test</button>
     </div>
 
@@ -72,7 +77,6 @@
 
     <div id="countdown"></div>
 
-   
     <script src="sat-timed-math-test.js"></script>
 </body>
 </html>
