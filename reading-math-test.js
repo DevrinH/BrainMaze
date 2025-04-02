@@ -3372,6 +3372,21 @@ else if (questionText.includes("The passage is structured primarily to") && pass
 } else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("teacher began with a question about recycling")) {
     return "The passage hooks with a question, then informs with data on recycling’s value. A) reflects this engage-and-teach goal. B) contradicts intent. C) shifts to rules. D) adds comparison. A) is correct.";
 }
+// --- NEW Explanations for the 6 Cross-Text Connections Questions (Medium Difficulty) ---
+
+else if (questionText.includes("How would the nutritionist from Passage 1 most likely respond to the trainer’s argument")) {
+    return "The nutritionist links cutting sugar to alertness. A) fits: she’d counter sugar’s quick boost with sustained benefits, per her studies. B) concedes too much. C) denies fuel, not her focus. D) shifts to workouts. A) is correct.";
+} else if (questionText.includes("Which of the following best describes a key difference between Passage 1 and Passage 2") && passageText.includes("teacher said small classes")) {
+    return "Passage 1 ties small classes to grades; Passage 2 links large classes to independence. A) captures this academic vs. growth split. B) misreads topics. C) reverses stances. D) misattributes evidence type. A) is correct.";
+} else if (questionText.includes("How would the gardener from Passage 1 likely respond to the farmer’s argument")) {
+    return "The gardener prioritizes soil health. A) fits: she’d emphasize soil over yields, per her nutrient focus. B) agrees too much. C) denies yields, not implied. D) claims speed, unsupported. A) is correct.";
+} else if (questionText.includes("Which of the following best describes how the authors of Passage 1 and Passage 2 differ") && passageText.includes("chef praised home cooking")) {
+    return "The chef focuses on savings; the critic on flavor. A) reflects this cost vs. quality difference. B) overstates dislike. C) swaps topics. D) misreads evidence. A) is correct.";
+} else if (questionText.includes("How would the scientist from Passage 1 likely respond to the doctor’s focus")) {
+    return "The scientist ties exercise to sleep. A) fits: she’d prioritize exercise over diet, per her studies. B) mixes ideas oddly. C) denies diet, not implied. D) equates them, unsupported. A) is correct.";
+} else if (questionText.includes("Which of the following best describes a key difference between Passage 1 and Passage 2") && passageText.includes("librarian promoted e-books")) {
+    return "Passage 1 values convenience; Passage 2 tactile appeal. A) captures this practicality vs. experience split. B) misreads topics. C) overstates opposition. D) adds evidence not present. A) is correct.";
+}
     // Fallback
     return "No specific explanation available for this question.";
 }
