@@ -1580,7 +1580,12 @@ const readingWritingQuestions = [
             difficulty: "hard",
             category: "transitions"
         },
-//Rhetorical Synthesis MEDIUM Questions
+
+//Rhetorical Synthesis EASY 
+
+
+
+//Rhetorical Synthesis MEDIUM 
         {
             passage: "A student is writing a report on the benefits of urban green spaces for a city planning committee. The student wants to conclude with a sentence that emphasizes the urgency of action based on the following notes:\n- Studies show green spaces reduce urban heat by up to 5°F.\n- Local surveys indicate 78% of residents support more parks.\n- Delaying implementation increases costs by 15% annually.",
             question: "Which of the following sentences should the student use to conclude the report and emphasize the urgency of action?",
@@ -3467,6 +3472,21 @@ else if (questionText.includes("How would the nutritionist from Passage 1 most l
     return "The scientist ties exercise to sleep. A) fits: she’d prioritize exercise over diet, per her studies. B) mixes ideas oddly. C) denies diet, not implied. D) equates them, unsupported. A) is correct.";
 } else if (questionText.includes("Which of the following best describes a key difference between Passage 1 and Passage 2") && passageText.includes("librarian promoted e-books")) {
     return "Passage 1 values convenience; Passage 2 tactile appeal. A) captures this practicality vs. experience split. B) misreads topics. C) overstates opposition. D) adds evidence not present. A) is correct.";
+}
+// --- NEW Explanations for the 6 Transitions Questions (Medium Difficulty) ---
+
+else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("team practiced daily")) {
+    return "Practice leads to winning. 'As a result' (A) shows this cause-effect link. 'For example' (B) suggests an instance, not outcome. 'However' (C) implies contrast. 'Meanwhile' (D) shifts to time overlap. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("recipe called for fresh herbs")) {
+    return "Fresh herbs were replaced with dried. 'Instead' (A) indicates substitution. 'In addition' (B) suggests more, not replacement. 'Therefore' (C) implies result, not choice. 'Similarly' (D) suggests likeness. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("park was quiet in the morning")) {
+    return "Quiet morning shifts to noisy noon. 'Later' (A) marks this time progression. 'Because' (B) implies cause. 'In contrast' (C) overstates opposition. 'Besides' (D) adds unrelated info. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("student studied hard")) {
+    return "Studying leads to confidence. 'Consequently' (A) shows this result. 'On the other hand' (B) suggests contrast. 'For instance' (C) gives an example. 'Nevertheless' (D) implies overcoming odds. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("town planned a festival")) {
+    return "Planning meets an obstacle. 'However' (A) signals this contrast. 'In addition' (B) adds, not opposes. 'Thus' (C) implies result. 'Likewise' (D) suggests similarity. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("book offered tips for beginners")) {
+    return "Tips for beginners plus advanced info. 'Additionally' (A) adds this extra content. 'By contrast' (B) suggests opposition. 'As a result' (C) implies cause. 'In fact' (D) emphasizes, not adds. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
