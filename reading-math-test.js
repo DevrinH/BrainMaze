@@ -963,7 +963,7 @@ const mathQuestions = [
     },
     {
         passage: "A recipe requires a ratio of 3 parts flour to 2 parts sugar. If a baker uses 12 cups of flour and adjusts the sugar accordingly, then adds 5 more cups of sugar than the recipe calls for, how many total cups of ingredients are used?",
-        question: "What is the total number of cups of ingredients used?",
+        question: "A recipe requires a ratio of 3 parts flour to 2 parts sugar. If a baker uses 12 cups of flour and adjusts the sugar accordingly, then adds 5 more cups of sugar than the recipe calls for, how many total cups of ingredients are used?",
         answers: [
             { text: "A) 25", correct: true },
             { text: "B) 23", correct: false },
@@ -976,7 +976,7 @@ const mathQuestions = [
     },
     {
         passage: "A car travels 240 miles at a constant speed. If it had traveled 10 miles per hour faster, the trip would have taken 1 hour less.",
-        question: "What was the car’s original speed in miles per hour?",
+        question: "A car travels 240 miles at a constant speed. If it had traveled 10 miles per hour faster, the trip would have taken 1 hour less. What was the car’s original speed in miles per hour?",
         answers: [
             { text: "A) 50", correct: true },
             { text: "B) 40", correct: false },
@@ -989,7 +989,7 @@ const mathQuestions = [
     },
     {
         passage: "A survey of 200 people found that 60% prefer coffee over tea. Of those who prefer coffee, 25% also like tea. How many people in the survey like both coffee and tea?",
-        question: "How many people like both coffee and tea?",
+        question: "A survey of 200 people found that 60% prefer coffee over tea. Of those who prefer coffee, 25% also like tea. How many people in the survey like both coffee and tea?",
         answers: [
             { text: "A) 30", correct: true },
             { text: "B) 25", correct: false },
@@ -1002,7 +1002,7 @@ const mathQuestions = [
     },
     {
         passage: "A company produces widgets at a cost of $4 per unit and sells them at $7 per unit. Fixed costs are $600 per month. If the company wants a profit of at least $900 per month, what is the minimum number of widgets it must sell?",
-        question: "What is the minimum number of widgets the company must sell?",
+        question: "A company produces widgets at a cost of $4 per unit and sells them at $7 per unit. Fixed costs are $600 per month. If the company wants a profit of at least $900 per month, what is the minimum number of widgets it must sell? ",
         answers: [
             { text: "A) 500", correct: true },
             { text: "B) 450", correct: false },
@@ -1015,7 +1015,7 @@ const mathQuestions = [
     },
     {
         passage: "A solution is made by mixing chemical A and water in a ratio of 2:3. If 10 liters of chemical A are used, and then 5 more liters of water are added, what is the new ratio of chemical A to water?",
-        question: "What is the new ratio of chemical A to water?",
+        question: "A solution is made by mixing chemical A and water in a ratio of 2:3. If 10 liters of chemical A are used, and then 5 more liters of water are added, what is the new ratio of chemical A to water? ",
         answers: [
             { text: "A) 2:5", correct: true },
             { text: "B) 1:2", correct: false },
@@ -1028,7 +1028,7 @@ const mathQuestions = [
     },
     {
         passage: "A rectangle has a length of 12 units and a width of 5 units. A diagonal divides it into two congruent triangles.",
-        question: "What is the area of one of these triangles?",
+        question: "A rectangle has a length of 12 units and a width of 5 units. A diagonal divides it into two congruent triangles. What is the area of one of these triangles?",
         answers: [
             { text: "A) 30", correct: true },
             { text: "B) 60", correct: false },
@@ -1041,7 +1041,7 @@ const mathQuestions = [
     },
     {
         passage: "A circle with radius 6 is inscribed in a square.",
-        question: "What is the area of the region outside the circle but inside the square?",
+        question: "A circle with radius 6 is inscribed in a square. What is the area of the region outside the circle but inside the square?",
         answers: [
             { text: "A) 144 - 36π", correct: true },
             { text: "B) 36 - 12π", correct: false },
@@ -1054,7 +1054,7 @@ const mathQuestions = [
     },
     {
         passage: "In triangle ABC, angle A = 90°, AB = 8, and AC = 15.",
-        question: "What is the length of side BC?",
+        question: "In triangle ABC, angle A = 90°, AB = 8, and AC = 15. What is the length of side BC?",
         answers: [
             { text: "A) 17", correct: true },
             { text: "B) 13", correct: false },
@@ -1067,7 +1067,7 @@ const mathQuestions = [
     },
     {
         passage: "A cone has a base radius of 4 cm and a height of 9 cm.",
-        question: "What is the volume of the cone in cubic centimeters?",
+        question: "A cone has a base radius of 4 cm and a height of 9 cm. What is the volume of the cone in cubic centimeters?",
         answers: [
             { text: "A) 48π", correct: true },
             { text: "B) 36π", correct: false },
@@ -1080,7 +1080,7 @@ const mathQuestions = [
     },
     {
         passage: "Two similar triangles have corresponding side lengths in the ratio 3:5.",
-        question: "If the area of the smaller triangle is 27 square units, what is the area of the larger triangle?",
+        question: "Two similar triangles have corresponding side lengths in the ratio 3:5. If the area of the smaller triangle is 27 square units, what is the area of the larger triangle?",
         answers: [
             { text: "A) 75", correct: true },
             { text: "B) 45", correct: false },
@@ -1093,7 +1093,7 @@ const mathQuestions = [
     },
     {
         passage: "A point P has coordinates (3, 4) on the coordinate plane.",
-        question: "What is the distance from P to the origin (0, 0)?",
+        question: "A point P has coordinates (3, 4) on the coordinate plane. What is the distance from P to the origin (0, 0)?",
         answers: [
             { text: "A) 5", correct: true },
             { text: "B) 7", correct: false },
@@ -1132,7 +1132,7 @@ const mathQuestions = [
     },
     {
         passage: "A square has a diagonal of length 8√2 units.",
-        question: "What is the perimeter of the square?",
+        question: "A square has a diagonal of length 8√2 units. What is the perimeter of the square?",
         answers: [
             { text: "A) 32", correct: true },
             { text: "B) 16", correct: false },
@@ -1145,7 +1145,7 @@ const mathQuestions = [
     },
     {
         passage: "A sector of a circle has a central angle of 60° and a radius of 12 cm.",
-        question: "What is the area of the sector in square centimeters?",
+        question: "A sector of a circle has a central angle of 60° and a radius of 12 cm. What is the area of the sector in square centimeters?",
         answers: [
             { text: "A) 24π", correct: true },
             { text: "B) 36π", correct: false },
