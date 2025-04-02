@@ -591,6 +591,71 @@ const readingWritingQuestions = [
             type: "reading",
             difficulty: "hard",
             category: "transitions"
+        },
+        {
+            passage: "A student is writing a report on the benefits of urban green spaces for a city planning committee. The student wants to conclude with a sentence that emphasizes the urgency of action based on the following notes:\n- Studies show green spaces reduce urban heat by up to 5°F.\n- Local surveys indicate 78% of residents support more parks.\n- Delaying implementation increases costs by 15% annually.",
+            question: "Which of the following sentences should the student use to conclude the report and emphasize the urgency of action?",
+            answers: [
+                { text: "A) Given the proven cooling effects, strong public support, and rising costs of delay, the committee must prioritize green spaces now.", correct: true },
+                { text: "B) Green spaces offer temperature relief and enjoy public favor, suggesting a potential area for future consideration.", correct: false },
+                { text: "C) While costs rise with delay, the committee should weigh the 78% resident approval against other priorities.", correct: false },
+                { text: "D) Studies on heat reduction and survey data provide a compelling case for green spaces, if funding allows.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "rhetorical-synthesis"
+        },
+        {
+            passage: "A researcher is drafting a proposal to secure funding for a renewable energy project. The researcher wants to introduce the proposal with a sentence that highlights its innovative potential using these notes:\n- Project uses a new solar panel design increasing efficiency by 30%.\n- Prototype outperformed traditional models in three test regions.\n- Technology could reduce reliance on fossil fuels by 25% in a decade.",
+            question: "Which of the following sentences should the researcher use to introduce the proposal and highlight its innovative potential?",
+            answers: [
+                { text: "A) This proposal unveils a groundbreaking solar technology that promises to redefine energy efficiency and sustainability.", correct: true },
+                { text: "B) The project’s solar panels, tested across regions, aim to improve efficiency and reduce fossil fuel use over time.", correct: false },
+                { text: "C) With a 30% efficiency boost, this technology offers a practical step toward sustainable energy solutions.", correct: false },
+                { text: "D) Outperforming traditional models, our prototype suggests a reliable alternative for future energy needs.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "rhetorical-synthesis"
+        },
+        {
+            passage: "An environmentalist is writing an op-ed to persuade readers to support reforestation efforts. The environmentalist wants to include a sentence that counters a common objection using these notes:\n- Objection: Reforestation is too costly and slow to show results.\n- Fact: New planting techniques cut costs by 40% and speed growth by 20%.\n- Benefit: Forests absorb 2.6 billion tons of CO2 yearly.",
+            question: "Which of the following sentences should the environmentalist use to counter the objection and persuade readers?",
+            answers: [
+                { text: "A) Contrary to claims of high costs and slow progress, modern techniques make reforestation an affordable, rapid solution that tackles CO2 emissions effectively.", correct: true },
+                { text: "B) While some see reforestation as expensive, its CO2 absorption makes it a worthwhile long-term investment.", correct: false },
+                { text: "C) New methods may lower costs by 40%, suggesting reforestation could eventually address climate concerns.", correct: false },
+                { text: "D) Forests’ ability to absorb 2.6 billion tons of CO2 annually outweighs concerns about initial costs and timelines.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "rhetorical-synthesis"
+        },
+        {
+            passage: "A historian is preparing a lecture on technological revolutions for a university audience. The historian wants to include a sentence that connects past and present trends using these notes:\n- 19th-century railroads spurred economic growth and urbanization.\n- Today’s AI innovations drive job creation in tech sectors.\n- Both faced initial public skepticism before widespread adoption.",
+            question: "Which of the following sentences should the historian use to connect past and present technological trends?",
+            answers: [
+                { text: "A) Just as railroads once transformed economies despite early doubts, AI today fuels job growth and urban progress amid similar skepticism.", correct: true },
+                { text: "B) Railroads and AI both illustrate how technology can reshape society, though their impacts differ in scope.", correct: false },
+                { text: "C) Economic growth from railroads parallels AI’s job creation, highlighting technology’s consistent benefits.", correct: false },
+                { text: "D) Public skepticism delayed railroads and AI, yet each eventually proved essential to modern life.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "rhetorical-synthesis"
+        },
+        {
+            passage: "A journalist is writing an article on community arts programs for a local newspaper. The journalist wants to end with a sentence that inspires action based on these notes:\n- Programs increased youth engagement by 60% in two years.\n- Local artists report higher visibility and sales.\n- Funding cuts threaten program continuation next year.",
+            question: "Which of the following sentences should the journalist use to conclude the article and inspire action?",
+            answers: [
+                { text: "A) With youth thriving, artists prospering, and funding at risk, readers must rally now to save these vital programs.", correct: true },
+                { text: "B) The 60% rise in engagement and artist success show the programs’ value, despite looming budget cuts.", correct: false },
+                { text: "C) Funding cuts next year could end programs that boost youth and artists, a loss worth considering.", correct: false },
+                { text: "D) Community arts have proven effective for youth and artists, suggesting a need for future support.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "rhetorical-synthesis"
         }
 
 
@@ -1038,6 +1103,19 @@ else if (questionText.includes("Which of the following transitions best fits in 
     return "The first sentence outlines a problem (ecosystem degradation), and the second describes planners’ reaction (prioritizing green spaces). 'In response' (A) connects the action to the issue. 'Likewise' (B) implies similarity, not a reaction. 'By contrast' (C) suggests opposition, not a solution. 'Specifically' (D) narrows focus, not linking cause and effect.";
 } else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("novel’s dense prose initially deterred")) {
     return "The first sentence notes a negative (readers deterred), while the second highlights a positive outcome despite it (critical acclaim). 'Despite this' (A) bridges the contrast effectively. 'Therefore' (B) implies causation, not contrast. 'In fact' (C) adds emphasis, not opposition. 'Similarly' (D) suggests likeness, not a shift from negative to positive.";
+}
+// --- NEW Explanations for the 5 Rhetorical Synthesis Questions ---
+
+else if (questionText.includes("Which of the following sentences should the student use to conclude the report and emphasize the urgency of action")) {
+    return "The goal is to emphasize urgency. A) uses 'now,' integrates all notes (cooling, support, costs), and pushes immediate action, fitting the purpose. B) lacks urgency with 'future consideration.' C) softens the call with 'weigh,' diluting urgency. D) hedges with 'if funding allows,' undermining the pressing need.";
+} else if (questionText.includes("Which of the following sentences should the researcher use to introduce the proposal and highlight its innovative potential")) {
+    return "The goal is to highlight innovation. A) uses 'groundbreaking' and 'redefine,' synthesizing all notes (efficiency, performance, fossil fuel reduction) to emphasize novelty. B) is too neutral, missing bold innovation. C) focuses on practicality, not pioneering potential. D) underplays the transformative aspect with 'reliable alternative.'";
+} else if (questionText.includes("Which of the following sentences should the environmentalist use to counter the objection and persuade readers")) {
+    return "The goal is to counter cost/speed objections persuasively. A) directly refutes with 'contrary,' uses all notes (techniques, CO2), and asserts effectiveness, convincing readers. B) weakly counters, focusing on long-term without refuting speed. C) is tentative with 'may' and 'eventually.' D) sidesteps speed concerns, reducing persuasive force.";
+} else if (questionText.includes("Which of the following sentences should the historian use to connect past and present technological trends")) {
+    return "The goal is to connect past (railroads) and present (AI) trends. A) links both via transformation and skepticism, using all notes for a clear parallel. B) vaguely connects without emphasizing skepticism. C) omits skepticism, missing a key link. D) focuses on delay, not the broader trend connection.";
+} else if (questionText.includes("Which of the following sentences should the journalist use to conclude the article and inspire action")) {
+    return "The goal is to inspire action. A) uses 'rally now,' ties in all notes (engagement, artists, cuts), and urges immediate response, fitting the purpose. B) states value but lacks a call to act. C) is passive with 'worth considering.' D) suggests future support, not immediate inspiration.";
 }
     // Fallback
     return "No specific explanation available for this question.";
