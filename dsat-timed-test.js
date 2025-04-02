@@ -18,8 +18,8 @@ let refreshIntervalId;
 let isMathTest = false;
 let time;
 let userResponses = [];
-let currentModule = 1; // Tracks module 1 or 2
-let module1Correct = 0; // Tracks correct answers in module 1 for adaptivity
+let currentModule = 1;
+let module1Correct = 0;
 
 const readingWritingQuestions = [
     {
@@ -175,10 +175,12 @@ function endModule() {
         currentModule = 2;
         startNextModule();
     } else {
-        showScore();
         if (!isMathTest) {
-            document.getElementById("question-container").classList.add("hide");
-            document.getElementById("break-message").classList.remove("hide");
+            // Show Reading/Writing score immediately after module 2
+            showReadingWritingScore();
+        } else {
+            // Show final combined score after Math module 2
+            showFinalScore();
         }
     }
 }
@@ -304,50 +306,59 @@ function selectAnswer(e) {
     nextButton.disabled = false;
 }
 
-function showScore() {
+function showReadingWritingScore() {
     clearInterval(refreshIntervalId);
     resetState();
 
-    let maxPossibleScore = (isMathTest ? 7 : 9) * 1 + (isMathTest ? 8 : 9) * 2 + (isMathTest ? 7 : 9) * 3; // Per module
+    let maxPossibleScore = 9 * 1 + 9 * 2 + 9 * 3; // Per module (27 questions)
     maxPossibleScore *= 2; // Two modules
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
+    localStorage.setItem("readingScore", scaledScore);
+    passageElement.innerHTML = "";
+    questionElement.innerHTML = `Reading and Writing DSAT Score: ${scaledScore} / 800`;
+    questionElement.classList.add("centered-score");
+    document.querySelector(".question-row").classList.add("score-display");
+    nextButton.innerHTML = "Continue";
+    nextButton.style.display = "block";
+    nextButton.classList.add("centered-btn");
+
     document.getElementById("question-container").classList.remove("hide");
+    document.getElementById("break-message").classList.add("hide"); // Ensure break message stays hidden
+}
 
-    if (!isMathTest) {
-        localStorage.setItem("readingScore", scaledScore);
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = `Reading and Writing DSAT Score: ${scaledScore} / 800`;
-        questionElement.classList.add("centered-score");
-        document.querySelector(".question-row").classList.add("score-display");
-        nextButton.innerHTML = "Continue";
-        nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn");
-    } else {
-        let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
-        let mathScore = scaledScore;
-        localStorage.setItem("mathScore", mathScore);
+function showFinalScore() {
+    clearInterval(refreshIntervalId);
+    resetState();
 
-        let totalDSATScore = readingScore + mathScore;
+    let maxPossibleScore = 7 * 1 + 8 * 2 + 7 * 3; // Per module (22 questions)
+    maxPossibleScore *= 2; // Two modules
+    let rawScore = score;
+    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-        let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-        scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalDSATScore };
-        localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+    let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
+    let mathScore = scaledScore;
+    localStorage.setItem("mathScore", mathScore);
 
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Reading and Writing DSAT Score:</strong> ${readingScore} / 800</p>
-                                    <p><strong>Math DSAT Score:</strong> ${mathScore} / 800</p>
-                                    <p><strong>Total DSAT Score:</strong> ${totalDSATScore} / 1600</p>`;
-        questionElement.classList.add("centered-score");
-        document.querySelector(".question-row").classList.add("score-display");
-        nextButton.innerHTML = "Review Incorrect Answers";
-        nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn");
-        nextButton.removeEventListener("click", handleNextButton);
-        nextButton.addEventListener("click", showExplanations);
-    }
+    let totalDSATScore = readingScore + mathScore;
+
+    let today = new Date().toLocaleDateString("en-CA");
+    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+    scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalDSATScore };
+    localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+
+    passageElement.innerHTML = "";
+    questionElement.innerHTML = `<p><strong>Reading and Writing DSAT Score:</strong> ${readingScore} / 800</p>
+                                <p><strong>Math DSAT Score:</strong> ${mathScore} / 800</p>
+                                <p><strong>Total DSAT Score:</strong> ${totalDSATScore} / 1600</p>`;
+    questionElement.classList.add("centered-score");
+    document.querySelector(".question-row").classList.add("score-display");
+    nextButton.innerHTML = "Review Incorrect Answers";
+    nextButton.style.display = "block";
+    nextButton.classList.add("centered-btn");
+    nextButton.removeEventListener("click", handleNextButton);
+    nextButton.addEventListener("click", showExplanations);
 }
 
 function showExplanations() {
@@ -445,6 +456,7 @@ nextButton.addEventListener("click", () => {
     if (nextButton.innerHTML === "Continue") {
         document.getElementById("break-message").classList.remove("hide");
         document.getElementById("question-container").classList.add("hide");
+        startMathTest(); // Start Math section immediately after clicking Continue
     } else {
         handleNextButton();
     }
