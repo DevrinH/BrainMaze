@@ -1025,6 +1025,136 @@ const mathQuestions = [
         type: "math",
         difficulty: "hard",
         category: "problem-solving"
+    },
+    {
+        passage: "A rectangle has a length of 12 units and a width of 5 units. A diagonal divides it into two congruent triangles.",
+        question: "What is the area of one of these triangles?",
+        answers: [
+            { text: "A) 30", correct: true },
+            { text: "B) 60", correct: false },
+            { text: "C) 25", correct: false },
+            { text: "D) 15", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "A circle with radius 6 is inscribed in a square.",
+        question: "What is the area of the region outside the circle but inside the square?",
+        answers: [
+            { text: "A) 144 - 36π", correct: true },
+            { text: "B) 36 - 12π", correct: false },
+            { text: "C) 144 - 12π", correct: false },
+            { text: "D) 36π - 144", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "In triangle ABC, angle A = 90°, AB = 8, and AC = 15.",
+        question: "What is the length of side BC?",
+        answers: [
+            { text: "A) 17", correct: true },
+            { text: "B) 13", correct: false },
+            { text: "C) 19", correct: false },
+            { text: "D) 23", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "A cone has a base radius of 4 cm and a height of 9 cm.",
+        question: "What is the volume of the cone in cubic centimeters?",
+        answers: [
+            { text: "A) 48π", correct: true },
+            { text: "B) 36π", correct: false },
+            { text: "C) 144π", correct: false },
+            { text: "D) 72π", correct: false }
+    ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "Two similar triangles have corresponding side lengths in the ratio 3:5.",
+        question: "If the area of the smaller triangle is 27 square units, what is the area of the larger triangle?",
+        answers: [
+            { text: "A) 75", correct: true },
+            { text: "B) 45", correct: false },
+            { text: "C) 81", correct: false },
+            { text: "D) 125", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "A point P has coordinates (3, 4) on the coordinate plane.",
+        question: "What is the distance from P to the origin (0, 0)?",
+        answers: [
+            { text: "A) 5", correct: true },
+            { text: "B) 7", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 4", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "A cylinder has a height of 10 units and a base area of 25π square units.",
+        question: "What is the volume of the cylinder?",
+        answers: [
+            { text: "A) 250π", correct: true },
+            { text: "B) 200π", correct: false },
+            { text: "C) 300π", correct: false },
+            { text: "D) 150π", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "In a right triangle, the sine of one acute angle is 0.6.",
+        question: "What is the cosine of the other acute angle?",
+        answers: [
+            { text: "A) 0.6", correct: true },
+            { text: "B) 0.8", correct: false },
+            { text: "C) 0.4", correct: false },
+            { text: "D) 0.5", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "A square has a diagonal of length 8√2 units.",
+        question: "What is the perimeter of the square?",
+        answers: [
+            { text: "A) 32", correct: true },
+            { text: "B) 16", correct: false },
+            { text: "C) 24", correct: false },
+            { text: "D) 8√2", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
+    },
+    {
+        passage: "A sector of a circle has a central angle of 60° and a radius of 12 cm.",
+        question: "What is the area of the sector in square centimeters?",
+        answers: [
+            { text: "A) 24π", correct: true },
+            { text: "B) 36π", correct: false },
+            { text: "C) 48π", correct: false },
+            { text: "D) 12π", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "geometry"
     },    
     {
         passage: "",
@@ -1523,6 +1653,29 @@ else if (questionText.includes("What was the original price of the item")) {
     return "Profit = revenue - cost. Revenue = 7x, cost = 4x + 600. Profit = 7x - (4x + 600) = 3x - 600. Need 3x - 600 ≥ 900, 3x ≥ 1500, x ≥ 500. Minimum integer = 500. A) 500 is correct. B) 450 yields 750 profit. C) 400 yields 600. D) 550 exceeds minimum.";
 } else if (questionText.includes("What is the new ratio of chemical A to water")) {
     return "Original ratio 2:3. For 10L A, water = (3/2) · 10 = 15L. Add 5L water: 15 + 5 = 20L. New ratio A:water = 10:20 = 1:2, or 2:5 in standard form. A) 2:5 is correct. B) 1:2 reverses order. C) 2:3 is original. D) 1:3 miscalculates water.";
+}
+// --- NEW Explanations for the 10 Geometry Questions ---
+
+else if (questionText.includes("What is the area of one of these triangles")) {
+    return "Rectangle area = length · width = 12 · 5 = 60. Diagonal splits into two congruent triangles, each with area = 60 / 2 = 30. A) 30 is correct. B) 60 is full rectangle. C) 25 misuses dimensions. D) 15 halves incorrectly.";
+} else if (questionText.includes("What is the area of the region outside the circle but inside the square")) {
+    return "Circle diameter = 12 (radius 6), so square side = 12, area = 12² = 144. Circle area = π · 6² = 36π. Outside area = 144 - 36π. A) 144 - 36π is correct. B) 36 - 12π miscalculates square. C) 144 - 12π uses wrong circle area. D) 36π - 144 is negative, illogical.";
+} else if (questionText.includes("What is the length of side BC")) {
+    return "Right triangle ABC, legs AB = 8, AC = 15. Hypotenuse BC = √(8² + 15²) = √(64 + 225) = √289 = 17. A) 17 is correct. B) 13 is a different triplet. C) 19, D) 23 misapply Pythagorean theorem.";
+} else if (questionText.includes("What is the volume of the cone in cubic centimeters")) {
+    return "Cone volume = (1/3) · π · r² · h = (1/3) · π · 4² · 9 = (1/3) · π · 16 · 9 = 48π. A) 48π is correct. B) 36π uses wrong height or radius. C) 144π omits 1/3. D) 72π doubles incorrectly.";
+} else if (questionText.includes("If the area of the smaller triangle is 27 square units, what is the area of the larger triangle")) {
+    return "Similarity ratio 3:5, area ratio = (3/5)² = 9/25. Smaller area = 27, so 27 / (9/25) = 27 · 25/9 = 75. A) 75 is correct. B) 45 uses linear ratio. C) 81 assumes 3². D) 125 uses 5² wrongly.";
+} else if (questionText.includes("What is the distance from P to the origin")) {
+    return "Distance = √((x₂ - x₁)² + (y₂ - y₁)²) = √((3 - 0)² + (4 - 0)²) = √(9 + 16) = √25 = 5. A) 5 is correct. B) 7 adds coordinates. C) 3, D) 4 use single values.";
+} else if (questionText.includes("What is the volume of the cylinder")) {
+    return "Volume = base area · height = 25π · 10 = 250π. A) 250π is correct. B) 200π underestimates height. C) 300π overestimates. D) 150π miscalculates base.";
+} else if (questionText.includes("What is the cosine of the other acute angle")) {
+    return "In a right triangle, sin(A) = 0.6 = 3/5, cos(A) = 4/5 (3-4-5 triangle). Other angle B: sin(B) = cos(A) = 4/5, cos(B) = sin(A) = 0.6. A) 0.6 is correct. B) 0.8 is cos(A). C) 0.4, D) 0.5 mismatch identities.";
+} else if (questionText.includes("What is the perimeter of the square")) {
+    return "Diagonal = s√2, so 8√2 = s√2, s = 8. Perimeter = 4s = 4 · 8 = 32. A) 32 is correct. B) 16 is one side. C) 24 miscalculates. D) 8√2 is diagonal, not perimeter.";
+} else if (questionText.includes("What is the area of the sector in square centimeters")) {
+    return "Sector area = (θ/360°) · π · r² = (60/360) · π · 12² = (1/6) · π · 144 = 24π. A) 24π is correct. B) 36π uses 90°. C) 48π doubles angle. D) 12π underestimates radius.";
 }
 
     // Fallback
