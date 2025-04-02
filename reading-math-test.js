@@ -139,6 +139,71 @@ const readingWritingQuestions = [
         category: "command-of-evidence"
     },
     {
+        passage: "Dr. Evelyn stared at the data flickering on her screen, a pattern she’d chased for months now glaring back at her. The anomaly was undeniable – a spike where none should exist – yet she hesitated to call it a breakthrough. In her mind, a question gnawed: was this truly an anomaly, or had she miscalculated? The implications were staggering, potentially upending decades of atmospheric research, but the weight of that possibility made her pause. She traced the numbers again, her confidence wavering as the screen’s glow cast shadows across her furrowed brow.",
+        question: "Which of the following pieces of evidence from the passage best supports the idea that Dr. Evelyn questions the validity of her findings?",
+        answers: [
+            { text: "A) 'In her mind, a question gnawed: was this truly an anomaly, or had she miscalculated?'", correct: true },
+            { text: "B) 'Dr. Evelyn stared at the data flickering on her screen, a pattern she’d chased for months now glaring back at her.'", correct: false },
+            { text: "C) 'yet she hesitated to call it a breakthrough'", correct: false },
+            { text: "D) 'The anomaly was undeniable – a spike where none should exist'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
+        passage: "Jonah pored over the ancient manuscript, its faded ink a puzzle he’d vowed to solve. His mentor had dismissed it as folklore, but Jonah saw meaning in the cryptic phrases – or thought he did. Was he interpreting the words correctly, or was he merely seeing what he wanted to see? He set the text aside, aware that his bias toward discovery might cloud his judgment, and resolved to cross-check it against other sources before drawing conclusions.",
+        question: "Which of the following pieces of evidence from the passage best supports the idea that Jonah is uncertain about his interpretation of the manuscript?",
+        answers: [
+            { text: "A) 'Was he interpreting the words correctly, or was he merely seeing what he wanted to see?'", correct: true },
+            { text: "B) 'He set the text aside'", correct: false },
+            { text: "C) 'His mentor had dismissed it as folklore'", correct: false },
+            { text: "D) 'aware that his bias toward discovery might cloud his judgment'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
+        passage: "Amara stood before the crowd, her speech echoing through the hall with a clarity that belied her inner turmoil. She’d crafted each word to inspire, yet as applause swelled, she faltered. Had she truly captured the full complexity of the issue, or had she oversimplified the nuances? The stakes were high – policy would shift based on her address – and the expectation of her peers pressed heavily, urging perfection where she feared she’d fallen short.",
+        question: "Which of the following pieces of evidence from the passage best supports the idea that Amara doubts the completeness of her speech?",
+        answers: [
+            { text: "A) 'Had she truly captured the full complexity of the issue, or had she oversimplified the nuances?'", correct: true },
+            { text: "B) 'yet as applause swelled, she faltered'", correct: false },
+            { text: "C) 'her speech echoing through the hall with a clarity'", correct: false },
+            { text: "D) 'the expectation of her peers pressed heavily'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
+        passage: "The historian leaned back in her chair, surrounded by maps and letters from a forgotten era. Two primary sources told conflicting tales of the same event – one of triumph, the other of betrayal. She sighed, unsure which version aligned with the truth, if either did. Dates mismatched, names blurred into aliases, and motives tangled like vines across the centuries, leaving her to question whether the past could ever be fully known.",
+        question: "Which of the following pieces of evidence from the passage best supports the idea that the historian is uncertain about the accuracy of the sources?",
+        answers: [
+            { text: "A) 'She sighed, unsure which version aligned with the truth'", correct: true },
+            { text: "B) 'The historian leaned back in her chair'", correct: false },
+            { text: "C) 'Two primary sources told conflicting tales of the same event'", correct: false },
+            { text: "D) 'Dates mismatched, names blurred into aliases'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
+        passage: "Nia stepped back from the canvas, paintbrush trembling in her hand. The colors clashed in ways she hadn’t intended, and the composition felt off – too chaotic, perhaps, or not chaotic enough. She stared, wondering if she had lost sight of her original vision or if she was being too harsh on herself. The gallery opening loomed, amplifying every flaw, yet she couldn’t decide if the work was unfinished or simply imperfect.",
+        question: "Which of the following pieces of evidence from the passage best supports the idea that Nia is second-guessing her artistic choices?",
+        answers: [
+            { text: "A) 'wondering if she had lost sight of her original vision or if she was being too harsh on herself'", correct: true },
+            { text: "B) 'Nia stepped back from the canvas'", correct: false },
+            { text: "C) 'The colors clashed in ways she hadn’t intended'", correct: false },
+            { text: "D) 'the composition felt off'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
         passage: "Dr. Aris Thorne surveyed the labyrinthine network of wires snaking across his laboratory floor. Years he'd spent chasing this phantom signal, this whisper from the void. Colleagues called it obsession, funders called it folly, but Thorne knew it was the key. The latest readings, however, showed an anomaly – not the structured pattern he sought, but a chaotic surge, mirroring the electrical storm raging outside. He adjusted a dial, his knuckles white. Was this interference, or was it something... responding?",
         question: "The passage implies that Dr. Thorne's reaction to the anomaly is primarily one of:",
         answers: [
@@ -266,6 +331,71 @@ const readingWritingQuestions = [
             difficulty: "hard",
             category: "inference",
             
+        },
+        {
+            passage: "The committee’s decision to allocate funds to the experimental project was met with vociferous opposition from the traditionalists, who argued that such untested ventures squandered resources better spent on proven methods. Yet the innovators, undeterred, pressed forward, their voices rising above the din to champion the potential of the unknown.",
+            question: "As used in the passage, 'vociferous' most nearly means",
+            answers: [
+                { text: "A) loud and insistent", correct: true },
+                { text: "B) carefully reasoned", correct: false },
+                { text: "C) quietly resentful", correct: false },
+                { text: "D) reluctantly supportive", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
+        },
+        {
+            passage: "Dr. Lin’s latest theory, though grounded in meticulous research, was dismissed by her peers as an ephemeral notion, unlikely to withstand the rigors of sustained scrutiny. She countered that its apparent fragility belied a resilience that would reveal itself over time, much like a seed beneath winter soil.",
+            question: "As used in the passage, 'ephemeral' most nearly means",
+            answers: [
+                { text: "A) short-lived", correct: true },
+                { text: "B) overly complex", correct: false },
+                { text: "C) widely accepted", correct: false },
+                { text: "D) fundamentally flawed", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
+        },
+        {
+            passage: "The diplomat navigated the negotiations with consummate skill, balancing concessions with firm resolve to secure an agreement that satisfied both parties. Her colleagues marveled at how she transformed potential discord into a harmonious accord, a testament to her years of experience.",
+            question: "As used in the passage, 'consummate' most nearly means",
+            answers: [
+                { text: "A) highly proficient", correct: true },
+                { text: "B) cautiously tentative", correct: false },
+                { text: "C) aggressively confrontational", correct: false },
+                { text: "D) unexpectedly fortunate", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
+        },
+        {
+            passage: "The artist’s latest exhibit was a paean to the natural world, each brushstroke celebrating the vitality of forests and rivers while subtly mourning their degradation. Critics praised the work for its emotional depth, noting how it elevated simple landscapes into profound reflections on humanity’s role.",
+            question: "As used in the passage, 'paean' most nearly means",
+            answers: [
+                { text: "A) tribute", correct: true },
+                { text: "B) critique", correct: false },
+                { text: "C) imitation", correct: false },
+                { text: "D) rejection", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
+        },
+        {
+            passage: "Faced with dwindling resources, the council adopted an austere budget, stripping away all but the most essential expenditures. Residents grumbled, but the council insisted that such measures were necessary to forestall financial collapse, even if they chilled the community’s usual vibrancy.",
+            question: "As used in the passage, 'austere' most nearly means",
+            answers: [
+                { text: "A) severely simple", correct: true },
+                { text: "B) recklessly extravagant", correct: false },
+                { text: "C) cautiously optimistic", correct: false },
+                { text: "D) deliberately deceptive", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
         }
     
 
@@ -663,7 +793,19 @@ function generateExplanation(response) {
     } else if (questionText.includes("Nia is second-guessing her artistic choices")) {
         return "The question asks for evidence that Nia is second-guessing her artistic choices. Choice A directly reveals this internal debate: 'wondering if she had lost sight of her original vision or if she was being too harsh on herself.' This shows her questioning her process and judgment, which is the essence of second-guessing her choices. B describes her physical action. C describes the perceived flaws in the painting that *prompt* the doubt. D notes the general feeling that something is 'off'. Only A explicitly shows her internal process of second-guessing.";
     }
+    // --- NEW Explanations for the 5 Words in Context Questions ---
 
+else if (questionText.includes("As used in the passage, 'vociferous' most nearly means")) {
+    return "The passage describes the traditionalists’ opposition as 'vociferous,' followed by their argument against untested ventures and the innovators’ voices 'rising above the din.' This suggests a loud, forceful resistance, aligning with A) 'loud and insistent.' B) 'carefully reasoned' implies a calm, logical approach, not supported by the noisy context. C) 'quietly resentful' contradicts the implied volume. D) 'reluctantly supportive' misreads the opposition as support.";
+} else if (questionText.includes("As used in the passage, 'ephemeral' most nearly means")) {
+    return "Dr. Lin’s theory is called 'ephemeral' by peers who dismiss it as unable to 'withstand sustained scrutiny,' implying it’s fleeting or temporary, matching A) 'short-lived.' Her counterargument about resilience suggests it’s not inherently weak, ruling out D) 'fundamentally flawed.' B) 'overly complex' isn’t hinted at by the context of dismissal. C) 'widely accepted' contradicts the peers’ rejection.";
+} else if (questionText.includes("As used in the passage, 'consummate' most nearly means")) {
+    return "The diplomat’s 'consummate skill' enables her to balance concessions and resolve, leading to a successful agreement, indicating exceptional ability, thus A) 'highly proficient.' B) 'cautiously tentative' suggests hesitation, not the confidence shown. C) 'aggressively confrontational' clashes with her harmonizing approach. D) 'unexpectedly fortunate' implies luck, not skill, which the context emphasizes.";
+} else if (questionText.includes("As used in the passage, 'paean' most nearly means")) {
+    return "The exhibit is a 'paean to the natural world,' with brushstrokes 'celebrating' and 'mourning,' suggesting a work of praise or honor, fitting A) 'tribute.' B) 'critique' focuses only on the mourning, missing the celebration. C) 'imitation' reduces it to mimicry, not depth. D) 'rejection' contradicts the positive framing of 'celebrating.'";
+} else if (questionText.includes("As used in the passage, 'austere' most nearly means")) {
+    return "The 'austere budget' involves 'stripping away' non-essentials to avoid collapse, indicating stark simplicity, so A) 'severely simple' fits. B) 'recklessly extravagant' is the opposite of the described cuts. C) 'cautiously optimistic' doesn’t align with the grim necessity. D) 'deliberately deceptive' suggests intent not supported by the context.";
+}
 
     // Fallback
     return "No specific explanation available for this question.";
