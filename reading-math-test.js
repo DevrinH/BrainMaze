@@ -526,8 +526,72 @@ const readingWritingQuestions = [
             type: "reading",
             difficulty: "hard",
             category: "cross-text-connections"
+        },
+        {
+            passage: "The expedition faced relentless storms, forcing the team to halt their ascent midway. [____], once the weather cleared, they resumed with renewed determination, reaching the summit by dusk.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Nevertheless", correct: true },
+                { text: "B) For instance", correct: false },
+                { text: "C) Meanwhile", correct: false },
+                { text: "D) Consequently", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
+        },
+        {
+            passage: "Critics argued that the new policy would stifle innovation by imposing strict regulations. [____], supporters claimed it would foster long-term stability, ensuring resources for future research.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) In contrast", correct: true },
+                { text: "B) Similarly", correct: false },
+                { text: "C) As a result", correct: false },
+                { text: "D) Moreover", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
+        },
+        {
+            passage: "The experiment yielded inconsistent results, puzzling the research team. [____], they decided to refine their methodology, suspecting equipment malfunctions as the cause.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Accordingly", correct: true },
+                { text: "B) However", correct: false },
+                { text: "C) On the other hand", correct: false },
+                { text: "D) In addition", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
+        },
+        {
+            passage: "Urban sprawl has degraded local ecosystems, reducing biodiversity in once-thriving habitats. [____], city planners are now prioritizing green spaces to mitigate these effects and restore ecological balance.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) In response", correct: true },
+                { text: "B) Likewise", correct: false },
+                { text: "C) By contrast", correct: false },
+                { text: "D) Specifically", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
+        },
+        {
+            passage: "The novel’s dense prose initially deterred casual readers, who found it inaccessible. [____], its intricate themes and vivid imagery eventually earned it critical acclaim among literary scholars.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Despite this", correct: true },
+                { text: "B) Therefore", correct: false },
+                { text: "C) In fact", correct: false },
+                { text: "D) Similarly", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
         }
-    
 
 
 ]
@@ -961,6 +1025,19 @@ else if (questionText.includes("How would Dr. Patel from Passage 1 most likely r
     return "The reviewer sees the poet’s lack of structure as lazy, not intentional, so they’d argue the critic misreads it as purposeful chaos, fitting A). B) doesn’t address structure, the core disagreement. C) contradicts the reviewer’s view of incoherence. D) suggests the critic undervalues chaos, opposite to the reviewer’s stance.";
 } else if (questionText.includes("Which of the following best captures how the labor analyst in Passage 2 would challenge the economist’s argument in Passage 1")) {
     return "The economist uses historical job gains to predict automation’s benefits, but the analyst cites current manufacturing trends (robotics outpacing hiring) to argue this precedent doesn’t hold, matching A). B) overstates denial of new sectors. C) misreads the economist’s data. D) wrongly ties robotics to history.";
+}
+// --- NEW Explanations for the 5 Transitions Questions ---
+
+else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("expedition faced relentless storms")) {
+    return "The first sentence describes a setback (storms halting the ascent), while the second shows the team resuming despite it once conditions improved. 'Nevertheless' (A) signals this persistence despite adversity. 'For instance' (B) suggests an example, not a continuation. 'Meanwhile' (C) implies simultaneity, not a sequence. 'Consequently' (D) suggests a result, but the weather clearing isn’t a direct outcome of the halt.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("Critics argued that the new policy")) {
+    return "The first sentence presents critics’ opposition (stifling innovation), while the second offers supporters’ opposing view (fostering stability). 'In contrast' (A) highlights this opposition. 'Similarly' (B) implies agreement, not disagreement. 'As a result' (C) suggests causation, not a counterpoint. 'Moreover' (D) adds to the same idea, not a differing one.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("experiment yielded inconsistent results")) {
+    return "The first sentence notes a problem (inconsistent results), and the second describes the team’s action to address it (refining methodology). 'Accordingly' (A) links the action as a logical response. 'However' (B) suggests contrast, not a solution. 'On the other hand' (C) implies an alternative, not a direct fix. 'In addition' (D) suggests more information, not a reaction.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("Urban sprawl has degraded local ecosystems")) {
+    return "The first sentence outlines a problem (ecosystem degradation), and the second describes planners’ reaction (prioritizing green spaces). 'In response' (A) connects the action to the issue. 'Likewise' (B) implies similarity, not a reaction. 'By contrast' (C) suggests opposition, not a solution. 'Specifically' (D) narrows focus, not linking cause and effect.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("novel’s dense prose initially deterred")) {
+    return "The first sentence notes a negative (readers deterred), while the second highlights a positive outcome despite it (critical acclaim). 'Despite this' (A) bridges the contrast effectively. 'Therefore' (B) implies causation, not contrast. 'In fact' (C) adds emphasis, not opposition. 'Similarly' (D) suggests likeness, not a shift from negative to positive.";
 }
     // Fallback
     return "No specific explanation available for this question.";
