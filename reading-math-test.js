@@ -792,6 +792,7 @@ const readingWritingQuestions = [
             category: "text-structure-and-purpose"
         },
 
+        //Cross Text Medium Questions
 
         {
             passage: "Passage 1: Dr. Patel argues that genetic engineering holds unparalleled potential to eradicate hereditary diseases, citing recent trials where gene edits reduced disease markers by 80%. She dismisses ethical concerns as secondary, insisting that the urgency of human suffering justifies bold action.\nPassage 2: Professor Kline warns that genetic engineering, while promising, risks unforeseen consequences, such as ecological imbalances from altered gene pools. He advocates a cautious approach, prioritizing long-term studies over immediate application to ensure safety.",
@@ -803,7 +804,7 @@ const readingWritingQuestions = [
                 { text: "D) She would agree that long-term studies are necessary and propose delaying all genetic interventions.", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "cross-text-connections"
         },
         {
@@ -816,7 +817,7 @@ const readingWritingQuestions = [
                 { text: "D) The historian emphasizes pollution’s effects, while the sociologist highlights wealth distribution.", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "cross-text-connections"
         },
         {
@@ -829,7 +830,7 @@ const readingWritingQuestions = [
                 { text: "D) The biologist emphasizes food web changes, while the ecologist praises its niche-filling potential.", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "cross-text-connections"
         },
         {
@@ -842,7 +843,7 @@ const readingWritingQuestions = [
                 { text: "D) By suggesting the critic undervalues the chaos as a deliberate artistic choice.", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "cross-text-connections"
         },
         {
@@ -855,9 +856,91 @@ const readingWritingQuestions = [
                 { text: "D) By claiming the economist ignores robotics’ role in historical job creation.", correct: false }
             ],
             type: "reading",
+            difficulty: "medium",
+            category: "cross-text-connections"
+        },
+
+//Cross Text HARD Questions
+        {
+            passage: "Passage 1: The sociologist argued that social media amplifies polarization by curating echo chambers, citing studies where users’ feeds reinforced pre-existing biases with a 75% overlap in content slant. She urged regulatory oversight to curb this trend.\nPassage 2: The technologist countered that social media’s algorithms foster connectivity, not division, pointing to data showing users encounter diverse views 60% more often than in offline networks. He advocated for user-driven curation over external controls.",
+            question: "How would the sociologist from Passage 1 most likely respond to the technologist’s claim in Passage 2 that social media increases exposure to diverse views?",
+            answers: [
+                { text: "A) She would argue that the apparent diversity is superficial, as algorithmic reinforcement of biases still dominates user experience.", correct: true },
+                { text: "B) She would concede that offline networks are less diverse but insist that social media’s scale amplifies its polarizing effect.", correct: false },
+                { text: "C) She would reject the 60% statistic as unreliable, citing her own studies on content overlap.", correct: false },
+                { text: "D) She would agree that connectivity increases but maintain that it fosters division by overwhelming users with conflicting views.", correct: false }
+            ],
+            type: "reading",
             difficulty: "hard",
             category: "cross-text-connections"
         },
+        {
+            passage: "Passage 1: The historian claimed that industrialization catalyzed social mobility, evidenced by urban workers rising from poverty to middle-class status within a generation. She downplayed its disruptions as transient.\nPassage 2: The economist disputed this, asserting that industrialization entrenched inequality, with data showing factory owners amassed 80% of new wealth while workers’ wages stagnated relative to costs over decades.",
+            question: "Which of the following best describes a key difference in how the authors of Passage 1 and Passage 2 assess industrialization’s social impact?",
+            answers: [
+                { text: "A) The historian emphasizes upward mobility as a primary outcome, while the economist highlights persistent wealth disparities.", correct: true },
+                { text: "B) The historian focuses on urban growth, while the economist examines factory productivity.", correct: false },
+                { text: "C) The historian views disruptions as significant, while the economist sees them as overstated.", correct: false },
+                { text: "D) The historian prioritizes wage trends, while the economist stresses class transitions.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The biologist posited that climate change accelerates species adaptation, citing rapid genetic shifts in Arctic fish as ice melts. She saw this as a potential buffer against extinction.\nPassage 2: The ecologist warned that such adaptations are illusory, pointing to studies where altered traits in Arctic fish reduced reproductive success by 40%, signaling long-term vulnerability.",
+            question: "How would the ecologist from Passage 2 likely critique the biologist’s perspective in Passage 1?",
+            answers: [
+                { text: "A) By arguing that the biologist overlooks how adaptive traits may compromise species survival in the long run.", correct: true },
+                { text: "B) By agreeing that genetic shifts occur but denying they are linked to climate change.", correct: false },
+                { text: "C) By asserting that the biologist’s focus on Arctic fish ignores broader extinction risks.", correct: false },
+                { text: "D) By claiming the biologist misinterprets data on ice melt as evidence of adaptation.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The critic praised the novel’s labyrinthine structure, arguing its complexity mirrored the protagonist’s fractured psyche and invited deep reflection. She dismissed simpler narratives as trite.\nPassage 2: The reviewer decried the same novel as an indulgent maze, suggesting its convoluted form obscured any coherent insight, leaving readers lost rather than enlightened.",
+            question: "Which of the following best captures how the reviewer in Passage 2 would challenge the critic’s argument in Passage 1?",
+            answers: [
+                { text: "A) By contending that the complexity the critic celebrates actually undermines the novel’s clarity and purpose.", correct: true },
+                { text: "B) By agreeing that the structure reflects the psyche but arguing it alienates rather than engages readers.", correct: false },
+                { text: "C) By rejecting the critic’s dismissal of simple narratives as inherently less valuable.", correct: false },
+                { text: "D) By asserting that the protagonist’s psyche is not fractured, contradicting the critic’s premise.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The physicist maintained that quantum entanglement could revolutionize communication, citing experiments where entangled particles transmitted signals instantaneously across vast distances.\nPassage 2: The engineer cautioned that practical applications remain elusive, noting that current entanglement experiments falter under real-world conditions like noise and decoherence, limiting their utility.",
+            question: "How do the authors of Passage 1 and Passage 2 differ in their views on quantum entanglement’s potential?",
+            answers: [
+                { text: "A) The physicist envisions transformative applications based on experimental success, while the engineer doubts feasibility due to practical constraints.", correct: true },
+                { text: "B) The physicist focuses on particle behavior, while the engineer emphasizes signal transmission failures.", correct: false },
+                { text: "C) The physicist sees entanglement as theoretical, while the engineer views it as experimentally validated.", correct: false },
+                { text: "D) The physicist dismisses noise issues, while the engineer prioritizes theoretical over practical concerns.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
+        },
+        {
+            passage: "Passage 1: The ethicist endorsed autonomous vehicles, arguing they reduce human error, with crash rates in trials 50% lower than manual driving. She minimized privacy concerns as secondary.\nPassage 2: The policy analyst resisted this optimism, highlighting that AVs’ data collection—tracking every move—poses a surveillance risk that outweighs safety gains in public perception.",
+            question: "How would the policy analyst from Passage 2 likely respond to the ethicist’s stance in Passage 1?",
+            answers: [
+                { text: "A) By asserting that the ethicist underestimates privacy risks, which could overshadow the safety benefits she champions.", correct: true },
+                { text: "B) By agreeing that crash rates drop but arguing that human error is less ethically troubling than machine control.", correct: false },
+                { text: "C) By challenging the 50% crash reduction statistic as insufficient to justify widespread adoption.", correct: false },
+                { text: "D) By suggesting the ethicist ignores trial conditions that limit real-world safety improvements.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "cross-text-connections"
+        },
+
+
         {
             passage: "The expedition faced relentless storms, forcing the team to halt their ascent midway. [____], once the weather cleared, they resumed with renewed determination, reaching the summit by dusk.",
             question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
@@ -868,7 +951,7 @@ const readingWritingQuestions = [
                 { text: "D) Consequently", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "transitions"
         },
         {
@@ -2067,6 +2150,21 @@ else if (questionText.includes("The passage is structured primarily to") && pass
     return "The passage zooms from broad trends to a specific block, grounding abstraction in human impact. A) captures this narrowing for humanization. B) misreads as documentation. C) suggests contrast, not grounding. D) focuses on example, not intent. A) is correct.";
 } else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("poet prefaced her collection")) {
     return "The passage sets a manifesto then delivers unsettling verse to prepare readers for discomfort. A) reflects this priming purpose. B) implies critique, not preparation. C) argues superiority, not intent. D) focuses on contrast, not philosophy. A) is correct.";
+}
+// --- NEW Explanations for the 6 Cross-Text Connection Questions ---
+
+else if (questionText.includes("How would the sociologist from Passage 1 most likely respond to the technologist’s claim")) {
+    return "The sociologist sees echo chambers (75% bias overlap) as dominant. A) aligns: she’d argue diversity (60%) is superficial against her data, fitting her oversight push. B) concedes too much. C) attacks stats, not diversity’s depth. D) twists connectivity into division. A) is correct.";
+} else if (questionText.includes("Which of the following best describes a key difference in how the authors of Passage 1 and Passage 2 assess industrialization’s social impact")) {
+    return "The historian highlights mobility (rising workers), the economist inequality (80% wealth skew). A) captures this mobility vs. disparity focus. B) misaligns topics. C) reverses disruption views. D) swaps priorities. A) is correct.";
+} else if (questionText.includes("How would the ecologist from Passage 2 likely critique the biologist’s perspective in Passage 1")) {
+    return "The ecologist sees adaptation as illusory (40% reproductive drop) vs. the biologist’s buffer. A) fits: she’d critique survival costs, not just scope. B) denies climate link, unsupported. C) shifts to breadth, not depth. D) misreads ice data. A) is correct.";
+} else if (questionText.includes("Which of the following best captures how the reviewer in Passage 2 would challenge the critic’s argument in Passage 1")) {
+    return "The reviewer sees convolution as obscuring, not mirroring (critic’s view). A) reflects this: complexity undermines purpose, not reflection. B) agrees too much. C) sidesteps psyche focus. D) alters premise, not argument. A) is correct.";
+} else if (questionText.includes("How do the authors of Passage 1 and Passage 2 differ in their views on quantum entanglement’s potential")) {
+    return "The physicist sees revolution (instant signals), the engineer doubts practicality (noise issues). A) captures this optimism vs. constraint split. B) misaligns focus. C) reverses theory vs. experiment. D) misreads noise stance. A) is correct.";
+} else if (questionText.includes("How would the policy analyst from Passage 2 likely respond to the ethicist’s stance in Passage 1")) {
+    return "The analyst prioritizes surveillance over safety (50% crash drop). A) fits: she’d argue privacy risks overshadow benefits, contra ethicist’s minimization. B) shifts to ethics, not perception. C) challenges stats, not focus. D) adds trial critique, unsupported. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
