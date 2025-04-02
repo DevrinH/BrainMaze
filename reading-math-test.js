@@ -139,6 +139,85 @@ const readingWritingQuestions = [
         category: "command-of-evidence"
     },
     {
+        passage: "Dr. Voss scrutinized the fossil record, noting a sudden proliferation of species following mass extinctions. She posited that these events, though catastrophic, spurred evolutionary innovation by clearing ecological niches. Critics argued her view romanticized destruction, but Voss countered that the data—abrupt shifts in biodiversity metrics—suggested otherwise. Her analysis hinged on distinguishing short-term loss from long-term adaptive gains.",
+        question: "Which of the following pieces of evidence from the passage best supports the claim that Dr. Voss sees mass extinctions as catalysts for evolutionary progress?",
+        answers: [
+            { text: "A) 'She posited that these events, though catastrophic, spurred evolutionary innovation by clearing ecological niches.'", correct: true },
+            { text: "B) 'Dr. Voss scrutinized the fossil record, noting a sudden proliferation of species following mass extinctions.'", correct: false },
+            { text: "C) 'Critics argued her view romanticized destruction'", correct: false },
+            { text: "D) 'Her analysis hinged on distinguishing short-term loss from long-term adaptive gains.'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The economist traced wage stagnation to automation, observing that industries adopting robotics saw productivity soar while labor costs plummeted. Yet, he cautioned, the data also revealed a paradox: job growth in tech sectors offset losses elsewhere, albeit with a skill mismatch. This tension underpinned his call for retraining programs over blanket resistance to technological change.",
+        question: "Which of the following pieces of evidence from the passage best supports the economist’s argument that automation’s impact on employment is complex rather than wholly negative?",
+        answers: [
+            { text: "A) 'job growth in tech sectors offset losses elsewhere, albeit with a skill mismatch'", correct: true },
+            { text: "B) 'The economist traced wage stagnation to automation'", correct: false },
+            { text: "C) 'industries adopting robotics saw productivity soar while labor costs plummeted'", correct: false },
+            { text: "D) 'his call for retraining programs over blanket resistance to technological change'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The poet’s latest work baffled reviewers with its dense allusions to obscure myths, yet she insisted this opacity enriched the text’s meaning. Her defenders pointed to reader forums buzzing with interpretive debates, evidence of engagement rather than alienation. Skeptics, however, saw the complexity as a mask for incoherent intent.",
+        question: "Which of the following pieces of evidence from the passage best supports the claim that the poet’s defenders view her work’s complexity as a strength?",
+        answers: [
+            { text: "A) 'reader forums buzzing with interpretive debates, evidence of engagement rather than alienation'", correct: true },
+            { text: "B) 'The poet’s latest work baffled reviewers with its dense allusions to obscure myths'", correct: false },
+            { text: "C) 'she insisted this opacity enriched the text’s meaning'", correct: false },
+            { text: "D) 'Skeptics, however, saw the complexity as a mask for incoherent intent'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The biologist mapped coral bleaching to rising sea temperatures, noting that affected reefs lost 70% of their symbiotic algae within months. She argued this rapid decline threatened global marine biodiversity, though some peers suggested adaptation might mitigate the loss. Her rebuttal rested on data showing stalled recovery rates in warmer waters.",
+        question: "Which of the following pieces of evidence from the passage best supports the biologist’s concern that coral bleaching poses a severe risk to marine ecosystems?",
+        answers: [
+            { text: "A) 'affected reefs lost 70% of their symbiotic algae within months'", correct: true },
+            { text: "B) 'The biologist mapped coral bleaching to rising sea temperatures'", correct: false },
+            { text: "C) 'some peers suggested adaptation might mitigate the loss'", correct: false },
+            { text: "D) 'data showing stalled recovery rates in warmer waters'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The historian revisited the treaty’s legacy, arguing it sowed discord by redrawing borders without regard for ethnic ties. Contemporary accounts described chaos—villages split, families displaced—but later scholars noted economic gains in the reshaped regions. She maintained that these gains masked deeper social fractures.",
+        question: "Which of the following pieces of evidence from the passage best supports the historian’s view that the treaty’s border changes had lasting negative consequences?",
+        answers: [
+            { text: "A) 'Contemporary accounts described chaos—villages split, families displaced'", correct: true },
+            { text: "B) 'The historian revisited the treaty’s legacy, arguing it sowed discord'", correct: false },
+            { text: "C) 'later scholars noted economic gains in the reshaped regions'", correct: false },
+            { text: "D) 'She maintained that these gains masked deeper social fractures'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The physicist proposed that dark matter influences galaxy formation more than previously thought, citing simulations where its density dictated star clustering patterns. Critics questioned the model’s assumptions, but she highlighted observational data—galactic rotations defying standard gravity—as corroboration. The debate underscored her reliance on indirect evidence.",
+        question: "Which of the following pieces of evidence from the passage best supports the physicist’s assertion that dark matter plays a critical role in galaxy formation?",
+        answers: [
+            { text: "A) 'simulations where its density dictated star clustering patterns'", correct: true },
+            { text: "B) 'The physicist proposed that dark matter influences galaxy formation'", correct: false },
+            { text: "C) 'Critics questioned the model’s assumptions'", correct: false },
+            { text: "D) 'observational data—galactic rotations defying standard gravity'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command-of-evidence"
+    },
+
+    {
         passage: "Dr. Evelyn stared at the data flickering on her screen, a pattern she’d chased for months now glaring back at her. The anomaly was undeniable – a spike where none should exist – yet she hesitated to call it a breakthrough. In her mind, a question gnawed: was this truly an anomaly, or had she miscalculated? The implications were staggering, potentially upending decades of atmospheric research, but the weight of that possibility made her pause. She traced the numbers again, her confidence wavering as the screen’s glow cast shadows across her furrowed brow.",
         question: "Which of the following pieces of evidence from the passage best supports the idea that Dr. Evelyn questions the validity of her findings?",
         answers: [
@@ -1677,7 +1756,21 @@ else if (questionText.includes("What is the area of one of these triangles")) {
 } else if (questionText.includes("What is the area of the sector in square centimeters")) {
     return "Sector area = (θ/360°) · π · r² = (60/360) · π · 12² = (1/6) · π · 144 = 24π. A) 24π is correct. B) 36π uses 90°. C) 48π doubles angle. D) 12π underestimates radius.";
 }
+// --- NEW Explanations for the 6 Command of Evidence Questions ---
 
+else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the claim that Dr. Voss sees mass extinctions as catalysts")) {
+    return "The claim is Voss sees extinctions as evolutionary catalysts. A) directly states her view: extinctions 'spurred evolutionary innovation' by 'clearing niches,' linking cause to progress. B) notes species proliferation but not her interpretation. C) is critics’ view, not hers. D) describes her method, not the catalyst claim. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the economist’s argument that automation’s impact on employment is complex")) {
+    return "The argument is automation’s impact is complex, not wholly negative. A) shows complexity: job growth offsets losses but with a skill mismatch, blending positive and negative. B) links wages to automation, not employment complexity. C) focuses on productivity, not jobs. D) is a solution, not evidence of complexity. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the claim that the poet’s defenders view her work’s complexity as a strength")) {
+    return "The claim is defenders see complexity as a strength. A) directly supports this: forums 'buzzing with debates' show engagement, not alienation, framing complexity positively. B) notes bafflement, not defenders’ view. C) is the poet’s stance, not defenders’. D) is skeptics’ critique. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the biologist’s concern that coral bleaching poses a severe risk")) {
+    return "The concern is bleaching severely risks ecosystems. A) shows severity: '70% algae loss within months' implies rapid, significant damage tied to her biodiversity threat. B) links cause, not risk level. C) is peers’ counter, not her evidence. D) supports rebuttal, not initial risk severity. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the historian’s view that the treaty’s border changes had lasting negative consequences")) {
+    return "The view is border changes caused lasting negatives. A) provides direct evidence: 'chaos—villages split, families displaced' shows immediate, enduring social harm. B) states her argument, not evidence. C) is scholars’ economic counter, not her support. D) is her interpretation, not raw evidence. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the physicist’s assertion that dark matter plays a critical role")) {
+    return "The assertion is dark matter critically shapes galaxy formation. A) directly ties dark matter density to 'star clustering patterns' in simulations, showing its formative role. B) states her proposal, not evidence. C) is critics’ doubt, not support. D) corroborates via rotation, but A) aligns with formation focus. A) is correct.";
+}
     // Fallback
     return "No specific explanation available for this question.";
 }
