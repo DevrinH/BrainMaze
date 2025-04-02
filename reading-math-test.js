@@ -83,7 +83,7 @@ const readingWritingQuestions = [
             { text: "D) 'The data seemed inconsistent, the patterns slightly off.'", correct: false }
         ],
         type: "reading",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "command-of-evidence"
     },
     {
@@ -96,7 +96,7 @@ const readingWritingQuestions = [
             { text: "D) 'He turned the page, wary of his own biases.'", correct: false }
         ],
         type: "reading",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "command-of-evidence"
     },
     {
@@ -109,7 +109,7 @@ const readingWritingQuestions = [
             { text: "D) 'The audience’s expectant silence pressed down on her.'", correct: false }
         ],
         type: "reading",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "command-of-evidence"
     },
     {
@@ -122,7 +122,7 @@ const readingWritingQuestions = [
             { text: "D) 'One claimed the general had led the charge personally, another suggested he had remained at the rear.'", correct: false }
         ],
         type: "reading",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "command-of-evidence"
     },
     {
@@ -135,9 +135,12 @@ const readingWritingQuestions = [
             { text: "D) 'She had envisioned the painting as a bold statement, yet now, something felt off.'", correct: false }
         ],
         type: "reading",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "command-of-evidence"
     },
+
+    //Really Hard Command of evidence questions
+
     {
         passage: "Dr. Voss scrutinized the fossil record, noting a sudden proliferation of species following mass extinctions. She posited that these events, though catastrophic, spurred evolutionary innovation by clearing ecological niches. Critics argued her view romanticized destruction, but Voss countered that the data—abrupt shifts in biodiversity metrics—suggested otherwise. Her analysis hinged on distinguishing short-term loss from long-term adaptive gains.",
         question: "Which of the following pieces of evidence from the passage best supports the claim that Dr. Voss sees mass extinctions as catalysts for evolutionary progress?",
@@ -216,7 +219,7 @@ const readingWritingQuestions = [
         difficulty: "hard",
         category: "command-of-evidence"
     },
-
+//Central Ideas Medium Questions
     {
         passage: "Dr. Evelyn stared at the data flickering on her screen, a pattern she’d chased for months now glaring back at her. The anomaly was undeniable – a spike where none should exist – yet she hesitated to call it a breakthrough. In her mind, a question gnawed: was this truly an anomaly, or had she miscalculated? The implications were staggering, potentially upending decades of atmospheric research, but the weight of that possibility made her pause. She traced the numbers again, her confidence wavering as the screen’s glow cast shadows across her furrowed brow.",
         question: "Which of the following pieces of evidence from the passage best supports the idea that Dr. Evelyn questions the validity of her findings?",
@@ -227,7 +230,7 @@ const readingWritingQuestions = [
             { text: "D) 'The anomaly was undeniable – a spike where none should exist'", correct: false }
         ],
         type: "reading",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "central-ideas"
     },
     {
@@ -240,7 +243,7 @@ const readingWritingQuestions = [
             { text: "D) 'aware that his bias toward discovery might cloud his judgment'", correct: false }
         ],
         type: "reading",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "central-ideas"
     },
     {
@@ -253,7 +256,7 @@ const readingWritingQuestions = [
             { text: "D) 'the expectation of her peers pressed heavily'", correct: false }
         ],
         type: "reading",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "central-ideas"
     },
     {
@@ -266,7 +269,7 @@ const readingWritingQuestions = [
             { text: "D) 'Dates mismatched, names blurred into aliases'", correct: false }
         ],
         type: "reading",
-        difficulty: "hard",
+        difficulty: "medium",
         category: "central-ideas"
     },
     {
@@ -277,6 +280,86 @@ const readingWritingQuestions = [
             { text: "B) 'Nia stepped back from the canvas'", correct: false },
             { text: "C) 'The colors clashed in ways she hadn’t intended'", correct: false },
             { text: "D) 'the composition felt off'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "central-ideas"
+    },
+    //Really hard Questions Central Ideas
+
+    {
+        passage: "The urban theorist examined sprawl through a dual lens: as both a symptom of economic ambition and a catalyst for ecological decay. She argued that unchecked expansion devoured green spaces, yet simultaneously spurred innovations in infrastructure—highways and utilities threading through once-rural landscapes. This paradox, she suggested, demanded a reevaluation of growth’s true cost, beyond mere profit.",
+        question: "What is the central idea of the passage?",
+        answers: [
+            { text: "A) Urban sprawl embodies a complex trade-off between economic progress and environmental loss, necessitating a deeper assessment of its impacts.", correct: true },
+            { text: "B) Urban sprawl primarily benefits infrastructure development while neglecting ecological consequences.", correct: false },
+            { text: "C) Economic ambition drives urban sprawl, overshadowing its potential for sustainable innovation.", correct: false },
+            { text: "D) The ecological decay caused by urban sprawl outweighs any infrastructural gains it may provide.", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
+        passage: "The linguist traced slang’s evolution across decades, noting its roots in subcultures often dismissed as fringe. She contended that these informal lexicons, far from diluting language, enriched it by encoding resilience and identity—terms like ‘cool’ shifting from jazz circles to global vernacular. Yet, she warned, their rapid adoption risked eroding their original depth.",
+        question: "Which detail from the passage best illustrates the linguist’s view that slang enhances language?",
+        answers: [
+            { text: "A) 'enriched it by encoding resilience and identity'", correct: true },
+            { text: "B) 'noting its roots in subcultures often dismissed as fringe'", correct: false },
+            { text: "C) 'terms like ‘cool’ shifting from jazz circles to global vernacular'", correct: false },
+            { text: "D) 'their rapid adoption risked eroding their original depth'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
+        passage: "The ecologist studied invasive species, framing them as both disruptors and unwitting architects of ecosystems. She highlighted cases where non-native plants stabilized soil after disasters, yet disrupted native pollinators by outcompeting local flora. This duality, she argued, challenged simplistic narratives of ecological harm, urging a more granular understanding of adaptation.",
+        question: "What is the central idea of the passage?",
+        answers: [
+            { text: "A) Invasive species play a multifaceted role in ecosystems, complicating traditional views of their ecological impact.", correct: true },
+            { text: "B) Invasive species primarily benefit ecosystems by stabilizing environments after disruptions.", correct: false },
+            { text: "C) The ecological harm from invasive species stems mainly from their competition with native plants.", correct: false },
+            { text: "D) Adaptation to invasive species requires prioritizing their removal over studying their benefits.", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
+        passage: "The historian reinterpreted the industrial boom, casting it as a double-edged sword: a forge of progress that also hammered social bonds into fragments. She cited factory towns where wealth surged alongside child labor, and mechanization that boosted output while fracturing artisanal traditions. Her narrative wove these threads into a cautionary tapestry of modernity’s price.",
+        question: "Which detail from the passage best supports the historian’s perspective that industrialization had significant social costs?",
+        answers: [
+            { text: "A) 'factory towns where wealth surged alongside child labor'", correct: true },
+            { text: "B) 'a forge of progress that also hammered social bonds into fragments'", correct: false },
+            { text: "C) 'mechanization that boosted output while fracturing artisanal traditions'", correct: false },
+            { text: "D) 'Her narrative wove these threads into a cautionary tapestry'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
+        passage: "The physicist probed quantum entanglement, portraying it as a phenomenon that defies classical intuition yet anchors modern technology. She described particles linked across vast distances, their states instantaneously correlated—a spooky dance that baffled early theorists. Still, she emphasized, this strangeness powers quantum computing, hinting at a future where the bizarre becomes banal.",
+        question: "What is the central idea of the passage?",
+        answers: [
+            { text: "A) Quantum entanglement, though counterintuitive, bridges theoretical mystery and practical innovation in technology.", correct: true },
+            { text: "B) Quantum entanglement’s primary significance lies in its challenge to classical physics.", correct: false },
+            { text: "C) The technological applications of quantum entanglement overshadow its theoretical complexity.", correct: false },
+            { text: "D) Early theorists’ confusion about quantum entanglement delayed its use in modern computing.", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central-ideas"
+    },
+    {
+        passage: "The sociologist dissected gentrification, framing it as a process that polishes neighborhoods while sanding away their cultural grain. She pointed to rising property values that lured affluent newcomers, yet displaced long-time residents—coffee shops sprouting where bodegas once stood. Her analysis urged policymakers to weigh revitalization against erasure.",
+        question: "Which detail from the passage best exemplifies the sociologist’s concern that gentrification erodes cultural identity?",
+        answers: [
+            { text: "A) 'coffee shops sprouting where bodegas once stood'", correct: true },
+            { text: "B) 'rising property values that lured affluent newcomers'", correct: false },
+            { text: "C) 'a process that polishes neighborhoods while sanding away their cultural grain'", correct: false },
+            { text: "D) 'Her analysis urged policymakers to weigh revitalization against erasure'", correct: false }
         ],
         type: "reading",
         difficulty: "hard",
@@ -411,6 +494,9 @@ const readingWritingQuestions = [
             category: "inference",
             
         },
+
+        //Words in context MEDIUM Questions
+
         {
             passage: "The committee’s decision to allocate funds to the experimental project was met with vociferous opposition from the traditionalists, who argued that such untested ventures squandered resources better spent on proven methods. Yet the innovators, undeterred, pressed forward, their voices rising above the din to champion the potential of the unknown.",
             question: "As used in the passage, 'vociferous' most nearly means",
@@ -421,7 +507,7 @@ const readingWritingQuestions = [
                 { text: "D) reluctantly supportive", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "words-in-context"
         },
         {
@@ -434,7 +520,7 @@ const readingWritingQuestions = [
                 { text: "D) fundamentally flawed", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "words-in-context"
         },
         {
@@ -447,7 +533,7 @@ const readingWritingQuestions = [
                 { text: "D) unexpectedly fortunate", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "words-in-context"
         },
         {
@@ -460,7 +546,7 @@ const readingWritingQuestions = [
                 { text: "D) rejection", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "words-in-context"
         },
         {
@@ -473,9 +559,93 @@ const readingWritingQuestions = [
                 { text: "D) deliberately deceptive", correct: false }
             ],
             type: "reading",
+            difficulty: "medium",
+            category: "words-in-context"
+        },
+
+//Words in Context HARD Questions
+        {
+            passage: "The philosopher’s treatise was replete with abstruse arguments, weaving a labyrinth of logic that confounded even seasoned scholars. Yet, beneath this opacity lay a lucid intent: to challenge the facile assumptions of his peers.",
+            question: "As used in the passage, 'abstruse' most nearly means",
+            answers: [
+                { text: "A) difficult to understand", correct: true },
+                { text: "B) cleverly deceptive", correct: false },
+                { text: "C) unnecessarily verbose", correct: false },
+                { text: "D) subtly persuasive", correct: false }
+            ],
+            type: "reading",
             difficulty: "hard",
             category: "words-in-context"
         },
+        {
+            passage: "The diplomat’s speech was an exercise in perspicuity, each word chosen to dispel the fog of misunderstanding that had long shrouded negotiations. Her clarity stood in stark relief against the obfuscation of her predecessors.",
+            question: "As used in the passage, 'perspicuity' most nearly means",
+            answers: [
+                { text: "A) clear expression", correct: true },
+                { text: "B) shrewd insight", correct: false },
+                { text: "C) bold assertiveness", correct: false },
+                { text: "D) intricate detail", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
+        },
+        {
+            passage: "The artist’s latest installation was a temerarious gamble, defying convention with its chaotic forms and jarring hues. Critics, however, lauded this audacity as a refreshing rupture from the staid norms of the gallery scene.",
+            question: "As used in the passage, 'temerarious' most nearly means",
+            answers: [
+                { text: "A) recklessly bold", correct: true },
+                { text: "B) quietly subversive", correct: false },
+                { text: "C) meticulously planned", correct: false },
+                { text: "D) unintentionally chaotic", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
+        },
+        {
+            passage: "The scientist’s hypothesis, though initially dismissed as quixotic, gained traction as experiments revealed its startling prescience. Her peers, once skeptical, now marveled at the vision that had seemed so impractical.",
+            question: "As used in the passage, 'quixotic' most nearly means",
+            answers: [
+                { text: "A) unrealistically optimistic", correct: true },
+                { text: "B) cautiously tentative", correct: false },
+                { text: "C) rigorously empirical", correct: false },
+                { text: "D) subtly misleading", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
+        },
+        {
+            passage: "The historian’s prose was suffused with lugubrious tones, each sentence a dirge for the lost ideals of a bygone era. Yet, this melancholy served to underscore the resilience of those who endured such times.",
+            question: "As used in the passage, 'lugubrious' most nearly means",
+            answers: [
+                { text: "A) mournfully gloomy", correct: true },
+                { text: "B) bitterly sarcastic", correct: false },
+                { text: "C) dryly factual", correct: false },
+                { text: "D) wistfully nostalgic", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
+        },
+        {
+            passage: "The critic excoriated the novel for its prolixity, arguing that its endless tangents diluted the narrative’s core. Fans, however, cherished these digressions as a tapestry of intricate subplots.",
+            question: "As used in the passage, 'prolixity' most nearly means",
+            answers: [
+                { text: "A) excessive wordiness", correct: true },
+                { text: "B) deliberate ambiguity", correct: false },
+                { text: "C) stark simplicity", correct: false },
+                { text: "D) vivid imagery", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "words-in-context"
+        },
+
+    //Text Structure MEDIUM Questions
+
+
         {
             passage: "For decades, urban planners viewed highways as the arteries of progress, channeling economic growth into sprawling cities. Yet recent studies reveal a paradox: these same highways often sever communities, isolating neighborhoods and stifling local commerce. In response, a new wave of architects advocates dismantling these concrete giants, proposing instead a network of green spaces and pedestrian pathways. Their vision, though radical, seeks to heal the social fabric torn by past infrastructure.",
             question: "The passage is structured primarily to",
@@ -486,7 +656,7 @@ const readingWritingQuestions = [
                 { text: "D) evaluate the technical feasibility of dismantling highways", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "text-structure-and-purpose"
         },
         {
@@ -499,7 +669,7 @@ const readingWritingQuestions = [
                 { text: "D) compare the oxygen production of various ecosystems", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "text-structure-and-purpose"
         },
         {
@@ -512,7 +682,7 @@ const readingWritingQuestions = [
                 { text: "D) catalog historical events referenced in the novel", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "text-structure-and-purpose"
         },
         {
@@ -525,7 +695,7 @@ const readingWritingQuestions = [
                 { text: "D) analyze the ethical dilemmas unique to artificial intelligence", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "text-structure-and-purpose"
         },
         {
@@ -538,9 +708,91 @@ const readingWritingQuestions = [
                 { text: "D) document the daily experiences of workers affected by trade shifts", correct: false }
             ],
             type: "reading",
+            difficulty: "medium",
+            category: "text-structure-and-purpose"
+        },
+
+        //Text Atructure HARD Questions
+        {
+            passage: "The ecologist opened with a vivid tableau: a forest razed by wildfire, its ashes a testament to nature’s fury. She then pivoted to data—carbon emissions spiking post-blaze—before circling back to the scene, now framed as a call to curb deforestation. This oscillation between imagery and evidence aimed to meld emotion with reason.",
+            question: "The passage is structured primarily to",
+            answers: [
+                { text: "A) weave descriptive scenes with scientific data to persuade readers of an environmental imperative", correct: true },
+                { text: "B) chronicle the sequence of ecological changes following a wildfire", correct: false },
+                { text: "C) contrast the emotional impact of nature’s destruction with its measurable causes", correct: false },
+                { text: "D) present a scientific argument supported by anecdotal imagery", correct: false }
+            ],
+            type: "reading",
             difficulty: "hard",
             category: "text-structure-and-purpose"
         },
+        {
+            passage: "The historian began with a paradox: a treaty hailed as a triumph yet reviled as a betrayal. She unpacked this through accounts of jubilant diplomats and furious citizens, threading their voices into a narrative that questioned victory’s cost. Her aim was less to resolve the contradiction than to expose its enduring resonance.",
+            question: "The primary purpose of the passage is to",
+            answers: [
+                { text: "A) explore a historical treaty’s dual reception to highlight its complex legacy", correct: true },
+                { text: "B) argue that the treaty’s celebratory framing overshadowed its negative outcomes", correct: false },
+                { text: "C) reconcile opposing views of a treaty through historical testimonies", correct: false },
+                { text: "D) critique the diplomatic process behind a controversial treaty", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
+        },
+        {
+            passage: "The critic launched into a diatribe against modern cinema, decrying its reliance on spectacle over substance. Midstream, she shifted to an elegy for lost nuance, citing films where silence spoke louder than explosions. This juxtaposition framed her plea for a return to subtlety as both lament and rallying cry.",
+            question: "The passage is structured primarily to",
+            answers: [
+                { text: "A) transition from broad critique to specific examples to advocate for a shift in cinematic priorities", correct: true },
+                { text: "B) compare the strengths of silent films with the weaknesses of modern spectacle", correct: false },
+                { text: "C) lament the decline of nuance in cinema through a series of historical references", correct: false },
+                { text: "D) argue against spectacle by contrasting it with the emotional depth of earlier cinema", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
+        },
+        {
+            passage: "The physicist posed a riddle: how could light bend without a medium? She traced this enigma from Newton’s corpuscles to Einstein’s spacetime, each theory a stepping stone in a winding ascent. Her purpose was to illuminate science’s iterative dance with mystery, not to crown a victor.",
+            question: "The primary purpose of the passage is to",
+            answers: [
+                { text: "A) demonstrate the evolving understanding of light as a reflection of scientific progress", correct: true },
+                { text: "B) resolve a historical debate about the nature of light through theoretical comparisons", correct: false },
+                { text: "C) critique early theories of light in favor of modern explanations", correct: false },
+                { text: "D) trace the chronological development of light theories to highlight Einstein’s triumph", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
+        },
+        {
+            passage: "The sociologist sketched a city’s gentrification in broad strokes—rising rents, shifting demographics—then zoomed into a single block: a barber shop turned boutique, its old patrons priced out. This telescoping lens sought to ground abstract trends in palpable human stakes.",
+            question: "The passage is structured primarily to",
+            answers: [
+                { text: "A) narrow from a general overview to a specific case to humanize the effects of gentrification", correct: true },
+                { text: "B) document the demographic changes in a city through a detailed neighborhood study", correct: false },
+                { text: "C) contrast economic trends with their cultural impacts across urban spaces", correct: false },
+                { text: "D) illustrate gentrification’s progression by focusing on a single transformative example", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
+        },
+        {
+            passage: "The poet prefaced her collection with a manifesto: art must unsettle, not soothe. She followed with verses that twisted familiar tropes—love as war, time as thief—into disquieting new shapes. This prelude and pivot aimed to prime readers for discomfort as a creative virtue.",
+            question: "The primary purpose of the passage is to",
+            answers: [
+                { text: "A) establish a guiding philosophy that prepares readers for an unconventional poetic experience", correct: true },
+                { text: "B) critique traditional poetry by showcasing innovative thematic twists", correct: false },
+                { text: "C) argue for the superiority of unsettling art over comforting narratives", correct: false },
+                { text: "D) introduce a collection by contrasting its style with conventional poetic forms", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
+        },
+
+
         {
             passage: "Passage 1: Dr. Patel argues that genetic engineering holds unparalleled potential to eradicate hereditary diseases, citing recent trials where gene edits reduced disease markers by 80%. She dismisses ethical concerns as secondary, insisting that the urgency of human suffering justifies bold action.\nPassage 2: Professor Kline warns that genetic engineering, while promising, risks unforeseen consequences, such as ecological imbalances from altered gene pools. He advocates a cautious approach, prioritizing long-term studies over immediate application to ensure safety.",
             question: "How would Dr. Patel from Passage 1 most likely respond to Professor Kline’s concerns in Passage 2?",
@@ -1770,6 +2022,51 @@ else if (questionText.includes("Which of the following pieces of evidence from t
     return "The view is border changes caused lasting negatives. A) provides direct evidence: 'chaos—villages split, families displaced' shows immediate, enduring social harm. B) states her argument, not evidence. C) is scholars’ economic counter, not her support. D) is her interpretation, not raw evidence. A) is correct.";
 } else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the physicist’s assertion that dark matter plays a critical role")) {
     return "The assertion is dark matter critically shapes galaxy formation. A) directly ties dark matter density to 'star clustering patterns' in simulations, showing its formative role. B) states her proposal, not evidence. C) is critics’ doubt, not support. D) corroborates via rotation, but A) aligns with formation focus. A) is correct.";
+}
+// --- NEW Explanations for the 6 Central Ideas and Detail Questions ---
+
+else if (questionText.includes("What is the central idea of the passage") && passageText.includes("urban theorist examined sprawl")) {
+    return "The passage balances sprawl’s economic benefits (infrastructure) and ecological costs (green spaces), urging a deeper cost assessment. A) captures this trade-off and reevaluation fully. B) omits environmental loss. C) ignores innovation. D) overweighs decay, missing balance. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best illustrates the linguist’s view that slang enhances language")) {
+    return "The view is slang enhances language. A) directly states it 'enriched it by encoding resilience and identity,' showing positive contribution. B) notes origins, not enhancement. C) shows spread, not enrichment. D) warns of erosion, opposing the view. A) is correct.";
+} else if (questionText.includes("What is the central idea of the passage") && passageText.includes("ecologist studied invasive species")) {
+    return "The passage presents invasive species as disruptors and stabilizers, challenging simplistic harm views. A) reflects this multifaceted role and complexity. B) overstates benefits. C) focuses only on harm. D) prioritizes removal, not understanding. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best supports the historian’s perspective that industrialization had significant social costs")) {
+    return "The perspective is industrialization’s social costs. A) 'wealth surged alongside child labor' directly exemplifies a severe social cost. B) states the perspective, not a detail. C) mentions traditions but is less specific. D) is a summary, not evidence. A) is correct.";
+} else if (questionText.includes("What is the central idea of the passage") && passageText.includes("physicist probed quantum entanglement")) {
+    return "The passage links entanglement’s oddity to tech potential, bridging theory and practice. A) captures this dual role and future hint. B) omits applications. C) overemphasizes tech. D) misreads delay. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best exemplifies the sociologist’s concern that gentrification erodes cultural identity")) {
+    return "The concern is cultural erosion. A) 'coffee shops sprouting where bodegas once stood' vividly shows cultural replacement. B) notes newcomers, not identity loss. C) states the concern, not a detail. D) is a call to action, not evidence. A) is correct.";
+}
+// --- NEW Explanations for the 6 Words in Context Questions ---
+
+else if (questionText.includes("As used in the passage, 'abstruse' most nearly means") && passageText.includes("philosopher’s treatise")) {
+    return "'Abstruse' describes arguments 'confounding even seasoned scholars,' implying complexity beyond grasp. A) 'difficult to understand' fits, contrasting with 'lucid intent.' B) 'cleverly deceptive' adds intent not suggested. C) 'unnecessarily verbose' shifts to wordiness. D) 'subtly persuasive' contradicts confounding effect. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'perspicuity' most nearly means") && passageText.includes("diplomat’s speech")) {
+    return "'Perspicuity' describes a speech dispelling 'misunderstanding,' contrasting with 'obfuscation.' A) 'clear expression' aligns with clarity’s role. B) 'shrewd insight' focuses on perception, not expression. C) 'bold assertiveness' lacks clarity link. D) 'intricate detail' opposes simplicity implied. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'temerarious' most nearly means") && passageText.includes("artist’s latest installation")) {
+    return "'Temerarious' describes a 'gamble' defying norms, lauded as 'audacity.' A) 'recklessly bold' captures risk and daring. B) 'quietly subversive' underplays boldness. C) 'meticulously planned' contradicts gamble. D) 'unintentionally chaotic' misses intent. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'quixotic' most nearly means") && passageText.includes("scientist’s hypothesis")) {
+    return "'Quixotic' describes a dismissed hypothesis later proven prescient, seen as 'impractical.' A) 'unrealistically optimistic' fits initial skepticism vs. outcome. B) 'cautiously tentative' opposes bold vision. C) 'rigorously empirical' misaligns with dismissal. D) 'subtly misleading' lacks optimism. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'lugubrious' most nearly means") && passageText.includes("historian’s prose")) {
+    return "'Lugubrious' describes prose with a 'dirge'-like tone for lost ideals, implying sadness. A) 'mournfully gloomy' matches this melancholy. B) 'bitterly sarcastic' adds tone not present. C) 'dryly factual' opposes emotion. D) 'wistfully nostalgic' softens gloom. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'prolixity' most nearly means") && passageText.includes("critic excoriated the novel")) {
+    return "'Prolixity' is criticized for 'endless tangents' diluting narrative, suggesting excess. A) 'excessive wordiness' fits this verbosity. B) 'deliberate ambiguity' shifts to intent. C) 'stark simplicity' contradicts tangents. D) 'vivid imagery' misses length critique. A) is correct.";
+}
+// --- NEW Explanations for the 6 Text Structure and Purpose Questions ---
+
+else if (questionText.includes("The passage is structured primarily to") && passageText.includes("ecologist opened with a vivid tableau")) {
+    return "The passage moves from imagery (forest) to data (emissions) and back, blending emotion and reason to persuade. A) captures this weaving for an environmental call. B) misreads as a sequence. C) focuses on contrast, not persuasion. D) reverses priority of imagery. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("historian began with a paradox")) {
+    return "The passage explores triumph vs. betrayal through voices, aiming to reveal complexity, not resolve it. A) reflects this dual legacy focus. B) implies a bias not present. C) suggests reconciliation, not exposure. D) shifts to process critique. A) is correct.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("critic launched into a diatribe")) {
+    return "The passage shifts from broad critique to nuanced examples, advocating subtlety. A) captures this transition and plea. B) narrows to comparison. C) focuses on lament, not advocacy. D) misreads as argument against spectacle alone. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("physicist posed a riddle")) {
+    return "The passage traces light theories to show science’s evolving grasp, not to pick a winner. A) reflects this progress focus. B) implies resolution, not illumination. C) suggests critique, not dance. D) overemphasizes Einstein. A) is correct.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("sociologist sketched a city’s gentrification")) {
+    return "The passage zooms from broad trends to a specific block, grounding abstraction in human impact. A) captures this narrowing for humanization. B) misreads as documentation. C) suggests contrast, not grounding. D) focuses on example, not intent. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("poet prefaced her collection")) {
+    return "The passage sets a manifesto then delivers unsettling verse to prepare readers for discomfort. A) reflects this priming purpose. B) implies critique, not preparation. C) argues superiority, not intent. D) focuses on contrast, not philosophy. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
