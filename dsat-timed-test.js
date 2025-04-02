@@ -176,10 +176,8 @@ function endModule() {
         startNextModule();
     } else {
         if (!isMathTest) {
-            // Show Reading/Writing score immediately after module 2
             showReadingWritingScore();
         } else {
-            // Show final combined score after Math module 2
             showFinalScore();
         }
     }
@@ -195,10 +193,8 @@ function startNextModule() {
     
     const threshold = isMathTest ? 11 : 13; // 50% correct threshold for adaptivity
     if (module1Correct >= threshold) {
-        // Harder module 2
         startQuiz(isMathTest ? mathQuestions : readingWritingQuestions, 0, 9, 13); // More hard questions
     } else {
-        // Easier module 2
         startQuiz(isMathTest ? mathQuestions : readingWritingQuestions, 13, 9, 0); // More easy questions
     }
 }
@@ -325,7 +321,8 @@ function showReadingWritingScore() {
     nextButton.classList.add("centered-btn");
 
     document.getElementById("question-container").classList.remove("hide");
-    document.getElementById("break-message").classList.add("hide"); // Ensure break message stays hidden
+    document.getElementById("break-message").classList.add("hide");
+    countdownEl.innerHTML = "0:00"; // Reset timer display
 }
 
 function showFinalScore() {
@@ -359,6 +356,9 @@ function showFinalScore() {
     nextButton.classList.add("centered-btn");
     nextButton.removeEventListener("click", handleNextButton);
     nextButton.addEventListener("click", showExplanations);
+
+    countdownEl.innerHTML = "0:00"; // Stop and reset timer display
+    time = 0; // Ensure time is reset
 }
 
 function showExplanations() {
@@ -456,7 +456,7 @@ nextButton.addEventListener("click", () => {
     if (nextButton.innerHTML === "Continue") {
         document.getElementById("break-message").classList.remove("hide");
         document.getElementById("question-container").classList.add("hide");
-        startMathTest(); // Start Math section immediately after clicking Continue
+        startMathTest();
     } else {
         handleNextButton();
     }
