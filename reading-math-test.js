@@ -2041,6 +2041,100 @@ const readingWritingQuestions = [
 
 const mathQuestions = [
 
+//Algebra EASY
+
+    {
+        passage: "",
+        question: "If 2x + 5 = 13, what is the value of x?",
+        answers: [
+            { text: "A) 4", correct: true },
+            { text: "B) 3", correct: false },
+            { text: "C) 5", correct: false },
+            { text: "D) 6", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "If 3x - 7 = 5x + 1, what is the value of x?",
+        answers: [
+            { text: "A) -4", correct: true },
+            { text: "B) -3", correct: false },
+            { text: "C) 4", correct: false },
+            { text: "D) 3", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "If x + 2y = 10 and x - y = 1, what is the value of y?",
+        answers: [
+            { text: "A) 3", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 4", correct: false },
+            { text: "D) 5", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "If 4x² = 36, what is one possible value of x?",
+        answers: [
+            { text: "A) 3", correct: true },
+            { text: "B) 6", correct: false },
+            { text: "C) 9", correct: false },
+            { text: "D) 2", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "If 2(x + 3) = 14, what is the value of x?",
+        answers: [
+            { text: "A) 4", correct: true },
+            { text: "B) 5", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 7", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "If x/3 + 4 = 7, what is the value of x?",
+        answers: [
+            { text: "A) 9", correct: true },
+            { text: "B) 6", correct: false },
+            { text: "C) 12", correct: false },
+            { text: "D) 3", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "If 5x + 3 = 2x + 12, what is the value of x?",
+        answers: [
+            { text: "A) 3", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) 5", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+
 //Algebra MEDIUM
     {
         passage: "",
@@ -2161,97 +2255,191 @@ const mathQuestions = [
     },
 //Algebra HARD
 
-{
-    passage: "",
-    question: "If 3x + 2y = 17 and 5x - 4y = 13, what is the value of 15x + 2y?",
-    answers: [
-        { text: "A) 49", correct: true },
-        { text: "B) 43", correct: false },
-        { text: "C) 51", correct: false },
-        { text: "D) 47", correct: false }
-    ],
-    type: "math",
-    difficulty: "hard",
-    category: "algebra"
-},
-{
-    passage: "",
-    question: "The equation x² - kx + 16 = 0 has exactly one real solution. If k is positive, what is the value of k?",
-    answers: [
-        { text: "A) 8", correct: true },
-        { text: "B) 4", correct: false },
-        { text: "C) 12", correct: false },
-        { text: "D) 16", correct: false }
-    ],
-    type: "math",
-    difficulty: "hard",
-    category: "algebra"
-},
-{
-    passage: "",
-    question: "If (x + 3)(x - k) = x² - 5x + m for all values of x, what is the value of m - k?",
-    answers: [
-        { text: "A) -3", correct: true },
-        { text: "B) -6", correct: false },
-        { text: "C) 0", correct: false },
-        { text: "D) 3", correct: false }
-    ],
-    type: "math",
-    difficulty: "hard",
-    category: "algebra"
-},
-{
-    passage: "",
-    question: "A function is defined as f(x) = 2x² - 12x + k. If the minimum value of f(x) is 5, what is the value of k?",
-    answers: [
-        { text: "A) 23", correct: true },
-        { text: "B) 18", correct: false },
-        { text: "C) 13", correct: false },
-        { text: "D) 28", correct: false }
-    ],
-    type: "math",
-    difficulty: "hard",
-    category: "algebra"
-},
-{
-    passage: "",
-    question: "If 4^(x+1) = 8^(x-2), what is the value of x?",
-    answers: [
-        { text: "A) 5", correct: true },
-        { text: "B) 4", correct: false },
-        { text: "C) 3", correct: false },
-        { text: "D) 6", correct: false }
-    ],
-    type: "math",
-    difficulty: "hard",
-    category: "algebra"
-},
-{
-    passage: "",
-    question: "The system of equations 2x + 3y = a and 4x + ky = 12 has no solution. If k is a constant, what is the value of a in terms of k?",
-    answers: [
-        { text: "A) 6k", correct: true },
-        { text: "B) 3k", correct: false },
-        { text: "C) 12k", correct: false },
-        { text: "D) 2k", correct: false }
-    ],
-    type: "math",
-    difficulty: "hard",
-    category: "algebra"
-},
-{
-    passage: "",
-    question: "If g(x) = x² + 2x - 3 and h(x) = 3x + 1, for what positive value of x does g(h(x)) = h(g(x))?",
-    answers: [
-        { text: "A) 4", correct: true },
-        { text: "B) 2", correct: false },
-        { text: "C) 1", correct: false },
-        { text: "D) 3", correct: false }
-    ],
-    type: "math",
-    difficulty: "hard",
-    category: "algebra"
-},
+    {
+        passage: "",
+        question: "If 3x + 2y = 17 and 5x - 4y = 13, what is the value of 15x + 2y?",
+        answers: [
+            { text: "A) 49", correct: true },
+            { text: "B) 43", correct: false },
+            { text: "C) 51", correct: false },
+            { text: "D) 47", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "The equation x² - kx + 16 = 0 has exactly one real solution. If k is positive, what is the value of k?",
+        answers: [
+            { text: "A) 8", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 12", correct: false },
+            { text: "D) 16", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "If (x + 3)(x - k) = x² - 5x + m for all values of x, what is the value of m - k?",
+        answers: [
+            { text: "A) -3", correct: true },
+            { text: "B) -6", correct: false },
+            { text: "C) 0", correct: false },
+            { text: "D) 3", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "A function is defined as f(x) = 2x² - 12x + k. If the minimum value of f(x) is 5, what is the value of k?",
+        answers: [
+            { text: "A) 23", correct: true },
+            { text: "B) 18", correct: false },
+            { text: "C) 13", correct: false },
+            { text: "D) 28", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "If 4^(x+1) = 8^(x-2), what is the value of x?",
+        answers: [
+            { text: "A) 5", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 6", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "The system of equations 2x + 3y = a and 4x + ky = 12 has no solution. If k is a constant, what is the value of a in terms of k?",
+        answers: [
+            { text: "A) 6k", correct: true },
+            { text: "B) 3k", correct: false },
+            { text: "C) 12k", correct: false },
+            { text: "D) 2k", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "If g(x) = x² + 2x - 3 and h(x) = 3x + 1, for what positive value of x does g(h(x)) = h(g(x))?",
+        answers: [
+            { text: "A) 4", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 1", correct: false },
+            { text: "D) 3", correct: false }
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+
+//Advanced Math EASY
+
+    {
+        passage: "",
+        question: "If x² - 4x = 5, what is one possible value of x?",
+        answers: [
+            { text: "A) 5", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 6", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "If 2^x = 16, what is the value of x?",
+        answers: [
+            { text: "A) 4", correct: true },
+            { text: "B) 3", correct: false },
+            { text: "C) 5", correct: false },
+            { text: "D) 2", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "If f(x) = x² + 6x + 9, what is the value of f(-3)?",
+        answers: [
+            { text: "A) 0", correct: true },
+            { text: "B) 9", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 6", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "If 3^(x+1) = 27, what is the value of x?",
+        answers: [
+            { text: "A) 2", correct: true },
+            { text: "B) 1", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 4", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "In a right triangle, if sin(θ) = 3/5, what is cos(θ)?",
+        answers: [
+            { text: "A) 4/5", correct: true },
+            { text: "B) 3/4", correct: false },
+            { text: "C) 5/3", correct: false },
+            { text: "D) 2/5", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "If (x - 2)(x + 3) = 0, what is one possible value of x?",
+        answers: [
+            { text: "A) 2", correct: true },
+            { text: "B) 3", correct: false },
+            { text: "C) -2", correct: false },
+            { text: "D) 1", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "If √(x + 7) = 4, what is the value of x?",
+        answers: [
+            { text: "A) 9", correct: true },
+            { text: "B) 16", correct: false },
+            { text: "C) 7", correct: false },
+            { text: "D) 4", correct: false }
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
 
 //Advanced Math MEDIUM
 
@@ -2438,6 +2626,102 @@ const mathQuestions = [
         difficulty: "hard",
         category: "advanced-math"
     },
+//Problem Solving EASY
+
+{
+    passage: "",
+    question: "A store offers a 20% discount on a shirt originally priced at $25. What is the sale price?",
+    answers: [
+        { text: "A) $20", correct: true },
+        { text: "B) $22", correct: false },
+        { text: "C) $18", correct: false },
+        { text: "D) $15", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "problem-solving"
+},
+{
+    passage: "",
+    question: "A recipe calls for 3 cups of flour to make 12 cookies. How many cups of flour are needed to make 20 cookies?",
+    answers: [
+        { text: "A) 5", correct: true },
+        { text: "B) 4", correct: false },
+        { text: "C) 6", correct: false },
+        { text: "D) 3", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "problem-solving"
+},
+{
+    passage: "",
+    question: "A car travels 120 miles in 2 hours. What is its average speed in miles per hour?",
+    answers: [
+        { text: "A) 60", correct: true },
+        { text: "B) 50", correct: false },
+        { text: "C) 70", correct: false },
+        { text: "D) 40", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "problem-solving"
+},
+{
+    passage: "",
+    question: "In a class of 30 students, 40% are girls. How many girls are in the class?",
+    answers: [
+        { text: "A) 12", correct: true },
+        { text: "B) 10", correct: false },
+        { text: "C) 15", correct: false },
+        { text: "D) 18", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "problem-solving"
+},
+{
+    passage: "",
+    question: "A worker earns $15 per hour. How much does she earn for 8 hours of work?",
+    answers: [
+        { text: "A) $120", correct: true },
+        { text: "B) $100", correct: false },
+        { text: "C) $130", correct: false },
+        { text: "D) $90", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "problem-solving"
+},
+{
+    passage: "",
+    question: "A tank holds 50 gallons of water. If 20% leaks out, how many gallons remain?",
+    answers: [
+        { text: "A) 40", correct: true },
+        { text: "B) 45", correct: false },
+        { text: "C) 30", correct: false },
+        { text: "D) 35", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "problem-solving"
+},
+{
+    passage: "",
+    question: "A fruit stand sells apples at 2 for $1. How much will 10 apples cost?",
+    answers: [
+        { text: "A) $5", correct: true },
+        { text: "B) $4", correct: false },
+        { text: "C) $6", correct: false },
+        { text: "D) $3", correct: false }
+    ],
+    type: "math",
+    difficulty: "easy",
+    category: "problem-solving"
+},
+
+
+
 //Problem Solving MEDIUM
 
     {
@@ -3676,6 +3960,57 @@ else if (questionText.includes("Which of the following punctuation marks should 
     return "The first clause sets up planting; the second lists flowers (roses, tulips, daisies). A colon (A) introduces this list. A comma (B) lacks strength for a list. A semicolon (C) fits independent ideas. A period (D) breaks continuity. A) is correct.";
 } else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("concert was delayed by rain")) {
     return "Independent clauses (delayed; played). A semicolon (A) joins them well. A colon (B) implies explanation. A comma (C) is insufficient for independence. A period (D) separates too much. A) is correct.";
+}
+// --- NEW Explanations for the 7 Algebra Questions (Medium Difficulty) ---
+
+else if (questionText.includes("If 2x + 5 = 13, what is the value of x")) {
+    return "Solve: 2x + 5 = 13, 2x = 8, x = 4. Check: 2·4 + 5 = 13. A) 4 is correct. B) 3: 6 + 5 = 11. C) 5: 10 + 5 = 15. D) 6: 12 + 5 = 17.";
+} else if (questionText.includes("If 3x - 7 = 5x + 1, what is the value of x")) {
+    return "Solve: 3x - 7 = 5x + 1, -7 - 1 = 5x - 3x, -8 = 2x, x = -4. Check: 3(-4) - 7 = -19, 5(-4) + 1 = -19. A) -4 is correct. B) -3: -16 ≠ -14. C) 4: 5 ≠ 21. D) 3: 2 ≠ 16.";
+} else if (questionText.includes("If x + 2y = 10 and x - y = 1, what is the value of y")) {
+    return "Subtract: (x + 2y) - (x - y) = 10 - 1, 3y = 9, y = 3. Check: x = 1 + 3 = 4, 4 + 2·3 = 10. A) 3 is correct. B) 2: x = 3, 7 ≠ 10. C) 4: x = 5, 13 ≠ 10. D) 5: x = 6, 16 ≠ 10.";
+} else if (questionText.includes("If 4x² = 36, what is one possible value of x")) {
+    return "Solve: 4x² = 36, x² = 9, x = ±3. One value: 3. Check: 4·3² = 36. A) 3 is correct. B) 6: 144 ≠ 36. C) 9: 324 ≠ 36. D) 2: 16 ≠ 36.";
+} else if (questionText.includes("If 2(x + 3) = 14, what is the value of x")) {
+    return "Solve: 2(x + 3) = 14, x + 3 = 7, x = 4. Check: 2(4 + 3) = 14. A) 4 is correct. B) 5: 2·8 = 16. C) 3: 2·6 = 12. D) 7: 2·10 = 20.";
+} else if (questionText.includes("If x/3 + 4 = 7, what is the value of x")) {
+    return "Solve: x/3 + 4 = 7, x/3 = 3, x = 9. Check: 9/3 + 4 = 7. A) 9 is correct. B) 6: 2 + 4 = 6. C) 12: 4 + 4 = 8. D) 3: 1 + 4 = 5.";
+} else if (questionText.includes("If 5x + 3 = 2x + 12, what is the value of x")) {
+    return "Solve: 5x + 3 = 2x + 12, 5x - 2x = 12 - 3, 3x = 9, x = 3. Check: 5·3 + 3 = 18, 2·3 + 12 = 18. A) 3 is correct. B) 4: 23 ≠ 20. C) 2: 13 ≠ 16. D) 5: 28 ≠ 22.";
+}
+// --- NEW Explanations for the 7 Advanced Math Questions (Medium Difficulty) ---
+
+else if (questionText.includes("If x² - 4x = 5, what is one possible value of x")) {
+    return "Solve: x² - 4x - 5 = 0, (x - 5)(x + 1) = 0, x = 5 or -1. One value: 5. Check: 5² - 4·5 = 25 - 20 = 5. A) 5 is correct. B) 2: 4 - 8 ≠ 5. C) 3: 9 - 12 ≠ 5. D) 6: 36 - 24 ≠ 5.";
+} else if (questionText.includes("If 2^x = 16, what is the value of x")) {
+    return "Solve: 2^x = 16, 16 = 2^4, x = 4. Check: 2^4 = 16. A) 4 is correct. B) 3: 2^3 = 8. C) 5: 2^5 = 32. D) 2: 2^2 = 4.";
+} else if (questionText.includes("If f(x) = x² + 6x + 9, what is the value of f(-3)")) {
+    return "f(x) = (x + 3)². f(-3) = (-3 + 3)² = 0² = 0. Or: (-3)² + 6(-3) + 9 = 9 - 18 + 9 = 0. A) 0 is correct. B) 9: misread minimum. C) 3: calc error. D) 6: partial sum.";
+} else if (questionText.includes("If 3^(x+1) = 27, what is the value of x")) {
+    return "Solve: 3^(x+1) = 27, 27 = 3^3, x + 1 = 3, x = 2. Check: 3^(2+1) = 3^3 = 27. A) 2 is correct. B) 1: 3^2 = 9. C) 3: 3^4 = 81. D) 4: 3^5 = 243.";
+} else if (questionText.includes("In a right triangle, if sin(θ) = 3/5, what is cos(θ)")) {
+    return "sin(θ) = 3/5, opp = 3, hyp = 5. Adj = √(5² - 3²) = √(25 - 9) = 4. cos(θ) = adj/hyp = 4/5. A) 4/5 is correct. B) 3/4: opp/adj. C) 5/3: hyp/opp. D) 2/5: wrong adj.";
+} else if (questionText.includes("If (x - 2)(x + 3) = 0, what is one possible value of x")) {
+    return "Solve: (x - 2)(x + 3) = 0, x - 2 = 0 or x + 3 = 0, x = 2 or -3. One value: 2. Check: (2 - 2)(2 + 3) = 0. A) 2 is correct. B) 3: 3 ≠ 0. C) -2: ≠ 0. D) 1: ≠ 0.";
+} else if (questionText.includes("If √(x + 7) = 4, what is the value of x")) {
+    return "Solve: √(x + 7) = 4, x + 7 = 16, x = 9. Check: √(9 + 7) = √16 = 4. A) 9 is correct. B) 16: √23 ≠ 4. C) 7: √14 ≠ 4. D) 4: √11 ≠ 4.";
+}
+// --- NEW Explanations for the 7 Problem-Solving Math Questions (Medium Difficulty) ---
+
+else if (questionText.includes("A store offers a 20% discount on a shirt originally priced at $25")) {
+    return "Discount = 20% of 25 = 0.2 · 25 = 5. Sale price = 25 - 5 = 20. A) $20 is correct. B) $22: 25 - 3. C) $18: 25 - 7. D) $15: 25 - 10.";
+} else if (questionText.includes("A recipe calls for 3 cups of flour to make 12 cookies")) {
+    return "Ratio: 3 cups / 12 cookies = 0.25 cups/cookie. For 20: 0.25 · 20 = 5. Or: 20/12 · 3 = 5/3 · 3 = 5. A) 5 is correct. B) 4: underestimates. C) 6: overshoots. D) 3: original only.";
+} else if (questionText.includes("A car travels 120 miles in 2 hours")) {
+    return "Speed = distance / time = 120 / 2 = 60 mph. A) 60 is correct. B) 50: 100/2. C) 70: 140/2. D) 40: 80/2.";
+} else if (questionText.includes("In a class of 30 students, 40% are girls")) {
+    return "Girls = 40% of 30 = 0.4 · 30 = 12. A) 12 is correct. B) 10: 33%. C) 15: 50%. D) 18: 60%.";
+} else if (questionText.includes("A worker earns $15 per hour")) {
+    return "Earnings = 15 · 8 = 120. A) $120 is correct. B) $100: 15 · 6.7. C) $130: 15 · 8.7. D) $90: 15 · 6.";
+} else if (questionText.includes("A tank holds 50 gallons of water")) {
+    return "Leak = 20% of 50 = 0.2 · 50 = 10. Remain = 50 - 10 = 40. A) 40 is correct. B) 45: 10% leak. C) 30: 40% leak. D) 35: 30% leak.";
+} else if (questionText.includes("A fruit stand sells apples at 2 for $1")) {
+    return "Cost per apple = 1 / 2 = $0.50. For 10: 0.50 · 10 = 5. Or: 10 / 2 · 1 = 5. A) $5 is correct. B) $4: 8 apples. C) $6: 12 apples. D) $3: 6 apples.";
 }
     // Fallback
     return "No specific explanation available for this question.";
