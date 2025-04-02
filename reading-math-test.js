@@ -3000,7 +3000,7 @@ const mathQuestions = [
     type: "math",
     difficulty: "easy",
     category: "geometry"
-}
+},
 
 //Geometry MEDIIUM
 
