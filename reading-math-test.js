@@ -1351,7 +1351,88 @@ const readingWritingQuestions = [
             category: "cross-text-connections"
         },
 
-    //Transitions MEDIUM Questions    
+    //Transitions EASY
+    
+        {
+            passage: "The team practiced daily for weeks. [____], they won the championship game with ease.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) As a result", correct: true },
+                { text: "B) For example", correct: false },
+                { text: "C) However", correct: false },
+                { text: "D) Meanwhile", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "transitions"
+        },
+        {
+            passage: "The recipe called for fresh herbs. [____], the chef used dried ones due to a shortage.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Instead", correct: true },
+                { text: "B) In addition", correct: false },
+                { text: "C) Therefore", correct: false },
+                { text: "D) Similarly", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "transitions"
+        },
+        {
+            passage: "The park was quiet in the morning. [____], it grew noisy as families arrived by noon.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Later", correct: true },
+                { text: "B) Because", correct: false },
+                { text: "C) In contrast", correct: false },
+                { text: "D) Besides", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "transitions"
+        },
+        {
+            passage: "The student studied hard for the test. [____], she felt confident walking into the exam room.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Consequently", correct: true },
+                { text: "B) On the other hand", correct: false },
+                { text: "C) For instance", correct: false },
+                { text: "D) Nevertheless", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "transitions"
+        },
+        {
+            passage: "The town planned a festival to boost tourism. [____], rainy weather forced a cancellation.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) However", correct: true },
+                { text: "B) In addition", correct: false },
+                { text: "C) Thus", correct: false },
+                { text: "D) Likewise", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "transitions"
+        },
+        {
+            passage: "The book offered tips for beginners. [____], it included a section on advanced techniques for experts.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Additionally", correct: true },
+                { text: "B) By contrast", correct: false },
+                { text: "C) As a result", correct: false },
+                { text: "D) In fact", correct: false }
+            ],
+            type: "reading",
+            difficulty: "easy",
+            category: "transitions"
+        },
+
+    //Transitions MEDIUM     
 
         {
             passage: "The expedition faced relentless storms, forcing the team to halt their ascent midway. [____], once the weather cleared, they resumed with renewed determination, reaching the summit by dusk.",
