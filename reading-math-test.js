@@ -396,6 +396,71 @@ const readingWritingQuestions = [
             type: "reading",
             difficulty: "hard",
             category: "words-in-context"
+        },
+        {
+            passage: "For decades, urban planners viewed highways as the arteries of progress, channeling economic growth into sprawling cities. Yet recent studies reveal a paradox: these same highways often sever communities, isolating neighborhoods and stifling local commerce. In response, a new wave of architects advocates dismantling these concrete giants, proposing instead a network of green spaces and pedestrian pathways. Their vision, though radical, seeks to heal the social fabric torn by past infrastructure.",
+            question: "The passage is structured primarily to",
+            answers: [
+                { text: "A) contrast past urban planning assumptions with emerging alternatives", correct: true },
+                { text: "B) argue for the economic superiority of highways over green spaces", correct: false },
+                { text: "C) chronicle the historical development of urban highway systems", correct: false },
+                { text: "D) evaluate the technical feasibility of dismantling highways", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
+        },
+        {
+            passage: "The scientist began her lecture with a startling claim: the smallest organisms wield the greatest influence on Earth’s climate. She then detailed the role of phytoplankton, microscopic algae that produce half the planet’s oxygen and regulate carbon cycles. Far from mere background players, these tiny powerhouses, she argued, dwarf the impact of forests or industrial emissions. Her closing plea urged policymakers to prioritize ocean conservation over terrestrial efforts.",
+            question: "The primary purpose of the passage is to",
+            answers: [
+                { text: "A) advocate for a shift in environmental policy focus based on scientific evidence", correct: true },
+                { text: "B) explain the biological processes of phytoplankton in technical detail", correct: false },
+                { text: "C) critique the overemphasis on industrial emissions in climate discussions", correct: false },
+                { text: "D) compare the oxygen production of various ecosystems", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
+        },
+        {
+            passage: "Critics once hailed the novel as a groundbreaking exploration of identity, its fragmented narrative mirroring the protagonist’s fractured mind. But a closer look reveals a different intent: the author peppers the text with historical allusions – a battle here, a treaty there – weaving a subtle commentary on national division. The personal story, it seems, serves as a lens for a broader societal critique.",
+            question: "The passage is structured primarily to",
+            answers: [
+                { text: "A) reinterpret the novel’s narrative focus by highlighting its historical context", correct: true },
+                { text: "B) defend the novel’s fragmented style against critical misjudgments", correct: false },
+                { text: "C) summarize the protagonist’s psychological journey in the story", correct: false },
+                { text: "D) catalog historical events referenced in the novel", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
+        },
+        {
+            passage: "In the 19th century, inventors raced to harness electricity, each breakthrough sparking both awe and apprehension. Today, we face a similar crossroads with artificial intelligence: its potential to transform medicine and education is undeniable, yet so too are the ethical shadows it casts. This parallel is no coincidence – technological leaps invariably provoke a dual response, blending hope with hesitation.",
+            question: "The primary purpose of the passage is to",
+            answers: [
+                { text: "A) draw a comparison between historical and modern reactions to technological advances", correct: true },
+                { text: "B) warn against the unchecked development of artificial intelligence", correct: false },
+                { text: "C) celebrate the transformative power of electricity and AI in society", correct: false },
+                { text: "D) analyze the ethical dilemmas unique to artificial intelligence", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
+        },
+        {
+            passage: "The economist opened with a dry statistic: global trade volumes had dipped by 3%. She then painted a vivid picture – ships idling at docks, workers pacing empty warehouses – before circling back to explain how supply chain disruptions fueled the decline. Her narrative arc, far from a mere data dump, aimed to humanize the numbers and stir urgency in her audience.",
+            question: "The passage is structured primarily to",
+            answers: [
+                { text: "A) illustrate an economic trend through a blend of data and storytelling", correct: true },
+                { text: "B) propose solutions to reverse the decline in global trade", correct: false },
+                { text: "C) critique the reliability of trade volume statistics", correct: false },
+                { text: "D) document the daily experiences of workers affected by trade shifts", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "text-structure-and-purpose"
         }
     
 
@@ -806,7 +871,19 @@ else if (questionText.includes("As used in the passage, 'vociferous' most nearly
 } else if (questionText.includes("As used in the passage, 'austere' most nearly means")) {
     return "The 'austere budget' involves 'stripping away' non-essentials to avoid collapse, indicating stark simplicity, so A) 'severely simple' fits. B) 'recklessly extravagant' is the opposite of the described cuts. C) 'cautiously optimistic' doesn’t align with the grim necessity. D) 'deliberately deceptive' suggests intent not supported by the context.";
 }
+// --- NEW Explanations for the 5 Text Structure and Purpose Questions ---
 
+else if (questionText.includes("The passage is structured primarily to") && passageText.includes("urban planners viewed highways")) {
+    return "The passage starts with past views of highways as progress, then shifts to their negative impacts (severing communities), and ends with a new architectural proposal to replace them. This structure contrasts old assumptions with emerging alternatives, making A) correct. B) is wrong as it doesn’t argue for highways’ superiority. C) isn’t a historical chronicle but a focused comparison. D) doesn’t evaluate feasibility, only introduces the vision.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("smallest organisms wield")) {
+    return "The passage begins with a claim about phytoplankton’s climate role, supports it with evidence, and ends with a policy plea for ocean conservation. Its purpose is to advocate a policy shift based on science, fitting A). B) overemphasizes technical detail, not the goal. C) isn’t a critique of emissions focus but a reorientation. D) mentions forests but isn’t a broad comparison.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("Critics once hailed the novel")) {
+    return "The passage starts with critics’ initial view (identity focus), then pivots to reveal historical allusions as the author’s true intent, reframing the novel’s purpose. This reinterpretation via historical context fits A). B) doesn’t defend the style but reinterprets it. C) doesn’t summarize the protagonist’s journey. D) doesn’t catalog events, just notes their presence.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("inventors raced to harness electricity")) {
+    return "The passage links 19th-century electricity reactions (awe, apprehension) to modern AI responses, emphasizing a recurring pattern of hope and hesitation. Its purpose is a historical-modern comparison, matching A). B) doesn’t warn but observes. C) doesn’t celebrate, it balances positives and negatives. D) mentions ethics but focuses on reaction parallels, not analysis.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("economist opened with a dry statistic")) {
+    return "The passage moves from a statistic to vivid imagery (ships, workers) and back to an explanation, using storytelling to make data relatable and urgent. This blend of data and narrative fits A). B) offers no solutions. C) doesn’t critique statistics’ reliability. D) uses worker imagery as an example, not a documentation focus.";
+}
     // Fallback
     return "No specific explanation available for this question.";
 }
