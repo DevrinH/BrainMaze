@@ -892,7 +892,84 @@ const readingWritingQuestions = [
 
     //Text Structure EASY Questions
 
-    
+    {
+        passage: "The travel writer began with a vivid description of a bustling market, then explained how local crafts reflect the region’s culture. Her goal was to draw readers into the area’s unique charm.",
+        question: "The passage is structured primarily to",
+        answers: [
+            { text: "A) paint a picture of a place before connecting it to its cultural significance", correct: true },
+            { text: "B) list the best markets for travelers to visit", correct: false },
+            { text: "C) argue that crafts are more important than markets", correct: false },
+            { text: "D) compare different regions’ cultures", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "The scientist opened with a surprising fact: bees pollinate 70% of crops. She followed with details on how their decline threatens food security, aiming to highlight their critical role.",
+        question: "The primary purpose of the passage is to",
+        answers: [
+            { text: "A) emphasize the importance of bees to agriculture", correct: true },
+            { text: "B) explain how crops grow without bees", correct: false },
+            { text: "C) list reasons for bee population decline", correct: false },
+            { text: "D) compare bees to other pollinators", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "The coach started by praising the team’s effort in a tough game, then outlined strategies that led to their win. His intent was to boost morale while reinforcing good habits.",
+        question: "The passage is structured primarily to",
+        answers: [
+            { text: "A) commend past success before detailing what made it possible", correct: true },
+            { text: "B) critique the team’s effort with new strategies", correct: false },
+            { text: "C) focus only on strategies for future games", correct: false },
+            { text: "D) compare the team to its opponents", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "The historian described a famous battle, then noted its lasting impact on trade routes. Her aim was to show how single events can shape broader history.",
+        question: "The primary purpose of the passage is to",
+        answers: [
+            { text: "A) illustrate the broader effects of a specific historical event", correct: true },
+            { text: "B) detail the tactics used in a famous battle", correct: false },
+            { text: "C) argue that trade routes caused the battle", correct: false },
+            { text: "D) list all events that changed history", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "The chef shared a recipe for a simple soup, then explained how it could be adapted with seasonal ingredients. She wanted to encourage home cooks to experiment.",
+        question: "The passage is structured primarily to",
+        answers: [
+            { text: "A) provide a basic guide before suggesting creative variations", correct: true },
+            { text: "B) argue that seasonal ingredients are best", correct: false },
+            { text: "C) list all possible soup recipes", correct: false },
+            { text: "D) compare simple and complex cooking", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "The teacher began with a question about recycling, then presented data showing its environmental benefits. Her goal was to spark curiosity and inform students.",
+        question: "The primary purpose of the passage is to",
+        answers: [
+            { text: "A) engage students’ interest while teaching about recycling’s value", correct: true },
+            { text: "B) question the effectiveness of recycling", correct: false },
+            { text: "C) list rules for classroom recycling", correct: false },
+            { text: "D) compare recycling to other green practices", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
 
 
     //Text Structure MEDIUM Questions
@@ -1044,7 +1121,89 @@ const readingWritingQuestions = [
             category: "text-structure-and-purpose"
         },
 
-        //Cross Text Medium Questions
+//Cross Text EASY Questions
+
+{
+    passage: "Passage 1: The nutritionist claimed that cutting sugar improves energy, citing studies where participants felt more alert.\nPassage 2: The trainer argued that sugar boosts energy for workouts, pointing to its quick conversion to fuel.",
+    question: "How would the nutritionist from Passage 1 most likely respond to the trainer’s argument in Passage 2?",
+    answers: [
+        { text: "A) She would argue that sugar’s energy boost is short-lived compared to sustained alertness from cutting it.", correct: true },
+        { text: "B) She would agree that sugar fuels workouts but not daily energy.", correct: false },
+        { text: "C) She would deny that sugar converts to fuel quickly.", correct: false },
+        { text: "D) She would claim workouts don’t need energy boosts.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "cross-text-connections"
+},
+{
+    passage: "Passage 1: The teacher said small classes help students focus, noting better grades in such settings.\nPassage 2: The principal believed large classes build independence, citing students who thrived without close supervision.",
+    question: "Which of the following best describes a key difference between Passage 1 and Passage 2?",
+    answers: [
+        { text: "A) Passage 1 focuses on academic benefits of small classes, while Passage 2 emphasizes personal growth in large ones.", correct: true },
+        { text: "B) Passage 1 discusses class size preferences, while Passage 2 lists school rules.", correct: false },
+        { text: "C) Passage 1 supports large classes, while Passage 2 opposes them.", correct: false },
+        { text: "D) Passage 1 uses data, while Passage 2 relies on opinions.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "cross-text-connections"
+},
+{
+    passage: "Passage 1: The gardener favored organic methods, saying they protect soil health based on higher nutrient levels.\nPassage 2: The farmer preferred chemical fertilizers, arguing they increase crop yields with faster results.",
+    question: "How would the gardener from Passage 1 likely respond to the farmer’s argument in Passage 2?",
+    answers: [
+        { text: "A) She would argue that soil health matters more than quick crop yields.", correct: true },
+        { text: "B) She would agree that chemicals work faster but not better.", correct: false },
+        { text: "C) She would claim fertilizers don’t increase yields.", correct: false },
+        { text: "D) She would suggest organic methods are just as fast.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "cross-text-connections"
+},
+{
+    passage: "Passage 1: The chef praised home cooking, noting it saves money compared to dining out.\nPassage 2: The critic valued restaurant meals, highlighting their unique flavors from skilled preparation.",
+    question: "Which of the following best describes how the authors of Passage 1 and Passage 2 differ?",
+    answers: [
+        { text: "A) The chef emphasizes cost savings, while the critic focuses on culinary quality.", correct: true },
+        { text: "B) The chef dislikes restaurants, while the critic dislikes home cooking.", correct: false },
+        { text: "C) The chef discusses cooking skills, while the critic lists meal prices.", correct: false },
+        { text: "D) The chef uses data, while the critic uses personal taste.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "cross-text-connections"
+},
+{
+    passage: "Passage 1: The scientist linked exercise to better sleep, citing studies showing faster sleep onset.\nPassage 2: The doctor tied sleep quality to diet, mentioning how caffeine disrupts rest.",
+    question: "How would the scientist from Passage 1 likely respond to the doctor’s focus in Passage 2?",
+    answers: [
+        { text: "A) She would argue that exercise has a stronger effect on sleep than diet.", correct: true },
+        { text: "B) She would agree that caffeine disrupts sleep but not exercise.", correct: false },
+        { text: "C) She would deny that diet affects sleep quality.", correct: false },
+        { text: "D) She would suggest exercise and diet work the same way.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "cross-text-connections"
+},
+{
+    passage: "Passage 1: The librarian promoted e-books, saying they’re convenient for instant access.\nPassage 2: The bookseller favored print books, noting their tactile appeal draws readers.",
+    question: "Which of the following best describes a key difference between Passage 1 and Passage 2?",
+    answers: [
+        { text: "A) Passage 1 highlights practicality, while Passage 2 values sensory experience.", correct: true },
+        { text: "B) Passage 1 discusses book costs, while Passage 2 lists reader ages.", correct: false },
+        { text: "C) Passage 1 opposes print books, while Passage 2 opposes e-books.", correct: false },
+        { text: "D) Passage 1 uses surveys, while Passage 2 uses sales data.", correct: false }
+    ],
+    type: "reading",
+    difficulty: "easy",
+    category: "cross-text-connections"
+}
+
+
+//Cross Text MEDIUM Questions
 
         {
             passage: "Passage 1: Dr. Patel argues that genetic engineering holds unparalleled potential to eradicate hereditary diseases, citing recent trials where gene edits reduced disease markers by 80%. She dismisses ethical concerns as secondary, insisting that the urgency of human suffering justifies bold action.\nPassage 2: Professor Kline warns that genetic engineering, while promising, risks unforeseen consequences, such as ecological imbalances from altered gene pools. He advocates a cautious approach, prioritizing long-term studies over immediate application to ensure safety.",
@@ -3197,6 +3356,21 @@ else if (questionText.includes("As used in the passage, 'verbose' most nearly me
     return "'Plausible' describes a theory with initial data, needing confirmation. A) 'believable' fits this tentative support. B) 'proven' overstates unconfirmed status. C) 'complicated' adds unmentioned difficulty. D) 'unlikely' contradicts data. A) is correct.";
 } else if (questionText.includes("As used in the passage, 'obsolete' most nearly means") && passageText.includes("old bridge was deemed obsolete")) {
     return "'Obsolete' describes a bridge no longer meeting needs after a new highway. A) 'outdated' fits this irrelevance. B) 'dangerous' adds unmentioned risk. C) 'sturdy' opposes disuse. D) 'narrow' shifts focus. A) is correct.";
+}
+// --- NEW Explanations for the 6 Text Structure and Purpose Questions (Medium Difficulty) ---
+
+else if (questionText.includes("The passage is structured primarily to") && passageText.includes("travel writer began with a vivid description")) {
+    return "The passage starts with a market scene, then links crafts to culture, drawing readers in. A) captures this image-to-significance flow. B) misreads as a list. C) adds an argument not present. D) shifts to comparison. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("scientist opened with a surprising fact")) {
+    return "The passage uses a fact and decline details to stress bees’ role. A) reflects this importance focus. B) contradicts the threat. C) narrows to decline causes. D) adds unmentioned comparison. A) is correct.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("coach started by praising the team’s effort")) {
+    return "The passage praises effort, then details strategies, boosting morale. A) captures this praise-to-detail structure. B) misreads as critique. C) skips praise. D) adds comparison not present. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("historian described a famous battle")) {
+    return "The passage shows a battle’s wider impact on trade, shaping history. A) reflects this event-to-effect aim. B) narrows to tactics. C) reverses causality. D) overextends to all events. A) is correct.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("chef shared a recipe for a simple soup")) {
+    return "The passage gives a recipe, then offers adaptations, encouraging creativity. A) captures this guide-to-variation flow. B) adds an argument. C) overextends to all soups. D) shifts to comparison. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("teacher began with a question about recycling")) {
+    return "The passage hooks with a question, then informs with data on recycling’s value. A) reflects this engage-and-teach goal. B) contradicts intent. C) shifts to rules. D) adds comparison. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
