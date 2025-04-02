@@ -890,6 +890,11 @@ const readingWritingQuestions = [
             category: "words-in-context"
         },
 
+    //Text Structure EASY Questions
+
+    
+
+
     //Text Structure MEDIUM Questions
 
 
