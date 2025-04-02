@@ -15,8 +15,8 @@ let results = localStorage.getItem("testResults");
 results = results ? JSON.parse(results) : {};
 let isMathTest = false;
 let userResponses = [];
-let currentModule = 1; // Tracks module 1 or 2
-let module1Correct = 0; // Tracks correct answers in module 1 for adaptivity
+let currentModule = 1;
+let module1Correct = 0;
 
 const readingWritingQuestions = [
     {
@@ -80,7 +80,7 @@ const mathQuestions = [
         answers: [
             { text: "A) 2.5 hours", correct: false },
             { text: "B) 2.6 hours", correct: false },
-            { text: "C) leiding2.8 hours", correct: false },
+            { text: "C) 2.8 hours", correct: false },
             { text: "D) 2.75 hours", correct: true }
         ],
         difficulty: "hard",
@@ -152,10 +152,12 @@ function endModule() {
         currentModule = 2;
         startNextModule();
     } else {
-        showScore();
         if (!isMathTest) {
-            document.getElementById("question-container").classList.add("hide");
-            document.getElementById("break-message").classList.remove("hide");
+            // Show Reading/Writing score immediately after module 2
+            showReadingWritingScore();
+        } else {
+            // Show final combined score after Math module 2
+            showFinalScore();
         }
     }
 }
@@ -278,49 +280,59 @@ function selectAnswer(e) {
     nextButton.disabled = false;
 }
 
-function showScore() {
+function showReadingWritingScore() {
     resetState();
 
-    let maxPossibleScore = (isMathTest ? 7 : 9) * 1 + (isMathTest ? 8 : 9) * 2 + (isMathTest ? 7 : 9) * 3; // Per module
+    let maxPossibleScore = 9 * 1 + 9 * 2 + 9 * 3; // Per module (27 questions)
     maxPossibleScore *= 2; // Two modules
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
+    localStorage.setItem("readingScore", scaledScore);
+    passageElement.innerHTML = "";
+    questionElement.innerHTML = `Reading and Writing DSAT Score: ${scaledScore} / 800`;
+    questionElement.classList.add("centered-score");
+    document.querySelector(".question-row").classList.add("score-display");
+    nextButton.innerHTML = "Continue";
+    nextButton.style.display = "block";
+    nextButton.classList.add("centered-btn");
+
     document.getElementById("question-container").classList.remove("hide");
+    document.getElementById("break-message").classList.add("hide"); // Ensure break message stays hidden
+}
 
-    if (!isMathTest) {
-        localStorage.setItem("readingScore", scaledScore);
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = `Reading and Writing DSAT Score: ${scaledScore} / 800`;
-        questionElement.classList.add("centered-score");
-        document.querySelector(".question-row").classList.add("score-display");
-        nextButton.innerHTML = "Continue";
-        nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn");
-    } else {
-        let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
-        let mathScore = scaledScore;
-        localStorage.setItem("mathScore", mathScore);
+function showFinalScore() {
+    resetState();
 
-        let totalDSATScore = readingScore + mathScore;
+    let maxPossibleScore = 7 * 1 + 8 * 2 + 7 * 3; // Per module (22 questions)
+    maxPossibleScore *= 2; // Two modules
+    let rawScore = score;
+    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-        let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-        scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalDSATScore };
-        localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+    let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
+    let mathScore = scaledScore;
+    localStorage.setItem("mathScore", mathScore);
 
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Reading and Writing DSAT Score:</strong> ${readingScore} / 800</p>
-                                    <p><strong>Math DSAT Score:</strong> ${mathScore} / 800</p>
-                                    <p><strong>Total DSAT Score:</strong> ${totalDSATScore} / 1600</p>`;
-        questionElement.classList.add("centered-score");
-        document.querySelector(".question-row").classList.add("score-display");
-        nextButton.innerHTML = "Review Incorrect Answers";
-        nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn");
-        nextButton.removeEventListener("click", handleNextButton);
-        nextButton.addEventListener("click", showExplanations);
-    }
+    let totalDSATScore = readingScore + mathScore;
+
+    let today = new Date().toLocaleDateString("en-CA");
+    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+    scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalDSATScore };
+    localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+
+    passageElement.innerHTML = "";
+    questionElement.innerHTML = `<p><strong>Reading and Writing DSAT Score:</strong> ${readingScore} / 800</p>
+                                <p><strong>Math DSAT Score:</strong> ${mathScore} / 800</p>
+                                <p><strong>Total DSAT Score:</strong> ${totalDSATScore} / 1600</p>`;
+    questionElement.classList.add("centered-score");
+    document.querySelector(".question-row").classList.add("score-display");
+    nextButton.innerHTML = "Review Incorrect Answers";
+    nextButton.style.display = "block";
+    nextButton.classList.add("centered-btn");
+    nextButton.removeEventListener("click", handleNextButton);
+    nextButton.addEventListener("click", showExplanations);
+
+    document.getElementById("question-container").classList.remove("hide");
 }
 
 function showExplanations() {
@@ -369,7 +381,7 @@ function generateExplanation(response) {
     } else if (questionText.includes("An airplane is flying from City A to City B")) {
         return "Time against wind = 750 / 500 = 1.5 hours. Time with wind = 750 / 600 = 1.25 hours. Total = 2.75 hours.";
     } else if (questionText.includes("A car's value depreciates by 15%")) {
-        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $21,675. Year 3: $18适应423.75 ≈ $19,275.";
+        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $21,675. Year 3: $18,423.75 ≈ $19,275.";
     } else if (questionText.includes("The function f(x) is defined")) {
         return "f(4) = 2(4²) - 3(4) + 5 = 32 - 12 + 5 = 25.";
     } else if (questionText.includes("A company rents out bicycles")) {
@@ -418,6 +430,7 @@ nextButton.addEventListener("click", () => {
     if (nextButton.innerHTML === "Continue") {
         document.getElementById("break-message").classList.remove("hide");
         document.getElementById("question-container").classList.add("hide");
+        startMathTest(); // Start Math section immediately after clicking Continue
     } else {
         handleNextButton();
     }
