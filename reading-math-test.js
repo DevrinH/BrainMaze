@@ -46,6 +46,90 @@ const readingWritingQuestions = [
         difficulty: "medium",
         category: "inference"
     },
+
+//Command of Evidence EASY
+
+    {
+        passage: "The nutritionist argued that plant-based diets improve heart health, pointing to studies showing lower cholesterol levels among vegetarians. She noted that these diets often reduce saturated fat intake, a key factor in cardiovascular disease.",
+        question: "Which of the following pieces of evidence from the passage best supports the nutritionist’s claim that plant-based diets benefit heart health?",
+        answers: [
+            { text: "A) 'studies showing lower cholesterol levels among vegetarians'", correct: true },
+            { text: "B) 'The nutritionist argued that plant-based diets improve heart health'", correct: false },
+            { text: "C) 'these diets often reduce saturated fat intake'", correct: false },
+            { text: "D) 'a key factor in cardiovascular disease'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The historian suggested that trade routes shaped ancient cities, emphasizing how access to goods spurred population growth. She cited evidence of bustling markets in cities like Damascus, located along key trade paths.",
+        question: "Which of the following pieces of evidence from the passage best supports the idea that trade routes influenced urban development?",
+        answers: [
+            { text: "A) 'evidence of bustling markets in cities like Damascus, located along key trade paths'", correct: true },
+            { text: "B) 'The historian suggested that trade routes shaped ancient cities'", correct: false },
+            { text: "C) 'access to goods spurred population growth'", correct: false },
+            { text: "D) 'emphasizing how access to goods'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The ecologist claimed that urban green spaces reduce stress, referencing surveys where residents near parks reported better mental well-being. She also mentioned that trees filter air pollutants, improving overall health.",
+        question: "Which of the following pieces of evidence from the passage best supports the ecologist’s claim about stress reduction?",
+        answers: [
+            { text: "A) 'surveys where residents near parks reported better mental well-being'", correct: true },
+            { text: "B) 'The ecologist claimed that urban green spaces reduce stress'", correct: false },
+            { text: "C) 'trees filter air pollutants'", correct: false },
+            { text: "D) 'improving overall health'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The economist asserted that remote work boosts productivity, citing data from firms showing a 15% increase in output after adopting flexible schedules. She added that reduced commuting time allows for more focused effort.",
+        question: "Which of the following pieces of evidence from the passage best supports the economist’s assertion about productivity?",
+        answers: [
+            { text: "A) 'data from firms showing a 15% increase in output after adopting flexible schedules'", correct: true },
+            { text: "B) 'The economist asserted that remote work boosts productivity'", correct: false },
+            { text: "C) 'reduced commuting time allows for more focused effort'", correct: false },
+            { text: "D) 'after adopting flexible schedules'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The educator argued that smaller class sizes enhance learning, pointing to test scores that rose by 10% in reduced-size classrooms. She also noted that teachers could offer more individualized attention.",
+        question: "Which of the following pieces of evidence from the passage best supports the educator’s argument about enhanced learning?",
+        answers: [
+            { text: "A) 'test scores that rose by 10% in reduced-size classrooms'", correct: true },
+            { text: "B) 'The educator argued that smaller class sizes enhance learning'", correct: false },
+            { text: "C) 'teachers could offer more individualized attention'", correct: false },
+            { text: "D) 'in reduced-size classrooms'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The biologist proposed that invasive species disrupt ecosystems, highlighting data showing a 20% decline in native fish populations after zebra mussels arrived. She also mentioned their rapid reproduction rates.",
+        question: "Which of the following pieces of evidence from the passage best supports the biologist’s proposal about ecosystem disruption?",
+        answers: [
+            { text: "A) 'data showing a 20% decline in native fish populations after zebra mussels arrived'", correct: true },
+            { text: "B) 'The biologist proposed that invasive species disrupt ecosystems'", correct: false },
+            { text: "C) 'their rapid reproduction rates'", correct: false },
+            { text: "D) 'after zebra mussels arrived'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command-of-evidence"
+    },
+
+
+    //Coomand of Evidence MEDIUM
     {
         passage: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.",
         question: "Which choice provides the best evidence for the idea that Liam is uncertain about his work?",
@@ -139,7 +223,7 @@ const readingWritingQuestions = [
         category: "command-of-evidence"
     },
 
-    //Really Hard Command of evidence questions
+    //Command of evidence HARD
 
     {
         passage: "Dr. Voss scrutinized the fossil record, noting a sudden proliferation of species following mass extinctions. She posited that these events, though catastrophic, spurred evolutionary innovation by clearing ecological niches. Critics argued her view romanticized destruction, but Voss countered that the data—abrupt shifts in biodiversity metrics—suggested otherwise. Her analysis hinged on distinguishing short-term loss from long-term adaptive gains.",
@@ -219,7 +303,89 @@ const readingWritingQuestions = [
         difficulty: "hard",
         category: "command-of-evidence"
     },
-//Central Ideas Medium Questions
+//Central Ideas EASY 
+
+    {
+        passage: "The librarian promoted reading programs to boost community engagement, noting that book clubs doubled attendance at library events. She believed these efforts built stronger social ties among residents.",
+        question: "What is the central idea of the passage?",
+        answers: [
+            { text: "A) Reading programs strengthen community connections through increased participation.", correct: true },
+            { text: "B) Book clubs are the most popular library events.", correct: false },
+            { text: "C) Libraries need more funding for reading programs.", correct: false },
+            { text: "D) Social ties depend entirely on library attendance.", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central-ideas"
+    },
+    {
+        passage: "The gardener explained that composting reduces waste, highlighting how it turns kitchen scraps into nutrient-rich soil. She also mentioned that it lowers the need for chemical fertilizers.",
+        question: "Which detail from the passage best supports the gardener’s explanation of waste reduction?",
+        answers: [
+            { text: "A) 'turns kitchen scraps into nutrient-rich soil'", correct: true },
+            { text: "B) 'The gardener explained that composting reduces waste'", correct: false },
+            { text: "C) 'lowers the need for chemical fertilizers'", correct: false },
+            { text: "D) 'nutrient-rich soil'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central-ideas"
+    },
+    {
+        passage: "The coach emphasized teamwork in sports, stating that coordinated plays often lead to victories. He pointed to a recent game where collaboration scored the winning goal.",
+        question: "What is the central idea of the passage?",
+        answers: [
+            { text: "A) Teamwork is key to success in sports through effective coordination.", correct: true },
+            { text: "B) Winning games depends only on scoring goals.", correct: false },
+            { text: "C) Coaches must focus on individual skills over teamwork.", correct: false },
+            { text: "D) Collaboration is less important than strategy.", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central-ideas"
+    },
+    {
+        passage: "The teacher argued that hands-on projects improve science learning, noting that students who built models scored higher on tests. She added that these activities make lessons more engaging.",
+        question: "Which detail from the passage best supports the teacher’s argument about improved learning?",
+        answers: [
+            { text: "A) 'students who built models scored higher on tests'", correct: true },
+            { text: "B) 'The teacher argued that hands-on projects improve science learning'", correct: false },
+            { text: "C) 'these activities make lessons more engaging'", correct: false },
+            { text: "D) 'built models'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central-ideas"
+    },
+    {
+        passage: "The chef promoted local ingredients, claiming they enhance dish flavors with freshness. He cited a survey where diners preferred meals made with nearby produce.",
+        question: "What is the central idea of the passage?",
+        answers: [
+            { text: "A) Local ingredients improve food quality due to their freshness.", correct: true },
+            { text: "B) Diners always prefer nearby produce over imported goods.", correct: false },
+            { text: "C) Freshness is the only factor in dish flavor.", correct: false },
+            { text: "D) Chefs must use surveys to choose ingredients.", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central-ideas"
+    },
+    {
+        passage: "The musician valued practice, asserting it sharpens performance skills. She mentioned that daily rehearsals helped her master a difficult piece for a concert.",
+        question: "Which detail from the passage best supports the musician’s assertion about sharpening skills?",
+        answers: [
+            { text: "A) 'daily rehearsals helped her master a difficult piece'", correct: true },
+            { text: "B) 'The musician valued practice'", correct: false },
+            { text: "C) 'asserting it sharpens performance skills'", correct: false },
+            { text: "D) 'for a concert'", correct: false }
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central-ideas"
+    },
+
+
+//Central Ideas Medium 
     {
         passage: "Dr. Evelyn stared at the data flickering on her screen, a pattern she’d chased for months now glaring back at her. The anomaly was undeniable – a spike where none should exist – yet she hesitated to call it a breakthrough. In her mind, a question gnawed: was this truly an anomaly, or had she miscalculated? The implications were staggering, potentially upending decades of atmospheric research, but the weight of that possibility made her pause. She traced the numbers again, her confidence wavering as the screen’s glow cast shadows across her furrowed brow.",
         question: "Which of the following pieces of evidence from the passage best supports the idea that Dr. Evelyn questions the validity of her findings?",
@@ -2900,6 +3066,36 @@ else if (questionText.includes("In a right triangle, one acute angle measures 36
     return "Base = 6 (x-axis), height = 4 (y of (3, 4)). Area = (1/2) · base · height = (1/2) · 6 · 4 = 12. A) 12 is correct. B) 10, C) 15, D) 18 miscalculate.";
 } else if (questionText.includes("A cylinder has a height equal to twice its radius")) {
     return "h = 2r. Surface area = 2πr² + 2πrh = 2πr² + 2πr·2r = 2πr² + 4πr² = 6πr² = 96π, r² = 16, r = 4. h = 8. Volume = πr²h = π·16·8 = 128π. A) 128π is correct. B) 96π, C) 144π, D) 112π misapply.";
+}
+// --- NEW Explanations for the 6 Command of Evidence Questions (Medium Difficulty) ---
+
+else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the nutritionist’s claim")) {
+    return "The claim is plant-based diets benefit heart health. A) 'studies showing lower cholesterol levels' directly ties to heart health via evidence. B) restates the claim, not evidence. C) explains a mechanism, not direct support. D) is a fragment, not specific. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the idea that trade routes")) {
+    return "The idea is trade routes influenced urban development. A) 'bustling markets in Damascus along trade paths' shows direct evidence of impact. B) is the historian’s claim, not evidence. C) states an effect, not proof. D) is incomplete, not specific. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the ecologist’s claim")) {
+    return "The claim is green spaces reduce stress. A) 'surveys reporting better mental well-being' directly supports stress reduction. B) restates the claim. C) addresses air quality, not stress. D) is vague, not specific to stress. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the economist’s assertion")) {
+    return "The assertion is remote work boosts productivity. A) '15% increase in output' provides concrete evidence. B) is the assertion itself. C) suggests a reason, not proof. D) is a fragment, not full evidence. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the educator’s argument")) {
+    return "The argument is smaller classes enhance learning. A) 'test scores rose by 10%' directly shows improved learning. B) restates the argument. C) offers a method, not evidence. D) is incomplete, not specific. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the biologist’s proposal")) {
+    return "The proposal is invasive species disrupt ecosystems. A) '20% decline in fish populations' directly evidences disruption. B) is the proposal, not evidence. C) describes a trait, not impact. D) is a fragment, not full support. A) is correct.";
+}
+// --- NEW Explanations for the 6 Central Ideas and Details Questions (Easy Difficulty) ---
+
+else if (questionText.includes("What is the central idea of the passage") && passageText.includes("librarian promoted reading programs")) {
+    return "The passage focuses on reading programs building community via participation. A) captures this with 'strengthen connections' and 'participation,' tying to book clubs and ties. B) overstates book club popularity. C) adds funding, not mentioned. D) exaggerates dependency. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best supports the gardener’s explanation")) {
+    return "The explanation is composting reduces waste. A) 'turns scraps into soil' directly shows waste transformation. B) restates the explanation. C) addresses fertilizers, not waste. D) is a fragment, not full support. A) is correct.";
+} else if (questionText.includes("What is the central idea of the passage") && passageText.includes("coach emphasized teamwork")) {
+    return "The passage centers on teamwork driving sports success via coordination. A) reflects this with 'key to success' and 'coordination,' linking to plays and victories. B) narrows to goals. C) contradicts teamwork focus. D) downplays collaboration. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best supports the teacher’s argument")) {
+    return "The argument is hands-on projects improve learning. A) 'higher test scores' directly proves learning gains. B) restates the argument. C) notes engagement, not learning proof. D) is incomplete. A) is correct.";
+} else if (questionText.includes("What is the central idea of the passage") && passageText.includes("chef promoted local ingredients")) {
+    return "The passage highlights local ingredients enhancing flavor via freshness. A) captures this with 'improve quality' and 'freshness,' tied to survey. B) overgeneralizes preference. C) limits to freshness. D) adds surveys as requirement. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best supports the musician’s assertion")) {
+    return "The assertion is practice sharpens skills. A) 'daily rehearsals mastered a piece' shows skill improvement. B) restates value, not evidence. C) repeats assertion. D) is a fragment. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
