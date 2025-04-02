@@ -14,143 +14,118 @@ let selectedQuestions = [];
 let categoryStats = {};
 let results = localStorage.getItem("testResults");
 results = results ? JSON.parse(results) : {};
-let isMathTest = false;
-let userResponses = [];
-let currentModule = 1;
-let module1Score = 0;
-let time = 0;
 let refreshIntervalId;
+let isMathTest = false;
+let time;
+let userResponses = [];
+let currentModule = 1; // Tracks module 1 or 2
+let module1Correct = 0; // Tracks correct answers in module 1 for adaptivity
 
-const readingWritingQuestions = {
-    easy: [
-        {
-            passage: "Emma felt uneasy as she entered the ballroom, despite her excitement.",
-            question: "What does the passage suggest about Emma’s feelings?",
-            answers: [
-                { text: "A) She feels out of place.", correct: true },
-                { text: "B) She is eager to dance.", correct: false },
-                { text: "C) She loves the chandeliers.", correct: false },
-                { text: "D) She is confident.", correct: false },
-            ],
-            type: "reading",
-            difficulty: "easy",
-            category: "inference"
-        },
-        {
-            passage: "The scientist stared at unexpected data, doubting her calculations.",
-            question: "What word best describes the scientist’s reaction?",
-            answers: [
-                { text: "A) Skepticism", correct: true },
-                { text: "B) Joy", correct: false },
-                { text: "C) Relief", correct: false },
-                { text: "D) Confidence", correct: false },
-            ],
-            type: "reading",
-            difficulty: "easy",
-            category: "vocabulary"
-        }
-    ],
-    medium: [
-        {
-            passage: "Daniel took a deep breath before starting his new job, unsure but determined.",
-            question: "What does the passage imply about Daniel?",
-            answers: [
-                { text: "A) He is hesitant yet motivated.", correct: true },
-                { text: "B) He dislikes his job.", correct: false },
-                { text: "C) He is overconfident.", correct: false },
-                { text: "D) He plans to quit.", correct: false },
-            ],
-            type: "reading",
-            difficulty: "medium",
-            category: "inference"
-        },
-        {
-            passage: "Liam doubted his manuscript’s impact after months of work.",
-            question: "Which sentence best shows Liam’s uncertainty?",
-            answers: [
-                { text: "A) 'Liam doubted his manuscript’s impact.'", correct: true },
-                { text: "B) 'He worked for months.'", correct: false },
-                { text: "C) 'He set his pen down.'", correct: false },
-                { text: "D) 'He exhaled slowly.'", correct: false },
-            ],
-            type: "reading",
-            difficulty: "medium",
-            category: "command-of-evidence"
-        }
-    ],
-    hard: [
-        {
-            passage: "The data contradicted her hypothesis, leaving her perplexed.",
-            question: "What evidence best supports her confusion?",
-            answers: [
-                { text: "A) 'The data contradicted her hypothesis.'", correct: false },
-                { text: "B) 'Leaving her perplexed.'", correct: true },
-                { text: "C) 'She adjusted her glasses.'", correct: false },
-                { text: "D) 'She tapped her desk.'", correct: false },
-            ],
-            type: "reading",
-            difficulty: "hard",
-            category: "command-of-evidence"
-        }
-    ]
-};
+const readingWritingQuestions = [
+    {
+        passage: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.",
+        question: "What does the passage suggest about Emma’s feelings?",
+        answers: [
+            { text: "A) She feels out of place despite having anticipated this moment.", correct: true },
+            { text: "B) She is overwhelmed by the beauty and struggles to contain excitement.", correct: false },
+            { text: "C) She is intimidated by the guests and decides to leave.", correct: false },
+            { text: "D) She is eager to impress others and makes a confident entrance.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "inference"
+    },
+    {
+        passage: "Daniel stepped into the office, straightening his tie as he took in the bustling atmosphere. Conversations hummed around him, and the clatter of keyboards filled the air. He had spent weeks preparing for this moment, yet a small knot of doubt twisted in his stomach. He took a deep breath and walked toward his desk, reminding himself that everyone had to start somewhere.",
+        question: "What does the passage suggest about Daniel's attitude toward his new job?",
+        answers: [
+            { text: "A) He is uncertain about his abilities but determined to prove himself.", correct: true },
+            { text: "B) He is uninterested and only took the job for financial reasons.", correct: false },
+            { text: "C) He is confident he will excel without challenges.", correct: false },
+            { text: "D) He regrets accepting the position and considers quitting.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "inference"
+    },
+    {
+        passage: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.",
+        question: "Which choice provides the best evidence for Liam’s uncertainty about his work?",
+        answers: [
+            { text: "A) 'Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind.'", correct: true },
+            { text: "B) 'He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.'", correct: false },
+            { text: "C) 'Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript.'", correct: false },
+            { text: "D) 'He had imagined this moment countless times, picturing satisfaction.'", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command-of-evidence"
+    },
+    {
+        passage: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.",
+        question: "Which sentence best supports the idea that the scientist struggles to accept her findings?",
+        answers: [
+            { text: "A) 'The scientist adjusted her glasses, peering at the data displayed on the screen.'", correct: false },
+            { text: "B) 'She tapped her fingers against the desk, reviewing each calculation.'", correct: false },
+            { text: "C) 'The results were unexpected—far different from what she and her team had predicted.'", correct: false },
+            { text: "D) 'There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.'", correct: true },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+];
 
-const mathQuestions = {
-    easy: [
-        {
-            passage: "",
-            question: "If 2x + 5 = 13, what is x?",
-            answers: [
-                { text: "A) 4", correct: true },
-                { text: "B) 5", correct: false },
-                { text: "C) 6", correct: false },
-                { text: "D) 3", correct: false }
-            ],
-            difficulty: "easy",
-            category: "algebra"
-        }
-    ],
-    medium: [
-        {
-            passage: "",
-            question: "A bike rental costs $12 plus $3 per hour. Max budget: $45. Max hours?",
-            answers: [
-                { text: "A) 10", correct: false },
-                { text: "B) 11", correct: false },
-                { text: "C) 9", correct: true },
-                { text: "D) 8", correct: false }
-            ],
-            difficulty: "medium",
-            category: "algebra"
-        }
-    ],
-    hard: [
-        {
-            passage: "",
-            question: "Airplane flies 1,500 miles: 500 mph against wind, 600 mph with wind. Total time?",
-            answers: [
-                { text: "A) 2.5 hours", correct: false },
-                { text: "B) 2.6 hours", correct: false },
-                { text: "C) 2.8 hours", correct: false },
-                { text: "D) 2.75 hours", correct: true }
-            ],
-            difficulty: "hard",
-            category: "advanced-math"
-        },
-        {
-            passage: "",
-            question: "Car depreciates 15% yearly from $30,000. Value after 3 years?",
-            answers: [
-                { text: "A) $18,520", correct: false },
-                { text: "B) $19,275", correct: true },
-                { text: "C) $20,250", correct: false },
-                { text: "D) $21,000", correct: false }
-            ],
-            difficulty: "hard",
-            category: "advanced-math"
-        }
-    ]
-};
+const mathQuestions = [
+    {
+        passage: "",
+        question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
+        answers: [
+            { text: "A) 2.5 hours", correct: false },
+            { text: "B) 2.6 hours", correct: false },
+            { text: "C) 2.8 hours", correct: false },
+            { text: "D) 2.75 hours", correct: true }
+        ],
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        passage: "",
+        question: "A car's value depreciates by 15% each year. If the car was originally purchased for $30,000, what will its value be after 3 years, rounded to the nearest dollar?",
+        answers: [
+            { text: "A) $18,520", correct: false },
+            { text: "B) $19,275", correct: true },
+            { text: "C) $20,250", correct: false },
+            { text: "D) $21,000", correct: false }
+        ],
+        difficulty: "hard",
+        category: "advanced-math"
+    },    
+    {
+        passage: "",
+        question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
+        answers: [
+            { text: "A) 27", correct: false },
+            { text: "B) 29", correct: true },
+            { text: "C) 31", correct: false },
+            { text: "D) 25", correct: false }
+        ],
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "",
+        question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
+        answers: [
+            { text: "A) 10 hours", correct: false },
+            { text: "B) 11 hours", correct: false },
+            { text: "C) 9 hours", correct: true },
+            { text: "D) 8 hours", correct: false }
+        ],
+        difficulty: "medium",
+        category: "algebra"
+    },
+];
 
 function startTest() {
     satIntroContainer.classList.add("hide");
@@ -160,47 +135,103 @@ function startTest() {
 
 function startReadingWritingTest() {
     isMathTest = false;
-    currentModule = 1;
-    userResponses = [];
     time = 32 * 60; // 32 minutes per module
+    userResponses = [];
+    currentModule = 1;
+    module1Correct = 0;
     refreshIntervalId = setInterval(updateCountdown, 1000);
-    startModule(readingWritingQuestions, 2, 1, 1, "Reading and Writing Module 1");
+    setTimeout(endModule, 32 * 60 * 1000); // End after 32 minutes
+    startQuiz(readingWritingQuestions, 9, 9, 9); // 27 questions per module
 }
 
 function startMathTest() {
     isMathTest = true;
-    currentModule = 1;
     time = 35 * 60; // 35 minutes per module
+    currentModule = 1;
+    module1Correct = 0;
     refreshIntervalId = setInterval(updateCountdown, 1000);
-    startModule(mathQuestions, 1, 1, 1, "Math Module 1");
+    setTimeout(endModule, 35 * 60 * 1000); // End after 35 minutes
+    startQuiz(mathQuestions, 7, 8, 7); // 22 questions per module
 }
 
-function startModule(questions, numEasy, numMedium, numHard, moduleName) {
+function updateCountdown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    countdownEl.innerHTML = `${minutes} : ${seconds}`;
+    if (time === 0) {
+        clearInterval(refreshIntervalId);
+        endModule();
+    } else {
+        time--;
+    }
+}
+
+function endModule() {
+    clearInterval(refreshIntervalId);
+    resetState();
+    if (currentModule === 1) {
+        module1Correct = correctAnswers;
+        currentModule = 2;
+        startNextModule();
+    } else {
+        showScore();
+        if (!isMathTest) {
+            document.getElementById("question-container").classList.add("hide");
+            document.getElementById("break-message").classList.remove("hide");
+        }
+    }
+}
+
+function startNextModule() {
+    currentQuestionIndex = 0;
+    correctAnswers = 0;
+    score = 0;
+    time = isMathTest ? 35 * 60 : 32 * 60;
+    refreshIntervalId = setInterval(updateCountdown, 1000);
+    setTimeout(endModule, (isMathTest ? 35 : 32) * 60 * 1000);
+    
+    const threshold = isMathTest ? 11 : 13; // 50% correct threshold for adaptivity
+    if (module1Correct >= threshold) {
+        // Harder module 2
+        startQuiz(isMathTest ? mathQuestions : readingWritingQuestions, 0, 9, 13); // More hard questions
+    } else {
+        // Easier module 2
+        startQuiz(isMathTest ? mathQuestions : readingWritingQuestions, 13, 9, 0); // More easy questions
+    }
+}
+
+function startQuiz(questions, numEasy, numMedium, numHard) {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
     categoryStats = {};
     selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
     nextButton.innerHTML = "Next";
-    passageElement.innerHTML = `<h3>${moduleName}</h3>`;
     showQuestion();
 }
 
 function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
+    const easyQuestions = questions.filter(q => q.difficulty === "easy");
+    const mediumQuestions = questions.filter(q => q.difficulty === "medium");
+    const hardQuestions = questions.filter(q => q.difficulty === "hard");
+
     function getRandom(arr, num) {
         return arr.sort(() => 0.5 - Math.random()).slice(0, Math.min(num, arr.length));
     }
-    const easy = getRandom(questions.easy || [], numEasy);
-    const medium = getRandom(questions.medium || [], numMedium);
-    const hard = getRandom(questions.hard || [], numHard);
-    return [...easy, ...medium, ...hard];
+
+    const selectedEasy = getRandom(easyQuestions, numEasy);
+    const selectedMedium = getRandom(mediumQuestions, numMedium);
+    const selectedHard = getRandom(hardQuestions, numHard);
+
+    return [...selectedEasy, ...selectedMedium, ...selectedHard];
 }
 
 function showQuestion() {
     resetState();
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    passageElement.innerHTML += `<p>${currentQuestion.passage}</p>`;
+    passageElement.innerHTML = currentQuestion.passage;
     questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
     currentQuestion.answers.forEach(answer => {
@@ -238,7 +269,7 @@ function selectAnswer(e) {
 
     const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
     userResponses.push({
-        question: currentQuestion.passage + "<br/>" + currentQuestion.question,
+        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
         userAnswer: selectedBtn.innerHTML,
         correctAnswer: correctAnswer,
         wasCorrect: isCorrect
@@ -247,7 +278,13 @@ function selectAnswer(e) {
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         correctAnswers++;
-        score += (questionDifficulty === "easy" ? 1 : questionDifficulty === "medium" ? 2 : 3);
+        if (questionDifficulty === "easy") {
+            score += 1;
+        } else if (questionDifficulty === "medium") {
+            score += 2;
+        } else if (questionDifficulty === "hard") {
+            score += 3;
+        }
         categoryStats[questionCategory].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
@@ -267,90 +304,12 @@ function selectAnswer(e) {
     nextButton.disabled = false;
 }
 
-function updateCountdown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    countdownEl.innerHTML = `${minutes} : ${seconds}`;
-    if (time === 0) {
-        clearInterval(refreshIntervalId);
-        if (currentModule === 1) {
-            module1Score = correctAnswers;
-            currentModule = 2;
-            if (isMathTest) {
-                startMathModule2();
-            } else {
-                startReadingWritingModule2();
-            }
-        } else {
-            if (isMathTest) {
-                endMathTest();
-            } else {
-                endReadingWritingTest();
-            }
-        }
-    } else {
-        time--;
-    }
-}
-
-function startReadingWritingModule2() {
-    time = 32 * 60;
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    startModule(readingWritingQuestions, module1Score >= 2 ? 0 : 1, module1Score >= 2 ? 1 : 1, module1Score >= 2 ? 2 : 1, "Reading and Writing Module 2");
-}
-
-function startMathModule2() {
-    time = 35 * 60;
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    startModule(mathQuestions, module1Score >= 2 ? 0 : 1, module1Score >= 2 ? 1 : 1, module1Score >= 2 ? 2 : 1, "Math Module 2");
-}
-
-function handleNextButton() {
-    recordTestResults();
-    currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) {
-        showQuestion();
-    } else {
-        if (currentModule === 1) {
-            clearInterval(refreshIntervalId);
-            module1Score = correctAnswers;
-            currentModule = 2;
-            if (isMathTest) {
-                startMathModule2();
-            } else {
-                startReadingWritingModule2();
-            }
-        } else {
-            clearInterval(refreshIntervalId);
-            if (isMathTest) {
-                endMathTest();
-            } else {
-                endReadingWritingTest();
-            }
-        }
-    }
-}
-
-function endReadingWritingTest() {
-    clearInterval(refreshIntervalId);
-    resetState();
-    showScore();
-    document.getElementById("question-container").classList.add("hide");
-    document.getElementById("break-message").classList.remove("hide");
-    document.querySelector(".question-row").classList.remove("score-display");
-    nextButton.classList.remove("centered-btn");
-}
-
-function endMathTest() {
-    clearInterval(refreshIntervalId);
-    resetState();
-    showScore();
-}
-
 function showScore() {
+    clearInterval(refreshIntervalId);
     resetState();
-    let maxPossibleScore = 6; // Adjusted for sample size (2 easy, 2 med, 2 hard max)
+
+    let maxPossibleScore = (isMathTest ? 7 : 9) * 1 + (isMathTest ? 8 : 9) * 2 + (isMathTest ? 7 : 9) * 3; // Per module
+    maxPossibleScore *= 2; // Two modules
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
@@ -359,7 +318,7 @@ function showScore() {
     if (!isMathTest) {
         localStorage.setItem("readingScore", scaledScore);
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `Reading and Writing Score: ${scaledScore} / 800`;
+        questionElement.innerHTML = `Reading and Writing DSAT Score: ${scaledScore} / 800`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
@@ -369,17 +328,18 @@ function showScore() {
         let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
         let mathScore = scaledScore;
         localStorage.setItem("mathScore", mathScore);
-        let totalSATScore = readingScore + mathScore;
+
+        let totalDSATScore = readingScore + mathScore;
 
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-        scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
+        scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalDSATScore };
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Reading and Writing Score:</strong> ${readingScore} / 800</p>
-                                    <p><strong>Math Score:</strong> ${mathScore} / 800</p>
-                                    <p><strong>Total DSAT Score:</strong> ${totalSATScore} / 1600</p>`;
+        questionElement.innerHTML = `<p><strong>Reading and Writing DSAT Score:</strong> ${readingScore} / 800</p>
+                                    <p><strong>Math DSAT Score:</strong> ${mathScore} / 800</p>
+                                    <p><strong>Total DSAT Score:</strong> ${totalDSATScore} / 1600</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
@@ -424,15 +384,35 @@ function showExplanations() {
 
 function generateExplanation(response) {
     const questionText = response.question;
-    if (questionText.includes("Emma felt uneasy")) return "Emma’s unease despite excitement suggests discomfort.";
-    if (questionText.includes("Daniel took a deep breath")) return "His hesitation and determination show resolve.";
-    if (questionText.includes("Liam doubted his manuscript")) return "The doubt explicitly shows uncertainty.";
-    if (questionText.includes("The scientist stared")) return "Skepticism fits her doubt in the data.";
-    if (questionText.includes("Airplane flies 1,500 miles")) return "Time = 750/500 + 750/600 = 2.75 hours.";
-    if (questionText.includes("Car depreciates 15%")) return "Value = $30,000 × 0.85³ ≈ $19,275.";
-    if (questionText.includes("bike rental costs $12")) return "12 + 3h ≤ 45, h = 9 hours max.";
-    if (questionText.includes("If 2x + 5 = 13")) return "2x = 8, x = 4.";
+
+    if (questionText.includes("Emma stepped into the grand ballroom")) {
+        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation.";
+    } else if (questionText.includes("Daniel stepped into the office")) {
+        return "Daniel’s doubt and deep breath indicate uncertainty, but his reminder shows determination.";
+    } else if (questionText.includes("Liam set his pen down")) {
+        return "The explicit mention of 'nagging doubt' directly shows his uncertainty.";
+    } else if (questionText.includes("The scientist adjusted her glasses")) {
+        return "Her disbelief in consistent results despite repeated checks shows her struggle.";
+    } else if (questionText.includes("An airplane is flying from City A to City B")) {
+        return "Time against wind = 750 / 500 = 1.5 hours. Time with wind = 750 / 600 = 1.25 hours. Total = 2.75 hours.";
+    } else if (questionText.includes("A car's value depreciates by 15%")) {
+        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $21,675. Year 3: $18,423.75 ≈ $19,275.";
+    } else if (questionText.includes("The function f(x) is defined")) {
+        return "f(4) = 2(4²) - 3(4) + 5 = 32 - 12 + 5 = 25.";
+    } else if (questionText.includes("A company rents out bicycles")) {
+        return "$12 + $3h ≤ $45. h ≤ 11. Maximum whole hours = 9.";
+    }
     return "No specific explanation available.";
+}
+
+function handleNextButton() {
+    recordTestResults();
+    currentQuestionIndex++;
+    if (currentQuestionIndex < selectedQuestions.length) {
+        showQuestion();
+    } else {
+        endModule();
+    }
 }
 
 function updateProgressBar() {
@@ -444,10 +424,6 @@ function updateProgressBar() {
 function recordTestResults() {
     let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
-
-    if (typeof results !== "object" || Array.isArray(results)) {
-        results = {};
-    }
 
     for (let category in categoryStats) {
         if (!results[category]) {
@@ -479,21 +455,5 @@ continueButton.addEventListener("click", () => {
     document.getElementById("question-container").classList.remove("hide");
     startMathTest();
 });
-
-function showIntroMessage() {
-    resetState();
-    passageElement.innerHTML = "";
-    questionElement.innerHTML = "This is a timed Digital SAT Test: 64 min for Reading/Writing, 70 min for Math.";
-    questionElement.classList.add("centered-score");
-
-    const startButton = document.createElement("button");
-    startButton.innerHTML = "Start Test";
-    startButton.classList.add("btn", "centered-btn");
-    startButton.addEventListener("click", () => {
-        questionElement.classList.remove("centered-score");
-        startReadingWritingTest();
-    });
-    answerButtons.appendChild(startButton);
-}
 
 startTestButton.addEventListener("click", startTest);
