@@ -940,6 +940,7 @@ const readingWritingQuestions = [
             category: "cross-text-connections"
         },
 
+    //Transitions MEDIUM Questions    
 
         {
             passage: "The expedition faced relentless storms, forcing the team to halt their ascent midway. [____], once the weather cleared, they resumed with renewed determination, reaching the summit by dusk.",
@@ -964,7 +965,7 @@ const readingWritingQuestions = [
                 { text: "D) Moreover", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "transitions"
         },
         {
@@ -977,7 +978,7 @@ const readingWritingQuestions = [
                 { text: "D) In addition", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "transitions"
         },
         {
@@ -990,7 +991,7 @@ const readingWritingQuestions = [
                 { text: "D) Specifically", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "transitions"
         },
         {
@@ -1003,9 +1004,91 @@ const readingWritingQuestions = [
                 { text: "D) Similarly", correct: false }
             ],
             type: "reading",
+            difficulty: "medium",
+            category: "transitions"
+        },
+
+    //Transitions HARD Questions
+
+        {
+            passage: "The researcher’s initial hypothesis predicted a linear correlation between temperature and plant growth. [____], subsequent experiments revealed a threshold beyond which heat stunted development, prompting a revision of her model.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) However", correct: true },
+                { text: "B) For example", correct: false },
+                { text: "C) Consequently", correct: false },
+                { text: "D) In addition", correct: false }
+            ],
+            type: "reading",
             difficulty: "hard",
             category: "transitions"
         },
+        {
+            passage: "Critics lambasted the policy for its shortsightedness, arguing it ignored long-term fiscal risks. [____], proponents hailed its immediate economic stimulus, citing a 5% boost in local spending within months of implementation.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) By contrast", correct: true },
+                { text: "B) Similarly", correct: false },
+                { text: "C) As a result", correct: false },
+                { text: "D) Moreover", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
+        },
+        {
+            passage: "The expedition endured relentless storms, delaying their summit attempt by weeks. [____], the team capitalized on a brief window of calm to deploy advanced gear, ultimately securing rare geological samples.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Nevertheless", correct: true },
+                { text: "B) Meanwhile", correct: false },
+                { text: "C) Specifically", correct: false },
+                { text: "D) Thus", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
+        },
+        {
+            passage: "The novel’s dense prose initially repelled casual readers, who found its layers impenetrable. [____], scholars unearthed a trove of subtle allusions within its complexity, elevating its status in academic circles.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Conversely", correct: true },
+                { text: "B) Therefore", correct: false },
+                { text: "C) In fact", correct: false },
+                { text: "D) Likewise", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
+        },
+        {
+            passage: "The city council proposed a tax hike to fund infrastructure, projecting a $10 million revenue increase. [____], opponents mobilized a petition drive, warning that the burden would disproportionately fall on low-income residents.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) In response", correct: true },
+                { text: "B) For instance", correct: false },
+                { text: "C) On the other hand", correct: false },
+                { text: "D) Subsequently", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
+        },
+        {
+            passage: "The startup’s aggressive expansion yielded a 200% profit surge, dazzling investors with its meteoric rise. [____], analysts cautioned that such rapid growth masked underlying vulnerabilities, such as an overreliance on volatile markets.",
+            question: "Which of the following transitions best fits in the blank to connect the ideas in the passage?",
+            answers: [
+                { text: "A) Despite this", correct: true },
+                { text: "B) Accordingly", correct: false },
+                { text: "C) In contrast", correct: false },
+                { text: "D) As a result", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "transitions"
+        },
+//Rhetorical Synthesis MEDIUM Questions
         {
             passage: "A student is writing a report on the benefits of urban green spaces for a city planning committee. The student wants to conclude with a sentence that emphasizes the urgency of action based on the following notes:\n- Studies show green spaces reduce urban heat by up to 5°F.\n- Local surveys indicate 78% of residents support more parks.\n- Delaying implementation increases costs by 15% annually.",
             question: "Which of the following sentences should the student use to conclude the report and emphasize the urgency of action?",
@@ -1016,7 +1099,7 @@ const readingWritingQuestions = [
                 { text: "D) Studies on heat reduction and survey data provide a compelling case for green spaces, if funding allows.", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "rhetorical-synthesis"
         },
         {
@@ -1029,7 +1112,7 @@ const readingWritingQuestions = [
                 { text: "D) Outperforming traditional models, our prototype suggests a reliable alternative for future energy needs.", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "rhetorical-synthesis"
         },
         {
@@ -1042,7 +1125,7 @@ const readingWritingQuestions = [
                 { text: "D) Forests’ ability to absorb 2.6 billion tons of CO2 annually outweighs concerns about initial costs and timelines.", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "rhetorical-synthesis"
         },
         {
@@ -1055,7 +1138,7 @@ const readingWritingQuestions = [
                 { text: "D) Public skepticism delayed railroads and AI, yet each eventually proved essential to modern life.", correct: false }
             ],
             type: "reading",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "rhetorical-synthesis"
         },
         {
@@ -1068,9 +1151,89 @@ const readingWritingQuestions = [
                 { text: "D) Community arts have proven effective for youth and artists, suggesting a need for future support.", correct: false }
             ],
             type: "reading",
+            difficulty: "medium",
+            category: "rhetorical-synthesis"
+        },
+//Rhetorical Synthesis HARD Questions
+        {
+        passage: "A scientist is writing a grant proposal to fund a study on deep-sea ecosystems. The scientist wants to emphasize the urgency of the research using these notes:\n- Ocean warming has increased 0.5°C in 20 years, stressing marine life.\n- Deep-sea species show a 30% decline in population over the same period.\n- Funding delays could miss a critical window to document these changes.",
+        question: "Which of the following sentences should the scientist use to emphasize the urgency of the research?",
+        answers: [
+            { text: "A) With ocean warming accelerating and deep-sea populations plummeting by 30% in just two decades, we must act now before funding delays erase our chance to study these vanishing ecosystems.", correct: true },
+            { text: "B) The 0.5°C rise in ocean temperature over 20 years and a 30% drop in deep-sea species suggest a need for timely research funding.", correct: false },
+            { text: "C) Deep-sea ecosystems, declining by 30% as oceans warm, deserve study before funding delays complicate efforts.", correct: false },
+            { text: "D) Given a 0.5°C temperature increase and population losses, urgent research is warranted to understand deep-sea changes.", correct: false }
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "rhetorical-synthesis"
+        },
+        {
+            passage: "A historian is drafting an article on technological revolutions for a scholarly journal. The historian wants to connect past and present trends using these notes:\n- Steam engines in the 1800s tripled industrial output in a decade.\n- Artificial intelligence today enhances data processing by 40% annually.\n- Both faced resistance from workers fearing job loss.",
+            question: "Which of the following sentences should the historian use to connect past and present technological trends?",
+            answers: [
+                { text: "A) Just as steam engines tripled output in the 1800s despite worker pushback, AI’s 40% annual data gains today echo that transformative power amid similar fears.", correct: true },
+                { text: "B) Steam engines and AI, boosting output and data processing respectively, show how technology evolves despite resistance.", correct: false },
+                { text: "C) The 1800s steam engine boom and today’s AI advances both overcame worker objections to increase efficiency.", correct: false },
+                { text: "D) Workers resisted steam engines’ tripling of output and AI’s 40% data gains, linking past and present tech shifts.", correct: false }
+            ],
+            type: "reading",
             difficulty: "hard",
             category: "rhetorical-synthesis"
         },
+        {
+            passage: "An environmentalist is writing an op-ed to persuade readers to support wetland restoration. The environmentalist wants to counter a common objection using these notes:\n- Objection: Restoration is too expensive, costing $2 million per project.\n- Fact: Wetlands prevent flood damage, saving $5 million annually in affected areas.\n- Benefit: Restored wetlands boost biodiversity by 25% within five years.",
+            question: "Which of the following sentences should the environmentalist use to counter the objection and persuade readers?",
+            answers: [
+                { text: "A) Far from being a $2 million burden, wetland restoration saves $5 million yearly in flood costs while enriching biodiversity by 25%, making it a cost-effective imperative.", correct: true },
+                { text: "B) Wetlands’ $5 million flood savings and 25% biodiversity gain suggest the $2 million cost is a worthwhile investment.", correct: false },
+                { text: "C) Though restoration costs $2 million, the $5 million saved from floods shows it’s not as expensive as critics claim.", correct: false },
+                { text: "D) Critics decry the $2 million price tag, but wetlands’ flood protection and biodiversity benefits outweigh such concerns.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "rhetorical-synthesis"
+        },
+        {
+            passage: "A journalist is crafting a feature on urban farming for a city magazine. The journalist wants to highlight its transformative potential using these notes:\n- Urban farms increased local food production by 15% in three years.\n- 60% of participants report stronger community ties from farm projects.\n- Vacant lots, once 20% of city land, are now 80% repurposed for farming.",
+            question: "Which of the following sentences should the journalist use to highlight the transformative potential of urban farming?",
+            answers: [
+                { text: "A) Urban farming has revolutionized cities, slashing vacant lots from 20% to near zero while boosting food output by 15% and forging 60% stronger community bonds.", correct: true },
+                { text: "B) With 15% more food and 60% of participants feeling connected, urban farming repurposes 80% of vacant lots effectively.", correct: false },
+                { text: "C) Vacant lots dropping from 20% to a fifth, alongside food and community gains, show urban farming’s impact.", correct: false },
+                { text: "D) Urban farming’s 15% food increase and lot repurposing highlight its potential to strengthen communities.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "rhetorical-synthesis"
+        },
+        {
+            passage: "A policy analyst is preparing a report on renewable energy adoption for a government panel. The analyst wants to address a skepticism using these notes:\n- Skepticism: Solar power is unreliable due to weather variability.\n- Data: Modern solar grids maintain 95% uptime with battery backups.\n- Outcome: Solar adoption cut emissions by 30% in pilot regions.",
+            question: "Which of the following sentences should the analyst use to address the skepticism about solar power reliability?",
+            answers: [
+                { text: "A) Contrary to doubts about weather-related unreliability, solar grids with 95% uptime and 30% emissions cuts prove their dependable impact.", correct: true },
+                { text: "B) Solar power’s 95% uptime with batteries and 30% emissions reduction suggest it’s more reliable than skeptics assume.", correct: false },
+                { text: "C) While skeptics question solar reliability, pilot regions show 30% lower emissions with steady power.", correct: false },
+                { text: "D) Modern solar grids, achieving 95% uptime, counter skepticism by reducing emissions effectively.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "rhetorical-synthesis"
+        },
+        {
+            passage: "A professor is writing a lecture on cultural preservation for a university course. The professor wants to underscore its global relevance using these notes:\n- 70% of indigenous languages face extinction by 2100.\n- UNESCO reports 40% of cultural heritage sites are at risk from climate change.\n- Preservation efforts have revitalized traditions in 25 countries.",
+            question: "Which of the following sentences should the professor use to underscore the global relevance of cultural preservation?",
+            answers: [
+                { text: "A) With 70% of indigenous languages nearing extinction, 40% of heritage sites threatened, and successes in 25 nations, cultural preservation emerges as a pressing global priority.", correct: true },
+                { text: "B) UNESCO’s 40% risk estimate and 70% language loss highlight preservation’s importance across 25 countries.", correct: false },
+                { text: "C) Preservation’s success in 25 countries shows its relevance amid language and heritage threats.", correct: false },
+                { text: "D) The loss of 70% of languages and 40% of sites makes preservation globally vital, as seen in revitalized traditions.", correct: false }
+            ],
+            type: "reading",
+            difficulty: "hard",
+            category: "rhetorical-synthesis"
+        },
+
         {
             passage: "The architect unveiled a bold design for the community center [____] a structure blending modern aesthetics with sustainable materials drew widespread praise.",
             question: "Which of the following punctuation marks should be inserted in the blank to correctly separate the clauses?",
@@ -2165,6 +2328,36 @@ else if (questionText.includes("How would the sociologist from Passage 1 most li
     return "The physicist sees revolution (instant signals), the engineer doubts practicality (noise issues). A) captures this optimism vs. constraint split. B) misaligns focus. C) reverses theory vs. experiment. D) misreads noise stance. A) is correct.";
 } else if (questionText.includes("How would the policy analyst from Passage 2 likely respond to the ethicist’s stance in Passage 1")) {
     return "The analyst prioritizes surveillance over safety (50% crash drop). A) fits: she’d argue privacy risks overshadow benefits, contra ethicist’s minimization. B) shifts to ethics, not perception. C) challenges stats, not focus. D) adds trial critique, unsupported. A) is correct.";
+}
+// --- NEW Explanations for the 6 Transitions Questions ---
+
+else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("researcher’s initial hypothesis")) {
+    return "The first sentence predicts a correlation; the second reveals a contrary outcome (stunting). 'However' (A) signals this opposition. 'For example' (B) suggests illustration, not contrast. 'Consequently' (C) implies causation, not contradiction. 'In addition' (D) adds, not opposes. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("Critics lambasted the policy")) {
+    return "Critics decry shortsightedness; proponents praise stimulus—opposing views. 'By contrast' (A) highlights this difference. 'Similarly' (B) implies agreement, not opposition. 'As a result' (C) suggests cause, not contrast. 'Moreover' (D) adds to critics, not shifts. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("expedition endured relentless storms")) {
+    return "Storms delay; success follows despite them. 'Nevertheless' (A) conveys persistence against odds. 'Meanwhile' (B) implies simultaneity, not outcome. 'Specifically' (C) narrows, not persists. 'Thus' (D) suggests result, not defiance. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("novel’s dense prose")) {
+    return "Readers reject prose; scholars praise it—opposite reactions. 'Conversely' (A) marks this reversal. 'Therefore' (B) implies cause, not opposition. 'In fact' (C) emphasizes, not contrasts. 'Likewise' (D) suggests similarity, not difference. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("city council proposed a tax hike")) {
+    return "Proposal prompts opposition action. 'In response' (A) links cause to reaction. 'For instance' (B) illustrates, not reacts. 'On the other hand' (C) contrasts, not responds. 'Subsequently' (D) sequences, not ties directly. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("startup’s aggressive expansion")) {
+    return "Profit dazzles; caution follows despite it. 'Despite this' (A) bridges positive to critique. 'Accordingly' (B) implies agreement, not caution. 'In contrast' (C) overstates opposition. 'As a result' (D) suggests profit causes caution, not masks. A) is correct.";
+}
+// --- NEW Explanations for the 6 Rhetorical Synthesis Questions ---
+
+else if (questionText.includes("Which of the following sentences should the scientist use to emphasize the urgency")) {
+    return "Urgency needs a strong push. A) uses 'act now,' 'plummeting,' and 'vanishing,' integrating all notes (0.5°C, 30%, delays) for a dire tone. B) is mild with 'suggest.' C) softens with 'deserve.' D) lacks punch with 'warranted.' A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the historian use to connect past and present")) {
+    return "Connection needs a clear link. A) uses 'just as' and 'echo,' tying steam (tripled output, resistance) to AI (40%, fears) explicitly. B) is vague. C) omits resistance’s role. D) focuses on resistance, not transformation. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the environmentalist use to counter the objection")) {
+    return "Countering needs rebuttal and persuasion. A) refutes '$2 million burden' with '$5 million savings' and '25% biodiversity,' urging action. B) is neutral. C) downplays cost critique. D) lacks persuasive force. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the journalist use to highlight the transformative potential")) {
+    return "Transformation needs bold impact. A) uses 'revolutionized,' 'slashing,' and 'forging,' linking all notes (15%, 60%, 20%-80%) vividly. B) is flat. C) misstates math. D) underplays scale. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the analyst use to address the skepticism")) {
+    return "Addressing skepticism needs direct rebuttal. A) uses 'contrary,' tying 95% uptime and 30% cuts to dispel reliability doubts. B) is tentative. C) sidesteps weather focus. D) omits skepticism’s core. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the professor use to underscore the global relevance")) {
+    return "Relevance needs a global frame. A) uses 'pressing' and 'priority,' weaving 70%, 40%, and 25 countries into a compelling case. B) is disjointed. C) downplays threats. D) lacks emphasis. A) is correct.";
 }
     // Fallback
     return "No specific explanation available for this question.";
