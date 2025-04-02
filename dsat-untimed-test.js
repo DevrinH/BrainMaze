@@ -159,13 +159,13 @@ function startReadingWritingTest() {
     isMathTest = false;
     currentModule = 1;
     userResponses = [];
-    startModule(readingWritingQuestions, 2, 1, 1, "Reading and Writing Module 1"); // Limited by sample size
+    startModule(readingWritingQuestions, 2, 1, 1, "Reading and Writing Module 1");
 }
 
 function startMathTest() {
     isMathTest = true;
     currentModule = 1;
-    startModule(mathQuestions, 1, 1, 1, "Math Module 1"); // Limited by sample size
+    startModule(mathQuestions, 1, 1, 1, "Math Module 1");
 }
 
 function startModule(questions, numEasy, numMedium, numHard, moduleName) {
@@ -300,7 +300,7 @@ function endMathTest() {
 
 function showScore() {
     resetState();
-    let maxPossibleScore = (isMathTest ? 6 : 6); // Adjusted for sample size (2 easy, 2 med, 2 hard max)
+    let maxPossibleScore = (isMathTest ? 6 : 6);
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
