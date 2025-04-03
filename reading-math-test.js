@@ -451,7 +451,7 @@ const readingWritingQuestions = [
         difficulty: "medium",
         category: "central-ideas"
     },
-    //Really hard Questions Central Ideas
+    //Central Ideas HARD
 
     {
         passage: "The urban theorist examined sprawl through a dual lens: as both a symptom of economic ambition and a catalyst for ecological decay. She argued that unchecked expansion devoured green spaces, yet simultaneously spurred innovations in infrastructure—highways and utilities threading through once-rural landscapes. This paradox, she suggested, demanded a reevaluation of growth’s true cost, beyond mere profit.",
@@ -1128,7 +1128,7 @@ const readingWritingQuestions = [
             question: "How would the nutritionist from Passage 1 most likely respond to the trainer’s argument in Passage 2?",
             answers: [
                 { text: "A) She would argue that sugar’s energy boost is short-lived compared to sustained alertness from cutting it.", correct: true },
-                { text: "B) She would agree that sugar fuels workouts but not daily energy.", correct: false },
+                { text: "B) She would agree that sugar fuels workouts, but not daily energy.", correct: false },
                 { text: "C) She would deny that sugar converts to fuel quickly.", correct: false },
                 { text: "D) She would claim workouts don’t need energy boosts.", correct: false }
             ],

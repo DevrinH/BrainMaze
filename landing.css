@@ -361,7 +361,7 @@ margin: auto;
 .chart-container {
   width: 97%;
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 18px auto;
   display: flex;
   flex-direction: column;
 }
