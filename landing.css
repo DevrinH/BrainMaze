@@ -359,7 +359,7 @@ box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rg
 margin: auto;
 }
 .chart-container {
-  width: 99%;
+  width: 100%;
   max-width: 1200px;
   margin: 15px auto;
   display: flex;
