@@ -151,6 +151,7 @@ function updateScoreChart() {
                     }
                 },
                 datalabels: {
+                    align: 'top',
                     color: "black",
                     font: { size: 12, weight: "bold" },
                     formatter: (value) => (isNaN(value) ? "" : value),
