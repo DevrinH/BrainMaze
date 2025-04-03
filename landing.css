@@ -630,7 +630,7 @@ h3 {
   flex: 1; 
   min-width: 300px;
   margin: 15px auto 0 auto; /* Adds margin to the top while keeping it centered */
-  padding: 5px;
+  padding: 3px;
   transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column; /* Ensures internal elements stack properly */
