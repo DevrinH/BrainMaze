@@ -635,7 +635,7 @@ h3 {
   display: flex;
   flex-direction: column; /* Ensures internal elements stack properly */
   align-items: center; /* Centers content */
-  overflow: hidden; /* Prevents legends from escaping */
+   /* Prevents legends from escaping */
   max-width: 1200px; /* Ensures it doesn't stretch too wide */
 }
 
