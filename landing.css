@@ -637,6 +637,7 @@ h3 {
   align-items: center; /* Centers content */
   overflow: visible; /* Prevent cutting off */ /* Prevents legends from escaping */
   max-width: 1200px; /* Ensures it doesn't stretch too wide */
+  width:95%;
 }
 
 .align-center{
