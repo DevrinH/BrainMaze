@@ -105,6 +105,14 @@ function updateScoreChart() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: 50,  // Adds extra space to prevent y-axis labels from getting cut off
+                    right: 20,
+                    top: 20,
+                    bottom: 20
+                }
+            },
             scales: {
                 x: {
                     ticks: {
@@ -128,7 +136,7 @@ function updateScoreChart() {
                         color: "black",
                         font: { size: 14, weight: "bold" }
                     },
-                    max: 1600,
+                    max: 1600, // Ensure it doesn't get cut off
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
