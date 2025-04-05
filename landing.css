@@ -807,6 +807,7 @@ margin-bottom: 7px;
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 18px;
+  margin: 15px;
 }
 
 .button-29:focus {
