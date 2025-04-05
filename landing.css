@@ -245,7 +245,7 @@ color:#1e0144
 }
 
 .test-lesson-buttons{
-margin-bottom: 9px;
+margin-bottom: 15px;
 column-gap: 35px;
 
 }
@@ -795,8 +795,8 @@ margin-bottom: 7px;
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 22px;
+  padding-right: 22px;
   position: relative;
   text-align: left;
   text-decoration: none;
