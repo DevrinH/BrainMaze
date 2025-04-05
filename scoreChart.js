@@ -107,8 +107,8 @@ function updateScoreChart() {
             maintainAspectRatio: false,
             layout: {
                 padding: {
-                    left: 50,  // Adds extra space to prevent y-axis labels from getting cut off
-                    right: 20,
+                    left: 40,
+                    right: 40,
                     top: 20,
                     bottom: 20
                 }
@@ -136,7 +136,7 @@ function updateScoreChart() {
                         color: "black",
                         font: { size: 14, weight: "bold" }
                     },
-                    max: 1600, // Ensure it doesn't get cut off
+                    max: 1600,
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -154,12 +154,11 @@ function updateScoreChart() {
                     labels: {
                         color: "black",
                         font: { size: 14, weight: "bold" },
-                        usePointStyle: true, 
+                        usePointStyle: true,
                         pointStyle: "circle"
                     }
                 },
                 datalabels: {
-                    align: 'top',
                     color: "black",
                     font: { size: 12, weight: "bold" },
                     formatter: (value) => (isNaN(value) ? "" : value),
@@ -168,7 +167,7 @@ function updateScoreChart() {
                         let datasetIndex = context.datasetIndex;
                         let mathValue = selectedMathScores[index];
                         let readingValue = selectedReadingScores[index];
-
+        
                         if (datasetIndex === 1 && readingValue < mathValue) return "bottom";
                         if (datasetIndex === 2 && mathValue < readingValue) return "bottom";
                         return "top";
@@ -178,7 +177,7 @@ function updateScoreChart() {
                         let datasetIndex = context.datasetIndex;
                         let mathValue = selectedMathScores[index];
                         let readingValue = selectedReadingScores[index];
-
+        
                         if (datasetIndex === 1 && readingValue < mathValue) return "start";
                         if (datasetIndex === 2 && mathValue < readingValue) return "start";
                         return "end";
