@@ -2206,17 +2206,417 @@ function showExplanations() {
 
 function generateExplanation(response) {
     const questionText = response.question;
+    const passageText = response.passage || ""; // Include passage text for better context if needed
+    const questionId = response.questionId || ""; // Use ID if available
+    const followUp = response.followUpQuestion || ""; // Check if it's an evidence question
 
-    if (questionText.includes("Emma stepped into the grand ballroom")) {
-        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation. The text highlights her discomfort rather than excitement or confidence.";
-    } else if (questionText.includes("Daniel stepped into the office")) {
+    // --- Existing Explanations (Keep ALL previous ones here) ---
+    if (passageText.includes("Emma stepped into the grand ballroom")) {
+        return "Emma’s unease and hesitation ('strange unease settled in her chest', 'hesitant step forward', 'unsure if she truly belonged') suggest she feels out of place, despite her anticipation ('imagined this moment countless times'). The text highlights her discomfort rather than excitement (B), immediate departure (C), or confidence (D).";
+    } else if (passageText.includes("Daniel stepped into the office")) {
         return "Daniel’s doubt and deep breath indicate uncertainty, but his reminder that 'everyone had to start somewhere' shows determination, not disinterest or regret.";
-    } else if (questionText.includes("Liam set his pen down")) {
+    } else if (passageText.includes("Liam set his pen down")) {
         return "The best evidence is the explicit mention of 'nagging doubt,' directly showing his uncertainty about the manuscript’s quality.";
-    } else if (questionText.includes("The scientist adjusted her glasses")) {
+    } else if (passageText.includes("The scientist adjusted her glasses")) {
         return "The scientist’s struggle to accept the findings is best supported by her disbelief in the consistent results, despite repeated checks.";
+    } else if (questionText.includes("An airplane is flying from City A to City B")) {
+        return "The trip is split into two 750-mile segments. Time against the wind = 750 / 500 = 1.5 hours. Time with the wind = 750 / 600 = 1.25 hours. Total time = 1.5 + 1.25 = 2.75 hours.";
+    } else if (questionText.includes("A car's value depreciates by 15%")) {
+        return "Initial Value: $30,000. After Year 1: $30,000 × (1 - 0.15) = $30,000 × 0.85 = $25,500. After Year 2: $25,500 × 0.85 = $21,675. After Year 3: $21,675 × 0.85 = $18,423.75. Rounded to the nearest dollar is $18,424.";
+    } else if (questionText.includes("The function f(x) is defined")) {
+        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(4²) - 3(4) + 5 = 2(16) - 12 + 5 = 32 - 12 + 5 = 25.";
+    } else if (questionText.includes("A company rents out bicycles")) {
+        return "Let h be the number of hours. The total cost is $12 (flat fee) + $3 × h (hourly charge). The budget is $45. So, the inequality is 12 + 3h ≤ 45. Subtract 12 from both sides: 3h ≤ 33. Divide by 3: h ≤ 11. The maximum number of full hours Sarah can rent the bicycle is 11 hours.";
+    } else if (questionText.includes("Dr. Thorne's reaction to the anomaly")) {
+         return "The passage describes Thorne's long dedication ('Years he'd spent') and belief in the signal's importance ('knew it was the key'). The anomaly is 'chaotic,' mirroring the storm, suggesting interference (apprehension). However, the description 'his knuckles white' and the final question 'Was this interference, or was it something... responding?' strongly suggest he hasn't dismissed it but considers it might be the signal itself reacting, indicating a 'dawning sense of possibility.' A) is plausible but ignores the 'responding?' thought. B) contradicts his dedication and the intensity of his reaction. D) mentions his colleagues' doubts but isn't his primary reaction *to the anomaly*.";
+    } else if (questionText.includes("cartographer's words that he believes the 'Hic Dracones' notation")) {
+        return "The cartographer explicitly states that while most see only 'warning' and 'peril,' he sees hints of 'hidden landmasses.' His concluding remark, 'The warning isn't just about peril; it's about what the peril guards,' directly implies that the danger (dragons/eddies) protects something valuable or undiscovered. This supports B). A) is incorrect because he is taking the notation seriously. C) is speculation not supported by the text. D) focuses only on one aspect (weather/currents) and misses the core inference about guarded discovery.";
+    } else if (questionText.includes("Lila's perspective on the sculptor's process")) {
+        return "Lila recounts the sculptor's philosophy ('liberate it from the stone') but contrasts it with her observations: 'sweat on his brow, the calculations in his gaze, the discarded sketches.' Her concluding thought emphasizes the 'considerable human effort and intention' required. This indicates she understands his stated philosophy but recognizes the underlying hard work and deliberate craft involved, matching D). A) is incorrect because she observes evidence contradicting his purely mystical view. B) is incorrect; she doesn't question the merit, only the description of the process. C) is the opposite; she clearly sees his technical effort.";
+    } else if (questionText.includes("community's reaction to the violinist")) {
+        return "The passage states the music is illegal ('ordinance declared... illegal'). However, it also mentions that while 'Some residents complained,' others 'left small offerings.' This contrast directly shows a divided community response. The description of the music weaving 'into the city's sleeping consciousness, a secret shared' further suggests tolerance and perhaps appreciation by at least part of the community. Therefore, C) accurately reflects this division. A) ignores the offerings. B) contradicts the complaints and offerings. D) mentions the mystery ('No one ever saw the player') but focuses on 'offerings' and 'shared secret,' not fear or superstition.";
+    } else if (questionText.includes("Councillor Davies' primary rhetorical strategy")) {
+        return "Davies acknowledges Thorne's concerns ('are noted') but immediately pivots to 'immediate economic impact,' 'jobs lost *today*,' and 'families struggling *tomorrow*.' He frames the issue as a conflict between present needs ('present prosperity') and future environmental concerns ('hypothetical future'). This is a direct appeal to the audience's practical, immediate worries (jobs, economy) as a counterweight to Thorne's environmental arguments. This aligns perfectly with C). A) is incorrect; Davies doesn't offer counter-data, he shifts the focus. B) is incorrect; he doesn't attack Thorne's motives. D) is incorrect; while he mentions striking a 'balance,' he doesn't propose a specific alternative plan in this excerpt, he primarily focuses on the economic argument against Thorne's current proposal.";
+    } else if (questionId === "sharma_q1" && !followUp) {
+         return "Sharma feels both 'reverence bordering on apprehension' (line 1) and recognizes the finding contradicts established knowledge (line 4). She considers mundane explanations (line 5) but also the possibility of rewriting history (line 6), feeling the 'weight of implication' (line 7). This mix of doubt, potential significance, and emotional weight points to 'troubled excitement' (C), not mere confidence (A), certainty of error (B), or indifference (D).";
+    } else if (followUp === "sharma_q1") {
+        return "The best evidence for Sharma's 'troubled excitement' is found in lines 6-7. Line 6 presents the exciting, history-altering possibility ('hold a secret that could rewrite history?'), while line 7 conveys the troubled aspect ('the weight of implication settling heavily upon her'). A) sets the scene but not her reaction to the specific finding. B) describes the anomaly itself. C) lists possible mundane explanations (the 'troubled' part) but misses the 'excitement'/'implication' part captured best by D).";
+    } else if (questionId === "petrova_q1" && !followUp) {
+        return "The passage states Petrova 'theorized' (line 4) a novel explanation for the terns' efficiency, which challenges existing models (line 3, 7). It explicitly mentions that 'direct proof remains elusive' (line 5) but that 'indirect evidence... lends credence' (line 6). This supports the idea that the hypothesis is 'speculative but plausible' (B). It's not proven (A), outdated (C), or just a minor refinement (D).";
+    } else if (followUp === "petrova_q1") {
+        return "Lines 5-6 directly address the status of Petrova's hypothesis. 'While direct proof remains elusive' shows it's speculative, and 'indirect evidence... lends credence' shows it's considered plausible. This perfectly supports answer B of the previous question. A) states the paradox. B) notes the failure of old models. D) describes the hypothesis's implication but not its current standing regarding proof.";
+    } else if (questionId === "finch_q1" && !followUp) {
+        return "Finch argues that 'even acts appearing selfless often harbor subtle, subconscious benefits for the actor' (line 2), listing examples like alleviating guilt or gaining virtue. This directly supports the idea that these actions involve 'indirect benefits' (B). While social bonds are mentioned as one benefit, he doesn't claim status is the sole or primary driver (A). He sees reciprocity as advantageous, not maladaptive (C). He reframes the value, not denying it if self-interest is present (D).";
+    } else if (followUp === "finch_q1") {
+        return "Line 2 is the most direct statement of Finch's core argument regarding seemingly altruistic acts: 'He contended that even acts appearing selfless often harbor subtle, subconscious benefits for the actor...'. This line explicitly introduces the concept of indirect benefits. A) introduces Finch's topic. C) gives his reasoning about evolutionary advantage. D) clarifies that he doesn't diminish the value of kindness.";
+    } else if (questionId === "vance_q1" && !followUp) {
+        return "The passage contrasts critics' views (line 3: 'dismissed this shift as creative exhaustion or a deliberate alienation') with Vance's intention revealed in her journals (line 5: 'distilling sound to its essence,' line 7: 'intensifying focus rather than diminishing content'). Critics saw a lack (exhaustion/diminishing), while Vance intended refinement/focus (essence/intensifying). This matches C). A) is wrong; critics lamented. B) is not mentioned. D) is wrong; critics didn't necessarily appreciate the depth, and Vance felt she was adding significance (line 6).";
+    } else if (followUp === "vance_q1") {
+        return "To support the contrast identified in Q1 (C), evidence for both Vance's intention and the critical reception is needed. Line 5 ('She described it as distilling sound to its essence') shows her goal of refinement. Line 7 ('aimed at intensifying focus rather than diminishing content') further clarifies her intent was not diminishment. Contrasting this with the critical dismissal mentioned in line 3 (creative exhaustion/alienation) requires referencing Vance's stated goals found in lines 5 and 7. Line 3 alone only gives the critics' view. Lines 4-5 start introducing her view but line 7 adds crucial clarification. Lines 1-2 describe the style, not the interpretation difference.";
+     } else if (questionId === "smartcity_q1" && !followUp) {
+         return "The passage outlines benefits (line 2) but focuses on drawbacks: 'profound privacy concerns' (line 2), lack of understanding leading to 'anxieties about surveillance and potential misuse' (line 3), and the potential to 'deepen the digital divide' (line 4). Line 5 explicitly states the 'central challenge' is 'Striking a balance between technological advancement and ethical considerations, particularly data sovereignty and equity'. This clearly points to C) as the significant obstacle. A), B), and D) are not mentioned as primary issues.";
+     } else if (followUp === "smartcity_q1") {
+         return "Line 5 provides the most direct and comprehensive evidence summarizing the central obstacle. It explicitly frames the core problem as 'Striking a balance between technological advancement and ethical considerations, particularly data sovereignty and equity,' which encapsulates the difficulty of ensuring ethical and equitable use described in Q1 (C). A) mentions benefits and privacy concerns but doesn't summarize the core challenge. B) describes citizen anxiety (part of the ethical concern). C) describes the equity issue (another part). Line 5 synthesizes these ethical/equitable issues as the main challenge.";
+     } else if (questionId === "elara_q1" && !followUp) {
+        return "Elara has prepared her refusal (line 5) indicating a personal desire, but finds it difficult because of Julian's expectation and the 'weight of family obligation' (line 6). This points directly to a conflict between what she wants and what she feels obligated to do for her family (B). Her difficulty isn't just articulation (A), primarily resentment (C), or uncertainty about her plans (D), but the conflict with perceived duty.";
+    } else if (followUp === "elara_q1") {
+        return "Lines 5-6 best illustrate the conflict. Line 5 shows her preparation ('practiced her refusal'), indicating her personal desire. Line 6 contrasts this with the external pressure ('faced with his expectation – the weight of family obligation pressing down') that makes her hesitate. This directly supports the clash between personal desire and family duty (B). A) sets the mood. B) shows her avoidance but not the core conflict. D) describes her feeling *about* the conflict, not the conflict itself.";
+    } else if (questionId === "tanaka_q1" && !followUp) {
+        return "Tanaka calls the findings 'alarming' (line 2) because they contradict models (line 3). He offers a hypothesis but calls it 'preliminary' (line 5) and emphasizes the data forces a reconsideration of 'fundamental assumptions' (line 6) requiring 'substantial further research' (line 7). This indicates he sees the results as a significant puzzle challenging current understanding and requiring more work (C), not as proof (A), an error (B), or simple confirmation (D).";
+    } else if (followUp === "tanaka_q1") {
+        return "Lines 5-6 encapsulate Tanaka's cautious but concerned view. He explicitly states the hypothesis is 'preliminary' (line 5), ruling out conclusion (A). Crucially, line 6 states the data 'forces us to reconsider fundamental assumptions,' highlighting the challenge to existing knowledge and implying the need for further investigation, directly supporting (C). A) shows alarm but not the view on existing knowledge. B) states the discrepancy. C) presents the hypothesis, not his overall view of the findings' implications.";
+    } else if (questionId === "egan_q1" && !followUp) {
+        return "The passage contrasts the previous system where craftspeople 'controlled their pace of work' (line 2) with the factory system which 'eroded the autonomy... associated with older forms of labor' (line 4). This directly supports the idea that a key consequence was reduced independence/autonomy for skilled workers (D). Task specialization (line 3) often implies lower, not higher, skill levels overall (A). Impersonal structures (line 3) and redefined community (line 5) suggest weakened, not strengthened, bonds (B). Regimented schedules (line 3) mean less control (C).";
+    } else if (followUp === "egan_q1") {
+        return "Line 4 provides the most direct evidence by explicitly stating that the factory system 'simultaneously eroded the autonomy and status associated with older forms of labor.' This directly supports the answer that worker independence (autonomy) was reduced (D). A) introduces the topic. B) describes the *previous* system's autonomy. D) discusses the broader cultural shift but line 4 specifies the impact on worker autonomy.";
+    } else if (questionId === "endowment_q1" && !followUp) {
+        return "The passage explains the endowment effect by citing behavioral economists who 'posit that ownership creates a psychological link, making loss feel more impactful than gain feels beneficial – an aspect of loss aversion' (line 4). This directly links the effect to the psychological pain of losing something, i.e., loss aversion (C). It explicitly contrasts this with rational calculation (A, line 3) and subjective experience of possession, not necessarily long-term sentiment (B, line 5). Participant experience (D) isn't mentioned as the cause.";
+    } else if (followUp === "endowment_q1") {
+        return "Line 4 offers the specific psychological explanation favored by behavioral economists: 'ownership creates a psychological link, making loss feel more impactful than gain feels beneficial – an aspect of loss aversion.' This directly attributes the effect to loss aversion (C). A) defines the effect. B) describes the experiment. D) discusses implications, not the cause.";
+    } else if (questionId === "thorne_ai_q1" && !followUp) {
+        return "Thorne distinguishes AI from human consciousness by stating AI processes are 'devoid of the subjective, qualitative experience – the *what-it-is-like* – that defines genuine consciousness' (line 3) and that AI doesn't '*feel* empathy' (line 4). He concludes the distinction lies in 'the nature of internal experience' (line 6). This clearly points to subjective experience (C) as the key difference, not processing speed (A), learning ability (B), or logical capacity (D), which AI might excel at mimicking.";
+    } else if (followUp === "thorne_ai_q1") {
+        return "Line 3 provides the most explicit statement of Thorne's core distinction. It defines AI processes as lacking the 'subjective, qualitative experience – the *what-it-is-like*' which he equates with 'genuine consciousness.' This directly identifies subjective experience (C) as the key differentiator. A) introduces his argument generally. C) provides an example (empathy) but line 3 gives the underlying principle. D) states his conclusion about moral status based on this difference.";
     }
 
+    // --- NEW Explanations for the 5 Standalone Evidence Questions ---
+
+    else if (questionText.includes("Dr. Evelyn questions the validity")) {
+        return "The question asks for evidence that Dr. Evelyn questions her findings' validity. Choice A directly expresses this doubt: 'was this truly an anomaly, or had she miscalculated?'. This internal question shows her uncertainty about the validity. B describes the context. C describes her resulting action (hesitation) and emotional state, but not the *questioning* itself. D describes the data that *causes* the doubt, but A is the explicit expression of that doubt.";
+    } else if (questionText.includes("Jonah is uncertain about his interpretation")) {
+        return "The question asks for evidence of Jonah's uncertainty about his interpretation. Choice A explicitly voices this uncertainty: 'Was he interpreting the words correctly, or was he merely seeing what he wanted to see?'. This question directly reflects his doubt about his own interpretation. B describes his action. C provides background context about his mentor. D shows his awareness of bias and subsequent action, but A is the direct articulation of his uncertainty regarding interpretation.";
+    } else if (questionText.includes("Amara doubts the completeness of her speech")) {
+        return "The question asks for evidence that Amara doubts her speech's completeness. Choice A is the direct expression of this doubt: 'Had she truly captured the full complexity of the issue, or had she oversimplified the nuances?'. This question specifically addresses the completeness and complexity of her message. B shows hesitation. C describes the speech's perceived positive qualities. D describes the external pressure she feels. Only A directly voices the doubt about completeness.";
+    } else if (questionText.includes("historian is uncertain about the accuracy of the sources")) {
+        return "The question asks for evidence of the historian's uncertainty about source accuracy. Choice A directly states this uncertainty: 'She sighed, unsure which version aligned with the truth.' This shows her doubt about the accuracy or truthfulness of the conflicting versions presented by the sources. B describes her pause. C states the fact that sources conflict. D gives examples of the conflicting details. Only A explicitly expresses her uncertainty regarding the accuracy/truth.";
+    } else if (questionText.includes("Nia is second-guessing her artistic choices")) {
+        return "The question asks for evidence that Nia is second-guessing her artistic choices. Choice A directly reveals this internal debate: 'wondering if she had lost sight of her original vision or if she was being too harsh on herself.' This shows her questioning her process and judgment, which is the essence of second-guessing her choices. B describes her physical action. C describes the perceived flaws in the painting that *prompt* the doubt. D notes the general feeling that something is 'off'. Only A explicitly shows her internal process of second-guessing.";
+    }
+    // --- NEW Explanations for the 5 Words in Context Questions ---
+
+else if (questionText.includes("As used in the passage, 'vociferous' most nearly means")) {
+    return "The passage describes the traditionalists’ opposition as 'vociferous,' followed by their argument against untested ventures and the innovators’ voices 'rising above the din.' This suggests a loud, forceful resistance, aligning with A) 'loud and insistent.' B) 'carefully reasoned' implies a calm, logical approach, not supported by the noisy context. C) 'quietly resentful' contradicts the implied volume. D) 'reluctantly supportive' misreads the opposition as support.";
+} else if (questionText.includes("As used in the passage, 'ephemeral' most nearly means")) {
+    return "Dr. Lin’s theory is called 'ephemeral' by peers who dismiss it as unable to 'withstand sustained scrutiny,' implying it’s fleeting or temporary, matching A) 'short-lived.' Her counterargument about resilience suggests it’s not inherently weak, ruling out D) 'fundamentally flawed.' B) 'overly complex' isn’t hinted at by the context of dismissal. C) 'widely accepted' contradicts the peers’ rejection.";
+} else if (questionText.includes("As used in the passage, 'consummate' most nearly means")) {
+    return "The diplomat’s 'consummate skill' enables her to balance concessions and resolve, leading to a successful agreement, indicating exceptional ability, thus A) 'highly proficient.' B) 'cautiously tentative' suggests hesitation, not the confidence shown. C) 'aggressively confrontational' clashes with her harmonizing approach. D) 'unexpectedly fortunate' implies luck, not skill, which the context emphasizes.";
+} else if (questionText.includes("As used in the passage, 'paean' most nearly means")) {
+    return "The exhibit is a 'paean to the natural world,' with brushstrokes 'celebrating' and 'mourning,' suggesting a work of praise or honor, fitting A) 'tribute.' B) 'critique' focuses only on the mourning, missing the celebration. C) 'imitation' reduces it to mimicry, not depth. D) 'rejection' contradicts the positive framing of 'celebrating.'";
+} else if (questionText.includes("As used in the passage, 'austere' most nearly means")) {
+    return "The 'austere budget' involves 'stripping away' non-essentials to avoid collapse, indicating stark simplicity, so A) 'severely simple' fits. B) 'recklessly extravagant' is the opposite of the described cuts. C) 'cautiously optimistic' doesn’t align with the grim necessity. D) 'deliberately deceptive' suggests intent not supported by the context.";
+}
+// --- NEW Explanations for the 5 Text Structure and Purpose Questions ---
+
+else if (questionText.includes("The passage is structured primarily to") && passageText.includes("urban planners viewed highways")) {
+    return "The passage starts with past views of highways as progress, then shifts to their negative impacts (severing communities), and ends with a new architectural proposal to replace them. This structure contrasts old assumptions with emerging alternatives, making A) correct. B) is wrong as it doesn’t argue for highways’ superiority. C) isn’t a historical chronicle but a focused comparison. D) doesn’t evaluate feasibility, only introduces the vision.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("smallest organisms wield")) {
+    return "The passage begins with a claim about phytoplankton’s climate role, supports it with evidence, and ends with a policy plea for ocean conservation. Its purpose is to advocate a policy shift based on science, fitting A). B) overemphasizes technical detail, not the goal. C) isn’t a critique of emissions focus but a reorientation. D) mentions forests but isn’t a broad comparison.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("Critics once hailed the novel")) {
+    return "The passage starts with critics’ initial view (identity focus), then pivots to reveal historical allusions as the author’s true intent, reframing the novel’s purpose. This reinterpretation via historical context fits A). B) doesn’t defend the style but reinterprets it. C) doesn’t summarize the protagonist’s journey. D) doesn’t catalog events, just notes their presence.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("inventors raced to harness electricity")) {
+    return "The passage links 19th-century electricity reactions (awe, apprehension) to modern AI responses, emphasizing a recurring pattern of hope and hesitation. Its purpose is a historical-modern comparison, matching A). B) doesn’t warn but observes. C) doesn’t celebrate, it balances positives and negatives. D) mentions ethics but focuses on reaction parallels, not analysis.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("economist opened with a dry statistic")) {
+    return "The passage moves from a statistic to vivid imagery (ships, workers) and back to an explanation, using storytelling to make data relatable and urgent. This blend of data and narrative fits A). B) offers no solutions. C) doesn’t critique statistics’ reliability. D) uses worker imagery as an example, not a documentation focus.";
+}
+// --- NEW Explanations for the 5 Cross-Text Connection Questions ---
+
+else if (questionText.includes("How would Dr. Patel from Passage 1 most likely respond to Professor Kline’s concerns")) {
+    return "Dr. Patel prioritizes immediate health benefits (80% disease reduction) and dismisses ethical concerns as secondary, suggesting she’d argue that human suffering’s urgency trumps Kline’s speculative ecological risks, fitting A). B) is too conciliatory for her bold stance. C) ignores her focus on suffering, not just feasibility. D) contradicts her push for action.";
+} else if (questionText.includes("Which of the following best describes a key difference in how the authors of Passage 1 and Passage 2 evaluate the impact of coal-powered factories")) {
+    return "The historian sees social costs (harsh conditions) as a necessary trade-off for progress, while the sociologist questions if progress justifies inequality and poverty, matching A). B) misaligns focus—labor centralization isn’t contrasted with technology. C) reverses their views. D) swaps their emphases (pollution vs. wealth).";
+} else if (questionText.includes("How do the authors of Passage 1 and Passage 2 differ in their assessment of the zebra mussel’s ecological role")) {
+    return "The biologist highlights the zebra mussel’s benefits (biodiversity, water-filtering), while the ecologist stresses its harm (outcompeting natives, destabilizing ecosystems), aligning with A). B) reverses their positions. C) misattributes control advocacy. D) flips their focuses (food webs vs. niches).";
+} else if (questionText.includes("How would the reviewer from Passage 2 likely critique the critic’s perspective in Passage 1")) {
+    return "The reviewer sees the poet’s lack of structure as lazy, not intentional, so they’d argue the critic misreads it as purposeful chaos, fitting A). B) doesn’t address structure, the core disagreement. C) contradicts the reviewer’s view of incoherence. D) suggests the critic undervalues chaos, opposite to the reviewer’s stance.";
+} else if (questionText.includes("Which of the following best captures how the labor analyst in Passage 2 would challenge the economist’s argument in Passage 1")) {
+    return "The economist uses historical job gains to predict automation’s benefits, but the analyst cites current manufacturing trends (robotics outpacing hiring) to argue this precedent doesn’t hold, matching A). B) overstates denial of new sectors. C) misreads the economist’s data. D) wrongly ties robotics to history.";
+}
+// --- NEW Explanations for the 5 Transitions Questions ---
+
+else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("expedition faced relentless storms")) {
+    return "The first sentence describes a setback (storms halting the ascent), while the second shows the team resuming despite it once conditions improved. 'Nevertheless' (A) signals this persistence despite adversity. 'For instance' (B) suggests an example, not a continuation. 'Meanwhile' (C) implies simultaneity, not a sequence. 'Consequently' (D) suggests a result, but the weather clearing isn’t a direct outcome of the halt.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("Critics argued that the new policy")) {
+    return "The first sentence presents critics’ opposition (stifling innovation), while the second offers supporters’ opposing view (fostering stability). 'In contrast' (A) highlights this opposition. 'Similarly' (B) implies agreement, not disagreement. 'As a result' (C) suggests causation, not a counterpoint. 'Moreover' (D) adds to the same idea, not a differing one.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("experiment yielded inconsistent results")) {
+    return "The first sentence notes a problem (inconsistent results), and the second describes the team’s action to address it (refining methodology). 'Accordingly' (A) links the action as a logical response. 'However' (B) suggests contrast, not a solution. 'On the other hand' (C) implies an alternative, not a direct fix. 'In addition' (D) suggests more information, not a reaction.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("Urban sprawl has degraded local ecosystems")) {
+    return "The first sentence outlines a problem (ecosystem degradation), and the second describes planners’ reaction (prioritizing green spaces). 'In response' (A) connects the action to the issue. 'Likewise' (B) implies similarity, not a reaction. 'By contrast' (C) suggests opposition, not a solution. 'Specifically' (D) narrows focus, not linking cause and effect.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("novel’s dense prose initially deterred")) {
+    return "The first sentence notes a negative (readers deterred), while the second highlights a positive outcome despite it (critical acclaim). 'Despite this' (A) bridges the contrast effectively. 'Therefore' (B) implies causation, not contrast. 'In fact' (C) adds emphasis, not opposition. 'Similarly' (D) suggests likeness, not a shift from negative to positive.";
+}
+// --- NEW Explanations for the 5 Rhetorical Synthesis Questions ---
+
+else if (questionText.includes("Which of the following sentences should the student use to conclude the report and emphasize the urgency of action")) {
+    return "The goal is to emphasize urgency. A) uses 'now,' integrates all notes (cooling, support, costs), and pushes immediate action, fitting the purpose. B) lacks urgency with 'future consideration.' C) softens the call with 'weigh,' diluting urgency. D) hedges with 'if funding allows,' undermining the pressing need.";
+} else if (questionText.includes("Which of the following sentences should the researcher use to introduce the proposal and highlight its innovative potential")) {
+    return "The goal is to highlight innovation. A) uses 'groundbreaking' and 'redefine,' synthesizing all notes (efficiency, performance, fossil fuel reduction) to emphasize novelty. B) is too neutral, missing bold innovation. C) focuses on practicality, not pioneering potential. D) underplays the transformative aspect with 'reliable alternative.'";
+} else if (questionText.includes("Which of the following sentences should the environmentalist use to counter the objection and persuade readers")) {
+    return "The goal is to counter cost/speed objections persuasively. A) directly refutes with 'contrary,' uses all notes (techniques, CO2), and asserts effectiveness, convincing readers. B) weakly counters, focusing on long-term without refuting speed. C) is tentative with 'may' and 'eventually.' D) sidesteps speed concerns, reducing persuasive force.";
+} else if (questionText.includes("Which of the following sentences should the historian use to connect past and present technological trends")) {
+    return "The goal is to connect past (railroads) and present (AI) trends. A) links both via transformation and skepticism, using all notes for a clear parallel. B) vaguely connects without emphasizing skepticism. C) omits skepticism, missing a key link. D) focuses on delay, not the broader trend connection.";
+} else if (questionText.includes("Which of the following sentences should the journalist use to conclude the article and inspire action")) {
+    return "The goal is to inspire action. A) uses 'rally now,' ties in all notes (engagement, artists, cuts), and urges immediate response, fitting the purpose. B) states value but lacks a call to act. C) is passive with 'worth considering.' D) suggests future support, not immediate inspiration.";
+}
+// --- NEW Explanations for the 5 Boundaries Questions ---
+
+else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("architect unveiled a bold design")) {
+    return "The first clause ('The architect unveiled...') is independent, and the second ('a structure blending...') is also independent but describes the design. A semicolon (A) correctly separates two related independent clauses. A comma (B) is insufficient for two independent ideas. A colon (C) implies a list or explanation, not a description. A period (D) overly separates the closely tied ideas.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("Volunteers worked tirelessly")) {
+    return "The first clause ('Volunteers worked...') is independent, and the second ('their efforts resulted...') is independent but shows the result. A comma (A) correctly joins an independent clause with a dependent-like result clause here. A semicolon (B) is too strong for this causal link. A period (C) breaks the flow unnecessarily. A colon (D) suggests a list or definition, not a result.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("researcher identified two key factors")) {
+    return "The first clause ('The researcher identified...') sets up an explanation, and the second ('rising ocean temperatures...') lists the factors. A colon (A) correctly introduces this list. A comma (B) can’t separate an independent clause here. A semicolon (C) is for independent ideas, not a list introduction. A period (D) disrupts the explanatory flow.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("festival featured an array of performances")) {
+    return "The first clause ('The festival featured...') introduces a list, and the second ('musicians dancers and poets...') specifies it. A colon (A) correctly signals this list. A comma (B) is insufficient for a full list separation. A semicolon (C) is for independent clauses, not lists. A period (D) breaks the sentence unnecessarily.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("team faced a critical decision")) {
+    return "The first clause ('The team faced...') is independent, and the second ('they could either...') is independent but closely related, offering options. A semicolon (A) correctly joins these related independent clauses. A comma (B) is too weak for two independent ideas. A colon (C) suggests a list or explanation, not options. A period (D) overly separates the connected thoughts.";
+}
+
+
+
+// --- NEW Explanations for the 6 Command of Evidence Questions ---
+
+else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the claim that Dr. Voss sees mass extinctions as catalysts")) {
+    return "The claim is Voss sees extinctions as evolutionary catalysts. A) directly states her view: extinctions 'spurred evolutionary innovation' by 'clearing niches,' linking cause to progress. B) notes species proliferation but not her interpretation. C) is critics’ view, not hers. D) describes her method, not the catalyst claim. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the economist’s argument that automation’s impact on employment is complex")) {
+    return "The argument is automation’s impact is complex, not wholly negative. A) shows complexity: job growth offsets losses but with a skill mismatch, blending positive and negative. B) links wages to automation, not employment complexity. C) focuses on productivity, not jobs. D) is a solution, not evidence of complexity. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the claim that the poet’s defenders view her work’s complexity as a strength")) {
+    return "The claim is defenders see complexity as a strength. A) directly supports this: forums 'buzzing with debates' show engagement, not alienation, framing complexity positively. B) notes bafflement, not defenders’ view. C) is the poet’s stance, not defenders’. D) is skeptics’ critique. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the biologist’s concern that coral bleaching poses a severe risk")) {
+    return "The concern is bleaching severely risks ecosystems. A) shows severity: '70% algae loss within months' implies rapid, significant damage tied to her biodiversity threat. B) links cause, not risk level. C) is peers’ counter, not her evidence. D) supports rebuttal, not initial risk severity. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the historian’s view that the treaty’s border changes had lasting negative consequences")) {
+    return "The view is border changes caused lasting negatives. A) provides direct evidence: 'chaos—villages split, families displaced' shows immediate, enduring social harm. B) states her argument, not evidence. C) is scholars’ economic counter, not her support. D) is her interpretation, not raw evidence. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the physicist’s assertion that dark matter plays a critical role")) {
+    return "The assertion is dark matter critically shapes galaxy formation. A) directly ties dark matter density to 'star clustering patterns' in simulations, showing its formative role. B) states her proposal, not evidence. C) is critics’ doubt, not support. D) corroborates via rotation, but A) aligns with formation focus. A) is correct.";
+}
+// --- NEW Explanations for the 6 Central Ideas and Detail Questions ---
+
+else if (questionText.includes("What is the central idea of the passage") && passageText.includes("urban theorist examined sprawl")) {
+    return "The passage balances sprawl’s economic benefits (infrastructure) and ecological costs (green spaces), urging a deeper cost assessment. A) captures this trade-off and reevaluation fully. B) omits environmental loss. C) ignores innovation. D) overweighs decay, missing balance. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best illustrates the linguist’s view that slang enhances language")) {
+    return "The view is slang enhances language. A) directly states it 'enriched it by encoding resilience and identity,' showing positive contribution. B) notes origins, not enhancement. C) shows spread, not enrichment. D) warns of erosion, opposing the view. A) is correct.";
+} else if (questionText.includes("What is the central idea of the passage") && passageText.includes("ecologist studied invasive species")) {
+    return "The passage presents invasive species as disruptors and stabilizers, challenging simplistic harm views. A) reflects this multifaceted role and complexity. B) overstates benefits. C) focuses only on harm. D) prioritizes removal, not understanding. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best supports the historian’s perspective that industrialization had significant social costs")) {
+    return "The perspective is industrialization’s social costs. A) 'wealth surged alongside child labor' directly exemplifies a severe social cost. B) states the perspective, not a detail. C) mentions traditions but is less specific. D) is a summary, not evidence. A) is correct.";
+} else if (questionText.includes("What is the central idea of the passage") && passageText.includes("physicist probed quantum entanglement")) {
+    return "The passage links entanglement’s oddity to tech potential, bridging theory and practice. A) captures this dual role and future hint. B) omits applications. C) overemphasizes tech. D) misreads delay. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best exemplifies the sociologist’s concern that gentrification erodes cultural identity")) {
+    return "The concern is cultural erosion. A) 'coffee shops sprouting where bodegas once stood' vividly shows cultural replacement. B) notes newcomers, not identity loss. C) states the concern, not a detail. D) is a call to action, not evidence. A) is correct.";
+}
+// --- NEW Explanations for the 6 Words in Context Questions ---
+
+else if (questionText.includes("As used in the passage, 'abstruse' most nearly means") && passageText.includes("philosopher’s treatise")) {
+    return "'Abstruse' describes arguments 'confounding even seasoned scholars,' implying complexity beyond grasp. A) 'difficult to understand' fits, contrasting with 'lucid intent.' B) 'cleverly deceptive' adds intent not suggested. C) 'unnecessarily verbose' shifts to wordiness. D) 'subtly persuasive' contradicts confounding effect. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'perspicuity' most nearly means") && passageText.includes("diplomat’s speech")) {
+    return "'Perspicuity' describes a speech dispelling 'misunderstanding,' contrasting with 'obfuscation.' A) 'clear expression' aligns with clarity’s role. B) 'shrewd insight' focuses on perception, not expression. C) 'bold assertiveness' lacks clarity link. D) 'intricate detail' opposes simplicity implied. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'temerarious' most nearly means") && passageText.includes("artist’s latest installation")) {
+    return "'Temerarious' describes a 'gamble' defying norms, lauded as 'audacity.' A) 'recklessly bold' captures risk and daring. B) 'quietly subversive' underplays boldness. C) 'meticulously planned' contradicts gamble. D) 'unintentionally chaotic' misses intent. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'quixotic' most nearly means") && passageText.includes("scientist’s hypothesis")) {
+    return "'Quixotic' describes a dismissed hypothesis later proven prescient, seen as 'impractical.' A) 'unrealistically optimistic' fits initial skepticism vs. outcome. B) 'cautiously tentative' opposes bold vision. C) 'rigorously empirical' misaligns with dismissal. D) 'subtly misleading' lacks optimism. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'lugubrious' most nearly means") && passageText.includes("historian’s prose")) {
+    return "'Lugubrious' describes prose with a 'dirge'-like tone for lost ideals, implying sadness. A) 'mournfully gloomy' matches this melancholy. B) 'bitterly sarcastic' adds tone not present. C) 'dryly factual' opposes emotion. D) 'wistfully nostalgic' softens gloom. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'prolixity' most nearly means") && passageText.includes("critic excoriated the novel")) {
+    return "'Prolixity' is criticized for 'endless tangents' diluting narrative, suggesting excess. A) 'excessive wordiness' fits this verbosity. B) 'deliberate ambiguity' shifts to intent. C) 'stark simplicity' contradicts tangents. D) 'vivid imagery' misses length critique. A) is correct.";
+}
+// --- NEW Explanations for the 6 Text Structure and Purpose Questions ---
+
+else if (questionText.includes("The passage is structured primarily to") && passageText.includes("ecologist opened with a vivid tableau")) {
+    return "The passage moves from imagery (forest) to data (emissions) and back, blending emotion and reason to persuade. A) captures this weaving for an environmental call. B) misreads as a sequence. C) focuses on contrast, not persuasion. D) reverses priority of imagery. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("historian began with a paradox")) {
+    return "The passage explores triumph vs. betrayal through voices, aiming to reveal complexity, not resolve it. A) reflects this dual legacy focus. B) implies a bias not present. C) suggests reconciliation, not exposure. D) shifts to process critique. A) is correct.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("critic launched into a diatribe")) {
+    return "The passage shifts from broad critique to nuanced examples, advocating subtlety. A) captures this transition and plea. B) narrows to comparison. C) focuses on lament, not advocacy. D) misreads as argument against spectacle alone. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("physicist posed a riddle")) {
+    return "The passage traces light theories to show science’s evolving grasp, not to pick a winner. A) reflects this progress focus. B) implies resolution, not illumination. C) suggests critique, not dance. D) overemphasizes Einstein. A) is correct.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("sociologist sketched a city’s gentrification")) {
+    return "The passage zooms from broad trends to a specific block, grounding abstraction in human impact. A) captures this narrowing for humanization. B) misreads as documentation. C) suggests contrast, not grounding. D) focuses on example, not intent. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("poet prefaced her collection")) {
+    return "The passage sets a manifesto then delivers unsettling verse to prepare readers for discomfort. A) reflects this priming purpose. B) implies critique, not preparation. C) argues superiority, not intent. D) focuses on contrast, not philosophy. A) is correct.";
+}
+// --- NEW Explanations for the 6 Cross-Text Connection Questions ---
+
+else if (questionText.includes("How would the sociologist from Passage 1 most likely respond to the technologist’s claim")) {
+    return "The sociologist sees echo chambers (75% bias overlap) as dominant. A) aligns: she’d argue diversity (60%) is superficial against her data, fitting her oversight push. B) concedes too much. C) attacks stats, not diversity’s depth. D) twists connectivity into division. A) is correct.";
+} else if (questionText.includes("Which of the following best describes a key difference in how the authors of Passage 1 and Passage 2 assess industrialization’s social impact")) {
+    return "The historian highlights mobility (rising workers), the economist inequality (80% wealth skew). A) captures this mobility vs. disparity focus. B) misaligns topics. C) reverses disruption views. D) swaps priorities. A) is correct.";
+} else if (questionText.includes("How would the ecologist from Passage 2 likely critique the biologist’s perspective in Passage 1")) {
+    return "The ecologist sees adaptation as illusory (40% reproductive drop) vs. the biologist’s buffer. A) fits: she’d critique survival costs, not just scope. B) denies climate link, unsupported. C) shifts to breadth, not depth. D) misreads ice data. A) is correct.";
+} else if (questionText.includes("Which of the following best captures how the reviewer in Passage 2 would challenge the critic’s argument in Passage 1")) {
+    return "The reviewer sees convolution as obscuring, not mirroring (critic’s view). A) reflects this: complexity undermines purpose, not reflection. B) agrees too much. C) sidesteps psyche focus. D) alters premise, not argument. A) is correct.";
+} else if (questionText.includes("How do the authors of Passage 1 and Passage 2 differ in their views on quantum entanglement’s potential")) {
+    return "The physicist sees revolution (instant signals), the engineer doubts practicality (noise issues). A) captures this optimism vs. constraint split. B) misaligns focus. C) reverses theory vs. experiment. D) misreads noise stance. A) is correct.";
+} else if (questionText.includes("How would the policy analyst from Passage 2 likely respond to the ethicist’s stance in Passage 1")) {
+    return "The analyst prioritizes surveillance over safety (50% crash drop). A) fits: she’d argue privacy risks overshadow benefits, contra ethicist’s minimization. B) shifts to ethics, not perception. C) challenges stats, not focus. D) adds trial critique, unsupported. A) is correct.";
+}
+// --- NEW Explanations for the 6 Transitions Questions ---
+
+else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("researcher’s initial hypothesis")) {
+    return "The first sentence predicts a correlation; the second reveals a contrary outcome (stunting). 'However' (A) signals this opposition. 'For example' (B) suggests illustration, not contrast. 'Consequently' (C) implies causation, not contradiction. 'In addition' (D) adds, not opposes. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("Critics lambasted the policy")) {
+    return "Critics decry shortsightedness; proponents praise stimulus—opposing views. 'By contrast' (A) highlights this difference. 'Similarly' (B) implies agreement, not opposition. 'As a result' (C) suggests cause, not contrast. 'Moreover' (D) adds to critics, not shifts. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("expedition endured relentless storms")) {
+    return "Storms delay; success follows despite them. 'Nevertheless' (A) conveys persistence against odds. 'Meanwhile' (B) implies simultaneity, not outcome. 'Specifically' (C) narrows, not persists. 'Thus' (D) suggests result, not defiance. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("novel’s dense prose")) {
+    return "Readers reject prose; scholars praise it—opposite reactions. 'Conversely' (A) marks this reversal. 'Therefore' (B) implies cause, not opposition. 'In fact' (C) emphasizes, not contrasts. 'Likewise' (D) suggests similarity, not difference. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("city council proposed a tax hike")) {
+    return "Proposal prompts opposition action. 'In response' (A) links cause to reaction. 'For instance' (B) illustrates, not reacts. 'On the other hand' (C) contrasts, not responds. 'Subsequently' (D) sequences, not ties directly. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("startup’s aggressive expansion")) {
+    return "Profit dazzles; caution follows despite it. 'Despite this' (A) bridges positive to critique. 'Accordingly' (B) implies agreement, not caution. 'In contrast' (C) overstates opposition. 'As a result' (D) suggests profit causes caution, not masks. A) is correct.";
+}
+// --- NEW Explanations for the 6 Rhetorical Synthesis Questions ---
+
+else if (questionText.includes("Which of the following sentences should the scientist use to emphasize the urgency")) {
+    return "Urgency needs a strong push. A) uses 'act now,' 'plummeting,' and 'vanishing,' integrating all notes (0.5°C, 30%, delays) for a dire tone. B) is mild with 'suggest.' C) softens with 'deserve.' D) lacks punch with 'warranted.' A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the historian use to connect past and present")) {
+    return "Connection needs a clear link. A) uses 'just as' and 'echo,' tying steam (tripled output, resistance) to AI (40%, fears) explicitly. B) is vague. C) omits resistance’s role. D) focuses on resistance, not transformation. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the environmentalist use to counter the objection")) {
+    return "Countering needs rebuttal and persuasion. A) refutes '$2 million burden' with '$5 million savings' and '25% biodiversity,' urging action. B) is neutral. C) downplays cost critique. D) lacks persuasive force. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the journalist use to highlight the transformative potential")) {
+    return "Transformation needs bold impact. A) uses 'revolutionized,' 'slashing,' and 'forging,' linking all notes (15%, 60%, 20%-80%) vividly. B) is flat. C) misstates math. D) underplays scale. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the analyst use to address the skepticism")) {
+    return "Addressing skepticism needs direct rebuttal. A) uses 'contrary,' tying 95% uptime and 30% cuts to dispel reliability doubts. B) is tentative. C) sidesteps weather focus. D) omits skepticism’s core. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the professor use to underscore the global relevance")) {
+    return "Relevance needs a global frame. A) uses 'pressing' and 'priority,' weaving 70%, 40%, and 25 countries into a compelling case. B) is disjointed. C) downplays threats. D) lacks emphasis. A) is correct.";
+}
+// --- NEW Explanations for the 6 Boundaries Questions ---
+
+else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("expedition uncovered artifacts")) {
+    return "The first clause introduces a discovery; the second specifies it (pottery, tools). A colon (A) introduces this list-like elaboration. A comma (B) is too weak for the full clause. A semicolon (C) suggests independence, not specification. A period (D) over-separates. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("Critics dismissed the theory")) {
+    return "The first clause states dismissal; the second contrasts with proponents’ rebuttal—both independent. A semicolon (A) joins these related opposites. A colon (B) implies explanation, not contrast. A comma (C) can’t separate independent clauses. A period (D) breaks flow. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("artist blended surrealism")) {
+    return "The first clause describes a style; the second defines her work as an example. A colon (A) introduces this definition. A comma (B) is insufficient for the full clause. A semicolon (C) suggests independence, not elaboration. A period (D) disrupts unity. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("storm disrupted supply chains")) {
+    return "The first clause states disruption; the second details simultaneous responses—both independent. A semicolon (A) links these related actions. A colon (B) implies a list, not coordination. A comma (C) is too weak for independence. A period (D) over-separates. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("Volunteers restored the historic site")) {
+    return "The first clause describes action; the second is a participial phrase ('yielding') modifying it. A comma (A) correctly joins this dependent phrase. A semicolon (B) or colon (C) requires independence. A period (D) breaks the sentence. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("debate hinged on a single contentious issue")) {
+    return "The first clause sets up an issue; the second specifies it (whether funding...). A colon (A) introduces this clarification. A comma (B) is too light for the full clause. A semicolon (C) suggests independence, not definition. A period (D) splits the thought. A) is correct.";
+}
+// --- NEW Explanations for the 7 Algebra Questions ---
+
+// --- NEW Explanations for the 6 Command of Evidence Questions (Medium Difficulty) ---
+
+else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the nutritionist’s claim")) {
+    return "The claim is plant-based diets benefit heart health. A) 'studies showing lower cholesterol levels' directly ties to heart health via evidence. B) restates the claim, not evidence. C) explains a mechanism, not direct support. D) is a fragment, not specific. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the idea that trade routes")) {
+    return "The idea is trade routes influenced urban development. A) 'bustling markets in Damascus along trade paths' shows direct evidence of impact. B) is the historian’s claim, not evidence. C) states an effect, not proof. D) is incomplete, not specific. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the ecologist’s claim")) {
+    return "The claim is green spaces reduce stress. A) 'surveys reporting better mental well-being' directly supports stress reduction. B) restates the claim. C) addresses air quality, not stress. D) is vague, not specific to stress. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the economist’s assertion")) {
+    return "The assertion is remote work boosts productivity. A) '15% increase in output' provides concrete evidence. B) is the assertion itself. C) suggests a reason, not proof. D) is a fragment, not full evidence. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the educator’s argument")) {
+    return "The argument is smaller classes enhance learning. A) 'test scores rose by 10%' directly shows improved learning. B) restates the argument. C) offers a method, not evidence. D) is incomplete, not specific. A) is correct.";
+} else if (questionText.includes("Which of the following pieces of evidence from the passage best supports the biologist’s proposal")) {
+    return "The proposal is invasive species disrupt ecosystems. A) '20% decline in fish populations' directly evidences disruption. B) is the proposal, not evidence. C) describes a trait, not impact. D) is a fragment, not full support. A) is correct.";
+}
+// --- NEW Explanations for the 6 Central Ideas and Details Questions (Easy Difficulty) ---
+
+else if (questionText.includes("What is the central idea of the passage") && passageText.includes("librarian promoted reading programs")) {
+    return "The passage focuses on reading programs building community via participation. A) captures this with 'strengthen connections' and 'participation,' tying to book clubs and ties. B) overstates book club popularity. C) adds funding, not mentioned. D) exaggerates dependency. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best supports the gardener’s explanation")) {
+    return "The explanation is composting reduces waste. A) 'turns scraps into soil' directly shows waste transformation. B) restates the explanation. C) addresses fertilizers, not waste. D) is a fragment, not full support. A) is correct.";
+} else if (questionText.includes("What is the central idea of the passage") && passageText.includes("coach emphasized teamwork")) {
+    return "The passage centers on teamwork driving sports success via coordination. A) reflects this with 'key to success' and 'coordination,' linking to plays and victories. B) narrows to goals. C) contradicts teamwork focus. D) downplays collaboration. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best supports the teacher’s argument")) {
+    return "The argument is hands-on projects improve learning. A) 'higher test scores' directly proves learning gains. B) restates the argument. C) notes engagement, not learning proof. D) is incomplete. A) is correct.";
+} else if (questionText.includes("What is the central idea of the passage") && passageText.includes("chef promoted local ingredients")) {
+    return "The passage highlights local ingredients enhancing flavor via freshness. A) captures this with 'improve quality' and 'freshness,' tied to survey. B) overgeneralizes preference. C) limits to freshness. D) adds surveys as requirement. A) is correct.";
+} else if (questionText.includes("Which detail from the passage best supports the musician’s assertion")) {
+    return "The assertion is practice sharpens skills. A) 'daily rehearsals mastered a piece' shows skill improvement. B) restates value, not evidence. C) repeats assertion. D) is a fragment. A) is correct.";
+}
+// --- NEW Explanations for the 6 Words in Context Questions (Easy Difficulty) ---
+
+else if (questionText.includes("As used in the passage, 'verbose' most nearly means") && passageText.includes("mayor’s speech")) {
+    return "'Verbose' describes a speech losing interest, contrasted with 'brief.' A) 'wordy' fits this excess length. B) 'loud' shifts to volume. C) 'confusing' adds complexity not implied. D) 'inspiring' contradicts boredom. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'exhilarated' most nearly means") && passageText.includes("hiker felt")) {
+    return "'Exhilarated' follows reaching the summit, tied to 'joy.' A) 'thrilled' matches this excitement. B) 'exhausted' fits fatigue, not surge. C) 'nervous' opposes joy. D) 'relieved' is too mild. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'meticulous' most nearly means") && passageText.includes("chef’s meticulous approach")) {
+    return "'Meticulous' ensures perfection, linked to 'carefully measured.' A) 'precise' aligns with this accuracy. B) 'creative' shifts to imagination. C) 'quick' contradicts care. D) 'casual' opposes perfection. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'contentious' most nearly means") && passageText.includes("debate grew contentious")) {
+    return "'Contentious' describes a debate with raised voices and no compromise. A) 'heated' fits this intensity. B) 'boring' contradicts conflict. C) 'friendly' opposes disagreement. D) 'quiet' denies voices. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'plausible' most nearly means") && passageText.includes("scientist’s theory seemed plausible")) {
+    return "'Plausible' describes a theory with initial data, needing confirmation. A) 'believable' fits this tentative support. B) 'proven' overstates unconfirmed status. C) 'complicated' adds unmentioned difficulty. D) 'unlikely' contradicts data. A) is correct.";
+} else if (questionText.includes("As used in the passage, 'obsolete' most nearly means") && passageText.includes("old bridge was deemed obsolete")) {
+    return "'Obsolete' describes a bridge no longer meeting needs after a new highway. A) 'outdated' fits this irrelevance. B) 'dangerous' adds unmentioned risk. C) 'sturdy' opposes disuse. D) 'narrow' shifts focus. A) is correct.";
+}
+// --- NEW Explanations for the 6 Text Structure and Purpose Questions (Medium Difficulty) ---
+
+else if (questionText.includes("The passage is structured primarily to") && passageText.includes("travel writer began with a vivid description")) {
+    return "The passage starts with a market scene, then links crafts to culture, drawing readers in. A) captures this image-to-significance flow. B) misreads as a list. C) adds an argument not present. D) shifts to comparison. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("scientist opened with a surprising fact")) {
+    return "The passage uses a fact and decline details to stress bees’ role. A) reflects this importance focus. B) contradicts the threat. C) narrows to decline causes. D) adds unmentioned comparison. A) is correct.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("coach started by praising the team’s effort")) {
+    return "The passage praises effort, then details strategies, boosting morale. A) captures this praise-to-detail structure. B) misreads as critique. C) skips praise. D) adds comparison not present. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("historian described a famous battle")) {
+    return "The passage shows a battle’s wider impact on trade, shaping history. A) reflects this event-to-effect aim. B) narrows to tactics. C) reverses causality. D) overextends to all events. A) is correct.";
+} else if (questionText.includes("The passage is structured primarily to") && passageText.includes("chef shared a recipe for a simple soup")) {
+    return "The passage gives a recipe, then offers adaptations, encouraging creativity. A) captures this guide-to-variation flow. B) adds an argument. C) overextends to all soups. D) shifts to comparison. A) is correct.";
+} else if (questionText.includes("The primary purpose of the passage is to") && passageText.includes("teacher began with a question about recycling")) {
+    return "The passage hooks with a question, then informs with data on recycling’s value. A) reflects this engage-and-teach goal. B) contradicts intent. C) shifts to rules. D) adds comparison. A) is correct.";
+}
+// --- NEW Explanations for the 6 Cross-Text Connections Questions (Medium Difficulty) ---
+
+else if (questionText.includes("How would the nutritionist from Passage 1 most likely respond to the trainer’s argument")) {
+    return "The nutritionist links cutting sugar to alertness. A) fits: she’d counter sugar’s quick boost with sustained benefits, per her studies. B) concedes too much. C) denies fuel, not her focus. D) shifts to workouts. A) is correct.";
+} else if (questionText.includes("Which of the following best describes a key difference between Passage 1 and Passage 2") && passageText.includes("teacher said small classes")) {
+    return "Passage 1 ties small classes to grades; Passage 2 links large classes to independence. A) captures this academic vs. growth split. B) misreads topics. C) reverses stances. D) misattributes evidence type. A) is correct.";
+} else if (questionText.includes("How would the gardener from Passage 1 likely respond to the farmer’s argument")) {
+    return "The gardener prioritizes soil health. A) fits: she’d emphasize soil over yields, per her nutrient focus. B) agrees too much. C) denies yields, not implied. D) claims speed, unsupported. A) is correct.";
+} else if (questionText.includes("Which of the following best describes how the authors of Passage 1 and Passage 2 differ") && passageText.includes("chef praised home cooking")) {
+    return "The chef focuses on savings; the critic on flavor. A) reflects this cost vs. quality difference. B) overstates dislike. C) swaps topics. D) misreads evidence. A) is correct.";
+} else if (questionText.includes("How would the scientist from Passage 1 likely respond to the doctor’s focus")) {
+    return "The scientist ties exercise to sleep. A) fits: she’d prioritize exercise over diet, per her studies. B) mixes ideas oddly. C) denies diet, not implied. D) equates them, unsupported. A) is correct.";
+} else if (questionText.includes("Which of the following best describes a key difference between Passage 1 and Passage 2") && passageText.includes("librarian promoted e-books")) {
+    return "Passage 1 values convenience; Passage 2 tactile appeal. A) captures this practicality vs. experience split. B) misreads topics. C) overstates opposition. D) adds evidence not present. A) is correct.";
+}
+// --- NEW Explanations for the 6 Transitions Questions (Medium Difficulty) ---
+
+else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("team practiced daily")) {
+    return "Practice leads to winning. 'As a result' (A) shows this cause-effect link. 'For example' (B) suggests an instance, not outcome. 'However' (C) implies contrast. 'Meanwhile' (D) shifts to time overlap. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("recipe called for fresh herbs")) {
+    return "Fresh herbs were replaced with dried. 'Instead' (A) indicates substitution. 'In addition' (B) suggests more, not replacement. 'Therefore' (C) implies result, not choice. 'Similarly' (D) suggests likeness. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("park was quiet in the morning")) {
+    return "Quiet morning shifts to noisy noon. 'Later' (A) marks this time progression. 'Because' (B) implies cause. 'In contrast' (C) overstates opposition. 'Besides' (D) adds unrelated info. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("student studied hard")) {
+    return "Studying leads to confidence. 'Consequently' (A) shows this result. 'On the other hand' (B) suggests contrast. 'For instance' (C) gives an example. 'Nevertheless' (D) implies overcoming odds. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("town planned a festival")) {
+    return "Planning meets an obstacle. 'However' (A) signals this contrast. 'In addition' (B) adds, not opposes. 'Thus' (C) implies result. 'Likewise' (D) suggests similarity. A) is correct.";
+} else if (questionText.includes("Which of the following transitions best fits in the blank") && passageText.includes("book offered tips for beginners")) {
+    return "Tips for beginners plus advanced info. 'Additionally' (A) adds this extra content. 'By contrast' (B) suggests opposition. 'As a result' (C) implies cause. 'In fact' (D) emphasizes, not adds. A) is correct.";
+}
+// --- NEW Explanations for the 6 Rhetorical Synthesis Questions (Medium Difficulty) ---
+
+else if (questionText.includes("Which of the following sentences should the teacher use to highlight the garden’s benefits")) {
+    return "Highlighting needs all benefits. A) uses 'engages,' 'fun,' and 'fresh,' covering 80%, learning, and lunches fully. B) is vague. C) omits 80%. D) shifts to comparison. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the coach use to emphasize preparation")) {
+    return "Emphasis needs strong prep. A) ties 5 days, 10 goals, and insight to 'ready,' using all notes. B) is weak. C) skips goals. D) omits opponents. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the librarian use to show the program’s value")) {
+    return "Value needs clear impact. A) uses 50%, 2 hours, and skills with 'boosted,' showing all notes strongly. B) is vague. C) skips skills. D) omits hours and %. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the gardener use to explain composting’s ease")) {
+    return "Ease needs all steps simply. A) calls it 'simple,' listing 5 minutes, weekly turn, and 2 months fully. B) skips details. C) omits turning. D) misses time. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the student use to stress recess’s benefits")) {
+    return "Stress needs strong benefits. A) uses 20%, 100 calories, and 'happier' with 'boosts,' covering all notes. B) skips calories and mood. C) omits %. D) misses focus. A) is correct.";
+} else if (questionText.includes("Which of the following sentences should the chef use to highlight the dish’s flavor appeal")) {
+    return "Flavor appeal needs all taste notes. A) uses 'fresh,' 'tangy,' and 30% with 'popular,' tying all points. B) skips sauce. C) omits herbs. D) misses %. A) is correct.";
+}
+// --- NEW Explanations for the 6 Boundaries Questions (Medium Difficulty) ---
+
+else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("hiker packed essentials")) {
+    return "The first clause sets up a list; the second lists items (water, snacks, map). A colon (A) introduces this list clearly. A comma (B) is too weak for a full list. A semicolon (C) fits independent clauses. A period (D) breaks flow. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("chef prepared a special dish")) {
+    return "The first clause introduces a dish; the second describes it (herbs, sauce). A colon (A) specifies this detail well. A comma (B) is insufficient for description. A semicolon (C) suggests independence. A period (D) splits too much. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("team trained hard all week")) {
+    return "Both clauses are independent but related (training; payoff). A semicolon (A) links them smoothly. A colon (B) implies a list. A comma (C) can’t join full clauses. A period (D) over-separates. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("book club met monthly")) {
+    return "Two independent clauses (met; discussed). A semicolon (A) connects them logically. A colon (B) suggests a list. A comma (C) is too weak for independence. A period (D) splits flow. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("gardener planted flowers")) {
+    return "The first clause sets up planting; the second lists flowers (roses, tulips, daisies). A colon (A) introduces this list. A comma (B) lacks strength for a list. A semicolon (C) fits independent ideas. A period (D) breaks continuity. A) is correct.";
+} else if (questionText.includes("Which of the following punctuation marks should be inserted in the blank") && passageText.includes("concert was delayed by rain")) {
+    return "Independent clauses (delayed; played). A semicolon (A) joins them well. A colon (B) implies explanation. A comma (C) is insufficient for independence. A period (D) separates too much. A) is correct.";
+}
+
+    // Fallback
     return "No specific explanation available for this question.";
 }
 
