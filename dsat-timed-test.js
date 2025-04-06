@@ -1753,8 +1753,8 @@ const mathQuestions = [
         question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
         answers: [
             { text: "A) 10 hours", correct: false },
-            { text: "B) 11 hours", correct: false },
-            { text: "C) 9 hours", correct: true },
+            { text: "B) 11 hours", correct: true },
+            { text: "C) 9 hours", correct: false },
             { text: "D) 8 hours", correct: false }
         ],
         difficulty: "medium",
