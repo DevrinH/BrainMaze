@@ -1522,7 +1522,6 @@ const readingWritingQuestions = [
         answers: [
             { text: "A) This early progress hints at the policy’s potential.", correct: true },
             { text: "B) Cleaner tech is expensive but widely available.", correct: false },
-           -ra
             { text: "C) Factories have long resisted environmental regulations.", correct: false },
             { text: "D) Air pollution remains a global challenge.", correct: false },
         ],
@@ -1548,6 +1547,171 @@ const readingWritingQuestions = [
 ];
 
 const mathQuestions = [
+    // Algebra
+    {
+        passage: "A store sells shirts for $15 each. During a sale, they offer a $5 discount per shirt. If a customer buys 3 shirts during the sale, how much will they pay?",
+        question: "What is the total cost?",
+        answers: [
+            { text: "A) $30", correct: true },
+            { text: "B) $45", correct: false },
+            { text: "C) $40", correct: false },
+            { text: "D) $15", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "The equation 2x + 7 = 15 represents a number increased by 7, then doubled, resulting in 15.",
+        question: "What is the value of x?",
+        answers: [
+            { text: "A) 4", correct: true },
+            { text: "B) 8", correct: false },
+            { text: "C) 11", correct: false },
+            { text: "D) 1", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "A line has a slope of 3 and passes through the point (2, 5).",
+        question: "What is the y-intercept of this line?",
+        answers: [
+            { text: "A) -1", correct: true },
+            { text: "B) 5", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 11", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        passage: "A rental company charges a flat fee of $20 plus $10 per hour to rent a bike.",
+        question: "If a customer spends $50, how many hours did they rent the bike for?",
+        answers: [
+            { text: "A) 3", correct: true },
+            { text: "B) 5", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) 7", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "algebra"
+    },
+
+    // Algebra MEDIUM
+    {
+        passage: "The function f(x) = 2x² - 8x + 5 represents a parabola.",
+        question: "What is the minimum value of this function?",
+        answers: [
+            { text: "A) -3", correct: true },
+            { text: "B) 5", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) 0", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "algebra"
+    },
+    {
+        passage: "A system of equations is given: 3x + y = 7 and x - 2y = 1.",
+        question: "What is the value of x?",
+        answers: [
+            { text: "A) 3", correct: true },
+            { text: "B) 1", correct: false },
+            { text: "C) 7", correct: false },
+            { text: "D) 5", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "algebra"
+    },
+    {
+        passage: "A car travels 60 miles per hour. Another car, leaving 1 hour later, travels 75 miles per hour to catch up.",
+        question: "How long after the first car starts will the second car catch up?",
+        answers: [
+            { text: "A) 4 hours", correct: true },
+            { text: "B) 3 hours", correct: false },
+            { text: "C) 5 hours", correct: false },
+            { text: "D) 2 hours", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "algebra"
+    },
+    {
+        passage: "The inequality 4x - 3 > 9 describes a set of values for x.",
+        question: "What is the solution to this inequality?",
+        answers: [
+            { text: "A) x > 3", correct: true },
+            { text: "B) x < 3", correct: false },
+            { text: "C) x > 6", correct: false },
+            { text: "D) x < 1.5", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "algebra"
+    },
+
+    // Algebra HARD
+    {
+        passage: "A quadratic function is defined as f(x) = x² - 6x + k, where k is a constant. The vertex of this parabola lies on the x-axis.",
+        question: "What is the value of k?",
+        answers: [
+            { text: "A) 9", correct: true },
+            { text: "B) 6", correct: false },
+            { text: "C) 0", correct: false },
+            { text: "D) -9", correct: false },
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+    {
+        passage: "Two numbers have a sum of 15 and a product of 36.",
+        question: "What is the larger of the two numbers?",
+        answers: [
+            { text: "A) 12", correct: true },
+            { text: "B) 9", correct: false },
+            { text: "C) 15", correct: false },
+            { text: "D) 6", correct: false },
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+    {
+        passage: "A system of equations has infinitely many solutions: 2x - 3y = 6 and kx - 9y = 18, where k is a constant.",
+        question: "What is the value of k?",
+        answers: [
+            { text: "A) 6", correct: true },
+            { text: "B) 3", correct: false },
+            { text: "C) 9", correct: false },
+            { text: "D) 2", correct: false },
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+    {
+        passage: "The function g(x) = (x - 2)(x + 3) is shifted 4 units up and 1 unit left to form a new function h(x).",
+        question: "What is the value of h(0)?",
+        answers: [
+            { text: "A) -2", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 6", correct: false },
+            { text: "D) -6", correct: false },
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "algebra"
+    },
+
+
+
+    
     {
         passage: "",
         question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
@@ -1595,6 +1759,169 @@ const mathQuestions = [
         ],
         difficulty: "medium",
         category: "algebra"
+    },
+
+    //Advanced Math
+    // Mildly Hard Questions
+    {
+        passage: "The function f(x) = 2^x models exponential growth. If f(x) = 16, what is the value of x?",
+        question: "What is x?",
+        answers: [
+            { text: "A) 4", correct: true },
+            { text: "B) 8", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 16", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        passage: "A population doubles every 5 years. If it starts at 100, the function P(t) = 100 * 2^(t/5) gives the population after t years.",
+        question: "What is the population after 15 years?",
+        answers: [
+            { text: "A) 800", correct: true },
+            { text: "B) 400", correct: false },
+            { text: "C) 200", correct: false },
+            { text: "D) 1600", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        passage: "The equation log₃(x) = 2 describes a logarithmic relationship.",
+        question: "What is the value of x?",
+        answers: [
+            { text: "A) 9", correct: true },
+            { text: "B) 6", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 12", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        passage: "A right triangle has legs of length 3 and 4.",
+        question: "What is the sine of the smallest angle?",
+        answers: [
+            { text: "A) 3/5", correct: true },
+            { text: "B) 4/5", correct: false },
+            { text: "C) 5/3", correct: false },
+            { text: "D) 3/4", correct: false },
+        ],
+        type: "math",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+
+    // Advanced Math MEDIUM
+    {
+        passage: "The equation 4^(x+1) = 64 can be solved for x.",
+        question: "What is the value of x?",
+        answers: [
+            { text: "A) 1", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 0", correct: false },
+            { text: "D) 3", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "advanced-math"
+    },
+    {
+        passage: "For the function f(x) = x^4 - 4x^2, the critical points occur where the derivative is zero.",
+        question: "How many distinct real critical points does f(x) have?",
+        answers: [
+            { text: "A) 3", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 1", correct: false },
+            { text: "D) 4", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "advanced-math"
+    },
+    {
+        passage: "The complex number z = 3 + 4i is multiplied by its conjugate.",
+        question: "What is the result?",
+        answers: [
+            { text: "A) 25", correct: true },
+            { text: "B) 9 + 16i", correct: false },
+            { text: "C) 7", correct: false },
+            { text: "D) -7", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "advanced-math"
+    },
+    {
+        passage: "In a right triangle, the cosine of an angle is 5/13.",
+        question: "What is the tangent of that angle?",
+        answers: [
+            { text: "A) 12/5", correct: true },
+            { text: "B) 5/12", correct: false },
+            { text: "C) 13/5", correct: false },
+            { text: "D) 5/13", correct: false },
+        ],
+        type: "math",
+        difficulty: "medium",
+        category: "advanced-math"
+    },
+
+    // Advanced Math HARD
+    {
+        passage: "The equation 2^(2x) - 5 * 2^x + 4 = 0 can be solved by substitution.",
+        question: "What is the sum of all real solutions for x?",
+        answers: [
+            { text: "A) 2", correct: true },
+            { text: "B) 1", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 0", correct: false },
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        passage: "The function f(x) = log₂(x) + log₂(x - 1) is defined for x > 1.",
+        question: "If f(x) = 3, what is the value of x?",
+        answers: [
+            { text: "A) 3", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) 5", correct: false },
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        passage: "A circle’s equation is x² + y² - 6x + 4y - 12 = 0.",
+        question: "What is the radius of the circle?",
+        answers: [
+            { text: "A) 5", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 6", correct: false },
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
+    },
+    {
+        passage: "The equation sin(x) + cos(x) = √2 is solved for x over the interval [0, 2π).",
+        question: "How many solutions exist?",
+        answers: [
+            { text: "A) 1", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 0", correct: false },
+        ],
+        type: "math",
+        difficulty: "hard",
+        category: "advanced-math"
     },
 ];
 
@@ -2107,6 +2434,66 @@ function generateExplanation(response) {
             return "A focuses on the policy’s initial air quality impact.";
         } else if (questionText.includes("lecture’s insights")) {
             return "A concludes with myths’ role in identity, not logistics.";
+        }
+            // Mildly Hard Explanations (Algebra)
+    else if (questionText.includes("total cost")) {
+        return "Sale price = $15 - $5 = $10 per shirt. Total = 3 × $10 = $30.";
+    } else if (questionText.includes("value of x") && response.passage.includes("2x + 7 = 15")) {
+        return "2x + 7 = 15 → 2x = 8 → x = 4.";
+    } else if (questionText.includes("y-intercept")) {
+        return "y = mx + b. Using (2, 5) and m = 3: 5 = 3(2) + b → b = -1.";
+    } else if (questionText.includes("hours did they rent")) {
+        return "20 + 10h = 50 → 10h = 30 → h = 3.";
+
+    // Hard Explanations (Algebra)
+    } else if (questionText.includes("minimum value")) {
+        return "Vertex at x = -b/(2a) = 8/(4) = 2. f(2) = 2(4) - 8(2) + 5 = -3.";
+    } else if (questionText.includes("value of x") && response.passage.includes("3x + y = 7")) {
+        return "Solve: x - 2y = 1 → x = 2y + 1. Then 3(2y + 1) + y = 7 → 7y + 3 = 7 → y = 4/7, x = 3.";
+    } else if (questionText.includes("second car catch up")) {
+        return "Distance = 60t. Second car: 75(t - 1). Set equal: 60t = 75(t - 1) → t = 4.";
+    } else if (questionText.includes("solution to this inequality")) {
+        return "4x - 3 > 9 → 4x > 12 → x > 3.";
+
+    // Extremely Hard Explanations (Algebra)
+    } else if (questionText.includes("value of k") && response.passage.includes("vertex")) {
+        return "Vertex at x = 3, y = 0. f(3) = 9 - 18 + k = 0 → k = 9.";
+    } else if (questionText.includes("larger of the two numbers")) {
+        return "x + y = 15, xy = 36. Quadratic: t² - 15t + 36 = 0 → t = 12 or 3. Larger = 12.";
+    } else if (questionText.includes("value of k") && response.passage.includes("infinitely many solutions")) {
+        return "Equations proportional: (2/-3) = (k/-9) → k = 6.";
+    } else if (questionText.includes("value of h(0)")) {
+        return "g(x) = x² + x - 6. Shift left 1: (x + 1), up 4: h(x) = (x + 1)² + x - 2. h(0) = 1 - 0 - 2 = -2.";
+    }
+        // Mildly Hard Explanations (Advanced Math)
+        else if (questionText.includes("value of x") && response.passage.includes("2^x")) {
+            return "2^x = 16 → 2^4 = 16 → x = 4.";
+        } else if (questionText.includes("population after 15 years")) {
+            return "P(15) = 100 * 2^(15/5) = 100 * 2^3 = 100 * 8 = 800.";
+        } else if (questionText.includes("value of x") && response.passage.includes("log₃(x)")) {
+            return "log₃(x) = 2 → x = 3^2 = 9.";
+        } else if (questionText.includes("sine of the smallest angle")) {
+            return "Hypotenuse = √(3² + 4²) = 5. Smallest angle opposite 3: sin = 3/5.";
+    
+        // Hard Explanations (Advanced Math)
+        } else if (questionText.includes("value of x") && response.passage.includes("4^(x+1)")) {
+            return "4^(x+1) = 64 → 4^(x+1) = 4^2 → x + 1 = 2 → x = 1.";
+        } else if (questionText.includes("distinct real critical points")) {
+            return "f'(x) = 4x^3 - 8x = 4x(x² - 2). Roots: x = 0, ±√2. Three distinct points.";
+        } else if (questionText.includes("result") && response.passage.includes("3 + 4i")) {
+            return "(3 + 4i)(3 - 4i) = 9 - 16i² = 9 + 16 = 25.";
+        } else if (questionText.includes("tangent of that angle")) {
+            return "cos = 5/13, adjacent = 5, hypotenuse = 13. Opposite = 12. tan = 12/5.";
+    
+        // Extremely Hard Explanations (Advanced Math)
+        } else if (questionText.includes("sum of all real solutions")) {
+            return "Let u = 2^x. Then u² - 5u + 4 = 0 → (u - 4)(u - 1) = 0. u = 4 → x = 2, u = 1 → x = 0. Sum = 2.";
+        } else if (questionText.includes("value of x") && response.passage.includes("log₂(x)")) {
+            return "log₂(x) + log₂(x - 1) = log₂(x(x - 1)) = 3 → x(x - 1) = 8 → x² - x - 8 = 0. x = (1 + √33)/2 ≈ 3.";
+        } else if (questionText.includes("radius of the circle")) {
+            return "Complete the square: (x - 3)² + (y + 2)² = 25. Radius = √25 = 5.";
+        } else if (questionText.includes("how many solutions")) {
+            return "sin(x) + cos(x) = √2 * sin(x + π/4). sin(x + π/4) = 1 → x + π/4 = π/2 → x = π/4. One solution.";
         }
 
     return "No specific explanation available.";
