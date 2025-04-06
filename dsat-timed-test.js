@@ -1550,7 +1550,7 @@ const mathQuestions = [
     // Algebra
     {
         passage: "A store sells shirts for $15 each. During a sale, they offer a $5 discount per shirt. If a customer buys 3 shirts during the sale, how much will they pay?",
-        question: "What is the total cost?",
+        question: "A store sells shirts for $15 each. During a sale, they offer a $5 discount per shirt. If a customer buys 3 shirts during the sale, how much will they pay? What is the total cost?",
         answers: [
             { text: "A) $30", correct: true },
             { text: "B) $45", correct: false },
@@ -1563,7 +1563,7 @@ const mathQuestions = [
     },
     {
         passage: "The equation 2x + 7 = 15 represents a number increased by 7, then doubled, resulting in 15.",
-        question: "What is the value of x?",
+        question: "The equation 2x + 7 = 15 represents a number increased by 7, then doubled, resulting in 15. What is the value of x?",
         answers: [
             { text: "A) 4", correct: true },
             { text: "B) 8", correct: false },
@@ -1576,7 +1576,7 @@ const mathQuestions = [
     },
     {
         passage: "A line has a slope of 3 and passes through the point (2, 5).",
-        question: "What is the y-intercept of this line?",
+        question: "A line has a slope of 3 and passes through the point (2, 5). What is the y-intercept of this line?",
         answers: [
             { text: "A) -1", correct: true },
             { text: "B) 5", correct: false },
@@ -1589,7 +1589,7 @@ const mathQuestions = [
     },
     {
         passage: "A rental company charges a flat fee of $20 plus $10 per hour to rent a bike.",
-        question: "If a customer spends $50, how many hours did they rent the bike for?",
+        question: "A rental company charges a flat fee of $20 plus $10 per hour to rent a bike. If a customer spends $50, how many hours did they rent the bike for?",
         answers: [
             { text: "A) 3", correct: true },
             { text: "B) 5", correct: false },
@@ -1604,7 +1604,7 @@ const mathQuestions = [
     // Algebra MEDIUM
     {
         passage: "The function f(x) = 2x² - 8x + 5 represents a parabola.",
-        question: "What is the minimum value of this function?",
+        question: "The function f(x) = 2x² - 8x + 5 represents a parabola. What is the minimum value of this function?",
         answers: [
             { text: "A) -3", correct: true },
             { text: "B) 5", correct: false },
@@ -1617,7 +1617,7 @@ const mathQuestions = [
     },
     {
         passage: "A system of equations is given: 3x + y = 7 and x - 2y = 1.",
-        question: "What is the value of x?",
+        question: "A system of equations is given: 3x + y = 7 and x - 2y = 1. What is the value of x?",
         answers: [
             { text: "A) 3", correct: true },
             { text: "B) 1", correct: false },
@@ -1630,7 +1630,7 @@ const mathQuestions = [
     },
     {
         passage: "A car travels 60 miles per hour. Another car, leaving 1 hour later, travels 75 miles per hour to catch up.",
-        question: "How long after the first car starts will the second car catch up?",
+        question: "A car travels 60 miles per hour. Another car, leaving 1 hour later, travels 75 miles per hour to catch up. How long after the first car starts will the second car catch up?",
         answers: [
             { text: "A) 4 hours", correct: true },
             { text: "B) 3 hours", correct: false },
@@ -1643,7 +1643,7 @@ const mathQuestions = [
     },
     {
         passage: "The inequality 4x - 3 > 9 describes a set of values for x.",
-        question: "What is the solution to this inequality?",
+        question: "The inequality 4x - 3 > 9 describes a set of values for x. What is the solution to this inequality?",
         answers: [
             { text: "A) x > 3", correct: true },
             { text: "B) x < 3", correct: false },
@@ -1658,7 +1658,7 @@ const mathQuestions = [
     // Algebra HARD
     {
         passage: "A quadratic function is defined as f(x) = x² - 6x + k, where k is a constant. The vertex of this parabola lies on the x-axis.",
-        question: "What is the value of k?",
+        question: "A quadratic function is defined as f(x) = x² - 6x + k, where k is a constant. The vertex of this parabola lies on the x-axis. What is the value of k?",
         answers: [
             { text: "A) 9", correct: true },
             { text: "B) 6", correct: false },
@@ -1671,7 +1671,7 @@ const mathQuestions = [
     },
     {
         passage: "Two numbers have a sum of 15 and a product of 36.",
-        question: "What is the larger of the two numbers?",
+        question: "Two numbers have a sum of 15 and a product of 36. What is the larger of the two numbers?",
         answers: [
             { text: "A) 12", correct: true },
             { text: "B) 9", correct: false },
@@ -1684,7 +1684,7 @@ const mathQuestions = [
     },
     {
         passage: "A system of equations has infinitely many solutions: 2x - 3y = 6 and kx - 9y = 18, where k is a constant.",
-        question: "What is the value of k?",
+        question: "A system of equations has infinitely many solutions: 2x - 3y = 6 and kx - 9y = 18, where k is a constant. What is the value of k?",
         answers: [
             { text: "A) 6", correct: true },
             { text: "B) 3", correct: false },
@@ -1697,7 +1697,7 @@ const mathQuestions = [
     },
     {
         passage: "The function g(x) = (x - 2)(x + 3) is shifted 4 units up and 1 unit left to form a new function h(x).",
-        question: "What is the value of h(0)?",
+        question: "The function g(x) = (x - 2)(x + 3) is shifted 4 units up and 1 unit left to form a new function h(x). What is the value of h(0)?",
         answers: [
             { text: "A) -2", correct: true },
             { text: "B) 4", correct: false },
@@ -1765,7 +1765,7 @@ const mathQuestions = [
     // Mildly Hard Questions
     {
         passage: "The function f(x) = 2^x models exponential growth. If f(x) = 16, what is the value of x?",
-        question: "What is x?",
+        question: "The function f(x) = 2^x models exponential growth. If f(x) = 16, what is the value of x?",
         answers: [
             { text: "A) 4", correct: true },
             { text: "B) 8", correct: false },
@@ -1778,7 +1778,7 @@ const mathQuestions = [
     },
     {
         passage: "A population doubles every 5 years. If it starts at 100, the function P(t) = 100 * 2^(t/5) gives the population after t years.",
-        question: "What is the population after 15 years?",
+        question: "A population doubles every 5 years. If it starts at 100, the function P(t) = 100 * 2^(t/5) gives the population after t years. What is the population after 15 years?",
         answers: [
             { text: "A) 800", correct: true },
             { text: "B) 400", correct: false },
@@ -1791,7 +1791,7 @@ const mathQuestions = [
     },
     {
         passage: "The equation log₃(x) = 2 describes a logarithmic relationship.",
-        question: "What is the value of x?",
+        question: "The equation log₃(x) = 2 describes a logarithmic relationship. What is the value of x?",
         answers: [
             { text: "A) 9", correct: true },
             { text: "B) 6", correct: false },
@@ -1804,7 +1804,7 @@ const mathQuestions = [
     },
     {
         passage: "A right triangle has legs of length 3 and 4.",
-        question: "What is the sine of the smallest angle?",
+        question: "A right triangle has legs of length 3 and 4. What is the sine of the smallest angle?",
         answers: [
             { text: "A) 3/5", correct: true },
             { text: "B) 4/5", correct: false },
@@ -1819,7 +1819,7 @@ const mathQuestions = [
     // Advanced Math MEDIUM
     {
         passage: "The equation 4^(x+1) = 64 can be solved for x.",
-        question: "What is the value of x?",
+        question: "The equation 4^(x+1) = 64 can be solved for x. What is the value of x?",
         answers: [
             { text: "A) 1", correct: true },
             { text: "B) 2", correct: false },
@@ -1832,7 +1832,7 @@ const mathQuestions = [
     },
     {
         passage: "For the function f(x) = x^4 - 4x^2, the critical points occur where the derivative is zero.",
-        question: "How many distinct real critical points does f(x) have?",
+        question: "For the function f(x) = x^4 - 4x^2, the critical points occur where the derivative is zero. How many distinct real critical points does f(x) have?",
         answers: [
             { text: "A) 3", correct: true },
             { text: "B) 2", correct: false },
@@ -1845,7 +1845,7 @@ const mathQuestions = [
     },
     {
         passage: "The complex number z = 3 + 4i is multiplied by its conjugate.",
-        question: "What is the result?",
+        question: "The complex number z = 3 + 4i is multiplied by its conjugate. What is the result?",
         answers: [
             { text: "A) 25", correct: true },
             { text: "B) 9 + 16i", correct: false },
@@ -1858,7 +1858,7 @@ const mathQuestions = [
     },
     {
         passage: "In a right triangle, the cosine of an angle is 5/13.",
-        question: "What is the tangent of that angle?",
+        question: "In a right triangle, the cosine of an angle is 5/13. What is the tangent of that angle?",
         answers: [
             { text: "A) 12/5", correct: true },
             { text: "B) 5/12", correct: false },
@@ -1873,7 +1873,7 @@ const mathQuestions = [
     // Advanced Math HARD
     {
         passage: "The equation 2^(2x) - 5 * 2^x + 4 = 0 can be solved by substitution.",
-        question: "What is the sum of all real solutions for x?",
+        question: "The equation 2^(2x) - 5 * 2^x + 4 = 0 can be solved by substitution. What is the sum of all real solutions for x?",
         answers: [
             { text: "A) 2", correct: true },
             { text: "B) 1", correct: false },
@@ -1886,7 +1886,7 @@ const mathQuestions = [
     },
     {
         passage: "The function f(x) = log₂(x) + log₂(x - 1) is defined for x > 1.",
-        question: "If f(x) = 3, what is the value of x?",
+        question: "The function f(x) = log₂(x) + log₂(x - 1) is defined for x > 1. If f(x) = 3, what is the value of x?",
         answers: [
             { text: "A) 3", correct: true },
             { text: "B) 4", correct: false },
@@ -1899,7 +1899,7 @@ const mathQuestions = [
     },
     {
         passage: "A circle’s equation is x² + y² - 6x + 4y - 12 = 0.",
-        question: "What is the radius of the circle?",
+        question: "A circle’s equation is x² + y² - 6x + 4y - 12 = 0. What is the radius of the circle?",
         answers: [
             { text: "A) 5", correct: true },
             { text: "B) 4", correct: false },
@@ -1912,7 +1912,7 @@ const mathQuestions = [
     },
     {
         passage: "The equation sin(x) + cos(x) = √2 is solved for x over the interval [0, 2π).",
-        question: "How many solutions exist?",
+        question: "The equation sin(x) + cos(x) = √2 is solved for x over the interval [0, 2π). How many solutions exist?",
         answers: [
             { text: "A) 1", correct: true },
             { text: "B) 2", correct: false },
