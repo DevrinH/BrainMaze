@@ -139,6 +139,9 @@
 
         </div> 
 
+
+
+
         <div id="lessons-container" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -295,6 +298,9 @@
         </div>
 
         </div>
+
+
+        
 
 <!--Command of evidence lessons-->
 
@@ -1043,23 +1049,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Selecting buttons for test/lesson toggling
-            const testButton = document.querySelector(".button-29[onclick='showTests()']");
-            const lessonButton = document.querySelector(".button-29[onclick='showLessons()']");
-            const algebraButton = document.querySelector(".button-29[onclick='showAlgebraLessons()']");
-            const inferenceButton = document.querySelector(".button-29[onclick='showInferenceLessons()']");
-            const geometryButton = document.querySelector(".button-29[onclick='showGeometryLessons()']");
-            const commandOfEvidenceButton = document.querySelector(".button-29[onclick='showCommandOfEvidenceLessons()']");
-            const centralIdeasAndDetailButton = document.querySelector(".button-29[onclick='showCentralIdeasAndDetailLessons()']");
-            const wordsInContextButton = document.querySelector(".button-29[onclick='showWordsInContextLessons()']");
-            const textStructureAndPurposeButton = document.querySelector(".button-29[onclick='showTextStructureAndPurposeLessons()']");
-            const crossTextConnectionsButton = document.querySelector(".button-29[onclick='showCrossTextConnectionsLessons()']");
-            const transitionsButton = document.querySelector(".button-29[onclick='showTransitionsLessons()']");
-            const rhetoricalSynthesisButton = document.querySelector(".button-29[onclick='showRhetoricalSynthesisLessons()']");
-            const boundariesButton = document.querySelector(".button-29[onclick='showBoundariesLessons()']");
-            const advancedMathButton = document.querySelector(".button-29[onclick='showAdvancedMathLessons()']");
-            const problemSolvingDataButton = document.querySelector(".button-29[onclick='showProblemSolvingDataLessons()']");
-        
             // Select Containers
             const testsContainer = document.getElementById("tests-container");
             const lessonsContainer = document.getElementById("lessons-container");
@@ -1076,10 +1065,9 @@
             const boundariesContainer = document.getElementById("lessons-container-boundaries");
             const advancedMathContainer = document.getElementById("lessons-container-advanced-math");
             const problemSolvingDataContainer = document.getElementById("lessons-container-problem-solving-data");
-
         
             // Function to hide all containers
-            function hideAllContainers() {
+            window.hideAllContainers = function () {
                 const allContainers = [
                     testsContainer,
                     lessonsContainer,
@@ -1100,91 +1088,83 @@
                 allContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
                 });
-            }
+            };
         
             // Functions to show specific sections
-            function showTests() {
+            window.showTests = function () {
                 hideAllContainers();
                 if (testsContainer) testsContainer.classList.remove("hidden");
-            }
+            };
         
-            function showLessons() {
+            window.showLessons = function () {
                 hideAllContainers();
                 if (lessonsContainer) lessonsContainer.classList.remove("hidden");
-            }
+            };
         
-            function showAlgebraLessons() {
+            window.showAlgebraLessons = function () {
                 hideAllContainers();
                 if (algebraContainer) algebraContainer.classList.remove("hidden");
-            }
+            };
         
-            function showInferenceLessons() {
+            window.showInferenceLessons = function () {
                 hideAllContainers();
                 if (inferenceContainer) inferenceContainer.classList.remove("hidden");
-            }
+            };
         
-            function showGeometryLessons() {
+            window.showGeometryLessons = function () {
                 hideAllContainers();
                 if (geometryContainer) geometryContainer.classList.remove("hidden");
-            }
+            };
         
-            function showCommandOfEvidenceLessons() {
+            window.showCommandOfEvidenceLessons = function () {
                 hideAllContainers();
                 if (commandOfEvidenceContainer) commandOfEvidenceContainer.classList.remove("hidden");
-            }
-            function showCentralIdeasAndDetailLessons() {
+            };
+        
+            window.showCentralIdeasAndDetailLessons = function () {
                 hideAllContainers();
                 if (centralIdeasAndDetailContainer) centralIdeasAndDetailContainer.classList.remove("hidden");
-            }
-            function showWordsInContextLessons() {
+            };
+        
+            window.showWordsInContextLessons = function () {
                 hideAllContainers();
                 if (wordsInContextContainer) wordsInContextContainer.classList.remove("hidden");
-            }
-            function showTextStructureAndPurposeLessons() {
+            };
+        
+            window.showTextStructureAndPurposeLessons = function () {
                 hideAllContainers();
                 if (textStructureAndPurposeContainer) textStructureAndPurposeContainer.classList.remove("hidden");
-            }
-            function showCrossTextConnectionsLessons() {
+            };
+        
+            window.showCrossTextConnectionsLessons = function () {
                 hideAllContainers();
                 if (crossTextConnectionsContainer) crossTextConnectionsContainer.classList.remove("hidden");
-            }
-            function showTransitionsLessons() {
+            };
+        
+            window.showTransitionsLessons = function () {
                 hideAllContainers();
                 if (transitionsContainer) transitionsContainer.classList.remove("hidden");
-            }
-            function showRhetoricalSynthesisLessons() {
+            };
+        
+            window.showRhetoricalSynthesisLessons = function () {
                 hideAllContainers();
-                 if (rhetoricalSynthesisContainer) rhetoricalSynthesisContainer.classList.remove("hidden");
-            }
-            function showBoundariesLessons() {
+                if (rhetoricalSynthesisContainer) rhetoricalSynthesisContainer.classList.remove("hidden");
+            };
+        
+            window.showBoundariesLessons = function () {
                 hideAllContainers();
                 if (boundariesContainer) boundariesContainer.classList.remove("hidden");
-            }
-            function showAdvancedMathLessons() {
+            };
+        
+            window.showAdvancedMathLessons = function () {
                 hideAllContainers();
                 if (advancedMathContainer) advancedMathContainer.classList.remove("hidden");
-            }
-            function showProblemSolvingDataLessons() {
+            };
+        
+            window.showProblemSolvingDataLessons = function () {
                 hideAllContainers();
                 if (problemSolvingDataContainer) problemSolvingDataContainer.classList.remove("hidden");
-            }
-        
-            // Add Event Listeners (Only if buttons exist)
-            if (testButton) testButton.addEventListener("click", showTests);
-            if (lessonButton) lessonButton.addEventListener("click", showLessons);
-            if (algebraButton) algebraButton.addEventListener("click", showAlgebraLessons);
-            if (inferenceButton) inferenceButton.addEventListener("click", showInferenceLessons);
-            if (geometryButton) geometryButton.addEventListener("click", showGeometryLessons);
-            if (commandOfEvidenceButton) commandOfEvidenceButton.addEventListener("click", showCommandOfEvidenceLessons);
-            if (centralIdeasAndDetailButton) centralIdeasAndDetailButton.addEventListener("click", showCentralIdeasAndDetailLessons);
-            if (wordsInContextButton) wordsInContextButton.addEventListener("click", showWordsInContextLessons);
-            if (textStructureAndPurposeButton) textStructureAndPurposeButton.addEventListener("click", showTextStructureAndPurposeLessons);
-            if (crossTextConnectionsButton) crossTextConnectionsButton.addEventListener("click", showCrossTextConnectionsLessons);
-            if (transitionsButton) transitionsButton.addEventListener("click", showTransitionsLessons);
-            if (rhetoricalSynthesisButton) rhetoricalSynthesisButton.addEventListener("click", showRhetoricalSynthesisLessons);
-            if (boundariesButton) boundariesButton.addEventListener("click", showBoundariesLessons);
-            if (advancedMathButton) advancedMathButton.addEventListener("click", showAdvancedMathLessons);
-            if (problemSolvingDataButton) problemSolvingDataButton.addEventListener("click", showProblemSolvingDataLessons);
+            };
         });
         </script>
            <script src="scoreChart.js"></script>
