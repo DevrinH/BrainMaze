@@ -1699,7 +1699,7 @@ const mathQuestions = [
         passage: "The function g(x) = (x - 2)(x + 3) is shifted 4 units up and 1 unit left to form a new function h(x).",
         question: "The function g(x) = (x - 2)(x + 3) is shifted 4 units up and 1 unit left to form a new function h(x). What is the value of h(0)?",
         answers: [
-            { text: "A) -2", correct: true },
+            { text: "A) 0", correct: true },
             { text: "B) 4", correct: false },
             { text: "C) 6", correct: false },
             { text: "D) -6", correct: false },
@@ -1741,9 +1741,9 @@ const mathQuestions = [
         question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
         answers: [
             { text: "A) 27", correct: false },
-            { text: "B) 29", correct: true },
+            { text: "B) 29", correct: false },
             { text: "C) 31", correct: false },
-            { text: "D) 25", correct: false }
+            { text: "D) 25", correct: true }
         ],
         difficulty: "easy",
         category: "algebra"
