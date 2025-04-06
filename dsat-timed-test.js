@@ -889,8 +889,660 @@ const readingWritingQuestions = [
         type: "reading",
         difficulty: "hard",
         category: "text-structure-and-purpose"
-    }
+    },
 
+    //Cross Text Connections 
+    // EASY 
+    {
+        passage: "Passage 1: The town’s library was a relic, its shelves lined with dusty books. Few visited, but the librarian kept it open, believing in its quiet value. Passage 2: The new community center buzzed with activity—workshops, games, and chatter. Residents flocked to its bright, modern space.",
+        question: "How do the two passages differ in their portrayal of community spaces?",
+        answers: [
+            { text: "A) Passage 1 depicts a quiet, underused space, while Passage 2 shows a lively, popular one.", correct: true },
+            { text: "B) Passage 1 focuses on books, while Passage 2 emphasizes workshops.", correct: false },
+            { text: "C) Passage 1 criticizes the librarian, while Passage 2 praises the residents.", correct: false },
+            { text: "D) Passage 1 highlights modernity, while Passage 2 values tradition.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "cross-text-connections"
+    },
+    {
+        passage: "Passage 1: The forest trail was serene, with birdsong filling the air. Hikers moved slowly, savoring the calm. Passage 2: The mountain path was rugged, wind whipping through the cliffs. Climbers pushed hard, chasing the thrill of the summit.",
+        question: "What is a key difference in how the passages describe outdoor experiences?",
+        answers: [
+            { text: "A) Passage 1 emphasizes tranquility, while Passage 2 highlights challenge.", correct: true },
+            { text: "B) Passage 1 focuses on wildlife, while Passage 2 describes weather.", correct: false },
+            { text: "C) Passage 1 portrays hikers as lazy, while Passage 2 sees climbers as brave.", correct: false },
+            { text: "D) Passage 1 values nature’s beauty, while Passage 2 ignores it.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "cross-text-connections"
+    },
+    {
+        passage: "Passage 1: The baker worked alone, kneading dough in silence. His bread was simple but cherished. Passage 2: The chef commanded a bustling kitchen, directing a team to craft elaborate dishes. Her restaurant drew crowds.",
+        question: "How do the passages contrast the approaches to food preparation?",
+        answers: [
+            { text: "A) Passage 1 shows a solitary, simple process, while Passage 2 depicts a collaborative, complex one.", correct: true },
+            { text: "B) Passage 1 values tradition, while Passage 2 focuses on innovation.", correct: false },
+            { text: "C) Passage 1 criticizes the baker, while Passage 2 admires the chef.", correct: false },
+            { text: "D) Passage 1 describes bread, while Passage 2 details restaurant management.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "cross-text-connections"
+    },
+    {
+        passage: "Passage 1: The festival featured folk music, a nod to the town’s roots. Attendees swayed to familiar tunes. Passage 2: The concert showcased experimental beats, pushing boundaries. Listeners marveled at the bold sounds.",
+        question: "What is a primary difference in how the passages portray musical events?",
+        answers: [
+            { text: "A) Passage 1 emphasizes tradition, while Passage 2 highlights innovation.", correct: true },
+            { text: "B) Passage 1 focuses on dancing, while Passage 2 describes listening.", correct: false },
+            { text: "C) Passage 1 portrays a small event, while Passage 2 depicts a large one.", correct: false },
+            { text: "D) Passage 1 admires the music, while Passage 2 critiques it.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "cross-text-connections"
+    },
+
+    // Cross-Text MEDIUM 
+    {
+        passage: "Passage 1: The scientist recorded data methodically, trusting repeated trials to reveal truth. Precision was her cornerstone. Passage 2: The researcher embraced uncertainty, arguing that anomalies often spark breakthroughs. She valued intuition.",
+        question: "How do the passages differ in their views on scientific discovery?",
+        answers: [
+            { text: "A) Passage 1 prioritizes systematic accuracy, while Passage 2 values creative insight.", correct: true },
+            { text: "B) Passage 1 focuses on data, while Passage 2 emphasizes experiments.", correct: false },
+            { text: "C) Passage 1 distrusts anomalies, while Passage 2 ignores precision.", correct: false },
+            { text: "D) Passage 1 admires repetition, while Passage 2 rejects it outright.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "cross-text-connections"
+    },
+    {
+        passage: "Passage 1: The mayor touted new roads, claiming they’d boost trade. He cited economic projections. Passage 2: The activist warned of sprawl, noting lost farmland and traffic woes. She pointed to local surveys.",
+        question: "What is a key difference in how the passages approach urban development?",
+        answers: [
+            { text: "A) Passage 1 sees it as economically beneficial, while Passage 2 views it as environmentally harmful.", correct: true },
+            { text: "B) Passage 1 uses data, while Passage 2 relies on opinions.", correct: false },
+            { text: "C) Passage 1 focuses on trade, while Passage 2 discusses traffic.", correct: false },
+            { text: "D) Passage 1 supports progress, while Passage 2 favors stagnation.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "cross-text-connections"
+    },
+    {
+        passage: "Passage 1: The poet crafted structured verse, finding freedom in rhyme. Order shaped her art. Passage 2: The writer scribbled freeform lines, rejecting rules as stifling. Chaos fueled her voice.",
+        question: "How do the passages contrast attitudes toward artistic expression?",
+        answers: [
+            { text: "A) Passage 1 embraces structure as liberating, while Passage 2 sees it as restrictive.", correct: true },
+            { text: "B) Passage 1 values rhyme, while Passage 2 prefers prose.", correct: false },
+            { text: "C) Passage 1 admires discipline, while Passage 2 critiques creativity.", correct: false },
+            { text: "D) Passage 1 focuses on form, while Passage 2 emphasizes content.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "cross-text-connections"
+    },
+    {
+        passage: "Passage 1: The teacher drilled facts, preparing students for tests. Mastery meant recall. Passage 2: The mentor posed questions, pushing learners to think critically. Understanding trumped memorization.",
+        question: "What is a primary difference in how the passages depict education?",
+        answers: [
+            { text: "A) Passage 1 focuses on rote learning, while Passage 2 prioritizes critical thinking.", correct: true },
+            { text: "B) Passage 1 emphasizes tests, while Passage 2 discusses questions.", correct: false },
+            { text: "C) Passage 1 values teachers, while Passage 2 favors mentors.", correct: false },
+            { text: "D) Passage 1 supports structure, while Passage 2 rejects all guidance.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "cross-text-connections"
+    },
+
+    // Cross Text HARD
+    {
+        passage: "Passage 1: The historian traced events linearly, arguing that progress builds on the past. Causality was key. Passage 2: The philosopher saw history as cyclical, with patterns repeating across eras. Time looped, not climbed.",
+        question: "How do the passages differ in their conceptualization of history?",
+        answers: [
+            { text: "A) Passage 1 views it as a progressive sequence, while Passage 2 sees it as a recurring cycle.", correct: true },
+            { text: "B) Passage 1 focuses on events, while Passage 2 examines eras.", correct: false },
+            { text: "C) Passage 1 values facts, while Passage 2 relies on theories.", correct: false },
+            { text: "D) Passage 1 supports change, while Passage 2 denies progress.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "cross-text-connections"
+    },
+    {
+        passage: "Passage 1: The economist praised markets, claiming competition drives efficiency. Self-regulation worked. Passage 2: The sociologist critiqued capitalism, arguing it widens inequality. Oversight was essential.",
+        question: "What is a key difference in how the passages evaluate economic systems?",
+        answers: [
+            { text: "A) Passage 1 sees markets as naturally effective, while Passage 2 views them as flawed and needing control.", correct: true },
+            { text: "B) Passage 1 focuses on competition, while Passage 2 discusses wealth.", correct: false },
+            { text: "C) Passage 1 admires efficiency, while Passage 2 ignores it.", correct: false },
+            { text: "D) Passage 1 supports freedom, while Passage 2 favors socialism.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "cross-text-connections"
+    },
+    {
+        passage: "Passage 1: The biologist studied adaptation, noting species evolve through gradual shifts. Stability mattered. Passage 2: The ecologist tracked disruptions, asserting crises spur rapid change. Upheaval drove evolution.",
+        question: "How do the passages contrast theories of evolution?",
+        answers: [
+            { text: "A) Passage 1 emphasizes slow, steady adaptation, while Passage 2 highlights rapid change from disturbance.", correct: true },
+            { text: "B) Passage 1 focuses on species, while Passage 2 examines ecosystems.", correct: false },
+            { text: "C) Passage 1 values consistency, while Passage 2 rejects science.", correct: false },
+            { text: "D) Passage 1 supports evolution, while Passage 2 denies it.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "cross-text-connections"
+    },
+    {
+        passage: "Passage 1: The critic lauded art for its beauty, a mirror to human ideals. Aesthetics reigned. Passage 2: The theorist saw art as a tool, revealing power and struggle. Meaning outweighed form.",
+        question: "What is a primary difference in how the passages interpret art’s purpose?",
+        answers: [
+            { text: "A) Passage 1 views it as an expression of beauty, while Passage 2 sees it as a reflection of societal dynamics.", correct: true },
+            { text: "B) Passage 1 focuses on form, while Passage 2 discusses content.", correct: false },
+            { text: "C) Passage 1 admires artists, while Passage 2 critiques them.", correct: false },
+            { text: "D) Passage 1 values ideals, while Passage 2 ignores beauty.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "cross-text-connections"
+    },
+
+    //Transitions
+    // EASY
+    {
+        passage: "The storm hit late at night, flooding the streets. _____, residents woke to find their homes surrounded by water. They began sandbagging doors to limit the damage.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) As a result", correct: true },
+            { text: "B) For example", correct: false },
+            { text: "C) In contrast", correct: false },
+            { text: "D) Meanwhile", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "transitions"
+    },
+    {
+        passage: "The team practiced daily, perfecting their routine. _____, their efforts paid off with a flawless performance at the competition.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) Consequently", correct: true },
+            { text: "B) However", correct: false },
+            { text: "C) On the other hand", correct: false },
+            { text: "D) Similarly", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "transitions"
+    },
+    {
+        passage: "The garden thrived in spring, bursting with color. _____, summer brought drought, and the plants began to wilt.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) However", correct: true },
+            { text: "B) In addition", correct: false },
+            { text: "C) Therefore", correct: false },
+            { text: "D) Likewise", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "transitions"
+    },
+    {
+        passage: "The recipe called for fresh herbs to enhance flavor. _____, dried herbs could work if fresh ones weren’t available.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) Alternatively", correct: true },
+            { text: "B) Because", correct: false },
+            { text: "C) Thus", correct: false },
+            { text: "D) Moreover", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "transitions"
+    },
+
+    // Transitions MEDIUM
+    {
+        passage: "The experiment yielded consistent results over weeks. _____, a sudden equipment malfunction threw the data into question.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) Nevertheless", correct: true },
+            { text: "B) In fact", correct: false },
+            { text: "C) As a result", correct: false },
+            { text: "D) Likewise", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "transitions"
+    },
+    {
+        passage: "The city planned a new park to boost recreation. _____, budget cuts forced officials to scale back the project.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) Unfortunately", correct: true },
+            { text: "B) Similarly", correct: false },
+            { text: "C) For instance", correct: false },
+            { text: "D) Therefore", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "transitions"
+    },
+    {
+        passage: "The novel’s early chapters built suspense slowly. _____, the climax delivered a rapid series of twists that stunned readers.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) By contrast", correct: true },
+            { text: "B) In addition", correct: false },
+            { text: "C) Because", correct: false },
+            { text: "D) Meanwhile", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "transitions"
+    },
+    {
+        passage: "The runner trained hard to improve her speed. _____, she adjusted her diet to increase endurance for the race.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) Furthermore", correct: true },
+            { text: "B) On the contrary", correct: false },
+            { text: "C) Thus", correct: false },
+            { text: "D) Otherwise", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "transitions"
+    },
+
+    // Transitions HARD
+    {
+        passage: "The theory relied on stable conditions to hold true. _____, real-world variables like weather often disrupted its predictions, challenging its validity.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) In practice", correct: true },
+            { text: "B) For example", correct: false },
+            { text: "C) Consequently", correct: false },
+            { text: "D) Likewise", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "transitions"
+    },
+    {
+        passage: "Critics praised the film’s visuals as groundbreaking. _____, they debated its narrative, unsure if style masked a weak plot.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) Conversely", correct: true },
+            { text: "B) In addition", correct: false },
+            { text: "C) Therefore", correct: false },
+            { text: "D) Similarly", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "transitions"
+    },
+    {
+        passage: "The poet aimed for clarity in her early work. _____, her later verses embraced ambiguity, reflecting life’s complexity.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) In contrast", correct: true },
+            { text: "B) As a result", correct: false },
+            { text: "C) Meanwhile", correct: false },
+            { text: "D) Moreover", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "transitions"
+    },
+    {
+        passage: "The policy aimed to reduce emissions through strict rules. _____, industries lobbied for flexibility, citing economic pressures that demanded compromise.",
+        question: "Which transition best fits the blank?",
+        answers: [
+            { text: "A) On the other hand", correct: true },
+            { text: "B) Because", correct: false },
+            { text: "C) Thus", correct: false },
+            { text: "D) In fact", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "transitions"
+    },
+
+    //Rhetorical Synthesis 
+    // EASY
+    {
+        passage: "Notes: City council proposes a new park. Goals: improve recreation, attract tourists. Features: playground, walking trails, picnic areas. Budget: $500,000. Public feedback: mostly positive, some concern about cost.",
+        question: "The council needs a sentence for a press release to emphasize the park’s benefits. Which option best achieves this?",
+        answers: [
+            { text: "A) The new park will offer playgrounds, trails, and picnic areas to enhance recreation and draw visitors.", correct: true },
+            { text: "B) Costing $500,000, the park has sparked some debate over its funding.", correct: false },
+            { text: "C) Public feedback on the park has been mixed, with cost concerns noted.", correct: false },
+            { text: "D) The council is reviewing a $500,000 plan for a park with various features.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "rhetorical-synthesis"
+    },
+    {
+        passage: "Notes: School launches recycling program. Aims: reduce waste, educate students. Methods: bins in classrooms, weekly lessons. Results so far: 20% less trash. Challenges: student participation varies.",
+        question: "The school wants a sentence for a newsletter to highlight the program’s success. Which option best achieves this?",
+        answers: [
+            { text: "A) The recycling program has cut school trash by 20% through bins and lessons.", correct: true },
+            { text: "B) Student participation in recycling remains inconsistent despite efforts.", correct: false },
+            { text: "C) The school is tackling waste with bins and lessons in a new program.", correct: false },
+            { text: "D) Challenges persist in getting all students to join the recycling effort.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "rhetorical-synthesis"
+    },
+    {
+        passage: "Notes: Local bakery expands. Reasons: rising demand, new location. Offerings: cakes, bread, coffee. Staff: hiring 5 more workers. Timeline: opens next month.",
+        question: "The bakery needs a sentence for an ad to announce the expansion’s appeal. Which option best achieves this?",
+        answers: [
+            { text: "A) Due to growing demand, our bakery will open a new spot next month with cakes, bread, and coffee.", correct: true },
+            { text: "B) The bakery is hiring five workers for its expansion next month.", correct: false },
+            { text: "C) A new location is set to open as the bakery grows its staff.", correct: false },
+            { text: "D) Next month, the bakery will expand to meet demand with a bigger team.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "rhetorical-ynthesis"
+    },
+    {
+        passage: "Notes: Community garden project. Purpose: grow food, build bonds. Participants: 30 volunteers. Output: 200 lbs of produce last year. Future: add composting next season.",
+        question: "The organizers want a sentence for a flyer to promote the garden’s community impact. Which option best achieves this?",
+        answers: [
+            { text: "A) With 30 volunteers, the garden grew 200 lbs of food last year, strengthening community ties.", correct: true },
+            { text: "B) The garden plans to start composting next season with volunteer help.", correct: false },
+            { text: "C) Last year, 200 lbs of produce came from the efforts of 30 gardeners.", correct: false },
+            { text: "D) The community garden relies on 30 participants to grow food annually.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "rhetorical-synthesis"
+    },
+
+    // Rhetorical Synthesis MEDIUM
+    {
+        passage: "Notes: Tech startup develops app. Focus: mental health support. Features: meditation, mood tracking, therapist chat. Target: young adults. Reception: praised for accessibility, some note privacy risks.",
+        question: "The startup needs a sentence for a pitch to emphasize the app’s value to its audience. Which option best achieves this?",
+        answers: [
+            { text: "A) Aimed at young adults, our app offers meditation, mood tracking, and therapist chats for accessible mental health support.", correct: true },
+            { text: "B) The app, praised for accessibility, also raises privacy concerns among some users.", correct: false },
+            { text: "C) Young adults can use our app’s features despite noted privacy risks.", correct: false },
+            { text: "D) Our startup’s app includes tools like meditation and a therapist chat option.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "rhetorical-synthesis"
+    },
+    {
+        passage: "Notes: City installs solar panels. Goals: cut emissions, save costs. Scale: 50 buildings. Savings: $100,000 projected annually. Obstacles: high initial cost, weather dependency.",
+        question: "The city wants a sentence for a report to highlight the initiative’s environmental and financial benefits. Which option best achieves this?",
+        answers: [
+            { text: "A) Solar panels on 50 buildings aim to reduce emissions and save $100,000 yearly.", correct: true },
+            { text: "B) Despite high costs and weather issues, the city projects $100,000 in savings.", correct: false },
+            { text: "C) The city’s 50 solar-paneled buildings face installation and weather challenges.", correct: false },
+            { text: "D) Solar panels will cut costs by $100,000 annually once obstacles are overcome.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "rhetorical-synthesis"
+    },
+    {
+        passage: "Notes: Museum hosts art exhibit. Theme: climate change. Displays: paintings, sculptures, interactive pieces. Attendance: 5,000 visitors in first month. Feedback: engaging, some call it preachy.",
+        question: "The museum needs a sentence for a blog to showcase the exhibit’s appeal and impact. Which option best achieves this?",
+        answers: [
+            { text: "A) The climate change exhibit, with paintings and interactive pieces, drew 5,000 engaged visitors in its first month.", correct: true },
+            { text: "B) Some found the exhibit preachy, though 5,000 visited in a month.", correct: false },
+            { text: "C) Featuring sculptures and more, the exhibit explores climate change themes.", correct: false },
+            { text: "D) The museum’s new show saw 5,000 attendees despite mixed reviews.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "rhetorical-synthesis"
+    },
+    {
+        passage: "Notes: Nonprofit aids refugees. Services: housing, job training, language classes. Reach: 200 families last year. Funding: grants, donations. Need: more volunteers.",
+        question: "The nonprofit wants a sentence for a donor appeal to underscore its support for refugees. Which option best achieves this?",
+        answers: [
+            { text: "A) Last year, we provided housing, job training, and language classes to 200 refugee families with your support.", correct: true },
+            { text: "B) Funded by grants and donations, we need more volunteers to help refugees.", correct: false },
+            { text: "C) Our services reached 200 families, but volunteer shortages persist.", correct: false },
+            { text: "D) We offer refugees housing and training, relying on donor generosity.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "rhetorical-synthesis"
+    },
+
+    // Rhetorical Synthesis HARD
+    {
+        passage: "Notes: Research team studies urban heat. Findings: green roofs cool cities, reduce energy use. Data: 5°C drop, 15% less power. Context: climate change worsens heat waves. Limitation: installation costs high.",
+        question: "The team needs a sentence for a journal abstract to emphasize the study’s relevance to climate challenges. Which option best achieves this?",
+        answers: [
+            { text: "A) As climate change intensifies heat waves, our study shows green roofs lower urban temperatures by 5°C and cut energy use by 15%.", correct: true },
+            { text: "B) Green roofs reduce power by 15%, though high costs limit their use.", correct: false },
+            { text: "C) We found a 5°C temperature drop with green roofs despite installation challenges.", correct: false },
+            { text: "D) Our research on urban heat highlights green roofs’ cooling effect.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "rhetorical-synthesis"
+    },
+    {
+        passage: "Notes: Company tests self-driving cars. Purpose: improve safety, efficiency. Tech: sensors, AI navigation. Trials: 90% success rate over 10,000 miles. Concerns: ethics of AI decisions, job loss fears.",
+        question: "The company needs a sentence for a press kit to stress the technology’s potential benefits. Which option best achieves this?",
+        answers: [
+            { text: "A) Our self-driving cars, with sensors and AI, achieved a 90% success rate over 10,000 miles, promising safer and more efficient roads.", correct: true },
+            { text: "B) Though AI ethics raise concerns, our cars succeeded in 90% of trials.", correct: false },
+            { text: "C) Over 10,000 miles, our technology showed efficiency despite job loss fears.", correct: false },
+            { text: "D) Sensors and AI navigation yielded a 90% success rate in our trials.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "rhetorical-synthesis"
+    },
+    {
+        passage: "Notes: Policy proposes carbon tax. Aims: lower emissions, fund green tech. Impact: 10% emissions drop predicted. Opposition: businesses cite profit loss. Support: environmentalists endorse revenue use.",
+        question: "The policymakers need a sentence for a speech to advocate the tax’s dual benefits. Which option best achieves this?",
+        answers: [
+            { text: "A) The carbon tax could cut emissions by 10% while generating funds for green technology, tackling climate change on two fronts.", correct: true },
+            { text: "B) Despite business pushback, the tax may reduce emissions by 10%.", correct: false },
+            { text: "C) Environmentalists back the tax for its revenue, projected to aid tech.", correct: false },
+            { text: "D) A 10% emissions drop is possible, though profits may suffer.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "rhetorical-synthesis"
+    },
+    {
+        passage: "Notes: Artist residency program. Goals: foster creativity, cultural exchange. Participants: 15 artists from 5 countries. Output: 30 works exhibited. Critique: some say focus is too broad.",
+        question: "The program needs a sentence for a grant proposal to highlight its global artistic impact. Which option best achieves this?",
+        answers: [
+            { text: "A) Bringing 15 artists from 5 countries together, our residency produced 30 exhibited works, enriching global creativity and exchange.", correct: true },
+            { text: "B) Though criticized for broad focus, we hosted 15 diverse artists.", correct: false },
+            { text: "C) Our program yielded 30 works despite a wide-ranging approach.", correct: false },
+            { text: "D) Artists from 5 countries created 30 pieces in our residency.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "rhetorical-synthesis"
+    },
+
+    //Boundaries
+    // EASY
+    {
+        passage: "The town’s annual fair draws crowds with its games and food stalls. Families enjoy rides, while vendors sell homemade treats. This year, organizers added a petting zoo, delighting children. _____",
+        question: "Which sentence best concludes the passage while staying within its focus on the fair’s attractions?",
+        answers: [
+            { text: "A) The fair remains a cherished tradition, offering fun for all ages.", correct: true },
+            { text: "B) Next year, the town plans to build a new park near the fairgrounds.", correct: false },
+            { text: "C) Local farmers benefit greatly from selling their crops at the fair.", correct: false },
+            { text: "D) Petting zoos are increasingly popular at events across the region.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "boundaries"
+    },
+    {
+        passage: "The library hosts weekly story hours for kids. Volunteers read aloud, sparking imagination with tales of adventure. Parents appreciate the free activity during busy schedules. _____",
+        question: "Which sentence best concludes the passage while maintaining its focus on the story hours?",
+        answers: [
+            { text: "A) These sessions create a love of reading that lasts a lifetime.", correct: true },
+            { text: "B) The library also offers adult book clubs on weekends.", correct: false },
+            { text: "C) Volunteers often train for months to become skilled readers.", correct: false },
+            { text: "D) Many parents wish schools had similar programs.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "boundaries"
+    },
+    {
+        passage: "The bakery specializes in artisan bread, baked fresh each morning. Customers line up for crusty loaves made with simple ingredients. The owner takes pride in traditional methods. _____",
+        question: "Which sentence best concludes the passage while keeping its focus on the bakery’s bread?",
+        answers: [
+            { text: "A) This dedication keeps the bakery a local favorite.", correct: true },
+            { text: "B) The owner plans to open a second shop next year.", correct: false },
+            { text: "C) Artisan bread is healthier than mass-produced options.", correct: false },
+            { text: "D) Customers also enjoy the bakery’s coffee selection.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "boundaries"
+    },
+    {
+        passage: "The hiking trail winds through dense forest, offering scenic views. Signs mark the path, guiding newcomers past streams and cliffs. Most finish the loop in two hours. _____",
+        question: "Which sentence best concludes the passage while staying within its focus on the trail’s features?",
+        answers: [
+            { text: "A) The trail provides an accessible escape into nature.", correct: true },
+            { text: "B) Nearby trails are more challenging for experienced hikers.", correct: false },
+            { text: "C) The forest is home to rare bird species.", correct: false },
+            { text: "D) Hikers should bring water and snacks for safety.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "boundaries"
+    },
+
+    // Boundaries MEDIUM
+    {
+        passage: "The city’s new recycling program places bins on every corner. Residents sort waste into categories, reducing landfill use. Early data shows a 15% drop in trash volume. _____",
+        question: "Which sentence best concludes the passage while maintaining its focus on the recycling program’s impact?",
+        answers: [
+            { text: "A) This success suggests the program could expand further.", correct: true },
+            { text: "B) Other cities struggle to manage their waste effectively.", correct: false },
+            { text: "C) Sorting waste takes time but becomes a habit.", correct: false },
+            { text: "D) Landfills pose a growing environmental threat nationwide.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "boundaries"
+    },
+    {
+        passage: "The artist paints murals that reflect local history. Each piece captures forgotten stories, from old mills to community heroes. Passersby stop to admire the vivid colors. _____",
+        question: "Which sentence best concludes the passage while keeping its focus on the murals’ role?",
+        answers: [
+            { text: "A) Her work keeps the past alive in the public’s eye.", correct: true },
+            { text: "B) She hopes to exhibit smaller paintings in a gallery.", correct: false },
+            { text: "C) Local schools teach history using her art as a resource.", correct: false },
+            { text: "D) The city’s history dates back over 200 years.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "boundaries"
+    },
+    {
+        passage: "The app tracks fitness goals with daily reminders. Users log steps and calories, syncing data to their phones. Reviews praise its simple design. _____",
+        question: "Which sentence best concludes the passage while staying within its focus on the app’s functionality?",
+        answers: [
+            { text: "A) This ease of use makes fitness tracking approachable for all.", correct: true },
+            { text: "B) Competitors offer more advanced features at a higher cost.", correct: false },
+            { text: "C) Regular exercise improves overall health, studies say.", correct: false },
+            { text: "D) The developers plan a major update next year.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "boundaries"
+    },
+    {
+        passage: "The festival celebrates regional music with live bands. Attendees enjoy folk tunes and dance under the stars. Organizers highlight local talent over big names. _____",
+        question: "Which sentence best concludes the passage while maintaining its focus on the festival’s emphasis?",
+        answers: [
+            { text: "A) This choice keeps the event rooted in community spirit.", correct: true },
+            { text: "B) Folk music has deep historical roots in the region.", correct: false },
+            { text: "C) Famous bands often draw larger crowds elsewhere.", correct: false },
+            { text: "D) The festival also offers food from local vendors.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "boundaries"
+    },
+
+    // Boundaries HARD
+    {
+        passage: "The study examines how urban gardens reduce heat. Data shows a 3°C drop in areas with greenery. Researchers link this to less energy use for cooling. _____",
+        question: "Which sentence best concludes the passage while staying within its focus on the study’s findings?",
+        answers: [
+            { text: "A) These results underscore gardens’ role in sustainable cities.", correct: true },
+            { text: "B) Urban heat waves are worsening due to climate change.", correct: false },
+            { text: "C) Planting trees could further enhance these cooling effects.", correct: false },
+            { text: "D) Cities worldwide face rising energy costs annually.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },
+    {
+        passage: "The novel explores grief through a single character’s lens. Her memories unfold in fragmented chapters, mirroring her pain. Critics note its emotional depth. _____",
+        question: "Which sentence best concludes the passage while maintaining its focus on the novel’s approach to grief?",
+        answers: [
+            { text: "A) This structure amplifies the rawness of her loss.", correct: true },
+            { text: "B) The author drew from personal tragedy to write it.", correct: false },
+            { text: "C) Readers often find fragmented narratives hard to follow.", correct: false },
+            { text: "D) Grief is a common theme in modern literature.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },
+    {
+        passage: "The policy caps factory emissions to curb pollution. Firms must adopt cleaner tech, tracked by monthly reports. Air quality has improved slightly since implementation. _____",
+        question: "Which sentence best concludes the passage while staying within its focus on the policy’s effects?",
+        answers: [
+            { text: "A) This early progress hints at the policy’s potential.", correct: true },
+            { text: "B) Cleaner tech is expensive but widely available.", correct: false },
+           -ra
+            { text: "C) Factories have long resisted environmental regulations.", correct: false },
+            { text: "D) Air pollution remains a global challenge.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },
+    {
+        passage: "The lecture analyzes how myths shape cultural identity. The speaker traces tales across centuries, tying them to values like honor and resilience. Attendees leave with a deeper sense of heritage. _____",
+        question: "Which sentence best concludes the passage while maintaining its focus on the lecture’s insights?",
+        answers: [
+            { text: "A) Such stories reveal the enduring threads of human belief.", correct: true },
+            { text: "B) The speaker plans more talks on folklore next year.", correct: false },
+            { text: "C) Myths vary widely between Eastern and Western cultures.", correct: false },
+            { text: "D) Attendees enjoyed the lecture’s engaging delivery.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "boundaries"
+    },
 
 
 ];
@@ -1365,7 +2017,97 @@ function generateExplanation(response) {
     } else if (questionText.includes("main purpose") && response.passage.includes("history, he argues")) {
         return "The passage aims to rethink history with linked examples.";
     }
+        // Mildly Hard Explanations (Transitions)
+        else if (questionText.includes("transition") && response.passage.includes("storm hit late")) {
+            return "'As a result' connects the flooding to residents’ discovery.";
+        } else if (questionText.includes("transition") && response.passage.includes("team practiced daily")) {
+            return "'Consequently' links practice to the successful outcome.";
+        } else if (questionText.includes("transition") && response.passage.includes("garden thrived in spring")) {
+            return "'However' contrasts the thriving spring with summer’s drought.";
+        } else if (questionText.includes("transition") && response.passage.includes("recipe called for fresh herbs")) {
+            return "'Alternatively' offers dried herbs as a substitute.";
     
+        // Hard Explanations (Transitions)
+        } else if (questionText.includes("transition") && response.passage.includes("experiment yielded consistent")) {
+            return "'Nevertheless' contrasts consistency with the unexpected malfunction.";
+        } else if (questionText.includes("transition") && response.passage.includes("city planned a new park")) {
+            return "'Unfortunately' introduces the setback of budget cuts.";
+        } else if (questionText.includes("transition") && response.passage.includes("novel’s early chapters")) {
+            return "'By contrast' highlights the shift from slow suspense to rapid twists.";
+        } else if (questionText.includes("transition") && response.passage.includes("runner trained hard")) {
+            return "'Furthermore' adds diet changes to her training efforts.";
+    
+        // Extremely Hard Explanations (Transitions)
+        } else if (questionText.includes("transition") && response.passage.includes("theory relied on stable")) {
+            return "'In practice' shifts from theory to real-world challenges.";
+        } else if (questionText.includes("transition") && response.passage.includes("critics praised the film’s visuals")) {
+            return "'Conversely' contrasts praise for visuals with debate over narrative.";
+        } else if (questionText.includes("transition") && response.passage.includes("poet aimed for clarity")) {
+            return "'In contrast' highlights the shift from clarity to ambiguity.";
+        } else if (questionText.includes("transition") && response.passage.includes("policy aimed to reduce emissions")) {
+            return "'On the other hand' introduces industries’ opposing perspective.";
+        }
+            // Mildly Hard Explanations (Rhetorical Synthesis)
+    else if (questionText.includes("park’s benefits")) {
+        return "A emphasizes recreation and tourism with specific features, aligning with the goal.";
+    } else if (questionText.includes("program’s success")) {
+        return "A highlights the 20% trash reduction, showcasing measurable success.";
+    } else if (questionText.includes("expansion’s appeal")) {
+        return "A ties demand to offerings and timing, making the expansion enticing.";
+    } else if (questionText.includes("garden’s community impact")) {
+        return "A connects volunteers, output, and bonds, emphasizing community strength.";
+
+    // Hard Explanations (Rhetorical Synthesis)
+    } else if (questionText.includes("app’s value to its audience")) {
+        return "A targets young adults with features and accessibility, meeting the pitch’s aim.";
+    } else if (questionText.includes("initiative’s environmental and financial benefits")) {
+        return "A links emissions cuts and savings, spotlighting dual benefits.";
+    } else if (questionText.includes("exhibit’s appeal and impact")) {
+        return "A combines attendance and engagement with features, boosting appeal.";
+    } else if (questionText.includes("support for refugees")) {
+        return "A details services and reach with donor ties, underlining support.";
+
+    // Extremely Hard Explanations (Rhetorical Synthesis)
+    } else if (questionText.includes("relevance to climate challenges")) {
+        return "A ties heat waves to cooling and energy data, showing climate relevance.";
+    } else if (questionText.includes("technology’s potential benefits")) {
+        return "A highlights safety and efficiency with trial success, focusing on benefits.";
+    } else if (questionText.includes("tax’s dual benefits")) {
+        return "A pairs emissions reduction with tech funding, advocating both goals.";
+    } else if (questionText.includes("global artistic impact")) {
+        return "A links diverse artists and works to creativity and exchange, showing global reach.";
+    }
+
+        // Mildly Hard Explanations (Boundaries)
+        else if (questionText.includes("fair’s attractions")) {
+            return "A ties the petting zoo and fair’s appeal to its ongoing tradition.";
+        } else if (questionText.includes("story hours")) {
+            return "A keeps focus on the story hours’ impact on kids’ reading.";
+        } else if (questionText.includes("bakery’s bread")) {
+            return "A links the bread’s quality to the bakery’s popularity.";
+        } else if (questionText.includes("trail’s features")) {
+            return "A summarizes the trail’s accessibility and natural appeal.";
+    
+        // Hard Explanations (Boundaries)
+        } else if (questionText.includes("recycling program’s impact")) {
+            return "A extends the program’s success within its current scope.";
+        } else if (questionText.includes("murals’ role")) {
+            return "A reinforces the murals’ purpose in preserving history.";
+        } else if (questionText.includes("app’s functionality")) {
+            return "A ties simplicity to the app’s fitness tracking goal.";
+        } else if (questionText.includes("festival’s emphasis")) {
+            return "A connects local talent to the festival’s community focus.";
+    
+        // Extremely Hard Explanations (Boundaries)
+        } else if (questionText.includes("study’s findings")) {
+            return "A links the data to urban sustainability, staying on topic.";
+        } else if (questionText.includes("approach to grief")) {
+            return "A ties structure to the novel’s grief theme, avoiding externals.";
+        } else if (questionText.includes("policy’s effects")) {
+            return "A focuses on the policy’s initial air quality impact.";
+        } else if (questionText.includes("lecture’s insights")) {
+            return "A concludes with myths’ role in identity, not logistics.";
+        }
 
     return "No specific explanation available.";
 }
