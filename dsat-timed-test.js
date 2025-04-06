@@ -398,7 +398,501 @@ const readingWritingQuestions = [
         type: "reading",
         difficulty: "hard",
         category: "central ideas"
+    },
+
+    //Inferences 
+
+    // Inferences EASY
+    {
+        passage: "The farmer surveyed his fields, the dry soil crumbling between his fingers. Rain hadn’t come in weeks, and the crops drooped under the relentless sun. He squinted at the horizon, then turned back to his work with a quiet grunt.",
+        question: "What can be inferred about the farmer’s attitude toward the situation?",
+        answers: [
+            { text: "A) He remains determined despite the drought.", correct: true },
+            { text: "B) He is frustrated and ready to abandon his crops.", correct: false },
+            { text: "C) He blames himself for the lack of rain.", correct: false },
+            { text: "D) He is hopeful that rain will come soon.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "inference"
+    },
+    {
+        passage: "The librarian dusted the shelves, pausing to linger over a worn novel. Patrons rarely checked out these older titles anymore, yet she kept them prominently displayed. A faint smile crossed her face as she moved on.",
+        question: "What can be inferred about the librarian’s feelings toward the older books?",
+        answers: [
+            { text: "A) She values them despite their lack of popularity.", correct: true },
+            { text: "B) She finds them outdated and irrelevant.", correct: false },
+            { text: "C) She is annoyed that patrons ignore them.", correct: false },
+            { text: "D) She plans to replace them with newer titles.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "inference"
+    },
+    {
+        passage: "The runner laced up her shoes, her breath visible in the cold morning air. She’d lost the last race by seconds, a memory that still stung. Today, she stretched longer than usual before starting.",
+        question: "What can be inferred about the runner’s approach to this race?",
+        answers: [
+            { text: "A) She is more thorough in her preparation after her recent loss.", correct: true },
+            { text: "B) She is nervous and likely to underperform again.", correct: false },
+            { text: "C) She believes the cold weather will slow her down.", correct: false },
+            { text: "D) She is indifferent to the outcome of this race.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "inference"
+    },
+    {
+        passage: "The painter stepped back from the canvas, brush in hand, studying the bold strokes. Friends had urged softer colors, but she added another layer of crimson. Her jaw tightened as she worked.",
+        question: "What can be inferred about the painter’s response to her friends’ advice?",
+        answers: [
+            { text: "A) She deliberately rejects it in favor of her own vision.", correct: true },
+            { text: "B) She is unsure but follows their suggestions reluctantly.", correct: false },
+            { text: "C) She feels pressured to change her style completely.", correct: false },
+            { text: "D) She agrees with them but struggles to adjust.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "inference"
+    },
+
+    // Inferences MEDIUM
+    {
+        passage: "The detective scanned the room, noting the overturned chair and scattered papers. The witness claimed it was an accident, but the broken lock on the window caught his eye. He scribbled a note without a word.",
+        question: "What can be inferred about the detective’s view of the witness’s story?",
+        answers: [
+            { text: "A) He suspects it may not be entirely truthful.", correct: true },
+            { text: "B) He accepts it but wants more details.", correct: false },
+            { text: "C) He dismisses it as irrelevant to the case.", correct: false },
+            { text: "D) He is confused by the conflicting evidence.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "inference"
+    },
+    {
+        passage: "The scientist adjusted her equipment, frowning at the erratic readings. Colleagues had praised her earlier findings, but these anomalies defied explanation. She double-checked her notes, her pen tapping restlessly.",
+        question: "What can be inferred about the scientist’s reaction to the new data?",
+        answers: [
+            { text: "A) She is unsettled and determined to understand the discrepancies.", correct: true },
+            { text: "B) She is confident the anomalies will resolve themselves.", correct: false },
+            { text: "C) She regrets sharing her earlier findings.", correct: false },
+            { text: "D) She blames her equipment for the inconsistencies.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "inference"
+    },
+    {
+        passage: "The merchant haggled fiercely, his voice rising over the market’s din. Customers often walked away, but he never lowered his prices. By day’s end, his stall was half-empty, yet he grinned as he packed up.",
+        question: "What can be inferred about the merchant’s business strategy?",
+        answers: [
+            { text: "A) He prioritizes profit margins over high sales volume.", correct: true },
+            { text: "B) He enjoys bargaining more than making sales.", correct: false },
+            { text: "C) He expects customers to return despite his high prices.", correct: false },
+            { text: "D) He is unaware that his approach drives people away.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "inference"
+    },
+    {
+        passage: "The teacher paced the classroom, her gaze lingering on the quiet student in the back. His assignments were flawless, yet he never spoke up. She assigned him a solo project, watching him closely.",
+        question: "What can be inferred about the teacher’s perception of the student?",
+        answers: [
+            { text: "A) She believes he has potential that he doesn’t fully express.", correct: true },
+            { text: "B) She thinks he is disengaged and needs motivation.", correct: false },
+            { text: "C) She is frustrated by his lack of participation.", correct: false },
+            { text: "D) She assumes he struggles with group work.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "inference"
+    },
+
+    // Inferences HARD
+    {
+        passage: "The diplomat smiled thinly, her words polite but clipped as she addressed the council. Tensions had risen after the failed talks, and her counterparts shifted uneasily. She proposed a compromise no one expected.",
+        question: "What can be inferred about the diplomat’s strategy in this situation?",
+        answers: [
+            { text: "A) She uses an unexpected tactic to regain control amid strained relations.", correct: true },
+            { text: "B) She is desperate to appease her counterparts.", correct: false },
+            { text: "C) She hides her frustration to maintain appearances.", correct: false },
+            { text: "D) She intends to escalate tensions further.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "inference"
+    },
+    {
+        passage: "The poet scribbled in the margins, her lines jagged and incomplete. Readers praised her raw emotion, but she burned half her drafts. In a rare interview, she called perfection a cage.",
+        question: "What can be inferred about the poet’s creative process?",
+        answers: [
+            { text: "A) She embraces imperfection as a core part of her artistry.", correct: true },
+            { text: "B) She struggles with self-doubt despite external praise.", correct: false },
+            { text: "C) She destroys work she deems too emotional.", correct: false },
+            { text: "D) She seeks approval through her unfinished drafts.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "inference"
+    },
+    {
+        passage: "The engineer tested the prototype, its hum steady but weaker than planned. Investors pressed for results, yet she delayed the demonstration. Later, she tweaked a single gear with meticulous care.",
+        question: "What can be inferred about the engineer’s priorities?",
+        answers: [
+            { text: "A) She values precision over meeting external deadlines.", correct: true },
+            { text: "B) She fears the prototype will fail under scrutiny.", correct: false },
+            { text: "C) She is indifferent to the investors’ demands.", correct: false },
+            { text: "D) She delays to impress with a dramatic reveal.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "inference"
+    },
+    {
+        passage: "The historian sifted through fragments, her notes dense with cross-references. Colleagues favored broad narratives, but she lingered on a single, obscure letter. Her latest paper upended a decades-old theory.",
+        question: "What can be inferred about the historian’s approach to her work?",
+        answers: [
+            { text: "A) She uncovers significant insights through meticulous detail.", correct: true },
+            { text: "B) She rejects traditional methods to stand out.", correct: false },
+            { text: "C) She focuses on obscure details to confuse her peers.", correct: false },
+            { text: "D) She struggles to align her findings with broader trends.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "inference"
+    },
+
+    //Words in Context EASY
+
+    // Mildly Hard Questions
+    {
+        passage: "The chef inspected the dish, her brow furrowed as she tasted the sauce. It lacked the zest she’d envisioned, so she reached for a pinch of spice to elevate the flavor. Satisfied, she nodded and moved on.",
+        question: "As used in the passage, what does 'elevate' most nearly mean?",
+        answers: [
+            { text: "A) Improve", correct: true },
+            { text: "B) Lift", correct: false },
+            { text: "C) Celebrate", correct: false },
+            { text: "D) Examine", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "words in context"
+    },
+    {
+        passage: "The hiker trudged up the steep trail, her legs aching from the ascent. At the summit, she paused to survey the vast landscape below. The view was a fitting reward for her effort.",
+        question: "As used in the passage, what does 'survey' most nearly mean?",
+        answers: [
+            { text: "A) Observe", correct: true },
+            { text: "B) Measure", correct: false },
+            { text: "C) Question", correct: false },
+            { text: "D) Explore", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "words in context"
+    },
+    {
+        passage: "The writer scribbled notes in a frenzy, her ideas spilling onto the page. Later, she would refine the chaos into a polished draft. For now, she let her thoughts run wild.",
+        question: "As used in the passage, what does 'refine' most nearly mean?",
+        answers: [
+            { text: "A) Perfect", correct: true },
+            { text: "B) Reduce", correct: false },
+            { text: "C) Rewrite", correct: false },
+            { text: "D) Restrict", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "words in context"
+    },
+    {
+        passage: "The gardener pruned the overgrown bushes, her shears slicing through tangled branches. She aimed to restore order to the neglected yard. By noon, the space looked revitalized.",
+        question: "As used in the passage, what does 'restore' most nearly mean?",
+        answers: [
+            { text: "A) Reestablish", correct: true },
+            { text: "B) Repair", correct: false },
+            { text: "C) Replace", correct: false },
+            { text: "D) Redesign", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "words in context"
+    },
+
+    // Words in Contect MEDIUM
+    {
+        passage: "The professor delivered her lecture with authority, her voice cutting through the room’s murmur. She didn’t just recite facts; she illuminated complex theories with clarity. Students scribbled notes, captivated.",
+        question: "As used in the passage, what does 'illuminated' most nearly mean?",
+        answers: [
+            { text: "A) Explained", correct: true },
+            { text: "B) Brightened", correct: false },
+            { text: "C) Criticized", correct: false },
+            { text: "D) Decorated", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "words in context"
+    },
+    {
+        passage: "The politician navigated the debate with skill, deflecting tough questions with ease. Her opponents grew flustered, unable to penetrate her composed demeanor. She emerged unscathed.",
+        question: "As used in the passage, what does 'penetrate' most nearly mean?",
+        answers: [
+            { text: "A) Break through", correct: true },
+            { text: "B) Understand", correct: false },
+            { text: "C) Enter", correct: false },
+            { text: "D) Challenge", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "words in context"
+    },
+    {
+        passage: "The architect pored over the blueprints, tracing lines that fused form and function. Critics had dismissed the design as impractical, but she saw it as a bold synthesis of art and utility. Construction began soon after.",
+        question: "As used in the passage, what does 'synthesis' most nearly mean?",
+        answers: [
+            { text: "A) Combination", correct: true },
+            { text: "B) Analysis", correct: false },
+            { text: "C) Simplification", correct: false },
+            { text: "D) Separation", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "words in context"
+    },
+    {
+        passage: "The musician improvised on stage, her fingers dancing across the keys. The melody swelled, defying the rigid structure of the original score. The audience leaned forward, entranced.",
+        question: "As used in the passage, what does 'defying' most nearly mean?",
+        answers: [
+            { text: "A) Resisting", correct: true },
+            { text: "B) Destroying", correct: false },
+            { text: "C) Defining", correct: false },
+            { text: "D) Delaying", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "words in context"
+    },
+
+    // Words in Context HARD
+    {
+        passage: "The philosopher grappled with the paradox, her mind wrestling with its implications. Truth, she argued, often eludes rigid definitions, slipping through the grasp of language. Her treatise left readers pondering.",
+        question: "As used in the passage, what does 'eludes' most nearly mean?",
+        answers: [
+            { text: "A) Evades", correct: true },
+            { text: "B) Confuses", correct: false },
+            { text: "C) Reveals", correct: false },
+            { text: "D) Enhances", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "words in context"
+    },
+    {
+        passage: "The scientist scrutinized the data, her hypothesis teetering on the edge of collapse. A single outlier could undermine years of research, rendering her conclusions suspect. She adjusted her model with caution.",
+        question: "As used in the passage, what does 'undermine' most nearly mean?",
+        answers: [
+            { text: "A) Weaken", correct: true },
+            { text: "B) Overturn", correct: false },
+            { text: "C) Underestimate", correct: false },
+            { text: "D) Underline", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "words in context"
+    },
+    {
+        passage: "The poet wielded words with precision, each line imbued with layers of meaning. Critics lauded her ambiguity, a quality that invited endless interpretation. Her verses lingered in the mind.",
+        question: "As used in the passage, what does 'imbued' most nearly mean?",
+        answers: [
+            { text: "A) Infused", correct: true },
+            { text: "B) Hidden", correct: false },
+            { text: "C) Imitated", correct: false },
+            { text: "D) Inspired", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "words in context"
+    },
+    {
+        passage: "The historian excavated the archives, unearthing letters that recast a familiar narrative. Her peers resisted, clinging to entrenched views despite the evidence. She pressed on, undeterred.",
+        question: "As used in the passage, what does 'entrenched' most nearly mean?",
+        answers: [
+            { text: "A) Deeply established", correct: true },
+            { text: "B) Confused", correct: false },
+            { text: "C) Entrapped", correct: false },
+            { text: "D) Enriched", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "words in context"
+    },
+
+    //Text Structure 
+    // EASY
+    {
+        passage: "The old bridge creaked under the weight of passing trucks. Built decades ago, it had served the town well, but cracks now spiderwebbed its supports. Engineers arrived last week to assess the damage. Their report will determine its fate.",
+        question: "What is the primary purpose of the passage?",
+        answers: [
+            { text: "A) To describe the condition of an aging bridge and its current evaluation", correct: true },
+            { text: "B) To argue for the replacement of an outdated bridge", correct: false },
+            { text: "C) To explain how engineers assess structural damage", correct: false },
+            { text: "D) To highlight the history of a town’s infrastructure", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "The festival began with a burst of color—parades winding through the streets. Vendors sold trinkets, and musicians played late into the night. By morning, the town was quiet again, the celebration a fleeting memory.",
+        question: "How is the passage primarily structured?",
+        answers: [
+            { text: "A) Chronologically, detailing the progression of a festival", correct: true },
+            { text: "B) By comparing the festival to other town events", correct: false },
+            { text: "C) Through a problem-solution framework about noise", correct: false },
+            { text: "D) Spatially, describing different festival locations", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "Rainforests teem with life, from towering trees to tiny insects. Deforestation, however, threatens this biodiversity. Logging clears vast areas, leaving animals homeless. Conservationists urge sustainable practices to protect these ecosystems.",
+        question: "What is the main purpose of the passage?",
+        answers: [
+            { text: "A) To outline the impact of deforestation on rainforests and advocate for conservation", correct: true },
+            { text: "B) To detail the variety of species in rainforests", correct: false },
+            { text: "C) To criticize logging companies for their practices", correct: false },
+            { text: "D) To explain how conservationists study ecosystems", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "The recipe starts with simple ingredients: flour, water, yeast. Knead the dough until smooth, then let it rise. Bake at 400 degrees for a golden crust. The result is a loaf both rustic and satisfying.",
+        question: "How is the passage primarily structured?",
+        answers: [
+            { text: "A) Sequentially, providing steps to bake bread", correct: true },
+            { text: "B) By comparing different baking techniques", correct: false },
+            { text: "C) Through a cause-and-effect analysis of ingredients", correct: false },
+            { text: "D) Descriptively, focusing on the loaf’s qualities", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "text-structure-and-purpose"
+    },
+
+    // Text Structure MEDIUM 
+    {
+        passage: "The explorer’s journal begins with optimism: vast plains stretched before her, ripe for discovery. Midway, the tone shifts—harsh winds and scarce food test her resolve. By the end, she reflects on resilience gained through hardship.",
+        question: "How is the passage primarily structured?",
+        answers: [
+            { text: "A) Chronologically, tracing the explorer’s emotional journey", correct: true },
+            { text: "B) Thematically, focusing on resilience in exploration", correct: false },
+            { text: "C) By contrasting the plains with other landscapes", correct: false },
+            { text: "D) Through a problem-solution lens of survival", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "Urban sprawl has reshaped cities, often at a cost. Traffic clogs highways, and green spaces vanish. Yet some planners see opportunity: mixed-use developments can curb these issues. The debate continues over growth’s true price.",
+        question: "What is the primary purpose of the passage?",
+        answers: [
+            { text: "A) To examine the effects of urban sprawl and present a potential solution", correct: true },
+            { text: "B) To argue against the expansion of cities", correct: false },
+            { text: "C) To describe the history of urban planning", correct: false },
+            { text: "D) To critique planners’ optimism about development", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "The novel opens with a murder, gripping readers instantly. Clues unfold across chapters, each revelation twisting the plot. The final page delivers a surprise, upending earlier assumptions.",
+        question: "How is the passage primarily structured?",
+        answers: [
+            { text: "A) Sequentially, following the unfolding of a mystery", correct: true },
+            { text: "B) By comparing different characters’ perspectives", correct: false },
+            { text: "C) Through a cause-and-effect analysis of the murder", correct: false },
+            { text: "D) Descriptively, focusing on the novel’s tone", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "Climate change accelerates, driven by emissions. Scientists warn of rising seas and shrinking ice caps. Solutions exist—renewable energy, reforestation—but adoption lags. The stakes, they say, could not be higher.",
+        question: "What is the main purpose of the passage?",
+        answers: [
+            { text: "A) To highlight climate change’s consequences and urge action", correct: true },
+            { text: "B) To explain the science behind rising sea levels", correct: false },
+            { text: "C) To criticize the slow adoption of renewable energy", correct: false },
+            { text: "D) To compare climate change to other global issues", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "text-structure-and-purpose"
+    },
+
+    // Extremely Hard Questions
+    {
+        passage: "The essay starts with a paradox: freedom restricts us. It weaves through philosophy, citing Locke and Rousseau, then pivots to modern surveillance. The conclusion ties both eras, questioning liberty’s cost.",
+        question: "How is the passage primarily structured?",
+        answers: [
+            { text: "A) Thematically, exploring freedom across time with philosophical support", correct: true },
+            { text: "B) Chronologically, tracing the history of liberty", correct: false },
+            { text: "C) By contrasting philosophical and modern views", correct: false },
+            { text: "D) Through a problem-solution framework for surveillance", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "Poetry, she writes, mirrors life’s chaos. Her first stanza evokes joy, the next despair, each shift deliberate. Critics miss this intent, fixating on form. She aims to unsettle, not soothe.",
+        question: "What is the primary purpose of the passage?",
+        answers: [
+            { text: "A) To convey the poet’s goal of reflecting life’s complexity through shifting tones", correct: true },
+            { text: "B) To critique critics’ focus on poetic form", correct: false },
+            { text: "C) To explain how poetry mirrors everyday experiences", correct: false },
+            { text: "D) To argue for emotional variety in poetry", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "The study lists data: species decline, habitat loss. Then it shifts, weaving a narrative of a single bird’s struggle. Numbers return, paired with policy suggestions. It ends on a question—can we act in time?",
+        question: "How is the passage primarily structured?",
+        answers: [
+            { text: "A) By blending data and narrative to engage and persuade", correct: true },
+            { text: "B) Sequentially, detailing species decline over time", correct: false },
+            { text: "C) Through a cause-and-effect analysis of habitat loss", correct: false },
+            { text: "D) Descriptively, focusing on the bird’s plight", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "text-structure-and-purpose"
+    },
+    {
+        passage: "History, he argues, is no straight line. Events loop and fracture—wars echo across centuries. He cites Rome, then skips to the Cold War, linking patterns. His goal: to disrupt tidy timelines.",
+        question: "What is the main purpose of the passage?",
+        answers: [
+            { text: "A) To challenge linear views of history with interconnected examples", correct: true },
+            { text: "B) To compare ancient and modern conflicts", correct: false },
+            { text: "C) To trace the evolution of historical patterns", correct: false },
+            { text: "D) To critique oversimplified historical narratives", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "text-structure-and-purpose"
     }
+
+
+
 ];
 
 const mathQuestions = [
@@ -781,6 +1275,96 @@ function generateExplanation(response) {
         } else if (questionText.includes("primary idea of the passage") && response.passage.includes("linguist traced language")) {
             return "The linguist sees language as a dynamic, negotiated process.";
         }
+            // Mildly Hard Explanations (Inferences)
+    else if (questionText.includes("inferred about the farmer’s attitude")) {
+        return "His return to work with a grunt implies determination despite the drought.";
+    } else if (questionText.includes("inferred about the librarian’s feelings")) {
+        return "Her smile and prominent display suggest she cherishes the older books.";
+    } else if (questionText.includes("inferred about the runner’s approach")) {
+        return "Stretching longer after a loss implies greater care in preparation.";
+    } else if (questionText.includes("inferred about the painter’s response")) {
+        return "Adding crimson despite advice shows she prioritizes her own vision.";
+
+    // Hard Explanations (Inferences)
+    } else if (questionText.includes("inferred about the detective’s view")) {
+        return "Noting the broken lock suggests he doubts the accident claim.";
+    } else if (questionText.includes("inferred about the scientist’s reaction")) {
+        return "Frowning and double-checking imply unease and a need to resolve anomalies.";
+    } else if (questionText.includes("inferred about the merchant’s business strategy")) {
+        return "Grinning despite fewer sales suggests he values profit over volume.";
+    } else if (questionText.includes("inferred about the teacher’s perception")) {
+        return "Assigning a solo project implies she sees untapped potential.";
+
+    // Extremely Hard Explanations (Inferences)
+    } else if (questionText.includes("inferred about the diplomat’s strategy")) {
+        return "A surprise compromise amid tension suggests a calculated move for control.";
+    } else if (questionText.includes("inferred about the poet’s creative process")) {
+        return "Burning drafts and rejecting perfection imply she values raw imperfection.";
+    } else if (questionText.includes("inferred about the engineer’s priorities")) {
+        return "Delaying for a tweak shows precision trumps investor pressure.";
+    } else if (questionText.includes("inferred about the historian’s approach")) {
+        return "Focusing on one letter to upend a theory implies insight from detail.";
+    }
+        // Mildly Hard Explanations (Words in Context)
+        else if (questionText.includes("what does 'elevate' most nearly mean")) {
+            return "'Elevate' means to improve the sauce’s flavor, enhancing its quality.";
+        } else if (questionText.includes("what does 'survey' most nearly mean")) {
+            return "'Survey' means to observe the landscape, taking it in visually.";
+        } else if (questionText.includes("what does 'refine' most nearly mean")) {
+            return "'Refine' means to perfect the chaotic notes into a polished draft.";
+        } else if (questionText.includes("what does 'restore' most nearly mean")) {
+            return "'Restore' means to reestablish order in the neglected yard.";
+    
+        // Hard Explanations (Words in Context)
+        } else if (questionText.includes("what does 'illuminated' most nearly mean")) {
+            return "'Illuminated' means to explain theories clearly, making them understandable.";
+        } else if (questionText.includes("what does 'penetrate' most nearly mean")) {
+            return "'Penetrate' means to break through her composed demeanor, breaching it.";
+        } else if (questionText.includes("what does 'synthesis' most nearly mean")) {
+            return "'Synthesis' means a combination of art and utility in the design.";
+        } else if (questionText.includes("what does 'defying' most nearly mean")) {
+            return "'Defying' means resisting the rigid structure of the original score.";
+    
+        // Extremely Hard Explanations (Words in Context)
+        } else if (questionText.includes("what does 'eludes' most nearly mean")) {
+            return "'Eludes' means truth evades rigid definitions, slipping away.";
+        } else if (questionText.includes("what does 'undermine' most nearly mean")) {
+            return "'Undermine' means to weaken the research’s conclusions, not fully disprove.";
+        } else if (questionText.includes("what does 'imbued' most nearly mean")) {
+            return "'Imbued' means infused with layers of meaning in her lines.";
+        } else if (questionText.includes("what does 'entrenched' most nearly mean")) {
+            return "'Entrenched' means deeply established views held by her peers.";
+        }
+            // Mildly Hard Explanations (Text Structure and Purpose)
+    else if (questionText.includes("primary purpose") && response.passage.includes("old bridge")) {
+        return "The passage describes the bridge’s state and its ongoing assessment.";
+    } else if (questionText.includes("primarily structured") && response.passage.includes("festival began")) {
+        return "The passage follows the festival’s timeline from start to end.";
+    } else if (questionText.includes("main purpose") && response.passage.includes("rainforests teem")) {
+        return "The passage shows deforestation’s effects and pushes conservation.";
+    } else if (questionText.includes("primarily structured") && response.passage.includes("recipe starts")) {
+        return "The passage lists baking steps in order.";
+
+    // Hard Explanations (Text Structure and Purpose)
+    } else if (questionText.includes("primarily structured") && response.passage.includes("explorer’s journal")) {
+        return "The passage tracks her emotional shift over time.";
+    } else if (questionText.includes("primary purpose") && response.passage.includes("urban sprawl")) {
+        return "The passage explores sprawl’s downsides and offers a solution.";
+    } else if (questionText.includes("primarily structured") && response.passage.includes("novel opens")) {
+        return "The passage follows the mystery’s progression chapter by chapter.";
+    } else if (questionText.includes("main purpose") && response.passage.includes("climate change accelerates")) {
+        return "The passage warns of climate impacts and calls for solutions.";
+
+    // Extremely Hard Explanations (Text Structure and Purpose)
+    } else if (questionText.includes("primarily structured") && response.passage.includes("essay starts with a paradox")) {
+        return "The passage ties freedom across eras around a central theme.";
+    } else if (questionText.includes("primary purpose") && response.passage.includes("poetry, she writes")) {
+        return "The passage reveals her intent to reflect life’s ups and downs.";
+    } else if (questionText.includes("primarily structured") && response.passage.includes("study lists data")) {
+        return "The passage mixes stats and story to make a point.";
+    } else if (questionText.includes("main purpose") && response.passage.includes("history, he argues")) {
+        return "The passage aims to rethink history with linked examples.";
+    }
     
 
     return "No specific explanation available.";
