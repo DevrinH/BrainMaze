@@ -74,6 +74,331 @@ const readingWritingQuestions = [
         difficulty: "medium",
         category: "command-of-evidence"
     },
+
+    //Command Of Evidence EASY
+    {
+        passage: "Dr. Patel reviewed the data from her latest experiment, her brow furrowing as the results contradicted her hypothesis. She had spent months refining her methods, yet the numbers refused to align. Sighing, she scribbled a note to recheck the controls, unwilling to accept the outcome just yet.",
+        question: "Which detail in the passage best supports the idea that Dr. Patel is persistent?",
+        answers: [
+            { text: "A) Her brow furrowing as the results contradicted her hypothesis.", correct: false },
+            { text: "B) She had spent months refining her methods.", correct: true },
+            { text: "C) The numbers refused to align.", correct: false },
+            { text: "D) She sighed while reviewing the data.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command of evidence"
+    },
+    {
+        passage: "The explorer trudged through the dense jungle, sweat dripping from his brow as he consulted his worn map. The path had vanished hours ago, but he pressed on, driven by tales of a hidden temple. His boots sank into the mud, yet his eyes gleamed with determination.",
+        question: "What evidence from the passage best indicates the explorer’s motivation?",
+        answers: [
+            { text: "A) Sweat dripping from his brow.", correct: false },
+            { text: "B) He pressed on, driven by tales of a hidden temple.", correct: true },
+            { text: "C) His boots sank into the mud.", correct: false },
+            { text: "D) He consulted his worn map.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command of evidence"
+    },
+    {
+        passage: "Clara stood at the edge of the stage, her script trembling in her hands. The audience waited in silence, their eyes fixed on her. She had rehearsed for weeks, but now, the words seemed to blur. Taking a deep breath, she began, her voice shaky but growing steadier.",
+        question: "Which detail best demonstrates Clara overcoming her initial nervousness?",
+        answers: [
+            { text: "A) Her script trembling in her hands.", correct: false },
+            { text: "B) The audience waited in silence.", correct: false },
+            { text: "C) Her voice shaky but growing steadier.", correct: true },
+            { text: "D) She had rehearsed for weeks.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command of evidence"
+    },
+    {
+        passage: "The baker kneaded the dough with practiced hands, flour dusting the air around him. Orders had piled up since dawn, and the oven hummed relentlessly. He paused only to wipe his brow, then returned to his task, determined to finish before the market opened.",
+        question: "What evidence best supports the baker’s commitment to his work?",
+        answers: [
+            { text: "A) Flour dusting the air around him.", correct: false },
+            { text: "B) Orders had piled up since dawn.", correct: false },
+            { text: "C) He paused only to wipe his brow, then returned to his task.", correct: true },
+            { text: "D) The oven hummed relentlessly.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "command of evidence"
+    },
+
+    //  Command of Evidence MEDIUM
+    {
+        passage: "The economist pored over the charts, noting a sharp decline in consumer spending. Critics argued the data was skewed by seasonal trends, but she countered with evidence of a consistent pattern across multiple years. Her findings, though controversial, gained traction among policymakers.",
+        question: "Which detail best supports the economist’s credibility in her field?",
+        answers: [
+            { text: "A) Noting a sharp decline in consumer spending.", correct: false },
+            { text: "B) Critics argued the data was skewed by seasonal trends.", correct: false },
+            { text: "C) She countered with evidence of a consistent pattern across multiple years.", correct: true },
+            { text: "D) Her findings gained traction among policymakers.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "command of evidence"
+    },
+    {
+        passage: "The climber gripped the icy ledge, her breath visible in the frigid air. She had trained for this ascent, but the storm’s sudden arrival tested her resolve. Ignoring the wind’s howl, she adjusted her gear and pushed upward, her focus unwavering.",
+        question: "What evidence most clearly shows the climber’s resilience?",
+        answers: [
+            { text: "A) Her breath visible in the frigid air.", correct: false },
+            { text: "B) She had trained for this ascent.", correct: false },
+            { text: "C) Ignoring the wind’s howl, she pushed upward.", correct: true },
+            { text: "D) The storm’s sudden arrival tested her resolve.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "command of evidence"
+    },
+    {
+        passage: "The historian sifted through dusty archives, piecing together a timeline from fragmented letters. Many dismissed her theory as speculation, but she pointed to a overlooked correspondence that corroborated her claims. Her peers remained skeptical, yet intrigued.",
+        question: "Which detail best strengthens the historian’s argument?",
+        answers: [
+            { text: "A) Sifted through dusty archives.", correct: false },
+            { text: "B) Many dismissed her theory as speculation.", correct: false },
+            { text: "C) She pointed to a overlooked correspondence that corroborated her claims.", correct: true },
+            { text: "D) Her peers remained skeptical, yet intrigued.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "command of evidence"
+    },
+    {
+        passage: "The engineer stared at the blueprint, tracing the lines where the design had failed. Colleagues urged a complete overhaul, but she insisted the flaw was minor, citing stress test results that showed stability. The project deadline loomed, adding pressure to her decision.",
+        question: "What evidence best justifies the engineer’s confidence in her design?",
+        answers: [
+            { text: "A) Tracing the lines where the design had failed.", correct: false },
+            { text: "B) Colleagues urged a complete overhaul.", correct: false },
+            { text: "C) Citing stress test results that showed stability.", correct: true },
+            { text: "D) The project deadline loomed.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "command of evidence"
+    },
+
+    // Command Of Evidence Hard
+    {
+        passage: "The biologist examined the samples, perplexed by the inconsistent growth rates across trials. Her team hypothesized contamination, but she rejected this, noting the sterile conditions maintained throughout. Instead, she proposed an untested variable—temperature fluctuations—might explain the anomaly, a theory met with raised eyebrows.",
+        question: "Which detail most directly undermines the team’s contamination hypothesis?",
+        answers: [
+            { text: "A) Inconsistent growth rates across trials.", correct: false },
+            { text: "B) She noted the sterile conditions maintained throughout.", correct: true },
+            { text: "C) She proposed an untested variable—temperature fluctuations.", correct: false },
+            { text: "D) A theory met with raised eyebrows.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command of evidence"
+    },
+    {
+        passage: "The diplomat navigated the tense negotiations, her words measured as she addressed the assembly. Critics accused her of stalling, but she referenced a prior agreement’s overlooked clause that shifted the discussion. The room fell silent, reevaluating her strategy.",
+        question: "What evidence most effectively counters the critics’ accusation of stalling?",
+        answers: [
+            { text: "A) Her words measured as she addressed the assembly.", correct: false },
+            { text: "B) She referenced a prior agreement’s overlooked clause.", correct: true },
+            { text: "C) The room fell silent, reevaluating her strategy.", correct: false },
+            { text: "D) Critics accused her of stalling.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command of evidence"
+    },
+    {
+        passage: "The poet scribbled furiously, her notebook filling with fragmented lines. Scholars debated her intent—some saw chaos, others brilliance. She once wrote in a letter that her disorder was deliberate, a mirror to life’s unpredictability, a claim few accepted at face value.",
+        question: "Which detail most directly supports the poet’s explanation of her style?",
+        answers: [
+            { text: "A) Her notebook filling with fragmented lines.", correct: false },
+            { text: "B) Scholars debated her intent.", correct: false },
+            { text: "C) She once wrote in a letter that her disorder was deliberate.", correct: true },
+            { text: "D) A claim few accepted at face value.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command of evidence"
+    },
+    {
+        passage: "The physicist reviewed the equations, troubled by a discrepancy in the energy outputs. Peers suggested rounding errors, but she dismissed this, pointing to a calibration log that confirmed precision. She theorized an undetected particle, a bold leap that sparked heated debate.",
+        question: "What evidence most strongly refutes the peers’ suggestion of rounding errors?",
+        answers: [
+            { text: "A) Troubled by a discrepancy in the energy outputs.", correct: false },
+            { text: "B) Pointing to a calibration log that confirmed precision.", correct: true },
+            { text: "C) She theorized an undetected particle.", correct: false },
+            { text: "D) A bold leap that sparked heated debate.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "command of evidence"
+    },
+    // Ceentral Ideas EASY
+    {
+        passage: "The old lighthouse stood weathered but proud, its beam cutting through the fog each night. Sailors relied on its steady glow, a silent promise of safety amid the rocky coast. Though storms had battered its walls, it remained a symbol of endurance.",
+        question: "What is the central idea of the passage?",
+        answers: [
+            { text: "A) The lighthouse represents resilience in the face of adversity.", correct: true },
+            { text: "B) Sailors depend on lighthouses to navigate dangerous waters.", correct: false },
+            { text: "C) Storms pose a constant threat to coastal structures.", correct: false },
+            { text: "D) The lighthouse’s beauty inspires awe in those who see it.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central ideas"
+    },
+    {
+        passage: "In the quiet village, the annual harvest festival brought everyone together. Children raced through the fields, while elders shared stories of lean years survived. The celebration was less about the crops and more about the bonds that held the community strong.",
+        question: "What is the main idea conveyed by the passage?",
+        answers: [
+            { text: "A) The festival highlights the importance of community unity.", correct: true },
+            { text: "B) Children enjoy the harvest festival more than adults.", correct: false },
+            { text: "C) The village relies heavily on successful crop yields.", correct: false },
+            { text: "D) Elders use the festival to teach historical lessons.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central ideas"
+    },
+    {
+        passage: "The inventor toiled in his cluttered workshop, sketches strewn across every surface. Each failed prototype taught him something new, pushing him closer to success. To him, setbacks were not defeats but steps toward innovation.",
+        question: "What is the central theme of the passage?",
+        answers: [
+            { text: "A) The inventor views failure as a necessary part of progress.", correct: true },
+            { text: "B) A cluttered workspace fosters creativity.", correct: false },
+            { text: "C) Success requires avoiding repeated mistakes.", correct: false },
+            { text: "D) The inventor’s sketches are his most valuable asset.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central ideas"
+    },
+    {
+        passage: "The river wound through the valley, its waters sustaining farms and wildlife alike. Generations had built their lives around it, adapting to its floods and droughts. It was more than a resource—it was the heart of their existence.",
+        question: "What is the primary idea of the passage?",
+        answers: [
+            { text: "A) The river is essential to the valley’s way of life.", correct: true },
+            { text: "B) Floods and droughts challenge the valley’s residents.", correct: false },
+            { text: "C) Wildlife depends more on the river than humans do.", correct: false },
+            { text: "D) The river’s beauty defines the valley’s identity.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "easy",
+        category: "central ideas"
+    },
+
+    // Central Ideas MEDIUM
+    {
+        passage: "The playwright crafted her stories from forgotten histories, breathing life into voices long silenced. Critics praised her vivid characters but missed her deeper intent: to challenge the narratives that shaped society’s memory. Her work was a quiet rebellion against oblivion.",
+        question: "What is the central idea of the passage?",
+        answers: [
+            { text: "A) The playwright seeks to reshape how history is remembered.", correct: true },
+            { text: "B) Critics fail to appreciate the depth of the playwright’s characters.", correct: false },
+            { text: "C) Forgotten histories inspire the most compelling stories.", correct: false },
+            { text: "D) The playwright’s rebellion is misunderstood by society.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "central ideas"
+    },
+    {
+        passage: "The desert stretched endlessly before the nomads, its sands hiding both danger and sustenance. They moved with the seasons, their survival tied to an intimate knowledge of the land. To outsiders, it was a wasteland; to them, a vast, living map.",
+        question: "What is the main idea of the passage?",
+        answers: [
+            { text: "A) The nomads’ survival depends on understanding their environment.", correct: true },
+            { text: "B) The desert is more dangerous than it appears to outsiders.", correct: false },
+            { text: "C) Seasonal movement defines the nomads’ way of life.", correct: false },
+            { text: "D) Outsiders underestimate the desert’s hidden resources.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "central ideas"
+    },
+    {
+        passage: "The librarian curated her collection with care, preserving books others deemed obsolete. She believed stories held power beyond their pages, shaping minds across time. Her small library became a refuge for those seeking wisdom in a distracted world.",
+        question: "What is the central theme of the passage?",
+        answers: [
+            { text: "A) The librarian values the enduring influence of literature.", correct: true },
+            { text: "B) Old books are more valuable than modern ones.", correct: false },
+            { text: "C) The library serves as a retreat from modern distractions.", correct: false },
+            { text: "D) The librarian’s curation skills attract a unique audience.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "central ideas"
+    },
+    {
+        passage: "The climber scaled the peak not for glory, but to confront her own limits. Each step tested her strength and fear, revealing more about herself than the mountain. At the summit, triumph was secondary to the clarity she gained.",
+        question: "What is the primary idea of the passage?",
+        answers: [
+            { text: "A) The climb is a journey of self-discovery for the climber.", correct: true },
+            
+
+            { text: "B) The mountain poses a greater challenge than expected.", correct: false },
+            { text: "C) Fear prevents most climbers from reaching the summit.", correct: false },
+            { text: "D) The view from the summit is worth the effort.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "medium",
+        category: "central ideas"
+    },
+
+    // Command of Evidence HARD
+    {
+        passage: "The philosopher argued that truth is not absolute but a construct shaped by perception. He cited optical illusions, where the mind interprets conflicting images, to suggest reality is negotiated rather than given. His critics countered that some truths—gravity, death—resist reinterpretation.",
+        question: "What is the central idea of the passage?",
+        answers: [
+            { text: "A) The philosopher believes truth is subjective and dependent on perception.", correct: true },
+            { text: "B) Optical illusions prove that reality is an illusion.", correct: false },
+            { text: "C) Critics disprove the philosopher’s theory with undeniable facts.", correct: false },
+            { text: "D) Truth and reality are entirely separate concepts.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central ideas"
+    },
+    {
+        passage: "The artist painted decay—rotting fruit, wilting flowers—not for morbidity but to capture time’s fleeting nature. Her canvases, vibrant yet somber, suggested that beauty and loss are inseparable. Viewers saw only gloom; she saw life’s fragile pulse.",
+        question: "What is the main idea of the passage?",
+        answers: [
+            { text: "A) The artist portrays the interconnection of beauty and impermanence.", correct: true },
+            { text: "B) Viewers misinterpret the artist’s focus on decay.", correct: false },
+            { text: "C) Decay is a more compelling subject than vitality.", correct: false },
+            { text: "D) The artist’s use of vibrant colors contradicts her theme.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central ideas"
+    },
+    {
+        passage: "The economist viewed markets as ecosystems, self-regulating yet prone to collapse if imbalances grew unchecked. She compared speculative bubbles to overgrazing, where excess depletes stability. Her model urged restraint, a lesson few heeded until crises struck.",
+        question: "What is the central theme of the passage?",
+        answers: [
+            { text: "A) The economist sees markets as fragile systems requiring balance.", correct: true },
+            { text: "B) Speculative bubbles inevitably lead to economic collapse.", correct: false },
+            { text: "C) People ignore economic warnings until it’s too late.", correct: false },
+            { text: "D) Markets function best without regulation.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central ideas"
+    },
+    {
+        passage: "The linguist traced language’s evolution, noting how words shift meaning across cultures and eras. She argued that communication is less about fixed definitions and more about shared negotiation, a dance of intent and interpretation. Precision, she claimed, is an illusion.",
+        question: "What is the primary idea of the passage?",
+        answers: [
+            { text: "A) The linguist views language as a fluid, interpretive process.", correct: true },
+            { text: "B) Words lose meaning as cultures evolve.", correct: false },
+            { text: "C) Communication fails without precise definitions.", correct: false },
+            { text: "D) Language evolution reflects cultural superiority.", correct: false },
+        ],
+        type: "reading",
+        difficulty: "hard",
+        category: "central ideas"
+    }
 ];
 
 const mathQuestions = [
@@ -396,23 +721,68 @@ function showExplanations() {
 function generateExplanation(response) {
     const questionText = response.question;
 
-    if (questionText.includes("Emma stepped into the grand ballroom")) {
-        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation.";
-    } else if (questionText.includes("Daniel stepped into the office")) {
-        return "Daniel’s doubt and deep breath indicate uncertainty, but his reminder shows determination.";
-    } else if (questionText.includes("Liam set his pen down")) {
-        return "The explicit mention of 'nagging doubt' directly shows his uncertainty.";
-    } else if (questionText.includes("The scientist adjusted her glasses")) {
-        return "Her disbelief in consistent results despite repeated checks shows her struggle.";
-    } else if (questionText.includes("An airplane is flying from City A to City B")) {
-        return "Time against wind = 750 / 500 = 1.5 hours. Time with wind = 750 / 600 = 1.25 hours. Total = 2.75 hours.";
-    } else if (questionText.includes("A car's value depreciates by 15%")) {
-        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $21,675. Year 3: $18,423.75 ≈ $19,275.";
-    } else if (questionText.includes("The function f(x) is defined")) {
-        return "f(4) = 2(4²) - 3(4) + 5 = 32 - 12 + 5 = 25.";
-    } else if (questionText.includes("A company rents out bicycles")) {
-        return "$12 + $3h ≤ $45. h ≤ 11. Maximum whole hours = 9.";
-    }
+    // Mildly Hard Explanations
+    if (questionText.includes("best supports the idea that Dr. Patel is persistent")) {
+        return "Her months of refining methods show persistence despite setbacks.";
+    } else if (questionText.includes("best indicates the explorer’s motivation")) {
+        return "Pressing on driven by tales of a hidden temple directly shows his motivation.";
+    } else if (questionText.includes("best demonstrates Clara overcoming her initial nervousness")) {
+        return "Her voice growing steadier after being shaky shows she overcomes nervousness.";
+    } else if (questionText.includes("best supports the baker’s commitment to his work")) {
+        return "Pausing only briefly before returning to work highlights his commitment.";
+
+    // Hard Explanations
+    } else if (questionText.includes("best supports the economist’s credibility")) {
+        return "Countering critics with multi-year evidence demonstrates her credibility.";
+    } else if (questionText.includes("most clearly shows the climber’s resilience")) {
+        return "Ignoring the wind and pushing upward directly shows her resilience.";
+    } else if (questionText.includes("best strengthens the historian’s argument")) {
+        return "Pointing to overlooked correspondence provides concrete support for her argument.";
+    } else if (questionText.includes("best justifies the engineer’s confidence")) {
+        return "Citing stress test results offers evidence backing her confidence.";
+
+    // Extremely Hard Explanations
+    } else if (questionText.includes("most directly undermines the team’s contamination hypothesis")) {
+        return "Noting sterile conditions directly counters the idea of contamination.";
+    } else if (questionText.includes("most effectively counters the critics’ accusation of stalling")) {
+        return "Referencing an overlooked clause shows purposeful action, not stalling.";
+    } else if (questionText.includes("most directly supports the poet’s explanation of her style")) {
+        return "Her letter stating disorder was deliberate directly supports her explanation.";
+    } else if (questionText.includes("most strongly refutes the peers’ suggestion of rounding errors")) {
+        return "The calibration log confirming precision directly refutes rounding errors.";
+    } 
+       
+        else if (questionText.includes("central idea of the passage") && response.passage.includes("old lighthouse")) {
+            return "The lighthouse’s endurance despite storms highlights resilience.";
+        } else if (questionText.includes("main idea conveyed by the passage") && response.passage.includes("annual harvest festival")) {
+            return "The festival emphasizes community bonds over material gain.";
+        } else if (questionText.includes("central theme of the passage") && response.passage.includes("inventor toiled")) {
+            return "The inventor’s persistence through failure drives innovation.";
+        } else if (questionText.includes("primary idea of the passage") && response.passage.includes("river wound through the valley")) {
+            return "The river is central to the valley’s existence and identity.";
+    
+        // Hard Explanations (Central Ideas)
+        } else if (questionText.includes("central idea of the passage") && response.passage.includes("playwright crafted")) {
+            return "The playwright aims to redefine historical narratives.";
+        } else if (questionText.includes("main idea of the passage") && response.passage.includes("desert stretched endlessly")) {
+            return "The nomads’ survival hinges on deep environmental knowledge.";
+        } else if (questionText.includes("central theme of the passage") && response.passage.includes("librarian curated")) {
+            return "The librarian champions literature’s timeless impact.";
+        } else if (questionText.includes("primary idea of the passage") && response.passage.includes("climber scaled the peak")) {
+            return "The climb reveals the climber’s inner growth over external triumph.";
+    
+        // Extremely Hard Explanations (Central Ideas)
+        } else if (questionText.includes("central idea of the passage") && response.passage.includes("philosopher argued")) {
+            return "The philosopher posits truth as a subjective, perceptual construct.";
+        } else if (questionText.includes("main idea of the passage") && response.passage.includes("artist painted decay")) {
+            return "The artist links beauty with life’s transient nature.";
+        } else if (questionText.includes("central theme of the passage") && response.passage.includes("economist viewed markets")) {
+            return "The economist warns of markets’ vulnerability to imbalance.";
+        } else if (questionText.includes("primary idea of the passage") && response.passage.includes("linguist traced language")) {
+            return "The linguist sees language as a dynamic, negotiated process.";
+        }
+    
+
     return "No specific explanation available.";
 }
 
