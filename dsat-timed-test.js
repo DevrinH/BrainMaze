@@ -2497,13 +2497,17 @@ function showExplanations() {
         questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
     } else {
         incorrectResponses.forEach((response, index) => {
+            const correctAnswerIndex = response.answers.findIndex(a => a.correct); // Position (0-3)
+            const correctAnswerLetter = ['A', 'B', 'C', 'D'][correctAnswerIndex]; // e.g., "C"
+            const userAnswerLetter = response.userAnswer; // e.g., "B"
             const explanation = generateExplanation(response);
+
             questionElement.innerHTML += `
                 <div class="explanation">
                     <h3>Question ${index + 1}</h3>
                     <p><strong>Question:</strong> ${response.question}</p>
-                    <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
-                    <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
+                    <p><strong>Your Answer:</strong> ${userAnswerLetter}</p>
+                    <p><strong>Correct Answer:</strong> ${correctAnswerLetter}</p>
                     <p><strong>Explanation:</strong> ${explanation}</p>
                 </div>
             `;
@@ -2528,21 +2532,22 @@ function shuffleAnswers(questions) {
         const originalAnswers = [...q.answers];
         const correctAnswer = originalAnswers.find(a => a.correct);
         const incorrectAnswers = originalAnswers.filter(a => !a.correct);
+        const correctValue = correctAnswer.text.split(') ')[1]; // e.g., "2"
 
         // Target letter for even distribution (approx. 42 per letter for 168 questions)
-        const targetLetter = letterMap[Math.floor(index / (questions.length / 4))] || 'D';
+        let targetLetter = letterMap[Math.floor(index / (questions.length / 4))] || 'D';
         if (letterCounts[targetLetter] >= Math.ceil(questions.length / 4)) {
             const minCount = Math.min(...Object.values(letterCounts));
             const available = Object.keys(letterCounts).filter(k => letterCounts[k] === minCount);
             targetLetter = available[0];
         }
 
-        // Rebuild answers array
+        // Rebuild answers array with updated letters
         const newAnswers = [];
         let incorrectIndex = 0;
         for (let i = 0; i < 4; i++) {
             if (letterMap[i] === targetLetter) {
-                newAnswers.push({ text: correctAnswer.text, correct: true });
+                newAnswers.push({ text: `${letterMap[i]}) ${correctValue}`, correct: true });
             } else {
                 newAnswers.push({ text: incorrectAnswers[incorrectIndex].text, correct: false });
                 incorrectIndex++;
@@ -2559,11 +2564,11 @@ function shuffleAnswers(questions) {
 // Shuffle all questions
 shuffleAnswers(allQuestions);
 
-
 function generateExplanation(response) {
     const questionText = response.question;
-    const correctAnswer = response.answers.find(a => a.correct).text.split(') ')[1]; // Extract text after letter
-
+    const correctAnswerIndex = response.answers.findIndex(a => a.correct); // Position (0-3)
+    const correctAnswerLetter = ['A', 'B', 'C', 'D'][correctAnswerIndex]; // e.g., "C"
+    const correctAnswerValue = response.answers[correctAnswerIndex].text.split(') ')[1]; // e.g., "2"
     // READING/WRITING EXPLANATIONS
     if (response.type === "reading") {
         // Command of Evidence (Mildly Hard)
