@@ -2477,14 +2477,20 @@ function showFinalScore() {
                                 <p><strong>Total DSAT Score:</strong> ${totalDSATScore} / 1600</p>`;
     questionElement.classList.add("centered-score");
     document.querySelector(".question-row").classList.add("score-display");
+
     nextButton.innerHTML = "Review Incorrect Answers";
     nextButton.style.display = "block";
-    nextButton.classList.add("centered-btn");
+    nextButton.disabled = false; // Ensure it’s clickable
+    nextButton.classList.add("centered-btn"); // Add styling if needed
+
+    // Clean up old listeners and add new one
     nextButton.removeEventListener("click", handleNextButton);
     nextButton.addEventListener("click", showExplanations);
 
-    countdownEl.innerHTML = "0:00"; // Stop and reset timer display
-    time = 0; // Ensure time is reset
+    countdownEl.innerHTML = "0:00";
+    time = 0;
+
+    console.log("showFinalScore completed, nextButton set to Review"); // Debug
 }
 
 function showExplanations() {
