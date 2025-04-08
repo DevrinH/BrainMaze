@@ -2370,15 +2370,14 @@ function showQuestion() {
 
     updateProgressBar();
 }
-
 function resetState() {
-    // Only clear answer buttons, don’t touch nextButton here
+    nextButton.style.display = "none";
+    nextButton.classList.remove("centered-btn");
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
-    // Remove centered-btn class if it’s not needed
-    nextButton.classList.remove("centered-btn");
 }
+
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
