@@ -2493,7 +2493,7 @@ function showFinalScore() {
 }
 
 function showExplanations() {
-    // Reset state but don’t hide nextButton yet
+    resetState();
     passageElement.innerHTML = "";
     questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
 
@@ -2516,22 +2516,14 @@ function showExplanations() {
         });
     }
 
-    // Set up nextButton *after* content is rendered
     nextButton.innerHTML = "Finish";
-    nextButton.style.display = "block"; // Ensure it’s visible
-    nextButton.classList.remove("centered-btn"); // Remove if causing style conflicts
-    nextButton.disabled = false; // Ensure it’s clickable
-
-    // Remove all prior listeners and add new one
-    nextButton.removeEventListener("click", showExplanations); // Remove old review trigger
-    nextButton.removeEventListener("click", handleNextButton); // Remove any lingering quiz navigation
+    nextButton.style.display = "block";
+    nextButton.removeEventListener("click", showExplanations);
     nextButton.addEventListener("click", () => {
-        console.log("Finish button clicked, redirecting...");
         window.location.href = "https://www.brainjelli.com/user-profile";
     });
-
-    console.log("showExplanations completed, nextButton should be visible"); // Debug
 }
+
 
 function generateExplanation(response) {
     const questionText = response.question;
