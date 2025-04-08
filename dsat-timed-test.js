@@ -22,13 +22,13 @@ let currentModule = 1;
 let module1Correct = 0;
 
 const readingWritingQuestions = [
-{
+    {
         passage: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.",
         question: "What does the passage suggest about Emma’s feelings?",
         answers: [
-            { text: "A) She is overwhelmed by the beauty and struggles to contain excitement.", correct: false },
-            { text: "B) She is intimidated by the guests and decides to leave.", correct: false },
-            { text: "C) She feels out of place despite having anticipated this moment.", correct: true },
+            { text: "A) She feels out of place despite having anticipated this moment.", correct: true },
+            { text: "B) She is overwhelmed by the beauty and struggles to contain excitement.", correct: false },
+            { text: "C) She is intimidated by the guests and decides to leave.", correct: false },
             { text: "D) She is eager to impress others and makes a confident entrance.", correct: false },
         ],
         type: "reading",
