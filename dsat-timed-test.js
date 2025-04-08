@@ -2370,6 +2370,7 @@ function showQuestion() {
 
     updateProgressBar();
 }
+
 function resetState() {
     nextButton.style.display = "none";
     nextButton.classList.remove("centered-btn");
@@ -2377,7 +2378,6 @@ function resetState() {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
-
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
@@ -2476,20 +2476,14 @@ function showFinalScore() {
                                 <p><strong>Total DSAT Score:</strong> ${totalDSATScore} / 1600</p>`;
     questionElement.classList.add("centered-score");
     document.querySelector(".question-row").classList.add("score-display");
-
     nextButton.innerHTML = "Review Incorrect Answers";
     nextButton.style.display = "block";
-    nextButton.disabled = false; // Ensure it’s clickable
-    nextButton.classList.add("centered-btn"); // Add styling if needed
-
-    // Clean up old listeners and add new one
+    nextButton.classList.add("centered-btn");
     nextButton.removeEventListener("click", handleNextButton);
     nextButton.addEventListener("click", showExplanations);
 
-    countdownEl.innerHTML = "0:00";
-    time = 0;
-
-    console.log("showFinalScore completed, nextButton set to Review"); // Debug
+    countdownEl.innerHTML = "0:00"; // Stop and reset timer display
+    time = 0; // Ensure time is reset
 }
 
 function showExplanations() {
@@ -2932,7 +2926,7 @@ nextButton.addEventListener("click", () => {
     if (nextButton.innerHTML === "Continue") {
         document.getElementById("break-message").classList.remove("hide");
         document.getElementById("question-container").classList.add("hide");
-        // Do not start Math section here; wait for continueButton click
+        // Timer is already cleared in showReadingWritingScore; do not start Math here
     } else {
         handleNextButton();
     }
@@ -2941,7 +2935,7 @@ nextButton.addEventListener("click", () => {
 continueButton.addEventListener("click", () => {
     document.getElementById("break-message").classList.add("hide");
     document.getElementById("question-container").classList.remove("hide");
-    startMathTest();
+    startMathTest(); // Start Math section and timer only when user clicks Continue in break message
 });
 
 startTestButton.addEventListener("click", startTest);
