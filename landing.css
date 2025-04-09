@@ -1726,3 +1726,10 @@ margin-bottom: 7px;
 text-align: center;
 
 }
+
+#next-btn.centered-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
