@@ -2392,8 +2392,12 @@ function selectAnswer(e) {
     }
 
     const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+
+    // Safeguard against undefined passage or question
+    const safePassage = currentQuestion.passage || "No passage provided";
+    const safeQuestion = currentQuestion.question || "No question provided";
     userResponses.push({
-        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
+        question: safePassage + "<br/><br/>" + safeQuestion,
         userAnswer: selectedBtn.innerHTML,
         correctAnswer: correctAnswer,
         wasCorrect: isCorrect
@@ -2488,6 +2492,7 @@ function showFinalScore() {
 }
 
 function showExplanations() {
+    console.log("Entering showExplanations");
     resetState();
     passageElement.innerHTML = "";
     questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
@@ -2495,27 +2500,30 @@ function showExplanations() {
     questionElement.style.maxHeight = "80vh";
 
     const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
-    console.log("Incorrect responses:", incorrectResponses.length);
+    console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
 
     if (incorrectResponses.length === 0) {
         questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
     } else {
         const fragment = document.createDocumentFragment();
         incorrectResponses.forEach((response, index) => {
+            console.log("Processing response:", index, response);
             const div = document.createElement("div");
             div.className = "explanation";
             div.innerHTML = `
                 <h3>Question ${index + 1}</h3>
-                <p><strong>Question:</strong> ${response.question}</p>
-                <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
-                <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
+                <p><strong>Question:</strong> ${response.question || "Missing question"}</p>
+                <p><strong>Your Answer:</strong> ${response.userAnswer || "N/A"}</p>
+                <p><strong>Correct Answer:</strong> ${response.correctAnswer || "N/A"}</p>
                 <p><strong>Explanation:</strong> ${generateExplanation(response)}</p>
             `;
             fragment.appendChild(div);
         });
+        console.log("Appending to questionElement:", questionElement);
         questionElement.appendChild(fragment);
     }
 
+    console.log("Setting Finish button");
     nextButton.innerHTML = "Finish";
     nextButton.style.display = "block";
     nextButton.classList.add("centered-btn");
@@ -2526,7 +2534,8 @@ function showExplanations() {
 }
 
 function generateExplanation(response) {
-    const questionText = response.question;
+    const questionText = response.question || ""; // Default to empty string if undefined
+    const passageText = response.passage || "";   // Extract passage if separate, else use question
 
     // Mildly Hard Explanations
     if (questionText.includes("best supports the idea that Dr. Patel is persistent")) {
