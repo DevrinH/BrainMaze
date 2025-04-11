@@ -521,6 +521,172 @@ const lessons = {
             }
         ]
     },
+    4: {
+        title: "Linear Functions and Graphs",
+        content: [
+            {
+                type: "example",
+                title: "Example 1: Finding Slope from Two Points",
+                content: `
+                    <h2>Example 1: Finding Slope from Two Points</h2>
+                    <p>Find the slope of the line passing through points (2, 3) and (4, 7).</p>
+                    <p>Step 1: Use the slope formula: m = (y₂ - y₁) / (x₂ - x₁)</p>
+                    <p>Step 2: Substitute: m = (7 - 3) / (4 - 2) = 4 / 2</p>
+                    <p>Step 3: Simplify: m = 2</p>
+                    <p>The slope is 2.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 1",
+                question: "Find the slope of the line passing through (1, 2) and (3, 6).",
+                options: [
+                    { text: "A) 2", correct: true },
+                    { text: "B) 1", correct: false },
+                    { text: "C) 3", correct: false },
+                    { text: "D) 4", correct: false }
+                ],
+                explanation: "m = (6 - 2) / (3 - 1) = 4 / 2 = 2."
+            },
+            {
+                type: "example",
+                title: "Example 2: Graphing a Linear Equation (Slope-Intercept Form)",
+                content: `
+                    <h2>Example 2: Graphing a Linear Equation</h2>
+                    <p>Graph the equation: y = 2x + 1</p>
+                    <p>Step 1: Identify the slope (m = 2) and y-intercept (b = 1).</p>
+                    <p>Step 2: Plot the y-intercept at (0, 1).</p>
+                    <p>Step 3: Use the slope (rise 2, run 1) to plot another point at (1, 3).</p>
+                    <p>Step 4: Draw a straight line through the points.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 2",
+                question: "What is the y-intercept of the line y = 3x - 4?",
+                options: [
+                    { text: "A) -4", correct: true },
+                    { text: "B) 3", correct: false },
+                    { text: "C) 4", correct: false },
+                    { text: "D) -3", correct: false }
+                ],
+                explanation: "The equation is in slope-intercept form, y = mx + b, where b = -4 is the y-intercept."
+            },
+            {
+                type: "example",
+                title: "Example 3: Writing Equation in Slope-Intercept Form",
+                content: `
+                    <h2>Example 3: Writing Equation in Slope-Intercept Form</h2>
+                    <p>Convert 2x + y = 5 to slope-intercept form.</p>
+                    <p>Step 1: Solve for y: y = -2x + 5</p>
+                    <p>The slope is -2, and the y-intercept is 5.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 3",
+                question: "Convert 3x - y = 6 to slope-intercept form.",
+                options: [
+                    { text: "A) y = 3x - 6", correct: true },
+                    { text: "B) y = -3x + 6", correct: false },
+                    { text: "C) y = 3x + 6", correct: false },
+                    { text: "D) y = -3x - 6", correct: false }
+                ],
+                explanation: "Solve for y: -y = -3x + 6 → y = 3x - 6."
+            },
+            {
+                type: "example",
+                title: "Example 4: Equation from Slope and Point (Point-Slope Form)",
+                content: `
+                    <h2>Example 4: Equation from Slope and Point</h2>
+                    <p>Write the equation of a line with slope 3 passing through (1, 2).</p>
+                    <p>Step 1: Use point-slope form: y - y₁ = m(x - x₁)</p>
+                    <p>Step 2: Substitute: y - 2 = 3(x - 1)</p>
+                    <p>Step 3: Convert to slope-intercept (optional): y = 3x - 1</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 4",
+                question: "Write the equation of a line with slope 2 through (0, 5) in slope-intercept form.",
+                options: [
+                    { text: "A) y = 2x + 5", correct: true },
+                    { text: "B) y = 2x - 5", correct: false },
+                    { text: "C) y = 5x + 2", correct: false },
+                    { text: "D) y = 5x - 2", correct: false }
+                ],
+                explanation: "Use y = mx + b. Slope m = 2, y-intercept b = 5 (since point is (0, 5)). Thus, y = 2x + 5."
+            },
+            {
+                type: "example",
+                title: "Example 5: Finding x- and y-Intercepts",
+                content: `
+                    <h2>Example 5: Finding x- and y-Intercepts</h2>
+                    <p>Find the intercepts of 4x + 2y = 8.</p>
+                    <p>Step 1: y-intercept (x = 0): 2y = 8 → y = 4. Point: (0, 4)</p>
+                    <p>Step 2: x-intercept (y = 0): 4x = 8 → x = 2. Point: (2, 0)</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 5",
+                question: "Find the x-intercept of 3x + y = 9.",
+                options: [
+                    { text: "A) 3", correct: true },
+                    { text: "B) 9", correct: false },
+                    { text: "C) 1", correct: false },
+                    { text: "D) 6", correct: false }
+                ],
+                explanation: "Set y = 0: 3x = 9 → x = 3."
+            },
+            {
+                type: "example",
+                title: "Example 6: Parallel Lines",
+                content: `
+                    <h2>Example 6: Parallel Lines</h2>
+                    <p>Find the equation of a line parallel to y = 2x + 3 passing through (1, 1).</p>
+                    <p>Step 1: Parallel lines have the same slope, so m = 2.</p>
+                    <p>Step 2: Use point-slope: y - 1 = 2(x - 1)</p>
+                    <p>Step 3: Convert: y = 2x - 1</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 6",
+                question: "What is the slope of a line parallel to y = -3x + 4?",
+                options: [
+                    { text: "A) -3", correct: true },
+                    { text: "B) 3", correct: false },
+                    { text: "C) 1/3", correct: false },
+                    { text: "D) -1/3", correct: false }
+                ],
+                explanation: "Parallel lines have the same slope. The slope of y = -3x + 4 is -3."
+            },
+            {
+                type: "example",
+                title: "Example 7: Perpendicular Lines",
+                content: `
+                    <h2>Example 7: Perpendicular Lines</h2>
+                    <p>Find the equation of a line perpendicular to y = (1/2)x - 1 through (0, 2).</p>
+                    <p>Step 1: Perpendicular slope is the negative reciprocal: m = -2.</p>
+                    <p>Step 2: Use point-slope: y - 2 = -2(x - 0)</p>
+                    <p>Step 3: Simplify: y = -2x + 2</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 7",
+                question: "What is the slope of a line perpendicular to y = 4x - 3?",
+                options: [
+                    { text: "A) -1/4", correct: true },
+                    { text: "B) 1/4", correct: false },
+                    { text: "C) 4", correct: false },
+                    { text: "D) -4", correct: false }
+                ],
+                explanation: "The slope of y = 4x - 3 is 4. The perpendicular slope is the negative reciprocal: -1/4."
+            }
+        ]
+    }
     // Additional lessons can be added similarly with 7 examples and 7 questions each
     // For brevity, only lessons 1-3 are fully expanded here. Expand others as needed.
 };
@@ -785,6 +951,92 @@ const quadraticQuestions = [
             { text: "D) x = 4, x = -1", correct: false }
         ],
         explanation: "(x - 3)(x + 2) = 0 → x = 3 or x = -2.",
+        difficulty: "medium",
+        category: "algebra"
+    }
+];
+const linearFunctionsQuestions = [
+    {
+        question: "Find the slope of the line passing through (0, 1) and (2, 5).",
+        answers: [
+            { text: "A) 2", correct: true },
+            { text: "B) 1", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 4", correct: false }
+        ],
+        explanation: "m = (5 - 1) / (2 - 0) = 4 / 2 = 2.",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "What is the slope of the line y = -2x + 7?",
+        answers: [
+            { text: "A) -2", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 7", correct: false },
+            { text: "D) -7", correct: false }
+        ],
+        explanation: "The equation is in slope-intercept form, y = mx + b, where m = -2.",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "Find the y-intercept of the line 2x - y = 4.",
+        answers: [
+            { text: "A) -4", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) -2", correct: false }
+        ],
+        explanation: "Convert to slope-intercept: y = 2x - 4. The y-intercept is -4.",
+        difficulty: "medium",
+        category: "algebra"
+    },
+    {
+        question: "Write the equation of a line with slope -1 through (2, 3) in slope-intercept form.",
+        answers: [
+            { text: "A) y = -x + 5", correct: true },
+            { text: "B) y = -x + 3", correct: false },
+            { text: "C) y = x - 5", correct: false },
+            { text: "D) y = x + 5", correct: false }
+        ],
+        explanation: "Use point-slope: y - 3 = -1(x - 2) → y = -x + 5.",
+        difficulty: "medium",
+        category: "algebra"
+    },
+    {
+        question: "Find the x-intercept of the line x + 2y = 6.",
+        answers: [
+            { text: "A) 6", correct: true },
+            { text: "B) 3", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) 1", correct: false }
+        ],
+        explanation: "Set y = 0: x = 6.",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "What is the slope of a line parallel to y = (1/3)x - 2?",
+        answers: [
+            { text: "A) 1/3", correct: true },
+            { text: "B) -1/3", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) -3", correct: false }
+        ],
+        explanation: "Parallel lines have the same slope, so m = 1/3.",
+        difficulty: "easy",
+        category: "algebra"
+    },
+    {
+        question: "What is the slope of a line perpendicular to y = -5x + 1?",
+        answers: [
+            { text: "A) 1/5", correct: true },
+            { text: "B) -1/5", correct: false },
+            { text: "C) 5", correct: false },
+            { text: "D) -5", correct: false }
+        ],
+        explanation: "The slope is -5. The perpendicular slope is the negative reciprocal: 1/5.",
         difficulty: "medium",
         category: "algebra"
     }
