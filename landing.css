@@ -152,7 +152,11 @@ header {
 .theme-toggle:hover {
   transform: scale(1.1);
 }
-
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between theme toggle and login button */
+}
 .center-text-container {
   text-align: center;
   margin: 15px 0;
