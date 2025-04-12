@@ -68,6 +68,10 @@ function updateScoreChart() {
 
     let totalGradient = createFadingGradient(ctx);
 
+    // **Determine text color based on theme**
+    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+    const textColor = currentTheme === "dark" ? "white" : "black";
+
     window.scoreChart = new Chart(ctx, {
         type: "line",
         data: {
@@ -116,7 +120,7 @@ function updateScoreChart() {
             scales: {
                 x: {
                     ticks: {
-                        color: "black",
+                        color: textColor, // Dynamic based on theme
                         font: { size: 14, weight: "bold" },
                         maxRotation: 45,
                         minRotation: 30,
@@ -133,7 +137,7 @@ function updateScoreChart() {
                 },
                 y: {
                     ticks: {
-                        color: "black",
+                        color: textColor, // Dynamic based on theme
                         font: { size: 14, weight: "bold" }
                     },
                     max: 1600,
@@ -152,14 +156,14 @@ function updateScoreChart() {
                     display: true,
                     position: "bottom",
                     labels: {
-                        color: "black",
+                        color: textColor, // Dynamic based on theme
                         font: { size: 14, weight: "bold" },
                         usePointStyle: true,
                         pointStyle: "circle"
                     }
                 },
                 datalabels: {
-                    color: "black",
+                    color: textColor, // Dynamic based on theme
                     font: { size: 12, weight: "bold" },
                     formatter: (value) => (isNaN(value) ? "" : value),
                     align: function (context) {
@@ -192,4 +196,16 @@ function updateScoreChart() {
     });
 }
 
+// Initial chart render
 document.addEventListener("DOMContentLoaded", updateScoreChart);
+
+// Update chart on theme change
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.querySelector(".theme-toggle");
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            // Delay to allow theme attribute to update
+            setTimeout(updateScoreChart, 100);
+        });
+    }
+});
