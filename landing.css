@@ -47,7 +47,7 @@
 }
 
 [data-theme="dark"] {
-  --background-color: linear-gradient(135deg, #131217, #2a0e4a);
+  --background-color: rgba(20,25,51,255);
   --text-color: rgb(220, 220, 220);
   --header-bg: rgb(40, 40, 40);
   --header-shadow: rgba(0, 0, 0, 0.8);
