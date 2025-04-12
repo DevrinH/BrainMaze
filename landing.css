@@ -49,7 +49,7 @@
 [data-theme="dark"] {
   --background-color: linear-gradient(to bottom, #141933, #2a0e4a);
   --text-color: rgb(220, 220, 220);
-  --header-bg: rgb(40, 40, 40);
+  --header-bg: #141933;
   --header-shadow: rgba(0, 0, 0, 0.8);
   --button-bg: #3399ff;
   --button-bg-hover: #1a73e8;
