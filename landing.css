@@ -757,7 +757,7 @@ h3 {
   height: 100%;
   width: 0;
   transition: width 0.5s ease-in-out;
-  background: linear-gradient(#ffd51d, #ff42e6); /* Fixed color, same in both modes */
+  background: linear-gradient(to right,#8d1fe7, #05cca1 ); /* Fixed color, same in both modes */
 }
 
 .progress-percentage {
