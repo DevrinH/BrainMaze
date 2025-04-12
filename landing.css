@@ -47,7 +47,7 @@
 }
 
 [data-theme="dark"] {
-  --background-color: rgb(30, 30, 30);
+  --background-color: rgba(20,25,51,255);
   --text-color: rgb(220, 220, 220);
   --header-bg: rgb(40, 40, 40);
   --header-shadow: rgba(0, 0, 0, 0.8);
@@ -152,7 +152,11 @@ header {
 .theme-toggle:hover {
   transform: scale(1.1);
 }
-
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between theme toggle and login button */
+}
 .center-text-container {
   text-align: center;
   margin: 15px 0;
