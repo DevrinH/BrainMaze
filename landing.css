@@ -1755,3 +1755,7 @@ h2 {
   left: 50%;
   transform: translateX(-50%);
 }
+
+html[data-theme="dark"] body {
+  background: linear-gradient(to bottom, #141933, #2a0e4a) !important;
+}
