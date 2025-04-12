@@ -10,7 +10,180 @@
 
 
 
+/* Font definitions remain unchanged */
+@font-face {
+  font-family: "Montserrat-SemiBold";
+  src: url(Montserrat-SemiBold.ttf);
+}
 
+@font-face {
+  font-family: "Bungee";
+  src: url(Bungee-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat-ExtraBold";
+  src: url(Montserrat-ExtraBold.ttf);
+}
+
+/* Define color variables for light and dark modes */
+:root {
+  --background-color: rgb(255, 255, 255);
+  --text-color: rgb(0, 0, 0);
+  --header-bg: rgb(255, 255, 255);
+  --header-shadow: rgba(0, 0, 0, 0.55);
+  --button-bg: #007bff;
+  --button-bg-hover: #0056b3;
+  --button-text: rgb(255, 255, 255);
+  --center-text-color: rgb(0, 0, 0);
+  --overlay-text-bg: rgba(0, 0, 0, 0.5);
+  --overlay-text-color: rgb(255, 255, 255);
+}
+
+[data-theme="dark"] {
+  --background-color: rgb(30, 30, 30);
+  --text-color: rgb(220, 220, 220);
+  --header-bg: rgb(40, 40, 40);
+  --header-shadow: rgba(0, 0, 0, 0.8);
+  --button-bg: #3399ff;
+  --button-bg-hover: #1a73e8;
+  --button-text: rgb(255, 255, 255);
+  --center-text-color: rgb(220, 220, 220);
+  --overlay-text-bg: rgba(0, 0, 0, 0.7);
+  --overlay-text-color: rgb(220, 220, 220);
+}
+
+/* Apply variables to elements */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 50px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  box-shadow: 0px 4px 5px 0px var(--header-shadow);
+  background-color: var(--header-bg);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 45px;
+}
+
+.login-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: var(--button-bg-hover);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.center-text-container {
+  text-align: center;
+  margin: 15px 0;
+  display: block;
+}
+
+.center-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--center-text-color);
+  display: block;
+}
+
+.landingimg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--overlay-text-color);
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: clamp(0.5rem, 4vw, 1.5rem);
+  background: var(--overlay-text-bg);
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 500px;
+  min-width: 250px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: larger;
+  color: var(--text-color);
+}
+
+/* Existing lesson and question containers remain unchanged */
 #lesson-container {
   display: block;
   width: 95%;
@@ -20,149 +193,12 @@
   min-height: 200px;
 }
 
-#question-container{
+#question-container {
   display: block;
   margin: 0 auto;
   width: 95%;
-  max-width: 900px; /* Prevents it from being too wide on large screens */
+  max-width: 900px;
   padding: 20px;
-}
-
-  
-
-@font-face {
-    font-family: "Montserrat-SemiBold";
-    src: url(Montserrat-SemiBold.ttf);
-  
-    
-  }
-
-
-@font-face {
-  font-family: "Bungee";
-  src: url(Bungee-Regular.ttf);
-
-  
-}
-
-  @font-face {
-    font-family: "Montserrat-ExtraBold";
-    src: url(Montserrat-ExtraBold.ttf);
-  
-    
-  }
-body {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(255, 255, 255);
-    overflow-x: hidden; /* Prevents scrolling */
-    position: relative; /* Ensures box-shadow is visible */
-    min-height: 100vh;
-      
-  
-  }
-  body::after {
-    content: '';
-    display: block;
-    height: 50px;
-    /* Set same as footer's height */
-  }
-* {
-  box-sizing: border-box; /* Ensures padding/margin do not cause overflow */
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  width: 100%;
-  height: 80px;
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.55);
-  background-color: white;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  position: relative; /* Ensures stacking context */
-  z-index: 10; /* Moves header above the image */
-}
-
-.header-container {
-  width: 100%;
-  
-  display: flex;
-  justify-content: space-between; /* Pushes logo left, login right */
-  align-items: center;
-}
-
-.logo {
-  height: 45px;
-}
-
-.login-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-left: auto; /* Ensures it sticks to the right */
-}
-
-.login-button:hover {
-  background-color: #0056b3;
-}
-
-.center-text-container {
-  text-align: center; /* ✅ Centers text */
-  margin: 15px 0; /* ✅ Adds spacing above and below */
-  display: block; /* ✅ Ensure it is visible */
-}
-
-.center-text {
-  font-size: 18px; /* ✅ Adjust size */
-  font-weight: bold;
-  color: black;
-  display: block; /* ✅ Ensure it's visible */
-}
-
-.landingimg { width: 100%; height: auto; /* Ensures aspect ratio is maintained */ display: block; object-fit: cover; /* Keeps it inside container */ }
-
-
-  .image-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-  }
-  
-  
-  /* Position the text over the image */
-  .overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: clamp(0.5rem, 4vw, 1.5rem); /* Responsive text size */
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-    border-radius: 10px;
-    width: 60%; /* Reduces textbox width */
-    max-width: 500px; /* Prevents excessive stretching */
-    min-width: 250px; /* Ensures it doesn't get too small */
-    box-sizing: border-box; /* Prevents padding from causing overflow */
-    overflow-wrap: break-word;
-    white-space: normal;
-}
-
-.center{
-text-align: center;
-margin: auto;
-font-family: "Montserrat-SemiBold", sans-serif;
-font-size: larger;
-/*padding: 30px;*/
 }
 .subject{
 
