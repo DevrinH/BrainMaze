@@ -92,7 +92,9 @@ body::after {
   display: block;
   height: 50px;
 }
-
+body[data-theme="dark"] {
+  background: linear-gradient(to bottom, #141933, #2a0e4a) !important;
+}
 * {
   box-sizing: border-box;
   margin: 0;
