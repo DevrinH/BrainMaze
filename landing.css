@@ -61,7 +61,7 @@
   --container-shadow: rgba(0, 0, 0, 0.7);
   --purple-gradient-start: #2a0e4a;
   --purple-gradient-end: #a76bd9;
-  --exam-button-bg: rgb(50, 50, 50);
+  --exam-button-bg: #26293b;
   --exam-button-border: #555;
   --exam-button-text: rgb(220, 220, 220);
   --exam-button-hover-bg: linear-gradient(135deg, #4a6fa5, #7a4a6b);
@@ -560,6 +560,7 @@ footer {
   background-image: var(--footer-bg);
   color: var(--footer-text);
   padding: 15px 0;
+  padding-top: 10px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
