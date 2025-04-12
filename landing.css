@@ -47,7 +47,7 @@
 }
 
 [data-theme="dark"] {
-  --background-color: linear-gradient(to bottom, #141933, #2a0e4a); /* Gradient for dark mode */
+  --background-color: rgba(20,25,51,255);
   --text-color: rgb(220, 220, 220);
   --header-bg: rgb(40, 40, 40);
   --header-shadow: rgba(0, 0, 0, 0.8);
@@ -76,6 +76,7 @@
   --btn-shadow: #555;
   --explanation-border: #666;
 }
+
 /* Apply variables to elements */
 body {
   margin: 0;
