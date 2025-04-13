@@ -1825,7 +1825,7 @@ html[data-theme="dark"] body {
 /* New styles to fix overlap */
 .reset-container {
   margin-top: 20px;
-  margin-bottom: 40px; /* Space between reset button and footer */
+  margin-bottom: 100px; /* Space between reset button and footer */
 }
 
 .center {
