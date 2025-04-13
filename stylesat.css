@@ -1170,3 +1170,6 @@ h3 {
   margin: 20px 0;
   color: var(--text-color);
 }
+html[data-theme="dark"] body {
+  background: linear-gradient(to bottom, #24283b, #2a2e43) !important;
+}
