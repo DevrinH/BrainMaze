@@ -42,15 +42,14 @@
     </div>
 </main>
 <div class="button-container"> 
-    <button class="button-30" role="button">GED</button> 
-    <button class="button-30" role="button">SAT</button> 
-    <button class="button-30" role="button">ACT</button> 
-
+    <button class="button-30" role="button" onclick="showGED()">GED</button> 
+    <button class="button-30" role="button" onclick="showSAT()">SAT</button> 
+    <button class="button-30" role="button" onclick="showACT()">ACT</button> 
 </div>
 
 <div class="flex-container">          
     <div class="testlessonscontainer">
-        <h2>SAT Practice Tests and Lessons</h2>
+        <h2 id="test-title">SAT Practice Tests and Lessons</h2>
         <br/>
         <div class="align-center">
             <div class="test-lesson-buttons">
@@ -59,7 +58,7 @@
             </div><br/><br/>
         </div>
 
-        <div id="tests-container" class="container"> 
+        <div id="sat-tests-container" class="container"> 
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/test.html'">START</button>
@@ -139,14 +138,9 @@
                     <p>Timed SAT practice test. Wrong answers will be shown.</p>
                 </div>
             </div> 
-
-
         </div> 
 
-
-
-
-        <div id="lessons-container" class="container hidden">
+        <div id="sat-lessons-container" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-vocab'">START</button>
@@ -177,7 +171,6 @@
                 </div>
             </div>
 
-
             <div class="seccontainer"> 
                 <div class="satplacement">
                     <button class="button-29" onclick="showCentralIdeasAndDetailLessons()">START</button>
@@ -198,7 +191,6 @@
                 </div>
             </div>
 
-
             <div class="seccontainer"> 
                 <div class="satplacement">
                     <button class="button-29" onclick="showWordsInContextLessons()">START</button>
@@ -209,7 +201,6 @@
                 </div>
             </div>
             
-
             <div class="seccontainer"> 
                 <div class="satplacement">
                     <button class="button-29" onclick="showTextStructureAndPurposeLessons()">START</button>
@@ -219,7 +210,6 @@
                     <p>4 Lessons</p>
                 </div>
             </div>
-
 
             <div class="seccontainer"> 
                 <div class="satplacement">
@@ -291,23 +281,146 @@
                 </div>
             </div>
 
-        <div class="seccontainer"> 
-            <div class="satplacement">
-                <button class="button-29" onclick="showGeometryLessons()">START</button>
-            </div>
-            <div class="satdesc">
-                <p class="pbungee">Geometry Lessons</p>
-                <p>8 Lesson</p>
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showGeometryLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lessons</p>
+                    <p>8 Lesson</p>
+                </div>
             </div>
         </div>
 
+        <div id="act-tests-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed Test</p>
+                    <p>Full-length untimed ACT practice test. Immediate feedback provided.</p>
+                </div>
+            </div>
         </div>
 
+        <div id="act-lessons-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-english-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">English Lessons</p>
+                    <p>Lessons covering grammar, punctuation, and rhetorical skills.</p>
+                </div>
+            </div>
 
-        
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-math-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Math Lessons</p>
+                    <p>Lessons on algebra, geometry, and trigonometry for ACT prep.</p>
+                </div>
+            </div>
 
-<!--Command of evidence lessons-->
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-reading-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Reading Lessons</p>
+                    <p>Lessons to improve comprehension and analysis skills.</p>
+                </div>
+            </div>
 
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-science-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Science Lessons</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="ged-tests-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-timed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Timed Test</p>
+                    <p>Full-length timed GED practice test. Results shown at the end.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-untimed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Untimed Test</p>
+                    <p>Full-length untimed GED practice test. Immediate feedback provided.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="ged-lessons-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-math-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Mathematical Reasoning Lessons</p>
+                    <p>Lessons covering arithmetic, algebra, and data analysis.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-english-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Reasoning Through Language Arts Lessons</p>
+                    <p>Lessons on reading comprehension and writing skills.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-science-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Science Lessons</p>
+                    <p>Lessons on life, physical, and earth sciences.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-social-studies-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Social Studies Lessons</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Command of evidence lessons-->
         <div id="lessons-container-command-of-evidence" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -347,9 +460,7 @@
             </div>
         </div>
 
-
-<!--Central Ideas lessons-->
-
+        <!--Central Ideas lessons-->
         <div id="lessons-container-central-ideas-and-detail" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -398,9 +509,7 @@
             </div>
         </div>
 
-<!--Inferences lessons-->
-
-
+        <!--Inferences lessons-->
         <div id="lessons-container-inferences" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -459,7 +568,6 @@
         </div>
 
         <!--Words in context lessons-->
-
         <div id="lessons-container-words-in-context" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -499,9 +607,7 @@
             </div>
         </div>
 
-
         <!--Text Structure lessons-->
-
         <div id="lessons-container-text-structure-and-purpose" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -542,7 +648,6 @@
         </div>
 
         <!--Cross Text lessons-->
-
         <div id="lessons-container-cross-text-connections" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -582,8 +687,7 @@
             </div>
         </div>
 
-<!--Transitions lessons-->
-
+        <!--Transitions lessons-->
         <div id="lessons-container-transitions" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -624,7 +728,6 @@
         </div>
 
         <!--Rhetorical lessons-->
-
         <div id="lessons-container-rhetorical-synthesis" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -673,9 +776,7 @@
             </div>
         </div>
 
-
         <!--Boundaries lessons-->
-
         <div id="lessons-container-boundaries" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -715,91 +816,83 @@
             </div>
         </div>
 
-
-
-<!--Geometry lessons-->
-
-    <div id="lessons-container-geometry" class="container hidden">
-
-        <div class="seccontainer">
-            <div class="satplacement">
-                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=1'">START</button>
+        <!--Geometry lessons-->
+        <div id="lessons-container-geometry" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 1: Lines and Angles</p>
+                    <p id="geometry-score-summary-1"></p>
+                </div>
             </div>
-            <div class="satdesc">
-                <p class="pbungee">Geometry Lesson 1: Lines and Angles</p>
-                <p id="geometry-score-summary-1"></p>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 2: Triangles</p>
+                    <p id="geometry-score-summary-2"></p>
+                </div>
             </div>
-        </div>
-        <div class="seccontainer">
-            <div class="satplacement">
-                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=2'">START</button>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 3: Quadrilaterals and Polygons</p>
+                    <p id="geometry-score-summary-3"></p>
+                </div>
             </div>
-            <div class="satdesc">
-                <p class="pbungee">Geometry Lesson 2: Triangles</p>
-                <p id="geometry-score-summary-2"></p>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 4: Circles</p>
+                    <p id="geometry-score-summary-4"></p>
+                </div>
             </div>
-        </div>
-        <div class="seccontainer">
-            <div class="satplacement">
-                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=3'">START</button>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 5: Coordinate Geometry</p>
+                    <p id="geometry-score-summary-5"></p>
+                </div>
             </div>
-            <div class="satdesc">
-                <p class="pbungee">Geometry Lesson 3: Quadrilaterals and Polygons</p>
-                <p id="geometry-score-summary-3"></p>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 6: 3D Geometry (Solids)</p>
+                    <p id="geometry-score-summary-6"></p>
+                </div>
             </div>
-        </div>
-        <div class="seccontainer">
-            <div class="satplacement">
-                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=4'">START</button>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 7: Transformations</p>
+                    <p id="geometry-score-summary-7"></p>
+                </div>
             </div>
-            <div class="satdesc">
-                <p class="pbungee">Geometry Lesson 4: Circles</p>
-                <p id="geometry-score-summary-4"></p>
-            </div>
-        </div>
-        <div class="seccontainer">
-            <div class="satplacement">
-                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=5'">START</button>
-            </div>
-            <div class="satdesc">
-                <p class="pbungee">Geometry Lesson 5: Coordinate Geometry</p>
-                <p id="geometry-score-summary-5"></p>
-            </div>
-        </div>
-        <div class="seccontainer">
-            <div class="satplacement">
-                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=6'">START</button>
-            </div>
-            <div class="satdesc">
-                <p class="pbungee">Geometry Lesson 6: 3D Geometry (Solids)</p>
-                <p id="geometry-score-summary-6"></p>
-            </div>
-        </div>
-        <div class="seccontainer">
-            <div class="satplacement">
-                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=7'">START</button>
-            </div>
-            <div class="satdesc">
-                <p class="pbungee">Geometry Lesson 7: Transformations</p>
-                <p id="geometry-score-summary-7"></p>
-            </div>
-        </div>
-        <div class="seccontainer">
-            <div class="satplacement">
-                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=8'">START</button>
-            </div>
-            <div class="satdesc">
-                <p class="pbungee">Geometry Lesson 8: Trigonometry (Basic Concepts)</p>
-                <p id="geometry-score-summary-8"></p>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 8: Trigonometry (Basic Concepts)</p>
+                    <p id="geometry-score-summary-8"></p>
+                </div>
             </div>
         </div>
-    </div>
-
-            
 
         <div id="lessons-container-algebra" class="container hidden">
-            
-            
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=1'">START</button>
@@ -818,7 +911,6 @@
                     <p id="algebra-score-summary-2"></p>
                 </div>
             </div>
-            <!-- Continue for lessons 3–10 -->
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=3'">START</button>
@@ -873,13 +965,9 @@
                     <p id="algebra-score-summary-8"></p>
                 </div>
             </div>
-
-
-
         </div>
 
         <!--Advanced math lessons-->
-
         <div id="lessons-container-advanced-math" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -1029,17 +1117,17 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Select Containers
-            const testsContainer = document.getElementById("tests-container");
-            const lessonsContainer = document.getElementById("lessons-container");
+            const satTestsContainer = document.getElementById("sat-tests-container");
+            const satLessonsContainer = document.getElementById("sat-lessons-container");
+            const actTestsContainer = document.getElementById("act-tests-container");
+            const actLessonsContainer = document.getElementById("act-lessons-container");
+            const gedTestsContainer = document.getElementById("ged-tests-container");
+            const gedLessonsContainer = document.getElementById("ged-lessons-container");
             const algebraContainer = document.getElementById("lessons-container-algebra");
             const inferenceContainer = document.getElementById("lessons-container-inferences");
             const geometryContainer = document.getElementById("lessons-container-geometry");
@@ -1053,12 +1141,17 @@
             const boundariesContainer = document.getElementById("lessons-container-boundaries");
             const advancedMathContainer = document.getElementById("lessons-container-advanced-math");
             const problemSolvingDataContainer = document.getElementById("lessons-container-problem-solving-data");
-        
+            const testTitle = document.getElementById("test-title");
+
             // Function to hide all containers
             window.hideAllContainers = function () {
                 const allContainers = [
-                    testsContainer,
-                    lessonsContainer,
+                    satTestsContainer,
+                    satLessonsContainer,
+                    actTestsContainer,
+                    actLessonsContainer,
+                    gedTestsContainer,
+                    gedLessonsContainer,
                     algebraContainer,
                     inferenceContainer,
                     geometryContainer,
@@ -1077,87 +1170,116 @@
                     if (container) container.classList.add("hidden");
                 });
             };
-        
+
             // Functions to show specific sections
+            window.showSAT = function () {
+                hideAllContainers();
+                if (satTestsContainer) satTestsContainer.classList.remove("hidden");
+                if (testTitle) testTitle.textContent = "SAT Practice Tests and Lessons";
+            };
+
+            window.showACT = function () {
+                hideAllContainers();
+                if (actTestsContainer) actTestsContainer.classList.remove("hidden");
+                if (testTitle) testTitle.textContent = "ACT Practice Tests and Lessons";
+            };
+
+            window.showGED = function () {
+                hideAllContainers();
+                if (gedTestsContainer) gedTestsContainer.classList.remove("hidden");
+                if (testTitle) testTitle.textContent = "GED Practice Tests and Lessons";
+            };
+
             window.showTests = function () {
                 hideAllContainers();
-                if (testsContainer) testsContainer.classList.remove("hidden");
+                if (testTitle.textContent.includes("SAT")) {
+                    if (satTestsContainer) satTestsContainer.classList.remove("hidden");
+                } else if (testTitle.textContent.includes("ACT")) {
+                    if (actTestsContainer) actTestsContainer.classList.remove("hidden");
+                } else if (testTitle.textContent.includes("GED")) {
+                    if (gedTestsContainer) gedTestsContainer.classList.remove("hidden");
+                }
             };
-        
+
             window.showLessons = function () {
                 hideAllContainers();
-                if (lessonsContainer) lessonsContainer.classList.remove("hidden");
+                if (testTitle.textContent.includes("SAT")) {
+                    if (satLessonsContainer) satLessonsContainer.classList.remove("hidden");
+                } else if (testTitle.textContent.includes("ACT")) {
+                    if (actLessonsContainer) actLessonsContainer.classList.remove("hidden");
+                } else if (testTitle.textContent.includes("GED")) {
+                    if (gedLessonsContainer) gedLessonsContainer.classList.remove("hidden");
+                }
             };
-        
+
             window.showAlgebraLessons = function () {
                 hideAllContainers();
                 if (algebraContainer) algebraContainer.classList.remove("hidden");
             };
-        
+
             window.showInferenceLessons = function () {
                 hideAllContainers();
                 if (inferenceContainer) inferenceContainer.classList.remove("hidden");
             };
-        
+
             window.showGeometryLessons = function () {
                 hideAllContainers();
                 if (geometryContainer) geometryContainer.classList.remove("hidden");
             };
-        
+
             window.showCommandOfEvidenceLessons = function () {
                 hideAllContainers();
                 if (commandOfEvidenceContainer) commandOfEvidenceContainer.classList.remove("hidden");
             };
-        
+
             window.showCentralIdeasAndDetailLessons = function () {
                 hideAllContainers();
                 if (centralIdeasAndDetailContainer) centralIdeasAndDetailContainer.classList.remove("hidden");
             };
-        
+
             window.showWordsInContextLessons = function () {
                 hideAllContainers();
                 if (wordsInContextContainer) wordsInContextContainer.classList.remove("hidden");
             };
-        
+
             window.showTextStructureAndPurposeLessons = function () {
                 hideAllContainers();
                 if (textStructureAndPurposeContainer) textStructureAndPurposeContainer.classList.remove("hidden");
             };
-        
+
             window.showCrossTextConnectionsLessons = function () {
                 hideAllContainers();
                 if (crossTextConnectionsContainer) crossTextConnectionsContainer.classList.remove("hidden");
             };
-        
+
             window.showTransitionsLessons = function () {
                 hideAllContainers();
                 if (transitionsContainer) transitionsContainer.classList.remove("hidden");
             };
-        
+
             window.showRhetoricalSynthesisLessons = function () {
                 hideAllContainers();
                 if (rhetoricalSynthesisContainer) rhetoricalSynthesisContainer.classList.remove("hidden");
             };
-        
+
             window.showBoundariesLessons = function () {
                 hideAllContainers();
                 if (boundariesContainer) boundariesContainer.classList.remove("hidden");
             };
-        
+
             window.showAdvancedMathLessons = function () {
                 hideAllContainers();
                 if (advancedMathContainer) advancedMathContainer.classList.remove("hidden");
             };
-        
+
             window.showProblemSolvingDataLessons = function () {
                 hideAllContainers();
                 if (problemSolvingDataContainer) problemSolvingDataContainer.classList.remove("hidden");
             };
         });
-        </script>
-           <script src="scoreChart.js"></script>
-           
-   
+    </script>
+    <script src="scoreChart.js"></script>
+
     <div class="progress-container">
         <h2>SAT Category Progress</h2>
         <br/>
@@ -1171,23 +1293,16 @@
             <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
             <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
         </div>
-
-    
-
-
         <div class="progress-item" data-category="inferences">
             <div class="progress-label">Inferences</div>
             <div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div>
             <div class="progress-percentage" id="inferences-text">0% <span class="arrow">→</span></div>
         </div>
-
         <div class="progress-item" data-category="words-in-context">
             <div class="progress-label">Words in Context</div>
             <div class="progress-bar"><div class="progress-fill" id="words-in-context-bar"></div></div>
             <div class="progress-percentage" id="words-in-context-text">0% <span class="arrow">→</span></div>
         </div>
-
-
         <div class="progress-item" data-category="text-structure-and-purpose">
             <div class="progress-label">Text Structure and Purpose</div>
             <div class="progress-bar"><div class="progress-fill" id="text-structure-and-purpose-bar"></div></div>
@@ -1235,13 +1350,6 @@
         </div>
     </div>
 
-
-
-
-
-
-    
-
 </div>
 
 </div>    
@@ -1250,6 +1358,8 @@
 </div>
  </div>
 </div>
+
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const canvas = document.getElementById("lastScoreBarChart");
