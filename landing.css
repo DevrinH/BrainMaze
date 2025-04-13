@@ -1838,7 +1838,7 @@ html[data-theme="dark"] body {
 footer {
   margin-top: 20px;
   padding: 20px;
-  background: var(--footer-bg); /* linear-gradient(#4b1c81, #c890fd) or #2a0e4a, #a76bd9 */
+  /* linear-gradient(#4b1c81, #c890fd) or #2a0e4a, #a76bd9 */
   color: var(--footer-text); /* white or rgb(220, 220, 220) */
   width: 100%;
   text-align: center;
