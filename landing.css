@@ -1864,3 +1864,7 @@ footer h3 {
   margin-top: 10px;
   color: var(--footer-text);
 }
+.getStarted {
+  margin-top: 10px;
+  margin-bottom: 100px; /* Space between reset button and footer */
+}
