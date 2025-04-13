@@ -52,10 +52,13 @@
 <body>
     <header>
         <div class="header-container">
-            <img src="BrainJelli-header.png" class="logo" alt="BrainJelli Logo">
+          <img src="BrainJelli-header.png" class="logo">
+          <div class="button-group">
+            <button class="theme-toggle"><span class="toggle-icon"></span></button>
             <button class="login-button">Login</button>
+          </div>
         </div>
-    </header>
+      </header>
 
     <h1>SAT Untimed Math Prep Test</h1>
     <div id="progress-bar-test"><div></div></div>
@@ -71,7 +74,7 @@
         <div id="answer-buttons" class="answer-choices" style="display: none;"></div>
         <button id="next-btn" class="btn" style="display: none;">Next</button>
     </div>
-
+    <script src="theme-toggle.js"></script>
     <script src="sat-untimed-math-test.js"></script>
 </body>
 </html>
