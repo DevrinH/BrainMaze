@@ -217,12 +217,18 @@ a{
   padding-top: 2px;
 }
 
-footer{
+footer {
   width: 100%;
   text-align: center;
-  font-family: "Montserrat-SemiBold";
-  font-size: 11px;
-  color: white;
+  background-image: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 15px 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Remove position: absolute and related properties */
+  height: auto; /* Let footer size naturally */
 }
 .levelbutton:disabled {
   background-image: linear-gradient(#96908b, #696969);/* Gray for locked levels */
