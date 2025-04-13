@@ -57,10 +57,13 @@
 <body>
     <header>
         <div class="header-container">
-            <img src="BrainJelli-header.png" class="logo" alt="BrainJelli Logo">
+          <img src="BrainJelli-header.png" class="logo">
+          <div class="button-group">
+            <button class="theme-toggle"><span class="toggle-icon"></span></button>
             <button class="login-button">Login</button>
+          </div>
         </div>
-    </header>
+      </header>
 
     <h1>SAT Timed Math Prep Test</h1>
     <div id="progress-bar-test"><div></div></div>
@@ -78,7 +81,7 @@
     </div>
 
     <div id="countdown"></div>
-
+    <script src="theme-toggle.js"></script>
     <script src="sat-timed-math-test.js"></script>
 </body>
 </html>
