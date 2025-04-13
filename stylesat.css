@@ -103,7 +103,26 @@ body {
   margin: 0;
   padding: 0;
 }
+.theme-toggle {
+  background: transparent;
+  border: none;
+  padding: 10px 20px; /* Matches .login-button */
+  font-size: 16px; /* Matches .login-button */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
 
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.toggle-icon {
+  font-size: 20px; /* Slightly larger for emoji */
+}
 /* Header (unchanged sizing) */
 header {
   width: 100%;
