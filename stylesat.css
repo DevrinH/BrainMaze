@@ -151,6 +151,8 @@ header {
   flex-wrap: nowrap;
 }
 
+.button-group { display: flex !important; flex-direction: row !important; }
+
 .logo {
   height: 45px;
 }
