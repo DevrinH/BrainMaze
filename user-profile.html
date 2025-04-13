@@ -1429,6 +1429,7 @@
     });
 
     function resetProgress() {
+    if (confirm("Are you sure you want to reset your progress? This action cannot be undone.")) {
         localStorage.removeItem("testResults");
         localStorage.removeItem("scoreHistory");
         localStorage.removeItem("satProgress"); // Clear stored progress
@@ -1453,6 +1454,7 @@
 
         alert("Progress has been reset!");
     }
+}
     function showTests() {
             document.getElementById('tests-container').classList.remove('hidden');
             document.getElementById('lessons-container').classList.add('hidden');
