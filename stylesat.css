@@ -89,7 +89,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to bottom, #141933, #2a0e4a);
+  background-image: linear-gradient(to bottom, #24283b, #2a2e43);
   z-index: -1;
 }
 
