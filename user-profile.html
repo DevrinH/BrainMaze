@@ -28,16 +28,40 @@
     </header>
 
 <main>
-    <div class="line-chart-container">
-        <h2 class="progress-title">Progress</h2>
+    <div class="line-chart-container" id="line-chart-sat">
+        <h2 class="progress-title">SAT Progress</h2>
         <div class="chart-container">
-            <canvas id="scoreChart"></canvas>
+            <canvas id="satScoreChart"></canvas>
         </div>
         <div class="last-score-container">
-            <p class="last-score-text">Last Score:</p>
+            <p class="last-score-text">Last SAT Score:</p>
         </div>   
         <div class="chart-container-bar">
-            <canvas id="lastScoreBarChart"></canvas>
+            <canvas id="satLastScoreBarChart"></canvas>
+        </div>
+    </div>
+    <div class="line-chart-container hidden" id="line-chart-act">
+        <h2 class="progress-title">ACT Progress</h2>
+        <div class="chart-container">
+            <canvas id="actScoreChart"></canvas>
+        </div>
+        <div class="last-score-container">
+            <p class="last-score-text">Last ACT Score:</p>
+        </div>   
+        <div class="chart-container-bar">
+            <canvas id="actLastScoreBarChart"></canvas>
+        </div>
+    </div>
+    <div class="line-chart-container hidden" id="line-chart-ged">
+        <h2 class="progress-title">GED Progress</h2>
+        <div class="chart-container">
+            <canvas id="gedScoreChart"></canvas>
+        </div>
+        <div class="last-score-container">
+            <p class="last-score-text">Last GED Score:</p>
+        </div>   
+        <div class="chart-container-bar">
+            <canvas id="gedLastScoreBarChart"></canvas>
         </div>
     </div>
 </main>
@@ -1142,10 +1166,16 @@
             const advancedMathContainer = document.getElementById("lessons-container-advanced-math");
             const problemSolvingDataContainer = document.getElementById("lessons-container-problem-solving-data");
             const testTitle = document.getElementById("test-title");
+            const satLineChart = document.getElementById("line-chart-sat");
+            const actLineChart = document.getElementById("line-chart-act");
+            const gedLineChart = document.getElementById("line-chart-ged");
+            const satProgressContainer = document.getElementById("sat-progress-container");
+            const actProgressContainer = document.getElementById("act-progress-container");
+            const gedProgressContainer = document.getElementById("ged-progress-container");
 
             // Function to hide all containers
             window.hideAllContainers = function () {
-                const allContainers = [
+                const allTestContainers = [
                     satTestsContainer,
                     satLessonsContainer,
                     actTestsContainer,
@@ -1166,7 +1196,23 @@
                     advancedMathContainer,
                     problemSolvingDataContainer
                 ];
-                allContainers.forEach(container => {
+                const allChartContainers = [
+                    satLineChart,
+                    actLineChart,
+                    gedLineChart
+                ];
+                const allProgressContainers = [
+                    satProgressContainer,
+                    actProgressContainer,
+                    gedProgressContainer
+                ];
+                allTestContainers.forEach(container => {
+                    if (container) container.classList.add("hidden");
+                });
+                allChartContainers.forEach(container => {
+                    if (container) container.classList.add("hidden");
+                });
+                allProgressContainers.forEach(container => {
                     if (container) container.classList.add("hidden");
                 });
             };
@@ -1175,18 +1221,24 @@
             window.showSAT = function () {
                 hideAllContainers();
                 if (satTestsContainer) satTestsContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
                 if (testTitle) testTitle.textContent = "SAT Practice Tests and Lessons";
             };
 
             window.showACT = function () {
                 hideAllContainers();
                 if (actTestsContainer) actTestsContainer.classList.remove("hidden");
+                if (actLineChart) actLineChart.classList.remove("hidden");
+                if (actProgressContainer) actProgressContainer.classList.remove("hidden");
                 if (testTitle) testTitle.textContent = "ACT Practice Tests and Lessons";
             };
 
             window.showGED = function () {
                 hideAllContainers();
                 if (gedTestsContainer) gedTestsContainer.classList.remove("hidden");
+                if (gedLineChart) gedLineChart.classList.remove("hidden");
+                if (gedProgressContainer) gedProgressContainer.classList.remove("hidden");
                 if (testTitle) testTitle.textContent = "GED Practice Tests and Lessons";
             };
 
@@ -1194,10 +1246,16 @@
                 hideAllContainers();
                 if (testTitle.textContent.includes("SAT")) {
                     if (satTestsContainer) satTestsContainer.classList.remove("hidden");
+                    if (satLineChart) satLineChart.classList.remove("hidden");
+                    if (satProgressContainer) satProgressContainer.classList.remove("hidden");
                 } else if (testTitle.textContent.includes("ACT")) {
                     if (actTestsContainer) actTestsContainer.classList.remove("hidden");
+                    if (actLineChart) actLineChart.classList.remove("hidden");
+                    if (actProgressContainer) actProgressContainer.classList.remove("hidden");
                 } else if (testTitle.textContent.includes("GED")) {
                     if (gedTestsContainer) gedTestsContainer.classList.remove("hidden");
+                    if (gedLineChart) gedLineChart.classList.remove("hidden");
+                    if (gedProgressContainer) gedProgressContainer.classList.remove("hidden");
                 }
             };
 
@@ -1205,76 +1263,108 @@
                 hideAllContainers();
                 if (testTitle.textContent.includes("SAT")) {
                     if (satLessonsContainer) satLessonsContainer.classList.remove("hidden");
+                    if (satLineChart) satLineChart.classList.remove("hidden");
+                    if (satProgressContainer) satProgressContainer.classList.remove("hidden");
                 } else if (testTitle.textContent.includes("ACT")) {
                     if (actLessonsContainer) actLessonsContainer.classList.remove("hidden");
+                    if (actLineChart) actLineChart.classList.remove("hidden");
+                    if (actProgressContainer) actProgressContainer.classList.remove("hidden");
                 } else if (testTitle.textContent.includes("GED")) {
                     if (gedLessonsContainer) gedLessonsContainer.classList.remove("hidden");
+                    if (gedLineChart) gedLineChart.classList.remove("hidden");
+                    if (gedProgressContainer) gedProgressContainer.classList.remove("hidden");
                 }
             };
 
             window.showAlgebraLessons = function () {
                 hideAllContainers();
                 if (algebraContainer) algebraContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showInferenceLessons = function () {
                 hideAllContainers();
                 if (inferenceContainer) inferenceContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showGeometryLessons = function () {
                 hideAllContainers();
                 if (geometryContainer) geometryContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showCommandOfEvidenceLessons = function () {
                 hideAllContainers();
                 if (commandOfEvidenceContainer) commandOfEvidenceContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showCentralIdeasAndDetailLessons = function () {
                 hideAllContainers();
                 if (centralIdeasAndDetailContainer) centralIdeasAndDetailContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showWordsInContextLessons = function () {
                 hideAllContainers();
                 if (wordsInContextContainer) wordsInContextContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showTextStructureAndPurposeLessons = function () {
                 hideAllContainers();
                 if (textStructureAndPurposeContainer) textStructureAndPurposeContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showCrossTextConnectionsLessons = function () {
                 hideAllContainers();
                 if (crossTextConnectionsContainer) crossTextConnectionsContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showTransitionsLessons = function () {
                 hideAllContainers();
                 if (transitionsContainer) transitionsContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showRhetoricalSynthesisLessons = function () {
                 hideAllContainers();
                 if (rhetoricalSynthesisContainer) rhetoricalSynthesisContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showBoundariesLessons = function () {
                 hideAllContainers();
                 if (boundariesContainer) boundariesContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showAdvancedMathLessons = function () {
                 hideAllContainers();
                 if (advancedMathContainer) advancedMathContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
             window.showProblemSolvingDataLessons = function () {
                 hideAllContainers();
                 if (problemSolvingDataContainer) problemSolvingDataContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
         });
     </script>
