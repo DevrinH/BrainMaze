@@ -27,1302 +27,1628 @@
         </div> 
     </header>
 
-    <!-- Exam Toggle Buttons -->
-    <div class="exam-toggle-container align-center">
-        <div class="exam-toggle-buttons">
-            <button class="button-28" onclick="showSAT()">SAT</button>
-            <button class="button-28" onclick="showACT()">ACT</button>
-            <button class="button-28" onclick="showGED()">GED</button>
+<main>
+    <div class="line-chart-container">
+        <h2 class="progress-title">Progress</h2>
+        <div class="chart-container">
+            <canvas id="scoreChart"></canvas>
+        </div>
+        <div class="last-score-container">
+            <p class="last-score-text">Last Score:</p>
+        </div>   
+        <div class="chart-container-bar">
+            <canvas id="lastScoreBarChart"></canvas>
         </div>
     </div>
+</main>
+<div class="button-container"> 
+    <button class="button-30" role="button">GED</button> 
+    <button class="button-30" role="button">SAT</button> 
+    <button class="button-30" role="button">ACT</button> 
 
-    <!-- Exam Content Wrapper -->
-    <div class="exam-content">
-        <!-- SAT Content -->
-        <div id="sat-content" class="exam-specific-content">
-            <div class="line-chart-container">
-                <h2 class="progress-title">Progress</h2>
-                <div class="chart-container">
-                    <canvas id="sat-scoreChart"></canvas>
+</div>
+
+<div class="flex-container">          
+    <div class="testlessonscontainer">
+        <h2>SAT Practice Tests and Lessons</h2>
+        <br/>
+        <div class="align-center">
+            <div class="test-lesson-buttons">
+                <button class="button-28" onclick="showTests()">Tests</button>
+                <button class="button-28" onclick="showLessons()">Lessons</button>
+            </div><br/><br/>
+        </div>
+
+        <div id="tests-container" class="container"> 
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/test.html'">START</button>
                 </div>
-                <div class="last-score-container">
-                    <p class="last-score-text">Last Score:</p>
-                </div>   
-                <div class="chart-container-bar">
-                    <canvas id="sat-lastScoreBarChart"></canvas>
-                </div>
-            </div>
-
-            <div class="testlessonscontainer" id="sat-testlessons">
-                <h2 id="sat-exam-title">SAT Practice Tests and Lessons</h2>
-                <br/>
-                <div class="align-center">
-                    <div class="test-lesson-buttons">
-                        <button class="button-28" onclick="showTests('sat')">Tests</button>
-                        <button class="button-28" onclick="showLessons('sat')">Lessons</button>
-                    </div><br/><br/>
-                </div>
-
-                <div id="sat-tests-container" class="container">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/test.html'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">SAT Timed Test</p>
-                            <p>Wrong Answers will be displayed at the end.</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-untimed-test.html'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">SAT Untimed Test</p>
-                            <p>Wrong Answers will be displayed at the end.</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/dsat-timed-test.html'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">DSAT Timed Test</p>
-                            <p>Description here</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/dsat-untimed-test.html'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">DSAT Untimed Test</p>
-                            <p>This is a timed SAT practice test. Wrong answers will be displayed.</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-31" role="button" type="button" onclick="location.href='https://www.brainjelli.com/sat-timed-reading-test.html'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">SAT Timed Reading and Writing Test</p>
-                            <p>This is a timed SAT practice test. Wrong answers will be displayed.</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-reading-untimed-test.html'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">SAT Untimed Reading and Writing Test</p>
-                            <p>Non-timed SAT practice test. Wrong answers and explanations will be shown.</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/sat-timed-math-test.html'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">SAT Timed Math Test</p>
-                            <p>Timed SAT practice test. Wrong answers will be shown.</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-untimed-math-test.html'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">SAT Untimed Math Test</p>
-                            <p>Timed SAT practice test. Wrong answers will be shown.</p>
-                        </div>
-                    </div> 
-                </div>
-
-                <div id="sat-lessons-container" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-vocab'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Vocabulary</p>
-                            <p>Flashcards of the most common SAT words.</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-landing'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Rank Up (beta)</p>
-                            <p>Each level gets harder as you go. See how far you can go.</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showCommandOfEvidenceLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Command of Evidence</p>
-                            <p>4 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showCentralIdeasAndDetailLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Central Ideas and Details</p>
-                            <p>5 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showInferenceLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Inferences</p>
-                            <p>6 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showWordsInContextLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Words in Context</p>
-                            <p>4 Lessons</p>
-                        </div>
-                    </div>
-                    
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showTextStructureAndPurposeLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Text Structure and Purpose</p>
-                            <p>4 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showCrossTextConnectionsLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Cross-Text Connections</p>
-                            <p>4 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showTransitionsLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Transitions</p>
-                            <p>4 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showRhetoricalSynthesisLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Rhetorical Synthesis</p>
-                            <p>5 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showBoundariesLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Boundaries</p>
-                            <p>4 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showAlgebraLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lessons</p>
-                            <p>8 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showAdvancedMathLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Advanced Math Lessons</p>
-                            <p>8 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showProblemSolvingDataLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Problem Solving and Data Analysis</p>
-                            <p>8 Lessons</p>
-                        </div>
-                    </div>
-
-                    <div class="seccontainer"> 
-                        <div class="satplacement">
-                            <button class="button-29" onclick="showGeometryLessons()">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Geometry Lessons</p>
-                            <p>8 Lesson</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Command of Evidence Lessons -->
-                <div id="lessons-container-command-of-evidence" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Command of Evidence Lesson 1: Textual Evidence</p>
-                            <p id="command-of-evidence-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Command of Evidence Lesson 2: Understanding Author’s Use of Evidence</p>
-                            <p id="command-of-evidence-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Command of Evidence Lesson 3: Data Interpretation in Texts</p>
-                            <p id="command-of-evidence-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Command of Evidence Lesson 4: Cross-Text Evidence Comparison</p>
-                            <p id="command-of-evidence-score-summary-4"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Central Ideas Lessons -->
-                <div id="lessons-container-central-ideas-and-detail" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Central Ideas and Detail Lesson 1: Identifying the Central Idea</p>
-                            <p id="central-ideas-and-detail-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Central Ideas and Detail Lesson 2: Summarizing a Passage</p>
-                            <p id="central-ideas-and-detail-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Central Ideas and Detail Lesson 3: Identifying Key Details</p>
-                            <p id="central-ideas-and-detail-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Central Ideas and Detail Lesson 4: Understanding Supporting Evidence</p>
-                            <p id="central-ideas-and-detail-score-summary-4"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=5'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Central Ideas and Detail Lesson 5: Paraphrasing and Restating Ideas</p>
-                            <p id="central-ideas-and-detail-score-summary-5"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Inferences Lessons -->
-                <div id="lessons-container-inferences" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Inferences Lesson 1: Drawing Logical Conclusions</p>
-                            <p id="inferences-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Inferences Lesson 2: Inferring the Author’s Perspective and Tone</p>
-                            <p id="inferences-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Inferences Lesson 3: Predicting Outcomes and Next Steps</p>
-                            <p id="inferences-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Inferences Lesson 4: Understanding Relationships Between Ideas</p>
-                            <p id="inferences-score-summary-4"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=5'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Inferences Lesson 5: Interpreting Figurative Language and Symbolism</p>
-                            <p id="inferences-score-summary-5"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=6'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Inferences Lesson 6: Inferring Meaning from Context</p>
-                            <p id="inferences-score-summary-6"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Words in Context Lessons -->
-                <div id="lessons-container-words-in-context" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Words in Context Lesson 1: Determining Word Meaning from Context</p>
-                            <p id="words-in-context-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Words in Context Lesson 2: Recognizing Nuanced Word Meanings</p>
-                            <p id="words-in-context-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Words in Context Lesson 3: Interpreting Figurative and Connotative Meanings</p>
-                            <p id="words-in-context-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Words in Context Lesson 4: Analyzing Word Choice and Rhetorical Effect</p>
-                            <p id="words-in-context-score-summary-4"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Structure Lessons -->
-                <div id="lessons-container-text-structure-and-purpose" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Text Structure and Purpose Lesson 1: Identifying the Author’s Purpose</p>
-                            <p id="text-structure-and-purpose-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Text Structure and Purpose Lesson 2: Recognizing Text Structures</p>
-                            <p id="text-structure-and-purpose-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Text Structure and Purpose Lesson 3: Understanding How Ideas are Organized</p>
-                            <p id="text-structure-and-purpose-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Text Structure and Purpose Lesson 4: Evaluating Rhetorical Strategies</p>
-                            <p id="text-structure-and-purpose-score-summary-4"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cross Text Lessons -->
-                <div id="lessons-container-cross-text-connections" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Cross Text Connections Lesson 1: Comparing Main Ideas and Arguments</p>
-                            <p id="cross-text-connections-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Cross Text Connections Lesson 2: Evaluating Evidence Across Texts</p>
-                            <p id="cross-text-connections-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Cross Text Connections Lesson 3: Understanding Differences in Tone and Perspective</p>
-                            <p id="cross-text-connections-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Cross Text Connections Lesson 4: Synthesizing Information from Multiple Sources</p>
-                            <p id="cross-text-connections-score-summary-4"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Transitions Lessons -->
-                <div id="lessons-container-transitions" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Transitions Lesson 1: Identifying the Correct Type of Transition</p>
-                            <p id="transitions-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Transitions Lesson 2: Choosing the Best Transition Word or Phrase</p>
-                            <p id="transitions-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Transitions Lesson 3: Transitioning Between Sentences</p>
-                            <p id="transitions-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Transitions Lesson 4: Transitioning Between Paragraphs</p>
-                            <p id="transitions-score-summary-4"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Rhetorical Lessons -->
-                <div id="lessons-container-rhetorical-synthesis" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Rhetorical Synthesis Lesson 1: Choosing the Best Sentence for Clarity and Impact</p>
-                            <p id="rhetorical-synthesis-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Rhetorical Synthesis Lesson 2: Connecting Ideas Logically</p>
-                            <p id="rhetorical-synthesis-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Rhetorical Synthesis Lesson 3: Integrating Evidence and Supporting Details</p>
-                            <p id="rhetorical-synthesis-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Rhetorical Synthesis Lesson 4: Maintaining the Author’s Purpose and Tone</p>
-                            <p id="rhetorical-synthesis-score-summary-4"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=5'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Rhetorical Synthesis Lesson 5: Strengthening Arguments and Explanations</p>
-                            <p id="rhetorical-synthesis-score-summary-5"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Boundaries Lessons -->
-                <div id="lessons-container-boundaries" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Boundaries Lesson 1: Avoiding Run-On Sentences and Comma Splices</p>
-                            <p id="boundaries-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Boundaries Lesson 2: Avoiding Sentence Fragments</p>
-                            <p id="boundaries-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Boundaries Lesson 3: Proper Use of Semicolons, Colons, and Dashes</p>
-                            <p id="boundaries-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Boundaries Lesson 4: Maintaining Logical and Clear Sentence Boundaries</p>
-                            <p id="boundaries-score-summary-4"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Geometry Lessons -->
-                <div id="lessons-container-geometry" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Geometry Lesson 1: Lines and Angles</p>
-                            <p id="geometry-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Geometry Lesson 2: Triangles</p>
-                            <p id="geometry-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Geometry Lesson 3: Quadrilaterals and Polygons</p>
-                            <p id="geometry-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Geometry Lesson 4: Circles</p>
-                            <p id="geometry-score-summary-4"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=5'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Geometry Lesson 5: Coordinate Geometry</p>
-                            <p id="geometry-score-summary-5"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=6'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Geometry Lesson 6: 3D Geometry (Solids)</p>
-                            <p id="geometry-score-summary-6"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=7'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Geometry Lesson 7: Transformations</p>
-                            <p id="geometry-score-summary-7"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=8'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Geometry Lesson 8: Trigonometry (Basic Concepts)</p>
-                            <p id="geometry-score-summary-8"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Algebra Lessons -->
-                <div id="lessons-container-algebra" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lesson 1: Solving Linear Equations</p>
-                            <p id="algebra-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lesson 2: Solving Systems of Equations</p>
-                            <p id="algebra-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lesson 3: Quadratic Equations</p>
-                            <p id="algebra-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lesson 4: Linear Functions and Graphs</p>
-                            <p id="algebra-score-summary-4"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=5'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lesson 5: Quadratic Functions and Their Properties</p>
-                            <p id="algebra-score-summary-5"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=6'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lesson 6: Expressions and Polynomials</p>
-                            <p id="algebra-score-summary-6"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=7'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lesson 7: Rational Expressions and Equations </p>
-                            <p id="algebra-score-summary-7"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=8'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Algebra Lesson 8: Inequalities and Absolute Value </p>
-                            <p id="algebra-score-summary-8"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Advanced Math Lessons -->
-                <div id="lessons-container-advanced-math" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Advanced Math Lesson 1: Nonlinear Equations and Functions</p>
-                            <p id="advanced-math-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Advanced Math Lesson 2: Systems of Equations with Nonlinear Functions</p>
-                            <p id="advanced-math-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Advanced Math Lesson 3: Function Transformations and Composition</p>
-                            <p id="advanced-math-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">ADVANCED Math Lesson 4: Complex Numbers</p>
-                            <p id="advanced-math-score-summary-4"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=5'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Advanced Math Lesson 5: Polynomial Division and Remainder Theorem</p>
-                            <p id="advanced-math-score-summary-5"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=6'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Advanced Math Lesson 6: Rational Exponents and Radical Equations</p>
-                            <p id="advanced-math-score-summary-6"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=7'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Advanced Math Lesson 7: Absolute Value and Piecewise Functions</p>
-                            <p id="advanced-math-score-summary-7"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=8'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Advanced Math Lesson 8: Trigonometric Functions and Identities</p>
-                            <p id="advanced-math-score-summary-8"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Problem Solving Lessons -->
-                <div id="lessons-container-problem-solving-data" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=1'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Problem Solving Lesson 1: Ratios, Proportions, and Percentages</p>
-                            <p id="problem-solving-data-score-summary-1"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=2'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Problem Solving Lesson 2: Unit Conversions and Rates</p>
-                            <p id="problem-solving-data-score-summary-2"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=3'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Problem Solving Lesson 3: Linear and Exponential Growth</p>
-                            <p id="problem-solving-data-score-summary-3"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=4'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Problem Solving Lesson 4: Data Interpretation (Tables, Graphs, and Charts)</p>
-                            <p id="problem-solving-data-score-summary-4"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=5'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Problem Solving Lesson 5: Measures of Center and Spread (Statistics)</p>
-                            <p id="problem-solving-data-score-summary-5"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=6'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Problem Solving Lesson 6: Probability and Expected Value</p>
-                            <p id="problem-solving-data-score-summary-6"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=7'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Problem Solving Lesson 7: Two-Way Tables and Conditional Probability</p>
-                            <p id="problem-solving-data-score-summary-7"></p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=8'">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">Problem Solving Lesson 8: Experimental Design and Statistical Validity</p>
-                            <p id="problem-solving-data-score-summary-8"></p>
-                        </div>
-                    </div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Timed Test</p>
+                    <p>Wrong Answers will be displayed at the end.</p>
                 </div>
             </div>
 
-            <div class="progress-container" id="sat-progress">
-                <h2>SAT Category Progress</h2>
-                <br/>
-                <div class="progress-item" data-category="command-of-evidence">
-                    <div class="progress-label">Command of Evidence</div>
-                    <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
-                    <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">→</span></div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-untimed-test.html'">START</button>
                 </div>
-                <div class="progress-item" data-category="central-ideas">
-                    <div class="progress-label">Central Ideas and Detail</div>
-                    <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
-                    <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Untimed Test</p>
+                    <p>Wrong Answers will be displayed at the end.</p>
                 </div>
-                <div class="progress-item" data-category="inferences">
-                    <div class="progress-label">Inferences</div>
-                    <div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div>
-                    <div class="progress-percentage" id="inferences-text">0% <span class="arrow">→</span></div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/dsat-timed-test.html'">START</button>
                 </div>
-                <div class="progress-item" data-category="words-in-context">
-                    <div class="progress-label">Words in Context</div>
-                    <div class="progress-bar"><div class="progress-fill" id="words-in-context-bar"></div></div>
-                    <div class="progress-percentage" id="words-in-context-text">0% <span class="arrow">→</span></div>
+                <div class="satdesc">
+                    <p class="pbungee">DSAT Timed Test</p>
+                    <p>Description here</p>
                 </div>
-                <div class="progress-item" data-category="text-structure-and-purpose">
-                    <div class="progress-label">Text Structure and Purpose</div>
-                    <div class="progress-bar"><div class="progress-fill" id="text-structure-and-purpose-bar"></div></div>
-                    <div class="progress-percentage" id="text-structure-and-purpose-text">0% <span class="arrow">→</span></div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/dsat-untimed-test.html'">START</button>
                 </div>
-                <div class="progress-item" data-category="cross-text-connections">
-                    <div class="progress-label">Cross-Text Connections</div>
-                    <div class="progress-bar"><div class="progress-fill" id="cross-text-connections-bar"></div></div>
-                    <div class="progress-percentage" id="cross-text-connections-text">0% <span class="arrow">→</span></div>
+                <div class="satdesc">
+                    <p class="pbungee">DSAT Untimed Test</p>
+                    <p>This is a timed SAT practice test. Wrong answers will be displayed.</p>
                 </div>
-                <div class="progress-item" data-category="transitions">
-                    <div class="progress-label">Transitions</div>
-                    <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
-                    <div class="progress-percentage" id="transitions-text">0% <span class="arrow">→</span></div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" type="button" onclick="location.href='https://www.brainjelli.com/sat-timed-reading-test.html'">START</button>
                 </div>
-                <div class="progress-item" data-category="rhetorical-synthesis">
-                    <div class="progress-label">Rhetorical Synthesis</div>
-                    <div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div>
-                    <div class="progress-percentage" id="rhetorical-synthesis-text">0% <span class="arrow">→</span></div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Timed Reading and Writing Test</p>
+                    <p>This is a timed SAT practice test. Wrong answers will be displayed.</p>
                 </div>
-                <div class="progress-item" data-category="boundaries">
-                    <div class="progress-label">Boundaries</div>
-                    <div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div>
-                    <div class="progress-percentage" id="boundaries-text">0% <span class="arrow">→</span></div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-reading-untimed-test.html'">START</button>
                 </div>
-                <div class="progress-item" data-category="algebra">
-                    <div class="progress-label">Algebra</div>
-                    <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
-                    <div class="progress-percentage" id="algebra-text">0% <span class="arrow">→</span></div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Untimed Reading and Writing Test</p>
+                    <p>Non-timed SAT practice test. Wrong answers and explanations will be shown.</p>
                 </div>
-                <div class="progress-item" data-category="advanced-math">
-                    <div class="progress-label">Advanced Math</div>
-                    <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
-                    <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">→</span></div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/sat-timed-math-test.html'">START</button>
                 </div>
-                <div class="progress-item" data-category="problem-solving">
-                    <div class="progress-label">Problem Solving and Data Analysis</div>
-                    <div class="progress-bar"><div class="progress-fill" id="problem-solving-bar"></div></div>
-                    <div class="progress-percentage" id="problem-solving-text">0% <span class="arrow">→</span></div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Timed Math Test</p>
+                    <p>Timed SAT practice test. Wrong answers will be shown.</p>
                 </div>
-                <div class="progress-item" data-category="geometry">
-                    <div class="progress-label">Geometry and Trigonometry</div>
-                    <div class="progress-bar"><div class="progress-fill" id="geometry-bar"></div></div>
-                    <div class="progress-percentage" id="geometry-text">0% <span class="arrow">→</span></div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-untimed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Untimed Math Test</p>
+                    <p>Timed SAT practice test. Wrong answers will be shown.</p>
+                </div>
+            </div> 
+
+
+        </div> 
+
+
+
+
+        <div id="lessons-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-vocab'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Vocabulary</p>
+                    <p>Flashcards of the most common SAT words.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-landing'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rank Up (beta)</p>
+                    <p>Each level gets harder as you go. See how far you can go.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showCommandOfEvidenceLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showCentralIdeasAndDetailLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Details</p>
+                    <p>5 Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showInferenceLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences</p>
+                    <p>6 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showWordsInContextLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+            
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showTextStructureAndPurposeLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showCrossTextConnectionsLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross-Text Connections</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showTransitionsLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showRhetoricalSynthesisLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis</p>
+                    <p>5 Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showBoundariesLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showAlgebraLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lessons</p>
+                    <p>8 Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showAdvancedMathLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lessons</p>
+                    <p>8 Lessons</p>
+                </div>
+            </div>
+
+            <div class="seccontainer"> 
+                <div class="satplacement">
+                    <button class="button-29" onclick="showProblemSolvingDataLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving and Data Analysis</p>
+                    <p>8 Lessons</p>
+                </div>
+            </div>
+
+        <div class="seccontainer"> 
+            <div class="satplacement">
+                <button class="button-29" onclick="showGeometryLessons()">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lessons</p>
+                <p>8 Lesson</p>
+            </div>
+        </div>
+
+        </div>
+
+
+        
+
+<!--Command of evidence lessons-->
+
+        <div id="lessons-container-command-of-evidence" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 1: Textual Evidence</p>
+                    <p id="command-of-evidence-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 2: Understanding Author’s Use of Evidence</p>
+                    <p id="command-of-evidence-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 3: Data Interpretation in Texts</p>
+                    <p id="command-of-evidence-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 4: Cross-Text Evidence Comparison</p>
+                    <p id="command-of-evidence-score-summary-4"></p>
                 </div>
             </div>
         </div>
 
-        <!-- ACT Content -->
-        <div id="act-content" class="exam-specific-content hidden">
-            <div class="line-chart-container">
-                <h2 class="progress-title">Progress</h2>
-                <div class="chart-container">
-                    <canvas id="act-scoreChart"></canvas>
+
+<!--Central Ideas lessons-->
+
+        <div id="lessons-container-central-ideas-and-detail" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=1'">START</button>
                 </div>
-                <div class="last-score-container">
-                    <p class="last-score-text">Last Score:</p>
-                </div>   
-                <div class="chart-container-bar">
-                    <canvas id="act-lastScoreBarChart"></canvas>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 1: Identifying the Central Idea</p>
+                    <p id="central-ideas-and-detail-score-summary-1"></p>
                 </div>
             </div>
-
-            <div class="testlessonscontainer" id="act-testlessons">
-                <h2 id="act-exam-title">ACT Practice Tests and Lessons</h2>
-                <br/>
-                <div class="align-center">
-                    <div class="test-lesson-buttons">
-                        <button class="button-28" onclick="showTests('act')">Tests</button>
-                        <button class="button-28" onclick="showLessons('act')">Lessons</button>
-                    </div><br/><br/>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=2'">START</button>
                 </div>
-
-                <div id="act-tests-container" class="container">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-31" role="button">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">ACT Timed Test</p>
-                            <p>Placeholder for ACT timed test content.</p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">ACT Untimed Test</p>
-                            <p>Placeholder for ACT untimed test content.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="act-lessons-container" class="container hidden">
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">ACT English</p>
-                            <p>Placeholder for ACT English lessons.</p>
-                        </div>
-                    </div>
-                    <div class="seccontainer">
-                        <div class="satplacement">
-                            <button class="button-29" role="button">START</button>
-                        </div>
-                        <div class="satdesc">
-                            <p class="pbungee">ACT Math</p>
-                            <p>Placeholder for ACT Math lessons.</p>
-                        </div>
-                    </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 2: Summarizing a Passage</p>
+                    <p id="central-ideas-and-detail-score-summary-2"></p>
                 </div>
             </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 3: Identifying Key Details</p>
+                    <p id="central-ideas-and-detail-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 4: Understanding Supporting Evidence</p>
+                    <p id="central-ideas-and-detail-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 5: Paraphrasing and Restating Ideas</p>
+                    <p id="central-ideas-and-detail-score-summary-5"></p>
+                </div>
+            </div>
+        </div>
 
-            <div class="progress-container" id="act-progress">
-                <h2>ACT Category Progress</h2>
-                <br/>
-                <div class="progress-item" data-category="act-english">
-                    <div class="progress-label">English</div>
-                    <div class="progress-bar"><div class="progress-fill" id="act-english-bar"></div></div>
-                    <div class="progress-percentage" id="act-english-text">0% <span class="arrow">→</span></div>
+<!--Inferences lessons-->
+
+
+        <div id="lessons-container-inferences" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=1'">START</button>
                 </div>
-                <div class="progress-item" data-category="act-math">
-                    <div class="progress-label">Math</div>
-                    <div class="progress-bar"><div class="progress-fill" id="act-math-bar"></div></div>
-                    <div class="progress-percentage" id="act-math-text">0% <span class="arrow">→</span></div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 1: Drawing Logical Conclusions</p>
+                    <p id="inferences-score-summary-1"></p>
                 </div>
-                <div class="progress-item" data-category="act-reading">
-                    <div class="progress-label">Reading</div>
-                    <div class="progress-bar"><div class="progress-fill" id="act-reading-bar"></div></div>
-                    <div class="progress-percentage" id="act-reading-text">0% <span class="arrow">→</span></div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=2'">START</button>
                 </div>
-                <div class="progress-item" data-category="act-science">
-                    <div class="progress-label">Science</div>
-                    <div class="progress-bar"><div class="progress-fill" id="act-science-bar"></div></div>
-                    <div class="progress-percentage" id="act-science-text">0% <span class="arrow">→</span></div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 2: Inferring the Author’s Perspective and Tone</p>
+                    <p id="inferences-score-summary-2"></p>
                 </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 3: Predicting Outcomes and Next Steps</p>
+                    <p id="inferences-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 4: Understanding Relationships Between Ideas</p>
+                    <p id="inferences-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 5: Interpreting Figurative Language and Symbolism</p>
+                    <p id="inferences-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 6: Inferring Meaning from Context</p>
+                    <p id="inferences-score-summary-6"></p>
+                </div>
+            </div>
+        </div>
+
+        <!--Words in context lessons-->
+
+        <div id="lessons-container-words-in-context" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 1: Determining Word Meaning from Context</p>
+                    <p id="words-in-context-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 2: Recognizing Nuanced Word Meanings</p>
+                    <p id="words-in-context-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 3: Interpreting Figurative and Connotative Meanings</p>
+                    <p id="words-in-context-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 4: Analyzing Word Choice and Rhetorical Effect</p>
+                    <p id="words-in-context-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Text Structure lessons-->
+
+        <div id="lessons-container-text-structure-and-purpose" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 1: Identifying the Author’s Purpose</p>
+                    <p id="text-structure-and-purpose-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 2: Recognizing Text Structures</p>
+                    <p id="text-structure-and-purpose-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 3: Understanding How Ideas are Organized</p>
+                    <p id="text-structure-and-purpose-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 4: Evaluating Rhetorical Strategies</p>
+                    <p id="text-structure-and-purpose-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+        <!--Cross Text lessons-->
+
+        <div id="lessons-container-cross-text-connections" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 1: Comparing Main Ideas and Arguments</p>
+                    <p id="cross-text-connections-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 2: Evaluating Evidence Across Texts</p>
+                    <p id="cross-text-connections-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 3: Understanding Differences in Tone and Perspective</p>
+                    <p id="cross-text-connections-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 4: Synthesizing Information from Multiple Sources</p>
+                    <p id="cross-text-connections-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+<!--Transitions lessons-->
+
+        <div id="lessons-container-transitions" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 1: Identifying the Correct Type of Transition</p>
+                    <p id="transitions-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 2: Choosing the Best Transition Word or Phrase</p>
+                    <p id="transitions-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 3: Transitioning Between Sentences</p>
+                    <p id="transitions-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 4: Transitioning Between Paragraphs</p>
+                    <p id="transitions-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+        <!--Rhetorical lessons-->
+
+        <div id="lessons-container-rhetorical-synthesis" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 1: Choosing the Best Sentence for Clarity and Impact</p>
+                    <p id="rhetorical-synthesis-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 2: Connecting Ideas Logically</p>
+                    <p id="rhetorical-synthesis-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 3: Integrating Evidence and Supporting Details</p>
+                    <p id="rhetorical-synthesis-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 4: Maintaining the Author’s Purpose and Tone</p>
+                    <p id="rhetorical-synthesis-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 5: Strengthening Arguments and Explanations</p>
+                    <p id="rhetorical-synthesis-score-summary-5"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Boundaries lessons-->
+
+        <div id="lessons-container-boundaries" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 1: Avoiding Run-On Sentences and Comma Splices</p>
+                    <p id="boundaries-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 2: Avoiding Sentence Fragments</p>
+                    <p id="boundaries-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 3: Proper Use of Semicolons, Colons, and Dashes</p>
+                    <p id="boundaries-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 4: Maintaining Logical and Clear Sentence Boundaries</p>
+                    <p id="boundaries-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+
+
+<!--Geometry lessons-->
+
+    <div id="lessons-container-geometry" class="container hidden">
+
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=1'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 1: Lines and Angles</p>
+                <p id="geometry-score-summary-1"></p>
+            </div>
+        </div>
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=2'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 2: Triangles</p>
+                <p id="geometry-score-summary-2"></p>
+            </div>
+        </div>
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=3'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 3: Quadrilaterals and Polygons</p>
+                <p id="geometry-score-summary-3"></p>
+            </div>
+        </div>
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=4'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 4: Circles</p>
+                <p id="geometry-score-summary-4"></p>
+            </div>
+        </div>
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=5'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 5: Coordinate Geometry</p>
+                <p id="geometry-score-summary-5"></p>
+            </div>
+        </div>
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=6'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 6: 3D Geometry (Solids)</p>
+                <p id="geometry-score-summary-6"></p>
+            </div>
+        </div>
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=7'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 7: Transformations</p>
+                <p id="geometry-score-summary-7"></p>
+            </div>
+        </div>
+        <div class="seccontainer">
+            <div class="satplacement">
+                <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=8'">START</button>
+            </div>
+            <div class="satdesc">
+                <p class="pbungee">Geometry Lesson 8: Trigonometry (Basic Concepts)</p>
+                <p id="geometry-score-summary-8"></p>
             </div>
         </div>
     </div>
 
-    <div class="reset-container center">
-        <button class="resetBtn" onclick="resetProgress()">Reset Progress</button>
+            
+
+        <div id="lessons-container-algebra" class="container hidden">
+            
+            
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 1: Solving Linear Equations</p>
+                    <p id="algebra-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 2: Solving Systems of Equations</p>
+                    <p id="algebra-score-summary-2"></p>
+                </div>
+            </div>
+            <!-- Continue for lessons 3–10 -->
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 3: Quadratic Equations</p>
+                    <p id="algebra-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 4: Linear Functions and Graphs</p>
+                    <p id="algebra-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 5: Quadratic Functions and Their Properties</p>
+                    <p id="algebra-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 6: Expressions and Polynomials</p>
+                    <p id="algebra-score-summary-6"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 7: Rational Expressions and Equations </p>
+                    <p id="algebra-score-summary-7"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 8: Inequalities and Absolute Value </p>
+                    <p id="algebra-score-summary-8"></p>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!--Advanced math lessons-->
+
+        <div id="lessons-container-advanced-math" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 1: Nonlinear Equations and Functions</p>
+                    <p id="advanced-math-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 2: Systems of Equations with Nonlinear Functions</p>
+                    <p id="advanced-math-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 3: Function Transformations and Composition</p>
+                    <p id="advanced-math-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 4: Complex Numbers</p>
+                    <p id="advanced-math-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 5: Polynomial Division and Remainder Theorem</p>
+                    <p id="advanced-math-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 6: Rational Exponents and Radical Equations</p>
+                    <p id="advanced-math-score-summary-6"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 7: Absolute Value and Piecewise Functions</p>
+                    <p id="advanced-math-score-summary-7"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 8: Trigonometric Functions and Identities</p>
+                    <p id="advanced-math-score-summary-8"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="lessons-container-problem-solving-data" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 1: Ratios, Proportions, and Percentages</p>
+                    <p id="problem-solving-data-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 2: Unit Conversions and Rates</p>
+                    <p id="problem-solving-data-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 3: Linear and Exponential Growth</p>
+                    <p id="problem-solving-data-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 4: Data Interpretation (Tables, Graphs, and Charts)</p>
+                    <p id="problem-solving-data-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 5: Measures of Center and Spread (Statistics)</p>
+                    <p id="problem-solving-data-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 6: Probability and Expected Value</p>
+                    <p id="problem-solving-data-score-summary-6"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 7: Two-Way Tables and Conditional Probability</p>
+                    <p id="problem-solving-data-score-summary-7"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 8: Experimental Design and Statistical Validity</p>
+                    <p id="problem-solving-data-score-summary-8"></p>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
-    <div class="center">
-        <footer>
-            <div class="center">
-                <h2>Follow Us On</h2>
-            </div>
-            <div class="social-container">
-                <img src="Twitter.png" height="35px">
-                <img src="Insta.png" height="35px">
-                <img src="Reddit.png" height="35px">
-                <img src="YouTube.png" height="35px">
-                <img src="Tik Tok.png" height="35px">
-            </div>
-            <div>
-                <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
-            </div>
-        </footer>
-    </div>
+
 
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Select Elements
-        const satContent = document.getElementById("sat-content");
-        const actContent = document.getElementById("act-content");
-        const satTestsContainer = document.getElementById("sat-tests-container");
-        const satLessonsContainer = document.getElementById("sat-lessons-container");
-        const actTestsContainer = document.getElementById("act-tests-container");
-        const actLessonsContainer = document.getElementById("act-lessons-container");
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select Containers
+            const testsContainer = document.getElementById("tests-container");
+            const lessonsContainer = document.getElementById("lessons-container");
+            const algebraContainer = document.getElementById("lessons-container-algebra");
+            const inferenceContainer = document.getElementById("lessons-container-inferences");
+            const geometryContainer = document.getElementById("lessons-container-geometry");
+            const commandOfEvidenceContainer = document.getElementById("lessons-container-command-of-evidence");
+            const centralIdeasAndDetailContainer = document.getElementById("lessons-container-central-ideas-and-detail");
+            const wordsInContextContainer = document.getElementById("lessons-container-words-in-context");
+            const textStructureAndPurposeContainer = document.getElementById("lessons-container-text-structure-and-purpose");
+            const crossTextConnectionsContainer = document.getElementById("lessons-container-cross-text-connections");
+            const transitionsContainer = document.getElementById("lessons-container-transitions");
+            const rhetoricalSynthesisContainer = document.getElementById("lessons-container-rhetorical-synthesis");
+            const boundariesContainer = document.getElementById("lessons-container-boundaries");
+            const advancedMathContainer = document.getElementById("lessons-container-advanced-math");
+            const problemSolvingDataContainer = document.getElementById("lessons-container-problem-solving-data");
+        
+            // Function to hide all containers
+            window.hideAllContainers = function () {
+                const allContainers = [
+                    testsContainer,
+                    lessonsContainer,
+                    algebraContainer,
+                    inferenceContainer,
+                    geometryContainer,
+                    commandOfEvidenceContainer,
+                    centralIdeasAndDetailContainer,
+                    wordsInContextContainer,
+                    textStructureAndPurposeContainer,
+                    crossTextConnectionsContainer,
+                    transitionsContainer,
+                    rhetoricalSynthesisContainer,
+                    boundariesContainer,
+                    advancedMathContainer,
+                    problemSolvingDataContainer
+                ];
+                allContainers.forEach(container => {
+                    if (container) container.classList.add("hidden");
+                });
+            };
+        
+            // Functions to show specific sections
+            window.showTests = function () {
+                hideAllContainers();
+                if (testsContainer) testsContainer.classList.remove("hidden");
+            };
+        
+            window.showLessons = function () {
+                hideAllContainers();
+                if (lessonsContainer) lessonsContainer.classList.remove("hidden");
+            };
+        
+            window.showAlgebraLessons = function () {
+                hideAllContainers();
+                if (algebraContainer) algebraContainer.classList.remove("hidden");
+            };
+        
+            window.showInferenceLessons = function () {
+                hideAllContainers();
+                if (inferenceContainer) inferenceContainer.classList.remove("hidden");
+            };
+        
+            window.showGeometryLessons = function () {
+                hideAllContainers();
+                if (geometryContainer) geometryContainer.classList.remove("hidden");
+            };
+        
+            window.showCommandOfEvidenceLessons = function () {
+                hideAllContainers();
+                if (commandOfEvidenceContainer) commandOfEvidenceContainer.classList.remove("hidden");
+            };
+        
+            window.showCentralIdeasAndDetailLessons = function () {
+                hideAllContainers();
+                if (centralIdeasAndDetailContainer) centralIdeasAndDetailContainer.classList.remove("hidden");
+            };
+        
+            window.showWordsInContextLessons = function () {
+                hideAllContainers();
+                if (wordsInContextContainer) wordsInContextContainer.classList.remove("hidden");
+            };
+        
+            window.showTextStructureAndPurposeLessons = function () {
+                hideAllContainers();
+                if (textStructureAndPurposeContainer) textStructureAndPurposeContainer.classList.remove("hidden");
+            };
+        
+            window.showCrossTextConnectionsLessons = function () {
+                hideAllContainers();
+                if (crossTextConnectionsContainer) crossTextConnectionsContainer.classList.remove("hidden");
+            };
+        
+            window.showTransitionsLessons = function () {
+                hideAllContainers();
+                if (transitionsContainer) transitionsContainer.classList.remove("hidden");
+            };
+        
+            window.showRhetoricalSynthesisLessons = function () {
+                hideAllContainers();
+                if (rhetoricalSynthesisContainer) rhetoricalSynthesisContainer.classList.remove("hidden");
+            };
+        
+            window.showBoundariesLessons = function () {
+                hideAllContainers();
+                if (boundariesContainer) boundariesContainer.classList.remove("hidden");
+            };
+        
+            window.showAdvancedMathLessons = function () {
+                hideAllContainers();
+                if (advancedMathContainer) advancedMathContainer.classList.remove("hidden");
+            };
+        
+            window.showProblemSolvingDataLessons = function () {
+                hideAllContainers();
+                if (problemSolvingDataContainer) problemSolvingDataContainer.classList.remove("hidden");
+            };
+        });
+        </script>
+           <script src="scoreChart.js"></script>
+           
+   
+    <div class="progress-container">
+        <h2>SAT Category Progress</h2>
+        <br/>
+        <div class="progress-item" data-category="command-of-evidence">
+            <div class="progress-label">Command of Evidence</div>
+            <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
+            <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="central-ideas">
+            <div class="progress-label">Central Ideas and Detail</div>
+            <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
+            <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
+        </div>
 
-        // Hide SAT Lesson Sub-Containers
-        function hideSatLessonSubContainers() {
-            const subContainers = [
-                "lessons-container-command-of-evidence",
-                "lessons-container-central-ideas-and-detail",
-                "lessons-container-inferences",
-                "lessons-container-words-in-context",
-                "lessons-container-text-structure-and-purpose",
-                "lessons-container-cross-text-connections",
-                "lessons-container-transitions",
-                "lessons-container-rhetorical-synthesis",
-                "lessons-container-boundaries",
-                "lessons-container-algebra",
-                "lessons-container-advanced-math",
-                "lessons-container-problem-solving-data",
-                "lessons-container-geometry"
-            ];
-            subContainers.forEach(id => {
-                const container = document.getElementById(id);
-                if (container) container.classList.add("hidden");
-            });
+    
+
+
+        <div class="progress-item" data-category="inferences">
+            <div class="progress-label">Inferences</div>
+            <div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div>
+            <div class="progress-percentage" id="inferences-text">0% <span class="arrow">→</span></div>
+        </div>
+
+        <div class="progress-item" data-category="words-in-context">
+            <div class="progress-label">Words in Context</div>
+            <div class="progress-bar"><div class="progress-fill" id="words-in-context-bar"></div></div>
+            <div class="progress-percentage" id="words-in-context-text">0% <span class="arrow">→</span></div>
+        </div>
+
+
+        <div class="progress-item" data-category="text-structure-and-purpose">
+            <div class="progress-label">Text Structure and Purpose</div>
+            <div class="progress-bar"><div class="progress-fill" id="text-structure-and-purpose-bar"></div></div>
+            <div class="progress-percentage" id="text-structure-and-purpose-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="cross-text-connections">
+            <div class="progress-label">Cross-Text Connections</div>
+            <div class="progress-bar"><div class="progress-fill" id="cross-text-connections-bar"></div></div>
+            <div class="progress-percentage" id="cross-text-connections-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="transitions">
+            <div class="progress-label">Transitions</div>
+            <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
+            <div class="progress-percentage" id="transitions-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="rhetorical-synthesis">
+            <div class="progress-label">Rhetorical Synthesis</div>
+            <div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div>
+            <div class="progress-percentage" id="rhetorical-synthesis-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="boundaries">
+            <div class="progress-label">Boundaries</div>
+            <div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div>
+            <div class="progress-percentage" id="boundaries-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="algebra">
+            <div class="progress-label">Algebra</div>
+            <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
+            <div class="progress-percentage" id="algebra-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="advanced-math">
+            <div class="progress-label">Advanced Math</div>
+            <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
+            <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="problem-solving">
+            <div class="progress-label">Problem Solving and Data Analysis</div>
+            <div class="progress-bar"><div class="progress-fill" id="problem-solving-bar"></div></div>
+            <div class="progress-percentage" id="problem-solving-text">0% <span class="arrow">→</span></div>
+        </div>
+        <div class="progress-item" data-category="geometry">
+            <div class="progress-label">Geometry and Trigonometry</div>
+            <div class="progress-bar"><div class="progress-fill" id="geometry-bar"></div></div>
+            <div class="progress-percentage" id="geometry-text">0% <span class="arrow">→</span></div>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+
+</div>
+
+</div>    
+
+</div>
+</div>
+ </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const canvas = document.getElementById("lastScoreBarChart");
+
+        if (!canvas) {
+            console.error("Last Score Bar Chart element not found!");
+            return;
         }
 
-        // Show SAT
-        window.showSAT = function () {
-            satContent.classList.remove("hidden");
-            actContent.classList.add("hidden");
-            satTestsContainer.classList.remove("hidden");
-            satLessonsContainer.classList.add("hidden");
-            hideSatLessonSubContainers();
-        };
+        const ctx = canvas.getContext("2d");
 
-        // Show ACT
-        window.showACT = function () {
-            satContent.classList.add("hidden");
-            actContent.classList.remove("hidden");
-            actTestsContainer.classList.remove("hidden");
-            actLessonsContainer.classList.add("hidden");
-        };
+        if (!ctx) {
+            console.error("Failed to get 2D context for Last Score Bar Chart!");
+            return;
+        }
 
-        // Show GED (placeholder, no content yet)
-        window.showGED = function () {
-            satContent.classList.add("hidden");
-            actContent.classList.add("hidden");
-        };
+        // Retrieve the last test score from localStorage
+        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+        let dates = Object.keys(scoreHistory).sort();
+        let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
 
-        // Show Tests
-        window.showTests = function (exam) {
-            if (exam === "sat") {
-                satTestsContainer.classList.remove("hidden");
-                satLessonsContainer.classList.add("hidden");
-                hideSatLessonSubContainers();
-            } else if (exam === "act") {
-                actTestsContainer.classList.remove("hidden");
-                actLessonsContainer.classList.add("hidden");
-            }
-        };
+        let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+        let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
+        let lastTotal = lastMath + lastReading;
+        const maxScore = 1600;
+        const unfilledScore = maxScore - lastTotal; // Remaining portion
 
-        // Show Lessons
-        window.showLessons = function (exam) {
-            if (exam === "sat") {
-                satTestsContainer.classList.add("hidden");
-                satLessonsContainer.classList.remove("hidden");
-                hideSatLessonSubContainers();
-            } else if (exam === "act") {
-                actTestsContainer.classList.add("hidden");
-                actLessonsContainer.classList.remove("hidden");
-            }
-        };
+        // Destroy previous chart if it exists
+        if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
+            window.lastScoreBarChart.destroy();
+        }
 
-        // SAT Lesson Sub-Container Functions
-        window.showCommandOfEvidenceLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-command-of-evidence").classList.remove("hidden");
-        };
-        window.showCentralIdeasAndDetailLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-central-ideas-and-detail").classList.remove("hidden");
-        };
-        window.showInferenceLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-inferences").classList.remove("hidden");
-        };
-        window.showWordsInContextLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-words-in-context").classList.remove("hidden");
-        };
-        window.showTextStructureAndPurposeLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-text-structure-and-purpose").classList.remove("hidden");
-        };
-        window.showCrossTextConnectionsLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-cross-text-connections").classList.remove("hidden");
-        };
-        window.showTransitionsLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-transitions").classList.remove("hidden");
-        };
-        window.showRhetoricalSynthesisLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-rhetorical-synthesis").classList.remove("hidden");
-        };
-        window.showBoundariesLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-boundaries").classList.remove("hidden");
-        };
-        window.showAlgebraLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-algebra").classList.remove("hidden");
-        };
-        window.showAdvancedMathLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-advanced-math").classList.remove("hidden");
-        };
-        window.showProblemSolvingDataLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-problem-solving-data").classList.remove("hidden");
-        };
-        window.showGeometryLessons = function () {
-            hideSatLessonSubContainers();
-            document.getElementById("lessons-container-geometry").classList.remove("hidden");
-        };
-
-        // Initialize SAT
-        showSAT();
+        // Create the new Last Score Single Bar Chart
+        window.lastScoreBarChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [""], // Single bar
+                datasets: [
+                    {
+                        label: "Math",
+                        data: [lastMath],
+                        backgroundColor: "rgb(96, 205, 241)", // blue
+                        stack: "total"
+                    },
+                    {
+                        label: "Reading/Writing",
+                        data: [lastReading],
+                        backgroundColor: "rgb(205, 120, 255)", // lavender
+                        stack: "total"
+                    },
+                    {
+                        label: "Missed",
+                        data: [unfilledScore],
+                        backgroundColor: "#d3d3d3", // Gray
+                        stack: "total"
+                    }
+                ]
+            },
+            options: {
+                indexAxis: "y", // Horizontal bar
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        max: maxScore,
+                        ticks: {
+                            stepSize: 800
+                        },
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        display: false,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true },
+                    datalabels: {
+                        anchor: "center",
+                        align: "center",
+                        color: "white",
+                        font: { size: 18, weight: "bold" },
+                        formatter: (value) => (value > 0 ? value : "")
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
     });
-    </script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Load stored progress from previous tests
+        let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
+        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
+        let storedProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+
+        console.log("Previous Progress:", previousProgress);
+        console.log("Current Test Results:", currentTestResults);
+        console.log("Stored Progress Before Update:", storedProgress);
+
+        // **Accumulate results over multiple tests**
+        Object.keys(currentTestResults).forEach(category => {
+            if (!storedProgress[category]) {
+                storedProgress[category] = { correct: 0, incorrect: 0 };
+            }
+
+            // Ensure values are treated as numbers
+            let newCorrect = Number(currentTestResults[category]?.correct || 0);
+            let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
+
+            storedProgress[category].correct += newCorrect;
+            storedProgress[category].incorrect += newIncorrect;
+        });
+
+        // Save updated progress
+        localStorage.setItem("satProgress", JSON.stringify(storedProgress));
+        console.log("Updated Stored Progress:", storedProgress);
+
+        // Update progress bars
+        function updateProgressBars() {
+            console.log("Updating progress bars with data:", storedProgress);
+
+            Object.keys(storedProgress).forEach(category => {
+                const correct = storedProgress[category]?.correct || 0;
+                const incorrect = storedProgress[category]?.incorrect || 0;
+                const total = correct + incorrect;
+                const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+                // Update progress bar
+                const progressBar = document.getElementById(`${category}-bar`);
+                if (progressBar) {
+                    progressBar.style.width = `${percentage}%`;
+                } else {
+                    console.warn(`Progress bar not found: ${category}-bar`);
+                }
+
+                // Update progress text
+                const progressText = document.getElementById(`${category}-text`);
+                if (progressText) {
+                    let previousPercentage = previousProgress[category]?.percentage || 0;
+                    let arrow = "→";
+                    let arrowColor = "#4e5163";
+
+                    if (percentage > previousPercentage) {
+                        arrow = "↑";
+                        arrowColor = "green";
+                    } else if (percentage < previousPercentage) {
+                        arrow = "↓";
+                        arrowColor = "red";
+                    }
+
+                    progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                } else {
+                    console.warn(`Progress text not found: ${category}-text`);
+                }
+
+                // Store current progress for future reference
+                previousProgress[category] = { percentage };
+            });
+
+            // Save updated progress
+            localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
+        }
+
+        updateProgressBars();
+    });
+
+    function resetProgress() {
+    if (confirm("Are you sure you want to reset your progress? This action cannot be undone.")) {
+        localStorage.removeItem("testResults");
+        localStorage.removeItem("scoreHistory");
+        localStorage.removeItem("satProgress"); // Clear stored progress
+
+        // Reset progress bars
+        document.querySelectorAll(".progress-fill").forEach(bar => {
+            bar.style.width = "0%";
+        });
+
+        // Reset progress text
+        document.querySelectorAll(".progress-percentage").forEach(text => {
+            text.innerHTML = "0% <span class='arrow'>→</span>";
+        });
+
+        // Reset the chart (if applicable)
+        if (window.lastScoreBarChart) {
+            window.lastScoreBarChart.data.datasets.forEach(dataset => {
+                dataset.data = [0, 0, 0]; // Reset scores
+            });
+            window.lastScoreBarChart.update();
+        }
+
+        alert("Progress has been reset!");
+    }
+}
+    function showTests() {
+            document.getElementById('tests-container').classList.remove('hidden');
+            document.getElementById('lessons-container').classList.add('hidden');
+        }
+
+        function showLessons() {
+            document.getElementById('tests-container').classList.add('hidden');
+            document.getElementById('lessons-container').classList.remove('hidden');
+        }
+</script>
+    
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("User profile page loaded, updating score summaries");
+
+        function getScore(lessonId, subject) {
+            const score = localStorage.getItem(`${subject}-lessonScore-${lessonId}`) || "Not completed yet";
+            console.log(`Fetching ${subject}-lessonScore-${lessonId}: ${score}`);
+            return score;
+        }
+
+        // Update Algebra lesson scores (1–10)
+        for (let i = 1; i <= 10; i++) {
+            const scoreElement = document.getElementById(`algebra-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "algebra");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated algebra-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Algebra score summary element for lesson ${i} not found`);
+            }
+        }
+
+        // Update Geometry lesson scores (1–8)
+        for (let i = 1; i <= 8; i++) {
+            const scoreElement = document.getElementById(`geometry-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "geometry");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated geometry-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Geometry score summary element for lesson ${i} not found`);
+            }
+        }
+
+        // Update Command of Evidence lesson scores (1–4)
+        for (let i = 1; i <= 4; i++) {
+            const scoreElement = document.getElementById(`command-of-evidence-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "command-of-evidence");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated command-of-evidence-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Command of Evidence score summary element for lesson ${i} not found`);
+            }
+        }
+
+        for (let i = 1; i <= 5; i++) {
+          const scoreElement = document.getElementById(`central-ideas-and-detail-score-summary-${i}`);
+        if (scoreElement) {
+        const score = getScore(i, "central-ideas-and-detail");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated central-ideas-and-detail-score-summary-${i} with: ${score}`);
+             } else {
+                 console.warn(`Central Ideas and Detail score summary element for lesson ${i} not found`);
+            }
+        }
+        for (let i = 1; i <= 6; i++) {
+    const scoreElement = document.getElementById(`inferences-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "inferences");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated inferences-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Inferences score summary element for lesson ${i} not found`);
+    }
+        }
+        for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`words-in-context-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "words-in-context");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated words-in-context-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Words in Context score summary element for lesson ${i} not found`);
+    }
+}
+for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`text-structure-and-purpose-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "text-structure-and-purpose");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated text-structure-and-purpose-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Text Structure and Purpose score summary element for lesson ${i} not found`);
+    }
+}
+for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`cross-text-connections-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "cross-text-connections");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated cross-text-connections-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Cross Text Connections score summary element for lesson ${i} not found`);
+    }
+}
+
+for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`transitions-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "transitions");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated transitions-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Transitions score summary element for lesson ${i} not found`);
+    }
+}
+
+for (let i = 1; i <= 5; i++) {
+    const scoreElement = document.getElementById(`rhetorical-synthesis-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "rhetorical-synthesis");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated rhetorical-synthesis-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Rhetorical Synthesis score summary element for lesson ${i} not found`);
+    }
+}
+
+        for (let i = 1; i <= 4; i++) {
+            const scoreElement = document.getElementById(`boundaries-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "boundaries");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated boundaries-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Boundaries score summary element for lesson ${i} not found`);
+            }
+        }
+
+        for (let i = 1; i <= 8; i++) {
+    const scoreElement = document.getElementById(`advanced-math-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "advanced-math");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated advanced-math-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Advanced Math score summary element for lesson ${i} not found`);
+    }
+}
+
+        // Update Problem Solving and Data Analysis lesson scores (1–4)
+        for (let i = 1; i <= 8; i++) {
+    const scoreElement = document.getElementById(`problem-solving-data-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "problem-solving-data");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated problem-solving-data-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Problem Solving and Data Analysis score summary element for lesson ${i} not found`);
+    }
+}
+
+
+    });
+</script>
+    
+<div class="reset-container center">
+    <button class="resetBtn" onclick="resetProgress()">Reset Progress</button>
+</div>
+
+<div class="center">
+    <footer>
+        <div class="center">
+            <h2>Follow Us On</h2>
+        </div>
+        <div class="social-container">
+            <img src="Twitter.png" height="35px">
+            <img src="Insta.png" height="35px">
+            <img src="Reddit.png" height="35px">
+            <img src="YouTube.png" height="35px">
+            <img src="Tik Tok.png" height="35px">
+        </div>
+        <div>
+            <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
+        </div>
+    </footer>
+</div>
+    <!-- Load SAT Chart JavaScript (Move it here to ensure canvas exists first) -->
+<script src="scoreChart.js" defer></script>
+<script defer src="test-2.js"></script>
+<script src="test-2.js"></script>
+<script src="algebra-lessons.js"></script>
+<script src="theme-toggle.js"></script>
 </body>
 </html>
