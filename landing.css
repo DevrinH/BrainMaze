@@ -1868,3 +1868,59 @@ footer h3 {
   margin-top: 10px;
   margin-bottom: 100px; /* Space between reset button and footer */
 }
+
+/* Style for exam toggle buttons */
+.exam-toggle-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.exam-toggle-buttons {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.exam-toggle-buttons .button-28 {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s;
+}
+
+.exam-toggle-buttons .button-28.active {
+  background-color: #007bff; /* Blue to match typical active state */
+  color: white;
+}
+
+/* Ensure only one exam container is visible */
+#sat-container, #act-container, #ged-container {
+  display: none;
+}
+
+#sat-container:not(.hidden),
+#act-container:not(.hidden),
+#ged-container:not(.hidden) {
+  display: block;
+}
+
+/* Adjust test-lesson-buttons for consistency */
+.test-lesson-buttons .button-28 {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s;
+}
+
+.test-lesson-buttons .button-28.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Existing .hidden class (ensure it's defined) */
+.hidden {
+  display: none !important;
+}
