@@ -1822,7 +1822,45 @@ html[data-theme="dark"] body {
 }
 
 /* New styles to fix overlap */
+/* New styles to fix overlap */
 .reset-container {
   margin-top: 20px;
   margin-bottom: 40px; /* Space between reset button and footer */
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack children vertically */
+}
+
+footer {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--footer-bg); /* linear-gradient(#4b1c81, #c890fd) or #2a0e4a, #a76bd9 */
+  color: var(--footer-text); /* white or rgb(220, 220, 220) */
+  width: 100%;
+  text-align: center;
+}
+
+.social-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+footer h2 {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--footer-text);
+}
+
+footer h3 {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+  color: var(--footer-text);
 }
