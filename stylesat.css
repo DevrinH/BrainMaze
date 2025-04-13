@@ -1199,3 +1199,19 @@ h3 {
   margin: 20px 0;
   color: var(--text-color);
 }
+.mathapp {
+  flex: 1;
+  min-width: 48%;
+  max-width: 900px;
+  background-color:  var(--container-bg);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: none; /* Initially hidden */
+  overflow: hidden; /* Contain overflowing content */
+  text-align: center; /* Center intro content */
+  box-sizing: border-box; /* Include padding in width */
+  width: 95%;
+}
