@@ -24,7 +24,7 @@
   --button-bg-hover: #0056b3;
   --button-text: rgb(255, 255, 255);
   --center-text-color: rgb(255, 255, 255);
-  --overlay-text-bg: rgba(0, 0, 0, 0.5);
+  --overlay-text-bg: rgba(255, 255, 255, 0.5);
   --overlay-text-color: rgb(255, 255, 255);
   --container-bg: rgb(255, 255, 255);
   --container-shadow: rgba(0, 0, 0, 0.35);
