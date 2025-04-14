@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Question Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>    
     <link href="https://www.brainjelli.com/landing.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/4.4.0/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-chartjs-2@5.2.0/dist/index.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-simple-maps@3.0.0/dist/index.umd.min.js"></script>
 </head>
 <body class="bg-gray-100">
     <header> 
@@ -22,18 +25,19 @@
             </div>
         </div> 
     </header>
-
+<body class="bg-gray-100">
     <div id="root" class="container mx-auto p-6"></div>
 
     <script type="text/babel">
         const { useState, useEffect } = React;
+        const { Line } = window.ReactChartJS;
+        const { ComposableMap, Geographies, Geography } = window.ReactSimpleMaps;
 
-        // Sample answer data (simulated for demonstration)
+        // Sample answer data
         const answerData = {
             "inference": {
                 easy: {
                     "What does the passage suggest about Emma’s feelings?": { correct: 120, incorrect: 30 },
-                    // ... other questions
                 },
                 medium: {
                     "What does the passage suggest about Daniel's attitude toward his new job?": { correct: 100, incorrect: 50 },
@@ -250,6 +254,125 @@
             }
         };
 
+        // Estimated state data (proportional to population)
+        const stateData = [
+            { state: 'California', users: 840, percentage: 12 },
+            { state: 'Texas', users: 630, percentage: 9 },
+            { state: 'Florida', users: 490, percentage: 7 },
+            { state: 'New York', users: 420, percentage: 6 },
+            { state: 'Pennsylvania', users: 280, percentage: 4 },
+            { state: 'Others', users: 3340, percentage: 52 }
+        ];
+
+        // Line Graph Component
+        const LineGraph = () => {
+            const categories = Object.keys(answerData);
+            const interactions = categories.map(category => {
+                const difficulties = answerData[category];
+                return Object.values(difficulties).reduce((sum, diff) => 
+                    sum + Object.values(diff).reduce((s, q) => s + q.correct + q.incorrect, 0), 0);
+            });
+
+            const data = {
+                labels: categories.map(c => c.replace(/-/g, ' ')),
+                datasets: [{
+                    label: 'Total User Interactions',
+                    data: interactions,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: false,
+                    tension: 0.1
+                }]
+            };
+
+            const options = {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'User Interactions by Category' }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Number of Interactions' } },
+                    x: { title: { display: true, text: 'Category' } }
+                }
+            };
+
+            return (
+                <div className="bg-white rounded-lg shadow p-6 mb-6">
+                    <h2 className="text-xl font-bold mb-4">User Engagement Trend</h2>
+                    <Line data={data} options={options} />
+                </div>
+            );
+        };
+
+        // State Map Component
+        const StateMap = () => {
+            const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
+            const userData = {
+                "California": 840,
+                "Texas": 630,
+                "Florida": 490,
+                "New York": 420,
+                "Pennsylvania": 280
+            };
+
+            return (
+                <div className="bg-white rounded-lg shadow p-6 mb-6">
+                    <h2 className="text-xl font-bold mb-4">User Distribution by State</h2>
+                    <ComposableMap projection="geoAlbersUsa" width={600} height={400}>
+                        <Geographies geography={geoUrl}>
+                            {({ geographies }) =>
+                                geographies.map(geo => {
+                                    const state = geo.properties.name;
+                                    const users = userData[state] || 0;
+                                    const fillColor = users > 800 ? '#800000' :
+                                                     users > 600 ? '#B22222' :
+                                                     users > 400 ? '#CD5C5C' :
+                                                     users > 200 ? '#F08080' : '#FFE4E1';
+                                    return (
+                                        <Geography
+                                            key={geo.rsmKey}
+                                            geography={geo}
+                                            fill={fillColor}
+                                            stroke="#FFF"
+                                        />
+                                    );
+                                })
+                            }
+                        </Geographies>
+                    </ComposableMap>
+                </div>
+            );
+        };
+
+        // State Breakdown Table
+        const StateTable = () => {
+            return (
+                <div className="bg-white rounded-lg shadow p-6 mb-6">
+                    <h2 className="text-xl font-bold mb-4">User Breakdown by State</h2>
+                    <table className="w-full text-left">
+                        <thead>
+                            <tr className="bg-gray-200">
+                                <th className="p-2">State</th>
+                                <th className="p-2">Estimated Users</th>
+                                <th className="p-2">Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {stateData.map(({ state, users, percentage }) => (
+                                <tr key={state} className="border-b">
+                                    <td className="p-2">{state}</td>
+                                    <td className="p-2">{users}</td>
+                                    <td className="p-2">{percentage}%</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        };
+
+        // Existing Dashboard Components
         const CategoryView = ({ setView, setSelectedCategory }) => {
             const categories = Object.keys(answerData);
 
@@ -260,7 +383,7 @@
 
             return (
                 <div className="bg-white rounded-lg shadow p-6">
-                    <h1 className="text-2xl font-bold mb-4">Admin Dashboard: Category Overview</h1>
+                    <h1 className="text-2xl font-bold mb-4">Category Overview</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {categories.map(category => {
                             const totalCorrect = Object.values(answerData[category]).reduce((sum, diff) => 
@@ -347,13 +470,35 @@
             );
         };
 
+        // Main App Component
         const App = () => {
-            const [view, setView] = useState('category');
+            const [view, setView] = useState('overview');
             const [selectedCategory, setSelectedCategory] = useState(null);
             const [selectedDifficulty, setSelectedDifficulty] = useState(null);
 
             return (
                 <div>
+                    <nav className="bg-blue-600 text-white p-4 mb-6">
+                        <button 
+                            className="mr-4 hover:underline" 
+                            onClick={() => setView('overview')}
+                        >
+                            Overview
+                        </button>
+                        <button 
+                            className="mr-4 hover:underline" 
+                            onClick={() => setView('category')}
+                        >
+                            Categories
+                        </button>
+                    </nav>
+                    {view === 'overview' && (
+                        <div>
+                            <LineGraph />
+                            <StateMap />
+                            <StateTable />
+                        </div>
+                    )}
                     {view === 'category' && <CategoryView setView={setView} setSelectedCategory={setSelectedCategory} />}
                     {view === 'difficulty' && (
                         <DifficultyView 
