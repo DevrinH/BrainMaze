@@ -1065,6 +1065,7 @@ h3 {
   margin: 30px auto;
   overflow: hidden;
   width: 95%;
+  max-height: 2000px;
 }
 
 .passage-text {
