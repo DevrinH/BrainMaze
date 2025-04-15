@@ -1719,6 +1719,19 @@ h2 {
   margin: 30px auto;
   overflow: hidden;
 }
+.act-intro-container {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: var(--container-shadow) 0 5px 15px;
+  padding: 20px;
+  margin: 30px auto;
+  overflow: hidden;
+}
 
 #intro-message {
   font-size: 1.2em;
