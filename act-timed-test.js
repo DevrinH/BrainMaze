@@ -89,6 +89,19 @@ document.addEventListener("DOMContentLoaded", () => {
             difficulty: "medium",
             category: "production-of-writing"
         },
+        {
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. <mark>Their robot wasn’t perfect; glass sorting still lagged behind plastic.</mark> But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+            question: "What is the most effective way to combine the sentences 'Their robot wasn’t perfect; glass sorting still lagged behind plastic.' to improve flow?",
+            answers: [
+                { text: "A) Their robot wasn’t perfect, glass sorting still lagged behind plastic.", correct: false },
+                { text: "B) Although their robot wasn’t perfect, glass sorting still lagged behind plastic.", correct: false },
+                { text: "C) Their robot wasn’t perfect, for its glass sorting still lagged behind plastic.", correct: true },
+                { text: "D) Their robot wasn’t perfect because glass sorting still lagged behind plastic.", correct: false },
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "production-of-writing"
+        },
         
     ];
 
