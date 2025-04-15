@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+    function getTheme() {
+        // Check data-theme attribute
+        const dataTheme = document.documentElement.getAttribute("data-theme");
+        if (dataTheme) return dataTheme;
+
+        // Fallback: Check for 'dark' class on body
+        if (document.body.classList.contains("dark")) return "dark";
+
+        // Fallback: System preference
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark";
+        }
+
+        return "light";
+    }
+
     function updateScoreChart() {
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
 
@@ -18,29 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
         let selectedCompositeScores = [];
 
         if (totalCount <= 10) {
-            // Use all dates if 10 or fewer
             selectedDates = rawDates;
         } else {
-            // Always include first and last date
             selectedDates.push(rawDates[0]);
-
-            // Pick 8 evenly spaced dates (excluding first and last)
             let interval = Math.floor((totalCount - 2) / 8);
             for (let i = 1; i <= 8; i++) {
                 selectedDates.push(rawDates[i * interval]);
             }
-
-            // Include the last date
             selectedDates.push(rawDates[totalCount - 1]);
         }
 
-        // Format dates for display
         let dates = selectedDates.map(date => {
             let d = new Date(date + "T00:00:00");
             return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
         });
 
-        // Get corresponding scores
         selectedEnglishScores = selectedDates.map(date => scoreHistory[date]?.english ?? NaN);
         selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
         selectedReadingScores = selectedDates.map(date => scoreHistory[date]?.reading ?? NaN);
@@ -49,7 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let ctx = document.getElementById("actScoreChart").getContext("2d");
 
-        // Destroy existing chart if it exists
+        if (!ctx) {
+            console.error("Canvas element 'actScoreChart' not found.");
+            return;
+        }
+
         if (window.actScoreChart && typeof window.actScoreChart.destroy === "function") {
             window.actScoreChart.destroy();
         }
@@ -63,12 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedCompositeScores = [NaN];
         }
 
-        // Register ChartDataLabels plugin (if available)
         if (typeof ChartDataLabels !== "undefined") {
             Chart.register(ChartDataLabels);
+        } else {
+            console.warn("ChartDataLabels plugin not loaded.");
         }
 
-        // Create fading gradient for composite score fill
         function createFadingGradient(ctx) {
             let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.clientHeight);
             gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)");
@@ -79,9 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let compositeGradient = createFadingGradient(ctx);
 
-        // Determine text color based on theme
-        const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+        const currentTheme = getTheme();
         const textColor = currentTheme === "dark" ? "white" : "black";
+        console.log("Current theme:", currentTheme, "Text color:", textColor);
 
         window.actScoreChart = new Chart(ctx, {
             type: "line",
@@ -150,16 +162,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     x: {
                         ticks: {
                             color: textColor,
-                            font: { size: 14, weight: "bold" },
-                            maxRotation: 45,
-                            minRotation: 30,
-                            autoSkip: true
+                            font: { size: 14, weight: "bold" }
                         },
                         grid: {
                             drawTicks: true,
                             tickLength: 8,
                             tickWidth: 2,
-                            color: "black",
+                            color: textColor,
                             drawOnChartArea: false,
                             drawBorder: false
                         }
@@ -175,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             drawTicks: true,
                             tickLength: 8,
                             tickWidth: 2,
-                            color: "black",
+                            color: textColor,
                             drawOnChartArea: false,
                             drawBorder: false
                         }
@@ -241,7 +250,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleButton = document.querySelector(".theme-toggle");
     if (toggleButton) {
         toggleButton.addEventListener("click", () => {
-            setTimeout(updateScoreChart, 100);
+            console.log("Theme toggle clicked, updating chart...");
+            updateScoreChart();
         });
     }
+
+    // Listen for changes in system theme
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+        console.log("System theme changed, updating chart...");
+        updateScoreChart();
+    });
+
+    // Observe changes to data-theme attribute
+    const observer = new MutationObserver(() => {
+        console.log("data-theme attribute changed, updating chart...");
+        updateScoreChart();
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 });
