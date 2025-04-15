@@ -22,32 +22,193 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sample questions (replace with full question banks)
     const englishQuestions = [
-        {
-            passage: "When Sarah entered the old bookstore, dust motes floated in the sunlight streaming through cracked windows. Shelves groaned under the weight of forgotten novels. She traced a finger along a leather-bound spine, feeling a thrill at the thought of untold stories. Yet, a pang of sadness hit her, knowing many of these books might never be read again.",
-            question: "The passage suggests Sarah feels:",
-            answers: [
-                { text: "A) excitement tempered by regret.", correct: true },
-                { text: "B) fear of the bookstore’s condition.", correct: false },
-                { text: "C) indifference toward the books.", correct: false },
-                { text: "D) anger at the neglect of the store.", correct: false },
-            ],
-            type: "english",
-            difficulty: "easy",
-            category: "production-of-writing"
-        },
-        {
-            passage: "The team huddled in the lab, data streaming across the monitor. Years of research hinged on this moment. Dr. Ellis scanned the numbers, her pulse quickening. The results were unexpected, challenging every model they’d built. She exhaled slowly, torn between disbelief and the spark of discovery.",
-            question: "What does the passage imply about Dr. Ellis’s reaction?",
-            answers: [
-                { text: "A) She is skeptical yet intrigued by the findings.", correct: true },
-                { text: "B) She is certain the data is flawed.", correct: false },
-                { text: "C) She feels defeated by the results.", correct: false },
-                { text: "D) She is uninterested in the outcome.", correct: false },
-            ],
-            type: "english",
-            difficulty: "medium",
-            category: "production-of-writing"
-        },
+        [
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                questions: [
+                    {
+                        question: "Which of the following is the correct punctuation for the sentence beginning with 'Aisha, the team’s coder'?",
+                        answers: [
+                            { text: "A) Aisha the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                            { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: true },
+                            { text: "C) Aisha the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                            { text: "D) Aisha, the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "medium",
+                        category: "conventions-of-standard-english"
+                    },
+                    {
+                        question: "In the sentence 'Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem,' which word should replace 'addressing' to maintain proper verb tense consistency?",
+                        answers: [
+                            { text: "A) addressed", correct: true },
+                            { text: "B) addresses", correct: false },
+                            { text: "C) will address", correct: false },
+                            { text: "D) had addressed", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "medium",
+                        category: "conventions-of-standard-english"
+                    },
+                    {
+                        question: "Which of the following corrects the pronoun agreement error in the sentence 'The team knew the stakes: a win could fund a town-wide recycling program'?",
+                        answers: [
+                            { text: "A) The team knew their stakes: a win could fund a town-wide recycling program.", correct: false },
+                            { text: "B) The team knew its stakes: a win could fund a town-wide recycling program.", correct: true },
+                            { text: "C) The teams knew the stakes: a win could fund a town-wide recycling program.", correct: false },
+                            { text: "D) No change is needed.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "difficult",
+                        category: "conventions-of-standard-english"
+                    },
+                    {
+                        question: "In the sentence 'Leo, an engineering whiz, designed a claw that adjusted its grip based on material density,' which phrase correctly replaces 'based on' to improve clarity?",
+                        answers: [
+                            { text: "A) depending on", correct: true },
+                            { text: "B) because of", correct: false },
+                            { text: "C) in response to", correct: false },
+                            { text: "D) No change is needed.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "medium",
+                        category: "knowledge-of-language"
+                    },
+                    {
+                        question: "What is the most effective way to combine the sentences 'Their robot wasn’t perfect; glass sorting still lagged behind plastic.' to improve flow?",
+                        answers: [
+                            { text: "A) Their robot wasn’t perfect, glass sorting still lagged behind plastic.", correct: false },
+                            { text: "B) Although their robot wasn’t perfect, glass sorting still lagged behind plastic.", correct: false },
+                            { text: "C) Their robot wasn’t perfect, for its glass sorting still lagged behind plastic.", correct: true },
+                            { text: "D) Their robot wasn’t perfect because glass sorting still lagged behind plastic.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "difficult",
+                        category: "production-of-writing"
+                    },
+                    {
+                        question: "Which of the following revisions to the sentence 'Critics in the audience murmured—could a high school team really tackle such a complex issue?' best maintains the passage’s tone?",
+                        answers: [
+                            { text: "A) Critics in the audience whispered—could teenagers possibly solve such a tough problem?", correct: false },
+                            { text: "B) Skeptics in the crowd muttered—could a high school team truly address so intricate an issue?", correct: true },
+                            { text: "C) People in the audience grumbled—could kids really fix such a big mess?", correct: false },
+                            { text: "D) No change is needed.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "difficult",
+                        category: "knowledge-of-language"
+                    },
+                    {
+                        question: "In the sentence 'Early prototypes had faltered; one memorably scattered cans across the lab,' which punctuation mark should replace the semicolon to maintain proper sentence structure?",
+                        answers: [
+                            { text: "A) a comma", correct: true },
+                            { text: "B) a colon", correct: false },
+                            { text: "C) a period", correct: false },
+                            { text: "D) No change is needed.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "medium",
+                        category: "conventions-of-standard-english"
+                    },
+                    {
+                        question: "Which sentence would most effectively follow 'As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration' to emphasize the team’s persistence?",
+                        answers: [
+                            { text: "A) The judges began their deliberations.", correct: false },
+                            { text: "B) Leo packed up the equipment carefully.", correct: false },
+                            { text: "C) Undeterred, the team planned their next upgrades.", correct: true },
+                            { text: "D) The crowd dispersed slowly.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "difficult",
+                        category: "production-of-writing"
+                    },
+                    {
+                        question: "In the sentence 'Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates,' which word should be corrected for subject-verb agreement?",
+                        answers: [
+                            { text: "A) exchanged", correct: false },
+                            { text: "B) acknowledging", correct: false },
+                            { text: "C) No change is needed.", correct: true },
+                            { text: "D) scrapped", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "medium",
+                        category: "conventions-of-standard-english"
+                    },
+                    {
+                        question: "Which of the following revisions to the phrase 'a spark of innovation born from late-night pizza and stubborn hope' best enhances conciseness without losing meaning?",
+                        answers: [
+                            { text: "A) an innovation sparked by pizza and hope", correct: true },
+                            { text: "B) a spark from late-night pizza and hope", correct: false },
+                            { text: "C) innovation born from pizza and stubbornness", correct: false },
+                            { text: "D) No change is needed.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "difficult",
+                        category: "knowledge-of-language"
+                    },
+                    {
+                        question: "Which of the following sentences in the passage contains a misplaced modifier that needs correction?",
+                        answers: [
+                            { text: "A) For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code.", correct: false },
+                            { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                            { text: "C) Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm.", correct: false },
+                            { text: "D) None of the sentences contain a misplaced modifier.", correct: true }
+                        ],
+                        type: "english",
+                        difficulty: "very difficult",
+                        category: "conventions-of-standard-english"
+                    },
+                    {
+                        question: "Which transition phrase, if inserted before 'The judges, however, scribbled notes, their expressions unreadable,' would best clarify the contrast with the previous sentence?",
+                        answers: [
+                            { text: "A) By contrast", correct: true },
+                            { text: "B) In addition", correct: false },
+                            { text: "C) For example", correct: false },
+                            { text: "D) As a result", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "difficult",
+                        category: "production-of-writing"
+                    },
+                    {
+                        question: "In the sentence 'The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves,' which phrase could replace 'despite her nerves' to maintain meaning and improve precision?",
+                        answers: [
+                            { text: "A) though she was nervous", correct: true },
+                            { text: "B) because of her confidence", correct: false },
+                            { text: "C) while feeling calm", correct: false },
+                            { text: "D) No change is needed.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "difficult",
+                        category: "conventions-of-standard-english"
+                    },
+                    {
+                        question: "Which of the following revisions to the sentence 'Yet each failure fueled their resolve' would best emphasize the team’s resilience while maintaining the passage’s narrative flow?",
+                        answers: [
+                            { text: "A) Still, every setback strengthened their determination.", correct: true },
+                            { text: "B) However, each failure made them work harder.", correct: false },
+                            { text: "C) But failures pushed them to try again.", correct: false },
+                            { text: "D) No change is needed.", correct: false }
+                        ],
+                        type: "english",
+                        difficulty: "very difficult",
+                        category: "production-of-writing"
+                    },
+                    {
+                        question: "Which sentence in the passage could be revised to correct a subtle error in parallel structure?",
+                        answers: [
+                            { text: "A) For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code.", correct: false },
+                            { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                            { text: "C) Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem.", correct: false },
+                            { text: "D) None of the sentences require revision for parallel structure.", correct: true }
+                        ],
+                        type: "english",
+                        difficulty: "very difficult",
+                        category: "conventions-of-standard-english"
+                    }
+                ]
+            }
+        ]
     ];
 
     // Placeholder question arrays (add actual questions)
