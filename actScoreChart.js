@@ -47,11 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedScienceScores = selectedDates.map(date => scoreHistory[date]?.science ?? NaN);
         selectedCompositeScores = selectedDates.map(date => scoreHistory[date]?.composite ?? NaN);
 
-        let ctx = document.getElementById("scoreChart").getContext("2d");
+        let ctx = document.getElementById("actScoreChart").getContext("2d");
 
         // Destroy existing chart if it exists
-        if (window.scoreChart && typeof window.scoreChart.destroy === "function") {
-            window.scoreChart.destroy();
+        if (window.actScoreChart && typeof window.actScoreChart.destroy === "function") {
+            window.actScoreChart.destroy();
         }
 
         if (dates.length === 0) {
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedCompositeScores = [NaN];
         }
 
-        // Register ChartDataLabels plugin (ensure it's included in your HTML)
+        // Register ChartDataLabels plugin (if available)
         if (typeof ChartDataLabels !== "undefined") {
             Chart.register(ChartDataLabels);
         }
@@ -71,9 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Create fading gradient for composite score fill
         function createFadingGradient(ctx) {
             let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.clientHeight);
-            gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
-            gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)"); // Quick fade
-            gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)"); // Fully transparent
+            gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)");
+            gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)");
+            gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)");
             return gradient;
         }
 
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
         const textColor = currentTheme === "dark" ? "white" : "black";
 
-        window.scoreChart = new Chart(ctx, {
+        window.actScoreChart = new Chart(ctx, {
             type: "line",
             data: {
                 labels: dates,
@@ -199,13 +199,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         align: function (context) {
                             let index = context.dataIndex;
                             let datasetIndex = context.datasetIndex;
-                            let englishValue = selectedEnglishScores[index];
-                            let mathValue = selectedMathScores[index];
-                            let readingValue = selectedReadingScores[index];
-                            let scienceValue = selectedScienceScores[index];
-                            let compositeValue = selectedCompositeScores[index];
+                            let englishValue = selectedEnglishScores[index] || Infinity;
+                            let mathValue = selectedMathScores[index] || Infinity;
+                            let readingValue = selectedReadingScores[index] || Infinity;
+                            let scienceValue = selectedScienceScores[index] || Infinity;
 
-                            // Position labels to avoid overlap
                             if (datasetIndex === 1 && englishValue < Math.min(mathValue, readingValue, scienceValue)) return "bottom";
                             if (datasetIndex === 2 && mathValue < Math.min(englishValue, readingValue, scienceValue)) return "bottom";
                             if (datasetIndex === 3 && readingValue < Math.min(englishValue, mathValue, scienceValue)) return "bottom";
@@ -215,10 +213,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         anchor: function (context) {
                             let index = context.dataIndex;
                             let datasetIndex = context.datasetIndex;
-                            let englishValue = selectedEnglishScores[index];
-                            let mathValue = selectedMathScores[index];
-                            let readingValue = selectedReadingScores[index];
-                            let scienceValue = selectedScienceScores[index];
+                            let englishValue = selectedEnglishScores[index] || Infinity;
+                            let mathValue = selectedMathScores[index] || Infinity;
+                            let readingValue = selectedReadingScores[index] || Infinity;
+                            let scienceValue = selectedScienceScores[index] || Infinity;
 
                             if (datasetIndex === 1 && englishValue < Math.min(mathValue, readingValue, scienceValue)) return "start";
                             if (datasetIndex === 2 && mathValue < Math.min(englishValue, readingValue, scienceValue)) return "start";
@@ -232,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             },
-            plugins: [ChartDataLabels]
+            plugins: typeof ChartDataLabels !== "undefined" ? [ChartDataLabels] : []
         });
     }
 
@@ -243,7 +241,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleButton = document.querySelector(".theme-toggle");
     if (toggleButton) {
         toggleButton.addEventListener("click", () => {
-            // Delay to allow theme attribute to update
             setTimeout(updateScoreChart, 100);
         });
     }
