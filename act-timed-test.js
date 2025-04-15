@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "production-of-writing"
         },
         {
-            passage: "The team huddled in the lab, data streaming across the monitor. Years of research hinged on this moment. Dr. Ellis scanned the numbers, her pulse quickening. The results were unexpected, challenging every model they’d built. She exhaled slowly, torn between disbelief and the spark of discovery.",
-            question: "What does the passage imply about Dr. Ellis’s reaction?",
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. <mark>Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem.</mark> Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+            question: "In the sentence 'Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem,' which word should replace 'addressing' to maintain proper verb tense consistency?",
             answers: [
-                { text: "A) She is skeptical yet intrigued by the findings.", correct: true },
-                { text: "B) She is certain the data is flawed.", correct: false },
-                { text: "C) She feels defeated by the results.", correct: false },
-                { text: "D) She is uninterested in the outcome.", correct: false },
+                { text: "A) addressed", correct: true },
+                { text: "B) addresses", correct: false },
+                { text: "C) will address", correct: false },
+                { text: "D) had addressed", correct: false },
             ],
             type: "english",
             difficulty: "medium",
