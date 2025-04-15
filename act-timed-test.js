@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "english",
             difficulty: "easy",
-            category: "reading-comprehension"
+            category: "production-of-writing"
         },
         {
             passage: "The team huddled in the lab, data streaming across the monitor. Years of research hinged on this moment. Dr. Ellis scanned the numbers, her pulse quickening. The results were unexpected, challenging every model they’d built. She exhaled slowly, torn between disbelief and the spark of discovery.",
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "english",
             difficulty: "medium",
-            category: "reading-comprehension"
+            category: "production-of-writing"
         },
     ];
 
