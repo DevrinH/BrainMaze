@@ -1679,30 +1679,58 @@
     });
 
     function resetProgress() {
-    if (confirm("Are you sure you want to reset your progress? This action cannot be undone.")) {
+    const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
+    let storageKey, progressPrefix;
+
+    if (activeExam === "line-chart-sat") {
+        storageKey = "satProgress";
+        progressPrefix = ["command-of-evidence", "central-ideas", "inferences", "words-in-context", 
+                          "text-structure-and-purpose", "cross-text-connections", "transitions", 
+                          "rhetorical-synthesis", "boundaries", "algebra", "advanced-math", 
+                          "problem-solving", "geometry"];
+    } else if (activeExam === "line-chart-act") {
+        storageKey = "actProgress";
+        progressPrefix = ["act-english", "act-math", "act-reading", "act-science"];
+    } else if (activeExam === "line-chart-ged") {
+        storageKey = "gedProgress";
+        progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
+    } else {
+        alert("No exam selected!");
+        return;
+    }
+
+    if (confirm("Are you sure you want to reset your progress for this exam? This action cannot be undone.")) {
+        // Remove specific exam progress from localStorage
+        localStorage.removeItem(storageKey);
         localStorage.removeItem("testResults");
         localStorage.removeItem("scoreHistory");
-        localStorage.removeItem("satProgress"); // Clear stored progress
 
-        // Reset progress bars
-        document.querySelectorAll(".progress-fill").forEach(bar => {
-            bar.style.width = "0%";
+        // Reset progress bars and text for the active exam
+        progressPrefix.forEach(prefix => {
+            const bar = document.getElementById(`${prefix}-bar`);
+            const text = document.getElementById(`${prefix}-text`);
+            if (bar) bar.style.width = "0%";
+            if (text) text.innerHTML = "0% <span class='arrow'>→</span>";
         });
 
-        // Reset progress text
-        document.querySelectorAll(".progress-percentage").forEach(text => {
-            text.innerHTML = "0% <span class='arrow'>→</span>";
-        });
-
-        // Reset the chart (if applicable)
-        if (window.lastScoreBarChart) {
-            window.lastScoreBarChart.data.datasets.forEach(dataset => {
-                dataset.data = [0, 0, 0]; // Reset scores
-            });
-            window.lastScoreBarChart.update();
+        // Reset the chart for the active exam (if applicable)
+        let chart;
+        if (activeExam === "line-chart-sat" && window.lastScoreBarChart) {
+            chart = window.lastScoreBarChart;
+        } else if (activeExam === "line-chart-act" && window.actLastScoreBarChart) {
+            chart = window.actLastScoreBarChart;
+        } else if (activeExam === "line-chart-ged" && window.gedLastScoreBarChart) {
+            chart = window.gedLastScoreBarChart;
         }
 
-        alert("Progress has been reset!");
+        if (chart) {
+            chart.data.datasets.forEach(dataset => {
+                dataset.data = Array(dataset.data.length).fill(0); // Reset scores
+            });
+            chart.update();
+        }
+
+        alert("Progress for this exam has been reset!");
     }
 }
     function showTests() {
