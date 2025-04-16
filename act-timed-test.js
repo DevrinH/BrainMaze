@@ -23,204 +23,404 @@ document.addEventListener("DOMContentLoaded", () => {
     // Sample questions (replace with full question banks)
     const englishQuestions = [
         ///Passage 1
+        
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?",
+                answers: [
+                    { text: "A) Aisha the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                    { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: true },
+                    { text: "C) Aisha the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                    { text: "D) Aisha, the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false }
+                ],
+                type: "english",
+                difficulty: "easy",
+                category: "conventions-of-standard-english"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which word replaces 'addressing' in 'Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem' to maintain verb tense consistency?",
+                answers: [
+                    { text: "A) addressed", correct: true },
+                    { text: "B) addresses", correct: false },
+                    { text: "C) will address", correct: false },
+                    { text: "D) had addressed", correct: false }
+                ],
+                type: "english",
+                difficulty: "easy",
+                category: "conventions-of-standard-english"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which pronoun corrects the agreement error in 'The team knew the stakes: a win could fund a town-wide recycling program'?",
+                answers: [
+                    { text: "A) The team knew their stakes: a win could fund a town-wide recycling program.", correct: false },
+                    { text: "B) The team knew its stakes: a win could fund a town-wide recycling program.", correct: true },
+                    { text: "C) The teams knew the stakes: a win could fund a town-wide recycling program.", correct: false },
+                    { text: "D) No change is needed.", correct: false }
+                ],
+                type: "english",
+                difficulty: "medium",
+                category: "conventions-of-standard-english"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which phrase replaces 'based on' in 'Leo, an engineering whiz, designed a claw that adjusted its grip based on material density' to improve clarity?",
+                answers: [
+                    { text: "A) depending on", correct: true },
+                    { text: "B) because of", correct: false },
+                    { text: "C) in response to", correct: false },
+                    { text: "D) No change is needed.", correct: false }
+                ],
+                type: "english",
+                difficulty: "easy",
+                category: "knowledge-of-language"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which revision best combines 'Their robot wasn’t perfect; glass sorting still lagged behind plastic' to improve flow?",
+                answers: [
+                    { text: "A) Their robot wasn’t perfect, with glass sorting lagging behind plastic.", correct: false },
+                    { text: "B) Their robot wasn’t perfect, as glass sorting still lagged behind plastic.", correct: true },
+                    { text: "C) Although their robot wasn’t perfect, glass sorting lagged behind plastic.", correct: false },
+                    { text: "D) Their robot wasn’t perfect because glass sorting lagged behind plastic.", correct: false }
+                ],
+                type: "english",
+                difficulty: "medium",
+                category: "production-of-writing"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which revision to 'Critics in the audience murmured—could a high school team really tackle such a complex issue?' best maintains the passage’s tone?",
+                answers: [
+                    { text: "A) Critics in the audience whispered—could teenagers possibly solve such a tough problem?", correct: false },
+                    { text: "B) Skeptics in the crowd muttered—could a high school team truly address so intricate an issue?", correct: false },
+                    { text: "C) Observers in the audience murmured—could students really handle such a complex challenge?", correct: true },
+                    { text: "D) No change is needed.", correct: false }
+                ],
+                type: "english",
+                difficulty: "medium",
+                category: "knowledge-of-language"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which punctuation corrects 'Early prototypes had faltered; one memorably scattered cans across the lab'?",
+                answers: [
+                    { text: "A) Early prototypes had faltered, one memorably scattered cans across the lab.", correct: true },
+                    { text: "B) Early prototypes had faltered: one memorably scattered cans across the lab.", correct: false },
+                    { text: "C) Early prototypes had faltered—one memorably scattered cans across the lab.", correct: false },
+                    { text: "D) No change is needed.", correct: false }
+                ],
+                type: "english",
+                difficulty: "easy",
+                category: "conventions-of-standard-english"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which sentence best follows 'As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration' to emphasize persistence?",
+                answers: [
+                    { text: "A) The judges began their deliberations.", correct: false },
+                    { text: "B) Leo packed up the equipment carefully.", correct: false },
+                    { text: "C) Undeterred, the team planned their next upgrades.", correct: true },
+                    { text: "D) The crowd dispersed slowly.", correct: false }
+                ],
+                type: "english",
+                difficulty: "medium",
+                category: "production-of-writing"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which revision corrects the verb tense in 'Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates'?",
+                answers: [
+                    { text: "A) Aisha and Leo had exchanged a glance, silently acknowledging months of scrapped designs and heated debates.", correct: true },
+                    { text: "B) Aisha and Leo exchange a glance, silently acknowledging months of scrapped designs and heated debates.", correct: false },
+                    { text: "C) Aisha and Leo exchanging a glance, silently acknowledging months of scrapped designs and heated debates.", correct: false },
+                    { text: "D) No change is needed.", correct: false }
+                ],
+                type: "english",
+                difficulty: "medium",
+                category: "conventions-of-standard-english"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which revision to 'a spark of innovation born from late-night pizza and stubborn hope' enhances conciseness?",
+                answers: [
+                    { text: "A) an innovation sparked by pizza and hope", correct: false },
+                    { text: "B) a spark from late-night pizza and hope", correct: false },
+                    { text: "C) innovation born from pizza and resolve", correct: true },
+                    { text: "D) No change is needed.", correct: false }
+                ],
+                type: "english",
+                difficulty: "medium",
+                category: "knowledge-of-language"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which sentence contains a misplaced modifier?",
+                answers: [
+                    { text: "A) For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code.", correct: false },
+                    { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                    { text: "C) Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm.", correct: false },
+                    { text: "D) None of the sentences contain a misplaced modifier.", correct: true }
+                ],
+                type: "english",
+                difficulty: "hard",
+                category: "conventions-of-standard-english"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which transition phrase, inserted before 'The judges, however, scribbled notes, their expressions unreadable,' clarifies the contrast?",
+                answers: [
+                    { text: "A) Meanwhile", correct: false },
+                    { text: "B) In contrast", correct: true },
+                    { text: "C) For example", correct: false },
+                    { text: "D) As a result", correct: false }
+                ],
+                type: "english",
+                difficulty: "medium",
+                category: "production-of-writing"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which phrase replaces 'despite her nerves' in 'The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves' for precision?",
+                answers: [
+                    { text: "A) though she was nervous", correct: false },
+                    { text: "B) despite her anxiety", correct: false },
+                    { text: "C) though anxious", correct: true },
+                    { text: "D) No change is needed.", correct: false }
+                ],
+                type: "english",
+                difficulty: "medium",
+                category: "knowledge-of-language"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which revision to 'Yet each failure fueled their resolve' emphasizes resilience?",
+                answers: [
+                    { text: "A) Still, every setback strengthened their determination.", correct: false },
+                    { text: "B) Yet each failure bolstered their tenacity.", correct: true },
+                    { text: "C) But failures pushed them to try again.", correct: false },
+                    { text: "D) No change is needed.", correct: false }
+                ],
+                type: "english",
+                difficulty: "hard",
+                category: "production-of-writing"
+            },
+            {
+                passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+                question: "Which sentence has an error in parallel structure?",
+                answers: [
+                    { text: "A) For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code.", correct: false },
+                    { text: "B) Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates.", correct: false },
+                    { text: "C) Their robot wasn’t perfect; glass sorting still lagged behind plastic.", correct: false },
+                    { text: "D) None of the sentences have an error in parallel structure.", correct: true }
+                ],
+                type: "english",
+                difficulty: "hard",
+                category: "conventions-of-standard-english"
+            },
+        
+    ///Passage 2
+    
         {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which of the following is the correct punctuation for the sentence beginning with 'Aisha, the team’s coder?",
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?",
             answers: [
-                { text: "A) Aisha the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: true },
-                { text: "C) Aisha the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "D) Aisha, the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                { text: "A) The plan promised faster commutes but at a steep cost, fares would rise, hitting low-income riders hardest.", correct: false },
+                { text: "B) The plan promised faster commutes, but at a steep cost: fares would rise, hitting low-income riders hardest.", correct: true },
+                { text: "C) The plan promised faster commutes; but at a steep cost: fares would rise, hitting low-income riders hardest.", correct: false },
+                { text: "D) No change is needed.", correct: false }
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "conventions-of-standard-english"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "In the sentence 'Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class,' which phrase corrects the parallel structure?",
+            answers: [
+                { text: "A) a single mother who juggled two jobs, a student who raced to class", correct: false },
+                { text: "B) a single mother juggling two jobs, a student who was racing to class", correct: false },
+                { text: "C) a single mother who juggles two jobs, a student who races to class", correct: true },
+                { text: "D) No change is needed.", correct: false }
+            ],
+            type: "english",
+            difficulty: "difficult",
+            category: "conventions-of-standard-english"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which word should replace 'synthesizing' in 'Maya tapped her pen, synthesizing ideas' to improve clarity?",
+            answers: [
+                { text: "A) combining", correct: false },
+                { text: "B) integrating", correct: true },
+                { text: "C) analyzing", correct: false },
+                { text: "D) No change is needed.", correct: false }
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "knowledge-of-language"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which sentence best follows 'The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence' to emphasize Maya’s dedication?",
+            answers: [
+                { text: "A) The office lights dimmed as she worked on.", correct: false },
+                { text: "B) The others left for home quickly.", correct: false },
+                { text: "C) She stayed late, perfecting each word with care.", correct: true },
+                { text: "D) Jamal offered to help with edits.", correct: false }
+            ],
+            type: "english",
+            difficulty: "difficult",
+            category: "production-of-writing"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "In the sentence 'Others hesitated, wary of alienating city officials,' which pronoun correctly replaces 'Others' for agreement with the subject?",
+            answers: [
+                { text: "A) Some", correct: false },
+                { text: "B) Certain members", correct: true },
+                { text: "C) Everyone", correct: false },
+                { text: "D) No change is needed.", correct: false }
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "conventions-of-standard-english"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which revision to 'The piece wasn’t flawless; it sidestepped some thorny budget details' best improves conciseness?",
+            answers: [
+                { text: "A) Though not flawless, the piece avoided some complex budget issues.", correct: false },
+                { text: "B) The piece, not perfect, skipped budget details.", correct: true },
+                { text: "C) Not flawless, it ignored thorny budget problems.", correct: false },
+                { text: "D) No change is needed.", correct: false }
+            ],
+            type: "english",
+            difficulty: "difficult",
+            category: "knowledge-of-language"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which punctuation corrects the sentence 'The room crackled with debate, voices rising over cold coffee'?",
+            answers: [
+                { text: "A) The room crackled with debate; voices rising over cold coffee.", correct: false },
+                { text: "B) The room crackled with debate: voices rising over cold coffee.", correct: false },
+                { text: "C) The room crackled with debate, with voices rising over cold coffee.", correct: true },
+                { text: "D) No change is needed.", correct: false }
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "conventions-of-standard-english"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which transition phrase, inserted before 'Nods circled the table, though Jamal pushed for sharper phrasing,' best clarifies the contrast?",
+            answers: [
+                { text: "A) Meanwhile", correct: false },
+                { text: "B) Despite this", correct: true },
+                { text: "C) For instance", correct: false },
+                { text: "D) In addition", correct: false }
+            ],
+            type: "english",
+            difficulty: "difficult",
+            category: "production-of-writing"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which revision to 'Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes' corrects a subtle verb tense error?",
+            answers: [
+                { text: "A) Her colleague, Jamal, argues for a bold stance, urging the board to call for subsidies to offset fare hikes.", correct: false },
+                { text: "B) Her colleague, Jamal, had argued for a bold stance, urging the board to call for subsidies to offset fare hikes.", correct: false },
+                { text: "C) Her colleague, Jamal, arguing for a bold stance, urged the board to call for subsidies to offset fare hikes.", correct: false },
+                { text: "D) No change is needed.", correct: true }
+            ],
+            type: "english",
+            difficulty: "difficult",
+            category: "conventions-of-standard-english"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which phrase in 'It called for compromise—targeted fare relief funded by reallocated taxes' best replaces 'funded by' to enhance precision?",
+            answers: [
+                { text: "A) supported through", correct: false },
+                { text: "B) paid with", correct: false },
+                { text: "C) financed by", correct: true },
+                { text: "D) No change is needed.", correct: false }
+            ],
+            type: "english",
+            difficulty: "difficult",
+            category: "knowledge-of-language"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which sentence contains a misplaced modifier requiring correction?",
+            answers: [
+                { text: "A) Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts.", correct: false },
+                { text: "B) The board’s challenge was balance: critique the plan’s flaws without dismissing its potential.", correct: false },
+                { text: "C) As midnight neared, Maya read a paragraph aloud, her tone measured but firm.", correct: false },
+                { text: "D) None of the sentences contain a misplaced modifier.", correct: true }
+            ],
+            type: "english",
+            difficulty: "very difficult",
+            category: "conventions-of-standard-english"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which revision to 'The plan promised faster commutes but at a steep cost' best emphasizes the trade-off while maintaining tone?",
+            answers: [
+                { text: "A) The plan offered quicker commutes, yet its high cost burdened many.", correct: true },
+                { text: "B) The plan guaranteed fast commutes, but fares soared.", correct: false },
+                { text: "C) The plan sped up commutes at an unfair price.", correct: false },
+                { text: "D) No change is needed.", correct: false }
+            ],
+            type: "english",
+            difficulty: "very difficult",
+            category: "production-of-writing"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "In 'The editorial board gathered in a cramped office, papers strewn across the table,' which verb corrects the participle 'strewn' for agreement?",
+            answers: [
+                { text: "A) scattered", correct: false },
+                { text: "B) strewed", correct: false },
+                { text: "C) piled", correct: false },
+                { text: "D) No change is needed.", correct: true }
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "conventions-of-standard-english"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which sentence best introduces the passage to clarify the board’s purpose?",
+            answers: [
+                { text: "A) The editorial board met to write an influential op-ed on the city’s transit plan.", correct: false },
+                { text: "B) The city’s transit overhaul sparked heated discussions.", correct: false },
+                { text: "C) Maya Patel led the editorial board with confidence.", correct: false },
+                { text: "D) The board convened to draft a compelling op-ed addressing the transit proposal.", correct: true }
+            ],
+            type: "english",
+            difficulty: "difficult",
+            category: "production-of-writing"
+        },
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which sentence contains an error in parallel structure?",
+            answers: [
+                { text: "A) Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts.", correct: false },
+                { text: "B) Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class.", correct: false },
+                { text: "C) The board’s challenge was balance: critique the plan’s flaws without dismissing its potential.", correct: false },
+                { text: "D) None of the sentences contain an error in parallel structure.", correct: true }
+            ],
+            type: "english",
+            difficulty: "very difficult",
+            category: "conventions-of-standard-english"
+        },
 
-            ],
-            type: "english",
-            difficulty: "easy",
-            category: "conventions-of-standard-english"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. <mark>Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem.</mark> Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "In the sentence 'Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem,' which word should replace 'addressing' to maintain proper verb tense consistency?",
-            answers: [
-                { text: "A) addressed", correct: true },
-                { text: "B) addresses", correct: false },
-                { text: "C) will address", correct: false },
-                { text: "D) had addressed", correct: false },
-            ],
-            type: "english",
-            difficulty: "easy",
-            category: "conventions-of-standard-english"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. <mark>The team knew the stakes: a win could fund a town-wide recycling program.</mark> As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which of the following corrects the pronoun agreement error in the sentence 'The team knew the stakes: a win could fund a town-wide recycling program'?",
-            answers: [
-                { text: "A) The team knew their stakes: a win could fund a town-wide recycling program.", correct: false },
-                { text: "B) The team knew its stakes: a win could fund a town-wide recycling program.", correct: true },
-                { text: "C) The teams knew the stakes: a win could fund a town-wide recycling program.", correct: false },
-                { text: "D) No change is needed.", correct: false },
-            ],
-            type: "english",
-            difficulty: "medium",
-            category: "conventions-of-standard-english"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. <mark>Leo, an engineering whiz, designed a claw that adjusted its grip based on material density.</mark> Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "In the sentence 'Leo, an engineering whiz, designed a claw that adjusted its grip based on material density,' which phrase correctly replaces 'based on' to improve clarity?",
-            answers: [
-                { text: "A) depending on", correct: true },
-                { text: "B) because of", correct: false },
-                { text: "C) in response to", correct: false },
-                { text: "D) No change is needed.", correct: false },
-            ],
-            type: "english",
-            difficulty: "easy",
-            category: "knowledge-of-language"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. <mark>Their robot wasn’t perfect; glass sorting still lagged behind plastic.</mark> But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "What is the most effective way to combine the sentences 'Their robot wasn’t perfect; glass sorting still lagged behind plastic.' to improve flow?",
-            answers: [
-                { text: "A) Their robot wasn’t perfect, glass sorting still lagged behind plastic.", correct: false },
-                { text: "B) Although their robot wasn’t perfect, glass sorting still lagged behind plastic.", correct: false },
-                { text: "C) Their robot wasn’t perfect, for its glass sorting still lagged behind plastic.", correct: true },
-                { text: "D) Their robot wasn’t perfect because glass sorting still lagged behind plastic.", correct: false },
-            ],
-            type: "english",
-            difficulty: "medium",
-            category: "production-of-writing"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. <mark>Critics in the audience murmured—could a high school team really tackle such a complex issue?</mark> The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which of the following revisions to the sentence 'Critics in the audience murmured—could a high school team really tackle such a complex issue?' best maintains the passage’s tone?",
-            answers: [
-                { text: "A) Critics in the audience whispered—could teenagers possibly solve such a tough problem?", correct: false },
-                { text: "B) Skeptics in the crowd muttered—could a high school team truly address so intricate an issue?", correct: true },
-                { text: "C) People in the audience grumbled—could kids really fix such a big mess?", correct: false },
-                { text: "D) No change is needed.", correct: false },
-            ],
-            type: "english",
-            difficulty: "medium",
-            category: "knowledge-of-language"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. <mark>Early prototypes had faltered; one memorably scattered cans across the lab.</mark> Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "In the sentence 'Early prototypes had faltered; one memorably scattered cans across the lab,' which punctuation mark should replace the semicolon to maintain proper sentence structure?",
-            answers: [
-                { text: "A) a comma", correct: true },
-                { text: "B) a colon", correct: false },
-                { text: "C) a period", correct: false },
-                { text: "D) No change is needed.", correct: false },
-            ],
-            type: "english",
-            difficulty: "easy",
-            category: "conventions-of-standard-english"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. <mark>As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration.</mark> Progress, she thought, was messy but worth it.",
-            question: "Which sentence would most effectively follow 'As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration' to emphasize the team’s persistence?",
-            answers: [
-                { text: "A) The judges began their deliberations.", correct: false },
-                { text: "B) Leo packed up the equipment carefully.", correct: false },
-                { text: "C) Undeterred, the team planned their next upgrades.", correct: true },
-                { text: "D) The crowd dispersed slowly.", correct: false },
-            ],
-            type: "english",
-            difficulty: "medium",
-            category: "production-of-writing"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <mark>Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates.</mark> Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "In the sentence 'Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates,' which word should be corrected for subject-verb agreement?",
-            answers: [
-                { text: "A) exchanged", correct: false },
-                { text: "B) acknowledging", correct: false },
-                { text: "C) No change is needed.", correct: true },
-                { text: "D) scrapped", correct: false },
-            ],
-            type: "english",
-            difficulty: "easy",
-            category: "conventions-of-standard-english"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start,<mark> a spark of innovation born from late-night pizza and stubborn hope.</mark> The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which of the following revisions to the phrase 'a spark of innovation born from late-night pizza and stubborn hope' best enhances conciseness without losing meaning?",
-            answers: [
-                { text: "A) an innovation sparked by pizza and hope", correct: true },
-                { text: "B) a spark from late-night pizza and hope", correct: false },
-                { text: "C) innovation born from pizza and stubbornness", correct: false },
-                { text: "D) No change is needed.", correct: false },
-            ],
-            type: "english",
-            difficulty: "medium",
-            category: "knowledge-of-language"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which of the following sentences in the passage contains a misplaced modifier that needs correction?",
-            answers: [
-                { text: "A) For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code.", correct: false },
-                { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "C) Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm.", correct: false },
-                { text: "D) None of the sentences contain a misplaced modifier.", correct: true },
-            ],
-            type: "english",
-            difficulty: "hard",
-            category: "conventions-of-standard-english"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which transition phrase, if inserted before 'The judges, however, scribbled notes, their expressions unreadable,' would best clarify the contrast with the previous sentence?",
-            answers: [
-                { text: "A) By contrast", correct: true },
-                { text: "B) In addition", correct: false },
-                { text: "C) For example", correct: false },
-                { text: "D) As a result", correct: false },
-            ],
-            type: "english",
-            difficulty: "medium",
-            category: "production-of-writing"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. <mark>The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves.</mark> Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "In the sentence 'The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves,' which phrase could replace 'despite her nerves' to maintain meaning and improve precision?",
-            answers: [
-                { text: "A) though she was nervous", correct: true },
-                { text: "B) because of her confidence", correct: false },
-                { text: "C) while feeling calm", correct: false },
-                { text: "D) No change is needed.", correct: false },
-            ],
-            type: "english",
-            difficulty: "medium",
-            category: "conventions-of-standard-english"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which of the following revisions to the sentence 'Yet each failure fueled their resolve' would best emphasize the team’s resilience while maintaining the passage’s narrative flow?",
-            answers: [
-                { text: "A) Still, every setback strengthened their determination.", correct: true },
-                { text: "B) However, each failure made them work harder.", correct: false },
-                { text: "C) But failures pushed them to try again.", correct: false },
-                { text: "D) No change is needed.", correct: false },
-            ],
-            type: "english",
-            difficulty: "hard",
-            category: "production-of-writing"
-        },
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which sentence in the passage could be revised to correct a subtle error in parallel structure?",
-            answers: [
-                { text: "A) For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code.", correct: false },
-                { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "C) Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem.", correct: false },
-                { text: "D) None of the sentences require revision for parallel structure.", correct: true },
-            ],
-            type: "english",
-            difficulty: "hard",
-            category: "conventions-of-standard-english"
-        },
+        
 
-            ///Passage 3
+    ///Passage 3
             {
                 passage: "The science fair buzzed with energy, booths overflowing with projects. At one table, sophomore Elena Ortiz adjusted her solar-powered water purifier. Months of tinkering had led to this moment—her chance to address the town’s water quality issues. Elena had pored over chemical data, her notebook filled with scribbled equations. Her device, a sleek cylinder, filtered contaminants using UV light and a custom membrane. Early tests were promising, but scaling up proved tricky; one prototype had leaked during a demo. Undaunted, Elena refined her design, balancing cost and efficiency. Her partner, Samir, a senior, handled the presentation, his calm voice detailing the purifier’s mechanics. Judges circled, asking pointed questions about scalability and maintenance. Elena answered confidently, though her hands fidgeted with a screwdriver. The purifier wasn’t perfect—cloudy days reduced its output—but it was a leap forward. Spectators whispered about its potential, some skeptical of a student solving such a complex problem. Elena ignored the murmurs, focused on the judges’ reactions. Samir emphasized the purifier’s low cost, a nod to the town’s tight budget. As the fair wound down, a judge lingered, jotting notes. Elena and Samir shared a hopeful glance, knowing their work could spark real change. The purifier hummed softly, a testament to their grit. Elena jotted a final tweak in her notebook, already planning version two. Innovation, she thought, thrived on persistence.",
                 question: "Which punctuation corrects the sentence 'Early tests were promising, but scaling up proved tricky; one prototype had leaked during a demo'?",
@@ -1117,16 +1317,188 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function generateExplanation(response) {
-        const passageText = response.question.split("<br/><br/>")[0];
 
-        if (passageText.includes("Sarah entered the old bookstore")) {
-            return "Sarah’s thrill at 'untold stories' shows excitement, but the 'pang of sadness' about books never being read suggests regret, making A) correct. The passage doesn’t indicate fear (B), indifference (C), or anger (D).";
-        } else if (passageText.includes("The team huddled in the lab")) {
-            return "Dr. Ellis’s quickened pulse and spark of discovery suggest intrigue, while her disbelief indicates skepticism, supporting A). The passage doesn’t show certainty of error (B), defeat (C), or disinterest (D).";
+
+function generateExplanation(response) {
+    const passageText = response.passage;
+
+    // Set 2: Editorial Board Passage
+    if (passageText.includes("The editorial board gathered in a cramped office")) {
+        if (response.question.includes("Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?")) {
+            return "Option B) adds a comma before 'but,' correctly joining independent clauses, while the colon introduces the fare increase detail. A) creates a run-on, C) misuses a semicolon, and D) retains the faulty structure.";
+        } else if (response.question.includes("In the sentence 'Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class,' which phrase corrects the parallel structure?")) {
+            return "Option C) uses consistent verb tenses ('juggles,' 'races') for parallelism. A) shifts tense incorrectly, B) mixes forms, and D) keeps the error.";
+        } else if (response.question.includes("Which word should replace 'synthesizing' in 'Maya tapped her pen, synthesizing ideas' to improve clarity?")) {
+            return "Option B) 'integrating' clearly conveys blending ideas. A) is too vague, C) implies evaluation, and D) keeps the less precise term.";
+        } else if (response.question.includes("Which sentence best follows 'The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence' to emphasize Maya’s dedication?")) {
+            return "Option C) highlights Maya’s focus on perfecting her work. A) is vague, B) shifts focus, and D) introduces an irrelevant detail.";
+        } else if (response.question.includes("In the sentence 'Others hesitated, wary of alienating city officials,' which pronoun correctly replaces 'Others' for agreement with the subject?")) {
+            return "Option B) 'Certain members' specifies the subject clearly. A) is vague, C) implies all, and D) retains the ambiguity.";
+        } else if (response.question.includes("Which revision to 'The piece wasn’t flawless; it sidestepped some thorny budget details' best improves conciseness?")) {
+            return "Option B) streamlines the sentence while retaining meaning. A) adds complexity, C) is abrupt, and D) keeps the wordier structure.";
+        } else if (response.question.includes("Which punctuation corrects the sentence 'The room crackled with debate, voices rising over cold coffee'?")) {
+            return "Option C) adds 'with' for clarity, linking the clauses. A) misuses a semicolon, B) misuses a colon, and D) lacks connection.";
+        } else if (response.question.includes("Which transition phrase, inserted before 'Nods circled the table, though Jamal pushed for sharper phrasing,' best clarifies the contrast?")) {
+            return "Option B) 'Despite this' highlights the contrast between agreement and Jamal’s dissent. A) suggests timing, C) implies example, and D) adds unrelated detail.";
+        } else if (response.question.includes("Which revision to 'Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes' corrects a subtle verb tense error?")) {
+            return "Option D) maintains the past tense 'argued,' consistent with the passage. A) shifts to present, B) overcorrects, and C) disrupts structure.";
+        } else if (response.question.includes("Which phrase in 'It called for compromise—targeted fare relief funded by reallocated taxes' best replaces 'funded by' to enhance precision?")) {
+            return "Option C) 'financed by' is precise for budgetary context. A) is vague, B) is informal, and D) keeps the less specific phrase.";
+        } else if (response.question.includes("Which sentence contains a misplaced modifier requiring correction?")) {
+            return "Option D) is correct; no sentence has a misplaced modifier. A), B), and C) are properly structured.";
+        } else if (response.question.includes("Which revision to 'The plan promised faster commutes but at a steep cost' best emphasizes the trade-off while maintaining tone?")) {
+            return "Option A) balances benefits and burdens while matching tone. B) exaggerates, C) shifts tone, and D) lacks emphasis.";
+        } else if (response.question.includes("In 'The editorial board gathered in a cramped office, papers strewn across the table,' which verb corrects the participle 'strewn' for agreement?")) {
+            return "Option D) 'strewn' is correct as a past participle. A), B), and C) disrupt tense or meaning.";
+        } else if (response.question.includes("Which sentence best introduces the passage to clarify the board’s purpose?")) {
+            return "Option D) clearly states the drafting goal. A) is redundant, B) shifts focus, and C) emphasizes leadership.";
+        } else if (response.question.includes("Which sentence contains an error in parallel structure?")) {
+            return "Option D) is correct; no sentence has a parallelism error. A), B), and C) maintain consistent structure.";
         }
-        return "No specific explanation available for this question.";
     }
+
+    // Set 3: Garden Passage
+    if (passageText.includes("The community garden bloomed with possibility")) {
+        if (response.question.includes("Which punctuation corrects the sentence 'Rosa, the garden’s founder, had spent years planning beds, trellises, and compost bins'?")) {
+            return "Option B) uses commas correctly for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
+        } else if (response.question.includes("Which word replaces 'bloomed' in 'The community garden bloomed with possibility, drawing neighbors together' to maintain tone?")) {
+            return "Option A) 'flourished' keeps the hopeful tone. B) is neutral, C) is technical, and D) retains the original.";
+        } else if (response.question.includes("Which pronoun corrects the agreement in 'Each volunteer brought their own tools to the garden'?")) {
+            return "Option B) 'his or her' matches singular 'Each.' A) keeps the error, C) shifts number, and D) is incorrect.";
+        } else if (response.question.includes("Which phrase replaces 'relying on' in 'The garden, relying on donations, thrived with vibrant crops' for clarity?")) {
+            return "Option A) 'sustained by' is precise. B) is vague, C) shifts meaning, and D) keeps the original.";
+        } else if (response.question.includes("Which revision combines 'The garden wasn’t perfect. Weeds crept in persistently' for better flow?")) {
+            return "Option B) 'yet' links clauses smoothly. A) is choppy, C) misaligns logic, and D) shifts tone.";
+        } else if (response.question.includes("Which revision to 'Skeptics wondered—could a small plot really unite the community?' maintains tone?")) {
+            return "Option C) preserves the doubtful tone. A) is harsh, B) is formal, and D) keeps the original.";
+        } else if (response.question.includes("Which punctuation corrects 'Spring arrived, the garden burst with color, but pests loomed'?")) {
+            return "Option A) uses a semicolon for independent clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
+        } else if (response.question.includes("Which sentence follows 'As harvest neared, cheers rose, though Rosa planned pest control tweaks' to emphasize effort?")) {
+            return "Option C) highlights ongoing work. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
+        } else if (response.question.includes("Which revision corrects the tense in 'Rosa stood by the gate, watching as volunteers plant seedlings'?")) {
+            return "Option A) 'planted' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
+        } else if (response.question.includes("Which revision to 'a symbol of grit and shared dreams' improves conciseness?")) {
+            return "Option C) is succinct and clear. A) is wordy, B) shifts meaning, and D) keeps the original.";
+        } else if (response.question.includes("Which sentence contains a misplaced modifier?")) {
+            return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
+        } else if (response.question.includes("Which transition phrase before 'Neighbors shared tools, their laughter echoing,' clarifies unity?")) {
+            return "Option B) 'As a result' shows connection. A) implies time, C) is an example, and D) shifts focus.";
+        } else if (response.question.includes("Which phrase replaces 'despite early setbacks' in 'Crops grew strong, despite early setbacks' for precision?")) {
+            return "Option C) 'though challenged' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
+        } else if (response.question.includes("Which revision to 'Every failure taught them perseverance' emphasizes growth?")) {
+            return "Option B) underscores learning. A) is vague, C) shifts focus, and D) keeps the original.";
+        } else if (response.question.includes("Which sentence has an error in parallel structure?")) {
+            return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+        }
+    }
+
+    // Set 4: Science Fair Passage
+    if (passageText.includes("The gymnasium hummed with the energy of the science fair")) {
+        if (response.question.includes("Which punctuation corrects the sentence 'Samir, the lead presenter, had tested his solar model for weeks, tweaking panels, and circuits'?")) {
+            return "Option B) uses commas for the appositive and list. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
+        } else if (response.question.includes("Which word replaces 'honed' in 'Students honed their projects, racing against the deadline' to maintain urgency?")) {
+            return "Option A) 'refined' keeps the intense tone. B) is calm, C) is vague, and D) retains the original.";
+        } else if (response.question.includes("Which pronoun corrects the agreement in 'Each student displayed their hypothesis proudly'?")) {
+            return "Option B) 'his or her' matches singular 'Each.' A) keeps the error, C) shifts number, and D) is incorrect.";
+        } else if (response.question.includes("Which phrase replaces 'built on' in 'The fair, built on months of effort, showcased innovation' for clarity?")) {
+            return "Option A) 'driven by' is precise. B) is vague, C) shifts meaning, and D) keeps the original.";
+        } else if (response.question.includes("Which revision combines 'The projects weren’t flawless. They impressed the judges' for flow?")) {
+            return "Option B) 'yet' links clauses smoothly. A) is abrupt, C) misaligns logic, and D) shifts tone.";
+        } else if (response.question.includes("Which revision to 'Judges murmured—could kids this young solve real problems?' maintains tone?")) {
+            return "Option C) keeps the skeptical tone. A) is harsh, B) is formal, and D) retains the original.";
+        } else if (response.question.includes("Which punctuation corrects 'The fair began, models whirred to life, but nerves lingered'?")) {
+            return "Option A) uses a semicolon for clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
+        } else if (response.question.includes("Which sentence follows 'As judging ended, cheers erupted, though Samir eyed his model’s flaws' to emphasize improvement?")) {
+            return "Option C) highlights refinement. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
+        } else if (response.question.includes("Which revision corrects the tense in 'Samir explained his model, hoping judges notice its efficiency'?")) {
+            return "Option A) 'noticed' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
+        } else if (response.question.includes("Which revision to 'a showcase of curiosity and bold ideas' improves conciseness?")) {
+            return "Option C) is succinct and clear. A) is wordy, B) shifts meaning, and D) keeps the original.";
+        } else if (response.question.includes("Which sentence contains a misplaced modifier?")) {
+            return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
+        } else if (response.question.includes("Which transition phrase before 'Judges took notes, their faces unreadable,' clarifies contrast?")) {
+            return "Option B) 'In contrast' highlights difference. A) implies time, C) is an example, and D) is causal.";
+        } else if (response.question.includes("Which phrase replaces 'despite initial doubts' in 'Projects shone, despite initial doubts' for precision?")) {
+            return "Option C) 'though questioned' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
+        } else if (response.question.includes("Which revision to 'Every setback fueled their drive' emphasizes persistence?")) {
+            return "Option B) underscores resilience. A) is vague, C) shifts focus, and D) keeps the original.";
+        } else if (response.question.includes("Which sentence has an error in parallel structure?")) {
+            return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+        }
+    }
+
+    // Set 5: Theater Passage
+    if (passageText.includes("The theater troupe huddled backstage")) {
+        if (response.question.includes("Which punctuation corrects the sentence 'The troupe’s director, Elena Vasquez, had spent weeks perfecting the lighting cues, sound levels, and actors’ blocking'?")) {
+            return "Option B) correctly uses commas for the appositive. A) lacks commas, C) misplaces a comma, and D) omits punctuation.";
+        } else if (response.question.includes("Which word replaces 'huddled' in 'The theater troupe huddled backstage, nerves fraying as the clock ticked closer to curtain' to maintain tone?")) {
+            return "Option A) 'gathered' preserves the anxious tone. B) is too casual, C) too formal, and D) keeps the original.";
+        } else if (response.question.includes("Which pronoun corrects the agreement error in 'Each actor checked their costume, ensuring no detail was overlooked'?")) {
+            return "Option B) 'his or her' matches singular 'Each.' A) retains the error, C) shifts number, and D) is incorrect.";
+        } else if (response.question.includes("Which phrase replaces 'relying on' in 'The production, relying on a shoestring budget, still dazzled with creative sets' for precision?")) {
+            return "Option A) 'operating with' clarifies the budget constraint. B) is vague, C) shifts meaning, and D) keeps the original.";
+        } else if (response.question.includes("Which revision best combines 'The play wasn’t flawless. It captivated the audience' to improve flow?")) {
+            return "Option B) 'yet' smoothly contrasts flaws and success. A) is abrupt, C) misaligns logic, and D) shifts tone.";
+        } else if (response.question.includes("Which revision to 'Critics scribbled notes—would this scrappy troupe pull it off?' maintains the passage’s tone?")) {
+            return "Option C) preserves the skeptical tone. A) is too harsh, B) too formal, and D) keeps the original.";
+        } else if (response.question.includes("Which punctuation corrects 'Opening night had arrived, the troupe was ready, but jittery'?")) {
+            return "Option A) uses a semicolon for independent clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
+        } else if (response.question.includes("Which sentence best follows 'As the curtain fell, applause erupted, though Elena already planned tweaks for tomorrow’s show' to emphasize refinement?")) {
+            return "Option C) highlights ongoing improvements. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
+        } else if (response.question.includes("Which revision corrects the verb tense in 'Elena stood in the wings, watching as the actors deliver their lines'?")) {
+            return "Option A) 'delivered' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
+        } else if (response.question.includes("Which revision to 'a testament to raw talent and stubborn grit' enhances conciseness?")) {
+            return "Option C) streamlines without losing impact. A) is wordy, B) shifts meaning, and D) keeps the original.";
+        } else if (response.question.includes("Which sentence contains a misplaced modifier?")) {
+            return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
+        } else if (response.question.includes("Which transition phrase, inserted before 'The actors hit their marks, their voices steady despite the stakes,' clarifies the contrast?")) {
+            return "Option B) 'Even so' highlights resilience. A) implies sequence, C) is irrelevant, and D) shifts focus.";
+        } else if (response.question.includes("Which phrase replaces 'despite first-night jitters' in 'The actors moved with confidence, despite first-night jitters' for precision?")) {
+            return "Option C) 'though nervous' is concise and clear. A) is wordy, B) shifts tone, and D) keeps the original.";
+        } else if (response.question.includes("Which revision to 'Every prop malfunction taught them resilience' emphasizes learning?")) {
+            return "Option B) underscores growth through setbacks. A) is vague, C) shifts focus, and D) keeps the original.";
+        } else if (response.question.includes("Which sentence has an error in parallel structure?")) {
+            return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+        }
+    }
+
+    // Set 6: Robotics Passage
+    if (passageText.includes("The community center buzzed with anticipation as the robotics team")) {
+        if (response.question.includes("Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?")) {
+            return "Option B) correctly uses commas for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
+        } else if (response.question.includes("Which word replaces 'addressing' in 'Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem' to maintain verb tense consistency?")) {
+            return "Option A) 'addressed' aligns with past tense. B) shifts tense, C) is future, and D) is incorrect.";
+        } else if (response.question.includes("Which pronoun corrects the agreement error in 'The team knew the stakes: a win could fund a town-wide recycling program'?")) {
+            return "Option B) 'its' matches singular 'team.' A) is plural, C) shifts subject, and D) keeps the error.";
+        } else if (response.question.includes("Which phrase replaces 'based on' in 'Leo, an engineering whiz, designed a claw that adjusted its grip based on material density' to improve clarity?")) {
+            return "Option A) 'depending on' is clearer. B) shifts meaning, C) is wordy, and D) keeps the original.";
+        } else if (response.question.includes("Which revision best combines 'Their robot wasn’t perfect; glass sorting still lagged behind plastic' to improve flow?")) {
+            return "Option B) 'as' links clauses smoothly. A) is abrupt, C) shifts logic, and D) is causal.";
+        } else if (response.question.includes("Which revision to 'Critics in the audience murmured—could a high school team really tackle such a complex issue?' best maintains the passage’s tone?")) {
+            return "Option C) keeps the doubtful tone. A) is informal, B) is formal, and D) retains the original.";
+        } else if (response.question.includes("Which punctuation corrects 'Early prototypes had faltered; one memorably scattered cans across the lab'?")) {
+            return "Option A) uses a comma for clarity. B) misuses a colon, C) is incorrect, and D) keeps the original.";
+        } else if (response.question.includes("Which sentence best follows 'As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration' to emphasize persistence?")) {
+            return "Option C) underscores continued effort. A) shifts focus, B) is irrelevant, and D) is vague.";
+        } else if (response.question.includes("Which revision corrects the verb tense in 'Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates'?")) {
+            return "Option A) 'had exchanged' matches past context. B) shifts tense, C) is incorrect, and D) keeps the error.";
+        } else if (response.question.includes("Which revision to 'a spark of innovation born from late-night pizza and stubborn hope' enhances conciseness?")) {
+            return "Option C) is succinct and clear. A) is vague, B) loses impact, and D) keeps the original.";
+        } else if (response.question.includes("Which sentence contains a misplaced modifier?")) {
+            return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
+        } else if (response.question.includes("Which transition phrase, inserted before 'The judges, however, scribbled notes, their expressions unreadable,' clarifies the contrast?")) {
+            return "Option B) 'In contrast' highlights the difference. A) implies time, C) is an example, and D) is causal.";
+        } else if (response.question.includes("Which phrase replaces 'despite her nerves' in 'The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves' for precision?")) {
+            return "Option C) 'though anxious' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
+        } else if (response.question.includes("Which revision to 'Yet each failure fueled their resolve' emphasizes resilience?")) {
+            return "Option B) 'bolstered tenacity' emphasizes strength. A) is wordy, C) is vague, and D) keeps the original.";
+        } else if (response.question.includes("Which sentence has an error in parallel structure?")) {
+            return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+        }
+    }
+
+    return "No explanation available for this question.";
+}
 
     function handleNextButton() {
         recordTestResults();
