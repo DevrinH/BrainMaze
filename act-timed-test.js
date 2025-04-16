@@ -90,19 +90,44 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "production-of-writing"
         },
         {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. <mark>Their robot wasn’t perfect; glass sorting still lagged behind plastic.</mark> But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "What is the most effective way to combine the sentences 'Their robot wasn’t perfect; glass sorting still lagged behind plastic.' to improve flow?",
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. <mark>Critics in the audience murmured—could a high school team really tackle such a complex issue?</mark> The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+            question: "Which of the following revisions to the sentence 'Critics in the audience murmured—could a high school team really tackle such a complex issue?' best maintains the passage’s tone?",
             answers: [
-                { text: "A) Their robot wasn’t perfect, glass sorting still lagged behind plastic.", correct: false },
-                { text: "B) Although their robot wasn’t perfect, glass sorting still lagged behind plastic.", correct: false },
-                { text: "C) Their robot wasn’t perfect, for its glass sorting still lagged behind plastic.", correct: true },
-                { text: "D) Their robot wasn’t perfect because glass sorting still lagged behind plastic.", correct: false },
+                { text: "A) Critics in the audience whispered—could teenagers possibly solve such a tough problem?", correct: false },
+                { text: "B) Skeptics in the crowd muttered—could a high school team truly address so intricate an issue?", correct: true },
+                { text: "C) People in the audience grumbled—could kids really fix such a big mess?", correct: false },
+                { text: "D) No change is needed.", correct: false },
             ],
             type: "english",
             difficulty: "medium",
-            category: "production-of-writing"
+            category: "knowledge-of-language"
         },
-        
+        {
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. <mark>Early prototypes had faltered; one memorably scattered cans across the lab.</mark> Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+            question: "In the sentence 'Early prototypes had faltered; one memorably scattered cans across the lab,' which punctuation mark should replace the semicolon to maintain proper sentence structure?",
+            answers: [
+                { text: "A) a comma", correct: true },
+                { text: "B) a colon", correct: false },
+                { text: "C) a period", correct: false },
+                { text: "D) No change is needed.", correct: false },
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "conventions-of-standard-english"
+        },
+        {
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. <mark>As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration.</mark> Progress, she thought, was messy but worth it.",
+            question: "Which sentence would most effectively follow 'As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration' to emphasize the team’s persistence?",
+            answers: [
+                { text: "A) The judges began their deliberations.", correct: false },
+                { text: "B) Leo packed up the equipment carefully.", correct: false },
+                { text: "C) Undeterred, the team planned their next upgrades.", correct: true },
+                { text: "D) The crowd dispersed slowly.", correct: false },
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "conventions-of-standard-english"
+        },
     ];
 
     // Placeholder question arrays (add actual questions)
