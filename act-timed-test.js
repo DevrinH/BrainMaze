@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { text: "D) had addressed", correct: false },
             ],
             type: "english",
-            difficulty: "medium",
+            difficulty: "easy",
             category: "conventions-of-standard-english"
         },
         {
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { text: "D) No change is needed.", correct: false },
             ],
             type: "english",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "conventions-of-standard-english"
         },
         {
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { text: "D) No change is needed.", correct: false },
             ],
             type: "english",
-            difficulty: "medium",
+            difficulty: "easy",
             category: "knowledge-of-language"
         },
         {
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { text: "D) Their robot wasn’t perfect because glass sorting still lagged behind plastic.", correct: false },
             ],
             type: "english",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "production-of-writing"
         },
         {
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { text: "D) No change is needed.", correct: false },
             ],
             type: "english",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "knowledge-of-language"
         },
         {
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { text: "D) No change is needed.", correct: false },
             ],
             type: "english",
-            difficulty: "medium",
+            difficulty: "easy",
             category: "conventions-of-standard-english"
         },
         {
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { text: "D) The crowd dispersed slowly.", correct: false },
             ],
             type: "english",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "production-of-writing"
         },
         {
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { text: "D) scrapped", correct: false },
             ],
             type: "english",
-            difficulty: "medium",
+            difficulty: "easy",
             category: "conventions-of-standard-english"
         },
         {
@@ -151,8 +151,47 @@ document.addEventListener("DOMContentLoaded", () => {
                 { text: "D) No change is needed.", correct: false },
             ],
             type: "english",
-            difficulty: "hard",
+            difficulty: "medium",
             category: "knowledge-of-language"
+        },
+        {
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+            question: "Which of the following sentences in the passage contains a misplaced modifier that needs correction?",
+            answers: [
+                { text: "A) For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code.", correct: false },
+                { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                { text: "C) Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm.", correct: false },
+                { text: "D) None of the sentences contain a misplaced modifier.", correct: true },
+            ],
+            type: "english",
+            difficulty: "hard",
+            category: "conventions-of-standard-english"
+        },
+        {
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+            question: "Which transition phrase, if inserted before 'The judges, however, scribbled notes, their expressions unreadable,' would best clarify the contrast with the previous sentence?",
+            answers: [
+                { text: "A) By contrast", correct: true },
+                { text: "B) In addition", correct: false },
+                { text: "C) For example", correct: false },
+                { text: "D) As a result", correct: false },
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "production-of-writing"
+        },
+        {
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. <mark>The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves.</mark> Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. <Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+            question: "In the sentence 'The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves,' which phrase could replace 'despite her nerves' to maintain meaning and improve precision?",
+            answers: [
+                { text: "A) though she was nervous", correct: true },
+                { text: "B) because of her confidence", correct: false },
+                { text: "C) while feeling calm", correct: false },
+                { text: "D) No change is needed.", correct: false },
+            ],
+            type: "english",
+            difficulty: "medium",
+            category: "conventions-of-standard-english"
         },
     ];
 
