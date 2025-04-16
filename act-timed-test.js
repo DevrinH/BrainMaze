@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sample questions (replace with full question banks)
     const englishQuestions = [
-        
+        ///Passage 1
         {
             passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
             question: "Which of the following is the correct punctuation for the sentence beginning with 'Aisha, the team’s coder?",
@@ -219,6 +219,83 @@ document.addEventListener("DOMContentLoaded", () => {
             difficulty: "hard",
             category: "conventions-of-standard-english"
         },
+
+        ///Passage 2
+        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?",
+                    answers: [
+                        { text: "A) The plan promised faster commutes but at a steep cost, fares would rise, hitting low-income riders hardest.", correct: false },
+                        { text: "B) The plan promised faster commutes, but at a steep cost: fares would rise, hitting low-income riders hardest.", correct: true },
+                        { text: "C) The plan promised faster commutes; but at a steep cost: fares would rise, hitting low-income riders hardest.", correct: false },
+                        { text: "D) No change is needed.", correct: false }
+                    ],
+                    type: "english",
+                    difficulty: "medium",
+                    category: "conventions-of-standard-english"
+                },
+                {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?",
+                answers: [
+                ,
+                ],
+                type: "english",
+                difficulty: "",
+                category: ""
+                },
+                        {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?",
+                answers: [
+                ,
+                ],
+                type: "english",
+                difficulty: "",
+                category: ""
+                },                
+                {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?",
+                answers: [
+                ,
+                ],
+                type: "english",
+                difficulty: "",
+                category: ""
+                },                
+                {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?",
+                answers: [
+                ,
+                ],
+                type: "english",
+                difficulty: "",
+                category: ""
+                },                
+                {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?",
+                answers: [
+                ,
+                ],
+                type: "english",
+                difficulty: "",
+                category: ""
+                },                
+                {
+            passage: "The editorial board gathered in a cramped office, papers strewn across the table. Their task was daunting: craft an op-ed on the city’s proposed transit overhaul. Lead writer Maya Patel sifted through data—bus routes, funding gaps, commuter surveys—her laptop glowing with charts. The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest. Maya frowned, scribbling notes. Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes. Others hesitated, wary of alienating city officials. The room crackled with debate, voices rising over cold coffee. Maya tapped her pen, synthesizing ideas. Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class. The board’s challenge was balance: critique the plan’s flaws without dismissing its potential. As midnight neared, Maya read a paragraph aloud, her tone measured but firm. It called for compromise—targeted fare relief funded by reallocated taxes. Nods circled the table, though Jamal pushed for sharper phrasing. The piece wasn’t flawless; it sidestepped some thorny budget details. Yet it felt honest, a call to action grounded in real lives. The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence. Good writing, she knew, demanded both heart and precision.",
+            question: "Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?",
+                answers: [
+                ,
+                ],
+                type: "english",
+                difficulty: "",
+                category: ""
+                },
+                
+        
     ];
 
     // Placeholder question arrays (add actual questions)
