@@ -2001,11 +2001,11 @@ footer h3 {
 
 }
 /* Responsive adjustments for phone screens */
-@media (max-width: 200px) {
+@media (max-width: 400px) {
   .flex-container {
     flex-direction: column;
     align-items: center;
-    width: 90%; /* 90% of viewport on phone */
+    width: 95%; /* 90% of viewport on phone */
   }
 
   .testlessonscontainer,
