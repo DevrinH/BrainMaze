@@ -1940,7 +1940,7 @@ footer h3 {
   .flex-container {
     flex-direction: column;
     align-items: center;
-    width: 90%; /* 90% of viewport on phone */
+    width: 95%; /* 90% of viewport on phone */
   }
 
   .testlessonscontainer,
@@ -2023,7 +2023,7 @@ footer h3 {
 /* Responsive adjustments for phone screens */
 @media (max-width: 900px) {
   .line-chart-container {
-    width: 95%; /* Match .flex-container on phone */
+    width: 90%; /* Match .flex-container on phone */
   }
 
 
