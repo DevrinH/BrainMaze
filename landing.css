@@ -2010,6 +2010,7 @@ footer h3 {
 .flex-container {
   display: flex;
   justify-content: center;
+  align-items: stretch; /* Stretch children to match the tallest height */
   align-items: flex-start;
   gap: 20px;
   width: 70%; /* 70% of viewport on desktop/laptop */
