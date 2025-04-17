@@ -1016,7 +1016,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // Placeholder question arrays (add actual questions)
-    const mathQuestions = [];
+    const mathQuestions = [{ question: "2 + 2 = ?", answers: [{ text: "4", correct: true }, { text: "5", correct: false }], difficulty: "easy", category: "Arithmetic" },];
     const readingQuestions = [];
     const scienceQuestions = [];
 
@@ -1272,6 +1272,19 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
+    }
+
+    function selectQuestions(questions, numEasy, numMedium, numHard) {
+        const easyQuestions = questions.filter(q => q.difficulty === "easy");
+        const mediumQuestions = questions.filter(q => q.difficulty === "medium");
+        const hardQuestions = questions.filter(q => q.difficulty === "hard");
+    
+        // Take questions sequentially from the start of each array
+        const selectedEasy = easyQuestions.slice(0, Math.min(numEasy, easyQuestions.length));
+        const selectedMedium = mediumQuestions.slice(0, Math.min(numMedium, mediumQuestions.length));
+        const selectedHard = hardQuestions.slice(0, Math.min(numHard, hardQuestions.length));
+    
+        return [...selectedEasy, ...selectedMedium, ...selectedHard];
     }
 
     function showExplanations() {
