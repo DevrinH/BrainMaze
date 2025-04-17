@@ -1036,31 +1036,31 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endEnglishSection, 2700000);
-        startQuiz(englishQuestions, 25, 25, 25); // Adjust numbers as needed
+        startQuiz(englishQuestions); // Removed 25, 25, 25
     }
-
+    
     function startMathSection() {
         currentSection = "math";
         time = 60 * 60;
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endMathSection, 3600000);
-        startQuiz(mathQuestions, 20, 20, 20);
+        startQuiz(mathQuestions); // Removed 20, 20, 20
     }
-
+    
     function startReadingSection() {
         currentSection = "reading";
         time = 35 * 60;
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endReadingSection, 2100000);
-        startQuiz(readingQuestions, 13, 14, 13);
+        startQuiz(readingQuestions); // Removed 13, 14, 13
     }
-
+    
     function startScienceSection() {
         currentSection = "science";
         time = 35 * 60;
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endScienceSection, 2100000);
-        startQuiz(scienceQuestions, 13, 14, 13);
+        startQuiz(scienceQuestions); // Removed 13, 14, 13
     }
 
     function updateCountdown() {
@@ -1111,7 +1111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showFinalScore();
     }
 
-    function startQuiz(questions, numEasy, numMedium, numHard) {
+    function startQuiz(questions) {
         if (!questions || questions.length === 0) {
             console.error("No questions available for", currentSection);
             return;
@@ -1120,7 +1120,7 @@ document.addEventListener("DOMContentLoaded", () => {
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
-        selectedQuestions = selectQuestions(questions, numEasy, numMedium, numHard);
+        selectedQuestions = questions; // Use the full array as-is
         nextButton.innerHTML = "Next";
         showQuestion();
     }
@@ -1210,7 +1210,6 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.style.display = "block";
         nextButton.disabled = false;
     }
-
     function showScore() {
         clearInterval(refreshIntervalId);
         resetState();
@@ -1274,18 +1273,6 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.addEventListener("click", showExplanations);
     }
 
-    function selectQuestions(questions, numEasy, numMedium, numHard) {
-        const easyQuestions = questions.filter(q => q.difficulty === "easy");
-        const mediumQuestions = questions.filter(q => q.difficulty === "medium");
-        const hardQuestions = questions.filter(q => q.difficulty === "hard");
-    
-        // Take questions sequentially from the start of each array
-        const selectedEasy = easyQuestions.slice(0, Math.min(numEasy, easyQuestions.length));
-        const selectedMedium = mediumQuestions.slice(0, Math.min(numMedium, mediumQuestions.length));
-        const selectedHard = hardQuestions.slice(0, Math.min(numHard, hardQuestions.length));
-    
-        return [...selectedEasy, ...selectedMedium, ...selectedHard];
-    }
 
     function showExplanations() {
         console.log("Entering showExplanations");
@@ -1511,7 +1498,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
         return "No explanation available for this question.";
     }
-
     function handleNextButton() {
         recordTestResults();
         currentQuestionIndex++;
