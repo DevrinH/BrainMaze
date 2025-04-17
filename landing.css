@@ -1994,8 +1994,8 @@ footer h3 {
 
 /* Chart container bar */
 .chart-container-bar {
-  width: 100%; /* Match chart-container width */
-  max-width: 1400px; /* Match chart-container */
+  width: 60%; /* Independent width for chart bar */
+  max-width: 600px; /* Suitable for content */
   height: 60px;
   margin: auto;
   border-radius: 12px;
@@ -2023,6 +2023,6 @@ footer h3 {
   }
 
   .chart-container-bar {
-    width: 100%; /* Match chart-container on phone */
+    width: 90%; /* Suitable for phone screens */
   }
 }
