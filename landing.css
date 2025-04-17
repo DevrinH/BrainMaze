@@ -1901,7 +1901,6 @@ footer h3 {
   flex: 0 0 50%; /* Each takes 50% of flex-container width (35% of viewport) */
   width: 50%; /* Ensure exact width */
   min-width: 300px; /* Minimum width for content */
-  min-height: 400px; /* Set a baseline min-height for both */
   background-color: var(--container-bg);
   border-radius: 12px;
   box-shadow: var(--container-shadow) 0px 5px 15px;
