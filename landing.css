@@ -2014,7 +2014,7 @@ footer h3 {
   gap: 20px;
   width: 70%; /* 70% of viewport on desktop/laptop */
   max-width: 1400px; /* Prevent overly wide containers */
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
   flex-wrap: nowrap; /* Prevent wrapping on desktop */
   margin: 0 auto;
