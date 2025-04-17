@@ -1935,35 +1935,7 @@ footer h3 {
   margin-top: -20px;
 }
 
-/* Responsive adjustments for phone screens */
-@media (max-width: 900px) {
-  .flex-container {
-    flex-direction: column;
-    align-items: center;
-    width: 95%; /* 90% of viewport on phone */
-  }
 
-  .testlessonscontainer,
-  .progress-container {
-    flex: 0 0 auto;
-    width: 100%; /* 100% of flex-container (90% of viewport) */
-    min-width: 0;
-    margin: 0 auto 20px auto;
-  }
-
-  .testlessoncontainer
-  {
-    height: 3000px;
-  }
-
-  .chart-container {
-    width: 90%; /* Match flex-container on phone */
-  }
-
-  .chart-container-bar {
-    width: 90%; /* Suitable for phone screens */
-  }
-}
 /* Chart container (parent of #scoreChart) */
 .chart-container {
   width: 100%; /* Take full width of .line-chart-container */
@@ -2028,7 +2000,35 @@ footer h3 {
 
 
 }
+/* Responsive adjustments for phone screens */
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+    width: 95%; /* 90% of viewport on phone */
+  }
 
+  .testlessonscontainer,
+  .progress-container {
+    flex: 0 0 auto;
+    width: 100%; /* 100% of flex-container (90% of viewport) */
+    min-width: 0;
+    margin: 0 auto 20px auto;
+  }
+
+  .testlessoncontainer
+  {
+    height: 3000px;
+  }
+
+  .chart-container {
+    width: 90%; /* Match flex-container on phone */
+  }
+
+  .chart-container-bar {
+    width: 90%; /* Suitable for phone screens */
+  }
+}
 /* NEW CODE container for layout */
 
 
