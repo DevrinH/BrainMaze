@@ -1019,8 +1019,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const mathQuestions = [
         { question: "2 + 2 = ?", answers: [{ text: "4", correct: true }, { text: "5", correct: false }], difficulty: "easy", category: "Arithmetic" },
     ];
-    const readingQuestions = [];
-    const scienceQuestions = [];
+    const readingQuestions = [        { question: "reading question", answers: [{ text: "4", correct: true }, { text: "5", correct: false }], difficulty: "easy", category: "Arithmetic" },];
+    const scienceQuestions = [        { question: "Science Question?", answers: [{ text: "4", correct: true }, { text: "5", correct: false }], difficulty: "easy", category: "Arithmetic" },];
 
     function startTest() {
         if (!actIntroContainer || !document.getElementById("question-container")) {
