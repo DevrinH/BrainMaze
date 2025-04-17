@@ -1924,17 +1924,6 @@ footer h3 {
   box-sizing: border-box;
 }
 
-/* Chart container */
-.chart-container {
-  width: 70%; /* Match flex-container on desktop/laptop */
-  max-width: 1400px; /* Match flex-container */
-  min-width: 0; /* Prevent shrinking */
-  flex-shrink: 0; /* Prevent shrinking */
-  margin: 15px auto;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
 
 /* Ensure chart inside chart-container takes full width */
 .chart-container > * {
@@ -1983,4 +1972,55 @@ footer h3 {
   .chart-container-bar {
     width: 90%; /* Suitable for phone screens */
   }
+}
+/* Chart container (parent of #scoreChart) */
+.chart-container {
+  width: 100%; /* Take full width of .line-chart-container */
+  max-width: none; /* Remove any max-width constraints */
+  min-width: 0; /* Prevent shrinking */
+  flex-shrink: 0; /* Prevent shrinking */
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0; /* Remove padding to ensure full width */
+}
+
+/* Specifically target the score chart */
+#scoreChart {
+  width: 100% !important;
+  max-width: none !important; /* Override any max-width */
+  min-width: 0 !important; /* Prevent shrinking */
+  flex: 1; /* Allow chart to grow within container */
+  min-height: 400px !important;
+  max-height: 500px !important;
+}
+
+
+/* Line chart container (parent container) */
+.line-chart-container {
+  min-height: 500px;
+  background-color: var(--chart-bg);
+  border-radius: 12px;
+  box-shadow: var(--container-shadow) 0px 5px 15px;
+  flex: 1;
+  min-width: 300px;
+  margin: 15px auto 0 auto;
+  padding: 3px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+  width: 70%; /* Match .flex-container */
+  max-width: 1400px; /* Match .flex-container */
+}
+
+/* Responsive adjustments for phone screens */
+@media (max-width: 900px) {
+  .line-chart-container {
+    width: 90%; /* Match .flex-container on phone */
+  }
+
+
 }
