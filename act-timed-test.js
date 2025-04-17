@@ -1016,7 +1016,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // Placeholder question arrays (add actual questions)
-    const mathQuestions = [{ question: "2 + 2 = ?", answers: [{ text: "4", correct: true }, { text: "5", correct: false }], difficulty: "easy", category: "Arithmetic" },];
+    const mathQuestions = [
+        { question: "2 + 2 = ?", answers: [{ text: "4", correct: true }, { text: "5", correct: false }], difficulty: "easy", category: "Arithmetic" },
+    ];
     const readingQuestions = [];
     const scienceQuestions = [];
 
