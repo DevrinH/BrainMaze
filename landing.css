@@ -1971,7 +1971,7 @@ footer h3 {
 .testlessonscontainer,
 .progress-container {
   flex: 0 0 35vw; /* Each takes 35% of viewport width */
-  max-width: 35vw;
+  max-width: 700px; /* Maximum width for content */
   min-width: 300px; /* Minimum width for content */
   background-color: var(--container-bg);
   border-radius: 12px;
@@ -1985,6 +1985,7 @@ footer h3 {
 /* Chart container */
 .chart-container {
   width: 70%; /* Match flex-container on desktop/laptop */
+  max-width: 1400px; /* Optional: prevent overly wide containers */
   margin: 15px auto;
   display: flex;
   flex-direction: column;
