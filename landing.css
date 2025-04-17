@@ -1986,10 +1986,26 @@ footer h3 {
 .chart-container {
   width: 70%; /* Match flex-container on desktop/laptop */
   max-width: 1400px; /* Match flex-container */
+  min-width: 0; /* Prevent shrinking */
+  flex-shrink: 0; /* Prevent shrinking */
   margin: 15px auto;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+
+/* Ensure chart inside chart-container takes full width */
+.chart-container > * {
+  width: 100%; /* Ensure all direct children take full width */
+  max-width: none; /* Remove any max-width constraints */
+}
+
+/* Specifically target the score chart */
+#scoreChart {
+  width: 100% !important;
+  max-width: none !important; /* Override any max-width */
+  min-height: 400px !important;
+  max-height: 500px;
 }
 
 /* Chart container bar */
