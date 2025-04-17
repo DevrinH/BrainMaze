@@ -1960,7 +1960,7 @@ footer h3 {
   align-items: flex-start;
   gap: 20px;
   width: 70%; /* 70% of viewport on desktop/laptop */
-  max-width: 1400px; /* Optional: prevent overly wide containers */
+  max-width: 1400px; /* Prevent overly wide containers */
   padding: 20px;
   box-sizing: border-box;
   flex-wrap: nowrap; /* Prevent wrapping on desktop */
@@ -1970,8 +1970,8 @@ footer h3 {
 /* Test lessons and progress containers */
 .testlessonscontainer,
 .progress-container {
-  flex: 0 0 35vw; /* Each takes 35% of viewport width */
-  max-width: 700px; /* Maximum width for content */
+  flex: 0 0 50%; /* Each takes 50% of flex-container width (35% of viewport) */
+  width: 50%; /* Ensure exact width */
   min-width: 300px; /* Minimum width for content */
   background-color: var(--container-bg);
   border-radius: 12px;
@@ -1985,7 +1985,7 @@ footer h3 {
 /* Chart container */
 .chart-container {
   width: 70%; /* Match flex-container on desktop/laptop */
-  max-width: 1400px; /* Optional: prevent overly wide containers */
+  max-width: 1400px; /* Match flex-container */
   margin: 15px auto;
   display: flex;
   flex-direction: column;
@@ -1994,8 +1994,8 @@ footer h3 {
 
 /* Chart container bar */
 .chart-container-bar {
-  width: 70%; /* Match chart-container on desktop */
-  max-width: 600px;
+  width: 100%; /* Match chart-container width */
+  max-width: 1400px; /* Match chart-container */
   height: 60px;
   margin: auto;
   border-radius: 12px;
@@ -2013,8 +2013,7 @@ footer h3 {
   .testlessonscontainer,
   .progress-container {
     flex: 0 0 auto;
-    width: 90%; /* 90% of viewport on phone */
-    max-width: 600px;
+    width: 100%; /* 100% of flex-container (90% of viewport) */
     min-width: 0;
     margin: 0 auto 20px auto;
   }
@@ -2024,6 +2023,6 @@ footer h3 {
   }
 
   .chart-container-bar {
-    width: 90%; /* Match chart-container on phone */
+    width: 100%; /* Match chart-container on phone */
   }
 }
