@@ -1951,6 +1951,12 @@ footer h3 {
     margin: 0 auto 20px auto;
   }
 
+  .testlessoncontainer
+  {
+
+    height: 1000px;
+  }
+
   .chart-container {
     width: 90%; /* Match flex-container on phone */
   }
