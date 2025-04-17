@@ -1120,26 +1120,11 @@ document.addEventListener("DOMContentLoaded", () => {
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
-        selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
+        selectedQuestions = selectQuestions(questions, numEasy, numMedium, numHard);
         nextButton.innerHTML = "Next";
         showQuestion();
     }
 
-    function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
-        const easyQuestions = questions.filter(q => q.difficulty === "easy");
-        const mediumQuestions = questions.filter(q => q.difficulty === "medium");
-        const hardQuestions = questions.filter(q => q.difficulty === "hard");
-
-        function getRandom(arr, num) {
-            return arr.sort(() => 0.5 - Math.random()).slice(0, num);
-        }
-
-        const selectedEasy = getRandom(easyQuestions, Math.min(numEasy, easyQuestions.length));
-        const selectedMedium = getRandom(mediumQuestions, Math.min(numMedium, mediumQuestions.length));
-        const selectedHard = getRandom(hardQuestions, Math.min(numHard, hardQuestions.length));
-
-        return [...selectedEasy, ...selectedMedium, ...selectedHard];
-    }
 
     function showQuestion() {
         resetState();
@@ -1180,19 +1165,23 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
         let questionDifficulty = currentQuestion.difficulty;
-
+    
         if (!categoryStats[questionCategory]) {
             categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
         }
-
+    
         const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+    
+        // Safeguard against undefined passage or question
+        const safePassage = currentQuestion.passage || "No passage provided";
+        const safeQuestion = currentQuestion.question || "No question provided";
         userResponses.push({
-            question: (currentQuestion.passage || "") + "<br/><br/>" + currentQuestion.question,
+            question: safePassage + "<br/><br/>" + safeQuestion,
             userAnswer: selectedBtn.innerHTML,
             correctAnswer: correctAnswer,
             wasCorrect: isCorrect
         });
-
+    
         if (isCorrect) {
             selectedBtn.classList.add("correct");
             correctAnswers++;
@@ -1208,16 +1197,16 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedBtn.classList.add("incorrect");
             categoryStats[questionCategory].incorrect++;
         }
-
+    
         recordTestResults();
-
+    
         Array.from(answerButtons.children).forEach(button => {
             if (button.dataset.correct === "true") {
                 button.classList.add("correct");
             }
             button.disabled = true;
         });
-
+    
         nextButton.style.display = "block";
         nextButton.disabled = false;
     }
@@ -1286,31 +1275,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showExplanations() {
+        console.log("Entering showExplanations");
         resetState();
         passageElement.innerHTML = "";
         questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
-
+        questionElement.style.overflowY = "scroll";
+        questionElement.style.maxHeight = "80vh";
+    
         const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
-
+        console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
+    
         if (incorrectResponses.length === 0) {
             questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
         } else {
+            const fragment = document.createDocumentFragment();
             incorrectResponses.forEach((response, index) => {
-                const explanation = generateExplanation(response);
-                questionElement.innerHTML += `
-                    <div class="explanation">
-                        <h3>Question ${index + 1}</h3>
-                        <p><strong>Question:</strong> ${response.question}</p>
-                        <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
-                        <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
-                        <p><strong>Explanation:</strong> ${explanation}</p>
-                    </div>
+                console.log("Processing response:", index, response);
+                const div = document.createElement("div");
+                div.className = "explanation";
+                div.innerHTML = `
+                    <h3>Question ${index + 1}</h3>
+                    <p><strong>Question:</strong> ${response.question || "Missing question"}</p>
+                    <p><strong>Your Answer:</strong> ${response.userAnswer || "N/A"}</p>
+                    <p><strong>Correct Answer:</strong> ${response.correctAnswer || "N/A"}</p>
+                    <p><strong>Explanation:</strong> ${generateExplanation(response)}</p>
                 `;
+                fragment.appendChild(div);
             });
+            console.log("Appending to questionElement:", questionElement);
+            questionElement.appendChild(fragment);
         }
-
+    
+        console.log("Setting Finish button");
         nextButton.innerHTML = "Finish";
         nextButton.style.display = "block";
+        nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", showExplanations);
         nextButton.addEventListener("click", () => {
             window.location.href = "https://www.brainjelli.com/user-profile";
@@ -1319,186 +1318,186 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function generateExplanation(response) {
-    const passageText = response.passage;
-
-    // Set 2: Editorial Board Passage
-    if (passageText.includes("The editorial board gathered in a cramped office")) {
-        if (response.question.includes("Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?")) {
-            return "Option B) adds a comma before 'but,' correctly joining independent clauses, while the colon introduces the fare increase detail. A) creates a run-on, C) misuses a semicolon, and D) retains the faulty structure.";
-        } else if (response.question.includes("In the sentence 'Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class,' which phrase corrects the parallel structure?")) {
-            return "Option C) uses consistent verb tenses ('juggles,' 'races') for parallelism. A) shifts tense incorrectly, B) mixes forms, and D) keeps the error.";
-        } else if (response.question.includes("Which word should replace 'synthesizing' in 'Maya tapped her pen, synthesizing ideas' to improve clarity?")) {
-            return "Option B) 'integrating' clearly conveys blending ideas. A) is too vague, C) implies evaluation, and D) keeps the less precise term.";
-        } else if (response.question.includes("Which sentence best follows 'The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence' to emphasize Maya’s dedication?")) {
-            return "Option C) highlights Maya’s focus on perfecting her work. A) is vague, B) shifts focus, and D) introduces an irrelevant detail.";
-        } else if (response.question.includes("In the sentence 'Others hesitated, wary of alienating city officials,' which pronoun correctly replaces 'Others' for agreement with the subject?")) {
-            return "Option B) 'Certain members' specifies the subject clearly. A) is vague, C) implies all, and D) retains the ambiguity.";
-        } else if (response.question.includes("Which revision to 'The piece wasn’t flawless; it sidestepped some thorny budget details' best improves conciseness?")) {
-            return "Option B) streamlines the sentence while retaining meaning. A) adds complexity, C) is abrupt, and D) keeps the wordier structure.";
-        } else if (response.question.includes("Which punctuation corrects the sentence 'The room crackled with debate, voices rising over cold coffee'?")) {
-            return "Option C) adds 'with' for clarity, linking the clauses. A) misuses a semicolon, B) misuses a colon, and D) lacks connection.";
-        } else if (response.question.includes("Which transition phrase, inserted before 'Nods circled the table, though Jamal pushed for sharper phrasing,' best clarifies the contrast?")) {
-            return "Option B) 'Despite this' highlights the contrast between agreement and Jamal’s dissent. A) suggests timing, C) implies example, and D) adds unrelated detail.";
-        } else if (response.question.includes("Which revision to 'Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes' corrects a subtle verb tense error?")) {
-            return "Option D) maintains the past tense 'argued,' consistent with the passage. A) shifts to present, B) overcorrects, and C) disrupts structure.";
-        } else if (response.question.includes("Which phrase in 'It called for compromise—targeted fare relief funded by reallocated taxes' best replaces 'funded by' to enhance precision?")) {
-            return "Option C) 'financed by' is precise for budgetary context. A) is vague, B) is informal, and D) keeps the less specific phrase.";
-        } else if (response.question.includes("Which sentence contains a misplaced modifier requiring correction?")) {
-            return "Option D) is correct; no sentence has a misplaced modifier. A), B), and C) are properly structured.";
-        } else if (response.question.includes("Which revision to 'The plan promised faster commutes but at a steep cost' best emphasizes the trade-off while maintaining tone?")) {
-            return "Option A) balances benefits and burdens while matching tone. B) exaggerates, C) shifts tone, and D) lacks emphasis.";
-        } else if (response.question.includes("In 'The editorial board gathered in a cramped office, papers strewn across the table,' which verb corrects the participle 'strewn' for agreement?")) {
-            return "Option D) 'strewn' is correct as a past participle. A), B), and C) disrupt tense or meaning.";
-        } else if (response.question.includes("Which sentence best introduces the passage to clarify the board’s purpose?")) {
-            return "Option D) clearly states the drafting goal. A) is redundant, B) shifts focus, and C) emphasizes leadership.";
-        } else if (response.question.includes("Which sentence contains an error in parallel structure?")) {
-            return "Option D) is correct; no sentence has a parallelism error. A), B), and C) maintain consistent structure.";
+    function generateExplanation(response) {
+        const questionText = response.question || "";
+    
+        // Set 2: Editorial Board Passage
+        if (questionText.includes("The editorial board gathered in a cramped office")) {
+            if (questionText.includes("Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?")) {
+                return "Option B) adds a comma before 'but,' correctly joining independent clauses, while the colon introduces the fare increase detail. A) creates a run-on, C) misuses a semicolon, and D) retains the faulty structure.";
+            } else if (questionText.includes("In the sentence 'Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class,' which phrase corrects the parallel structure?")) {
+                return "Option C) uses consistent verb tenses ('juggles,' 'races') for parallelism. A) shifts tense incorrectly, B) mixes forms, and D) keeps the error.";
+            } else if (questionText.includes("Which word should replace 'synthesizing' in 'Maya tapped her pen, synthesizing ideas' to improve clarity?")) {
+                return "Option B) 'integrating' clearly conveys blending ideas. A) is too vague, C) implies evaluation, and D) keeps the less precise term.";
+            } else if (questionText.includes("Which sentence best follows 'The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence' to emphasize Maya’s dedication?")) {
+                return "Option C) highlights Maya’s focus on perfecting her work. A) is vague, B) shifts focus, and D) introduces an irrelevant detail.";
+            } else if (questionText.includes("In the sentence 'Others hesitated, wary of alienating city officials,' which pronoun correctly replaces 'Others' for agreement with the subject?")) {
+                return "Option B) 'Certain members' specifies the subject clearly. A) is vague, C) implies all, and D) retains the ambiguity.";
+            } else if (questionText.includes("Which revision to 'The piece wasn’t flawless; it sidestepped some thorny budget details' best improves conciseness?")) {
+                return "Option B) streamlines the sentence while retaining meaning. A) adds complexity, C) is abrupt, and D) keeps the wordier structure.";
+            } else if (questionText.includes("Which punctuation corrects the sentence 'The room crackled with debate, voices rising over cold coffee'?")) {
+                return "Option C) adds 'with' for clarity, linking the clauses. A) misuses a semicolon, B) misuses a colon, and D) lacks connection.";
+            } else if (questionText.includes("Which transition phrase, inserted before 'Nods circled the table, though Jamal pushed for sharper phrasing,' best clarifies the contrast?")) {
+                return "Option B) 'Despite this' highlights the contrast between agreement and Jamal’s dissent. A) suggests timing, C) implies example, and D) adds unrelated detail.";
+            } else if (questionText.includes("Which revision to 'Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes' corrects a subtle verb tense error?")) {
+                return "Option D) maintains the past tense 'argued,' consistent with the passage. A) shifts to present, B) overcorrects, and C) disrupts structure.";
+            } else if (questionText.includes("Which phrase in 'It called for compromise—targeted fare relief funded by reallocated taxes' best replaces 'funded by' to enhance precision?")) {
+                return "Option C) 'financed by' is precise for budgetary context. A) is vague, B) is informal, and D) keeps the less specific phrase.";
+            } else if (questionText.includes("Which sentence contains a misplaced modifier requiring correction?")) {
+                return "Option D) is correct; no sentence has a misplaced modifier. A), B), and C) are properly structured.";
+            } else if (questionText.includes("Which revision to 'The plan promised faster commutes but at a steep cost' best emphasizes the trade-off while maintaining tone?")) {
+                return "Option A) balances benefits and burdens while matching tone. B) exaggerates, C) shifts tone, and D) lacks emphasis.";
+            } else if (questionText.includes("In 'The editorial board gathered in a cramped office, papers strewn across the table,' which verb corrects the participle 'strewn' for agreement?")) {
+                return "Option D) 'strewn' is correct as a past participle. A), B), and C) disrupt tense or meaning.";
+            } else if (questionText.includes("Which sentence best introduces the passage to clarify the board’s purpose?")) {
+                return "Option D) clearly states the drafting goal. A) is redundant, B) shifts focus, and C) emphasizes leadership.";
+            } else if (questionText.includes("Which sentence contains an error in parallel structure?")) {
+                return "Option D) is correct; no sentence has a parallelism error. A), B), and C) maintain consistent structure.";
+            }
         }
-    }
-
-    // Set 3: Garden Passage
-    if (passageText.includes("The community garden bloomed with possibility")) {
-        if (response.question.includes("Which punctuation corrects the sentence 'Rosa, the garden’s founder, had spent years planning beds, trellises, and compost bins'?")) {
-            return "Option B) uses commas correctly for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
-        } else if (response.question.includes("Which word replaces 'bloomed' in 'The community garden bloomed with possibility, drawing neighbors together' to maintain tone?")) {
-            return "Option A) 'flourished' keeps the hopeful tone. B) is neutral, C) is technical, and D) retains the original.";
-        } else if (response.question.includes("Which pronoun corrects the agreement in 'Each volunteer brought their own tools to the garden'?")) {
-            return "Option B) 'his or her' matches singular 'Each.' A) keeps the error, C) shifts number, and D) is incorrect.";
-        } else if (response.question.includes("Which phrase replaces 'relying on' in 'The garden, relying on donations, thrived with vibrant crops' for clarity?")) {
-            return "Option A) 'sustained by' is precise. B) is vague, C) shifts meaning, and D) keeps the original.";
-        } else if (response.question.includes("Which revision combines 'The garden wasn’t perfect. Weeds crept in persistently' for better flow?")) {
-            return "Option B) 'yet' links clauses smoothly. A) is choppy, C) misaligns logic, and D) shifts tone.";
-        } else if (response.question.includes("Which revision to 'Skeptics wondered—could a small plot really unite the community?' maintains tone?")) {
-            return "Option C) preserves the doubtful tone. A) is harsh, B) is formal, and D) keeps the original.";
-        } else if (response.question.includes("Which punctuation corrects 'Spring arrived, the garden burst with color, but pests loomed'?")) {
-            return "Option A) uses a semicolon for independent clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
-        } else if (response.question.includes("Which sentence follows 'As harvest neared, cheers rose, though Rosa planned pest control tweaks' to emphasize effort?")) {
-            return "Option C) highlights ongoing work. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
-        } else if (response.question.includes("Which revision corrects the tense in 'Rosa stood by the gate, watching as volunteers plant seedlings'?")) {
-            return "Option A) 'planted' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
-        } else if (response.question.includes("Which revision to 'a symbol of grit and shared dreams' improves conciseness?")) {
-            return "Option C) is succinct and clear. A) is wordy, B) shifts meaning, and D) keeps the original.";
-        } else if (response.question.includes("Which sentence contains a misplaced modifier?")) {
-            return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
-        } else if (response.question.includes("Which transition phrase before 'Neighbors shared tools, their laughter echoing,' clarifies unity?")) {
-            return "Option B) 'As a result' shows connection. A) implies time, C) is an example, and D) shifts focus.";
-        } else if (response.question.includes("Which phrase replaces 'despite early setbacks' in 'Crops grew strong, despite early setbacks' for precision?")) {
-            return "Option C) 'though challenged' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
-        } else if (response.question.includes("Which revision to 'Every failure taught them perseverance' emphasizes growth?")) {
-            return "Option B) underscores learning. A) is vague, C) shifts focus, and D) keeps the original.";
-        } else if (response.question.includes("Which sentence has an error in parallel structure?")) {
-            return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+    
+        // Set 3: Garden Passage
+        if (questionText.includes("The community garden bloomed with possibility")) {
+            if (questionText.includes("Which punctuation corrects the sentence 'Rosa, the garden’s founder, had spent years planning beds, trellises, and compost bins'?")) {
+                return "Option B) uses commas correctly for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
+            } else if (questionText.includes("Which word replaces 'bloomed' in 'The community garden bloomed with possibility, drawing neighbors together' to maintain tone?")) {
+                return "Option A) 'flourished' keeps the hopeful tone. B) is neutral, C) is technical, and D) retains the original.";
+            } else if (questionText.includes("Which pronoun corrects the agreement in 'Each volunteer brought their own tools to the garden'?")) {
+                return "Option B) 'his or her' matches singular 'Each.' A) keeps the error, C) shifts number, and D) is incorrect.";
+            } else if (questionText.includes("Which phrase replaces 'relying on' in 'The garden, relying on donations, thrived with vibrant crops' for clarity?")) {
+                return "Option A) 'sustained by' is precise. B) is vague, C) shifts meaning, and D) keeps the original.";
+            } else if (questionText.includes("Which revision combines 'The garden wasn’t perfect. Weeds crept in persistently' for better flow?")) {
+                return "Option B) 'yet' links clauses smoothly. A) is choppy, C) misaligns logic, and D) shifts tone.";
+            } else if (questionText.includes("Which revision to 'Skeptics wondered—could a small plot really unite the community?' maintains tone?")) {
+                return "Option C) preserves the doubtful tone. A) is harsh, B) is formal, and D) keeps the original.";
+            } else if (questionText.includes("Which punctuation corrects 'Spring arrived, the garden burst with color, but pests loomed'?")) {
+                return "Option A) uses a semicolon for independent clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
+            } else if (questionText.includes("Which sentence follows 'As harvest neared, cheers rose, though Rosa planned pest control tweaks' to emphasize effort?")) {
+                return "Option C) highlights ongoing work. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
+            } else if (questionText.includes("Which revision corrects the tense in 'Rosa stood by the gate, watching as volunteers plant seedlings'?")) {
+                return "Option A) 'planted' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
+            } else if (questionText.includes("Which revision to 'a symbol of grit and shared dreams' improves conciseness?")) {
+                return "Option C) is succinct and clear. A) is wordy, B) shifts meaning, and D) keeps the original.";
+            } else if (questionText.includes("Which sentence contains a misplaced modifier?")) {
+                return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
+            } else if (questionText.includes("Which transition phrase before 'Neighbors shared tools, their laughter echoing,' clarifies unity?")) {
+                return "Option B) 'As a result' shows connection. A) implies time, C) is an example, and D) shifts focus.";
+            } else if (questionText.includes("Which phrase replaces 'despite early setbacks' in 'Crops grew strong, despite early setbacks' for precision?")) {
+                return "Option C) 'though challenged' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
+            } else if (questionText.includes("Which revision to 'Every failure taught them perseverance' emphasizes growth?")) {
+                return "Option B) underscores learning. A) is vague, C) shifts focus, and D) keeps the original.";
+            } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
+                return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+            }
         }
-    }
-
-    // Set 4: Science Fair Passage
-    if (passageText.includes("The gymnasium hummed with the energy of the science fair")) {
-        if (response.question.includes("Which punctuation corrects the sentence 'Samir, the lead presenter, had tested his solar model for weeks, tweaking panels, and circuits'?")) {
-            return "Option B) uses commas for the appositive and list. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
-        } else if (response.question.includes("Which word replaces 'honed' in 'Students honed their projects, racing against the deadline' to maintain urgency?")) {
-            return "Option A) 'refined' keeps the intense tone. B) is calm, C) is vague, and D) retains the original.";
-        } else if (response.question.includes("Which pronoun corrects the agreement in 'Each student displayed their hypothesis proudly'?")) {
-            return "Option B) 'his or her' matches singular 'Each.' A) keeps the error, C) shifts number, and D) is incorrect.";
-        } else if (response.question.includes("Which phrase replaces 'built on' in 'The fair, built on months of effort, showcased innovation' for clarity?")) {
-            return "Option A) 'driven by' is precise. B) is vague, C) shifts meaning, and D) keeps the original.";
-        } else if (response.question.includes("Which revision combines 'The projects weren’t flawless. They impressed the judges' for flow?")) {
-            return "Option B) 'yet' links clauses smoothly. A) is abrupt, C) misaligns logic, and D) shifts tone.";
-        } else if (response.question.includes("Which revision to 'Judges murmured—could kids this young solve real problems?' maintains tone?")) {
-            return "Option C) keeps the skeptical tone. A) is harsh, B) is formal, and D) retains the original.";
-        } else if (response.question.includes("Which punctuation corrects 'The fair began, models whirred to life, but nerves lingered'?")) {
-            return "Option A) uses a semicolon for clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
-        } else if (response.question.includes("Which sentence follows 'As judging ended, cheers erupted, though Samir eyed his model’s flaws' to emphasize improvement?")) {
-            return "Option C) highlights refinement. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
-        } else if (response.question.includes("Which revision corrects the tense in 'Samir explained his model, hoping judges notice its efficiency'?")) {
-            return "Option A) 'noticed' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
-        } else if (response.question.includes("Which revision to 'a showcase of curiosity and bold ideas' improves conciseness?")) {
-            return "Option C) is succinct and clear. A) is wordy, B) shifts meaning, and D) keeps the original.";
-        } else if (response.question.includes("Which sentence contains a misplaced modifier?")) {
-            return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
-        } else if (response.question.includes("Which transition phrase before 'Judges took notes, their faces unreadable,' clarifies contrast?")) {
-            return "Option B) 'In contrast' highlights difference. A) implies time, C) is an example, and D) is causal.";
-        } else if (response.question.includes("Which phrase replaces 'despite initial doubts' in 'Projects shone, despite initial doubts' for precision?")) {
-            return "Option C) 'though questioned' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
-        } else if (response.question.includes("Which revision to 'Every setback fueled their drive' emphasizes persistence?")) {
-            return "Option B) underscores resilience. A) is vague, C) shifts focus, and D) keeps the original.";
-        } else if (response.question.includes("Which sentence has an error in parallel structure?")) {
-            return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+    
+        // Set 4: Science Fair Passage
+        if (questionText.includes("The gymnasium hummed with the energy of the science fair")) {
+            if (questionText.includes("Which punctuation corrects the sentence 'Samir, the lead presenter, had tested his solar model for weeks, tweaking panels, and circuits'?")) {
+                return "Option B) uses commas for the appositive and list. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
+            } else if (questionText.includes("Which word replaces 'honed' in 'Students honed their projects, racing against the deadline' to maintain urgency?")) {
+                return "Option A) 'refined' keeps the intense tone. B) is calm, C) is vague, and D) retains the original.";
+            } else if (questionText.includes("Which pronoun corrects the agreement in 'Each student displayed their hypothesis proudly'?")) {
+                return "Option B) 'his or her' matches singular 'Each.' A) keeps the error, C) shifts number, and D) is incorrect.";
+            } else if (questionText.includes("Which phrase replaces 'built on' in 'The fair, built on months of effort, showcased innovation' for clarity?")) {
+                return "Option A) 'driven by' is precise. B) is vague, C) shifts meaning, and D) keeps the original.";
+            } else if (questionText.includes("Which revision combines 'The projects weren’t flawless. They impressed the judges' for flow?")) {
+                return "Option B) 'yet' links clauses smoothly. A) is abrupt, C) misaligns logic, and D) shifts tone.";
+            } else if (questionText.includes("Which revision to 'Judges murmured—could kids this young solve real problems?' maintains tone?")) {
+                return "Option C) keeps the skeptical tone. A) is harsh, B) is formal, and D) retains the original.";
+            } else if (questionText.includes("Which punctuation corrects 'The fair began, models whirred to life, but nerves lingered'?")) {
+                return "Option A) uses a semicolon for clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
+            } else if (questionText.includes("Which sentence follows 'As judging ended, cheers erupted, though Samir eyed his model’s flaws' to emphasize improvement?")) {
+                return "Option C) highlights refinement. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
+            } else if (questionText.includes("Which revision corrects the tense in 'Samir explained his model, hoping judges notice its efficiency'?")) {
+                return "Option A) 'noticed' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
+            } else if (questionText.includes("Which revision to 'a showcase of curiosity and bold ideas' improves conciseness?")) {
+                return "Option C) is succinct and clear. A) is wordy, B) shifts meaning, and D) keeps the original.";
+            } else if (questionText.includes("Which sentence contains a misplaced modifier?")) {
+                return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
+            } else if (questionText.includes("Which transition phrase before 'Judges took notes, their faces unreadable,' clarifies contrast?")) {
+                return "Option B) 'In contrast' highlights difference. A) implies time, C) is an example, and D) is causal.";
+            } else if (questionText.includes("Which phrase replaces 'despite initial doubts' in 'Projects shone, despite initial doubts' for precision?")) {
+                return "Option C) 'though questioned' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
+            } else if (questionText.includes("Which revision to 'Every setback fueled their drive' emphasizes persistence?")) {
+                return "Option B) underscores resilience. A) is vague, C) shifts focus, and D) keeps the original.";
+            } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
+                return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+            }
         }
-    }
-
-    // Set 5: Theater Passage
-    if (passageText.includes("The theater troupe huddled backstage")) {
-        if (response.question.includes("Which punctuation corrects the sentence 'The troupe’s director, Elena Vasquez, had spent weeks perfecting the lighting cues, sound levels, and actors’ blocking'?")) {
-            return "Option B) correctly uses commas for the appositive. A) lacks commas, C) misplaces a comma, and D) omits punctuation.";
-        } else if (response.question.includes("Which word replaces 'huddled' in 'The theater troupe huddled backstage, nerves fraying as the clock ticked closer to curtain' to maintain tone?")) {
-            return "Option A) 'gathered' preserves the anxious tone. B) is too casual, C) too formal, and D) keeps the original.";
-        } else if (response.question.includes("Which pronoun corrects the agreement error in 'Each actor checked their costume, ensuring no detail was overlooked'?")) {
-            return "Option B) 'his or her' matches singular 'Each.' A) retains the error, C) shifts number, and D) is incorrect.";
-        } else if (response.question.includes("Which phrase replaces 'relying on' in 'The production, relying on a shoestring budget, still dazzled with creative sets' for precision?")) {
-            return "Option A) 'operating with' clarifies the budget constraint. B) is vague, C) shifts meaning, and D) keeps the original.";
-        } else if (response.question.includes("Which revision best combines 'The play wasn’t flawless. It captivated the audience' to improve flow?")) {
-            return "Option B) 'yet' smoothly contrasts flaws and success. A) is abrupt, C) misaligns logic, and D) shifts tone.";
-        } else if (response.question.includes("Which revision to 'Critics scribbled notes—would this scrappy troupe pull it off?' maintains the passage’s tone?")) {
-            return "Option C) preserves the skeptical tone. A) is too harsh, B) too formal, and D) keeps the original.";
-        } else if (response.question.includes("Which punctuation corrects 'Opening night had arrived, the troupe was ready, but jittery'?")) {
-            return "Option A) uses a semicolon for independent clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
-        } else if (response.question.includes("Which sentence best follows 'As the curtain fell, applause erupted, though Elena already planned tweaks for tomorrow’s show' to emphasize refinement?")) {
-            return "Option C) highlights ongoing improvements. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
-        } else if (response.question.includes("Which revision corrects the verb tense in 'Elena stood in the wings, watching as the actors deliver their lines'?")) {
-            return "Option A) 'delivered' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
-        } else if (response.question.includes("Which revision to 'a testament to raw talent and stubborn grit' enhances conciseness?")) {
-            return "Option C) streamlines without losing impact. A) is wordy, B) shifts meaning, and D) keeps the original.";
-        } else if (response.question.includes("Which sentence contains a misplaced modifier?")) {
-            return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
-        } else if (response.question.includes("Which transition phrase, inserted before 'The actors hit their marks, their voices steady despite the stakes,' clarifies the contrast?")) {
-            return "Option B) 'Even so' highlights resilience. A) implies sequence, C) is irrelevant, and D) shifts focus.";
-        } else if (response.question.includes("Which phrase replaces 'despite first-night jitters' in 'The actors moved with confidence, despite first-night jitters' for precision?")) {
-            return "Option C) 'though nervous' is concise and clear. A) is wordy, B) shifts tone, and D) keeps the original.";
-        } else if (response.question.includes("Which revision to 'Every prop malfunction taught them resilience' emphasizes learning?")) {
-            return "Option B) underscores growth through setbacks. A) is vague, C) shifts focus, and D) keeps the original.";
-        } else if (response.question.includes("Which sentence has an error in parallel structure?")) {
-            return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+    
+        // Set 5: Theater Passage
+        if (questionText.includes("The theater troupe huddled backstage")) {
+            if (questionText.includes("Which punctuation corrects the sentence 'The troupe’s director, Elena Vasquez, had spent weeks perfecting the lighting cues, sound levels, and actors’ blocking'?")) {
+                return "Option B) correctly uses commas for the appositive. A) lacks commas, C) misplaces a comma, and D) omits punctuation.";
+            } else if (questionText.includes("Which word replaces 'huddled' in 'The theater troupe huddled backstage, nerves fraying as the clock ticked closer to curtain' to maintain tone?")) {
+                return "Option A) 'gathered' preserves the anxious tone. B) is too casual, C) too formal, and D) keeps the original.";
+            } else if (questionText.includes("Which pronoun corrects the agreement error in 'Each actor checked their costume, ensuring no detail was overlooked'?")) {
+                return "Option B) 'his or her' matches singular 'Each.' A) retains the error, C) shifts number, and D) is incorrect.";
+            } else if (questionText.includes("Which phrase replaces 'relying on' in 'The production, relying on a shoestring budget, still dazzled with creative sets' for precision?")) {
+                return "Option A) 'operating with' clarifies the budget constraint. B) is vague, C) shifts meaning, and D) keeps the original.";
+            } else if (questionText.includes("Which revision best combines 'The play wasn’t flawless. It captivated the audience' to improve flow?")) {
+                return "Option B) 'yet' smoothly contrasts flaws and success. A) is abrupt, C) misaligns logic, and D) shifts tone.";
+            } else if (questionText.includes("Which revision to 'Critics scribbled notes—would this scrappy troupe pull it off?' maintains the passage’s tone?")) {
+                return "Option C) preserves the skeptical tone. A) is too harsh, B) too formal, and D) keeps the original.";
+            } else if (questionText.includes("Which punctuation corrects 'Opening night had arrived, the troupe was ready, but jittery'?")) {
+                return "Option A) uses a semicolon for independent clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
+            } else if (questionText.includes("Which sentence best follows 'As the curtain fell, applause erupted, though Elena already planned tweaks for tomorrow’s show' to emphasize refinement?")) {
+                return "Option C) highlights ongoing improvements. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
+            } else if (questionText.includes("Which revision corrects the verb tense in 'Elena stood in the wings, watching as the actors deliver their lines'?")) {
+                return "Option A) 'delivered' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
+            } else if (questionText.includes("Which revision to 'a testament to raw talent and stubborn grit' enhances conciseness?")) {
+                return "Option C) streamlines without losing impact. A) is wordy, B) shifts meaning, and D) keeps the original.";
+            } else if (questionText.includes("Which sentence contains a misplaced modifier?")) {
+                return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
+            } else if (questionText.includes("Which transition phrase, inserted before 'The actors hit their marks, their voices steady despite the stakes,' clarifies the contrast?")) {
+                return "Option B) 'Even so' highlights resilience. A) implies sequence, C) is irrelevant, and D) shifts focus.";
+            } else if (questionText.includes("Which phrase replaces 'despite first-night jitters' in 'The actors moved with confidence, despite first-night jitters' for precision?")) {
+                return "Option C) 'though nervous' is concise and clear. A) is wordy, B) shifts tone, and D) keeps the original.";
+            } else if (questionText.includes("Which revision to 'Every prop malfunction taught them resilience' emphasizes learning?")) {
+                return "Option B) underscores growth through setbacks. A) is vague, C) shifts focus, and D) keeps the original.";
+            } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
+                return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+            }
         }
-    }
-
-    // Set 6: Robotics Passage
-    if (passageText.includes("The community center buzzed with anticipation as the robotics team")) {
-        if (response.question.includes("Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?")) {
-            return "Option B) correctly uses commas for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
-        } else if (response.question.includes("Which word replaces 'addressing' in 'Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem' to maintain verb tense consistency?")) {
-            return "Option A) 'addressed' aligns with past tense. B) shifts tense, C) is future, and D) is incorrect.";
-        } else if (response.question.includes("Which pronoun corrects the agreement error in 'The team knew the stakes: a win could fund a town-wide recycling program'?")) {
-            return "Option B) 'its' matches singular 'team.' A) is plural, C) shifts subject, and D) keeps the error.";
-        } else if (response.question.includes("Which phrase replaces 'based on' in 'Leo, an engineering whiz, designed a claw that adjusted its grip based on material density' to improve clarity?")) {
-            return "Option A) 'depending on' is clearer. B) shifts meaning, C) is wordy, and D) keeps the original.";
-        } else if (response.question.includes("Which revision best combines 'Their robot wasn’t perfect; glass sorting still lagged behind plastic' to improve flow?")) {
-            return "Option B) 'as' links clauses smoothly. A) is abrupt, C) shifts logic, and D) is causal.";
-        } else if (response.question.includes("Which revision to 'Critics in the audience murmured—could a high school team really tackle such a complex issue?' best maintains the passage’s tone?")) {
-            return "Option C) keeps the doubtful tone. A) is informal, B) is formal, and D) retains the original.";
-        } else if (response.question.includes("Which punctuation corrects 'Early prototypes had faltered; one memorably scattered cans across the lab'?")) {
-            return "Option A) uses a comma for clarity. B) misuses a colon, C) is incorrect, and D) keeps the original.";
-        } else if (response.question.includes("Which sentence best follows 'As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration' to emphasize persistence?")) {
-            return "Option C) underscores continued effort. A) shifts focus, B) is irrelevant, and D) is vague.";
-        } else if (response.question.includes("Which revision corrects the verb tense in 'Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates'?")) {
-            return "Option A) 'had exchanged' matches past context. B) shifts tense, C) is incorrect, and D) keeps the error.";
-        } else if (response.question.includes("Which revision to 'a spark of innovation born from late-night pizza and stubborn hope' enhances conciseness?")) {
-            return "Option C) is succinct and clear. A) is vague, B) loses impact, and D) keeps the original.";
-        } else if (response.question.includes("Which sentence contains a misplaced modifier?")) {
-            return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
-        } else if (response.question.includes("Which transition phrase, inserted before 'The judges, however, scribbled notes, their expressions unreadable,' clarifies the contrast?")) {
-            return "Option B) 'In contrast' highlights the difference. A) implies time, C) is an example, and D) is causal.";
-        } else if (response.question.includes("Which phrase replaces 'despite her nerves' in 'The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves' for precision?")) {
-            return "Option C) 'though anxious' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
-        } else if (response.question.includes("Which revision to 'Yet each failure fueled their resolve' emphasizes resilience?")) {
-            return "Option B) 'bolstered tenacity' emphasizes strength. A) is wordy, C) is vague, and D) keeps the original.";
-        } else if (response.question.includes("Which sentence has an error in parallel structure?")) {
-            return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+    
+        // Set 6: Robotics Passage
+        if (questionText.includes("The community center buzzed with anticipation as the robotics team")) {
+            if (questionText.includes("Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?")) {
+                return "Option B) correctly uses commas for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
+            } else if (questionText.includes("Which word replaces 'addressing' in 'Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem' to maintain verb tense consistency?")) {
+                return "Option A) 'addressed' aligns with past tense. B) shifts tense, C) is future, and D) is incorrect.";
+            } else if (questionText.includes("Which pronoun corrects the agreement error in 'The team knew the stakes: a win could fund a town-wide recycling program'?")) {
+                return "Option B) 'its' matches singular 'team.' A) is plural, C) shifts subject, and D) keeps the error.";
+            } else if (questionText.includes("Which phrase replaces 'based on' in 'Leo, an engineering whiz, designed a claw that adjusted its grip based on material density' to improve clarity?")) {
+                return "Option A) 'depending on' is clearer. B) shifts meaning, C) is wordy, and D) keeps the original.";
+            } else if (questionText.includes("Which revision best combines 'Their robot wasn’t perfect; glass sorting still lagged behind plastic' to improve flow?")) {
+                return "Option B) 'as' links clauses smoothly. A) is abrupt, C) shifts logic, and D) is causal.";
+            } else if (questionText.includes("Which revision to 'Critics in the audience murmured—could a high school team really tackle such a complex issue?' best maintains the passage’s tone?")) {
+                return "Option C) keeps the doubtful tone. A) is informal, B) is formal, and D) retains the original.";
+            } else if (questionText.includes("Which punctuation corrects 'Early prototypes had faltered; one memorably scattered cans across the lab'?")) {
+                return "Option A) uses a comma for clarity. B) misuses a colon, C) is incorrect, and D) keeps the original.";
+            } else if (questionText.includes("Which sentence best follows 'As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration' to emphasize persistence?")) {
+                return "Option C) underscores continued effort. A) shifts focus, B) is irrelevant, and D) is vague.";
+            } else if (questionText.includes("Which revision corrects the verb tense in 'Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates'?")) {
+                return "Option A) 'had exchanged' matches past context. B) shifts tense, C) is incorrect, and D) keeps the error.";
+            } else if (questionText.includes("Which revision to 'a spark of innovation born from late-night pizza and stubborn hope' enhances conciseness?")) {
+                return "Option C) is succinct and clear. A) is vague, B) loses impact, and D) keeps the original.";
+            } else if (questionText.includes("Which sentence contains a misplaced modifier?")) {
+                return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
+            } else if (questionText.includes("Which transition phrase, inserted before 'The judges, however, scribbled notes, their expressions unreadable,' clarifies the contrast?")) {
+                return "Option B) 'In contrast' highlights the difference. A) implies time, C) is an example, and D) is causal.";
+            } else if (questionText.includes("Which phrase replaces 'despite her nerves' in 'The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves' for precision?")) {
+                return "Option C) 'though anxious' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
+            } else if (questionText.includes("Which revision to 'Yet each failure fueled their resolve' emphasizes resilience?")) {
+                return "Option B) 'bolstered tenacity' emphasizes strength. A) is wordy, C) is vague, and D) keeps the original.";
+            } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
+                return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+            }
         }
+    
+        return "No explanation available for this question.";
     }
-
-    return "No explanation available for this question.";
-}
 
     function handleNextButton() {
         recordTestResults();
