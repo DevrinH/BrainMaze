@@ -1895,20 +1895,6 @@ footer h3 {
   display: none !important;
 }
 
-/* Flex container for layout */
-.flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  width: 70%; /* 70% of viewport on desktop/laptop */
-  max-width: 1400px; /* Prevent overly wide containers */
-  padding: 20px;
-  box-sizing: border-box;
-  flex-wrap: nowrap; /* Prevent wrapping on desktop */
-  margin: 0 auto;
-}
-
 /* Test lessons and progress containers */
 .testlessonscontainer,
 .progress-container {
@@ -2014,6 +2000,19 @@ footer h3 {
   overflow: visible;
   width: 70%; /* Match .flex-container */
   max-width: 1400px; /* Match .flex-container */
+}
+/* Flex container for layout */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 70%; /* 70% of viewport on desktop/laptop */
+  max-width: 1400px; /* Prevent overly wide containers */
+  padding: 10px;
+  box-sizing: border-box;
+  flex-wrap: nowrap; /* Prevent wrapping on desktop */
+  margin: 0 auto;
 }
 
 /* Responsive adjustments for phone screens */
