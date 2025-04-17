@@ -2023,7 +2023,7 @@ footer h3 {
 /* Responsive adjustments for phone screens */
 @media (max-width: 900px) {
   .line-chart-container {
-    width: 90%; /* Match .flex-container on phone */
+    width: 95%; /* Match .flex-container on phone */
   }
 
 
