@@ -1989,8 +1989,133 @@ document.addEventListener("DOMContentLoaded", () => {
     function generateExplanation(response) {
         const questionText = response.question || "";
     
+        // ACT Math Questions
+        // Medium Difficulty
+        if (questionText.includes("What is the value of x in the equation 3x + 7 = 22?")) {
+            return "Solve 3x + 7 = 22 by subtracting 7: 3x = 15. Divide by 3: x = 5. Option A) 5 is correct. B) 4, C) 6, and D) 7 do not satisfy the equation.";
+        } else if (questionText.includes("If f(x) = x^2 + 3x - 4, what is f(2)?")) {
+            return "Substitute x = 2 into f(x) = x^2 + 3x - 4: f(2) = 2^2 + 3(2) - 4 = 4 + 6 - 4 = 6. Option A) 6 is correct. B) 8, C) 4, and D) 10 are incorrect calculations.";
+        } else if (questionText.includes("What is the slope of the line passing through points (1, 2) and (3, 6)?")) {
+            return "Use the slope formula (y2 - y1)/(x2 - x1): (6 - 2)/(3 - 1) = 4/2 = 2. Option A) 2 is correct. B) 1, C) 3, and D) 4 miscalculate the slope.";
+        } else if (questionText.includes("Solve the system of equations: y = 2x + 1, y = x + 5.")) {
+            return "Set 2x + 1 = x + 5. Subtract x: x + 1 = 5. Subtract 1: x = 4. Substitute x = 4 into y = x + 5: y = 9. Option A) x = 4, y = 9 is correct. Others do not satisfy both equations.";
+        } else if (questionText.includes("What is the area of a triangle with base 8 and height 5?")) {
+            return "Use the formula Area = (1/2)bh: (1/2)(8)(5) = 20. Option A) 20 is correct. B) 40, C) 16, and D) 24 misapply the formula.";
+        } else if (questionText.includes("If sin(θ) = 3/5 and θ is in quadrant I, what is cos(θ)?")) {
+            return "Use sin^2(θ) + cos^2(θ) = 1: (3/5)^2 + cos^2(θ) = 1. So, 9/25 + cos^2(θ) = 1, cos^2(θ) = 16/25, cos(θ) = 4/5 (positive in quadrant I). Option A) 4/5 is correct. Others are incorrect.";
+        } else if (questionText.includes("What is the value of x if 2x^2 - 8 = 0?")) {
+            return "Solve 2x^2 - 8 = 0: 2x^2 = 8, x^2 = 4, x = ±2. ACT typically asks for the positive root: x = 2. Option A) 2 is correct. B) 4, C) 1, and D) 3 are not solutions.";
+        } else if (questionText.includes("A rectangle has a perimeter of 20 and a length of 7. What is its width?")) {
+            return "Perimeter = 2(l + w). Given P = 20, l = 7: 2(7 + w) = 20, 14 + 2w = 20, 2w = 6, w = 3. Option A) 3 is correct. B) 4, C) 5, and D) 6 do not fit.";
+        } else if (questionText.includes("What is the distance between points (2, 3) and (5, 7)?")) {
+            return "Use the distance formula √[(x2 - x1)^2 + (y2 - y1)^2]: √[(5-2)^2 + (7-3)^2] = √[9 + 16] = √25 = 5. Option A) 5 is correct. Others are incorrect.";
+        } else if (questionText.includes("If 3x - 5 = 7, what is the value of 6x - 10?")) {
+            return "Solve 3x - 5 = 7: 3x = 12, x = 4. Then, 6x - 10 = 6(4) - 10 = 14. Option A) 14 is correct. B) 12, C) 16, and D) 18 miscalculate.";
+        } else if (questionText.includes("What is the value of tan(30°)?")) {
+            return "For 30°, tan = sin/cos = (√3/2)/(1/2) = √3/3. Option A) √3/3 is correct. B) √3, C) 1/2, and D) 2/√3 are incorrect.";
+        } else if (questionText.includes("Solve for x: x^2 - 5x + 6 = 0.")) {
+            return "Factor x^2 - 5x + 6 = (x-2)(x-3) = 0. Solutions: x = 2, 3. Option A) x = 2, 3 is correct. Others do not solve the equation.";
+        } else if (questionText.includes("What is the midpoint of the segment connecting (1, 1) and (5, 7)?")) {
+            return "Midpoint = ((x1 + x2)/2, (y1 + y2)/2): ((1+5)/2, (1+7)/2) = (3, 4). Option A) (3, 4) is correct. Others are incorrect.";
+        } else if (questionText.includes("If a circle has a radius of 4, what is its circumference?")) {
+            return "Circumference = 2πr = 2π(4) = 8π. Option A) 8π is correct. B) 4π, C) 16π, and D) 12π miscalculate.";
+        } else if (questionText.includes("What is the solution to the inequality 2x + 3 > 7?")) {
+            return "Solve 2x + 3 > 7: 2x > 4, x > 2. Option A) x > 2 is correct. B) x > 3, C) x < 2, and D) x < 3 are incorrect.";
+        } else if (questionText.includes("If f(x) = 2x + 1, what is f(f(1))?")) {
+            return "First, f(1) = 2(1) + 1 = 3. Then, f(3) = 2(3) + 1 = 7. Option A) 7 is correct. B) 5, C) 9, and D) 3 are incorrect.";
+        } else if (questionText.includes("What is the area of a circle with diameter 10?")) {
+            return "Radius = diameter/2 = 5. Area = πr^2 = π(5)^2 = 25π. Option A) 25π is correct. B) 50π, C) 100π, and D) 10π miscalculate.";
+        } else if (questionText.includes("Solve for x: 4x - 3 = 2x + 7.")) {
+            return "Subtract 2x: 2x - 3 = 7. Add 3: 2x = 10, x = 5. Option A) 5 is correct. B) 4, C) 6, and D) 3 do not solve the equation.";
+        } else if (questionText.includes("What is the value of cos(60°)?")) {
+            return "For 60°, cos = 1/2. Option A) 1/2 is correct. B) √3/2, C) 1/√2, and D) √2/2 are incorrect.";
+        } else if (questionText.includes("What is the vertex of the parabola y = x^2 - 4x + 3?")) {
+            return "Vertex x-coordinate: -b/(2a) = -(-4)/(2(1)) = 2. Substitute x = 2: y = 2^2 - 4(2) + 3 = -1. Vertex: (2, -1). Option A) (2, -1) is correct. Others are incorrect.";
+        // Hard Difficulty
+        } else if (questionText.includes("If log₂(x) = 3, what is x?")) {
+            return "log₂(x) = 3 means 2^3 = x, so x = 8. Option A) 8 is correct. B) 6, C) 9, and D) 4 are not 2^3.";
+        } else if (questionText.includes("What is the value of i^5, where i is the imaginary unit?")) {
+            return "i^4 = 1, so i^5 = i^4 * i = 1 * i = i. Option A) i is correct. B) -i, C) 1, and D) -1 are incorrect.";
+        } else if (questionText.includes("A car travels 60 miles in 1 hour and 20 minutes. What is its average speed in miles per hour?")) {
+            return "Convert 1 hour 20 minutes to 1.333 hours. Speed = distance/time = 60/1.333 ≈ 45 mph. Option A) 45 is correct. Others miscalculate.";
+        } else if (questionText.includes("What is the period of the function f(x) = 3sin(2x)?")) {
+            return "Period of sin(bx) = 2π/b. Here, b = 2, so period = 2π/2 = π. Option A) π is correct. Others are incorrect.";
+        } else if (questionText.includes("Solve for x: x^3 - 8 = 0.")) {
+            return "x^3 = 8, so x = 2 (real root). Option A) 2 is correct. B) 4, C) 1, and D) 3 are not solutions.";
+        } else if (questionText.includes("What is the sum of the roots of the equation x^2 - 5x + 6 = 0?")) {
+            return "For ax^2 + bx + c = 0, sum of roots = -b/a. Here, a = 1, b = -5: -(-5)/1 = 5. Option A) 5 is correct. Others are incorrect.";
+        } else if (questionText.includes("If a triangle has sides 5, 12, and 13, what is its area?")) {
+            return "Recognize 5-12-13 as a right triangle. Area = (1/2)(base)(height) = (1/2)(5)(12) = 30. Option A) 30 is correct. Others miscalculate.";
+        } else if (questionText.includes("What is the value of f(3) if f(x) = 2^x?")) {
+            return "f(3) = 2^3 = 8. Option A) 8 is correct. B) 6, C) 9, and D) 12 are incorrect.";
+        } else if (questionText.includes("Solve for x: 2sin(x) = 1 for 0 ≤ x < 2π.")) {
+            return "2sin(x) = 1, sin(x) = 1/2. In [0, 2π), sin(x) = 1/2 at x = π/6, 5π/6. Option A) π/6, 5π/6 is correct. Others are incorrect.";
+        } else if (questionText.includes("What is the equation of the circle with center (2, -3) and radius 5?")) {
+            return "Circle equation: (x-h)^2 + (y-k)^2 = r^2. Center (2, -3), r = 5: (x-2)^2 + (y+3)^2 = 25. Option A) is correct. Others are incorrect.";
+        } else if (questionText.includes("If f(x) = x^2 + 2x + 1, what is f(x+1)?")) {
+            return "f(x+1) = (x+1)^2 + 2(x+1) + 1 = x^2 + 2x + 1 + 2x + 2 + 1 = x^2 + 4x + 4. Option A) is correct. Others are incorrect.";
+        } else if (questionText.includes("What is the value of log₃(27)?")) {
+            return "log₃(27) = log₃(3^3) = 3. Option A) 3 is correct. B) 2, C) 4, and D) 9 are incorrect.";
+        } else if (questionText.includes("A box contains 3 red and 5 blue marbles. What is the probability of drawing 2 red marbles in a row without replacement?")) {
+            return "P(first red) = 3/8. P(second red) = 2/7. P(both) = (3/8)(2/7) = 6/56 = 3/28. Option A) 3/28 is correct. Others miscalculate.";
+        } else if (questionText.includes("What is the amplitude of the function f(x) = 4cos(3x)?")) {
+            return "Amplitude of acos(bx) = |a|. Here, a = 4, so amplitude = 4. Option A) 4 is correct. Others are incorrect.";
+        } else if (questionText.includes("Solve for x: x^4 - 5x^2 + 4 = 0.")) {
+            return "Let u = x^2. Solve u^2 - 5u + 4 = 0: (u-1)(u-4) = 0, u = 1, 4. Thus, x^2 = 1 or 4, x = ±1, ±2. Option A) x = ±1, ±2 is correct. Others are incorrect.";
+        } else if (questionText.includes("What is the area of an equilateral triangle with side length 6?")) {
+            return "Area = (√3/4)s^2 = (√3/4)(6^2) = (√3/4)(36) = 9√3. Option A) 9√3 is correct. Others miscalculate.";
+        } else if (questionText.includes("If (2 + 3i)(x + yi) = 8 + i, what is x + y?")) {
+            return "Expand: (2 + 3i)(x + yi) = 2x + 2yi + 3xi + 3yi^2 = (2x - 3y) + (2y + 3x)i = 8 + i. Equate: 2x - 3y = 8, 2y + 3x = 1. Solve: x = 2, y = -4/3. x + y = 2 - 4/3 = 2/3. Option A) 2/3 is correct.";
+        } else if (questionText.includes("What is the sum of the first 10 terms of the arithmetic sequence with first term 3 and common difference 4?")) {
+            return "Sum = n/2[2a + (n-1)d]. For n = 10, a = 3, d = 4: 10/2[2(3) + (10-1)(4)] = 5[6 + 36] = 5(42) = 210. Option A) 210 is correct.";
+        } else if (questionText.includes("Solve for x: 2^x = 8.")) {
+            return "8 = 2^3, so 2^x = 2^3, x = 3. Option A) 3 is correct. B) 2, C) 4, and D) 6 are incorrect.";
+        } else if (questionText.includes("What is the value of sin(π/3) + cos(π/6)?")) {
+            return "sin(π/3) = √3/2, cos(π/6) = √3/2. Sum = √3/2 + √3/2 = 2(√3/2) = √3. Option A) √3 is correct. Others are incorrect.";
+        // Very Hard Difficulty
+        } else if (questionText.includes("A function is defined as f(x) = x^3 - 3x + 2. What is the sum of the x-coordinates of its critical points?")) {
+            return "Critical points: f'(x) = 3x^2 - 3 = 0, x^2 = 1, x = ±1. Sum = 1 + (-1) = 0. Option A) 0 is correct. Others are incorrect.";
+        } else if (questionText.includes("If z = 2 + 3i, what is the modulus of z?")) {
+            return "Modulus = √(a^2 + b^2) = √(2^2 + 3^2) = √(4 + 9) = √13. Option A) √13 is correct. Others are incorrect.";
+        } else if (questionText.includes("A ladder 10 feet long leans against a vertical wall. If the bottom of the ladder is 6 feet from the wall, how high up the wall does the ladder reach?")) {
+            return "Use Pythagorean theorem: 10^2 = 6^2 + h^2, 100 = 36 + h^2, h^2 = 64, h = 8. Option A) 8 is correct. Others are incorrect.";
+        } else if (questionText.includes("What is the value of x if 2^(x+1) = 3^(x-1)?")) {
+            return "Take logs: (x+1)ln(2) = (x-1)ln(3). Rearrange: x ln(2) + ln(2) = x ln(3) - ln(3), x(ln(3) - ln(2)) = ln(2) + ln(3), x = ln(3/2)/(ln(3) - ln(2)). Option A) is correct.";
+        } else if (questionText.includes("What is the exact value of cos(75°)?")) {
+            return "cos(75°) = cos(45°+30°) = cos(45°)cos(30°) - sin(45°)sin(30°) = (√2/2)(√3/2) - (√2/2)(1/2) = (√6 - √2)/4. Option A) is correct.";
+        } else if (questionText.includes("A cone has a radius of 3 and a height of 4. What is its volume?")) {
+            return "Volume = (1/3)πr^2h = (1/3)π(3^2)(4) = (1/3)π(9)(4) = 12π. Option A) 12π is correct. Others miscalculate.";
+        } else if (questionText.includes("Solve for x: sin(2x) = cos(x) for 0 ≤ x < 2π.")) {
+            return "Use sin(2x) = 2sin(x)cos(x). Equation: 2sin(x)cos(x) = cos(x). Factor: cos(x)(2sin(x) - 1) = 0. Solutions: cos(x) = 0 (x = π/2, 3π/2) or sin(x) = 1/2 (x = π/6, 5π/6). Check: x = 3π/2 is invalid. Solutions: π/6, 5π/6, π/2. Option A) is correct.";
+        } else if (questionText.includes("What is the inverse of the function f(x) = 2x + 3?")) {
+            return "Solve y = 2x + 3 for x: x = (y-3)/2. Inverse: f⁻¹(x) = (x-3)/2. Option A) is correct. Others are incorrect.";
+        } else if (questionText.includes("A geometric sequence has first term 2 and common ratio 3. What is the 5th term?")) {
+            return "nth term = a * r^(n-1). For n = 5, a = 2, r = 3: 2 * 3^(5-1) = 2 * 3^4 = 2 * 81 = 162. Option A) 162 is correct.";
+        } else if (questionText.includes("What is the value of ∑(n=1 to 5) n^2?")) {
+            return "Sum = 1^2 + 2^2 + 3^2 + 4^2 + 5^2 = 1 + 4 + 9 + 16 + 25 = 55. Option A) 55 is correct. Others are incorrect.";
+        } else if (questionText.includes("If f(x) = x^2 and g(x) = x + 1, what is f(g(x)) - g(f(x))?")) {
+            return "f(g(x)) = f(x+1) = (x+1)^2 = x^2 + 2x + 1. g(f(x)) = g(x^2) = x^2 + 1. Difference: (x^2 + 2x + 1) - (x^2 + 1) = 2x. Option A) 2x is correct.";
+        } else if (questionText.includes("A sphere has a volume of 36π. What is its radius?")) {
+            return "Volume = (4/3)πr^3 = 36π. Solve: (4/3)r^3 = 36, r^3 = 27, r = 3. Option A) 3 is correct. Others are incorrect.";
+        } else if (questionText.includes("Solve for x: log₂(x) + log₂(x-1) = 1.")) {
+            return "Combine: log₂(x(x-1)) = 1. So, x(x-1) = 2^1 = 2. Solve x^2 - x - 2 = 0: (x-2)(x+1) = 0, x = 2, -1. Since x > 1, x = 2. Option A) 2 is correct.";
+        } else if (questionText.includes("What is the exact value of tan(π/12)?")) {
+            return "tan(π/12) = tan(15°) = tan(45°-30°) = (tan(45°) - tan(30°))/(1 + tan(45°)tan(30°)) = (1 - √3/3)/(1 + 1*√3/3) = 2 - √3. Option A) is correct.";
+        } else if (questionText.includes("A rectangular prism has a volume of 120, a length of 5, and a width of 4. What is its height?")) {
+            return "Volume = lwh. Given 120 = 5 * 4 * h, 120 = 20h, h = 6. Option A) 6 is correct. Others are incorrect.";
+        } else if (questionText.includes("What is the discriminant of the quadratic equation x^2 - 4x + 5 = 0?")) {
+            return "Discriminant = b^2 - 4ac. For a = 1, b = -4, c = 5: (-4)^2 - 4(1)(5) = 16 - 20 = -4. Option A) -4 is correct.";
+        } else if (questionText.includes("If z = 1 + i, what is z^3?")) {
+            return "z = 1 + i. z^2 = (1 + i)^2 = 1 + 2i + i^2 = 1 + 2i - 1 = 2i. z^3 = z^2 * z = 2i * (1 + i) = 2i + 2i^2 = 2i - 2 = -2 + 2i. Option A) is correct.";
+        } else if (questionText.includes("What is the sum of the infinite geometric series 1 + 1/3 + 1/9 + ...?")) {
+            return "Sum = a/(1-r). For a = 1, r = 1/3: 1/(1 - 1/3) = 1/(2/3) = 3/2. Option A) 3/2 is correct.";
+        } else if (questionText.includes("Solve for x: 3^(2x) = 27.")) {
+            return "27 = 3^3, so 3^(2x) = 3^3, 2x = 3, x = 3/2. Option A) 3/2 is correct. Others are incorrect.";
+        } else if (questionText.includes("What is the value of cos^2(π/8) - sin^2(π/8)?")) {
+            return "Use identity: cos^2(θ) - sin^2(θ) = cos(2θ). For θ = π/8, cos(2*π/8) = cos(π/4) = √2/2. Option A) √2/2 is correct.";
+    
         // Set 2: Editorial Board Passage
-        if (questionText.includes("The editorial board gathered in a cramped office")) {
+        } else if (questionText.includes("The editorial board gathered in a cramped office")) {
             if (questionText.includes("Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?")) {
                 return "Option B) adds a comma before 'but,' correctly joining independent clauses, while the colon introduces the fare increase detail. A) creates a run-on, C) misuses a semicolon, and D) retains the faulty structure.";
             } else if (questionText.includes("In the sentence 'Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class,' which phrase corrects the parallel structure?")) {
@@ -2016,16 +2141,15 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (questionText.includes("Which revision to 'The plan promised faster commutes but at a steep cost' best emphasizes the trade-off while maintaining tone?")) {
                 return "Option A) balances benefits and burdens while matching tone. B) exaggerates, C) shifts tone, and D) lacks emphasis.";
             } else if (questionText.includes("In 'The editorial board gathered in a cramped office, papers strewn across the table,' which verb corrects the participle 'strewn' for agreement?")) {
-                return "Option D) 'strewn' is correct as a past participle. A), B), and C) disrupt tense or meaning.";
+                return "Option D) 'strewn' is correct as a past participle. A), B), and C) disrupt the tense or meaning.";
             } else if (questionText.includes("Which sentence best introduces the passage to clarify the board’s purpose?")) {
                 return "Option D) clearly states the drafting goal. A) is redundant, B) shifts focus, and C) emphasizes leadership.";
             } else if (questionText.includes("Which sentence contains an error in parallel structure?")) {
                 return "Option D) is correct; no sentence has a parallelism error. A), B), and C) maintain consistent structure.";
-            }
         }
     
         // Set 3: Garden Passage
-        if (questionText.includes("The community garden bloomed with possibility")) {
+        } else if (questionText.includes("The community garden bloomed with possibility")) {
             if (questionText.includes("Which punctuation corrects the sentence 'Rosa, the garden’s founder, had spent years planning beds, trellises, and compost bins'?")) {
                 return "Option B) uses commas correctly for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
             } else if (questionText.includes("Which word replaces 'bloomed' in 'The community garden bloomed with possibility, drawing neighbors together' to maintain tone?")) {
@@ -2056,11 +2180,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 return "Option B) underscores learning. A) is vague, C) shifts focus, and D) keeps the original.";
             } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
                 return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
-            }
         }
     
         // Set 4: Science Fair Passage
-        if (questionText.includes("The gymnasium hummed with the energy of the science fair")) {
+        } else if (questionText.includes("The gymnasium hummed with the energy of the science fair")) {
             if (questionText.includes("Which punctuation corrects the sentence 'Samir, the lead presenter, had tested his solar model for weeks, tweaking panels, and circuits'?")) {
                 return "Option B) uses commas for the appositive and list. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
             } else if (questionText.includes("Which word replaces 'honed' in 'Students honed their projects, racing against the deadline' to maintain urgency?")) {
@@ -2091,11 +2214,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 return "Option B) underscores resilience. A) is vague, C) shifts focus, and D) keeps the original.";
             } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
                 return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
-            }
         }
     
         // Set 5: Theater Passage
-        if (questionText.includes("The theater troupe huddled backstage")) {
+        } else if (questionText.includes("The theater troupe huddled backstage")) {
             if (questionText.includes("Which punctuation corrects the sentence 'The troupe’s director, Elena Vasquez, had spent weeks perfecting the lighting cues, sound levels, and actors’ blocking'?")) {
                 return "Option B) correctly uses commas for the appositive. A) lacks commas, C) misplaces a comma, and D) omits punctuation.";
             } else if (questionText.includes("Which word replaces 'huddled' in 'The theater troupe huddled backstage, nerves fraying as the clock ticked closer to curtain' to maintain tone?")) {
@@ -2126,11 +2248,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 return "Option B) underscores growth through setbacks. A) is vague, C) shifts focus, and D) keeps the original.";
             } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
                 return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
-            }
         }
     
         // Set 6: Robotics Passage
-        if (questionText.includes("The community center buzzed with anticipation as the robotics team")) {
+        } else if (questionText.includes("The community center buzzed with anticipation as the robotics team")) {
             if (questionText.includes("Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?")) {
                 return "Option B) correctly uses commas for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
             } else if (questionText.includes("Which word replaces 'addressing' in 'Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem' to maintain verb tense consistency?")) {
@@ -2162,6 +2283,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
                 return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
             }
+            
         }
     
         return "No explanation available for this question.";
