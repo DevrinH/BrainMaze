@@ -1968,7 +1968,136 @@ document.addEventListener("DOMContentLoaded", () => {
         "difficulty": "very hard",
         "category": "structure"
       },
-    
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "What was a primary goal of Impressionist artists like Monet and Renoir?",
+        "answers": [
+          { "text": "A) To adhere to the Paris Salon’s academic standards", "correct": false },
+          { "text": "B) To capture fleeting moments of light and color", "correct": true },
+          { "text": "C) To focus on historical and mythological narratives", "correct": false },
+          { "text": "D) To create highly detailed and realistic portraits", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "main idea"
+      },
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "According to the passage, how did critics initially react to Impressionism?",
+        "answers": [
+          { "text": "A) They praised its innovative use of color", "correct": false },
+          { "text": "B) They dismissed it as unfinished and sketch-like", "correct": true },
+          { "text": "C) They admired its adherence to academic standards", "correct": false },
+          { "text": "D) They celebrated its influence on modern artists", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "detail"
+      },
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "What role did the 1874 exhibition play in the Impressionist movement?",
+        "answers": [
+          { "text": "A) It marked the official acceptance of Impressionism by the Paris Salon", "correct": false },
+          { "text": "B) It introduced the term ‘Impressionism’ through Monet’s painting", "correct": true },
+          { "text": "C) It showcased traditional academic paintings alongside Impressionist works", "correct": false },
+          { "text": "D) It was organized to critique the influence of industrialization on art", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "detail"
+      },
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "How did Impressionist artists challenge the Paris Salon, according to the passage?",
+        "answers": [
+          { "text": "A) By submitting their works for Salon approval", "correct": false },
+          { "text": "B) By creating their own independent exhibitions", "correct": false },
+          { "text": "C) By organizing independent exhibitions", "correct": true },
+          { "text": "D) By painting traditional subjects in a realistic style", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "detail"
+      },
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "The passage suggests that Impressionism’s focus on modernity was significant because it:",
+        "answers": [
+          { "text": "A) Reflected the cultural changes brought by industrialization", "correct": true },
+          { "text": "B) Rejected all connections to natural landscapes", "correct": false },
+          { "text": "C) Prioritized historical themes over contemporary life", "correct": false },
+          { "text": "D) Ignored the influence of earlier art movements", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "inference"
+      },
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "The phrase ‘en plein air’ in the passage most likely refers to:",
+        "answers": [
+          { "text": "A) Painting in a studio with artificial lighting", "correct": false },
+          { "text": "B) Painting outdoors to capture natural light", "correct": true },
+          { "text": "C) Creating art with minimal brushstrokes", "correct": false },
+          { "text": "D) Exhibiting art in public galleries", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "vocabulary in context"
+      },
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "How did Vincent van Gogh’s work relate to Impressionism, according to the passage?",
+        "answers": [
+          { "text": "A) He rejected Impressionist techniques entirely", "correct": false },
+          { "text": "B) He built on its spontaneity with emotive brushwork", "correct": true },
+          { "text": "C) He focused solely on Impressionist urban themes", "correct": false },
+          { "text": "D) He criticized Impressionism’s lack of realism", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "relationship"
+      },
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "What does the passage imply about the Impressionists’ view of nature?",
+        "answers": [
+          { "text": "A) They saw it as a source of solace amidst modernity", "correct": true },
+          { "text": "B) They viewed it as irrelevant to their urban focus", "correct": false },
+          { "text": "C) They depicted it only in realistic detail", "correct": false },
+          { "text": "D) They considered it a barrier to artistic innovation", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "implication"
+      },
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "The passage’s reference to Impressionism ‘bridging the personal and the universal’ primarily serves to:",
+        "answers": [
+          { "text": "A) Emphasize its appeal to a wide audience", "correct": false },
+          { "text": "B) Highlight its focus on realistic detail", "correct": false },
+          { "text": "C) Illustrate its ability to connect individual experience with shared beauty", "correct": true },
+          { "text": "D) Suggest its rejection of modern themes", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "author’s purpose"
+      },
+      {
+        "passage": "In the late 19th century, the Impressionist movement redefined European art, breaking from the rigid conventions of academic painting. Artists like Claude Monet and Pierre-Auguste Renoir sought to capture fleeting moments of light and color, prioritizing sensory experience over narrative precision. Their loose brushstrokes and vibrant palettes, often applied en plein air, conveyed the immediacy of landscapes and urban scenes. Monet’s series of water lilies, painted in his Giverny garden, exemplified this obsession with transient effects—each canvas a snapshot of shifting sunlight on water.\n\nCritics initially scorned Impressionism, dismissing its sketch-like quality as unfinished. The 1874 exhibition, where the term ‘Impressionism’ was coined from Monet’s *Impression, Sunrise*, sparked outrage for its departure from detailed realism. Yet, the movement gained traction, influencing later artists like Vincent van Gogh, whose emotive brushwork built on Impressionist spontaneity. The Impressionists also challenged the Paris Salon’s authority, organizing independent exhibitions to reach broader audiences.\n\nBeyond technique, Impressionism reflected a cultural shift. As industrialization transformed Europe, these artists celebrated modernity—railways, cafes, and bustling boulevards—while also retreating to dólar nature for solace. Their work bridged the personal and the universal, inviting viewers to see the world through a lens of fleeting beauty. Today, Impressionism’s legacy endures, its emphasis on individual perception shaping modern art’s evolution.",
+        "question": "How does the passage’s structure, moving from Impressionism’s techniques to its cultural context and lasting impact, contribute to its overall argument?",
+        "answers": [
+          { "text": "A) It contrasts Impressionism with earlier art movements", "correct": false },
+          { "text": "B) It underscores Impressionism’s role in shaping modern art", "correct": false },
+          { "text": "C) It highlights the technical flaws of Impressionist paintings", "correct": false },
+          { "text": "D) It traces the evolution of Impressionism’s influence", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "structure"
+      },
     
     ];
     const scienceQuestions = [        { question: "Science Question?", answers: [{ text: "4", correct: true }, { text: "5", correct: false }], difficulty: "easy", category: "Arithmetic" },];
@@ -2595,7 +2724,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return "Clara’s persistent search for the hidden room shows truths require effort to uncover. Option A) It shows that truths are often inaccessible without persistence is correct. B) lacks danger evidence; C) contradicts her pursuit; D) overstates supernatural ties.";
         } else if (questionText.includes("The passage’s structure, moving from Clara’s research to her discovery in the hidden room, serves to:")) {
             return "The structure builds suspense and parallels Clara’s growing understanding. Option A) build suspense and mirror Clara’s journey of understanding is correct. B) lacks clear contrast; C) misplaces focus on the house; D) is secondary.";
-            
+
     // Set 8: Chicago School of Sociology Passage
 
     }} else if (questionText.includes("In the early 20th century, the Chicago School of Sociology emerged")) {
@@ -2619,7 +2748,30 @@ document.addEventListener("DOMContentLoaded", () => {
             return "The ‘living organisms’ metaphor underscores the Chicago School’s view of cities as dynamic, adaptive systems. Option D) Illustrate the Chicago School’s view of cities as complex, changing systems is correct. A) is too literal; B) is partial; C) contradicts human influence.";
         } else if (questionText.includes("How does the passage’s structure, moving from the Chicago School’s theories to their criticisms and lasting impact, contribute to its overall argument?")) {
             return "The structure traces the development of urban sociology, showing the Chicago School’s role in its evolution. Option C) It traces the evolution of urban sociology as a discipline is correct. A) misstates the tone; B) is partial; D) overstates defense.";
-        }
+        }// Set 9: Impressionist Movement Passage
+    } else if (questionText.includes("In the late 19th century, the Impressionist movement redefined European art")) {
+        if (questionText.includes("What was a primary goal of Impressionist artists like Monet and Renoir?")) {
+            return "The passage states that Impressionists sought to capture fleeting moments of light and color, prioritizing sensory experience. Option B) To capture fleeting moments of light and color is correct. A) contradicts their break from academic standards; C) misaligns with their focus on sensory over narrative; D) opposes their loose, impressionistic style.";
+        } else if (questionText.includes("According to the passage, how did critics initially react to Impressionism?")) {
+            return "The passage notes critics scorned Impressionism, dismissing its sketch-like quality as unfinished. Option B) They dismissed it as unfinished and sketch-like is correct. A) misstates their reaction; C) contradicts their criticism; D) reflects later influence, not initial response.";
+        } else if (questionText.includes("What role did the 1874 exhibition play in the Impressionist movement?")) {
+            return "The passage highlights the 1874 exhibition as the origin of the term ‘Impressionism’ via Monet’s *Impression, Sunrise*. Option B) It introduced the term ‘Impressionism’ through Monet’s painting is correct. A) is incorrect as it was independent; C) misrepresents the exhibition’s content; D) is unrelated to its purpose.";
+        } else if (questionText.includes("How did Impressionist artists challenge the Paris Salon, according to the passage?")) {
+            return "The passage states Impressionists organized independent exhibitions to bypass the Paris Salon’s authority. Option C) By organizing independent exhibitions is correct. A) contradicts their approach; B) is a duplicate error; D) misaligns with their innovative style.";
+        } else if (questionText.includes("The passage suggests that Impressionism’s focus on modernity was significant because it:")) {
+            return "The passage links Impressionism’s celebration of railways and cafes to industrialization’s cultural shifts. Option A) Reflected the cultural changes brought by industrialization is correct. B) contradicts their nature focus; C) opposes their modern themes; D) ignores their build on prior art.";
+        } else if (questionText.includes("The phrase ‘en plein air’ in the passage most likely refers to:")) {
+            return "The context of capturing natural light and landscapes suggests ‘en plein air’ means painting outdoors. Option B) Painting outdoors to capture natural light is correct. A) describes studio work; C) misinterprets technique; D) refers to exhibition, not painting.";
+        } else if (questionText.includes("How did Vincent van Gogh’s work relate to Impressionism, according to the passage?")) {
+            return "The passage notes van Gogh’s emotive brushwork built on Impressionist spontaneity. Option B) He built on its spontaneity with emotive brushwork is correct. A) contradicts his influence; C) misstates his focus; D) lacks evidence of criticism.";
+        } else if (questionText.includes("What does the passage imply about the Impressionists’ view of nature?")) {
+            return "The passage states Impressionists retreated to nature for solace amidst modernity. Option A) They saw it as a source of solace amidst modernity is correct. B) contradicts their landscape focus; C) opposes their style; D) misrepresents their innovation.";
+        } else if (questionText.includes("The passage’s reference to Impressionism ‘bridging the personal and the universal’ primarily serves to:")) {
+            return "The phrase highlights how Impressionists connected individual sensory experiences to shared beauty. Option C) Illustrate its ability to connect individual experience with shared beauty is correct. A) is secondary; B) contradicts their style; D) opposes their modern focus.";
+        } else if (questionText.includes("How does the passage’s structure, moving from Impressionism’s techniques to its cultural context and lasting impact, contribute to its overall argument?")) {
+            return "The structure traces Impressionism’s development, emphasizing its lasting influence on modern art. Option D) It traces the evolution of Impressionism’s influence is correct. A) lacks clear contrast; B) is partial; C) misstates flaws as focus.";
+
+    }
             
         }
     
