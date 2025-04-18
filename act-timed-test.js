@@ -2439,6 +2439,34 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
                 return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
             }
+                // Set 7: Maple Street House Passage
+    } else if (questionText.includes("The old house on Maple Street stood at the edge of town")) {
+        if (questionText.includes("What is the primary reason Clara is drawn to the house on Maple Street?")) {
+            return "The passage states Clara spent months researching Eliza Hawthorne’s life, indicating her primary motivation. Option B) She is researching Eliza Hawthorne’s life is correct. A) is incorrect as Clara seeks history, not ghosts; C) lacks evidence of renovation plans; D) misinterprets her grandmother’s vague connection.";
+        } else if (questionText.includes("The description of the house in the first paragraph primarily serves to:")) {
+            return "The first paragraph’s vivid imagery (e.g., ‘weathered clapboards,’ ‘ivy clinging’) creates a mysterious tone. Option B) establish a mysterious and foreboding atmosphere is correct. A) overemphasizes Clara’s bravery; C) lacks contrast with her lifestyle; D) is secondary to the mood.";
+        } else if (questionText.includes("What can be inferred about Eliza Hawthorne’s relationship with the townsfolk?")) {
+            return "Eliza’s journal notes the town branded her eccentric, implying misunderstanding. Option B) They misunderstood her and viewed her as eccentric is correct. A) lacks evidence of poetry admiration; C) contradicts her isolation; D) is unsupported.";
+        } else if (questionText.includes("Why does Clara feel an ache while reading Eliza’s journal?")) {
+            return "The passage links Clara’s ache to empathizing with Eliza and reflecting on her own life’s search for meaning. Option B) She empathizes with Eliza and reflects on her own life is correct. A) misreads physical discomfort; C) ignores emotional context; D) lacks evidence of fear.";
+        } else if (questionText.includes("The phrase ‘heart’s truth’ in the second paragraph most likely refers to:")) {
+            return "The context of Eliza’s letter and hidden room suggests ‘heart’s truth’ refers to her personal writings. Option C) Eliza’s most personal writings is correct. A) is too narrow; B) misinterprets the room itself; D) lacks evidence of treasure.";
+        } else if (questionText.includes("How does the author use the setting of the hidden room to develop Clara’s character?")) {
+            return "The hidden room’s journals and chair facing the garden mirror Clara’s introspective search, connecting her to Eliza. Option C) It emphasizes her connection to Eliza’s introspective nature is correct. A) lacks fear evidence; B) is secondary; D) contradicts her curiosity.";
+        } else if (questionText.includes("What does the final entry in Eliza’s journal suggest about her intentions?")) {
+            return "The entry ‘I leave them to the one who seeks’ implies Eliza wanted her work found by someone curious. Option B) She wanted her work to be discovered by someone curious is correct. A) lacks evidence of leaving town; C) contradicts preservation; D) is unsupported.";
+        } else if (questionText.includes("The whisper Clara hears in the final paragraph most likely symbolizes:")) {
+            return "The whisper, tied to Clara’s discovery, suggests Eliza’s spirit urging preservation. Option D) Eliza’s spirit encouraging her to preserve the journals is correct. A) misattributes to grandmother; B) is too vague; C) ignores Eliza’s connection.";
+        } else if (questionText.includes("How does the author’s use of sensory details, such as the ‘groaning floorboards’ and ‘brittle pages,’ contribute to the passage’s tone?")) {
+            return "Sensory details like ‘groaning floorboards’ and ‘brittle pages’ enhance the eerie, suspenseful mood. Option B) They enhance the eerie and suspenseful mood is correct. A) misreads nostalgia; C) overemphasizes discomfort; D) is too literal.";
+        } else if (questionText.includes("What is the significance of the contrast between Clara’s actions and the townsfolk’s perceptions of the house?")) {
+            return "Clara’s investigation challenges the townsfolk’s haunted view, suggesting her findings could reshape beliefs. Option C) It suggests Clara’s investigation will alter the town’s beliefs is correct. A) is partial; B) overstates courage; D) contradicts her discoveries.";
+        } else if (questionText.includes("Based on the passage, how does Clara’s discovery of the hidden room reflect the broader theme of uncovering hidden truths?")) {
+            return "Clara’s persistent search for the hidden room shows truths require effort to uncover. Option A) It shows that truths are often inaccessible without persistence is correct. B) lacks danger evidence; C) contradicts her pursuit; D) overstates supernatural ties.";
+        } else if (questionText.includes("The passage’s structure, moving from Clara’s research to her discovery in the hidden room, serves to:")) {
+            return "The structure builds suspense and parallels Clara’s growing understanding. Option A) build suspense and mirror Clara’s journey of understanding is correct. B) lacks clear contrast; C) misplaces focus on the house; D) is secondary.";
+
+    }
             
         }
     
