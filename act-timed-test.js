@@ -1010,136 +1010,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 difficulty: "very difficult",
                 category: "conventions-of-standard-english"
             },
-            {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. Jane \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "What was the primary focus of the Chicago School of Sociology’s approach to studying cities?",
-                "answers": [
-                  { "text": "A) Analyzing global economic influences on urban growth", "correct": false },
-                  { "text": "B) Examining local social processes like competition and segregation", "correct": true },
-                  { "text": "C) Studying the impact of rural migration on urban areas", "correct": false },
-                  { "text": "D) Developing technological solutions for urban planning", "correct": false }
-                ],
-                "type": "reading",
-                "difficulty": "medium",
-                "category": "main idea"
-              },
-              {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "The concentric zone model described in the passage primarily aimed to explain:",
-                "answers": [
-                  { "text": "A) The distribution of social and economic functions in urban areas", "correct": true },
-                  { "text": "B) The historical development of Chicago’s infrastructure", "correct": false },
-                  { "text": "C) The impact of immigration on urban crime rates", "correct": false },
-                  { "text": "D) The ecological balance between urban and rural regions", "correct": false }
-                ],
-                "type": "reading",
-                "difficulty": "medium",
-                "category": "detail"
-              },
-              {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "According to the passage, what was a key method used by Chicago School researchers to study urban life?",
-                "answers": [
-                  { "text": "A) Conducting laboratory experiments on urban populations", "correct": false },
-                  { "text": "B) Interviewing residents and mapping neighborhoods", "correct": true },
-                  { "text": "C) Analyzing historical records of city planning", "correct": false },
-                  { "text": "D) Developing mathematical models of population growth", "correct": false }
-                ],
-                "type": "reading",
-                "difficulty": "medium",
-                "category": "detail"
-              },
-              {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "What was one criticism of the Chicago School’s concentric zone model mentioned in the passage?",
-                "answers": [
-                  { "text": "A) It failed to account for rural influences on urban growth", "correct": false },
-                  { "text": "B) It relied too heavily on mathematical formulas", "correct": false },
-                  { "text": "C) It oversimplified urban dynamics by ignoring cultural factors", "correct": true },
-                  { "text": "D) It underestimated the role of immigration in city planning", "correct": false }
-                ],
-                "type": "reading",
-                "difficulty": "medium",
-                "category": "detail"
-              },
-              {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "The passage suggests that the Chicago School’s influence persisted despite criticism because:",
-                "answers": [
-                  { "text": "A) Its methods of observation shaped modern sociological practices", "correct": true },
-                  { "text": "B) It accurately predicted urban growth patterns globally", "correct": false },
-                  { "text": "C) Its models were universally adopted by urban planners", "correct": false },
-                  { "text": "D) It resolved debates about global versus local urban influences", "correct": false }
-                ],
-                "type": "reading",
-                "difficulty": "hard",
-                "category": "inference"
-              },
-              {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "The phrase ‘natural’ social processes in the passage most likely refers to:",
-                "answers": [
-                  { "text": "A) Urban policies enforced by city governments", "correct": false },
-                  { "text": "B) Organic social interactions like competition and assimilation", "correct": true },
-                  { "text": "C) Environmental factors affecting urban ecosystems", "correct": false },
-                  { "text": "D) Genetic predispositions influencing urban behavior", "correct": false }
-                ],
-                "type": "reading",
-                "difficulty": "hard",
-                "category": "vocabulary in context"
-              },
-              {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "How did the Chicago School’s research methods differ from those of the Los Angeles School, as described in the passage?",
-                "answers": [
-                  { "text": "A) Chicago School focused on local observations, while Los Angeles School emphasized global economic trends", "correct": true },
-                  { "text": "B) Chicago School used historical data, while Los Angeles School relied on surveys", "correct": false },
-                  { "text": "C) Chicago School prioritized urban planning, while Los Angeles School studied rural areas", "correct": false },
-                  { "text": "D) Chicago School employed mathematical models, while Los Angeles School used qualitative interviews", "correct": false }
-                ],
-                "type": "reading",
-                "difficulty": "hard",
-                "category": "comparison"
-              },
-              {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "What does the passage imply about the role of the Chicago School’s research in urban planning during the 1920s?",
-                "answers": [
-                  { "text": "A) It provided theoretical models but had little practical impact", "correct": false },
-                  { "text": "B) It directly informed urban planning decisions in Chicago", "correct": false },
-                  { "text": "C) It focused on aesthetic improvements rather than social issues", "correct": false },
-                  { "text": "D) It guided planners addressing industrialization and immigration", "correct": true }
-                ],
-                "type": "reading",
-                "difficulty": "hard",
-                "category": "implication"
-              },
-              {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "The passage’s description of cities as ‘living organisms’ primarily serves to:",
-                "answers": [
-                  { "text": "A) Highlight the biological basis of urban growth", "correct": false },
-                  { "text": "B) Emphasize the dynamic and adaptive nature of urban neighborhoods", "correct": false },
-                  { "text": "C) Suggest cities evolve independently of human influence", "correct": false },
-                  { "text": "D) Illustrate the Chicago School’s view of cities as complex, changing systems", "correct": true }
-                ],
-                "type": "reading",
-                "difficulty": "very hard",
-                "category": "author’s purpose"
-              },
-              {
-                "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
-                "question": "How does the passage’s structure, moving from the Chicago School’s theories to their criticisms and lasting impact, contribute to its overall argument?",
-                "answers": [
-                  { "text": "A) It contrasts outdated theories with modern urban studies", "correct": false },
-                  { "text": "B) It balances the Chicago School’s contributions with its limitations", "correct": false },
-                  { "text": "C) It traces the evolution of urban sociology as a discipline", "correct": true },
-                  { "text": "D) It defends the Chicago School against its critics", "correct": false }
-                ],
-                "type": "reading",
-                "difficulty": "very hard",
-                "category": "structure"
-              },
+            
             
         
         
@@ -2111,6 +1982,138 @@ document.addEventListener("DOMContentLoaded", () => {
         "difficulty": "medium",
         "category": "main idea"
       },
+
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. Jane \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "What was the primary focus of the Chicago School of Sociology’s approach to studying cities?",
+        "answers": [
+          { "text": "A) Analyzing global economic influences on urban growth", "correct": false },
+          { "text": "B) Examining local social processes like competition and segregation", "correct": true },
+          { "text": "C) Studying the impact of rural migration on urban areas", "correct": false },
+          { "text": "D) Developing technological solutions for urban planning", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "main idea"
+      },
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "The concentric zone model described in the passage primarily aimed to explain:",
+        "answers": [
+          { "text": "A) The distribution of social and economic functions in urban areas", "correct": true },
+          { "text": "B) The historical development of Chicago’s infrastructure", "correct": false },
+          { "text": "C) The impact of immigration on urban crime rates", "correct": false },
+          { "text": "D) The ecological balance between urban and rural regions", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "detail"
+      },
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "According to the passage, what was a key method used by Chicago School researchers to study urban life?",
+        "answers": [
+          { "text": "A) Conducting laboratory experiments on urban populations", "correct": false },
+          { "text": "B) Interviewing residents and mapping neighborhoods", "correct": true },
+          { "text": "C) Analyzing historical records of city planning", "correct": false },
+          { "text": "D) Developing mathematical models of population growth", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "detail"
+      },
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "What was one criticism of the Chicago School’s concentric zone model mentioned in the passage?",
+        "answers": [
+          { "text": "A) It failed to account for rural influences on urban growth", "correct": false },
+          { "text": "B) It relied too heavily on mathematical formulas", "correct": false },
+          { "text": "C) It oversimplified urban dynamics by ignoring cultural factors", "correct": true },
+          { "text": "D) It underestimated the role of immigration in city planning", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "detail"
+      },
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "The passage suggests that the Chicago School’s influence persisted despite criticism because:",
+        "answers": [
+          { "text": "A) Its methods of observation shaped modern sociological practices", "correct": true },
+          { "text": "B) It accurately predicted urban growth patterns globally", "correct": false },
+          { "text": "C) Its models were universally adopted by urban planners", "correct": false },
+          { "text": "D) It resolved debates about global versus local urban influences", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "inference"
+      },
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "The phrase ‘natural’ social processes in the passage most likely refers to:",
+        "answers": [
+          { "text": "A) Urban policies enforced by city governments", "correct": false },
+          { "text": "B) Organic social interactions like competition and assimilation", "correct": true },
+          { "text": "C) Environmental factors affecting urban ecosystems", "correct": false },
+          { "text": "D) Genetic predispositions influencing urban behavior", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "vocabulary in context"
+      },
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "How did the Chicago School’s research methods differ from those of the Los Angeles School, as described in the passage?",
+        "answers": [
+          { "text": "A) Chicago School focused on local observations, while Los Angeles School emphasized global economic trends", "correct": true },
+          { "text": "B) Chicago School used historical data, while Los Angeles School relied on surveys", "correct": false },
+          { "text": "C) Chicago School prioritized urban planning, while Los Angeles School studied rural areas", "correct": false },
+          { "text": "D) Chicago School employed mathematical models, while Los Angeles School used qualitative interviews", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "comparison"
+      },
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "What does the passage imply about the role of the Chicago School’s research in urban planning during the 1920s?",
+        "answers": [
+          { "text": "A) It provided theoretical models but had little practical impact", "correct": false },
+          { "text": "B) It directly informed urban planning decisions in Chicago", "correct": false },
+          { "text": "C) It focused on aesthetic improvements rather than social issues", "correct": false },
+          { "text": "D) It guided planners addressing industrialization and immigration", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "implication"
+      },
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "The passage’s description of cities as ‘living organisms’ primarily serves to:",
+        "answers": [
+          { "text": "A) Highlight the biological basis of urban growth", "correct": false },
+          { "text": "B) Emphasize the dynamic and adaptive nature of urban neighborhoods", "correct": false },
+          { "text": "C) Suggest cities evolve independently of human influence", "correct": false },
+          { "text": "D) Illustrate the Chicago School’s view of cities as complex, changing systems", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "author’s purpose"
+      },
+      {
+        "passage": "In the early 20th century, the Chicago School of Sociology emerged as a pioneering force in urban studies, reshaping how scholars understood city life. Led by figures like Robert Park and Ernest Burgess, the school viewed cities as living organisms, with neighborhoods pulsing through cycles of growth, conflict, and adaptation. Park, a former journalist, argued that urban areas were shaped by ‘natural’ social processes—competition, segregation, and assimilation—akin to ecological systems. His concentric zone model, developed with Burgess, proposed that cities expanded outward from a central business district in rings, each zone defined by distinct social and economic functions: factories in the inner ring, working-class homes further out, and affluent suburbs at the edges.\n\nThis model wasn’t just academic; it guided Chicago’s urban planners in the 1920s, who grappled with rapid industrialization and immigration. The school’s researchers, often trudging through Chicago’s slums, collected data on crime, poverty, and ethnicity, revealing how spatial arrangements reinforced inequality. \n\nTheir work, however, faced criticism. Critics argued the concentric zone model oversimplified urban dynamics, ignoring cultural and historical factors. By the 1930s, rival theories, like those from the Los Angeles School, emphasized global economic forces over local ecology. Yet the Chicago School’s focus on ground-level observation—interviewing residents, mapping neighborhoods—left a lasting mark. Its methods influenced modern sociology, even as its models evolved. Today, urban scholars still debate whether cities are shaped more by internal social dynamics or external global pressures, a tension rooted in the Chicago School’s legacy.",
+        "question": "How does the passage’s structure, moving from the Chicago School’s theories to their criticisms and lasting impact, contribute to its overall argument?",
+        "answers": [
+          { "text": "A) It contrasts outdated theories with modern urban studies", "correct": false },
+          { "text": "B) It balances the Chicago School’s contributions with its limitations", "correct": false },
+          { "text": "C) It traces the evolution of urban sociology as a discipline", "correct": true },
+          { "text": "D) It defends the Chicago School against its critics", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "structure"
+      },
+
       {
         "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
         "question": "According to the passage, what causes coral bleaching?",
