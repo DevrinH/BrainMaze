@@ -2896,6 +2896,10 @@ document.addEventListener("DOMContentLoaded", () => {
         categoryStats = {};
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
+    
+        // Reset layout classes
+        document.querySelector(".question-row").classList.remove("score-display");
+    
         showQuestion();
     }
 
@@ -2909,9 +2913,20 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
         console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
-        passageElement.style.display = "block"; // Ensure passage is visible
+        passageElement.style.display = "block";
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+    
+        // Ensure correct layout
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("score-display");
+        questionRow.classList.remove("vertical-layout");
+        questionElement.classList.remove("centered-score");
+    
+        // Apply vertical layout for Math section
+        if (currentSection === "math") {
+            questionRow.classList.add("vertical-layout");
+        }
     
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
@@ -2989,7 +3004,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showScore() {
         clearInterval(refreshIntervalId);
         resetState();
-
+    
         let maxPossibleScore;
         switch (currentSection) {
             case "english": maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); break;
@@ -2998,14 +3013,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
-
+    
         document.getElementById("question-container").classList.remove("hide");
-
+    
         localStorage.setItem(currentSection + "Score", scaledScore);
         passageElement.innerHTML = "";
         questionElement.innerHTML = `${currentSection.charAt(0).toUpperCase() + currentSection.slice(1)} ACT Score: ${scaledScore} / 36`;
         questionElement.classList.add("centered-score");
-        document.querySelector(".question-row").classList.add("score-display");
+    
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.add("score-display");
+    
+        // Apply vertical layout for Math section even in score display
+        if (currentSection === "math") {
+            questionRow.classList.add("vertical-layout");
+        }
+    
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
