@@ -746,6 +746,7 @@ h3 {
   overflow: hidden;
   height: 15px;
   box-shadow: var(--container-shadow) 0px 5px 15px;
+  margin: 0 auto;
 }
 
 .progress-fill {
