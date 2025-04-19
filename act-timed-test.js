@@ -2098,6 +2098,162 @@ document.addEventListener("DOMContentLoaded", () => {
         "difficulty": "very hard",
         "category": "structure"
       },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "What is the primary reason coral reefs are called the 'rainforests of the sea'?",
+        "answers": [
+          { "text": "A) They are located in tropical regions", "correct": false },
+          { "text": "B) They support a high diversity of marine species", "correct": true },
+          { "text": "C) They are primarily composed of plant life", "correct": false },
+          { "text": "D) They cover vast areas of the ocean floor", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "main idea"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "According to the passage, what causes coral bleaching?",
+        "answers": [
+          { "text": "A) Increased carbon dioxide absorption", "correct": false },
+          { "text": "B) Rising sea temperatures", "correct": true },
+          { "text": "C) Overfishing in reef areas", "correct": false },
+          { "text": "D) Pollution from coastal runoff", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "detail"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "What is the role of zooxanthellae in coral reefs, as described in the passage?",
+        "answers": [
+          { "text": "A) They secrete calcium carbonate for coral structures", "correct": false },
+          { "text": "B) They provide color and energy to corals", "correct": true },
+          { "text": "C) They protect corals from ocean acidification", "correct": false },
+          { "text": "D) They form symbiotic relationships with fish", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "detail"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "According to the passage, what is one purpose of marine protected areas (MPAs)?",
+        "answers": [
+          { "text": "A) To promote tourism in coral reef regions", "correct": false },
+          { "text": "B) To restrict fishing and allow ecosystem recovery", "correct": true },
+          { "text": "C) To develop heat-tolerant coral strains", "correct": false },
+          { "text": "D) To monitor carbon dioxide levels in oceans", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "detail"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "The passage suggests that the 2016 study on the Great Barrier Reef is significant because it:",
+        "answers": [
+          { "text": "A) Quantified the extent of coral bleaching across the reef", "correct": true },
+          { "text": "B) Identified new species of fish in the reef", "correct": false },
+          { "text": "C) Proposed solutions for ocean acidification", "correct": false },
+          { "text": "D) Established the first marine protected areas", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "inference"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "The term 'symbiotic relationships' in the passage most likely refers to:",
+        "answers": [
+          { "text": "A) Competition among coral species for resources", "correct": false },
+          { "text": "B) Mutually beneficial interactions between species", "correct": true },
+          { "text": "C) Predatory behaviors in reef ecosystems", "correct": false },
+          { "text": "D) Human interventions in coral restoration", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "vocabulary in context"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "What does the passage imply about the effectiveness of local conservation efforts?",
+        "answers": [
+          { "text": "A) They are sufficient to reverse coral bleaching", "correct": false },
+          { "text": "B) They are limited without global cooperation", "correct": true },
+          { "text": "C) They have eliminated overfishing in reefs", "correct": false },
+          { "text": "D) They focus solely on transplanting corals", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "implication"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "How does the passage describe the impact of ocean acidification on coral reefs?",
+        "answers": [
+          { "text": "A) It causes corals to expel zooxanthellae", "correct": false },
+          { "text": "B) It weakens coral skeletons, hindering growth", "correct": true },
+          { "text": "C) It increases fish populations in reefs", "correct": false },
+          { "text": "D) It enhances coral resilience to heat", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "detail"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "The passage’s reference to coral reefs as ‘the rainforests of the sea’ primarily serves to:",
+        "answers": [
+          { "text": "A) Highlight their biodiversity and ecological importance", "correct": true },
+          { "text": "B) Emphasize their vast geographical coverage", "correct": false },
+          { "text": "C) Suggest they are primarily plant-based ecosystems", "correct": false },
+          { "text": "D) Indicate their resistance to climate change", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "author’s purpose"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "How does the passage’s structure, moving from the description of coral reefs to their threats and then to conservation efforts, contribute to its overall argument?",
+        "answers": [
+          { "text": "A) It contrasts coral reefs with other marine ecosystems", "correct": false },
+          { "text": "B) It emphasizes the urgency of global conservation action", "correct": false },
+          { "text": "C) It builds a case for the ecological importance and vulnerability of reefs", "correct": true },
+          { "text": "D) It critiques the effectiveness of current restoration techniques", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "structure"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "The passage’s discussion of human activities like overfishing and pollution primarily serves to:",
+        "answers": [
+          { "text": "A) Illustrate additional threats that compound climate change impacts", "correct": true },
+          { "text": "B) Suggest that human activities are the sole cause of coral decline", "correct": false },
+          { "text": "C) Argue that conservation efforts are ineffective against human impacts", "correct": false },
+          { "text": "D) Highlight the benefits of human interaction with coral reefs", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "author’s purpose"
+      },
+      {
+        "passage": "In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems, often called the rainforests of the sea. These underwater structures, built by calcium carbonate secretions from tiny marine animals called coral polyps, support an estimated 25% of all marine species. The Great Barrier Reef, stretching over 2,300 kilometers along Australia’s northeastern coast, is the largest coral system, hosting over 1,500 fish species and 400 types of coral. Its intricate network of lagoons, islands, and reefs forms a habitat where symbiotic relationships, like that between clownfish and sea anemones, flourish.\n\nCoral reefs face significant threats from climate change, particularly ocean warming and acidification. Rising sea temperatures trigger coral bleaching, where corals expel the colorful algae (zooxanthellae) living in their tissues, leading to widespread die-offs. Acidification, caused by increased carbon dioxide absorption, weakens coral skeletons, hindering growth. A 2016 study found that 93% of the Great Barrier Reef’s corals were affected by bleaching, with northern sections suffering the most. Human activities, such as overfishing and pollution, exacerbate these issues, disrupting delicate ecological balances.\n\nConservation efforts are underway to mitigate these threats. Marine protected areas (MPAs) restrict fishing and tourism to allow ecosystems to recover. Scientists are also exploring coral restoration techniques, such as transplanting lab-grown corals and using heat-tolerant strains to bolster resilience. However, global cooperation is essential, as local efforts alone cannot counter the impacts of climate change. The fate of coral reefs hinges on reducing carbon emissions and fostering sustainable practices, a challenge that underscores the interconnectedness of human and marine life.",
+        "question": "What does the passage suggest about the relationship between coral reefs and global climate change?",
+        "answers": [
+          { "text": "A) Coral reefs are unaffected by global climate change", "correct": false },
+          { "text": "B) Coral reefs contribute to global climate change", "correct": false },
+          { "text": "C) Coral reefs are highly vulnerable to climate change impacts", "correct": false },
+          { "text": "D) Coral reefs can fully recover from climate change effects", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "implication"
+      }
     
     ];
     const scienceQuestions = [        { question: "Science Question?", answers: [{ text: "4", correct: true }, { text: "5", correct: false }], difficulty: "easy", category: "Arithmetic" },];
@@ -2770,9 +2926,35 @@ document.addEventListener("DOMContentLoaded", () => {
             return "The phrase highlights how Impressionists connected individual sensory experiences to shared beauty. Option C) Illustrate its ability to connect individual experience with shared beauty is correct. A) is secondary; B) contradicts their style; D) opposes their modern focus.";
         } else if (questionText.includes("How does the passage’s structure, moving from Impressionism’s techniques to its cultural context and lasting impact, contribute to its overall argument?")) {
             return "The structure traces Impressionism’s development, emphasizing its lasting influence on modern art. Option D) It traces the evolution of Impressionism’s influence is correct. A) lacks clear contrast; B) is partial; C) misstates flaws as focus.";
-
     }
-            
+         
+    // Set 10: Coral Reefs Passage
+    } else if (questionText.includes("In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems")) {
+        if (questionText.includes("What is the primary reason coral reefs are called the 'rainforests of the sea'?")) {
+            return "The passage states coral reefs support 25% of marine species, emphasizing their biodiversity. Option B) They support a high diversity of marine species is correct. A) is too vague; C) misstates corals as plants; D) overemphasizes size over ecological role.";
+        } else if (questionText.includes("According to the passage, what causes coral bleaching?")) {
+            return "The passage explicitly links coral bleaching to rising sea temperatures expelling zooxanthellae. Option B) Rising sea temperatures is correct. A) relates to acidification; C) and D) are secondary threats, not direct causes.";
+        } else if (questionText.includes("What is the role of zooxanthellae in coral reefs, as described in the passage?")) {
+            return "The passage describes zooxanthellae as colorful algae providing energy to corals. Option B) They provide color and energy to corals is correct. A) misattributes calcium secretion; C) is unsupported; D) confuses fish relationships.";
+        } else if (questionText.includes("According to the passage, what is one purpose of marine protected areas (MPAs)?")) {
+            return "The passage states MPAs restrict fishing and tourism to aid ecosystem recovery. Option B) To restrict fishing and allow ecosystem recovery is correct. A) contradicts their purpose; C) relates to restoration, not MPAs; D) is unrelated.";
+        } else if (questionText.includes("The passage suggests that the 2016 study on the Great Barrier Reef is significant because it:")) {
+            return "The passage highlights the study’s finding that 93% of corals were bleached, quantifying the crisis. Option A) Quantified the extent of coral bleaching across the reef is correct. B) is unrelated; C) is not mentioned; D) misstates MPA establishment.";
+        } else if (questionText.includes("The term 'symbiotic relationships' in the passage most likely refers to:")) {
+            return "The passage cites clownfish and anemones, implying mutually beneficial interactions. Option B) Mutually beneficial interactions between species is correct. A) suggests competition; C) implies predation; D) refers to human actions.";
+        } else if (questionText.includes("What does the passage imply about the effectiveness of local conservation efforts?")) {
+            return "The passage states local efforts are insufficient without global cooperation. Option B) They are limited without global cooperation is correct. A) contradicts the passage; C) is unsupported; D) misstates the focus.";
+        } else if (questionText.includes("How does the passage describe the impact of ocean acidification on coral reefs?")) {
+            return "The passage links acidification to weakened coral skeletons, hindering growth. Option B) It weakens coral skeletons, hindering growth is correct. A) confuses bleaching; C) is incorrect; D) contradicts resilience issues.";
+        } else if (questionText.includes("The passage’s reference to coral reefs as ‘the rainforests of the sea’ primarily serves to:")) {
+            return "The metaphor emphasizes reefs’ biodiversity and ecological role, as per the passage. Option A) Highlight their biodiversity and ecological importance is correct. B) overstates size; C) misstates composition; D) contradicts vulnerability.";
+        } else if (questionText.includes("How does the passage’s structure, moving from the description of coral reefs to their threats and then to conservation efforts, contribute to its overall argument?")) {
+            return "The structure builds a narrative from reefs’ importance to their vulnerability, urging action. Option C) It builds a case for the ecological importance and vulnerability of reefs is correct. A) lacks contrast; B) is partial; D) misstates critique focus.";
+        } else if (questionText.includes("The passage’s discussion of human activities like overfishing and pollution primarily serves to:")) {
+            return "The passage notes these activities exacerbate climate impacts, compounding threats. Option A) Illustrate additional threats that compound climate change impacts is correct. B) overstates their role; C) contradicts conservation; D) misstates benefits.";
+        } else if (questionText.includes("What does the passage suggest about the relationship between coral reefs and global climate change?")) {
+            return "The passage emphasizes reefs’ vulnerability to warming and acidification, with recovery challenges. Option C) Coral reefs are highly vulnerable to climate change impacts is correct. A) contradicts threats; B) is unsupported; D) overstates recovery potential.";
+        }   
         }
     
         return "No explanation available for this question.";
