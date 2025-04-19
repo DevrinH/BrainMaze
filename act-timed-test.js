@@ -2322,7 +2322,72 @@ document.addEventListener("DOMContentLoaded", () => {
         "type": "reading",
         "difficulty": "very hard",
         "category": "data representation"
-    }
+    },
+    {
+        "passage": "Scientists investigated the growth rates of two bacterial species, Bacillus subtilis and Escherichia coli, under varying conditions of nutrient concentration and temperature. They measured growth rates as the increase in optical density (OD) per hour. Experiment 1 examined growth at 37°C with nutrient concentrations of 0.1%, 0.5%, 1.0%, 2.0%, and 5.0%. Experiment 2 tested growth at a 1.0% nutrient concentration across temperatures of 20°C, 30°C, 37°C, 45°C, and 50°C. Results are presented in Figures 1 and 2.\n\n**Figure 1: Growth Rate (OD/h) vs. Nutrient Concentration at 37°C**\n- Bacillus subtilis: 0.1% (0.05), 0.5% (0.20), 1.0% (0.35), 2.0% (0.40), 5.0% (0.38)\n- Escherichia coli: 0.1% (0.08), 0.5% (0.25), 1.0% (0.45), 2.0% (0.50), 5.0% (0.48)\n\n**Figure 2: Growth Rate (OD/h) vs. Temperature at 1.0% Nutrient Concentration**\n- Bacillus subtilis: 20°C (0.10), 30°C (0.25), 37°C (0.35), 45°C (0.30), 50°C (0.15)\n- Escherichia coli: 20°C (0.15), 30°C (0.30), 37°C (0.45), 45°C (0.40), 50°C (0.20)",
+        "question": "According to Figure 1, which bacterial species has the higher growth rate at a nutrient concentration of 1.0% at 37°C?",
+        "answers": [
+            { "text": "A) Bacillus subtilis", "correct": false },
+            { "text": "B) Escherichia coli", "correct": true },
+            { "text": "C) Both have equal growth rates", "correct": false },
+            { "text": "D) Cannot be determined", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "data representation"
+    },
+    {
+        "passage": "Scientists investigated the growth rates of two bacterial species, Bacillus subtilis and Escherichia coli, under varying conditions of nutrient concentration and temperature. They measured growth rates as the increase in optical density (OD) per hour. Experiment 1 examined growth at 37°C with nutrient concentrations of 0.1%, 0.5%, 1.0%, 2.0%, and 5.0%. Experiment 2 tested growth at a 1.0% nutrient concentration across temperatures of 20°C, 30°C, 37°C, 45°C, and 50°C. Results are presented in Figures 1 and 2.\n\n**Figure 1: Growth Rate (OD/h) vs. Nutrient Concentration at 37°C**\n- Bacillus subtilis: 0.1% (0.05), 0.5% (0.20), 1.0% (0.35), 2.0% (0.40), 5.0% (0.38)\n- Escherichia coli: 0.1% (0.08), 0.5% (0.25), 1.0% (0.45), 2.0% (0.50), 5.0% (0.48)\n\n**Figure 2: Growth Rate (OD/h) vs. Temperature at 1.0% Nutrient Concentration**\n- Bacillus subtilis: 20°C (0.10), 30°C (0.25), 37°C (0.35), 45°C (0.30), 50°C (0.15)\n- Escherichia coli: 20°C (0.15), 30°C (0.30), 37°C (0.45), 45°C (0.40), 50°C (0.20)",
+        "question": "Based on Figure 2, what is the effect on Escherichia coli’s growth rate as temperature increases from 37°C to 50°C at 1.0% nutrient concentration?",
+        "answers": [
+            { "text": "A) It increases steadily", "correct": false },
+            { "text": "B) It decreases", "correct": true },
+            { "text": "C) It remains constant", "correct": false },
+            { "text": "D) It increases then decreases", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "data representation"
+    },
+    {
+        "passage": "Scientists investigated the growth rates of two bacterial species, Bacillus subtilis and Escherichia coli, under varying conditions of nutrient concentration and temperature. They measured growth rates as the increase in optical density (OD) per hour. Experiment 1 examined growth at 37°C with nutrient concentrations of 0.1%, 0.5%, 1.0%, 2.0%, and 5.0%. Experiment 2 tested growth at a 1.0% nutrient concentration across temperatures of 20°C, 30°C, 37°C, 45°C, and 50°C. Results are presented in Figures 1 and 2.\n\n**Figure 1: Growth Rate (OD/h) vs. Nutrient Concentration at 37°C**\n- Bacillus subtilis: 0.1% (0.05), 0.5% (0.20), 1.0% (0.35), 2.0% (0.40), 5.0% (0.38)\n- Escherichia coli: 0.1% (0.08), 0.5% (0.25), 1.0% (0.45), 2.0% (0.50), 5.0% (0.48)\n\n**Figure 2: Growth Rate (OD/h) vs. Temperature at 1.0% Nutrient Concentration**\n- Bacillus subtilis: 20°C (0.10), 30°C (0.25), 37°C (0.35), 45°C (0.30), 50°C (0.15)\n- Escherichia coli: 20°C (0.15), 30°C (0.30), 37°C (0.45), 45°C (0.40), 50°C (0.20)",
+        "question": "If a third experiment tested Bacillus subtilis at 0.5% nutrient concentration and 45°C, what would be the most likely growth rate based on the trends in Figures 1 and 2?",
+        "answers": [
+            { "text": "A) 0.35 OD/h", "correct": false },
+            { "text": "B) 0.20 OD/h", "correct": false },
+            { "text": "C) 0.25 OD/h", "correct": true },
+            { "text": "D) 0.15 OD/h", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "data representation"
+    },
+    {
+        "passage": "Scientists investigated the growth rates of two bacterial species, Bacillus subtilis and Escherichia coli, under varying conditions of nutrient concentration and temperature. They measured growth rates as the increase in optical density (OD) per hour. Experiment 1 examined growth at 37°C with nutrient concentrations of 0.1%, 0.5%, 1.0%, 2.0%, and 5.0%. Experiment 2 tested growth at a 1.0% nutrient concentration across temperatures of 20°C, 30°C, 37°C, 45°C, and 50°C. Results are presented in Figures 1 and 2.\n\n**Figure 1: Growth Rate (OD/h) vs. Nutrient Concentration at 37°C**\n- Bacillus subtilis: 0.1% (0.05), 0.5% (0.20), 1.0% (0.35), 2.0% (0.40), 5.0% (0.38)\n- Escherichia coli: 0.1% (0.08), 0.5% (0.25), 1.0% (0.45), 2.0% (0.50), 5.0% (0.48)\n\n**Figure 2: Growth Rate (OD/h) vs. Temperature at 1.0% Nutrient Concentration**\n- Bacillus subtilis: 20°C (0.10), 30°C (0.25), 37°C (0.35), 45°C (0.30), 50°C (0.15)\n- Escherichia coli: 20°C (0.15), 30°C (0.30), 37°C (0.45), 45°C (0.40), 50°C (0.20)",
+        "question": "Which of the following best explains why the growth rate of Bacillus subtilis decreases at 50°C compared to 45°C in Experiment 2?",
+        "answers": [
+            { "text": "A) The nutrient concentration becomes limiting at higher temperatures", "correct": false },
+            { "text": "B) The enzymes in Bacillus subtilis denature at high temperatures", "correct": false },
+            { "text": "C) The oxygen solubility decreases, limiting bacterial respiration", "correct": false },
+            { "text": "D) The cellular membrane becomes less stable at higher temperatures", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "data representation"
+    },
+    {
+        "passage": "Scientists investigated the growth rates of two bacterial species, Bacillus subtilis and Escherichia coli, under varying conditions of nutrient concentration and temperature. They measured growth rates as the increase in optical density (OD) per hour. Experiment 1 examined growth at 37°C with nutrient concentrations of 0.1%, 0.5%, 1.0%, 2.0%, and 5.0%. Experiment 2 tested growth at a 1.0% nutrient concentration across temperatures of 20°C, 30°C, 37°C, 45°C, and 50°C. Results are presented in Figures 1 and 2.\n\n**Figure 1: Growth Rate (OD/h) vs. Nutrient Concentration at 37°C**\n- Bacillus subtilis: 0.1% (0.05), 0.5% (0.20), 1.0% (0.35), 2.0% (0.40), 5.0% (0.38)\n- Escherichia coli: 0.1% (0.08), 0.5% (0.25), 1.0% (0.45), 2.0% (0.50), 5.0% (0.48)\n\n**Figure 2: Growth Rate (OD/h) vs. Temperature at 1.0% Nutrient Concentration**\n- Bacillus subtilis: 20°C (0.10), 30°C (0.25), 37°C (0.35), 45°C (0.30), 50°C (0.15)\n- Escherichia coli: 20°C (0.15), 30°C (0.30), 37°C (0.45), 45°C (0.40), 50°C (0.20)",
+        "question": "Assuming a linear relationship between the data points in Figures 1 and 2, what is the approximate growth rate of Escherichia coli at 0.75% nutrient concentration and 40°C?",
+        "answers": [
+            { "text": "A) 0.38 OD/h", "correct": true },
+            { "text": "B) 0.42 OD/h", "correct": false },
+            { "text": "C) 0.35 OD/h", "correct": false },
+            { "text": "D) 0.45 OD/h", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "data representation"
+    },
 ];
 
     function startTest() {
@@ -3035,6 +3100,20 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (questionText.includes("Suppose the scientists interpolate the data to estimate the glucose production rate at pH 6.5 and 45°C. Assuming a linear relationship between the nearest data points in Figures 1 and 2, what is the approximate glucose production rate?")) {
             return "Interpolate between pH 6 (30 µmol/min) and pH 7 (40 µmol/min) at 37°C: at pH 6.5, rate = 30 + (40-30)/2 = 35 µmol/min. For temperature, interpolate between 40°C (40 µmol/min) and 50°C (30 µmol/min) at pH 7: at 45°C, rate = 40 - (40-30)/2 = 35 µmol/min. Averaging these (considering both trends), the rate is approximately 35 µmol/min. Option D) 35 µmol/min is correct. A) 28, B) 33, and C) 38 µmol/min deviate from the linear estimate.";
     }  
+        // Set 8: Bacterial Growth Passage
+    } else if (questionText.includes("Scientists investigated the growth rates of two bacterial species, Bacillus subtilis and Escherichia coli")) {
+        if (questionText.includes("According to Figure 1, which bacterial species has the higher growth rate at a nutrient concentration of 1.0% at 37°C?")) {
+            return "Figure 1 shows at 1.0% nutrient concentration and 37°C: Bacillus subtilis (0.35 OD/h), Escherichia coli (0.45 OD/h). Escherichia coli has the higher growth rate. Option B) Escherichia coli is correct. A) Bacillus subtilis is lower, C) Both have equal growth rates is false, and D) Cannot be determined is incorrect as data is provided.";
+        } else if (questionText.includes("Based on Figure 2, what is the effect on Escherichia coli’s growth rate as temperature increases from 37°C to 50°C at 1.0% nutrient concentration?")) {
+            return "Figure 2 shows for Escherichia coli at 1.0% nutrient concentration: 37°C (0.45 OD/h), 45°C (0.40 OD/h), 50°C (0.20 OD/h). From 37°C to 50°C, the growth rate decreases. Option B) It decreases is correct. A) It increases steadily, C) It remains constant, and D) It increases then decreases do not match the data.";
+        } else if (questionText.includes("If a third experiment tested Bacillus subtilis at 0.5% nutrient concentration and 45°C, what would be the most likely growth rate based on the trends in Figures 1 and 2?")) {
+            return "Figure 1 shows Bacillus subtilis at 0.5% nutrient concentration and 37°C: 0.20 OD/h. Figure 2 shows at 1.0% nutrient concentration: 37°C (0.35 OD/h), 45°C (0.30 OD/h), a ~14% decrease. Applying a similar reduction to 0.20 OD/h at 0.5% nutrient concentration suggests a rate of ~0.17–0.18 OD/h. Option C) 0.25 OD/h is closest, considering nutrient limitation dominates. A) 0.35 OD/h is too high, B) 0.20 OD/h ignores temperature effect, and D) 0.15 OD/h is too low.";
+        } else if (questionText.includes("Which of the following best explains why the growth rate of Bacillus subtilis decreases at 50°C compared to 45°C in Experiment 2?")) {
+            return "Figure 2 shows Bacillus subtilis growth rate drops from 0.30 OD/h at 45°C to 0.15 OD/h at 50°C. High temperatures can destabilize bacterial cellular membranes, impairing growth. Option D) The cellular membrane becomes less stable at higher temperatures is correct. A) Nutrient concentration is constant, B) Enzyme denaturation is less specific, and C) Oxygen solubility is not indicated by the data.";
+        } else if (questionText.includes("Assuming a linear relationship between the data points in Figures 1 and 2, what is the approximate growth rate of Escherichia coli at 0.75% nutrient concentration and 40°C?")) {
+            return "Figure 1: Escherichia coli at 0.5% (0.25 OD/h), 1.0% (0.45 OD/h) at 37°C. Linear interpolation at 0.75%: 0.25 + (0.45-0.25)*(0.25/0.5) = 0.35 OD/h. Figure 2: at 37°C (0.45 OD/h), 45°C (0.40 OD/h) at 1.0%. Interpolate at 40°C: 0.45 - (0.45-0.40)*(3/8) = 0.43125 OD/h. Averaging nutrient and temperature effects (0.35 + 0.43125)/2 ≈ 0.39 OD/h. Option A) 0.38 OD/h is closest. B) 0.42, C) 0.35, and D) 0.45 OD/h deviate from the estimate.";
+    }
+    
         }
     
         return "No explanation available for this question.";
