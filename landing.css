@@ -48,13 +48,13 @@
 
 [data-theme="dark"] {
   --background-color: linear-gradient(to bottom, #251b3d, #1d0a2b);
-  --text-color: rgb(220, 220, 220);
+  --text-color: rgb(255, 255, 255);
   --header-bg: #2a2e43;
   --header-shadow: rgba(0, 0, 0, 0.8);
   --button-bg: #3399ff;
   --button-bg-hover: #1a73e8;
   --button-text: rgb(255, 255, 255);
-  --center-text-color: rgb(220, 220, 220);
+  --center-text-color: rgb(255, 255, 255);
   --overlay-text-bg: rgba(255, 255, 255, 0.7);
   --overlay-text-color: rgb(220, 220, 220);
   --container-bg: #32364d;
