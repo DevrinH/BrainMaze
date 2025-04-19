@@ -2816,17 +2816,21 @@ document.addEventListener("DOMContentLoaded", () => {
     function startReadingSection() {
         currentSection = "reading";
         time = 35 * 60;
+        userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endReadingSection, 2100000);
-        startQuiz(readingQuestions); // Removed 13, 14, 13
+        passageElement.innerHTML = "";
+        startQuiz(readingQuestions);
     }
     
     function startScienceSection() {
         currentSection = "science";
         time = 35 * 60;
+        userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endScienceSection, 2100000);
-        startQuiz(scienceQuestions); // Removed 13, 14, 13
+        passageElement.innerHTML = "";
+        startQuiz(scienceQuestions);
     }
 
     function updateCountdown() {
@@ -2882,11 +2886,15 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("No questions available for", currentSection);
             return;
         }
+        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
+        if (missingPassages.length > 0) {
+            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
+        }
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
-        selectedQuestions = questions; // Use the full array as-is
+        selectedQuestions = questions;
         nextButton.innerHTML = "Next";
         showQuestion();
     }
@@ -2900,9 +2908,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
+        console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
+        passageElement.style.display = "block"; // Ensure passage is visible
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-
+    
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
@@ -2913,7 +2923,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             button.addEventListener("click", selectAnswer);
         });
-
+    
         updateProgressBar();
     }
 
