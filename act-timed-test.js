@@ -2388,6 +2388,399 @@ document.addEventListener("DOMContentLoaded", () => {
         "difficulty": "very hard",
         "category": "data representation"
     },
+    {
+        "passage": "Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, *Helianthus annuus* (sunflower). The photosynthetic rate was measured as the rate of carbon dioxide uptake (μmol CO₂/m²/s). Three experiments were conducted.\n\n**Experiment 1: Light Intensity at Constant Soil Moisture**\nPlants were grown at 50% soil moisture and exposed to light intensities of 200, 400, 600, 800, and 1000 μmol photons/m²/s. Results are shown in Figure 1.\n- Figure 1: Photosynthetic Rate vs. Light Intensity\n  - 200: 5.0, 400: 10.0, 600: 14.0, 800: 16.0, 1000: 16.5 μmol CO₂/m²/s\n\n**Experiment 2: Soil Moisture at Constant Light Intensity**\nPlants were exposed to 600 μmol photons/m²/s and grown at soil moisture levels of 20%, 30%, 40%, 50%, and 60%. Results are shown in Figure 2.\n- Figure 2: Photosynthetic Rate vs. Soil Moisture\n  - 20%: 8.0, 30%: 10.5, 40%: 12.5, 50%: 14.0, 60%: 13.5 μmol CO₂/m²/s\n\n**Experiment 3: Combined Effects**\nPlants were tested at combinations of light intensity (400 or 800 μmol photons/m²/s) and soil moisture (30% or 50%). Results are shown in Table 1.\n- Table 1: Photosynthetic Rate (μmol CO₂/m²/s)\n  - 400 μmol, 30%: 9.5; 400 μmol, 50%: 10.5\n  - 800 μmol, 30%: 13.0; 800 μmol, 50%: 16.0",
+        "question": "In Experiment 1, what is the effect of increasing light intensity from 200 to 600 μmol photons/m²/s on the photosynthetic rate?",
+        "answers": [
+            { "text": "A) It decreases", "correct": false },
+            { "text": "B) It increases", "correct": true },
+            { "text": "C) It remains constant", "correct": false },
+            { "text": "D) It increases then decreases", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, *Helianthus annuus* (sunflower). The photosynthetic rate was measured as the rate of carbon dioxide uptake (μmol CO₂/m²/s). Three experiments were conducted.\n\n**Experiment 1: Light Intensity at Constant Soil Moisture**\nPlants were grown at 50% soil moisture and exposed to light intensities of 200, 400, 600, 800, and 1000 μmol photons/m²/s. Results are shown in Figure 1.\n- Figure 1: Photosynthetic Rate vs. Light Intensity\n  - 200: 5.0, 400: 10.0, 600: 14.0, 800: 16.0, 1000: 16.5 μmol CO₂/m²/s\n\n**Experiment 2: Soil Moisture at Constant Light Intensity**\nPlants were exposed to 600 μmol photons/m²/s and grown at soil moisture levels of 20%, 30%, 40%, 50%, and 60%. Results are shown in Figure 2.\n- Figure 2: Photosynthetic Rate vs. Soil Moisture\n  - 20%: 8.0, 30%: 10.5, 40%: 12.5, 50%: 14.0, 60%: 13.5 μmol CO₂/m²/s\n\n**Experiment 3: Combined Effects**\nPlants were tested at combinations of light intensity (400 or 800 μmol photons/m²/s) and soil moisture (30% or 50%). Results are shown in Table 1.\n- Table 1: Photosynthetic Rate (μmol CO₂/m²/s)\n  - 400 μmol, 30%: 9.5; 400 μmol, 50%: 10.5\n  - 800 μmol, 30%: 13.0; 800 μmol, 50%: 16.0",
+        "question": "According to Figure 2, at which soil moisture level does the photosynthetic rate peak in Experiment 2?",
+        "answers": [
+            { "text": "A) 30%", "correct": false },
+            { "text": "B) 40%", "correct": false },
+            { "text": "C) 50%", "correct": true },
+            { "text": "D) 60%", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, *Helianthus annuus* (sunflower). The photosynthetic rate was measured as the rate of carbon dioxide uptake (μmol CO₂/m²/s). Three experiments were conducted.\n\n**Experiment 1: Light Intensity at Constant Soil Moisture**\nPlants were grown at 50% soil moisture and exposed to light intensities of 200, 400, 600, 800, and 1000 μmol photons/m²/s. Results are shown in Figure 1.\n- Figure 1: Photosynthetic Rate vs. Light Intensity\n  - 200: 5.0, 400: 10.0, 600: 14.0, 800: 16.0, 1000: 16.5 μmol CO₂/m²/s\n\n**Experiment 2: Soil Moisture at Constant Light Intensity**\nPlants were exposed to 600 μmol photons/m²/s and grown at soil moisture levels of 20%, 30%, 40%, 50%, and 60%. Results are shown in Figure 2.\n- Figure 2: Photosynthetic Rate vs. Soil Moisture\n  - 20%: 8.0, 30%: 10.5, 40%: 12.5, 50%: 14.0, 60%: 13.5 μmol CO₂/m²/s\n\n**Experiment 3: Combined Effects**\nPlants were tested at combinations of light intensity (400 or 800 μmol photons/m²/s) and soil moisture (30% or 50%). Results are shown in Table 1.\n- Table 1: Photosynthetic Rate (μmol CO₂/m²/s)\n  - 400 μmol, 30%: 9.5; 400 μmol, 50%: 10.5\n  - 800 μmol, 30%: 13.0; 800 μmol, 50%: 16.0",
+        "question": "In Experiment 3, how does increasing soil moisture from 30% to 50% affect the photosynthetic rate at 800 μmol photons/m²/s?",
+        "answers": [
+            { "text": "A) It decreases by 3.0 μmol CO₂/m²/s", "correct": false },
+            { "text": "B) It increases by 3.0 μmol CO₂/m²/s", "correct": true },
+            { "text": "C) It remains constant", "correct": false },
+            { "text": "D) It increases by 1.0 μmol CO₂/m²/s", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, *Helianthus annuus* (sunflower). The photosynthetic rate was measured as the rate of carbon dioxide uptake (μmol CO₂/m²/s). Three experiments were conducted.\n\n**Experiment 1: Light Intensity at Constant Soil Moisture**\nPlants were grown at 50% soil moisture and exposed to light intensities of 200, 400, 600, 800, and 1000 μmol photons/m²/s. Results are shown in Figure 1.\n- Figure 1: Photosynthetic Rate vs. Light Intensity\n  - 200: 5.0, 400: 10.0, 600: 14.0, 800: 16.0, 1000: 16.5 μmol CO₂/m²/s\n\n**Experiment 2: Soil Moisture at Constant Light Intensity**\nPlants were exposed to 600 μmol photons/m²/s and grown at soil moisture levels of 20%, 30%, 40%, 50%, and 60%. Results are shown in Figure 2.\n- Figure 2: Photosynthetic Rate vs. Soil Moisture\n  - 20%: 8.0, 30%: 10.5, 40%: 12.5, 50%: 14.0, 60%: 13.5 μmol CO₂/m²/s\n\n**Experiment 3: Combined Effects**\nPlants were tested at combinations of light intensity (400 or 800 μmol photons/m²/s) and soil moisture (30% or 50%). Results are shown in Table 1.\n- Table 1: Photosynthetic Rate (μmol CO₂/m²/s)\n  - 400 μmol, 30%: 9.5; 400 μmol, 50%: 10.5\n  - 800 μmol, 30%: 13.0; 800 μmol, 50%: 16.0",
+        "question": "Which of the following best explains why the photosynthetic rate plateaus between 800 and 1000 μmol photons/m²/s in Experiment 1?",
+        "answers": [
+            { "text": "A) The plant reaches its maximum photosynthetic capacity", "correct": true },
+            { "text": "B) Soil moisture becomes limiting at higher light intensities", "correct": false },
+            { "text": "C) The plant’s stomata close to conserve water", "correct": false },
+            { "text": "D) Chlorophyll degrades under intense light", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, *Helianthus annuus* (sunflower). The photosynthetic rate was measured as the rate of carbon dioxide uptake (μmol CO₂/m²/s). Three experiments were conducted.\n\n**Experiment 1: Light Intensity at Constant Soil Moisture**\nPlants were grown at 50% soil moisture and exposed to light intensities of 200, 400, 600, 800, and 1000 μmol photons/m²/s. Results are shown in Figure 1.\n- Figure 1: Photosynthetic Rate vs. Light Intensity\n  - 200: 5.0, 400: 10.0, 600: 14.0, 800: 16.0, 1000: 16.5 μmol CO₂/m²/s\n\n**Experiment 2: Soil Moisture at Constant Light Intensity**\nPlants were exposed to 600 μmol photons/m²/s and grown at soil moisture levels of 20%, 30%, 40%, 50%, and 60%. Results are shown in Figure 2.\n- Figure 2: Photosynthetic Rate vs. Soil Moisture\n  - 20%: 8.0, 30%: 10.5, 40%: 12.5, 50%: 14.0, 60%: 13.5 μmol CO₂/m²/s\n\n**Experiment 3: Combined Effects**\nPlants were tested at combinations of light intensity (400 or 800 μmol photons/m²/s) and soil moisture (30% or 50%). Results are shown in Table 1.\n- Table 1: Photosynthetic Rate (μmol CO₂/m²/s)\n  - 400 μmol, 30%: 9.5; 400 μmol, 50%: 10.5\n  - 800 μmol, 30%: 13.0; 800 μmol, 50%: 16.0",
+        "question": "Based on the results of Experiment 3, what can be inferred about the interaction between light intensity and soil moisture?",
+        "answers": [
+            { "text": "A) Light intensity has no effect at low soil moisture", "correct": false },
+            { "text": "B) Soil moisture has a greater effect at higher light intensity", "correct": false },
+            { "text": "C) The effect of soil moisture is independent of light intensity", "correct": true },
+            { "text": "D) Light intensity reduces the impact of soil moisture", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, *Helianthus annuus* (sunflower). The photosynthetic rate was measured as the rate of carbon dioxide uptake (μmol CO₂/m²/s). Three experiments were conducted.\n\n**Experiment 1: Light Intensity at Constant Soil Moisture**\nPlants were grown at 50% soil moisture and exposed to light intensities of 200, 400, 600, 800, and 1000 μmol photons/m²/s. Results are shown in Figure 1.\n- Figure 1: Photosynthetic Rate vs. Light Intensity\n  - 200: 5.0, 400: 10.0, 600: 14.0, 800: 16.0, 1000: 16.5 μmol CO₂/m²/s\n\n**Experiment 2: Soil Moisture at Constant Light Intensity**\nPlants were exposed to 600 μmol photons/m²/s and grown at soil moisture levels of 20%, 30%, 40%, 50%, and 60%. Results are shown in Figure 2.\n- Figure 2: Photosynthetic Rate vs. Soil Moisture\n  - 20%: 8.0, 30%: 10.5, 40%: 12.5, 50%: 14.0, 60%: 13.5 μmol CO₂/m²/s\n\n**Experiment 3: Combined Effects**\nPlants were tested at combinations of light intensity (400 or 800 μmol photons/m²/s) and soil moisture (30% or 50%). Results are shown in Table 1.\n- Table 1: Photosynthetic Rate (μmol CO₂/m²/s)\n  - 400 μmol, 30%: 9.5; 400 μmol, 50%: 10.5\n  - 800 μmol, 30%: 13.0; 800 μmol, 50%: 16.0",
+        "question": "If a researcher wants to maximize the photosynthetic rate, which combination of conditions should be used based on all experiments?",
+        "answers": [
+            { "text": "A) 600 μmol photons/m²/s, 40% soil moisture", "correct": false },
+            { "text": "B) 800 μmol photons/m²/s, 50% soil moisture", "correct": false },
+            { "text": "C) 1000 μmol photons/m²/s, 50% soil moisture", "correct": false },
+            { "text": "D) 800 μmol photons/m²/s, 60% soil moisture", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, *Helianthus annuus* (sunflower). The photosynthetic rate was measured as the rate of carbon dioxide uptake (μmol CO₂/m²/s). Three experiments were conducted.\n\n**Experiment 1: Light Intensity at Constant Soil Moisture**\nPlants were grown at 50% soil moisture and exposed to light intensities of 200, 400, 600, 800, and 1000 μmol photons/m²/s. Results are shown in Figure 1.\n- Figure 1: Photosynthetic Rate vs. Light Intensity\n  - 200: 5.0, 400: 10.0, 600: 14.0, 800: 16.0, 1000: 16.5 μmol CO₂/m²/s\n\n**Experiment 2: Soil Moisture at Constant Light Intensity**\nPlants were exposed to 600 μmol photons/m²/s and grown at soil moisture levels of 20%, 30%, 40%, 50%, and 60%. Results are shown in Figure 2.\n- Figure 2: Photosynthetic Rate vs. Soil Moisture\n  - 20%: 8.0, 30%: 10.5, 40%: 12.5, 50%: 14.0, 60%: 13.5 μmol CO₂/m²/s\n\n**Experiment 3: Combined Effects**\nPlants were tested at combinations of light intensity (400 or 800 μmol photons/m²/s) and soil moisture (30% or 50%). Results are shown in Table 1.\n- Table 1: Photosynthetic Rate (μmol CO₂/m²/s)\n  - 400 μmol, 30%: 9.5; 400 μmol, 50%: 10.5\n  - 800 μmol, 30%: 13.0; 800 μmol, 50%: 16.0",
+        "question": "Assuming a linear relationship between the data points in Figure 2, what is the approximate photosynthetic rate at 45% soil moisture and 600 μmol photons/m²/s?",
+        "answers": [
+            { "text": "A) 12.0 μmol CO₂/m²/s", "correct": false },
+            { "text": "B) 13.0 μmol CO₂/m²/s", "correct": false },
+            { "text": "C) 13.5 μmol CO₂/m²/s", "correct": false },
+            { "text": "D) 12.5 μmol CO₂/m²/s", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, *Helianthus annuus* (sunflower). The photosynthetic rate was measured as the rate of carbon dioxide uptake (μmol CO₂/m²/s). Three experiments were conducted.\n\n**Experiment 1: Light Intensity at Constant Soil Moisture**\nPlants were grown at 50% soil moisture and exposed to light intensities of 200, 400, 600, 800, and 1000 μmol photons/m²/s. Results are shown in Figure 1.\n- Figure 1: Photosynthetic Rate vs. Light Intensity\n  - 200: 5.0, 400: 10.0, 600: 14.0, 800: 16.0, 1000: 16.5 μmol CO₂/m²/s\n\n**Experiment 2: Soil Moisture at Constant Light Intensity**\nPlants were exposed to 600 μmol photons/m²/s and grown at soil moisture levels of 20%, 30%, 40%, 50%, and 60%. Results are shown in Figure 2.\n- Figure 2: Photosynthetic Rate vs. Soil Moisture\n  - 20%: 8.0, 30%: 10.5, 40%: 12.5, 50%: 14.0, 60%: 13.5 μmol CO₂/m²/s\n\n**Experiment 3: Combined Effects**\nPlants were tested at combinations of light intensity (400 or 800 μmol photons/m²/s) and soil moisture (30% or 50%). Results are shown in Table 1.\n- Table 1: Photosynthetic Rate (μmol CO₂/m²/s)\n  - 400 μmol, 30%: 9.5; 400 μmol, 50%: 10.5\n  - 800 μmol, 30%: 13.0; 800 μmol, 50%: 16.0",
+        "question": "If a fourth experiment tested the photosynthetic rate at 500 μmol photons/m²/s and 35% soil moisture, what would be the most likely photosynthetic rate based on the trends in Figures 1 and 2?",
+        "answers": [
+            { "text": "A) 11.5 μmol CO₂/m²/s", "correct": true },
+            { "text": "B) 12.0 μmol CO₂/m²/s", "correct": false },
+            { "text": "C) 10.5 μmol CO₂/m²/s", "correct": false },
+            { "text": "D) 13.0 μmol CO₂/m²/s", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, *Chlorella vulgaris*. Growth rate was measured as the increase in optical density (OD) per hour. Three experiments were conducted.\n\n**Experiment 1: Temperature at Constant Nutrient Concentration**\nAlgae were cultured at 0.5% nutrient concentration and temperatures of 15°C, 20°C, 25°C, 30°C, and 35°C. Results are shown in Figure 1.\n- Figure 1: Growth Rate vs. Temperature\n  - 15°C: 0.10 OD/h, 20°C: 0.20 OD/h, 25°C: 0.30 OD/h, 30°C: 0.25 OD/h, 35°C: 0.15 OD/h\n\n**Experiment 2: Nutrient Concentration at Constant Temperature**\nAlgae were cultured at 25°C with nutrient concentrations of 0.2%, 0.4%, 0.6%, 0.8%, and 1.0%. Results are shown in Figure 2.\n- Figure 2: Growth Rate vs. Nutrient Concentration\n  - 0.2%: 0.15 OD/h, 0.4%: 0.25 OD/h, 0.6%: 0.30 OD/h, 0.8%: 0.32 OD/h, 1.0%: 0.33 OD/h\n\n**Experiment 3: Combined Effects**\nAlgae were tested at combinations of temperature (20°C or 30°C) and nutrient concentration (0.4% or 0.8%). Results are shown in Table 1.\n- Table 1: Growth Rate (OD/h)\n  - 20°C, 0.4%: 0.20; 20°C, 0.8%: 0.25\n  - 30°C, 0.4%: 0.22; 30°C, 0.8%: 0.28",
+        "question": "In Experiment 1, what is the effect of increasing temperature from 15°C to 25°C on the growth rate of *Chlorella vulgaris*?",
+        "answers": [
+            { "text": "A) It decreases", "correct": false },
+            { "text": "B) It increases", "correct": true },
+            { "text": "C) It remains constant", "correct": false },
+            { "text": "D) It increases then decreases", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "research summary"
+    },
+    {
+        "passage": "Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, *Chlorella vulgaris*. Growth rate was measured as the increase in optical density (OD) per hour. Three experiments were conducted.\n\n**Experiment 1: Temperature at Constant Nutrient Concentration**\nAlgae were cultured at 0.5% nutrient concentration and temperatures of 15°C, 20°C, 25°C, 30°C, and 35°C. Results are shown in Figure 1.\n- Figure 1: Growth Rate vs. Temperature\n  - 15°C: 0.10 OD/h, 20°C: 0.20 OD/h, 25°C: 0.30 OD/h, 30°C: 0.25 OD/h, 35°C: 0.15 OD/h\n\n**Experiment 2: Nutrient Concentration at Constant Temperature**\nAlgae were cultured at 25°C with nutrient concentrations of 0.2%, 0.4%, 0.6%, 0.8%, and 1.0%. Results are shown in Figure 2.\n- Figure 2: Growth Rate vs. Nutrient Concentration\n  - 0.2%: 0.15 OD/h, 0.4%: 0.25 OD/h, 0.6%: 0.30 OD/h, 0.8%: 0.32 OD/h, 1.0%: 0.33 OD/h\n\n**Experiment 3: Combined Effects**\nAlgae were tested at combinations of temperature (20°C or 30°C) and nutrient concentration (0.4% or 0.8%). Results are shown in Table 1.\n- Table 1: Growth Rate (OD/h)\n  - 20°C, 0.4%: 0.20; 20°C, 0.8%: 0.25\n  - 30°C, 0.4%: 0.22; 30°C, 0.8%: 0.28",
+        "question": "According to Figure 2, at which nutrient concentration does the growth rate of *Chlorella vulgaris* peak in Experiment 2?",
+        "answers": [
+            { "text": "A) 0.2%", "correct": false },
+            { "text": "B) 0.6%", "correct": false },
+            { "text": "C) 0.8%", "correct": false },
+            { "text": "D) 1.0%", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "research summary"
+    },
+    {
+        "passage": "Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, *Chlorella vulgaris*. Growth rate was measured as the increase in optical density (OD) per hour. Three experiments were conducted.\n\n**Experiment 1: Temperature at Constant Nutrient Concentration**\nAlgae were cultured at 0.5% nutrient concentration and temperatures of 15°C, 20°C, 25°C, 30°C, and 35°C. Results are shown in Figure 1.\n- Figure 1: Growth Rate vs. Temperature\n  - 15°C: 0.10 OD/h, 20°C: 0.20 OD/h, 25°C: 0.30 OD/h, 30°C: 0.25 OD/h, 35°C: 0.15 OD/h\n\n**Experiment 2: Nutrient Concentration at Constant Temperature**\nAlgae were cultured at 25°C with nutrient concentrations of 0.2%, 0.4%, 0.6%, 0.8%, and 1.0%. Results are shown in Figure 2.\n- Figure 2: Growth Rate vs. Nutrient Concentration\n  - 0.2%: 0.15 OD/h, 0.4%: 0.25 OD/h, 0.6%: 0.30 OD/h, 0.8%: 0.32 OD/h, 1.0%: 0.33 OD/h\n\n**Experiment 3: Combined Effects**\nAlgae were tested at combinations of temperature (20°C or 30°C) and nutrient concentration (0.4% or 0.8%). Results are shown in Table 1.\n- Table 1: Growth Rate (OD/h)\n  - 20°C, 0.4%: 0.20; 20°C, 0.8%: 0.25\n  - 30°C, 0.4%: 0.22; 30°C, 0.8%: 0.28",
+        "question": "In Experiment 3, how does increasing nutrient concentration from 0.4% to 0.8% affect the growth rate at 30°C?",
+        "answers": [
+            { "text": "A) It decreases by 0.06 OD/h", "correct": false },
+            { "text": "B) It increases by 0.06 OD/h", "correct": true },
+            { "text": "C) It remains constant", "correct": false },
+            { "text": "D) It increases by 0.02 OD/h", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "research summary"
+    },
+    {
+        "passage": "Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, *Chlorella vulgaris*. Growth rate was measured as the increase in optical density (OD) per hour. Three experiments were conducted.\n\n**Experiment 1: Temperature at Constant Nutrient Concentration**\nAlgae were cultured at 0.5% nutrient concentration and temperatures of 15°C, 20°C, 25°C, 30°C, and 35°C. Results are shown in Figure 1.\n- Figure 1: Growth Rate vs. Temperature\n  - 15°C: 0.10 OD/h, 20°C: 0.20 OD/h, 25°C: 0.30 OD/h, 30°C: 0.25 OD/h, 35°C: 0.15 OD/h\n\n**Experiment 2: Nutrient Concentration at Constant Temperature**\nAlgae were cultured at 25°C with nutrient concentrations of 0.2%, 0.4%, 0.6%, 0.8%, and 1.0%. Results are shown in Figure 2.\n- Figure 2: Growth Rate vs. Nutrient Concentration\n  - 0.2%: 0.15 OD/h, 0.4%: 0.25 OD/h, 0.6%: 0.30 OD/h, 0.8%: 0.32 OD/h, 1.0%: 0.33 OD/h\n\n**Experiment 3: Combined Effects**\nAlgae were tested at combinations of temperature (20°C or 30°C) and nutrient concentration (0.4% or 0.8%). Results are shown in Table 1.\n- Table 1: Growth Rate (OD/h)\n  - 20°C, 0.4%: 0.20; 20°C, 0.8%: 0.25\n  - 30°C, 0.4%: 0.22; 30°C, 0.8%: 0.28",
+        "question": "Which of the following best explains why the growth rate decreases from 25°C to 35°C in Experiment 1?",
+        "answers": [
+            { "text": "A) The algae reach maximum nutrient absorption", "correct": false },
+            { "text": "B) High temperatures disrupt cellular processes", "correct": true },
+            { "text": "C) Nutrient concentration becomes limiting", "correct": false },
+            { "text": "D) The algae enter a dormant state", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, *Chlorella vulgaris*. Growth rate was measured as the increase in optical density (OD) per hour. Three experiments were conducted.\n\n**Experiment 1: Temperature at Constant Nutrient Concentration**\nAlgae were cultured at 0.5% nutrient concentration and temperatures of 15°C, 20°C, 25°C, 30°C, and 35°C. Results are shown in Figure 1.\n- Figure 1: Growth Rate vs. Temperature\n  - 15°C: 0.10 OD/h, 20°C: 0.20 OD/h, 25°C: 0.30 OD/h, 30°C: 0.25 OD/h, 35°C: 0.15 OD/h\n\n**Experiment 2: Nutrient Concentration at Constant Temperature**\nAlgae were cultured at 25°C with nutrient concentrations of 0.2%, 0.4%, 0.6%, 0.8%, and 1.0%. Results are shown in Figure 2.\n- Figure 2: Growth Rate vs. Nutrient Concentration\n  - 0.2%: 0.15 OD/h, 0.4%: 0.25 OD/h, 0.6%: 0.30 OD/h, 0.8%: 0.32 OD/h, 1.0%: 0.33 OD/h\n\n**Experiment 3: Combined Effects**\nAlgae were tested at combinations of temperature (20°C or 30°C) and nutrient concentration (0.4% or 0.8%). Results are shown in Table 1.\n- Table 1: Growth Rate (OD/h)\n  - 20°C, 0.4%: 0.20; 20°C, 0.8%: 0.25\n  - 30°C, 0.4%: 0.22; 30°C, 0.8%: 0.28",
+        "question": "Based on Experiment 3, what can be inferred about the interaction between temperature and nutrient concentration on growth rate?",
+        "answers": [
+            { "text": "A) Nutrient concentration has no effect at higher temperatures", "correct": false },
+            { "text": "B) Temperature has a greater effect at lower nutrient concentrations", "correct": false },
+            { "text": "C) The effect of nutrient concentration is consistent across temperatures", "correct": true },
+            { "text": "D) Higher temperatures reduce the impact of nutrient concentration", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, *Chlorella vulgaris*. Growth rate was measured as the increase in optical density (OD) per hour. Three experiments were conducted.\n\n**Experiment 1: Temperature at Constant Nutrient Concentration**\nAlgae were cultured at 0.5% nutrient concentration and temperatures of 15°C, 20°C, 25°C, 30°C, and 35°C. Results are shown in Figure 1.\n- Figure 1: Growth Rate vs. Temperature\n  - 15°C: 0.10 OD/h, 20°C: 0.20 OD/h, 25°C: 0.30 OD/h, 30°C: 0.25 OD/h, 35°C: 0.15 OD/h\n\n**Experiment 2: Nutrient Concentration at Constant Temperature**\nAlgae were cultured at 25°C with nutrient concentrations of 0.2%, 0.4%, 0.6%, 0.8%, and 1.0%. Results are shown in Figure 2.\n- Figure 2: Growth Rate vs. Nutrient Concentration\n  - 0.2%: 0.15 OD/h, 0.4%: 0.25 OD/h, 0.6%: 0.30 OD/h, 0.8%: 0.32 OD/h, 1.0%: 0.33 OD/h\n\n**Experiment 3: Combined Effects**\nAlgae were tested at combinations of temperature (20°C or 30°C) and nutrient concentration (0.4% or 0.8%). Results are shown in Table 1.\n- Table 1: Growth Rate (OD/h)\n  - 20°C, 0.4%: 0.20; 20°C, 0.8%: 0.25\n  - 30°C, 0.4%: 0.22; 30°C, 0.8%: 0.28",
+        "question": "To maximize the growth rate of *Chlorella vulgaris* based on all experiments, which combination of conditions should be used?",
+        "answers": [
+            { "text": "A) 25°C, 0.6% nutrient concentration", "correct": true },
+            { "text": "B) 30°C, 0.8% nutrient concentration", "correct": false },
+            { "text": "C) 20°C, 1.0% nutrient concentration", "correct": false },
+            { "text": "D) 35°C, 0.4% nutrient concentration", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, *Chlorella vulgaris*. Growth rate was measured as the increase in optical density (OD) per hour. Three experiments were conducted.\n\n**Experiment 1: Temperature at Constant Nutrient Concentration**\nAlgae were cultured at 0.5% nutrient concentration and temperatures of 15°C, 20°C, 25°C, 30°C, and 35°C. Results are shown in Figure 1.\n- Figure 1: Growth Rate vs. Temperature\n  - 15°C: 0.10 OD/h, 20°C: 0.20 OD/h, 25°C: 0.30 OD/h, 30°C: 0.25 OD/h, 35°C: 0.15 OD/h\n\n**Experiment 2: Nutrient Concentration at Constant Temperature**\nAlgae were cultured at 25°C with nutrient concentrations of 0.2%, 0.4%, 0.6%, 0.8%, and 1.0%. Results are shown in Figure 2.\n- Figure 2: Growth Rate vs. Nutrient Concentration\n  - 0.2%: 0.15 OD/h, 0.4%: 0.25 OD/h, 0.6%: 0.30 OD/h, 0.8%: 0.32 OD/h, 1.0%: 0.33 OD/h\n\n**Experiment 3: Combined Effects**\nAlgae were tested at combinations of temperature (20°C or 30°C) and nutrient concentration (0.4% or 0.8%). Results are shown in Table 1.\n- Table 1: Growth Rate (OD/h)\n  - 20°C, 0.4%: 0.20; 20°C, 0.8%: 0.25\n  - 30°C, 0.4%: 0.22; 30°C, 0.8%: 0.28",
+        "question": "Assuming a linear relationship between the data points in Figure 2, what is the approximate growth rate at 0.5% nutrient concentration and 25°C?",
+        "answers": [
+            { "text": "A) 0.22 OD/h", "correct": false },
+            { "text": "B) 0.25 OD/h", "correct": false },
+            { "text": "C) 0.27 OD/h", "correct": true },
+            { "text": "D) 0.30 OD/h", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, *Chlorella vulgaris*. Growth rate was measured as the increase in optical density (OD) per hour. Three experiments were conducted.\n\n**Experiment 1: Temperature at Constant Nutrient Concentration**\nAlgae were cultured at 0.5% nutrient concentration and temperatures of 15°C, 20°C, 25°C, 30°C, and 35°C. Results are shown in Figure 1.\n- Figure 1: Growth Rate vs. Temperature\n  - 15°C: 0.10 OD/h, 20°C: 0.20 OD/h, 25°C: 0.30 OD/h, 30°C: 0.25 OD/h, 35°C: 0.15 OD/h\n\n**Experiment 2: Nutrient Concentration at Constant Temperature**\nAlgae were cultured at 25°C with nutrient concentrations of 0.2%, 0.4%, 0.6%, 0.8%, and 1.0%. Results are shown in Figure 2.\n- Figure 2: Growth Rate vs. Nutrient Concentration\n  - 0.2%: 0.15 OD/h, 0.4%: 0.25 OD/h, 0.6%: 0.30 OD/h, 0.8%: 0.32 OD/h, 1.0%: 0.33 OD/h\n\n**Experiment 3: Combined Effects**\nAlgae were tested at combinations of temperature (20°C or 30°C) and nutrient concentration (0.4% or 0.8%). Results are shown in Table 1.\n- Table 1: Growth Rate (OD/h)\n  - 20°C, 0.4%: 0.20; 20°C, 0.8%: 0.25\n  - 30°C, 0.4%: 0.22; 30°C, 0.8%: 0.28",
+        "question": "If a fourth experiment tested the growth rate at 22.5°C and 0.7% nutrient concentration, what would be the most likely growth rate based on the trends in Figures 1 and 2?",
+        "answers": [
+            { "text": "A) 0.31 OD/h", "correct": true },
+            { "text": "B) 0.28 OD/h", "correct": false },
+            { "text": "C) 0.25 OD/h", "correct": false },
+            { "text": "D) 0.33 OD/h", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "research summary"
+    },
+
+    ///Passage 
+    {
+        "passage": "Researchers studied the effects of salinity and light intensity on the oxygen production rate of a marine phytoplankton species, *Skeletonema costatum*. Oxygen production was measured in micromoles per liter per hour (µmol/L/h). Three experiments were conducted.\n\n**Experiment 1: Salinity at Constant Light Intensity**\nPhytoplankton were cultured at 500 µmol photons/m²/s light intensity with salinity levels of 15, 20, 25, 30, and 35 parts per thousand (ppt). Results are shown in Figure 1.\n- Figure 1: Oxygen Production vs. Salinity\n  - 15 ppt: 10 µmol/L/h, 20 ppt: 15 µmol/L/h, 25 ppt: 20 µmol/L/h, 30 ppt: 18 µmol/L/h, 35 ppt: 12 µmol/L/h\n\n**Experiment 2: Light Intensity at Constant Salinity**\nPhytoplankton were cultured at 25 ppt salinity with light intensities of 200, 400, 600, 800, and 1000 µmol photons/m²/s. Results are shown in Figure 2.\n- Figure 2: Oxygen Production vs. Light Intensity\n  - 200 µmol photons/m²/s: 8 µmol/L/h, 400: 15 µmol/L/h, 600: 22 µmol/L/h, 800: 25 µmol/L/h, 1000: 26 µmol/L/h\n\n**Experiment 3: Combined Effects**\nPhytoplankton were tested at combinations of salinity (20 or 30 ppt) and light intensity (400 or 800 µmol photons/m²/s). Results are shown in Table 1.\n- Table 1: Oxygen Production (µmol/L/h)\n  - 20 ppt, 400 µmol: 14; 20 ppt, 800 µmol: 23\n  - 30 ppt, 400 µmol: 13; 30 ppt, 800 µmol: 22",
+        "question": "In Experiment 1, what is the effect of increasing salinity from 15 ppt to 25 ppt on the oxygen production rate of *Skeletonema costatum*?",
+        "answers": [
+            { "text": "A) It decreases", "correct": false },
+            { "text": "B) It increases", "correct": true },
+            { "text": "C) It remains constant", "correct": false },
+            { "text": "D) It increases then decreases", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of salinity and light intensity on the oxygen production rate of a marine phytoplankton species, *Skeletonema costatum*. Oxygen production was measured in micromoles per liter per hour (µmol/L/h). Three experiments were conducted.\n\n**Experiment 1: Salinity at Constant Light Intensity**\nPhytoplankton were cultured at 500 µmol photons/m²/s light intensity with salinity levels of 15, 20, 25, 30, and 35 parts per thousand (ppt). Results are shown in Figure 1.\n- Figure 1: Oxygen Production vs. Salinity\n  - 15 ppt: 10 µmol/L/h, 20 ppt: 15 µmol/L/h, 25 ppt: 20 µmol/L/h, 30 ppt: 18 µmol/L/h, 35 ppt: 12 µmol/L/h\n\n**Experiment 2: Light Intensity at Constant Salinity**\nPhytoplankton were cultured at 25 ppt salinity with light intensities of 200, 400, 600, 800, and 1000 µmol photons/m²/s. Results are shown in Figure 2.\n- Figure 2: Oxygen Production vs. Light Intensity\n  - 200 µmol photons/m²/s: 8 µmol/L/h, 400: 15 µmol/L/h, 600: 22 µmol/L/h, 800: 25 µmol/L/h, 1000: 26 µmol/L/h\n\n**Experiment 3: Combined Effects**\nPhytoplankton were tested at combinations of salinity (20 or 30 ppt) and light intensity (400 or 800 µmol photons/m²/s). Results are shown in Table 1.\n- Table 1: Oxygen Production (µmol/L/h)\n  - 20 ppt, 400 µmol: 14; 20 ppt, 800 µmol: 23\n  - 30 ppt, 400 µmol: 13; 30 ppt, 800 µmol: 22",
+        "question": "According to Figure 2, at which light intensity does the oxygen production rate of *Skeletonema costatum* peak in Experiment 2?",
+        "answers": [
+            { "text": "A) 600 µmol photons/m²/s", "correct": false },
+            { "text": "B) 800 µmol photons/m²/s", "correct": false },
+            { "text": "C) 1000 µmol photons/m²/s", "correct": true },
+            { "text": "D) 400 µmol photons/m²/s", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of salinity and light intensity on the oxygen production rate of a marine phytoplankton species, *Skeletonema costatum*. Oxygen production was measured in micromoles per liter per hour (µmol/L/h). Three experiments were conducted.\n\n**Experiment 1: Salinity at Constant Light Intensity**\nPhytoplankton were cultured at 500 µmol photons/m²/s light intensity with salinity levels of 15, 20, 25, 30, and 35 parts per thousand (ppt). Results are shown in Figure 1.\n- Figure 1: Oxygen Production vs. Salinity\n  - 15 ppt: 10 µmol/L/h, 20 ppt: 15 µmol/L/h, 25 ppt: 20 µmol/L/h, 30 ppt: 18 µmol/L/h, 35 ppt: 12 µmol/L/h\n\n**Experiment 2: Light Intensity at Constant Salinity**\nPhytoplankton were cultured at 25 ppt salinity with light intensities of 200, 400, 600, 800, and 1000 µmol photons/m²/s. Results are shown in Figure 2.\n- Figure 2: Oxygen Production vs. Light Intensity\n  - 200 µmol photons/m²/s: 8 µmol/L/h, 400: 15 µmol/L/h, 600: 22 µmol/L/h, 800: 25 µmol/L/h, 1000: 26 µmol/L/h\n\n**Experiment 3: Combined Effects**\nPhytoplankton were tested at combinations of salinity (20 or 30 ppt) and light intensity (400 or 800 µmol photons/m²/s). Results are shown in Table 1.\n- Table 1: Oxygen Production (µmol/L/h)\n  - 20 ppt, 400 µmol: 14; 20 ppt, 800 µmol: 23\n  - 30 ppt, 400 µmol: 13; 30 ppt, 800 µmol: 22",
+        "question": "Which of the following best explains why the oxygen production rate decreases from 25 ppt to 35 ppt in Experiment 1?",
+        "answers": [
+            { "text": "A) High salinity disrupts photosynthetic processes", "correct": true },
+            { "text": "B) Light intensity becomes limiting", "correct": false },
+            { "text": "C) The phytoplankton enter a dormant state", "correct": false },
+            { "text": "D) Oxygen solubility increases", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of salinity and light intensity on the oxygen production rate of a marine phytoplankton species, *Skeletonema costatum*. Oxygen production was measured in micromoles per liter per hour (µmol/L/h). Three experiments were conducted.\n\n**Experiment 1: Salinity at Constant Light Intensity**\nPhytoplankton were cultured at 500 µmol photons/m²/s light intensity with salinity levels of 15, 20, 25, 30, and 35 parts per thousand (ppt). Results are shown in Figure 1.\n- Figure 1: Oxygen Production vs. Salinity\n  - 15 ppt: 10 µmol/L/h, 20 ppt: 15 µmol/L/h, 25 ppt: 20 µmol/L/h, 30 ppt: 18 µmol/L/h, 35 ppt: 12 µmol/L/h\n\n**Experiment 2: Light Intensity at Constant Salinity**\nPhytoplankton were cultured at 25 ppt salinity with light intensities of 200, 400, 600, 800, and 1000 µmol photons/m²/s. Results are shown in Figure 2.\n- Figure 2: Oxygen Production vs. Light Intensity\n  - 200 µmol photons/m²/s: 8 µmol/L/h, 400: 15 µmol/L/h, 600: 22 µmol/L/h, 800: 25 µmol/L/h, 1000: 26 µmol/L/h\n\n**Experiment 3: Combined Effects**\nPhytoplankton were tested at combinations of salinity (20 or 30 ppt) and light intensity (400 or 800 µmol photons/m²/s). Results are shown in Table 1.\n- Table 1: Oxygen Production (µmol/L/h)\n  - 20 ppt, 400 µmol: 14; 20 ppt, 800 µmol: 23\n  - 30 ppt, 400 µmol: 13; 30 ppt, 800 µmol: 22",
+        "question": "Based on Experiment 3, what can be inferred about the interaction between salinity and light intensity on oxygen production rate?",
+        "answers": [
+            { "text": "A) Salinity has a greater effect at lower light intensities", "correct": false },
+            { "text": "B) The effect of light intensity is consistent across salinity levels", "correct": true },
+            { "text": "C) Higher salinity enhances the effect of light intensity", "correct": false },
+            { "text": "D) Light intensity reduces the impact of salinity", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of salinity and light intensity on the oxygen production rate of a marine phytoplankton species, *Skeletonema costatum*. Oxygen production was measured in micromoles per liter per hour (µmol/L/h). Three experiments were conducted.\n\n**Experiment 1: Salinity at Constant Light Intensity**\nPhytoplankton were cultured at 500 µmol photons/m²/s light intensity with salinity levels of 15, 20, 25, 30, and 35 parts per thousand (ppt). Results are shown in Figure 1.\n- Figure 1: Oxygen Production vs. Salinity\n  - 15 ppt: 10 µmol/L/h, 20 ppt: 15 µmol/L/h, 25 ppt: 20 µmol/L/h, 30 ppt: 18 µmol/L/h, 35 ppt: 12 µmol/L/h\n\n**Experiment 2: Light Intensity at Constant Salinity**\nPhytoplankton were cultured at 25 ppt salinity with light intensities of 200, 400, 600, 800, and 1000 µmol photons/m²/s. Results are shown in Figure 2.\n- Figure 2: Oxygen Production vs. Light Intensity\n  - 200 µmol photons/m²/s: 8 µmol/L/h, 400: 15 µmol/L/h, 600: 22 µmol/L/h, 800: 25 µmol/L/h, 1000: 26 µmol/L/h\n\n**Experiment 3: Combined Effects**\nPhytoplankton were tested at combinations of salinity (20 or 30 ppt) and light intensity (400 or 800 µmol photons/m²/s). Results are shown in Table 1.\n- Table 1: Oxygen Production (µmol/L/h)\n  - 20 ppt, 400 µmol: 14; 20 ppt, 800 µmol: 23\n  - 30 ppt, 400 µmol: 13; 30 ppt, 800 µmol: 22",
+        "question": "To maximize the oxygen production rate of *Skeletonema costatum* based on all experiments, which combination of conditions should be used?",
+        "answers": [
+            { "text": "A) 25 ppt, 1000 µmol photons/m²/s", "correct": true },
+            { "text": "B) 30 ppt, 800 µmol photons/m²/s", "correct": false },
+            { "text": "C) 20 ppt, 600 µmol photons/m²/s", "correct": false },
+            { "text": "D) 35 ppt, 400 µmol photons/m²/s", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of salinity and light intensity on the oxygen production rate of a marine phytoplankton species, *Skeletonema costatum*. Oxygen production was measured in micromoles per liter per hour (µmol/L/h). Three experiments were conducted.\n\n**Experiment 1: Salinity at Constant Light Intensity**\nPhytoplankton were cultured at 500 µmol photons/m²/s light intensity with salinity levels of 15, 20, 25, 30, and 35 parts per thousand (ppt). Results are shown in Figure 1.\n- Figure 1: Oxygen Production vs. Salinity\n  - 15 ppt: 10 µmol/L/h, 20 ppt: 15 µmol/L/h, 25 ppt: 20 µmol/L/h, 30 ppt: 18 µmol/L/h, 35 ppt: 12 µmol/L/h\n\n**Experiment 2: Light Intensity at Constant Salinity**\nPhytoplankton were cultured at 25 ppt salinity with light intensities of 200, 400, 600, 800, and 1000 µmol photons/m²/s. Results are shown in Figure 2.\n- Figure 2: Oxygen Production vs. Light Intensity\n  - 200 µmol photons/m²/s: 8 µmol/L/h, 400: 15 µmol/L/h, 600: 22 µmol/L/h, 800: 25 µmol/L/h, 1000: 26 µmol/L/h\n\n**Experiment 3: Combined Effects**\nPhytoplankton were tested at combinations of salinity (20 or 30 ppt) and light intensity (400 or 800 µmol photons/m²/s). Results are shown in Table 1.\n- Table 1: Oxygen Production (µmol/L/h)\n  - 20 ppt, 400 µmol: 14; 20 ppt, 800 µmol: 23\n  - 30 ppt, 400 µmol: 13; 30 ppt, 800 µmol: 22",
+        "question": "Assuming a linear relationship between the data points in Figure 2, what is the approximate oxygen production rate at 500 µmol photons/m²/s and 25 ppt salinity?",
+        "answers": [
+            { "text": "A) 18 µmol/L/h", "correct": false },
+            { "text": "B) 19 µmol/L/h", "correct": false },
+            { "text": "C) 20 µmol/L/h", "correct": false },
+            { "text": "D) 18.5 µmol/L/h", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Researchers studied the effects of salinity and light intensity on the oxygen production rate of a marine phytoplankton species, *Skeletonema costatum*. Oxygen production was measured in micromoles per liter per hour (µmol/L/h). Three experiments were conducted.\n\n**Experiment 1: Salinity at Constant Light Intensity**\nPhytoplankton were cultured at 500 µmol photons/m²/s light intensity with salinity levels of 15, 20, 25, 30, and 35 parts per thousand (ppt). Results are shown in Figure 1.\n- Figure 1: Oxygen Production vs. Salinity\n  - 15 ppt: 10 µmol/L/h, 20 ppt: 15 µmol/L/h, 25 ppt: 20 µmol/L/h, 30 ppt: 18 µmol/L/h, 35 ppt: 12 µmol/L/h\n\n**Experiment 2: Light Intensity at Constant Salinity**\nPhytoplankton were cultured at 25 ppt salinity with light intensities of 200, 400, 600, 800, and 1000 µmol photons/m²/s. Results are shown in Figure 2.\n- Figure 2: Oxygen Production vs. Light Intensity\n  - 200 µmol photons/m²/s: 8 µmol/L/h, 400: 15 µmol/L/h, 600: 22 µmol/L/h, 800: 25 µmol/L/h, 1000: 26 µmol/L/h\n\n**Experiment 3: Combined Effects**\nPhytoplankton were tested at combinations of salinity (20 or 30 ppt) and light intensity (400 or 800 µmol photons/m²/s). Results are shown in Table 1.\n- Table 1: Oxygen Production (µmol/L/h)\n  - 20 ppt, 400 µmol: 14; 20 ppt, 800 µmol: 23\n  - 30 ppt, 400 µmol: 13; 30 ppt, 800 µmol: 22",
+        "question": "If a fourth experiment tested the oxygen production rate at 22.5 ppt salinity and 700 µmol photons/m²/s, what would be the most likely oxygen production rate based on the trends in Figures 1 and 2?",
+        "answers": [
+            { "text": "A) 21.5 µmol/L/h", "correct": false },
+            { "text": "B) 22.5 µmol/L/h", "correct": false },
+            { "text": "C) 23.5 µmol/L/h", "correct": true },
+            { "text": "D) 20.5 µmol/L/h", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "research summary"
+    },
+    {
+        "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity. Two scientists propose different explanations for this decline.\n\n**Scientist 1: Ocean Acidification Hypothesis**\nScientist 1 argues that ocean acidification, caused by increased atmospheric CO₂ dissolving into seawater, is the primary cause of coral decline. Higher CO₂ levels lower seawater pH, reducing carbonate ion availability, which corals need to build calcium carbonate skeletons. Weakened skeletons lead to slower growth and increased susceptibility to damage. Scientist 1 cites data from a study of a Pacific reef (Figure 1).\n- Figure 1: Coral Cover (%) vs. Seawater pH (2000–2020)\n  - 2000: pH 8.1, 60% cover; 2005: pH 8.05, 55%; 2010: pH 8.0, 45%; 2015: pH 7.95, 35%; 2020: pH 7.9, 25%\nScientist 1 predicts that without CO₂ emission reductions, coral cover will continue to decline as pH drops further.\n\n**Scientist 2: Thermal Stress Hypothesis**\nScientist 2 contends that thermal stress from rising sea surface temperatures is the main driver of coral decline. Warmer waters cause coral bleaching, where corals expel symbiotic algae (zooxanthellae), leading to starvation and death. Scientist 2 references a study tracking temperature and bleaching events (Figure 2).\n- Figure 2: Bleaching Events vs. Sea Surface Temperature (°C) (2000–2020)\n  - 2000: 27.0°C, 0 events; 2005: 27.5°C, 1 event; 2010: 28.0°C, 2 events; 2015: 28.5°C, 3 events; 2020: 29.0°C, 4 events\nScientist 2 argues that temperature increases, driven by climate change, correlate strongly with bleaching and coral loss, and mitigation requires global temperature control.",
+        "question": "According to Scientist 1, what is the primary reason for the decline in coral cover observed in Figure 1?",
+        "answers": [
+            { "text": "A) Increased sea surface temperatures", "correct": false },
+            { "text": "B) Reduced carbonate ion availability", "correct": true },
+            { "text": "C) Loss of symbiotic algae", "correct": false },
+            { "text": "D) Increased bleaching events", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "conflicting viewpoints"
+    },
+    {
+        "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity. Two scientists propose different explanations for this decline.\n\n**Scientist 1: Ocean Acidification Hypothesis**\nScientist 1 argues that ocean acidification, caused by increased atmospheric CO₂ dissolving into seawater, is the primary cause of coral decline. Higher CO₂ levels lower seawater pH, reducing carbonate ion availability, which corals need to build calcium carbonate skeletons. Weakened skeletons lead to slower growth and increased susceptibility to damage. Scientist 1 cites data from a study of a Pacific reef (Figure 1).\n- Figure 1: Coral Cover (%) vs. Seawater pH (2000–2020)\n  - 2000: pH 8.1, 60% cover; 2005: pH 8.05, 55%; 2010: pH 8.0, 45%; 2015: pH 7.95, 35%; 2020: pH 7.9, 25%\nScientist 1 predicts that without CO₂ emission reductions, coral cover will continue to decline as pH drops further.\n\n**Scientist 2: Thermal Stress Hypothesis**\nScientist 2 contends that thermal stress from rising sea surface temperatures is the main driver of coral decline. Warmer waters cause coral bleaching, where corals expel symbiotic algae (zooxanthellae), leading to starvation and death. Scientist 2 references a study tracking temperature and bleaching events (Figure 2).\n- Figure 2: Bleaching Events vs. Sea Surface Temperature (°C) (2000–2020)\n  - 2000: 27.0°C, 0 events; 2005: 27.5°C, 1 event; 2010: 28.0°C, 2 events; 2015: 28.5°C, 3 events; 2020: 29.0°C, 4 events\nScientist 2 argues that temperature increases, driven by climate change, correlate strongly with bleaching and coral loss, and mitigation requires global temperature control.",
+        "question": "Which of the following would most weaken Scientist 2’s argument?",
+        "answers": [
+            { "text": "A) Data showing coral cover declining in regions with stable sea temperatures", "correct": true },
+            { "text": "B) Evidence of increased CO₂ emissions over the past 20 years", "correct": false },
+            { "text": "C) A study showing coral recovery after bleaching events", "correct": false },
+            { "text": "D) Measurements of stable seawater pH in bleaching-affected areas", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "conflicting viewpoints"
+    },
+    {
+        "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity. Two scientists propose different explanations for this decline.\n\n**Scientist 1: Ocean Acidification Hypothesis**\nScientist 1 argues that ocean acidification, caused by increased atmospheric CO₂ dissolving into seawater, is the primary cause of coral decline. Higher CO₂ levels lower seawater pH, reducing carbonate ion availability, which corals need to build calcium carbonate skeletons. Weakened skeletons lead to slower growth and increased susceptibility to damage. Scientist 1 cites data from a study of a Pacific reef (Figure 1).\n- Figure 1: Coral Cover (%) vs. Seawater pH (2000–2020)\n  - 2000: pH 8.1, 60% cover; 2005: pH 8.05, 55%; 2010: pH 8.0, 45%; 2015: pH 7.95, 35%; 2020: pH 7.9, 25%\nScientist 1 predicts that without CO₂ emission reductions, coral cover will continue to decline as pH drops further.\n\n**Scientist 2: Thermal Stress Hypothesis**\nScientist 2 contends that thermal stress from rising sea surface temperatures is the main driver of coral decline. Warmer waters cause coral bleaching, where corals expel symbiotic algae (zooxanthellae), leading to starvation and death. Scientist 2 references a study tracking temperature and bleaching events (Figure 2).\n- Figure 2: Bleaching Events vs. Sea Surface Temperature (°C) (2000–2020)\n  - 2000: 27.0°C, 0 events; 2005: 27.5°C, 1 event; 2010: 28.0°C, 2 events; 2015: 28.5°C, 3 events; 2020: 29.0°C, 4 events\nScientist 2 argues that temperature increases, driven by climate change, correlate strongly with bleaching and coral loss, and mitigation requires global temperature control.",
+        "question": "How does Scientist 2’s explanation of coral decline differ from Scientist 1’s?",
+        "answers": [
+            { "text": "A) Scientist 2 focuses on CO₂-driven pH changes, while Scientist 1 emphasizes temperature increases", "correct": false },
+            { "text": "B) Scientist 2 attributes decline to coral bleaching, while Scientist 1 cites weakened skeletons", "correct": true },
+            { "text": "C) Scientist 2 links decline to carbonate ion scarcity, while Scientist 1 blames algal loss", "correct": false },
+            { "text": "D) Scientist 2 emphasizes skeletal damage, while Scientist 1 focuses on bleaching events", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "conflicting viewpoints"
+    },
+    {
+        "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity. Two scientists propose different explanations for this decline.\n\n**Scientist 1: Ocean Acidification Hypothesis**\nScientist 1 argues that ocean acidification, caused by increased atmospheric CO₂ dissolving into seawater, is the primary cause of coral decline. Higher CO₂ levels lower seawater pH, reducing carbonate ion availability, which corals need to build calcium carbonate skeletons. Weakened skeletons lead to slower growth and increased susceptibility to damage. Scientist 1 cites data from a study of a Pacific reef (Figure 1).\n- Figure 1: Coral Cover (%) vs. Seawater pH (2000–2020)\n  - 2000: pH 8.1, 60% cover; 2005: pH 8.05, 55%; 2010: pH 8.0, 45%; 2015: pH 7.95, 35%; 2020: pH 7.9, 25%\nScientist 1 predicts that without CO₂ emission reductions, coral cover will continue to decline as pH drops further.\n\n**Scientist 2: Thermal Stress Hypothesis**\nScientist 2 contends that thermal stress from rising sea surface temperatures is the main driver of coral decline. Warmer waters cause coral bleaching, where corals expel symbiotic algae (zooxanthellae), leading to starvation and death. Scientist 2 references a study tracking temperature and bleaching events (Figure 2).\n- Figure 2: Bleaching Events vs. Sea Surface Temperature (°C) (2000–2020)\n  - 2000: 27.0°C, 0 events; 2005: 27.5°C, 1 event; 2010: 28.0°C, 2 events; 2015: 28.5°C, 3 events; 2020: 29.0°C, 4 events\nScientist 2 argues that temperature increases, driven by climate change, correlate strongly with bleaching and coral loss, and mitigation requires global temperature control.",
+        "question": "Which of the following data would most support Scientist 1’s hypothesis over Scientist 2’s?",
+        "answers": [
+            { "text": "A) Coral decline in areas with stable temperatures but decreasing pH", "correct": false },
+            { "text": "B) Increased bleaching events in regions with rising temperatures", "correct": false },
+            { "text": "C) Coral cover loss correlated with lower carbonate ion concentrations", "correct": true },
+            { "text": "D) Stable coral cover in areas with high temperatures", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "hard",
+        "category": "conflicting viewpoints"
+    },
+    {
+        "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity. Two scientists propose different explanations for this decline.\n\n**Scientist 1: Ocean Acidification Hypothesis**\nScientist 1 argues that ocean acidification, caused by increased atmospheric CO₂ dissolving into seawater, is the primary cause of coral decline. Higher CO₂ levels lower seawater pH, reducing carbonate ion availability, which corals need to build calcium carbonate skeletons. Weakened skeletons lead to slower growth and increased susceptibility to damage. Scientist 1 cites data from a study of a Pacific reef (Figure 1).\n- Figure 1: Coral Cover (%) vs. Seawater pH (2000–2020)\n  - 2000: pH 8.1, 60% cover; 2005: pH 8.05, 55%; 2010: pH 8.0, 45%; 2015: pH 7.95, 35%; 2020: pH 7.9, 25%\nScientist 1 predicts that without CO₂ emission reductions, coral cover will continue to decline as pH drops further.\n\n**Scientist 2: Thermal Stress Hypothesis**\nScientist 2 contends that thermal stress from rising sea surface temperatures is the main driver of coral decline. Warmer waters cause coral bleaching, where corals expel symbiotic algae (zooxanthellae), leading to starvation and death. Scientist 2 references a study tracking temperature and bleaching events (Figure 2).\n- Figure 2: Bleaching Events vs. Sea Surface Temperature (°C) (2000–2020)\n  - 2000: 27.0°C, 0 events; 2005: 27.5°C, 1 event; 2010: 28.0°C, 2 events; 2015: 28.5°C, 3 events; 2020: 29.0°C, 4 events\nScientist 2 argues that temperature increases, driven by climate change, correlate strongly with bleaching and coral loss, and mitigation requires global temperature control.",
+        "question": "Suppose a study finds that coral cover declined significantly in a region where seawater pH remained stable at 8.1 but sea surface temperature increased from 27°C to 29°C. How would this finding impact the hypotheses of Scientist 1 and Scientist 2?",
+        "answers": [
+            { "text": "A) It would weaken Scientist 1’s hypothesis and support Scientist 2’s", "correct": true },
+            { "text": "B) It would support Scientist 1’s hypothesis and weaken Scientist 2’s", "correct": false },
+            { "text": "C) It would support both hypotheses equally", "correct": false },
+            { "text": "D) It would weaken both hypotheses", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "conflicting viewpoints"
+    },
+    {
+        "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity. Two scientists propose different explanations for this decline.\n\n**Scientist 1: Ocean Acidification Hypothesis**\nScientist 1 argues that ocean acidification, caused by increased atmospheric CO₂ dissolving into seawater, is the primary cause of coral decline. Higher CO₂ levels lower seawater pH, reducing carbonate ion availability, which corals need to build calcium carbonate skeletons. Weakened skeletons lead to slower growth and increased susceptibility to damage. Scientist 1 cites data from a study of a Pacific reef (Figure 1).\n- Figure 1: Coral Cover (%) vs. Seawater pH (2000–2020)\n  - 2000: pH 8.1, 60% cover; 2005: pH 8.05, 55%; 2010: pH 8.0, 45%; 2015: pH 7.95, 35%; 2020: pH 7.9, 25%\nScientist 1 predicts that without CO₂ emission reductions, coral cover will continue to decline as pH drops further.\n\n**Scientist 2: Thermal Stress Hypothesis**\nScientist 2 contends that thermal stress from rising sea surface temperatures is the main driver of coral decline. Warmer waters cause coral bleaching, where corals expel symbiotic algae (zooxanthellae), leading to starvation and death. Scientist 2 references a study tracking temperature and bleaching events (Figure 2).\n- Figure 2: Bleaching Events vs. Sea Surface Temperature (°C) (2000–2020)\n  - 2000: 27.0°C, 0 events; 2005: 27.5°C, 1 event; 2010: 28.0°C, 2 events; 2015: 28.5°C, 3 events; 2020: 29.0°C, 4 events\nScientist 2 argues that temperature increases, driven by climate change, correlate strongly with bleaching and coral loss, and mitigation requires global temperature control.",
+        "question": "If a new study showed that coral cover remained stable in a region with increasing sea surface temperatures but decreasing pH, which scientist’s hypothesis would be most supported, and what assumption would this challenge for the other scientist?",
+        "answers": [
+            { "text": "A) Scientist 1; Scientist 2’s assumption that temperature is the primary driver", "correct": false },
+            { "text": "B) Scientist 2; Scientist 1’s assumption that pH decrease causes coral decline", "correct": false },
+            { "text": "C) Scientist 1; Scientist 2’s assumption that bleaching is the main cause of decline", "correct": true },
+            { "text": "D) Scientist 2; Scientist 1’s assumption that carbonate ions are critical", "correct": false }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "conflicting viewpoints"
+    },
+    {
+        "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity. Two scientists propose different explanations for this decline.\n\n**Scientist 1: Ocean Acidification Hypothesis**\nScientist 1 argues that ocean acidification, caused by increased atmospheric CO₂ dissolving into seawater, is the primary cause of coral decline. Higher CO₂ levels lower seawater pH, reducing carbonate ion availability, which corals need to build calcium carbonate skeletons. Weakened skeletons lead to slower growth and increased susceptibility to damage. Scientist 1 cites data from a study of a Pacific reef (Figure 1).\n- Figure 1: Coral Cover (%) vs. Seawater pH (2000–2020)\n  - 2000: pH 8.1, 60% cover; 2005: pH 8.05, 55%; 2010: pH 8.0, 45%; 2015: pH 7.95, 35%; 2020: pH 7.9, 25%\nScientist 1 predicts that without CO₂ emission reductions, coral cover will continue to decline as pH drops further.\n\n**Scientist 2: Thermal Stress Hypothesis**\nScientist 2 contends that thermal stress from rising sea surface temperatures is the main driver of coral decline. Warmer waters cause coral bleaching, where corals expel symbiotic algae (zooxanthellae), leading to starvation and death. Scientist 2 references a study tracking temperature and bleaching events (Figure 2).\n- Figure 2: Bleaching Events vs. Sea Surface Temperature (°C) (2000–2020)\n  - 2000: 27.0°C, 0 events; 2005: 27.5°C, 1 event; 2010: 28.0°C, 2 events; 2015: 28.5°C, 3 events; 2020: 29.0°C, 4 events\nScientist 2 argues that temperature increases, driven by climate change, correlate strongly with bleaching and coral loss, and mitigation requires global temperature control.",
+        "question": "Suppose a researcher finds that coral cover declined in a region where both pH decreased and temperature increased, but the decline correlated more strongly with pH changes. How would this affect the relative plausibility of the two hypotheses?",
+        "answers": [
+            { "text": "A) It would make Scientist 1’s hypothesis less plausible than Scientist 2’s", "correct": false },
+            { "text": "B) It would make Scientist 2’s hypothesis more plausible than Scientist 1’s", "correct": false },
+            { "text": "C) It would make both hypotheses equally plausible", "correct": false },
+            { "text": "D) It would make Scientist 1’s hypothesis more plausible than Scientist 2’s", "correct": true }
+        ],
+        "type": "reading",
+        "difficulty": "very hard",
+        "category": "conflicting viewpoints"
+    }
+
 ];
 
     function startTest() {
@@ -3113,8 +3506,81 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (questionText.includes("Assuming a linear relationship between the data points in Figures 1 and 2, what is the approximate growth rate of Escherichia coli at 0.75% nutrient concentration and 40°C?")) {
             return "Figure 1: Escherichia coli at 0.5% (0.25 OD/h), 1.0% (0.45 OD/h) at 37°C. Linear interpolation at 0.75%: 0.25 + (0.45-0.25)*(0.25/0.5) = 0.35 OD/h. Figure 2: at 37°C (0.45 OD/h), 45°C (0.40 OD/h) at 1.0%. Interpolate at 40°C: 0.45 - (0.45-0.40)*(3/8) = 0.43125 OD/h. Averaging nutrient and temperature effects (0.35 + 0.43125)/2 ≈ 0.39 OD/h. Option A) 0.38 OD/h is closest. B) 0.42, C) 0.35, and D) 0.45 OD/h deviate from the estimate.";
     }
+     // Set 9: Photosynthetic Rate Passage
+    } else if (questionText.includes("Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, Helianthus annuus")) {
+        if (questionText.includes("In Experiment 1, what is the effect of increasing light intensity from 200 to 600 μmol photons/m²/s on the photosynthetic rate?")) {
+            return "Figure 1 shows photosynthetic rates at 50% soil moisture: 200 μmol photons/m²/s (5.0 μmol CO₂/m²/s), 400 (10.0), 600 (14.0). From 200 to 600, the rate increases from 5.0 to 14.0. Option B) It increases is correct. A) It decreases, C) It remains constant, and D) It increases then decreases do not match the data.";
+        } else if (questionText.includes("According to Figure 2, at which soil moisture level does the photosynthetic rate peak in Experiment 2?")) {
+            return "Figure 2 shows photosynthetic rates at 600 μmol photons/m²/s: 20% (8.0 μmol CO₂/m²/s), 30% (10.5), 40% (12.5), 50% (14.0), 60% (13.5). The highest rate is 14.0 at 50%. Option C) 50% is correct. A) 30%, B) 40%, and D) 60% have lower rates.";
+        } else if (questionText.includes("In Experiment 3, how does increasing soil moisture from 30% to 50% affect the photosynthetic rate at 800 μmol photons/m²/s?")) {
+            return "Table 1 shows at 800 μmol photons/m²/s: 30% soil moisture (13.0 μmol CO₂/m²/s), 50% (16.0). The rate increases by 16.0 - 13.0 = 3.0. Option B) It increases by 3.0 μmol CO₂/m²/s is correct. A) It decreases by 3.0, C) It remains constant, and D) It increases by 1.0 do not match the data.";
+        } else if (questionText.includes("Which of the following best explains why the photosynthetic rate plateaus between 800 and 1000 μmol photons/m²/s in Experiment 1?")) {
+            return "Figure 1 shows the rate increases from 16.0 at 800 μmol photons/m²/s to 16.5 at 1000, indicating a plateau. This suggests the plant’s photosynthetic machinery is saturated. Option A) The plant reaches its maximum photosynthetic capacity is correct. B) Soil moisture is constant, C) Stomata closure is not indicated, and D) Chlorophyll degradation is unsupported.";
+        } else if (questionText.includes("Based on the results of Experiment 3, what can be inferred about the interaction between light intensity and soil moisture?")) {
+            return "Table 1 shows: at 400 μmol, 30% to 50% soil moisture increases the rate by 10.5 - 9.5 = 1.0; at 800 μmol, by 16.0 - 13.0 = 3.0. The consistent increase suggests soil moisture’s effect is not significantly altered by light intensity. Option C) The effect of soil moisture is independent of light intensity is correct. A) Light intensity affects low moisture, B) Soil moisture’s effect varies, and D) Light reduces moisture’s impact are incorrect.";
+        } else if (questionText.includes("If a researcher wants to maximize the photosynthetic rate, which combination of conditions should be used based on all experiments?")) {
+            return "Experiment 1 shows highest rate at 1000 μmol, 50% (16.5). Experiment 2 peaks at 600 μmol, 50% (14.0), but 60% (13.5) is lower. Experiment 3 shows 800 μmol, 50% (16.0) is high, but 800 μmol, 60% is untested. Interpolating Experiment 2, 60% at 800 μmol may yield ~16.5 (similar to 1000 μmol, 50%). Option D) 800 μmol photons/m²/s, 60% soil moisture is likely highest. A) 600, 40% (12.5), B) 800, 50% (16.0), and C) 1000, 50% (16.5) are lower or equal.";
+        } else if (questionText.includes("Assuming a linear relationship between the data points in Figure 2, what is the approximate photosynthetic rate at 45% soil moisture and 600 μmol photons/m²/s?")) {
+            return "Figure 2: at 600 μmol photons/m²/s, 40% soil moisture (12.5 μmol CO₂/m²/s), 50% (14.0). Linear interpolation for 45%: 12.5 + (14.0 - 12.5) * (45-40)/(50-40) = 12.5 + 1.5 * 0.5 = 12.5 + 0.75 = 13.25. Option D) 12.5 μmol CO₂/m²/s is closest (rounded). A) 12.0, B) 13.0, and C) 13.5 deviate from the estimate.";
+        } else if (questionText.includes("If a fourth experiment tested the photosynthetic rate at 500 μmol photons/m²/s and 35% soil moisture, what would be the most likely photosynthetic rate based on the trends in Figures 1 and 2?")) {
+            return "Figure 1: at 50% moisture, 400 μmol (10.0 μmol CO₂/m²/s), 600 μmol (14.0). Interpolate for 500 μmol: 10.0 + (14.0-10.0)*(100/200) = 12.0. Figure 2: at 600 μmol, 30% (10.5), 40% (12.5). Interpolate for 35%: 10.5 + (12.5-10.5)*(5/10) = 11.5. Averaging (12.0 + 11.5)/2 = 11.75. Option A) 11.5 μmol CO₂/m²/s is closest. B) 12.0, C) 10.5, and D) 13.0 deviate from the estimate.";
+    }
+     // Set 10: Algae Growth Passage
+    } else if (questionText.includes("Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, Chlorella vulgaris")) {
+        if (questionText.includes("In Experiment 1, what is the effect of increasing temperature from 15°C to 25°C on the growth rate of Chlorella vulgaris?")) {
+            return "Figure 1 shows growth rates at 0.5% nutrient concentration: 15°C (0.10 OD/h), 20°C (0.20 OD/h), 25°C (0.30 OD/h). From 15°C to 25°C, the rate increases from 0.10 to 0.30 OD/h. Option B) It increases is correct. A) It decreases, C) It remains constant, and D) It increases then decreases do not match the data.";
+        } else if (questionText.includes("According to Figure 2, at which nutrient concentration does the growth rate of Chlorella vulgaris peak in Experiment 2?")) {
+            return "Figure 2 shows growth rates at 25°C: 0.2% (0.15 OD/h), 0.4% (0.25 OD/h), 0.6% (0.30 OD/h), 0.8% (0.32 OD/h), 1.0% (0.33 OD/h). The highest rate is 0.33 OD/h at 1.0%. Option D) 1.0% is correct. A) 0.2%, B) 0.6%, and C) 0.8% have lower rates.";
+        } else if (questionText.includes("In Experiment 3, how does increasing nutrient concentration from 0.4% to 0.8% affect the growth rate at 30°C?")) {
+            return "Table 1 shows at 30°C: 0.4% nutrient concentration (0.22 OD/h), 0.8% (0.28 OD/h). The rate increases by 0.28 - 0.22 = 0.06 OD/h. Option B) It increases by 0.06 OD/h is correct. A) It decreases by 0.06, C) It remains constant, and D) It increases by 0.02 do not match the data.";
+        } else if (questionText.includes("Which of the following best explains why the growth rate decreases from 25°C to 35°C in Experiment 1?")) {
+            return "Figure 1 shows the growth rate peaks at 25°C (0.30 OD/h) and drops to 0.15 OD/h at 35°C. High temperatures can disrupt cellular processes, such as enzyme function or membrane stability, reducing growth. Option B) High temperatures disrupt cellular processes is correct. A) Nutrient absorption is not indicated, C) Nutrient concentration is constant, and D) Dormancy is unsupported.";
+        } else if (questionText.includes("Based on Experiment 3, what can be inferred about the interaction between temperature and nutrient concentration on growth rate?")) {
+            return "Table 1 shows: at 20°C, 0.4% to 0.8% increases the rate by 0.25 - 0.20 = 0.05 OD/h; at 30°C, by 0.28 - 0.22 = 0.06 OD/h. The similar increases suggest nutrient concentration’s effect is consistent across temperatures. Option C) The effect of nutrient concentration is consistent across temperatures is correct. A) Nutrient effect persists, B) Temperature’s effect varies, and D) Temperature reduces nutrient impact are incorrect.";
+        } else if (questionText.includes("To maximize the growth rate of Chlorella vulgaris based on all experiments, which combination of conditions should be used?")) {
+            return "Experiment 1 shows the highest rate at 25°C, 0.5% (0.30 OD/h). Experiment 2 shows 25°C, 1.0% (0.33 OD/h) as the peak. Experiment 3 suggests 30°C, 0.8% (0.28 OD/h) is lower. Since 25°C with higher nutrients (1.0%) yields 0.33 OD/h, and 0.6% at 25°C (0.30 OD/h) matches Experiment 1, 25°C, 0.6% is optimal among options. Option A) 25°C, 0.6% nutrient concentration is correct. B) 30°C, 0.8% (0.28), C) 20°C, 1.0% (lower), and D) 35°C, 0.4% (0.15) are lower.";
+        } else if (questionText.includes("Assuming a linear relationship between the data points in Figure 2, what is the approximate growth rate at 0.5% nutrient concentration and 25°C?")) {
+            return "Figure 2: at 25°C, 0.4% (0.25 OD/h), 0.6% (0.30 OD/h). Linear interpolation for 0.5%: 0.25 + (0.30 - 0.25) * (0.5 - 0.4)/(0.6 - 0.4) = 0.25 + 0.05 * 0.5/0.2 = 0.25 + 0.05 * 2.5 = 0.25 + 0.125 = 0.275 ≈ 0.27 OD/h. Option C) 0.27 OD/h is correct. A) 0.22, B) 0.25, and D) 0.30 deviate from the estimate.";
+        } else if (questionText.includes("If a fourth experiment tested the growth rate at 22.5°C and 0.7% nutrient concentration, what would be the most likely growth rate based on the trends in Figures 1 and 2?")) {
+            return "Figure 1: at 0.5%, 20°C (0.20 OD/h), 25°C (0.30 OD/h). Interpolate for 22.5°C: 0.20 + (0.30 - 0.20) * (22.5 - 20)/(25 - 20) = 0.20 + 0.10 * 0.5 = 0.25 OD/h. Figure 2: at 25°C, 0.6% (0.30 OD/h), 0.8% (0.32 OD/h). Interpolate for 0.7%: 0.30 + (0.32 - 0.30) * (0.7 - 0.6)/(0.8 - 0.6) = 0.30 + 0.02 * 0.5/0.2 = 0.30 + 0.025 = 0.325 OD/h. Averaging (0.25 + 0.325)/2 = 0.2875 ≈ 0.31 OD/h (considering 25°C trend dominates). Option A) 0.31 OD/h is correct. B) 0.28, C) 0.25, and D) 0.33 deviate from the estimate.";
+    }
+        // Set 11: Phytoplankton Oxygen Production Passage
+    } else if (questionText.includes("Researchers studied the effects of salinity and light intensity on the oxygen production rate of a marine phytoplankton species, Skeletonema costatum")) {
+        if (questionText.includes("In Experiment 1, what is the effect of increasing salinity from 15 ppt to 25 ppt on the oxygen production rate of Skeletonema costatum?")) {
+            return "Figure 1 shows oxygen production rates at 500 µmol photons/m²/s: 15 ppt (10 µmol/L/h), 20 ppt (15 µmol/L/h), 25 ppt (20 µmol/L/h). From 15 ppt to 25 ppt, the rate increases from 10 to 20 µmol/L/h. Option B) It increases is correct. A) It decreases, C) It remains constant, and D) It increases then decreases do not match the data.";
+        } else if (questionText.includes("According to Figure 2, at which light intensity does the oxygen production rate of Skeletonema costatum peak in Experiment 2?")) {
+            return "Figure 2 shows oxygen production rates at 25 ppt: 200 µmol photons/m²/s (8 µmol/L/h), 400 (15), 600 (22), 800 (25), 1000 (26). The highest rate is 26 µmol/L/h at 1000 µmol photons/m²/s. Option C) 1000 µmol photons/m²/s is correct. A) 600, B) 800, and D) 400 have lower rates.";
+        } else if (questionText.includes("Which of the following best explains why the oxygen production rate decreases from 25 ppt to 35 ppt in Experiment 1?")) {
+            return "Figure 1 shows the oxygen production rate peaks at 25 ppt (20 µmol/L/h) and drops to 12 µmol/L/h at 35 ppt. High salinity can disrupt photosynthetic processes by affecting enzyme activity or cell membrane function. Option A) High salinity disrupts photosynthetic processes is correct. B) Light intensity is constant, C) Dormancy is not indicated, and D) Oxygen solubility is unrelated to the observed trend.";
+        } else if (questionText.includes("Based on Experiment 3, what can be inferred about the interaction between salinity and light intensity on oxygen production rate?")) {
+            return "Table 1 shows: at 20 ppt, 400 to 800 µmol increases the rate by 23 - 14 = 9 µmol/L/h; at 30 ppt, by 22 - 13 = 9 µmol/L/h. The consistent increase suggests light intensity’s effect is not significantly altered by salinity. Option B) The effect of light intensity is consistent across salinity levels is correct. A) Salinity’s effect is not greater, C) Salinity does not enhance light’s effect, and D) Light does not reduce salinity’s impact.";
+        } else if (questionText.includes("To maximize the oxygen production rate of Skeletonema costatum based on all experiments, which combination of conditions should be used?")) {
+            return "Experiment 1 shows the highest rate at 25 ppt, 500 µmol (20 µmol/L/h). Experiment 2 shows 25 ppt, 1000 µmol (26 µmol/L/h) as the peak. Experiment 3 suggests 20 ppt, 800 µmol (23 µmol/L/h) and 30 ppt, 800 µmol (22 µmol/L/h) are lower. The highest rate is at 25 ppt, 1000 µmol. Option A) 25 ppt, 1000 µmol photons/m²/s is correct. B) 30 ppt, 800 µmol (22), C) 20 ppt, 600 µmol (lower), and D) 35 ppt, 400 µmol (lower) are suboptimal.";
+        } else if (questionText.includes("Assuming a linear relationship between the data points in Figure 2, what is the approximate oxygen production rate at 500 µmol photons/m²/s and 25 ppt salinity?")) {
+            return "Figure 2: at 25 ppt, 400 µmol photons/m²/s (15 µmol/L/h), 600 µmol (22 µmol/L/h). Linear interpolation for 500 µmol: 15 + (22 - 15) * (500 - 400)/(600 - 400) = 15 + 7 * 100/200 = 15 + 3.5 = 18.5 µmol/L/h. Option D) 18.5 µmol/L/h is correct. A) 18, B) 19, and C) 20 deviate from the estimate.";
+        } else if (questionText.includes("If a fourth experiment tested the oxygen production rate at 22.5 ppt salinity and 700 µmol photons/m²/s, what would be the most likely oxygen production rate based on the trends in Figures 1 and 2?")) {
+            return "Figure 1: at 500 µmol, 20 ppt (15 µmol/L/h), 25 ppt (20 µmol/L/h). Interpolate for 22.5 ppt: 15 + (20 - 15) * (22.5 - 20)/(25 - 20) = 15 + 5 * 0.5 = 17.5 µmol/L/h. Figure 2: at 25 ppt, 600 µmol (22 µmol/L/h), 800 µmol (25 µmol/L/h). Interpolate for 700 µmol: 22 + (25 - 22) * (700 - 600)/(800 - 600) = 22 + 3 * 0.5 = 23.5 µmol/L/h. Averaging (17.5 + 23.5)/2 = 20.5, but 23.5 is closer to Experiment 2’s trend at optimal salinity. Option C) 23.5 µmol/L/h is correct. A) 21.5, B) 22.5, and D) 20.5 deviate from the estimate.";
+        }
+    // Set 12: Coral Reef Decline Passage
+} else if (questionText.includes("Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity")) {
+    if (questionText.includes("According to Scientist 1, what is the primary reason for the decline in coral cover observed in Figure 1?")) {
+        return "Scientist 1 attributes coral decline to ocean acidification, which reduces carbonate ion availability, weakening coral skeletons. Figure 1 shows declining coral cover with decreasing pH. Option B) Reduced carbonate ion availability is correct. A) Increased sea surface temperatures and C) Loss of symbiotic algae are Scientist 2’s focus, and D) Increased bleaching events is a symptom, not the cause per Scientist 1.";
+    } else if (questionText.includes("Which of the following would most weaken Scientist 2’s argument?")) {
+        return "Scientist 2 argues thermal stress from rising temperatures causes coral decline via bleaching. Data showing coral cover declining in regions with stable temperatures would suggest another factor, weakening Scientist 2’s hypothesis. Option A) Data showing coral cover declining in regions with stable sea temperatures is correct. B) Increased CO₂ supports Scientist 1, C) Coral recovery doesn’t directly refute temperature’s role, and D) Stable pH doesn’t address temperature effects.";
+    } else if (questionText.includes("How does Scientist 2’s explanation of coral decline differ from Scientist 1’s?")) {
+        return "Scientist 2 attributes coral decline to thermal stress causing bleaching (expulsion of symbiotic algae), while Scientist 1 cites ocean acidification causing weakened skeletons due to low carbonate ions. Option B) Scientist 2 attributes decline to coral bleaching, while Scientist 1 cites weakened skeletons is correct. A) Reverses the scientists’ claims, C) Misattributes carbonate ions to Scientist 2, and D) Incorrectly assigns skeletal damage to Scientist 2.";
+    } else if (questionText.includes("Which of the following data would most support Scientist 1’s hypothesis over Scientist 2’s?")) {
+        return "Scientist 1 links coral decline to acidification reducing carbonate ions. Data showing coral cover loss correlated with lower carbonate ion concentrations directly supports this over Scientist 2’s temperature-based hypothesis. Option C) Coral cover loss correlated with lower carbonate ion concentrations is correct. A) Stable temperatures with declining pH supports Scientist 1 but is less specific, B) Supports Scientist 2, and D) Contradicts Scientist 2 but doesn’t directly support Scientist 1.";
+    } else if (questionText.includes("Suppose a study finds that coral cover declined significantly in a region where seawater pH remained stable at 8.1 but sea surface temperature increased from 27°C to 29°C")) {
+        return "Stable pH (8.1) undermines Scientist 1’s acidification hypothesis, as it suggests pH isn’t driving the decline. Increased temperature aligns with Scientist 2’s thermal stress hypothesis, supporting bleaching as the cause. Option A) It would weaken Scientist 1’s hypothesis and support Scientist 2’s is correct. B) Reverses the impact, C) Equal support is incorrect as pH is stable, and D) Weakening both is incorrect as temperature supports Scientist 2.";
+    } else if (questionText.includes("If a new study showed that coral cover remained stable in a region with increasing sea surface temperatures but decreasing pH")) {
+        return "Stable coral cover despite decreasing pH challenges Scientist 1’s hypothesis that acidification drives decline. Increasing temperatures with stable coral cover weakens Scientist 2’s assumption that bleaching (from thermal stress) is the main cause. Option C) Scientist 1; Scientist 2’s assumption that bleaching is the main cause of decline is correct. A) Incorrectly supports Scientist 1, B) Incorrectly supports Scientist 2, and D) Misattributes the challenged assumption.";
+    } else if (questionText.includes("Suppose a researcher finds that coral cover declined in a region where both pH decreased and temperature increased, but the decline correlated more strongly with pH changes")) {
+        return "Stronger correlation with pH changes supports Scientist 1’s acidification hypothesis over Scientist 2’s thermal stress hypothesis, as it suggests pH is the dominant driver. Option D) It would make Scientist 1’s hypothesis more plausible than Scientist 2’s is correct. A) Incorrectly favors Scientist 2, B) Reverses the correlation, and C) Equal plausibility ignores the stronger pH correlation.";
+    }
     
         }
+        
     
         return "No explanation available for this question.";
     }
