@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mathQuestions = [
         // Medium Difficulty (Q21–Q40)
-        {   passage: "", // No passage for Math
+        {   
             "question": "What is the value of x in the equation 3x + 7 = 22?",
             "answers": [
                 { "text": "4", "correct": false },
@@ -79,7 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 { "text": "4", "correct": false }
             ],
             "difficulty": "medium",
-            "category": "Coordinate Geometry"
+            "category": "Coordinate Geometry",
+            passage: ""
         },
         {
             "question": "Solve the system of equations: y = 2x + 1, y = x + 5.",
