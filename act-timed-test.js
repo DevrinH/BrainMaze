@@ -46,18 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mathQuestions = [
         // Medium Difficulty (Q21–Q40)
-        {   
+        {   passage: "", // No passage for Math
             question: "What is the value of x in the equation 3x + 7 = 22?",
             answers: [
-                { "text": "4", "correct": false },
-                { "text": "5", "correct": true },
-                { "text": "6", "correct": false },
-                { "text": "7", "correct": false }
+                { "text": "A) 4", "correct": false },
+                { "text": "B) 5", "correct": true },
+                { "text": "C) 6", "correct": false },
+                { "text": "D) 7", "correct": false }
             ],
             difficulty: "medium",
-            category: "Algebra",
-            passage: ""
+            category: "Algebra"
         },
+
 
     
     ];
