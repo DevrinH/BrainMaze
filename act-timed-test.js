@@ -266,7 +266,8 @@ document.addEventListener("DOMContentLoaded", () => {
         while (answerButtons.firstChild) {
             answerButtons.removeChild(answerButtons.firstChild);
         }
-        passageElement.innerHTML = ""; // Ensure passage is cleared
+        passageElement.innerHTML = "";
+        console.log("Passage cleared in resetState:", passageElement.innerHTML);
     }
 
     function selectAnswer(e) {
