@@ -2914,7 +2914,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
         console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
-        passageElement.style.display = "block"; // Passage visible for English
+        passageElement.style.display = currentSection === "math" ? "none" : "block"; // This line
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
     
@@ -2923,7 +2923,6 @@ document.addEventListener("DOMContentLoaded", () => {
         questionRow.classList.remove("vertical-layout");
         questionElement.classList.remove("centered-score");
     
-        // Apply vertical layout for Math section only
         if (currentSection === "math") {
             questionRow.classList.add("vertical-layout");
         }
