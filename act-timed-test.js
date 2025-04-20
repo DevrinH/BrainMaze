@@ -208,7 +208,17 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.innerHTML = "Next";
     
         const questionRow = document.querySelector(".question-row");
+        const rightColumn = document.querySelector(".right-column");
         questionRow.classList.remove("score-display");
+    
+        // Force centering for Math
+        if (currentSection === "math") {
+            rightColumn.style.alignItems = "center";
+            rightColumn.style.textAlign = "center";
+        } else {
+            rightColumn.style.alignItems = "";
+            rightColumn.style.textAlign = "";
+        }
     
         showQuestion();
     }
