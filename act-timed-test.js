@@ -206,10 +206,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
-        questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
     
-        // Apply section-specific class
-        questionRow.classList.add(`${currentSection}-section`);
+        // Apply a class for Math to ensure centering
+        questionRow.classList.remove("math-centered");
+        if (currentSection === "math") {
+            questionRow.classList.add("math-centered");
+        }
     
         showQuestion();
     }
