@@ -1932,10 +1932,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
-        questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
+        questionRow.classList.remove("with-passage", "without-passage");
     
-        // Apply section-specific classes for all sections
-        questionRow.classList.add(`${currentSection}-section`);
+        // Determine if the section has passages
+        const hasPassage = questions.some(q => q.passage && q.passage.trim() !== "");
+        questionRow.classList.add(hasPassage ? "with-passage" : "without-passage");
     
         showQuestion();
     }
