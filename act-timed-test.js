@@ -79,8 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { "text": "4", "correct": false }
             ],
             "difficulty": "medium",
-            "category": "Coordinate Geometry",
-            passage: ""
+            "category": "Coordinate Geometry"
         },
         {
             "question": "Solve the system of equations: y = 2x + 1, y = x + 5.",
@@ -1913,23 +1912,50 @@ document.addEventListener("DOMContentLoaded", () => {
         showFinalScore();
     }
 
-    function startQuiz(questions, numEasy, numMedium, numHard) {
+    function startQuiz(questions) {
+        if (!questions || questions.length === 0) {
+            console.error("No questions available for", currentSection);
+            return;
+        }
+        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
+        if (missingPassages.length > 0 && currentSection !== "math") {
+            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
+        }
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
-        selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
+        selectedQuestions = questions;
         nextButton.innerHTML = "Next";
+    
+        // Reset layout classes
+        document.querySelector(".question-row").classList.remove("score-display");
+    
+        // Add section-specific class
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
+        questionRow.classList.add(`${currentSection}-section`);
+    
         showQuestion();
     }
 
 
     function showQuestion() {
         resetState();
+        if (!selectedQuestions[currentQuestionIndex]) {
+            console.error("No question available at index", currentQuestionIndex);
+            return;
+        }
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        passageElement.innerHTML = currentQuestion.passage; // Revert to exact old code
+        console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
+        passageElement.style.display = currentSection === "math" ? "none" : "block";
+        passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+    
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("score-display");
+        questionElement.classList.remove("centered-score");
     
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
@@ -1944,6 +1970,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         updateProgressBar();
     }
+
     function resetState() {
         nextButton.style.display = "none";
         nextButton.classList.remove("centered-btn");
