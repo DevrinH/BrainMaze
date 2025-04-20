@@ -217,12 +217,20 @@ document.addEventListener("DOMContentLoaded", () => {
         // Reset layout styles on question-row to avoid side-by-side
         if (currentSection === "math") {
             questionRow.style.display = "block"; // Override any flex layout
+            rightColumn.style.display = "flex"; // Ensure flex container
+            rightColumn.style.flexDirection = "column";
             rightColumn.style.alignItems = "center";
             rightColumn.style.textAlign = "center";
+            rightColumn.style.width = "100%"; // Ensure full width
+            rightColumn.style.margin = "0 auto"; // Center within parent
         } else {
             questionRow.style.display = ""; // Let stylesat.css handle side-by-side
+            rightColumn.style.display = "";
+            rightColumn.style.flexDirection = "";
             rightColumn.style.alignItems = "";
             rightColumn.style.textAlign = "";
+            rightColumn.style.width = "";
+            rightColumn.style.margin = "";
         }
     
         showQuestion();
@@ -241,15 +249,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const passageText = currentQuestion.passage || "";
         console.log(`Setting passage for ${currentSection} question ${questionNo}:`, passageText);
         passageElement.innerHTML = passageText;
-        // Force DOM reflow to ensure update
-        passageElement.offsetHeight; // Accessing offsetHeight forces a reflow
+        passageElement.offsetHeight; // Force DOM reflow
         console.log(`Passage element after setting:`, passageElement.innerHTML);
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question || "Question missing"}`;
+        questionElement.style.textAlign = currentSection === "math" ? "center" : ""; // Center question text for Math
     
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
             button.classList.add("btn");
+            if (currentSection === "math") {
+                button.style.margin = "0 auto"; // Center buttons
+                button.style.display = "block"; // Stack buttons vertically
+            }
             answerButtons.appendChild(button);
             if (answer.correct) {
                 button.dataset.correct = answer.correct;
