@@ -235,79 +235,51 @@ document.addEventListener("DOMContentLoaded", () => {
         questionRow.classList.remove("vertical-layout", "side-by-side");
         if (currentSection === "math") {
             questionRow.classList.add("vertical-layout");
-            // Inline styles for Math section
-            document.getElementById("question-container").style.display = "block";
-            questionRow.style.maxWidth = "600px";
-            questionRow.style.margin = "0 auto";
-            questionRow.style.flex = "none";
         } else {
             questionRow.classList.add("side-by-side");
-            // Inline styles for English, Reading, Science
-            document.getElementById("question-container").style.display = "flex";
-            document.getElementById("question-container").style.flexDirection = "row";
-            document.getElementById("question-container").style.alignItems = "flex-start";
-            document.getElementById("question-container").style.justifyContent = "space-between";
-            document.getElementById("question-container").style.gap = "20px";
-            document.getElementById("passage").style.maxWidth = "50%";
-            document.getElementById("passage").style.flex = "1";
-            questionRow.style.maxWidth = "50%";
-            questionRow.style.flex = "1";
         }
     
         showQuestion();
     }
     
 
-// Define resetState before showQuestion
-function resetState() {
-    nextButton.style.display = "none";
-    nextButton.classList.remove("centered-btn");
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
+
+    function showQuestion() {
+        resetState();
+        let currentQuestion = selectedQuestions[currentQuestionIndex];
+        let questionNo = currentQuestionIndex + 1;
+    
+        // Debug: Log the passage and section to verify data
+        console.log("Current Section:", currentSection);
+        console.log("Passage Data:", currentQuestion.passage);
+        console.log("Setting passageElement.innerHTML to:", currentQuestion.passage || "");
+    
+        passageElement.innerHTML = currentQuestion.passage || ""; // Set the passage, default to empty string if undefined
+        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+        
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            answerButtons.appendChild(button);
+            if (answer.correct) {
+                button.dataset.correct = answer.correct;
+            }
+            button.addEventListener("click", selectAnswer);
+        });
+        
+        updateProgressBar();
+    
+        // Debug: Log the passageElement content after setting it
+        console.log("passageElement.innerHTML after setting:", passageElement.innerHTML);
     }
-}
-
-// Then define showQuestion
-function showQuestion() {
-    resetState();
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
-
-    console.log("Current Section:", currentSection);
-    console.log("Passage Data:", currentQuestion.passage);
-    console.log("Setting passageElement.innerHTML to:", currentQuestion.passage || "");
-
-    passageElement.innerHTML = currentQuestion.passage || "";
-    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-    
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        answerButtons.appendChild(button);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
+    function resetState() {
+        nextButton.style.display = "none";
+        nextButton.classList.remove("centered-btn");
+        while (answerButtons.firstChild) {
+            answerButtons.removeChild(answerButtons.firstChild);
         }
-        button.addEventListener("click", selectAnswer);
-    });
-    
-    updateProgressBar();
-
-    console.log("passageElement.innerHTML after setting:", passageElement.innerHTML);
-
-    // Debug: Log computed styles
-    const questionContainerStyles = window.getComputedStyle(document.getElementById("question-container"));
-    const passageStyles = window.getComputedStyle(passageElement);
-    const questionRowStyles = window.getComputedStyle(document.querySelector(".question-row"));
-
-    console.log("question-container computed display:", questionContainerStyles.display);
-    console.log("question-container computed flex-direction:", questionContainerStyles.flexDirection);
-    console.log("passage computed display:", passageStyles.display);
-    console.log("passage computed max-width:", passageStyles.maxWidth);
-    console.log("question-row computed display:", questionRowStyles.display);
-    console.log("question-row computed max-width:", questionRowStyles.maxWidth);
-    console.log("question-row computed flex:", questionRowStyles.flex);
-}
+    }
 
     function selectAnswer(e) {
         const selectedBtn = e.target;
