@@ -1834,21 +1834,29 @@ document.addEventListener("DOMContentLoaded", function () {
             if (text) text.innerHTML = "0% <span class='arrow'>→</span>";
         });
 
-        // Reset the chart for the active exam (if applicable)
-        let chart;
+        // Reset the bar chart for the active exam (if applicable)
+        let barChart;
         if (activeExam === "line-chart-sat" && window.lastScoreBarChart) {
-            chart = window.lastScoreBarChart;
+            barChart = window.lastScoreBarChart;
         } else if (activeExam === "line-chart-act" && window.actLastScoreBarChart) {
-            chart = window.actLastScoreBarChart;
+            barChart = window.actLastScoreBarChart;
         } else if (activeExam === "line-chart-ged" && window.gedLastScoreBarChart) {
-            chart = window.gedLastScoreBarChart;
+            barChart = window.gedLastScoreBarChart;
         }
 
-        if (chart) {
-            chart.data.datasets.forEach(dataset => {
+        if (barChart) {
+            barChart.data.datasets.forEach(dataset => {
                 dataset.data = Array(dataset.data.length).fill(0); // Reset scores
             });
-            chart.update();
+            barChart.update();
+        }
+
+        // Reset the line chart for ACT (if applicable)
+        if (activeExam === "line-chart-act" && window.actScoreChart) {
+            window.actScoreChart.data.datasets.forEach(dataset => {
+                dataset.data = Array(dataset.data.length).fill(0); // Reset scores
+            });
+            window.actScoreChart.update();
         }
 
         alert("Progress for this exam has been reset!");
