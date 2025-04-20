@@ -258,48 +258,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
 
-
-    function showQuestion() {
-        resetState();
-        let currentQuestion = selectedQuestions[currentQuestionIndex];
-        let questionNo = currentQuestionIndex + 1;
-    
-        console.log("Current Section:", currentSection);
-        console.log("Passage Data:", currentQuestion.passage);
-        console.log("Setting passageElement.innerHTML to:", currentQuestion.passage || "");
-    
-        passageElement.innerHTML = currentQuestion.passage || "";
-        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-        
-        currentQuestion.answers.forEach(answer => {
-            const button = document.createElement("button");
-            button.innerHTML = answer.text;
-            button.classList.add("btn");
-            answerButtons.appendChild(button);
-            if (answer.correct) {
-                button.dataset.correct = answer.correct;
-            }
-            button.addEventListener("click", selectAnswer);
-        });
-        
-        updateProgressBar();
-    
-        console.log("passageElement.innerHTML after setting:", passageElement.innerHTML);
-    
-        // Debug: Log computed styles
-        const questionContainerStyles = window.getComputedStyle(document.getElementById("question-container"));
-        const passageStyles = window.getComputedStyle(passageElement);
-        const questionRowStyles = window.getComputedStyle(document.querySelector(".question-row"));
-    
-        console.log("question-container computed display:", questionContainerStyles.display);
-        console.log("question-container computed flex-direction:", questionContainerStyles.flexDirection);
-        console.log("passage computed display:", passageStyles.display);
-        console.log("passage computed max-width:", passageStyles.maxWidth);
-        console.log("question-row computed display:", questionRowStyles.display);
-        console.log("question-row computed max-width:", questionRowStyles.maxWidth);
-        console.log("question-row computed flex:", questionRowStyles.flex);
+// Define resetState before showQuestion
+function resetState() {
+    nextButton.style.display = "none";
+    nextButton.classList.remove("centered-btn");
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
     }
+}
 
+// Then define showQuestion
+function showQuestion() {
+    resetState();
+    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+
+    console.log("Current Section:", currentSection);
+    console.log("Passage Data:", currentQuestion.passage);
+    console.log("Setting passageElement.innerHTML to:", currentQuestion.passage || "");
+
+    passageElement.innerHTML = currentQuestion.passage || "";
+    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+    
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
+    
+    updateProgressBar();
+
+    console.log("passageElement.innerHTML after setting:", passageElement.innerHTML);
+
+    // Debug: Log computed styles
+    const questionContainerStyles = window.getComputedStyle(document.getElementById("question-container"));
+    const passageStyles = window.getComputedStyle(passageElement);
+    const questionRowStyles = window.getComputedStyle(document.querySelector(".question-row"));
+
+    console.log("question-container computed display:", questionContainerStyles.display);
+    console.log("question-container computed flex-direction:", questionContainerStyles.flexDirection);
+    console.log("passage computed display:", passageStyles.display);
+    console.log("passage computed max-width:", passageStyles.maxWidth);
+    console.log("question-row computed display:", questionRowStyles.display);
+    console.log("question-row computed max-width:", questionRowStyles.maxWidth);
+    console.log("question-row computed flex:", questionRowStyles.flex);
+}
 
     function selectAnswer(e) {
         const selectedBtn = e.target;
