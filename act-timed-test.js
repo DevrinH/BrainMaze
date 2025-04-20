@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Medium Difficulty (Q21–Q40)
         {   
             question: "What is the value of x in the equation 3x + 7 = 22?",
-            "answers": [
+            answers: [
                 { "text": "4", "correct": false },
                 { "text": "5", "correct": true },
                 { "text": "6", "correct": false },
@@ -1917,21 +1917,15 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("No questions available for", currentSection);
             return;
         }
-        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
-        if (missingPassages.length > 0 && currentSection !== "math") {
-            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
-        }
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
-        selectedQuestions = questions;
+        selectedQuestions = questions; // Use the full array as-is
         nextButton.innerHTML = "Next";
-    
-        document.querySelector(".question-row").classList.remove("score-display");
-    
         showQuestion();
     }
+    
 
 
     function showQuestion() {
