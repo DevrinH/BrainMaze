@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let userResponses = [];
     let currentSection = "english";
 
-
     // Sample questions (replace with full question banks)
     const englishQuestions = [
         ///Passage 1
@@ -1819,147 +1818,123 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ];
 
-
-
-function startTest() {
-    if (!actIntroContainer || !document.getElementById("question-container")) {
-        console.error("Required elements not found");
-        return;
-    }
-    actIntroContainer.classList.add("hide");
-    document.getElementById("question-container").classList.remove("hide");
-    startEnglishSection();
-}
-
-function startEnglishSection() {
-    currentSection = "english";
-    time = 45 * 60;
-    userResponses = [];
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endEnglishSection, 2700000);
-    startQuiz(englishQuestions);
-}
-
-function startMathSection() {
-    currentSection = "math";
-    time = 60 * 60; // 60 minutes
-    userResponses = [];
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endMathSection, 3600000);
-    startQuiz(mathQuestions);
-    
-    // Add a class to the question container to apply math-specific styling
-    document.querySelector(".question-row").classList.add("vertical-layout");
-}
-
-function startReadingSection() {
-    currentSection = "reading";
-    time = 35 * 60;
-    userResponses = [];
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endReadingSection, 2100000);
-    document.querySelector(".question-row").classList.remove("vertical-layout");
-    passageElement.innerHTML = "";
-    startQuiz(readingQuestions);
-}
-
-function startScienceSection() {
-    currentSection = "science";
-    time = 35 * 60;
-    userResponses = [];
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endScienceSection, 2100000);
-    document.querySelector(".question-row").classList.remove("vertical-layout");
-    passageElement.innerHTML = "";
-    startQuiz(scienceQuestions);
-}
-
-function updateCountdown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    countdownEl.innerHTML = `${minutes} : ${seconds}`;
-    if (time === 0) {
-        clearInterval(refreshIntervalId);
-        switch (currentSection) {
-            case "english": endEnglishSection(); break;
-            case "math": endMathSection(); break;
-            case "reading": endReadingSection(); break;
-            case "science": endScienceSection(); break;
+    function startTest() {
+        if (!actIntroContainer || !document.getElementById("question-container")) {
+            console.error("Required elements not found");
+            return;
         }
-    } else {
-        time--;
+        actIntroContainer.classList.add("hide");
+        document.getElementById("question-container").classList.remove("hide");
+        startEnglishSection();
     }
-}
-function endMathSection() {
-    clearInterval(refreshIntervalId);
-    resetState();
-    document.querySelector(".question-row").classList.remove("vertical-layout");
-    showScore();
-    document.getElementById("question-container").classList.add("hide");
-    document.getElementById("break-message").classList.remove("hide");
-}
 
-function endReadingSection() {
-    clearInterval(refreshIntervalId);
-    resetState();
-    showScore();
-    document.getElementById("question-container").classList.add("hide");
-    document.getElementById("break-message").classList.remove("hide");
-}
-
-function endScienceSection() {
-    clearInterval(refreshIntervalId);
-    resetState();
-    showFinalScore();
-}
-
-function startQuiz(questions) {
-    if (!questions || questions.length === 0) {
-        console.error("No questions available for", currentSection);
-        return;
+    function startEnglishSection() {
+        currentSection = "english";
+        time = 45 * 60;
+        userResponses = [];
+        refreshIntervalId = setInterval(updateCountdown, 1000);
+        setTimeout(endEnglishSection, 2700000);
+        startQuiz(englishQuestions); // Removed 25, 25, 25
     }
-    const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
-    if (missingPassages.length > 0 && currentSection !== "math") {
-        console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
-    }
-    currentQuestionIndex = 0;
-    score = 0;
-    correctAnswers = 0;
-    categoryStats = {};
-    selectedQuestions = questions;
-    nextButton.innerHTML = "Next";
-
-    document.querySelector(".question-row").classList.remove("score-display");
-
-    showQuestion();
-}
-
-function showQuestion() {
-    resetState();
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
     
-    // For math section, clear passage and place question in the question element
-    if (currentSection === "math") {
-        passageElement.innerHTML = ""; // Clear passage for math questions
-        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-        
-        // Create lettered answer buttons for math section (A, B, C, D format)
-        const letterLabels = ["A", "B", "C", "D"];
-        currentQuestion.answers.forEach((answer, index) => {
-            const button = document.createElement("button");
-            button.innerHTML = `${letterLabels[index]}) ${answer.text.replace(/^[A-D]\)\s*/, '')}`;
-            button.classList.add("btn");
-            answerButtons.appendChild(button);
-            if (answer.correct) {
-                button.dataset.correct = answer.correct;
+    function startMathSection() {
+        currentSection = "math";
+        time = 60 * 60; // 60 minutes
+        userResponses = [];
+        refreshIntervalId = setInterval(updateCountdown, 1000);
+        setTimeout(endMathSection, 3600000);
+        startQuiz(mathQuestions);
+    }
+    
+    function startReadingSection() {
+        currentSection = "reading";
+        time = 35 * 60;
+        userResponses = [];
+        refreshIntervalId = setInterval(updateCountdown, 1000);
+        setTimeout(endReadingSection, 2100000);
+        passageElement.innerHTML = "";
+        startQuiz(readingQuestions);
+    }
+    
+    function startScienceSection() {
+        currentSection = "science";
+        time = 35 * 60;
+        userResponses = [];
+        refreshIntervalId = setInterval(updateCountdown, 1000);
+        setTimeout(endScienceSection, 2100000);
+        passageElement.innerHTML = "";
+        startQuiz(scienceQuestions);
+    }
+
+    function updateCountdown() {
+        const minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        countdownEl.innerHTML = `${minutes} : ${seconds}`;
+        if (time === 0) {
+            clearInterval(refreshIntervalId);
+            switch (currentSection) {
+                case "english": endEnglishSection(); break;
+                case "math": endMathSection(); break;
+                case "reading": endReadingSection(); break;
+                case "science": endScienceSection(); break;
             }
-            button.addEventListener("click", selectAnswer);
-        });
-    } else {
-        // For other sections, show passage and question side by side
-        passageElement.innerHTML = currentQuestion.passage; 
+        } else {
+            time--;
+        }
+    }
+
+    function endEnglishSection() {
+        clearInterval(refreshIntervalId);
+        resetState();
+        showScore();
+        document.getElementById("question-container").classList.add("hide");
+        document.getElementById("break-message").classList.remove("hide");
+    }
+
+    function endMathSection() {
+        clearInterval(refreshIntervalId);
+        resetState();
+        showScore();
+        document.getElementById("question-container").classList.add("hide");
+        document.getElementById("break-message").classList.remove("hide");
+    }
+
+    function endReadingSection() {
+        clearInterval(refreshIntervalId);
+        resetState();
+        showScore();
+        document.getElementById("question-container").classList.add("hide");
+        document.getElementById("break-message").classList.remove("hide");
+    }
+
+    function endScienceSection() {
+        clearInterval(refreshIntervalId);
+        resetState();
+        showFinalScore();
+    }
+
+    function startQuiz(questions) {
+        if (!questions || questions.length === 0) {
+            console.error("No questions available for", currentSection);
+            return;
+        }
+        currentQuestionIndex = 0;
+        score = 0;
+        correctAnswers = 0;
+        categoryStats = {};
+        selectedQuestions = questions; // Use the full array as-is
+        nextButton.innerHTML = "Next";
+        showQuestion();
+    }
+    
+
+
+    function showQuestion() {
+        resetState();
+        let currentQuestion = selectedQuestions[currentQuestionIndex];
+        let questionNo = currentQuestionIndex + 1;
+        passageElement.innerHTML = currentQuestion.passage; // Revert to exact old code
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
     
         currentQuestion.answers.forEach(answer => {
@@ -1972,101 +1947,101 @@ function showQuestion() {
             }
             button.addEventListener("click", selectAnswer);
         });
+    
+        updateProgressBar();
     }
 
-    updateProgressBar();
-}
-
-function resetState() {
-    nextButton.style.display = "none";
-    nextButton.classList.remove("centered-btn");
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
-    }
-}
-
-function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-    let questionDifficulty = currentQuestion.difficulty;
-
-    if (!categoryStats[questionCategory]) {
-        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-    }
-
-    const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-
-    // Safeguard against undefined passage or question
-    const safePassage = currentQuestion.passage || "No passage provided";
-    const safeQuestion = currentQuestion.question || "No question provided";
-    userResponses.push({
-        question: safePassage + "<br/><br/>" + safeQuestion,
-        userAnswer: selectedBtn.innerHTML,
-        correctAnswer: correctAnswer,
-        wasCorrect: isCorrect
-    });
-
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        correctAnswers++;
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
+    function resetState() {
+        nextButton.style.display = "none";
+        nextButton.classList.remove("centered-btn");
+        while (answerButtons.firstChild) {
+            answerButtons.removeChild(answerButtons.firstChild);
         }
-        categoryStats[questionCategory].correct++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats[questionCategory].incorrect++;
     }
 
-    recordTestResults();
-
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
+    function selectAnswer(e) {
+        const selectedBtn = e.target;
+        const isCorrect = selectedBtn.dataset.correct === "true";
+        let currentQuestion = selectedQuestions[currentQuestionIndex];
+        let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+        let questionDifficulty = currentQuestion.difficulty;
+    
+        if (!categoryStats[questionCategory]) {
+            categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
         }
-        button.disabled = true;
-    });
-
-    nextButton.style.display = "block";
-    nextButton.disabled = false;
-}
-
-function showScore() {
-    clearInterval(refreshIntervalId);
-    resetState();
-
-    let maxPossibleScore;
-    switch (currentSection) {
-        case "english": maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); break;
-        case "math": maxPossibleScore = (20 * 1) + (20 * 2) + (20 * 3); break;
-        case "reading": case "science": maxPossibleScore = (13 * 1) + (14 * 2) + (13 * 3); break;
+    
+        const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+    
+        // Safeguard against undefined passage or question
+        const safePassage = currentQuestion.passage || "No passage provided";
+        const safeQuestion = currentQuestion.question || "No question provided";
+        userResponses.push({
+            question: safePassage + "<br/><br/>" + safeQuestion,
+            userAnswer: selectedBtn.innerHTML,
+            correctAnswer: correctAnswer,
+            wasCorrect: isCorrect
+        });
+    
+        if (isCorrect) {
+            selectedBtn.classList.add("correct");
+            correctAnswers++;
+            if (questionDifficulty === "easy") {
+                score += 1;
+            } else if (questionDifficulty === "medium") {
+                score += 2;
+            } else if (questionDifficulty === "hard") {
+                score += 3;
+            }
+            categoryStats[questionCategory].correct++;
+        } else {
+            selectedBtn.classList.add("incorrect");
+            categoryStats[questionCategory].incorrect++;
+        }
+    
+        recordTestResults();
+    
+        Array.from(answerButtons.children).forEach(button => {
+            if (button.dataset.correct === "true") {
+                button.classList.add("correct");
+            }
+            button.disabled = true;
+        });
+    
+        nextButton.style.display = "block";
+        nextButton.disabled = false;
     }
-    let rawScore = score;
-    let scaledScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
-
-    document.getElementById("question-container").classList.remove("hide");
-
-    localStorage.setItem(currentSection + "Score", scaledScore);
-    passageElement.innerHTML = "";
-    questionElement.innerHTML = `${currentSection.charAt(0).toUpperCase() + currentSection.slice(1)} ACT Score: ${scaledScore} / 36`;
-    questionElement.classList.add("centered-score");
-
-    const questionRow = document.querySelector(".question-row");
-    questionRow.classList.add("score-display");
-
-    // Remove vertical layout for score display
-    questionRow.classList.remove("vertical-layout");
-
-    nextButton.innerHTML = "Continue";
-    nextButton.style.display = "block";
-    nextButton.classList.add("centered-btn");
-}
+    function showScore() {
+        clearInterval(refreshIntervalId);
+        resetState();
+    
+        let maxPossibleScore;
+        switch (currentSection) {
+            case "english": maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); break;
+            case "math": maxPossibleScore = (20 * 1) + (20 * 2) + (20 * 3); break;
+            case "reading": case "science": maxPossibleScore = (13 * 1) + (14 * 2) + (13 * 3); break;
+        }
+        let rawScore = score;
+        let scaledScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
+    
+        document.getElementById("question-container").classList.remove("hide");
+    
+        localStorage.setItem(currentSection + "Score", scaledScore);
+        passageElement.innerHTML = "";
+        questionElement.innerHTML = `${currentSection.charAt(0).toUpperCase() + currentSection.slice(1)} ACT Score: ${scaledScore} / 36`;
+        questionElement.classList.add("centered-score");
+    
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.add("score-display");
+    
+        // Apply vertical layout for Math section even in score display
+        if (currentSection === "math") {
+            questionRow.classList.add("vertical-layout");
+        }
+    
+        nextButton.innerHTML = "Continue";
+        nextButton.style.display = "block";
+        nextButton.classList.add("centered-btn");
+    }
 
     function showFinalScore() {
         clearInterval(refreshIntervalId);
