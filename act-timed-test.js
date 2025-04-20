@@ -206,11 +206,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
+        questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
     
-        // Apply layout classes based on passage presence
-        const hasPassage = questions.some(q => q.passage && q.passage.trim() !== "");
-        questionRow.classList.remove("with-passage", "without-passage");
-        questionRow.classList.add(hasPassage ? "with-passage" : "without-passage");
+        // Apply section-specific class
+        questionRow.classList.add(`${currentSection}-section`);
     
         showQuestion();
     }
