@@ -124,7 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endMathSection, 3600000);
-        passageElement.innerHTML = ""; // Clear passage
+        passageElement.innerHTML = "";
+        passageElement.offsetHeight; // Force reflow
+        console.log("Passage cleared in startMathSection:", passageElement.innerHTML);
         startQuiz(mathQuestions);
     }
     
