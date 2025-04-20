@@ -147,8 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endReadingSection, 2100000);
-        passageElement.innerHTML = "";
-        startQuiz(readingQuestions);
+        startQuiz(readingQuestions); // Removed passageElement.innerHTML = "";
     }
     
     function startScienceSection() {
@@ -157,8 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endScienceSection, 2100000);
-        passageElement.innerHTML = "";
-        startQuiz(scienceQuestions);
+        startQuiz(scienceQuestions); // Removed passageElement.innerHTML = "";
     }
 
     function updateCountdown() {
