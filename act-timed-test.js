@@ -114,15 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endEnglishSection, 2700000);
-        startQuiz(englishQuestions); // Removed 25, 25, 25
+        passageElement.innerHTML = ""; // Clear passage
+        startQuiz(englishQuestions);
     }
     
     function startMathSection() {
         currentSection = "math";
-        time = 60 * 60; // 60 minutes
+        time = 60 * 60;
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endMathSection, 3600000);
+        passageElement.innerHTML = ""; // Clear passage
         startQuiz(mathQuestions);
     }
     
@@ -132,7 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endReadingSection, 2100000);
-        startQuiz(readingQuestions); // Remove passageElement.innerHTML = ""
+        passageElement.innerHTML = ""; // Clear passage
+        startQuiz(readingQuestions);
     }
     
     function startScienceSection() {
@@ -141,9 +144,9 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endScienceSection, 2100000);
-        startQuiz(scienceQuestions); // Remove passageElement.innerHTML = ""
+        passageElement.innerHTML = ""; // Clear passage
+        startQuiz(scienceQuestions);
     }
-
     function updateCountdown() {
         const minutes = Math.floor(time / 60);
         let seconds = time % 60;
@@ -196,10 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("No questions available for", currentSection);
             return;
         }
-        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
-        if (missingPassages.length > 0 && currentSection !== "math") {
-            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
-        }
+        console.log(`Starting ${currentSection} with ${questions.length} questions`);
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
@@ -207,7 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
     
-        document.querySelector(".question-row").classList.remove("score-display");
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("score-display");
     
         showQuestion();
     }
@@ -225,6 +226,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const passageText = currentQuestion.passage || "";
         console.log(`Setting passage for ${currentSection} question ${questionNo}:`, passageText);
         passageElement.innerHTML = passageText;
+        // Verify the DOM updated
+        console.log(`Passage element after setting:`, passageElement.innerHTML);
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question || "Question missing"}`;
     
         currentQuestion.answers.forEach(answer => {
