@@ -2807,10 +2807,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function startMathSection() {
         currentSection = "math";
-        time = 60 * 60;
+        time = 60 * 60; // 60 minutes
+        userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endMathSection, 3600000);
-        startQuiz(mathQuestions); // Removed 20, 20, 20
+        startQuiz(mathQuestions);
     }
     
     function startReadingSection() {
