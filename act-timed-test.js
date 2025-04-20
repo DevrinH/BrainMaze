@@ -2914,17 +2914,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
         console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
-        passageElement.style.display = "block";
+        passageElement.style.display = "block"; // Passage visible for English
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
     
-        // Ensure correct layout
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
         questionRow.classList.remove("vertical-layout");
         questionElement.classList.remove("centered-score");
     
-        // Apply vertical layout for Math section
+        // Apply vertical layout for Math section only
         if (currentSection === "math") {
             questionRow.classList.add("vertical-layout");
         }
