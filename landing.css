@@ -2163,3 +2163,8 @@ footer h3 {
   flex-direction: row !important;
   align-items: flex-start !important;
 }
+
+.right-column {
+  align-items: center !important;
+  text-align: center !important;
+}
