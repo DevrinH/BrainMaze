@@ -2195,3 +2195,79 @@ footer h3 {
   align-items: flex-start;
   text-align: left;
 }
+
+
+
+
+
+
+
+
+
+
+
+#question-container {
+  display: flex;
+  flex-direction: row; /* Side-by-side layout */
+  align-items: flex-start; /* Align items at the top */
+  justify-content: space-between; /* Space between passage and question */
+  padding: 20px;
+  gap: 20px; /* Space between the two columns */
+  width: 100%;
+  max-width: 1200px; /* Limit the total width for readability */
+  margin: 0 auto; /* Center the container */
+}
+
+#passage {
+  flex: 1; /* Take up 50% of the space */
+  max-width: 50%; /* Ensure it doesn't grow too wide */
+  min-height: 200px; /* Ensure it has enough height to display content */
+  padding: 15px;
+  background-color: #1e2a44; /* Match the dark background */
+  color: #ffffff; /* White text */
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: pre-wrap; /* Preserve line breaks */
+  overflow-y: auto; /* Allow scrolling if passage is too long */
+}
+
+.question-row {
+  flex: 1; /* Take up 50% of the space */
+  max-width: 50%;
+  display: flex;
+  flex-direction: column; /* Stack question and answers vertically */
+  gap: 10px; /* Space between question and answers */
+}
+
+#question {
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #1e2a44;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#answer-buttons .btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #2a3b5b;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#answer-buttons .btn:hover {
+  background-color: #3b4c6b;
+}
+.question-row.vertical-layout {
+  max-width: 600px; /* Narrower width for Math section */
+  margin: 0 auto; /* Center it */
+}
+
+.question-row.side-by-side {
+  max-width: 50%; /* For English, Reading, Science */
+}
