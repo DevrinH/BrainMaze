@@ -169,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(refreshIntervalId);
         resetState();
         showScore();
+        passageElement.innerHTML = ""; // Clear passage before hiding
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
     }
@@ -211,11 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const rightColumn = document.querySelector(".right-column");
         questionRow.classList.remove("score-display");
     
-        // Force centering for Math
+        // Reset layout styles on question-row to avoid side-by-side
         if (currentSection === "math") {
+            questionRow.style.display = "block"; // Override any flex layout
             rightColumn.style.alignItems = "center";
             rightColumn.style.textAlign = "center";
         } else {
+            questionRow.style.display = ""; // Let stylesat.css handle side-by-side
             rightColumn.style.alignItems = "";
             rightColumn.style.textAlign = "";
         }
@@ -236,7 +239,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const passageText = currentQuestion.passage || "";
         console.log(`Setting passage for ${currentSection} question ${questionNo}:`, passageText);
         passageElement.innerHTML = passageText;
-        // Verify the DOM updated
+        // Force DOM reflow to ensure update
+        passageElement.offsetHeight; // Accessing offsetHeight forces a reflow
         console.log(`Passage element after setting:`, passageElement.innerHTML);
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question || "Question missing"}`;
     
@@ -253,6 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         updateProgressBar();
     }
+
     function resetState() {
         nextButton.style.display = "none";
         nextButton.classList.remove("centered-btn");
