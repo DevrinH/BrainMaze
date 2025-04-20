@@ -2157,3 +2157,9 @@ footer h3 {
   align-items: flex-start;
   text-align: left;
 }
+
+.question-row:has(#passage:not(:empty)) {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+}
