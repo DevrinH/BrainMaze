@@ -2168,3 +2168,30 @@ footer h3 {
   align-items: center !important;
   text-align: center !important;
 }
+.math-section .right-column {
+  align-items: center;
+  text-align: center;
+}
+
+.english-section,
+.reading-section,
+.science-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.english-section #passage,
+.reading-section #passage,
+.science-section #passage {
+  display: block;
+  flex: 1;
+}
+
+.english-section .right-column,
+.reading-section .right-column,
+.science-section .right-column {
+  flex: 1;
+  align-items: flex-start;
+  text-align: left;
+}
