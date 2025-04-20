@@ -1916,7 +1916,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
-        if (missingPassages.length > 0) {
+        if (missingPassages.length > 0 && currentSection !== "math") {
             console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
         }
         currentQuestionIndex = 0;
@@ -1928,6 +1928,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
         // Reset layout classes
         document.querySelector(".question-row").classList.remove("score-display");
+    
+        // Add section-specific class
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
+        questionRow.classList.add(`${currentSection}-section`);
     
         showQuestion();
     }
@@ -1946,7 +1951,6 @@ document.addEventListener("DOMContentLoaded", () => {
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
     
-        // Remove layout class manipulations
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
         questionElement.classList.remove("centered-score");
