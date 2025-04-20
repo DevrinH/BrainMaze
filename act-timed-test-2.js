@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 { "text": "6", "correct": false },
                 { "text": "7", "correct": false }
             ],
-            "difficulty": "medium",
-            "category": "Algebra",
+            difficulty: "medium",
+            category: "Algebra",
             passage: ""
         },
         {
@@ -90,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 { "text": "6", "correct": true },
                 { "text": "10", "correct": false }
             ],
-            "difficulty": "medium",
-            "category": "Functions",
+            difficulty: "medium",
+            category: "Functions",
             passage: ""
         },
     ];
