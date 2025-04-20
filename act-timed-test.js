@@ -201,8 +201,17 @@ document.addEventListener("DOMContentLoaded", () => {
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
-        selectedQuestions = questions; // Use the full array as-is
+        selectedQuestions = questions;
         nextButton.innerHTML = "Next";
+    
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("score-display");
+    
+        // Apply layout classes based on passage presence
+        const hasPassage = questions.some(q => q.passage && q.passage.trim() !== "");
+        questionRow.classList.remove("with-passage", "without-passage");
+        questionRow.classList.add(hasPassage ? "with-passage" : "without-passage");
+    
         showQuestion();
     }
     
