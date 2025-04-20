@@ -1919,12 +1919,24 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("No questions available for", currentSection);
             return;
         }
+        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
+        if (missingPassages.length > 0 && currentSection !== "math") {
+            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
+        }
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
-        selectedQuestions = questions; // Use the full array as-is
+        selectedQuestions = questions;
         nextButton.innerHTML = "Next";
+    
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("score-display");
+        questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
+    
+        // Apply section-specific classes for all sections
+        questionRow.classList.add(`${currentSection}-section`);
+    
         showQuestion();
     }
     
