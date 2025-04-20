@@ -2137,3 +2137,23 @@ footer h3 {
   flex-direction: row;
   align-items: flex-start;
 }
+.question-row.without-passage .right-column {
+  align-items: center;
+  text-align: center;
+}
+
+.question-row.with-passage {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.question-row.with-passage #passage {
+  display: block;
+  flex: 1;
+}
+
+.question-row.with-passage .right-column {
+  flex: 1;
+  align-items: flex-start;
+  text-align: left;
+}
