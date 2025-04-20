@@ -191,11 +191,14 @@ document.addEventListener("DOMContentLoaded", () => {
         resetState();
         showFinalScore();
     }
-
     function startQuiz(questions) {
         if (!questions || questions.length === 0) {
             console.error("No questions available for", currentSection);
             return;
+        }
+        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
+        if (missingPassages.length > 0 && currentSection !== "math") {
+            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
         }
         currentQuestionIndex = 0;
         score = 0;
@@ -204,18 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
     
-        const questionRow = document.querySelector(".question-row");
-        const rightColumn = document.querySelector(".right-column");
-        questionRow.classList.remove("score-display");
-    
-        // Apply centering for Math
-        if (currentSection === "math") {
-            rightColumn.style.alignItems = "center";
-            rightColumn.style.textAlign = "center";
-        } else {
-            rightColumn.style.alignItems = "";
-            rightColumn.style.textAlign = "";
-        }
+        document.querySelector(".question-row").classList.remove("score-display");
     
         showQuestion();
     }
