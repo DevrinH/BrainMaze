@@ -2914,17 +2914,20 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
         console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
-        passageElement.style.display = currentSection === "math" ? "none" : "block"; // This line
+        passageElement.style.display = currentSection === "math" ? "none" : "block";
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
     
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
         questionRow.classList.remove("vertical-layout");
+        questionRow.classList.remove("centered-content"); // Remove centering class by default
         questionElement.classList.remove("centered-score");
     
+        // Apply vertical layout and centering for Math section
         if (currentSection === "math") {
             questionRow.classList.add("vertical-layout");
+            questionRow.classList.add("centered-content"); // Add centering class for Math
         }
     
         currentQuestion.answers.forEach(answer => {
