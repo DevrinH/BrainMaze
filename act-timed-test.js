@@ -1949,13 +1949,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
         questionRow.classList.remove("vertical-layout");
-        questionRow.classList.remove("centered-content"); // Remove centering class by default
+        questionRow.classList.remove("centered-content");
         questionElement.classList.remove("centered-score");
     
-        // Apply vertical layout and centering for Math section
+        // Ensure question and answer-buttons are wrapped in question-container
+        const questionContainer = questionElement.parentElement.classList.contains("question-container")
+            ? questionElement.parentElement
+            : questionElement.parentElement; // Adjust if needed
+    
         if (currentSection === "math") {
             questionRow.classList.add("vertical-layout");
-            questionRow.classList.add("centered-content"); // Add centering class for Math
+            questionRow.classList.add("centered-content");
+            questionContainer.classList.add("centered-content"); // Apply to container if nested
         }
     
         currentQuestion.answers.forEach(answer => {
