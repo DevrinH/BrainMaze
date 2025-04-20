@@ -1946,22 +1946,10 @@ document.addEventListener("DOMContentLoaded", () => {
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
     
+        // Remove layout class manipulations
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
-        questionRow.classList.remove("vertical-layout");
-        questionRow.classList.remove("centered-content");
         questionElement.classList.remove("centered-score");
-    
-        // Ensure question and answer-buttons are wrapped in question-container
-        const questionContainer = questionElement.parentElement.classList.contains("question-container")
-            ? questionElement.parentElement
-            : questionElement.parentElement; // Adjust if needed
-    
-        if (currentSection === "math") {
-            questionRow.classList.add("vertical-layout");
-            questionRow.classList.add("centered-content");
-            questionContainer.classList.add("centered-content"); // Apply to container if nested
-        }
     
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
