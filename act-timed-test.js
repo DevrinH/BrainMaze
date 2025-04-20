@@ -1928,13 +1928,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
     
-        // Reset layout classes
         document.querySelector(".question-row").classList.remove("score-display");
-    
-        // Add section-specific class
-        const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
-        questionRow.classList.add(`${currentSection}-section`);
     
         showQuestion();
     }
