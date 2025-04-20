@@ -249,6 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
         while (answerButtons.firstChild) {
             answerButtons.removeChild(answerButtons.firstChild);
         }
+        passageElement.innerHTML = ""; // Ensure passage is cleared
     }
 
     function selectAnswer(e) {
