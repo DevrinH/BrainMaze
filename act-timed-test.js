@@ -1930,13 +1930,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
     
-        const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("score-display");
-        questionRow.classList.remove("with-passage", "without-passage");
-    
-        // Determine if the section has passages
-        const hasPassage = questions.some(q => q.passage && q.passage.trim() !== "");
-        questionRow.classList.add(hasPassage ? "with-passage" : "without-passage");
+        document.querySelector(".question-row").classList.remove("score-display");
     
         showQuestion();
     }
