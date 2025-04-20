@@ -27,19 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const englishQuestions = [
         {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?",
+            passage: "When Sarah entered the old bookstore, dust motes floated in the sunlight streaming through cracked windows. Shelves groaned under the weight of forgotten novels. She traced a finger along a leather-bound spine, feeling a thrill at the thought of untold stories. Yet, a pang of sadness hit her, knowing many of these books might never be read again.",
+            question: "The passage suggests Sarah feels:",
             answers: [
-                { text: "A) Aisha the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: true },
-                { text: "C) Aisha the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "D) Aisha, the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false }
+                { text: "A) excitement tempered by regret.", correct: true },
+                { text: "B) fear of the bookstore’s condition.", correct: false },
+                { text: "C) indifference toward the books.", correct: false },
+                { text: "D) anger at the neglect of the store.", correct: false },
             ],
             type: "english",
             difficulty: "easy",
-            category: "conventions-of-standard-english"
+            category: "reading-comprehension"
         },
-
         {
             passage: "The team huddled in the lab, data streaming across the monitor. Years of research hinged on this moment. Dr. Ellis scanned the numbers, her pulse quickening. The results were unexpected, challenging every model they’d built. She exhaled slowly, torn between disbelief and the spark of discovery.",
             question: "What does the passage imply about Dr. Ellis’s reaction?",
@@ -69,31 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             difficulty: "easy",
             category: "algebra",
             passage: ""
-        },
-        {   
-            question: "What is the value of x in the equation 3x + 7 = 22?",
-            "answers": [
-                { "text": "4", "correct": false },
-                { "text": "5", "correct": true },
-                { "text": "6", "correct": false },
-                { "text": "7", "correct": false }
-            ],
-            difficulty: "medium",
-            category: "Algebra",
-            passage: ""
-        },
-        {
-            "question": "If f(x) = x^2 + 3x - 4, what is f(2)?",
-            "answers": [
-                { "text": "8", "correct": false },
-                { "text": "4", "correct": false },
-                { "text": "6", "correct": true },
-                { "text": "10", "correct": false }
-            ],
-            difficulty: "medium",
-            category: "Functions",
-            passage: ""
-        },
+        }
     ];
     const readingQuestions = [
         {
@@ -213,7 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
         showFinalScore();
     }
 
-<<<<<<< HEAD
     function startQuiz(questions, numEasy, numMedium, numHard) {
         currentQuestionIndex = 0;
         score = 0;
@@ -223,33 +197,6 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.innerHTML = "Next";
         showQuestion();
     }
-=======
-    function startQuiz(questions) {
-    if (!questions || questions.length === 0) {
-        console.error("No questions available for", currentSection);
-        return;
-    }
-    const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
-    if (missingPassages.length > 0 && currentSection !== "math") {
-        console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
-    }
-    currentQuestionIndex = 0;
-    score = 0;
-    correctAnswers = 0;
-    categoryStats = {};
-    selectedQuestions = questions;
-    nextButton.innerHTML = "Next";
-
-    const questionRow = document.querySelector(".question-row");
-    questionRow.classList.remove("score-display");
-    questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
-
-    // Apply section-specific classes for all sections
-    questionRow.classList.add(`${currentSection}-section`);
-
-    showQuestion();
-}
->>>>>>> 685c034130816e9db974c1577d8e3f3510e9f8a5
 
     function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
         const easyQuestions = questions.filter(q => q.difficulty === "easy");
