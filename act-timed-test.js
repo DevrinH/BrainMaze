@@ -220,9 +220,15 @@ document.addEventListener("DOMContentLoaded", () => {
     function showQuestion() {
         resetState();
         let currentQuestion = selectedQuestions[currentQuestionIndex];
+        if (!currentQuestion) {
+            console.error("No question found at index", currentQuestionIndex, "in", currentSection);
+            return;
+        }
         let questionNo = currentQuestionIndex + 1;
-        passageElement.innerHTML = currentQuestion.passage; // Revert to exact old code
-        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+        const passageText = currentQuestion.passage || "";
+        console.log(`Setting passage for ${currentSection} question ${questionNo}:`, passageText);
+        passageElement.innerHTML = passageText;
+        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question || "Question missing"}`;
     
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
@@ -237,7 +243,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
         updateProgressBar();
     }
-
     function resetState() {
         nextButton.style.display = "none";
         nextButton.classList.remove("centered-btn");
