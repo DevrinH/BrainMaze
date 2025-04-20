@@ -249,18 +249,28 @@ document.addEventListener("DOMContentLoaded", () => {
         const passageText = currentQuestion.passage || "";
         console.log(`Setting passage for ${currentSection} question ${questionNo}:`, passageText);
         passageElement.innerHTML = passageText;
-        passageElement.offsetHeight; // Force DOM reflow
+        passageElement.offsetHeight;
         console.log(`Passage element after setting:`, passageElement.innerHTML);
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question || "Question missing"}`;
-        questionElement.style.textAlign = currentSection === "math" ? "center" : ""; // Center question text for Math
+        questionElement.style.textAlign = currentSection === "math" ? "center" : "";
+    
+        if (currentSection === "math") {
+            answerButtons.style.display = "flex";
+            answerButtons.style.flexDirection = "column";
+            answerButtons.style.alignItems = "center";
+        } else {
+            answerButtons.style.display = "";
+            answerButtons.style.flexDirection = "";
+            answerButtons.style.alignItems = "";
+        }
     
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
             button.classList.add("btn");
             if (currentSection === "math") {
-                button.style.margin = "0 auto"; // Center buttons
-                button.style.display = "block"; // Stack buttons vertically
+                button.style.minWidth = "200px"; // Ensure consistent width
+                button.style.margin = "5px 0"; // Vertical spacing
             }
             answerButtons.appendChild(button);
             if (answer.correct) {
@@ -295,7 +305,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
         const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
     
-        // Safeguard against undefined passage or question
         const safePassage = currentQuestion.passage || "No passage provided";
         const safeQuestion = currentQuestion.question || "No question provided";
         userResponses.push({
@@ -304,6 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
             correctAnswer: correctAnswer,
             wasCorrect: isCorrect
         });
+        console.log("User response added:", userResponses[userResponses.length - 1]);
     
         if (isCorrect) {
             selectedBtn.classList.add("correct");
@@ -333,6 +343,8 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.style.display = "block";
         nextButton.disabled = false;
     }
+
+
     function showScore() {
         clearInterval(refreshIntervalId);
         resetState();
@@ -369,13 +381,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function showFinalScore() {
         clearInterval(refreshIntervalId);
         resetState();
-
+    
         let englishScore = parseInt(localStorage.getItem("englishScore") || 0, 10);
         let mathScore = parseInt(localStorage.getItem("mathScore") || 0, 10);
         let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
         let scienceScore = parseInt(localStorage.getItem("scienceScore") || 0, 10);
         let compositeScore = Math.round((englishScore + mathScore + readingScore + scienceScore) / 4);
-
+    
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
         scoreHistory[today] = {
@@ -386,7 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
             composite: compositeScore
         };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
-
+    
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `
@@ -401,9 +413,11 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", handleNextButton);
-        nextButton.addEventListener("click", showExplanations);
+        nextButton.addEventListener("click", () => {
+            console.log("Review Incorrect Answers clicked");
+            showExplanations();
+        });
     }
-
 
     function showExplanations() {
         console.log("Entering showExplanations");
