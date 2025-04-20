@@ -2062,3 +2062,67 @@ footer h3 {
 }
 
 
+
+
+
+
+.question-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#passage.passage-text {
+  display: block;
+  width: 100%;
+}
+
+.right-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* When passage is empty or hidden, center the content */
+#passage.passage-text:empty {
+  display: none;
+}
+
+#question.question-text,
+#answer-buttons.answer-choices {
+  width: 100%;
+  max-width: 600px;
+}
+
+#answer-buttons.answer-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px;
+  width: 100px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* For English, Reading, Science: Side-by-side layout */
+.question-row:has(#passage:not(:empty)) {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.question-row:has(#passage:not(:empty)) #passage {
+  flex: 1;
+}
+
+.question-row:has(#passage:not(:empty)) .right-column {
+  flex: 1;
+  align-items: flex-start;
+  text-align: left;
+}
