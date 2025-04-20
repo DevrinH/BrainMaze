@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mathQuestions = [
         // Medium Difficulty (Q21–Q40)
         {   
-            "question": "What is the value of x in the equation 3x + 7 = 22?",
+            question: "What is the value of x in the equation 3x + 7 = 22?",
             "answers": [
                 { "text": "4", "correct": false },
                 { "text": "5", "correct": true },
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             passage: ""
         },
         {
-            "question": "If f(x) = x^2 + 3x - 4, what is f(2)?",
+            question: "If f(x) = x^2 + 3x - 4, what is f(2)?",
             "answers": [
                 { "text": "8", "correct": false },
                 { "text": "4", "correct": false },
