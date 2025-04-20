@@ -2126,3 +2126,14 @@ footer h3 {
   align-items: flex-start;
   text-align: left;
 }
+
+.math-section .right-column {
+  align-items: center;
+  text-align: center;
+}
+.english-section,
+.reading-section,
+.science-section {
+  flex-direction: row;
+  align-items: flex-start;
+}
