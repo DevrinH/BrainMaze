@@ -227,8 +227,18 @@ document.addEventListener("DOMContentLoaded", () => {
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
-        selectedQuestions = questions; // Use the full array as-is
+        selectedQuestions = questions;
         nextButton.innerHTML = "Next";
+    
+        // Add section-specific class to question-row for layout control
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("vertical-layout", "side-by-side");
+        if (currentSection === "math") {
+            questionRow.classList.add("vertical-layout");
+        } else {
+            questionRow.classList.add("side-by-side");
+        }
+    
         showQuestion();
     }
     
@@ -338,17 +348,14 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("question-container").classList.remove("hide");
     
         localStorage.setItem(currentSection + "Score", scaledScore);
-        passageElement.innerHTML = "";
+        passageElement.innerHTML = ""; // Clear passage for score display
         questionElement.innerHTML = `${currentSection.charAt(0).toUpperCase() + currentSection.slice(1)} ACT Score: ${scaledScore} / 36`;
         questionElement.classList.add("centered-score");
     
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.add("score-display");
-    
-        // Apply vertical layout for Math section even in score display
-        if (currentSection === "math") {
-            questionRow.classList.add("vertical-layout");
-        }
+        questionRow.classList.remove("side-by-side", "vertical-layout"); // Reset layout classes
+        questionRow.classList.add("vertical-layout"); // Center the score display
     
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
@@ -358,13 +365,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function showFinalScore() {
         clearInterval(refreshIntervalId);
         resetState();
-
+    
         let englishScore = parseInt(localStorage.getItem("englishScore") || 0, 10);
         let mathScore = parseInt(localStorage.getItem("mathScore") || 0, 10);
         let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
         let scienceScore = parseInt(localStorage.getItem("scienceScore") || 0, 10);
         let compositeScore = Math.round((englishScore + mathScore + readingScore + scienceScore) / 4);
-
+    
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
         scoreHistory[today] = {
@@ -375,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
             composite: compositeScore
         };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
-
+    
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `
@@ -385,7 +392,12 @@ document.addEventListener("DOMContentLoaded", () => {
             <p><strong>Science ACT Score:</strong> ${scienceScore} / 36</p>
             <p><strong>Composite ACT Score:</strong> ${compositeScore} / 36</p>`;
         questionElement.classList.add("centered-score");
-        document.querySelector(".question-row").classList.add("score-display");
+    
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.add("score-display");
+        questionRow.classList.remove("side-by-side", "vertical-layout"); // Reset layout classes
+        questionRow.classList.add("vertical-layout"); // Center the score display
+    
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
