@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const startTestButton = document.getElementById("start-test-btn");
     const continueButton = document.getElementById("continue-btn");
 
+
     let currentQuestionIndex = 0;
     let score = 0;
     let correctAnswers = 0;
@@ -20,10 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let userResponses = [];
     let currentSection = "english";
 
+
     // Sample questions (replace with full question banks)
     const englishQuestions = [
         ///Passage 1
-        
+       
             {
                 passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
                 question: "Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?",
@@ -38,50 +40,50 @@ document.addEventListener("DOMContentLoaded", () => {
                 category: "conventions-of-standard-english"
             },
 
-            
-            
-        
-        
+
+           
+           
+       
+       
     ];
+
 
     const mathQuestions = [
         // Medium Difficulty (Q21–Q40)
         {   passage: "", // No passage for Math
             question: "What is the value of x in the equation 3x + 7 = 22?",
-            answers: [
-                { "text": "A) 4", "correct": false },
-                { "text": "B) 5", "correct": true },
-                { "text": "C) 6", "correct": false },
-                { "text": "D) 7", "correct": false }
+            "answers": [
+                { "text": "4", "correct": false },
+                { "text": "5", "correct": true },
+                { "text": "6", "correct": false },
+                { "text": "7", "correct": false }
             ],
             difficulty: "medium",
             category: "Algebra"
         },
-
-
-    
+        
+   
     ];
-    const readingQuestions = [   
+ const readingQuestions = [  
         {
-        passage: "The old house on Maple Street stood at the edge of town, its weathered clapboards sagging under the weight of decades. Ivy clung to its walls, curling around the cracked windows like fingers guarding secrets. To the townsfolk, it was a relic—haunted, they whispered, by the spirit of Eliza Hawthorne, who vanished in 1923. Clara, a young librarian with a penchant for unraveling mysteries, felt drawn to the house. She’d spent months poring over archives, piecing together Eliza’s life: a poet, a recluse, a woman who’d loved fiercely and lost tragically. Clara’s fascination wasn’t just academic; it was personal. Her grandmother had spoken of Eliza as if she’d known her, though the timelines didn’t align.\n\nOn a crisp October evening, Clara slipped through the rusted gate, her flashlight cutting through the dusk. The air inside the house was thick with dust, the floorboards groaning under her steps. In the parlor, she found a bureau, its drawers stuffed with letters and poems. One letter, penned in Eliza’s looping script, spoke of a hidden room where she’d kept her ‘heart’s truth.’ Clara’s pulse quickened. She tapped the walls, listening for hollows, until a panel behind the fireplace gave way, revealing a narrow staircase.\n\nThe hidden room was small, its walls lined with shelves of journals. A single chair faced a window overlooking the garden, now overgrown. Clara opened a journal, its pages brittle but legible. Eliza’s words painted a vivid picture: her love for a man named Thomas, a sailor who never returned from sea; her despair as the town turned against her, branding her eccentric; her resolve to hide her work, fearing it would be misunderstood. The final entry was dated the day she disappeared: ‘They will not have my words. I leave them to the one who seeks.’\n\nClara sat in the chair, the journal heavy in her hands. She felt an ache, not just for Eliza, but for herself—a life spent searching for meaning in others’ stories. Outside, the wind stirred the leaves, and for a moment, Clara swore she heard a whisper, soft as a sigh, urging her to keep reading.",
-        question: "What is the primary reason Clara is drawn to the house on Maple Street?",
+        "passage": "The old house on Maple Street stood at the edge of town, its weathered clapboards sagging under the weight of decades. Ivy clung to its walls, curling around the cracked windows like fingers guarding secrets. To the townsfolk, it was a relic—haunted, they whispered, by the spirit of Eliza Hawthorne, who vanished in 1923. Clara, a young librarian with a penchant for unraveling mysteries, felt drawn to the house. She’d spent months poring over archives, piecing together Eliza’s life: a poet, a recluse, a woman who’d loved fiercely and lost tragically. Clara’s fascination wasn’t just academic; it was personal. Her grandmother had spoken of Eliza as if she’d known her, though the timelines didn’t align.\n\nOn a crisp October evening, Clara slipped through the rusted gate, her flashlight cutting through the dusk. The air inside the house was thick with dust, the floorboards groaning under her steps. In the parlor, she found a bureau, its drawers stuffed with letters and poems. One letter, penned in Eliza’s looping script, spoke of a hidden room where she’d kept her ‘heart’s truth.’ Clara’s pulse quickened. She tapped the walls, listening for hollows, until a panel behind the fireplace gave way, revealing a narrow staircase.\n\nThe hidden room was small, its walls lined with shelves of journals. A single chair faced a window overlooking the garden, now overgrown. Clara opened a journal, its pages brittle but legible. Eliza’s words painted a vivid picture: her love for a man named Thomas, a sailor who never returned from sea; her despair as the town turned against her, branding her eccentric; her resolve to hide her work, fearing it would be misunderstood. The final entry was dated the day she disappeared: ‘They will not have my words. I leave them to the one who seeks.’\n\nClara sat in the chair, the journal heavy in her hands. She felt an ache, not just for Eliza, but for herself—a life spent searching for meaning in others’ stories. Outside, the wind stirred the leaves, and for a moment, Clara swore she heard a whisper, soft as a sigh, urging her to keep reading.",
+        "question": "What is the primary reason Clara is drawn to the house on Maple Street?",
         "answers": [
           { "text": "A) She wants to prove the house is haunted.", "correct": false },
           { "text": "B) She is researching Eliza Hawthorne’s life.", "correct": true },
           { "text": "C) She plans to renovate the property.", "correct": false },
           { "text": "D) She is following a family tradition.", "correct": false }
         ],
-        type: "reading",
-        difficulty: "medium",
-        category: "main idea"
+        "type": "reading",
+        "difficulty": "medium",
+        "category": "main idea"
       },
+     
 
-    
+   
     ];
-
-
     const scienceQuestions = [          
-        
+       
         {
         passage: "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
         question: "Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?",
@@ -96,7 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
         category: "data representation"
     },
     
+
 ];
+
 
     function startTest() {
         if (!actIntroContainer || !document.getElementById("question-container")) {
@@ -108,47 +112,46 @@ document.addEventListener("DOMContentLoaded", () => {
         startEnglishSection();
     }
 
+
     function startEnglishSection() {
         currentSection = "english";
         time = 45 * 60;
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endEnglishSection, 2700000);
-        passageElement.innerHTML = ""; // Clear passage
-        startQuiz(englishQuestions);
+        startQuiz(englishQuestions); // Removed 25, 25, 25
     }
-    
+   
     function startMathSection() {
         currentSection = "math";
-        time = 60 * 60;
+        time = 60 * 60; // 60 minutes
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endMathSection, 3600000);
-        passageElement.innerHTML = "";
-        passageElement.offsetHeight; // Force reflow
-        console.log("Passage cleared in startMathSection:", passageElement.innerHTML);
         startQuiz(mathQuestions);
     }
-    
+   
     function startReadingSection() {
         currentSection = "reading";
         time = 35 * 60;
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endReadingSection, 2100000);
-        passageElement.innerHTML = ""; // Clear passage
+        passageElement.innerHTML = "";
         startQuiz(readingQuestions);
     }
-    
+   
     function startScienceSection() {
         currentSection = "science";
         time = 35 * 60;
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endScienceSection, 2100000);
-        passageElement.innerHTML = ""; // Clear passage
+        passageElement.innerHTML = "";
         startQuiz(scienceQuestions);
     }
+
+
     function updateCountdown() {
         const minutes = Math.floor(time / 60);
         let seconds = time % 60;
@@ -167,14 +170,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
     function endEnglishSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showScore();
-        passageElement.innerHTML = ""; // Clear passage before hiding
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
     }
+
 
     function endMathSection() {
         clearInterval(refreshIntervalId);
@@ -184,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("break-message").classList.remove("hide");
     }
 
+
     function endReadingSection() {
         clearInterval(refreshIntervalId);
         resetState();
@@ -192,95 +197,75 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("break-message").classList.remove("hide");
     }
 
+
     function endScienceSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showFinalScore();
     }
+
+
     function startQuiz(questions) {
         if (!questions || questions.length === 0) {
             console.error("No questions available for", currentSection);
             return;
         }
-        console.log(`Starting ${currentSection} with ${questions.length} questions`);
+        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
+        if (missingPassages.length > 0 && currentSection !== "math") {
+            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
+        }
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
-    
+   
+        // Reset layout classes
+        document.querySelector(".question-row").classList.remove("score-display");
+   
+        // Add section-specific class
         const questionRow = document.querySelector(".question-row");
-        const rightColumn = document.querySelector(".right-column");
-        questionRow.classList.remove("score-display");
-    
-        // Reset layout styles on question-row to avoid side-by-side
-        if (currentSection === "math") {
-            questionRow.style.display = "block"; // Override any flex layout
-            rightColumn.style.display = "flex"; // Ensure flex container
-            rightColumn.style.flexDirection = "column";
-            rightColumn.style.alignItems = "center";
-            rightColumn.style.textAlign = "center";
-            rightColumn.style.width = "100%"; // Ensure full width
-            rightColumn.style.margin = "0 auto"; // Center within parent
-        } else {
-            questionRow.style.display = ""; // Let stylesat.css handle side-by-side
-            rightColumn.style.display = "";
-            rightColumn.style.flexDirection = "";
-            rightColumn.style.alignItems = "";
-            rightColumn.style.textAlign = "";
-            rightColumn.style.width = "";
-            rightColumn.style.margin = "";
-        }
-    
+        questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
+        questionRow.classList.add(`${currentSection}-section`);
+   
         showQuestion();
     }
-    
+
+
 
 
     function showQuestion() {
         resetState();
-        let currentQuestion = selectedQuestions[currentQuestionIndex];
-        if (!currentQuestion) {
-            console.error("No question found at index", currentQuestionIndex, "in", currentSection);
+        if (!selectedQuestions[currentQuestionIndex]) {
+            console.error("No question available at index", currentQuestionIndex);
             return;
         }
+        let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        const passageText = currentQuestion.passage || "";
-        console.log(`Setting passage for ${currentSection} question ${questionNo}:`, passageText);
-        passageElement.innerHTML = passageText;
-        passageElement.offsetHeight;
-        console.log(`Passage element after setting:`, passageElement.innerHTML);
-        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question || "Question missing"}`;
-        questionElement.style.textAlign = currentSection === "math" ? "center" : "";
-    
-        if (currentSection === "math") {
-            answerButtons.style.display = "flex";
-            answerButtons.style.flexDirection = "column";
-            answerButtons.style.alignItems = "center";
-        } else {
-            answerButtons.style.display = "";
-            answerButtons.style.flexDirection = "";
-            answerButtons.style.alignItems = "";
-        }
-    
+        console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
+        passageElement.style.display = currentSection === "math" ? "none" : "block";
+        passageElement.innerHTML = currentQuestion.passage || "";
+        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+   
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("score-display");
+        questionElement.classList.remove("centered-score");
+   
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
             button.classList.add("btn");
-            if (currentSection === "math") {
-                button.style.minWidth = "200px"; // Ensure consistent width
-                button.style.margin = "5px 0"; // Vertical spacing
-            }
             answerButtons.appendChild(button);
             if (answer.correct) {
                 button.dataset.correct = answer.correct;
             }
             button.addEventListener("click", selectAnswer);
         });
-    
+   
         updateProgressBar();
     }
+
 
     function resetState() {
         nextButton.style.display = "none";
@@ -288,9 +273,8 @@ document.addEventListener("DOMContentLoaded", () => {
         while (answerButtons.firstChild) {
             answerButtons.removeChild(answerButtons.firstChild);
         }
-        passageElement.innerHTML = "";
-        console.log("Passage cleared in resetState:", passageElement.innerHTML);
     }
+
 
     function selectAnswer(e) {
         const selectedBtn = e.target;
@@ -298,13 +282,14 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
         let questionDifficulty = currentQuestion.difficulty;
-    
+   
         if (!categoryStats[questionCategory]) {
             categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
         }
-    
+   
         const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-    
+   
+        // Safeguard against undefined passage or question
         const safePassage = currentQuestion.passage || "No passage provided";
         const safeQuestion = currentQuestion.question || "No question provided";
         userResponses.push({
@@ -313,8 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
             correctAnswer: correctAnswer,
             wasCorrect: isCorrect
         });
-        console.log("User response added:", userResponses[userResponses.length - 1]);
-    
+   
         if (isCorrect) {
             selectedBtn.classList.add("correct");
             correctAnswers++;
@@ -330,25 +314,23 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedBtn.classList.add("incorrect");
             categoryStats[questionCategory].incorrect++;
         }
-    
+   
         recordTestResults();
-    
+   
         Array.from(answerButtons.children).forEach(button => {
             if (button.dataset.correct === "true") {
                 button.classList.add("correct");
             }
             button.disabled = true;
         });
-    
+   
         nextButton.style.display = "block";
         nextButton.disabled = false;
     }
-
-
     function showScore() {
         clearInterval(refreshIntervalId);
         resetState();
-    
+   
         let maxPossibleScore;
         switch (currentSection) {
             case "english": maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); break;
@@ -357,37 +339,40 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
-    
+   
         document.getElementById("question-container").classList.remove("hide");
-    
+   
         localStorage.setItem(currentSection + "Score", scaledScore);
         passageElement.innerHTML = "";
         questionElement.innerHTML = `${currentSection.charAt(0).toUpperCase() + currentSection.slice(1)} ACT Score: ${scaledScore} / 36`;
         questionElement.classList.add("centered-score");
-    
+   
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.add("score-display");
-    
+   
         // Apply vertical layout for Math section even in score display
         if (currentSection === "math") {
             questionRow.classList.add("vertical-layout");
         }
-    
+   
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
     }
 
+
     function showFinalScore() {
         clearInterval(refreshIntervalId);
         resetState();
-    
+
+
         let englishScore = parseInt(localStorage.getItem("englishScore") || 0, 10);
         let mathScore = parseInt(localStorage.getItem("mathScore") || 0, 10);
         let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
         let scienceScore = parseInt(localStorage.getItem("scienceScore") || 0, 10);
         let compositeScore = Math.round((englishScore + mathScore + readingScore + scienceScore) / 4);
-    
+
+
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
         scoreHistory[today] = {
@@ -398,7 +383,8 @@ document.addEventListener("DOMContentLoaded", () => {
             composite: compositeScore
         };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
-    
+
+
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `
@@ -413,11 +399,11 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", handleNextButton);
-        nextButton.addEventListener("click", () => {
-            console.log("Review Incorrect Answers clicked");
-            showExplanations();
-        });
+        nextButton.addEventListener("click", showExplanations);
     }
+
+
+
 
     function showExplanations() {
         console.log("Entering showExplanations");
@@ -426,10 +412,10 @@ document.addEventListener("DOMContentLoaded", () => {
         questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
         questionElement.style.overflowY = "scroll";
         questionElement.style.maxHeight = "80vh";
-    
+   
         const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
         console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
-    
+   
         if (incorrectResponses.length === 0) {
             questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
         } else {
@@ -450,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Appending to questionElement:", questionElement);
             questionElement.appendChild(fragment);
         }
-    
+   
         console.log("Setting Finish button");
         nextButton.innerHTML = "Finish";
         nextButton.style.display = "block";
@@ -462,10 +448,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
-    function generateExplanation(response) {
+ function generateExplanation(response) {
         const questionText = response.question || "";
-    
+   
         // ACT Math Questions
         // Medium Difficulty
         if (questionText.includes("What is the value of x in the equation 3x + 7 = 22?")) {
@@ -590,8 +575,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return "27 = 3^3, so 3^(2x) = 3^3, 2x = 3, x = 3/2. Option B) 3/2 is correct. Others are incorrect.";
         } else if (questionText.includes("What is the value of cos^2(π/8) - sin^2(π/8)?")) {
             return "Use identity: cos^2(θ) - sin^2(θ) = cos(2θ). For θ = π/8, cos(2*π/8) = cos(π/4) = √2/2. Option B) √2/2 is correct. Others are incorrect.";
-    
-    
+   
+   
         // Set 2: Editorial Board Passage
         } else if (questionText.includes("The editorial board gathered in a cramped office")) {
             if (questionText.includes("Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?")) {
@@ -625,7 +610,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (questionText.includes("Which sentence contains an error in parallel structure?")) {
                 return "Option D) is correct; no sentence has a parallelism error. A), B), and C) maintain consistent structure.";
         }
-    
+   
         // Set 3: Garden Passage
         } else if (questionText.includes("The community garden bloomed with possibility")) {
             if (questionText.includes("Which punctuation corrects the sentence 'Rosa, the garden’s founder, had spent years planning beds, trellises, and compost bins'?")) {
@@ -659,7 +644,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
                 return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
         }
-    
+   
         // Set 4: Science Fair Passage
         } else if (questionText.includes("The gymnasium hummed with the energy of the science fair")) {
             if (questionText.includes("Which punctuation corrects the sentence 'Samir, the lead presenter, had tested his solar model for weeks, tweaking panels, and circuits'?")) {
@@ -693,7 +678,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
                 return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
         }
-    
+   
         // Set 5: Theater Passage
         } else if (questionText.includes("The theater troupe huddled backstage")) {
             if (questionText.includes("Which punctuation corrects the sentence 'The troupe’s director, Elena Vasquez, had spent weeks perfecting the lighting cues, sound levels, and actors’ blocking'?")) {
@@ -727,8 +712,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
                 return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
         }
-    
-        // Set 6: Robotics Passage
+       // Set 6: Robotics Passage
         } else if (questionText.includes("The community center buzzed with anticipation as the robotics team")) {
             if (questionText.includes("Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?")) {
                 return "Option B) correctly uses commas for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
@@ -788,7 +772,9 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (questionText.includes("The passage’s structure, moving from Clara’s research to her discovery in the hidden room, serves to:")) {
             return "The structure builds suspense and parallels Clara’s growing understanding. Option A) build suspense and mirror Clara’s journey of understanding is correct. B) lacks clear contrast; C) misplaces focus on the house; D) is secondary.";
 
+
     // Set 8: Chicago School of Sociology Passage
+
 
     }} else if (questionText.includes("In the early 20th century, the Chicago School of Sociology emerged")) {
         if (questionText.includes("What was the primary focus of the Chicago School of Sociology’s approach to studying cities?")) {
@@ -861,7 +847,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return "The passage notes these activities exacerbate climate impacts, compounding threats. Option A) Illustrate additional threats that compound climate change impacts is correct. B) overstates their role; C) contradicts conservation; D) misstates benefits.";
         } else if (questionText.includes("What does the passage suggest about the relationship between coral reefs and global climate change?")) {
             return "The passage emphasizes reefs’ vulnerability to warming and acidification, with recovery challenges. Option C) Coral reefs are highly vulnerable to climate change impacts is correct. A) contradicts threats; B) is unsupported; D) overstates recovery potential.";
-        } 
+        }
             // Set 7: Amylase Enzyme Passage
     } else if (questionText.includes("A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase")) {
         if (questionText.includes("Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?")) {
@@ -875,7 +861,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (questionText.includes("Suppose the scientists interpolate the data to estimate the glucose production rate at pH 6.5 and 45°C. Assuming a linear relationship between the nearest data points in Figures 1 and 2, what is the approximate glucose production rate?")) {
             return "Interpolate between pH 6 (30 µmol/min) and pH 7 (40 µmol/min) at 37°C: at pH 6.5, rate = 30 + (40-30)/2 = 35 µmol/min. For temperature, interpolate between 40°C (40 µmol/min) and 50°C (30 µmol/min) at pH 7: at 45°C, rate = 40 - (40-30)/2 = 35 µmol/min. Averaging these (considering both trends), the rate is approximately 35 µmol/min. Option D) 35 µmol/min is correct. A) 28, B) 33, and C) 38 µmol/min deviate from the linear estimate.";
     }  
-        // Set 8: Bacterial Growth Passage
+    // Set 8: Bacterial Growth Passage
     } else if (questionText.includes("Scientists investigated the growth rates of two bacterial species, Bacillus subtilis and Escherichia coli")) {
         if (questionText.includes("According to Figure 1, which bacterial species has the higher growth rate at a nutrient concentration of 1.0% at 37°C?")) {
             return "Figure 1 shows at 1.0% nutrient concentration and 37°C: Bacillus subtilis (0.35 OD/h), Escherichia coli (0.45 OD/h). Escherichia coli has the higher growth rate. Option B) Escherichia coli is correct. A) Bacillus subtilis is lower, C) Both have equal growth rates is false, and D) Cannot be determined is incorrect as data is provided.";
@@ -960,14 +946,15 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (questionText.includes("Suppose a researcher finds that coral cover declined in a region where both pH decreased and temperature increased, but the decline correlated more strongly with pH changes")) {
         return "Stronger correlation with pH changes supports Scientist 1’s acidification hypothesis over Scientist 2’s thermal stress hypothesis, as it suggests pH is the dominant driver. Option D) It would make Scientist 1’s hypothesis more plausible than Scientist 2’s is correct. A) Incorrectly favors Scientist 2, B) Reverses the correlation, and C) Equal plausibility ignores the stronger pH correlation.";
     }
-    
+   
         }
-        
-    
+       
+   
         return "No explanation available for this question.";
     }
 
-    
+
+   
     function handleNextButton() {
         recordTestResults();
         currentQuestionIndex++;
@@ -978,19 +965,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
     function updateProgressBar() {
         const progressBar = document.getElementById("progress-bar-test");
         let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
         progressBar.firstElementChild.style.width = progress + "%";
     }
 
+
     function recordTestResults() {
         let storedResults = localStorage.getItem("actResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
 
+
         if (typeof results !== "object" || Array.isArray(results)) {
             results = {};
         }
+
 
         for (let category in categoryStats) {
             if (!results[category]) {
@@ -1000,7 +991,9 @@ document.addEventListener("DOMContentLoaded", () => {
             results[category].incorrect += categoryStats[category].incorrect || 0;
         }
 
+
         localStorage.setItem("actResults", JSON.stringify(results));
+
 
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
@@ -1008,11 +1001,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
         questionElement.innerHTML = "This is a timed ACT Test. English: 45 min, Math: 60 min, Reading: 35 min, Science: 35 min.";
         questionElement.classList.add("centered-score");
+
 
         const startButton = document.createElement("button");
         startButton.innerHTML = "Start Test";
@@ -1024,12 +1019,14 @@ document.addEventListener("DOMContentLoaded", () => {
         answerButtons.appendChild(startButton);
     }
 
+
     // Event Listeners
     if (startTestButton) {
         startTestButton.addEventListener("click", startTest);
     } else {
         console.error("start-test-btn element not found");
     }
+
 
     if (nextButton) {
         nextButton.addEventListener("click", () => {
@@ -1043,6 +1040,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("next-btn element not found");
     }
+
 
     if (continueButton) {
         continueButton.addEventListener("click", () => {
@@ -1059,3 +1057,4 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("continue-btn element not found");
     }
 });
+
