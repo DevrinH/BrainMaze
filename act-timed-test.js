@@ -54,20 +54,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 { "text": "6", "correct": false },
                 { "text": "7", "correct": false }
             ],
-            "difficulty": "medium",
-            "category": "Algebra",
+            difficulty: "medium",
+            category: "Algebra",
             passage: ""
         },
         {
             question: "If f(x) = x^2 + 3x - 4, what is f(2)?",
-            "answers": [
+            answers: [
                 { "text": "8", "correct": false },
                 { "text": "4", "correct": false },
                 { "text": "6", "correct": true },
                 { "text": "10", "correct": false }
             ],
-            "difficulty": "medium",
-            "category": "Functions",
+            difficulty: "medium",
+            category: "Functions",
             passage: ""
         },
         {
@@ -1942,20 +1942,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showQuestion() {
         resetState();
-        if (!selectedQuestions[currentQuestionIndex]) {
-            console.error("No question available at index", currentQuestionIndex);
-            return;
-        }
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
-        passageElement.style.display = currentSection === "math" ? "none" : "block";
-        passageElement.innerHTML = currentQuestion.passage || "";
+        passageElement.innerHTML = currentQuestion.passage; // Revert to exact old code
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-    
-        const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("score-display");
-        questionElement.classList.remove("centered-score");
     
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
