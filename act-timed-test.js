@@ -213,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showFinalScore();
     }
 
+<<<<<<< HEAD
     function startQuiz(questions, numEasy, numMedium, numHard) {
         currentQuestionIndex = 0;
         score = 0;
@@ -222,6 +223,33 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.innerHTML = "Next";
         showQuestion();
     }
+=======
+    function startQuiz(questions) {
+    if (!questions || questions.length === 0) {
+        console.error("No questions available for", currentSection);
+        return;
+    }
+    const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
+    if (missingPassages.length > 0 && currentSection !== "math") {
+        console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
+    }
+    currentQuestionIndex = 0;
+    score = 0;
+    correctAnswers = 0;
+    categoryStats = {};
+    selectedQuestions = questions;
+    nextButton.innerHTML = "Next";
+
+    const questionRow = document.querySelector(".question-row");
+    questionRow.classList.remove("score-display");
+    questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
+
+    // Apply section-specific classes for all sections
+    questionRow.classList.add(`${currentSection}-section`);
+
+    showQuestion();
+}
+>>>>>>> 685c034130816e9db974c1577d8e3f3510e9f8a5
 
     function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
         const easyQuestions = questions.filter(q => q.difficulty === "easy");
