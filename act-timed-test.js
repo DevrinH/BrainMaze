@@ -146,7 +146,13 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endReadingSection, 2100000);
-        startQuiz(readingQuestions); // Removed passageElement.innerHTML = "";
+        
+        // Ensure passageElement is visible
+        passageElement.style.display = "block";
+        passageElement.style.visibility = "visible";
+        passageElement.style.opacity = "1";
+        
+        startQuiz(readingQuestions);
     }
     
     function startScienceSection() {
@@ -155,7 +161,13 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endScienceSection, 2100000);
-        startQuiz(scienceQuestions); // Removed passageElement.innerHTML = "";
+        
+        // Ensure passageElement is visible
+        passageElement.style.display = "block";
+        passageElement.style.visibility = "visible";
+        passageElement.style.opacity = "1";
+        
+        startQuiz(scienceQuestions);
     }
 
     function updateCountdown() {
@@ -226,7 +238,13 @@ document.addEventListener("DOMContentLoaded", () => {
         resetState();
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        passageElement.innerHTML = currentQuestion.passage || ""; // Ensure passage is set, default to empty string if undefined
+    
+        // Debug: Log the passage and section to verify data
+        console.log("Current Section:", currentSection);
+        console.log("Passage Data:", currentQuestion.passage);
+        console.log("Setting passageElement.innerHTML to:", currentQuestion.passage || "");
+    
+        passageElement.innerHTML = currentQuestion.passage || ""; // Set the passage, default to empty string if undefined
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
         
         currentQuestion.answers.forEach(answer => {
@@ -241,8 +259,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         
         updateProgressBar();
+    
+        // Debug: Log the passageElement content after setting it
+        console.log("passageElement.innerHTML after setting:", passageElement.innerHTML);
     }
-
     function resetState() {
         nextButton.style.display = "none";
         nextButton.classList.remove("centered-btn");
