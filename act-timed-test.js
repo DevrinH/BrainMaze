@@ -236,9 +236,8 @@ document.addEventListener("DOMContentLoaded", () => {
         questionRow.classList.remove("vertical-layout", "side-by-side");
         if (currentSection === "math") {
             questionRow.classList.add("vertical-layout");
-        } else {
-            questionRow.classList.add("side-by-side");
         }
+        // No need for side-by-side class since the default .question-row CSS handles English, Reading, Science
     
         showQuestion();
     }
