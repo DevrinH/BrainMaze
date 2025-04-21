@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const actIntroContainer = document.getElementById("act-intro-container");
     const startTestButton = document.getElementById("start-test-btn");
     const continueButton = document.getElementById("continue-btn");
+    
 
     let currentQuestionIndex = 0;
     let score = 0;
