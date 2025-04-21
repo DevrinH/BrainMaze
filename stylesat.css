@@ -1241,42 +1241,55 @@ h3 {
 
 
 
-/* Math section: Hide passage and center question/answers */
+/* Math section: Center and style the container */
 .math-section .question-row {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  max-width: 500px; /* Narrower container to match the first image */
+  background-color: #2a2e45; /* Dark background to match the first image */
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--container-shadow) 0 5px 15px;
+  margin: 30px auto;
 }
 
+/* Hide passage for Math */
 .math-section .passage-text {
-  display: none; /* Hide passage for Math */
+  display: none;
 }
 
+/* Ensure right-column takes full width within the narrower container */
 .math-section .right-column {
-  width: 100%; /* Full width for centering */
-  max-width: 400px; /* Limit width for better appearance */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Style the question */
 .math-section .question-text {
   font-size: 1.2rem;
+  color: white; /* White text to match the first image */
   margin-bottom: 20px;
   text-align: center;
 }
 
+/* Style the answer buttons */
 .math-section .answer-choices {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px; /* More spacing between buttons */
   width: 100%;
+  max-width: 300px; /* Limit button width to match the first image */
 }
 
 .math-section .btn {
-  background-color: var(--btn-bg);
-  color: var(--text-color);
-  padding: 10px;
+  background-color: #3f4461; /* Slightly lighter background for buttons */
+  color: white; /* White text for buttons */
+  padding: 12px 15px; /* Adjusted padding for better appearance */
   border: none;
   border-radius: 5px;
   text-align: left;
@@ -1287,8 +1300,28 @@ h3 {
 }
 
 .math-section .btn:hover {
+  background-color: #4a4f6f; /* Lighter hover effect */
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
   transform: translateY(-2px);
+}
+
+.math-section .btn:active {
+  box-shadow: var(--btn-shadow) 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/* Ensure the Next button is centered and styled correctly */
+.math-section #next-btn {
+  display: block;
+  margin: 20px auto;
+  background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
+  color: #fff;
+  font-size: 18px;
+  padding: 0 18px;
+  height: 47px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
 }
 
 
