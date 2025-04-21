@@ -1270,7 +1270,7 @@ h3 {
 }
 
 .math-section .btn {
-  background-color: #2a2e45;
+  
   color: white;
   padding: 10px;
   border: none;
@@ -1279,10 +1279,6 @@ h3 {
   font-size: 1rem;
   cursor: pointer;
   width: 100%;
-}
-
-.math-section .btn:hover {
-  background-color: #3b3f5a;
 }
 
 
@@ -1338,7 +1334,7 @@ h3 {
 .english-section .btn,
 .reading-section .btn,
 .science-section .btn {
-    background-color: #2a2e45;
+    
     color: white;
     padding: 10px;
     border: none;
@@ -1352,5 +1348,5 @@ h3 {
 .english-section .btn:hover,
 .reading-section .btn:hover,
 .science-section .btn:hover {
-    background-color: #3b3f5a;
+    
 }
