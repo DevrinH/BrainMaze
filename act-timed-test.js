@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
         passage: "The old house on Maple Street stood at the edge of town, its weathered clapboards sagging under the weight of decades. Ivy clung to its walls, curling around the cracked windows like fingers guarding secrets. To the townsfolk, it was a relic—haunted, they whispered, by the spirit of Eliza Hawthorne, who vanished in 1923. Clara, a young librarian with a penchant for unraveling mysteries, felt drawn to the house. She’d spent months poring over archives, piecing together Eliza’s life: a poet, a recluse, a woman who’d loved fiercely and lost tragically. Clara’s fascination wasn’t just academic; it was personal. Her grandmother had spoken of Eliza as if she’d known her, though the timelines didn’t align.\n\nOn a crisp October evening, Clara slipped through the rusted gate, her flashlight cutting through the dusk. The air inside the house was thick with dust, the floorboards groaning under her steps. In the parlor, she found a bureau, its drawers stuffed with letters and poems. One letter, penned in Eliza’s looping script, spoke of a hidden room where she’d kept her ‘heart’s truth.’ Clara’s pulse quickened. She tapped the walls, listening for hollows, until a panel behind the fireplace gave way, revealing a narrow staircase.\n\nThe hidden room was small, its walls lined with shelves of journals. A single chair faced a window overlooking the garden, now overgrown. Clara opened a journal, its pages brittle but legible. Eliza’s words painted a vivid picture: her love for a man named Thomas, a sailor who never returned from sea; her despair as the town turned against her, branding her eccentric; her resolve to hide her work, fearing it would be misunderstood. The final entry was dated the day she disappeared: ‘They will not have my words. I leave them to the one who seeks.’\n\nClara sat in the chair, the journal heavy in her hands. She felt an ache, not just for Eliza, but for herself—a life spent searching for meaning in others’ stories. Outside, the wind stirred the leaves, and for a moment, Clara swore she heard a whisper, soft as a sigh, urging her to keep reading.",
         question: "What is the primary reason Clara is drawn to the house on Maple Street?",
-        answers: [
+        "answers": [
           { "text": "A) She wants to prove the house is haunted.", "correct": false },
           { "text": "B) She is researching Eliza Hawthorne’s life.", "correct": true },
           { "text": "C) She plans to renovate the property.", "correct": false },
@@ -84,18 +84,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const scienceQuestions = [          
         
         {
-            "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health...",
-            "question": "Suppose a researcher finds that coral cover declined in a region where both pH decreased and temperature increased...",
-            "answers": [
-                { "text": "A) It would make Scientist 1’s hypothesis less plausible than Scientist 2’s", "correct": false },
-                { "text": "B) It would make Scientist 2’s hypothesis more plausible than Scientist 1’s", "correct": false },
-                { "text": "C) It would make both hypotheses equally plausible", "correct": false },
-                { "text": "D) It would make Scientist 1’s hypothesis more plausible than Scientist 2’s", "correct": true }
-            ],
-            "type": "science", // Fixed to "science"
-            "difficulty": "very hard",
-            "category": "conflicting viewpoints"
-        },
+        passage: "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
+        question: "Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?",
+        answers: [
+            { "text": "A) 20°C", "correct": false },
+            { "text": "B) 40°C", "correct": true },
+            { "text": "C) 50°C", "correct": false },
+            { "text": "D) 60°C", "correct": false }
+        ],
+        type: "science",
+        difficulty: "medium",
+        category: "data representation"
+    },
     
     {
         "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity. Two scientists propose different explanations for this decline.\n\n**Scientist 1: Ocean Acidification Hypothesis**\nScientist 1 argues that ocean acidification, caused by increased atmospheric CO₂ dissolving into seawater, is the primary cause of coral decline. Higher CO₂ levels lower seawater pH, reducing carbonate ion availability, which corals need to build calcium carbonate skeletons. Weakened skeletons lead to slower growth and increased susceptibility to damage. Scientist 1 cites data from a study of a Pacific reef (Figure 1).\n- Figure 1: Coral Cover (%) vs. Seawater pH (2000–2020)\n  - 2000: pH 8.1, 60% cover; 2005: pH 8.05, 55%; 2010: pH 8.0, 45%; 2015: pH 7.95, 35%; 2020: pH 7.9, 25%\nScientist 1 predicts that without CO₂ emission reductions, coral cover will continue to decline as pH drops further.\n\n**Scientist 2: Thermal Stress Hypothesis**\nScientist 2 contends that thermal stress from rising sea surface temperatures is the main driver of coral decline. Warmer waters cause coral bleaching, where corals expel symbiotic algae (zooxanthellae), leading to starvation and death. Scientist 2 references a study tracking temperature and bleaching events (Figure 2).\n- Figure 2: Bleaching Events vs. Sea Surface Temperature (°C) (2000–2020)\n  - 2000: 27.0°C, 0 events; 2005: 27.5°C, 1 event; 2010: 28.0°C, 2 events; 2015: 28.5°C, 3 events; 2020: 29.0°C, 4 events\nScientist 2 argues that temperature increases, driven by climate change, correlate strongly with bleaching and coral loss, and mitigation requires global temperature control.",
@@ -113,26 +113,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ];
 
-function startTest() {
-    console.log("startTest called");
-    if (!actIntroContainer || !document.getElementById("question-container")) {
-        console.error("Required elements not found");
-        return;
+    function startTest() {
+        if (!actIntroContainer || !document.getElementById("question-container")) {
+            console.error("Required elements not found");
+            return;
+        }
+        actIntroContainer.classList.add("hide");
+        document.getElementById("question-container").classList.remove("hide");
+        startEnglishSection();
     }
-    actIntroContainer.classList.add("hide");
-    document.getElementById("question-container").classList.remove("hide");
-    startEnglishSection();
-}
 
-function startEnglishSection() {
-    console.log("Starting English Section");
-    currentSection = "english";
-    time = 45 * 60;
-    userResponses = [];
-    refreshIntervalId = setInterval(updateCountdown, 1000);
-    setTimeout(endEnglishSection, 2700000);
-    startQuiz(englishQuestions);
-}
+    function startEnglishSection() {
+        currentSection = "english";
+        time = 45 * 60;
+        userResponses = [];
+        refreshIntervalId = setInterval(updateCountdown, 1000);
+        setTimeout(endEnglishSection, 2700000);
+        startQuiz(englishQuestions); // Removed 25, 25, 25
+    }
     
     function startMathSection() {
         currentSection = "math";
@@ -225,43 +223,26 @@ function startEnglishSection() {
     
 
 
-// Updated showQuestion Function
-function showQuestion() {
-    resetState();
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
-
-    console.log("Current Section:", currentSection);
-    console.log("Passage Data:", currentQuestion.passage);
-    console.log("Setting passageElement.innerHTML to:", currentQuestion.passage || "");
-
-    passageElement.innerHTML = (currentQuestion.passage || "").trim();
-    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-    
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        answerButtons.appendChild(button);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener("click", selectAnswer);
-    });
-    
-    updateProgressBar();
-
-    console.log("passageElement.innerHTML after setting:", passageElement.innerHTML);
-
-    const questionRow = document.querySelector("#question-container .question-row");
-    const questionRowStyles = window.getComputedStyle(questionRow);
-    console.log("question-row computed display:", questionRowStyles.display);
-    console.log("question-row computed flex-direction:", questionRowStyles.flexDirection);
-    console.log("question-row computed gap:", questionRowStyles.gap);
-    console.log("passage computed display:", window.getComputedStyle(passageElement).display);
-    console.log("right-column computed display:", window.getComputedStyle(document.querySelector(".right-column")).display);
-}
-
+    function showQuestion() {
+        resetState();
+        let currentQuestion = selectedQuestions[currentQuestionIndex];
+        let questionNo = currentQuestionIndex + 1;
+        passageElement.innerHTML = currentQuestion.passage || ""; // Ensure passage is set, default to empty string if undefined
+        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+        
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            answerButtons.appendChild(button);
+            if (answer.correct) {
+                button.dataset.correct = answer.correct;
+            }
+            button.addEventListener("click", selectAnswer);
+        });
+        
+        updateProgressBar();
+    }
     function resetState() {
         nextButton.style.display = "none";
         nextButton.classList.remove("centered-btn");
@@ -434,7 +415,6 @@ function showQuestion() {
             window.location.href = "https://www.brainjelli.com/user-profile";
         });
     }
-
 
 
     function generateExplanation(response) {
@@ -1017,24 +997,19 @@ function showQuestion() {
     } else {
         console.error("next-btn element not found");
     }
-// Event Listener for Continue Button
-if (continueButton) {
-    continueButton.addEventListener("click", () => {
-        document.getElementById("break-message").classList.add("hide");
-        const questionContainer = document.getElementById("question-container");
-        questionContainer.classList.remove("hide");
 
-        // Ensure the container is visible before proceeding
-        setTimeout(() => {
+    if (continueButton) {
+        continueButton.addEventListener("click", () => {
+            document.getElementById("break-message").classList.add("hide");
+            document.getElementById("question-container").classList.remove("hide");
             switch (currentSection) {
                 case "english": startMathSection(); break;
                 case "math": startReadingSection(); break;
                 case "reading": startScienceSection(); break;
                 case "science": showFinalScore(); break;
             }
-        }, 50); // Small delay to ensure DOM is updated
-    });
-} else {
-    console.error("continue-btn element not found");
-}
+        });
+    } else {
+        console.error("continue-btn element not found");
+    }
 });
