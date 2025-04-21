@@ -1233,11 +1233,55 @@ h3 {
   box-sizing: border-box; /* Include padding in width */
   width: 95%;
 }
-/* Reset conflicting styles for question-row */
-.question-row {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ensure #question-container is visible */
+#question-container {
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* Base style for .question-row with high specificity */
+div#question-container div.question-row {
   display: flex;
-  flex-direction: row;
-  gap: 20px; /* Space between passage and right column */
+  flex-direction: row; /* Default to side-by-side for English, Reading, Science */
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
   max-width: 900px;
   width: 95%;
   background-color: var(--container-bg);
@@ -1249,8 +1293,9 @@ h3 {
 }
 
 /* Passage styling */
-.passage-text {
-  flex: 1; /* Take up proportional space */
+div#question-container div#passage.passage-text {
+  flex: 1;
+  max-width: 45%;
   padding-right: 15px;
   font-family: "Montserrat-SemiBold", sans-serif;
   font-size: 1em;
@@ -1258,102 +1303,98 @@ h3 {
   max-height: 400px;
   overflow-y: auto;
   color: var(--text-color);
+  background-color: #1e2a44;
+  border-radius: 8px;
+  padding: 15px;
 }
 
 /* Hide passage if empty */
-.passage-text:empty {
+div#question-container div#passage.passage-text:empty {
   display: none;
 }
 
-/* Right column styling */
-.right-column {
-  flex: 1; /* Take up proportional space */
+/* Right column (question and answers) */
+div#question-container div.right-column {
+  flex: 1;
+  max-width: 55%;
   display: flex;
-  flex-direction: column; /* Stack question and answers vertically */
-  gap: 15px; /* Space between question and answers */
-  align-items: flex-start; /* Align content to the left */
-  text-align: left; /* Ensure text alignment is left */
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
 }
 
 /* Question text */
-.question-text {
-  margin-bottom: 0; /* Remove unnecessary margin */
+div#question-container div#question.question-text {
+  margin-bottom: 15px;
   font-family: "Montserrat-SemiBold", sans-serif;
   font-size: 1.1em;
   line-height: 1.4;
   color: var(--text-color);
+  background-color: #1e2a44;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 /* Answer choices */
-.answer-choices {
+div#question-container div#answer-buttons.answer-choices {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between answer buttons */
-  width: 100%; /* Take full width of right-column */
+  gap: 10px;
 }
 
-/* Answer buttons */
-.btn {
+/* Button styling */
+div#question-container div#answer-buttons.answer-choices .btn {
   padding: 10px 15px;
-  margin: 0; /* Remove auto margin to prevent centering */
+  margin: 5px 0;
   color: var(--text-color);
   border: none;
   border-radius: 4px;
-  width: 100%; /* Take full width of answer-choices */
+  width: 100%;
   text-align: left;
   font-family: "Montserrat-SemiBold", sans-serif;
   font-size: 15px;
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.15s, transform 0.15s;
-  background-color: var(--btn-bg);
+  background-color: #2a3b5b;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
-  line-height: 1.4;
-  list-style: none;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow: visible;
-  min-height: 40px;
 }
 
-/* Remove centering for sections with passage */
-.question-row:has(.passage-text:not(:empty)) {
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-/* Center content for sections without passage (e.g., Math) */
-.question-row:has(.passage-text:empty) .right-column {
+/* For Math section: Center the content when there's no passage */
+div#question-container div.question-row.vertical-layout {
+  flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+div#question-container div.question-row.vertical-layout .passage-text {
+  display: none;
+}
+
+div#question-container div.question-row.vertical-layout .right-column {
+  max-width: 600px;
   width: 100%;
+  align-items: center;
+  text-align: center;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .question-row {
+  div#question-container div.question-row {
     flex-direction: column;
+    align-items: center;
     margin: 20px auto;
     padding: 15px;
   }
 
-  .passage-text,
-  .right-column {
+  div#question-container div#passage.passage-text,
+  div#question-container div.right-column {
+    max-width: 100%;
     width: 100%;
     padding: 0;
   }
 
-  .passage-text {
+  div#question-container div#passage.passage-text {
     margin-bottom: 20px;
     max-height: 300px;
   }
-
-  .right-column {
-    align-items: flex-start; /* Keep alignment consistent on mobile */
-    text-align: left;
-  }
 }
-/* Responsive adjustments for smaller screens */
