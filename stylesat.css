@@ -1243,6 +1243,7 @@ h3 {
 
 /* Math section: Hide passage and center question/answers */
 .math-section .question-row {
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1320,31 +1321,41 @@ h3 {
 .reading-section #question-container,
 .science-section #question-container {
     flex: 1;
+=======
+>>>>>>> 72277431fbbfaea49433d8e3d3205ab9c94fa419
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
 }
 
-.english-section #question,
-.reading-section #question,
-.science-section #question {
+.math-section .passage-text {
+    display: none; /* Hide passage for Math */
+}
+
+.math-section .right-column {
+    width: 100%; /* Full width for centering */
+    max-width: 400px; /* Limit width for better appearance */
+}
+
+.math-section .question-text {
     font-size: 1.2rem;
-    color: white;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.english-section #answer-buttons,
-.reading-section #answer-buttons,
-.science-section #answer-buttons {
+.math-section .answer-choices {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 
-.english-section .btn,
-.reading-section .btn,
-.science-section .btn {
-    background-color: #2a2e45;
-    color: white;
+.math-section .btn {
+    background-color: var(--btn-bg);
+    color: var(--text-color);
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -1352,10 +1363,15 @@ h3 {
     font-size: 1rem;
     cursor: pointer;
     width: 100%;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
 }
 
-.english-section .btn:hover,
-.reading-section .btn:hover,
-.science-section .btn:hover {
-    background-color: #3b3f5a;
+.math-section .btn:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
+    transform: translateY(-2px);
 }
+
+
+
+
+
