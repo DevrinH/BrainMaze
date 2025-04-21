@@ -1277,6 +1277,16 @@ h3 {
   text-align: center;
 }
 
+.math-section .btn.correct {
+  background-color: #28a745;
+  color: white;
+}
+
+.math-section .btn.incorrect {
+  background-color: #dc3545;
+  color: white;
+}
+
 /* Style the answer buttons */
 .math-section .answer-choices {
   display: flex;
