@@ -1165,7 +1165,7 @@ h2 {
 
 .btn {
   padding: 10px 15px;
-  margin: 5px 0;
+  margin: 0;
   color: var(--text-color);
   border: none;
   border-radius: 4px;
@@ -1239,9 +1239,11 @@ h2 {
   color: var(--text-color);
 }
 
+/* Consolidated styles for question-row */
 .question-row {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row; /* Default to side-by-side layout */
+  gap: 20px; /* Space between passage and right column */
   max-width: 900px;
   width: 95%;
   background-color: var(--container-bg);
@@ -1250,10 +1252,12 @@ h2 {
   padding: 20px;
   margin: 30px auto;
   overflow: hidden;
+  align-items: flex-start; /* Align items at the top */
 }
 
+/* Passage styling */
 .passage-text {
-  width: 45%;
+  flex: 1; /* Take up proportional space */
   padding-right: 15px;
   font-family: "Montserrat-SemiBold", sans-serif;
   font-size: 1em;
@@ -1263,41 +1267,59 @@ h2 {
   color: var(--text-color);
 }
 
-.right-column {
-  width: 55%;
-  display: flex;
-  flex-direction: column;
+/* Hide passage if empty */
+.passage-text:empty {
+  display: none;
 }
 
+/* Right column styling */
+.right-column {
+  flex: 1; /* Take up proportional space */
+  display: flex;
+  flex-direction: column; /* Stack question and answers vertically */
+  gap: 15px; /* Space between question and answers */
+  align-items: flex-start; /* Align content to the left */
+  text-align: left; /* Ensure text alignment is left */
+}
+
+/* Question text */
 .question-text {
-  margin-bottom: 15px;
+  margin-bottom: 0; /* Remove unnecessary margin */
   font-family: "Montserrat-SemiBold", sans-serif;
   font-size: 1.1em;
   line-height: 1.4;
   color: var(--text-color);
 }
 
+/* Answer choices */
 .answer-choices {
   display: flex;
   flex-direction: column;
+  gap: 10px; /* Space between answer buttons */
+  width: 100%; /* Take full width of right-column */
 }
 
-#break-message {
+/* Center content for sections without passage (e.g., Math) */
+.question-row:has(.passage-text:empty) {
+  flex-direction: column; /* Stack vertically when no passage */
+}
+
+.question-row:has(.passage-text:empty) .right-column {
+  align-items: center;
   text-align: center;
-  margin: 20px auto;
-  max-width: 900px;
+  width: 100%;
 }
 
-#break-message p {
-  font-family: "Montserrat-SemiBold", sans-serif;
-  font-size: 1.2em;
-  color: var(--text-color);
+/* Ensure side-by-side layout for sections with passage */
+.question-row:has(.passage-text:not(:empty)) {
+  flex-direction: row;
+  align-items: flex-start;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for question-row */
 @media (max-width: 768px) {
   .question-row {
-    flex-direction: column;
+    flex-direction: column; /* Stack vertically on mobile */
     margin: 20px auto;
     padding: 15px;
   }
@@ -1312,6 +1334,23 @@ h2 {
     margin-bottom: 20px;
     max-height: 300px;
   }
+
+  .right-column {
+    align-items: flex-start; /* Keep alignment consistent on mobile */
+    text-align: left;
+  }
+}
+
+#break-message {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+#break-message p {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 1.2em;
+  color: var(--text-color);
 }
 
 #progress-bar-test {
@@ -1572,7 +1611,7 @@ h2 {
 
 #math-lesson-container .btn {
   padding: 10px 15px;
-  margin: 5px 0;
+  margin: 0;
   color: var(--text-color);
   border: none;
   border-radius: 4px;
@@ -1910,7 +1949,6 @@ footer h3 {
   box-sizing: border-box;
 }
 
-
 /* Ensure chart inside chart-container takes full width */
 .chart-container > * {
   width: 100%; /* Ensure all direct children take full width */
@@ -1935,7 +1973,6 @@ footer h3 {
   margin-top: -20px;
 }
 
-
 /* Chart container (parent of #scoreChart) */
 .chart-container {
   width: 100%; /* Take full width of .line-chart-container */
@@ -1959,7 +1996,6 @@ footer h3 {
   max-height: 500px !important;
 }
 
-
 /* Line chart container (parent container) */
 .line-chart-container {
   min-height: 500px;
@@ -1978,6 +2014,7 @@ footer h3 {
   width: 70%; /* Match .flex-container */
   max-width: 1400px; /* Match .flex-container */
 }
+
 /* Flex container for layout */
 .flex-container {
   display: flex;
@@ -1997,9 +2034,8 @@ footer h3 {
   .line-chart-container {
     width: 90%; /* Match .flex-container on phone */
   }
-
-
 }
+
 /* Responsive adjustments for phone screens */
 @media (max-width: 400px) {
   .flex-container {
@@ -2016,8 +2052,7 @@ footer h3 {
     margin: 0 auto 20px auto;
   }
 
-  .testlessoncontainer
-  {
+  .testlessoncontainer {
     height: 3000px;
   }
 
@@ -2029,9 +2064,6 @@ footer h3 {
     width: 90%; /* Suitable for phone screens */
   }
 }
-/* NEW CODE container for layout */
-
-
 
 /* Responsive adjustments for phone screens */
 @media (max-width: 900px) {
@@ -2058,293 +2090,5 @@ footer h3 {
 
   .chart-container-bar {
     width: 90%; /* Match .line-chart-container on phone */
-  }
-}
-
-
-
-
-
-
-.question-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-#passage.passage-text {
-  display: block;
-  width: 100%;
-}
-
-.right-column {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* When passage is empty or hidden, center the content */
-#passage.passage-text:empty {
-  display: none;
-}
-
-#question.question-text,
-#answer-buttons.answer-choices {
-  width: 100%;
-  max-width: 600px;
-}
-
-#answer-buttons.answer-choices {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-
-.btn {
-  padding: 10px;
-  width: 100px;
-  margin: 0 auto;
-  display: block;
-}
-
-/* For English, Reading, Science: Side-by-side layout */
-.question-row:has(#passage:not(:empty)) {
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-.question-row:has(#passage:not(:empty)) #passage {
-  flex: 1;
-}
-
-.question-row:has(#passage:not(:empty)) .right-column {
-  flex: 1;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.math-section .right-column {
-  align-items: center;
-  text-align: center;
-}
-.english-section,
-.reading-section,
-.science-section {
-  flex-direction: row;
-  align-items: flex-start;
-}
-.question-row.without-passage .right-column {
-  align-items: center;
-  text-align: center;
-}
-
-.question-row.with-passage {
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-.question-row.with-passage #passage {
-  display: block;
-  flex: 1;
-}
-
-.question-row.with-passage .right-column {
-  flex: 1;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.question-row:has(#passage:not(:empty)) {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-start !important;
-}
-
-.right-column {
-  align-items: center !important;
-  text-align: center !important;
-}
-.math-section .right-column {
-  align-items: center;
-  text-align: center;
-}
-
-.english-section,
-.reading-section,
-.science-section {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-.english-section #passage,
-.reading-section #passage,
-.science-section #passage {
-  display: block;
-  flex: 1;
-}
-
-.english-section .right-column,
-.reading-section .right-column,
-.science-section .right-column {
-  flex: 1;
-  align-items: flex-start;
-  text-align: left;
-}
-
-
-/* Add this CSS for side-by-side layout */
-.question-row {
-  display: flex;
-  flex-direction: row;
-  gap: 20px; /* Space between passage and answers */
-}
-
-.passage-container {
-  flex: 2; /* Allocate more space for the passage */
-  padding: 10px;
-}
-
-.answer-container {
-  flex: 1; /* Allocate less space for the answers */
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-
-
-
-
-
-
-
-
-/* Reset conflicting styles for question-row */
-.question-row {
-  display: flex;
-  flex-direction: row;
-  gap: 20px; /* Space between passage and right column */
-  max-width: 900px;
-  width: 95%;
-  background-color: var(--container-bg);
-  border-radius: 12px;
-  box-shadow: var(--container-shadow) 0 5px 15px;
-  padding: 20px;
-  margin: 30px auto;
-  overflow: hidden;
-}
-
-/* Passage styling */
-.passage-text {
-  flex: 1; /* Take up proportional space */
-  padding-right: 15px;
-  font-family: "Montserrat-SemiBold", sans-serif;
-  font-size: 1em;
-  line-height: 1.5;
-  max-height: 400px;
-  overflow-y: auto;
-  color: var(--text-color);
-}
-
-/* Hide passage if empty */
-.passage-text:empty {
-  display: none;
-}
-
-/* Right column styling */
-.right-column {
-  flex: 1; /* Take up proportional space */
-  display: flex;
-  flex-direction: column; /* Stack question and answers vertically */
-  gap: 15px; /* Space between question and answers */
-  align-items: flex-start; /* Align content to the left */
-  text-align: left; /* Ensure text alignment is left */
-}
-
-/* Question text */
-.question-text {
-  margin-bottom: 0; /* Remove unnecessary margin */
-  font-family: "Montserrat-SemiBold", sans-serif;
-  font-size: 1.1em;
-  line-height: 1.4;
-  color: var(--text-color);
-}
-
-/* Answer choices */
-.answer-choices {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Space between answer buttons */
-  width: 100%; /* Take full width of right-column */
-}
-
-/* Answer buttons */
-.btn {
-  padding: 10px 15px;
-  margin: 0; /* Remove auto margin to prevent centering */
-  color: var(--text-color);
-  border: none;
-  border-radius: 4px;
-  width: 100%; /* Take full width of answer-choices */
-  text-align: left;
-  font-family: "Montserrat-SemiBold", sans-serif;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.15s, transform 0.15s;
-  background-color: var(--btn-bg);
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
-  line-height: 1.4;
-  list-style: none;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow: visible;
-  min-height: 40px;
-}
-
-/* Remove centering for sections with passage */
-.question-row:has(.passage-text:not(:empty)) {
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-/* Center content for sections without passage (e.g., Math) */
-.question-row:has(.passage-text:empty) .right-column {
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .question-row {
-    flex-direction: column;
-    margin: 20px auto;
-    padding: 15px;
-  }
-
-  .passage-text,
-  .right-column {
-    width: 100%;
-    padding: 0;
-  }
-
-  .passage-text {
-    margin-bottom: 20px;
-    max-height: 300px;
-  }
-
-  .right-column {
-    align-items: flex-start; /* Keep alignment consistent on mobile */
-    text-align: left;
   }
 }
