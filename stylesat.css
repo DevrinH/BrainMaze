@@ -1233,3 +1233,49 @@ h3 {
   box-sizing: border-box; /* Include padding in width */
   width: 95%;
 }
+/* Passage styling */
+.passage-text {
+  flex: 1; /* Take up proportional space */
+  padding-right: 15px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  max-height: 400px;
+  overflow-y: auto;
+  color: var(--text-color);
+  display: block !important;
+  visibility: visible !important;
+  border: 2px solid red !important; /* Debug border */
+}
+
+/* Ensure visibility with higher specificity */
+#question-container .question-row #passage.passage-text {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  border: 2px solid red !important; /* Debug border */
+}
+
+/* Hide passage if truly empty */
+.passage-text:empty {
+  display: none !important;
+}
+
+/* Ensure passage is visible if it has content */
+.passage-text:not(:empty) {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure parent container is visible */
+#question-container {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.question-row {
+  display: flex !important;
+  flex-direction: row !important;
+  visibility: visible !important;
+}
