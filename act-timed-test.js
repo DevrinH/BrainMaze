@@ -236,9 +236,10 @@ function showQuestion() {
 
     if (passageElement) {
         passageElement.innerHTML = currentQuestion.passage || "";
-        passageElement.style.display = "block"; // Force visibility
-        passageElement.style.visibility = "visible";
-        passageElement.offsetHeight; // Trigger reflow
+        // Remove inline styles; let CSS handle display and visibility
+        // passageElement.style.display = "block"; // Removed
+        // passageElement.style.visibility = "visible"; // Removed
+        passageElement.offsetHeight; // Trigger reflow (still okay to keep)
     } else {
         console.error("passageElement not found in DOM");
     }
