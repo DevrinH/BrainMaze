@@ -223,26 +223,45 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
 
-    function showQuestion() {
-        resetState();
-        let currentQuestion = selectedQuestions[currentQuestionIndex];
-        let questionNo = currentQuestionIndex + 1;
-        passageElement.innerHTML = currentQuestion.passage || ""; // Ensure passage is set, default to empty string if undefined
-        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-        
-        currentQuestion.answers.forEach(answer => {
-            const button = document.createElement("button");
-            button.innerHTML = answer.text;
-            button.classList.add("btn");
-            answerButtons.appendChild(button);
-            if (answer.correct) {
-                button.dataset.correct = answer.correct;
-            }
-            button.addEventListener("click", selectAnswer);
-        });
-        
-        updateProgressBar();
+// Updated showQuestion Function
+function showQuestion() {
+    resetState();
+    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+
+    // Debug passage rendering
+    console.log("Current section:", currentSection);
+    console.log("Passage element:", passageElement);
+    console.log("Passage content:", currentQuestion.passage);
+
+    if (passageElement) {
+        passageElement.innerHTML = currentQuestion.passage || "";
+        passageElement.style.display = "block"; // Force visibility
+        passageElement.style.visibility = "visible";
+        passageElement.offsetHeight; // Trigger reflow
+    } else {
+        console.error("passageElement not found in DOM");
     }
+
+    if (questionElement) {
+        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+    } else {
+        console.error("questionElement not found in DOM");
+    }
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
+
+    updateProgressBar();
+}
 
     function resetState() {
         nextButton.style.display = "none";
@@ -999,19 +1018,24 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("next-btn element not found");
     }
+// Event Listener for Continue Button
+if (continueButton) {
+    continueButton.addEventListener("click", () => {
+        document.getElementById("break-message").classList.add("hide");
+        const questionContainer = document.getElementById("question-container");
+        questionContainer.classList.remove("hide");
 
-    if (continueButton) {
-        continueButton.addEventListener("click", () => {
-            document.getElementById("break-message").classList.add("hide");
-            document.getElementById("question-container").classList.remove("hide");
+        // Ensure the container is visible before proceeding
+        setTimeout(() => {
             switch (currentSection) {
                 case "english": startMathSection(); break;
                 case "math": startReadingSection(); break;
                 case "reading": startScienceSection(); break;
                 case "science": showFinalScore(); break;
             }
-        });
-    } else {
-        console.error("continue-btn element not found");
-    }
+        }, 50); // Small delay to ensure DOM is updated
+    });
+} else {
+    console.error("continue-btn element not found");
+}
 });
