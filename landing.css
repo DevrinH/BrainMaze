@@ -2220,3 +2220,131 @@ footer h3 {
 
 
 
+
+
+
+
+
+/* Reset conflicting styles for question-row */
+.question-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Space between passage and right column */
+  max-width: 900px;
+  width: 95%;
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: var(--container-shadow) 0 5px 15px;
+  padding: 20px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+/* Passage styling */
+.passage-text {
+  flex: 1; /* Take up proportional space */
+  padding-right: 15px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  max-height: 400px;
+  overflow-y: auto;
+  color: var(--text-color);
+}
+
+/* Hide passage if empty */
+.passage-text:empty {
+  display: none;
+}
+
+/* Right column styling */
+.right-column {
+  flex: 1; /* Take up proportional space */
+  display: flex;
+  flex-direction: column; /* Stack question and answers vertically */
+  gap: 15px; /* Space between question and answers */
+  align-items: flex-start; /* Align content to the left */
+  text-align: left; /* Ensure text alignment is left */
+}
+
+/* Question text */
+.question-text {
+  margin-bottom: 0; /* Remove unnecessary margin */
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 1.1em;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+/* Answer choices */
+.answer-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between answer buttons */
+  width: 100%; /* Take full width of right-column */
+}
+
+/* Answer buttons */
+.btn {
+  padding: 10px 15px;
+  margin: 0; /* Remove auto margin to prevent centering */
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  width: 100%; /* Take full width of answer-choices */
+  text-align: left;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.15s, transform 0.15s;
+  background-color: var(--btn-bg);
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
+  line-height: 1.4;
+  list-style: none;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: visible;
+  min-height: 40px;
+}
+
+/* Remove centering for sections with passage */
+.question-row:has(.passage-text:not(:empty)) {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* Center content for sections without passage (e.g., Math) */
+.question-row:has(.passage-text:empty) .right-column {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .question-row {
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .passage-text,
+  .right-column {
+    width: 100%;
+    padding: 0;
+  }
+
+  .passage-text {
+    margin-bottom: 20px;
+    max-height: 300px;
+  }
+
+  .right-column {
+    align-items: flex-start; /* Keep alignment consistent on mobile */
+    text-align: left;
+  }
+}
