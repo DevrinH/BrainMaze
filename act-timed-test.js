@@ -232,13 +232,14 @@ function showQuestion() {
     // Debug passage rendering
     console.log("Current section:", currentSection);
     console.log("Passage element:", passageElement);
-    console.log("Passage content:", currentQuestion.passage);
+    console.log("Raw passage content:", currentQuestion.passage);
 
     if (passageElement) {
-        passageElement.innerHTML = currentQuestion.passage || "";
-        // Remove inline styles; let CSS handle display and visibility
-        // passageElement.style.display = "block"; // Removed
-        // passageElement.style.visibility = "visible"; // Removed
+        // Ensure passage content is a string and trim whitespace
+        const passageContent = (currentQuestion.passage || "").trim();
+        passageElement.innerHTML = passageContent;
+        console.log("Trimmed passage content:", passageContent);
+        console.log("Passage element after setting content:", passageElement);
         passageElement.offsetHeight; // Trigger reflow (still okay to keep)
     } else {
         console.error("passageElement not found in DOM");
