@@ -2110,6 +2110,32 @@ footer h3 {
     width: 90%; /* Match .line-chart-container on phone */
   }
 }
+div#question-container div#passage.passage-text {
+  flex: 1 !important;
+  max-width: 45% !important;
+  padding-right: 15px !important;
+  font-family: "Montserrat-SemiBold", sans-serif !important;
+  font-size: 1em !important;
+  line-height: 1.5 !important;
+  max-height: 400px !important;
+  overflow-y: auto !important;
+  color: var(--text-color) !important;
+  background-color: #1e2a44 !important;
+  border-radius: 8px !important;
+  padding: 15px !important;
+}
+
+div#question-container div#passage.passage-text:empty {
+  display: none !important;
+}
+div#question-container div.right-column {
+  flex: 1 !important;
+  max-width: 55% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  text-align: left !important;
+}
 
 /* Temporarily disable the media query for debugging */
 /*
