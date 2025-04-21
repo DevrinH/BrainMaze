@@ -259,9 +259,16 @@ const nextButton = document.getElementById("next-btn");
         if (lessonContainer) lessonContainer.classList.add("hide");
       
         showQuestion();
-      }
+    }
     
-
+    function resetState() {
+        answerButtons.innerHTML = "";
+        nextButton.style.display = "none";
+        nextButton.disabled = true;
+        // Ensure passage and question elements are not hidden
+        passageElement.style.display = "block";
+        questionElement.style.display = "block";
+    }
 
     function showQuestion() {
         resetState();
@@ -272,7 +279,7 @@ const nextButton = document.getElementById("next-btn");
         console.log("Passage Data:", currentQuestion.passage);
         console.log("Setting passageElement.innerHTML to:", currentQuestion.passage || "");
     
-        passageElement.innerHTML = currentQuestion.passage || "";
+        passageElement.innerHTML = (currentQuestion.passage || "").trim();
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
         
         currentQuestion.answers.forEach(answer => {
@@ -290,7 +297,6 @@ const nextButton = document.getElementById("next-btn");
     
         console.log("passageElement.innerHTML after setting:", passageElement.innerHTML);
     
-        // Debug: Log computed styles
         const questionRow = document.querySelector("#question-container .question-row");
         const questionRowStyles = window.getComputedStyle(questionRow);
         console.log("question-row computed display:", questionRowStyles.display);
