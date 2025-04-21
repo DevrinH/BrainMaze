@@ -84,18 +84,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const scienceQuestions = [          
         
         {
-        passage: "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
-        question: "Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?",
-        answers: [
-            { "text": "A) 20°C", "correct": false },
-            { "text": "B) 40°C", "correct": true },
-            { "text": "C) 50°C", "correct": false },
-            { "text": "D) 60°C", "correct": false }
-        ],
-        type: "science",
-        difficulty: "medium",
-        category: "data representation"
-    },
+            "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health...",
+            "question": "Suppose a researcher finds that coral cover declined in a region where both pH decreased and temperature increased...",
+            "answers": [
+                { "text": "A) It would make Scientist 1’s hypothesis less plausible than Scientist 2’s", "correct": false },
+                { "text": "B) It would make Scientist 2’s hypothesis more plausible than Scientist 1’s", "correct": false },
+                { "text": "C) It would make both hypotheses equally plausible", "correct": false },
+                { "text": "D) It would make Scientist 1’s hypothesis more plausible than Scientist 2’s", "correct": true }
+            ],
+            "type": "science", // Fixed to "science"
+            "difficulty": "very hard",
+            "category": "conflicting viewpoints"
+        },
     
     {
         "passage": "Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity. Two scientists propose different explanations for this decline.\n\n**Scientist 1: Ocean Acidification Hypothesis**\nScientist 1 argues that ocean acidification, caused by increased atmospheric CO₂ dissolving into seawater, is the primary cause of coral decline. Higher CO₂ levels lower seawater pH, reducing carbonate ion availability, which corals need to build calcium carbonate skeletons. Weakened skeletons lead to slower growth and increased susceptibility to damage. Scientist 1 cites data from a study of a Pacific reef (Figure 1).\n- Figure 1: Coral Cover (%) vs. Seawater pH (2000–2020)\n  - 2000: pH 8.1, 60% cover; 2005: pH 8.05, 55%; 2010: pH 8.0, 45%; 2015: pH 7.95, 35%; 2020: pH 7.9, 25%\nScientist 1 predicts that without CO₂ emission reductions, coral cover will continue to decline as pH drops further.\n\n**Scientist 2: Thermal Stress Hypothesis**\nScientist 2 contends that thermal stress from rising sea surface temperatures is the main driver of coral decline. Warmer waters cause coral bleaching, where corals expel symbiotic algae (zooxanthellae), leading to starvation and death. Scientist 2 references a study tracking temperature and bleaching events (Figure 2).\n- Figure 2: Bleaching Events vs. Sea Surface Temperature (°C) (2000–2020)\n  - 2000: 27.0°C, 0 events; 2005: 27.5°C, 1 event; 2010: 28.0°C, 2 events; 2015: 28.5°C, 3 events; 2020: 29.0°C, 4 events\nScientist 2 argues that temperature increases, driven by climate change, correlate strongly with bleaching and coral loss, and mitigation requires global temperature control.",
@@ -147,8 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endReadingSection, 2100000);
-        passageElement.innerHTML = "";
-        startQuiz(readingQuestions);
+        startQuiz(readingQuestions); // Removed passageElement.innerHTML = "";
     }
     
     function startScienceSection() {
@@ -157,8 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endScienceSection, 2100000);
-        passageElement.innerHTML = "";
-        startQuiz(scienceQuestions);
+        startQuiz(scienceQuestions); // Removed passageElement.innerHTML = "";
     }
 
     function updateCountdown() {
@@ -229,9 +227,9 @@ document.addEventListener("DOMContentLoaded", () => {
         resetState();
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        passageElement.innerHTML = currentQuestion.passage; // Revert to exact old code
+        passageElement.innerHTML = currentQuestion.passage || ""; // Ensure passage is set, default to empty string if undefined
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-    
+        
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
@@ -242,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             button.addEventListener("click", selectAnswer);
         });
-    
+        
         updateProgressBar();
     }
 
