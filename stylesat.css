@@ -1241,3 +1241,51 @@ h3 {
 
 
 
+/* Ensure passage is hidden for Math */
+.math-section #passage {
+    display: none;
+}
+
+/* Center the question and answers for Math */
+.math-section .question-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.math-section #question {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Style answer buttons for Math */
+.math-section #answer-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px; /* Adjust width as needed */
+}
+
+.math-section .btn {
+    background-color: #2a2e45;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.math-section .btn:hover {
+    background-color: #3b3f5a;
+}
+
+
+
+
+
