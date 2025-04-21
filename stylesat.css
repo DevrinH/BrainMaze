@@ -45,6 +45,7 @@
 }
 
 [data-theme="dark"] {
+   --background-color: linear-gradient(to bottom, #251b3d, #1d0a2b);
   --text-color: rgb(220, 220, 220);
   --header-bg: #2a2e43;
   --header-shadow: rgba(0, 0, 0, 0.8);
@@ -1249,7 +1250,7 @@ h3 {
   justify-content: center;
   text-align: center;
   max-width: 500px; /* Narrower container to match the first image */
-
+background-color:var(--background-color);
   padding: 20px;
   border-radius: 10px;
   box-shadow: var(--container-shadow) 0 5px 15px;
@@ -1346,7 +1347,7 @@ h3 {
 .reading-section .passage-text,
 .science-section .passage-text {
     width: 48%;
-    background-color: #2a2e45; /* Match the dark background in the image */
+    background-color: var(--background-color);
     padding: 15px;
     border-radius: 5px;
     color: white;
