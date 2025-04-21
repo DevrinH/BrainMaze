@@ -1331,3 +1331,11 @@ h3 {
 }
 
 
+#question-container {
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  max-width: 900px;
+  padding: 20px;
+  max-height: 2600px;
+}
