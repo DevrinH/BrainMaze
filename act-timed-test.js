@@ -226,66 +226,40 @@ const nextButton = document.getElementById("next-btn");
     }
 
     function startQuiz(questions) {
+        console.log("Starting quiz for section:", currentSection);
+        console.log("Questions:", questions);
+      
         if (!questions || questions.length === 0) {
-            console.error("No questions available for", currentSection);
-            return;
+          console.error("No questions available for", currentSection);
+          return;
         }
+      
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
         categoryStats = {};
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
-    
-        // Add section-specific class to question-row for layout control
-        const questionRow = document.querySelector("#question-container .question-row");
-        const rightColumn = document.querySelector(".right-column");
-        questionRow.classList.remove("vertical-layout", "side-by-side");
-        
-        // Reset any inline styles
-        questionRow.style.display = "";
-        questionRow.style.flexDirection = "";
-        questionRow.style.alignItems = "";
-        questionRow.style.justifyContent = "";
-        questionRow.style.gap = "";
-        passageElement.style.display = "";
-        passageElement.style.maxWidth = "";
-        passageElement.style.flex = "";
-        rightColumn.style.maxWidth = "";
-        rightColumn.style.flex = "";
-        rightColumn.style.alignItems = "";
-        rightColumn.style.textAlign = "";
-    
+      
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("vertical-layout");
         if (currentSection === "math") {
-            questionRow.classList.add("vertical-layout");
-            // Inline styles for Math section
-            questionRow.style.display = "flex";
-            questionRow.style.flexDirection = "column";
-            questionRow.style.alignItems = "center";
-            questionRow.style.textAlign = "center";
-            passageElement.style.display = "none";
-            rightColumn.style.maxWidth = "600px";
-            rightColumn.style.width = "100%";
-            rightColumn.style.alignItems = "center";
-            rightColumn.style.textAlign = "center";
-        } else {
-            // Inline styles for English, Reading, Science
-            questionRow.style.display = "flex";
-            questionRow.style.flexDirection = "row";
-            questionRow.style.alignItems = "flex-start";
-            questionRow.style.justifyContent = "space-between";
-            questionRow.style.gap = "20px";
-            passageElement.style.display = "block";
-            passageElement.style.maxWidth = "45%";
-            passageElement.style.flex = "1";
-            rightColumn.style.maxWidth = "55%";
-            rightColumn.style.flex = "1";
-            rightColumn.style.alignItems = "flex-start";
-            rightColumn.style.textAlign = "left";
+          questionRow.classList.add("vertical-layout");
         }
-    
+      
+        const questionContainer = document.getElementById("question-container");
+        console.log("Before removing hide class:", questionContainer.classList);
+        questionContainer.classList.remove("hide");
+        console.log("After removing hide class:", questionContainer.classList);
+      
+        const introContainer = document.getElementById("sat-intro-container") || document.getElementById("act-intro-container");
+        if (introContainer) introContainer.classList.add("hide");
+      
+        const lessonContainer = document.getElementById("lesson-container") || document.getElementById("math-lesson-container");
+        if (lessonContainer) lessonContainer.classList.add("hide");
+      
         showQuestion();
-    }
+      }
     
 
 
