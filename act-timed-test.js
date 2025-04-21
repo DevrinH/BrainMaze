@@ -239,11 +239,10 @@ function showQuestion() {
         passageElement.innerHTML = passageContent;
         console.log("Trimmed passage content:", passageContent);
         console.log("Passage element after setting content:", passageElement);
-        // Add a log to confirm the content is still there after a short delay
         setTimeout(() => {
             console.log("Passage content after delay:", passageElement.innerHTML);
         }, 100);
-        passageElement.offsetHeight; // Trigger reflow
+        // Removed: passageElement.offsetHeight; // Removed to avoid rendering issues
     } else {
         console.error("passageElement not found in DOM");
     }
