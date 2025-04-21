@@ -238,12 +238,51 @@ const nextButton = document.getElementById("next-btn");
         nextButton.innerHTML = "Next";
     
         // Add section-specific class to question-row for layout control
-        const questionRow = document.querySelector(".question-row");
+        const questionRow = document.querySelector("#question-container .question-row");
+        const rightColumn = document.querySelector(".right-column");
         questionRow.classList.remove("vertical-layout", "side-by-side");
+        
+        // Reset any inline styles
+        questionRow.style.display = "";
+        questionRow.style.flexDirection = "";
+        questionRow.style.alignItems = "";
+        questionRow.style.justifyContent = "";
+        questionRow.style.gap = "";
+        passageElement.style.display = "";
+        passageElement.style.maxWidth = "";
+        passageElement.style.flex = "";
+        rightColumn.style.maxWidth = "";
+        rightColumn.style.flex = "";
+        rightColumn.style.alignItems = "";
+        rightColumn.style.textAlign = "";
+    
         if (currentSection === "math") {
             questionRow.classList.add("vertical-layout");
+            // Inline styles for Math section
+            questionRow.style.display = "flex";
+            questionRow.style.flexDirection = "column";
+            questionRow.style.alignItems = "center";
+            questionRow.style.textAlign = "center";
+            passageElement.style.display = "none";
+            rightColumn.style.maxWidth = "600px";
+            rightColumn.style.width = "100%";
+            rightColumn.style.alignItems = "center";
+            rightColumn.style.textAlign = "center";
+        } else {
+            // Inline styles for English, Reading, Science
+            questionRow.style.display = "flex";
+            questionRow.style.flexDirection = "row";
+            questionRow.style.alignItems = "flex-start";
+            questionRow.style.justifyContent = "space-between";
+            questionRow.style.gap = "20px";
+            passageElement.style.display = "block";
+            passageElement.style.maxWidth = "45%";
+            passageElement.style.flex = "1";
+            rightColumn.style.maxWidth = "55%";
+            rightColumn.style.flex = "1";
+            rightColumn.style.alignItems = "flex-start";
+            rightColumn.style.textAlign = "left";
         }
-        // No need for side-by-side class since the default .question-row CSS handles English, Reading, Science
     
         showQuestion();
     }
@@ -255,12 +294,11 @@ const nextButton = document.getElementById("next-btn");
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
     
-        // Debug: Log the passage and section to verify data
         console.log("Current Section:", currentSection);
         console.log("Passage Data:", currentQuestion.passage);
         console.log("Setting passageElement.innerHTML to:", currentQuestion.passage || "");
     
-        passageElement.innerHTML = currentQuestion.passage || ""; // Set the passage, default to empty string if undefined
+        passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
         
         currentQuestion.answers.forEach(answer => {
@@ -276,15 +314,16 @@ const nextButton = document.getElementById("next-btn");
         
         updateProgressBar();
     
-        // Debug: Log the passageElement content after setting it
         console.log("passageElement.innerHTML after setting:", passageElement.innerHTML);
-    }
-    function resetState() {
-        nextButton.style.display = "none";
-        nextButton.classList.remove("centered-btn");
-        while (answerButtons.firstChild) {
-            answerButtons.removeChild(answerButtons.firstChild);
-        }
+    
+        // Debug: Log computed styles
+        const questionRow = document.querySelector("#question-container .question-row");
+        const questionRowStyles = window.getComputedStyle(questionRow);
+        console.log("question-row computed display:", questionRowStyles.display);
+        console.log("question-row computed flex-direction:", questionRowStyles.flexDirection);
+        console.log("question-row computed gap:", questionRowStyles.gap);
+        console.log("passage computed display:", window.getComputedStyle(passageElement).display);
+        console.log("right-column computed display:", window.getComputedStyle(document.querySelector(".right-column")).display);
     }
 
     function selectAnswer(e) {
