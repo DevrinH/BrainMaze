@@ -2092,3 +2092,55 @@ footer h3 {
     width: 90%; /* Match .line-chart-container on phone */
   }
 }
+
+
+
+/* Passage styling */
+.passage-text {
+  flex: 1; /* Take up proportional space */
+  padding-right: 15px;
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+  max-height: 400px;
+  overflow-y: auto;
+  color: var(--text-color);
+  display: block; /* Ensure it’s visible by default */
+}
+
+/* Hide passage if truly empty */
+.passage-text:empty {
+  display: none;
+}
+
+/* Ensure passage is visible if it has content */
+.passage-text:not(:empty) {
+  display: block !important; /* Force visibility when content exists */
+}
+
+/* Right column styling */
+.right-column {
+  flex: 1; /* Take up proportional space */
+  display: flex;
+  flex-direction: column; /* Stack question and answers vertically */
+  gap: 15px; /* Space between question and answers */
+  align-items: flex-start; /* Align content to the left */
+  text-align: left; /* Ensure text alignment is left */
+}
+
+/* Center content for sections without passage (e.g., Math) */
+.question-row:has(.passage-text:empty) {
+  flex-direction: column; /* Stack vertically when no passage */
+}
+
+.question-row:has(.passage-text:empty) .right-column {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Ensure side-by-side layout for sections with passage */
+.question-row:has(.passage-text:not(:empty)) {
+  flex-direction: row;
+  align-items: flex-start;
+}
