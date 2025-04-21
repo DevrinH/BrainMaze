@@ -1241,37 +1241,41 @@ h3 {
 
 
 
-/* Ensure passage is hidden for Math */
-.math-section #passage {
-    display: none;
-}
-
-/* Center the question and answers for Math */
+/* Math section: Hide passage and center question/answers */
 .math-section .question-row {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px;
 }
 
-.math-section #question {
+.math-section .passage-text {
+    display: none; /* Hide passage for Math */
+}
+
+.math-section .right-column {
+    width: 100%; /* Full width for centering */
+    max-width: 400px; /* Limit width for better appearance */
+}
+
+.math-section .question-text {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-/* Style answer buttons for Math */
-.math-section #answer-buttons {
+.math-section .answer-choices {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    max-width: 300px; /* Adjust width as needed */
 }
 
 .math-section .btn {
-    background-color: #2a2e45;
-    color: white;
+    background-color: var(--btn-bg);
+    color: var(--text-color);
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -1279,10 +1283,12 @@ h3 {
     font-size: 1rem;
     cursor: pointer;
     width: 100%;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
 }
 
 .math-section .btn:hover {
-    background-color: #3b3f5a;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
+    transform: translateY(-2px);
 }
 
 
