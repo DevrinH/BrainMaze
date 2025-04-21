@@ -231,30 +231,13 @@ function showQuestion() {
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
 
-    // Debug passage rendering
-    console.log("Current section:", currentSection);
-    console.log("Passage element:", passageElement);
-    console.log("Raw passage content:", currentQuestion.passage);
+    console.log("Current Section:", currentSection);
+    console.log("Passage Data:", currentQuestion.passage);
+    console.log("Setting passageElement.innerHTML to:", currentQuestion.passage || "");
 
-    if (passageElement) {
-        const passageContent = (currentQuestion.passage || "").trim();
-        passageElement.innerHTML = passageContent;
-        console.log("Trimmed passage content:", passageContent);
-        console.log("Passage element after setting content:", passageElement);
-        setTimeout(() => {
-            console.log("Passage content after delay:", passageElement.innerHTML);
-        }, 100);
-        // Removed: passageElement.offsetHeight; // Removed to avoid rendering issues
-    } else {
-        console.error("passageElement not found in DOM");
-    }
-
-    if (questionElement) {
-        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-    } else {
-        console.error("questionElement not found in DOM");
-    }
-
+    passageElement.innerHTML = (currentQuestion.passage || "").trim();
+    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+    
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
@@ -265,8 +248,18 @@ function showQuestion() {
         }
         button.addEventListener("click", selectAnswer);
     });
-
+    
     updateProgressBar();
+
+    console.log("passageElement.innerHTML after setting:", passageElement.innerHTML);
+
+    const questionRow = document.querySelector("#question-container .question-row");
+    const questionRowStyles = window.getComputedStyle(questionRow);
+    console.log("question-row computed display:", questionRowStyles.display);
+    console.log("question-row computed flex-direction:", questionRowStyles.flexDirection);
+    console.log("question-row computed gap:", questionRowStyles.gap);
+    console.log("passage computed display:", window.getComputedStyle(passageElement).display);
+    console.log("right-column computed display:", window.getComputedStyle(document.querySelector(".right-column")).display);
 }
 
     function resetState() {
