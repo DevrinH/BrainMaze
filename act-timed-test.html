@@ -5,6 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACT Test</title>
     <link rel="stylesheet" href="https://www.brainjelli.com/stylesat.css">
+    <!-- Add inline styles to override external stylesheet -->
+    <style>
+        /* Ensure the question container and row are visible */
+        #question-container {
+            display: block !important;
+            visibility: visible !important;
+        }
+
+        .question-row {
+            display: flex !important;
+            flex-direction: row !important;
+            visibility: visible !important;
+            gap: 20px;
+            max-width: 900px;
+            width: 95%;
+            background-color: var(--container-bg, #2a2e3f); /* Fallback for dark theme */
+            border-radius: 12px;
+            box-shadow: var(--container-shadow, rgba(0, 0, 0, 0.2)) 0 5px 15px;
+            padding: 20px;
+            margin: 30px auto;
+            overflow: hidden;
+            align-items: flex-start;
+        }
+
+        /* Force passage visibility */
+        .passage-text {
+            flex: 1;
+            padding-right: 15px;
+            font-family: "Montserrat-SemiBold", sans-serif;
+            font-size: 1em;
+            line-height: 1.5;
+            max-height: 400px;
+            overflow-y: auto;
+            color: var(--text-color, #d3d3d3); /* Fallback for dark theme */
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            border: 2px solid red !important; /* Debug border */
+        }
+
+        /* Even more specific selector for #passage */
+        #question-container .question-row #passage.passage-text {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            border: 2px solid red !important;
+        }
+
+        /* Hide passage if truly empty */
+        .passage-text:empty {
+            display: none !important;
+        }
+
+        /* Ensure passage is visible if it has content */
+        .passage-text:not(:empty) {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        /* Right column styling */
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        /* Center content for sections without passage (e.g., Math) */
+        .question-row:has(.passage-text:empty) {
+            flex-direction: column !important;
+        }
+
+        .question-row:has(.passage-text:empty) .right-column {
+            align-items: center !important;
+            text-align: center !important;
+            width: 100% !important;
+        }
+
+        /* Ensure side-by-side layout for sections with passage */
+        .question-row:has(.passage-text:not(:empty)) {
+            flex-direction: row !important;
+            align-items: flex-start !important;
+        }
+
+        /* Answer button styling */
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: var(--btn-bg, #3b4256);
+            color: var(--btn-text, #ffffff);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .question-row {
+                flex-direction: column !important;
+            }
+            .passage-text {
+                padding-right: 0;
+                padding-bottom: 15px;
+            }
+            .right-column {
+                align-items: flex-start !important;
+                text-align: left !important;
+                width: 100% !important;
+            }
+        }
+        .passage-text.has-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: 2px solid red !important;
+}
+    </style>
 </head>
 <body>
     <header>
