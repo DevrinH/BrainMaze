@@ -1318,14 +1318,16 @@ document.addEventListener("DOMContentLoaded", () => {
         passageElement.style.display = currentSection === "math" ? "none" : "block";
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-   
+    
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
         questionElement.classList.remove("centered-score");
-   
-        currentQuestion.answers.forEach(answer => {
+    
+        // Add option letters (A, B, C, D) to answer buttons
+        const optionLetters = ["A", "B", "C", "D"];
+        currentQuestion.answers.forEach((answer, index) => {
             const button = document.createElement("button");
-            button.innerHTML = answer.text;
+            button.innerHTML = `${optionLetters[index]}) ${answer.text}`; // Format as "A) 5"
             button.classList.add("btn");
             answerButtons.appendChild(button);
             if (answer.correct) {
@@ -1333,7 +1335,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             button.addEventListener("click", selectAnswer);
         });
-   
+    
         updateProgressBar();
     }
 
