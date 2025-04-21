@@ -1399,13 +1399,13 @@ background-color:var(--background-color);
 
 .english-section .btn.correct
 .reading-section .btn.correct  
-.english-section .btn.correct{
+.science-section .btn.correct{
   background-color: #28a745;
   color: white;
 }
 .english-section .btn.incorrect
 .reading-section .btn.incorrect  
-.english-section .btn.incorrect{
+.science-section .btn.incorrect{
   background-color: #dc3545;
   color: white;
 }
