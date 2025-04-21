@@ -1241,7 +1241,10 @@ h3 {
 
 
 #passage {
-  display: block; /* Ensure the passage is not hidden */
+  display: block !important; /* Ensure the passage is not hidden */
+  visibility: visible !important; /* Ensure it's not invisible */
+  opacity: 1 !important; /* Ensure it's not transparent */
+  min-height: 100px; /* Ensure it takes up space even if empty */
   margin-bottom: 20px; /* Space between passage and question */
   padding: 10px;
   background-color: #1e2a44; /* Match the dark background of the question container */
@@ -1261,7 +1264,7 @@ h3 {
 
 .question-row {
   width: 100%;
-  max-width: 600px; /* Match the width of the passage */
+  max-width: 600px;
 }
 
 #question {
