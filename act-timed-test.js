@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const passageElement = document.getElementById("passage");
-    const questionElement = document.getElementById("question");
-    const answerButtons = document.getElementById("answer-buttons");
-    const nextButton = document.getElementById("next-btn");
+// Update DOM references in act-timed-test.js
+const passageElement = document.getElementById("passage");
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
     const countdownEl = document.getElementById("countdown");
     const actIntroContainer = document.getElementById("act-intro-container");
     const startTestButton = document.getElementById("start-test-btn");
