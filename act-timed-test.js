@@ -113,24 +113,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ];
 
-    function startTest() {
-        if (!actIntroContainer || !document.getElementById("question-container")) {
-            console.error("Required elements not found");
-            return;
-        }
-        actIntroContainer.classList.add("hide");
-        document.getElementById("question-container").classList.remove("hide");
-        startEnglishSection();
+function startTest() {
+    console.log("startTest called");
+    if (!actIntroContainer || !document.getElementById("question-container")) {
+        console.error("Required elements not found");
+        return;
     }
+    actIntroContainer.classList.add("hide");
+    document.getElementById("question-container").classList.remove("hide");
+    startEnglishSection();
+}
 
-    function startEnglishSection() {
-        currentSection = "english";
-        time = 45 * 60;
-        userResponses = [];
-        refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endEnglishSection, 2700000);
-        startQuiz(englishQuestions); // Removed 25, 25, 25
-    }
+function startEnglishSection() {
+    console.log("Starting English Section");
+    currentSection = "english";
+    time = 45 * 60;
+    userResponses = [];
+    refreshIntervalId = setInterval(updateCountdown, 1000);
+    setTimeout(endEnglishSection, 2700000);
+    startQuiz(englishQuestions);
+}
     
     function startMathSection() {
         currentSection = "math";
