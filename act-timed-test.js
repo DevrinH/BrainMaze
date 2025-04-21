@@ -148,12 +148,14 @@ const nextButton = document.getElementById("next-btn");
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endReadingSection, 2100000);
-        
-        // Ensure passageElement is visible
+    
+        const container = document.getElementById("question-container");
+        container.classList.add("flex-container");
+    
         passageElement.style.display = "block";
         passageElement.style.visibility = "visible";
         passageElement.style.opacity = "1";
-        
+    
         startQuiz(readingQuestions);
     }
     
@@ -163,14 +165,17 @@ const nextButton = document.getElementById("next-btn");
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endScienceSection, 2100000);
-        
-        // Ensure passageElement is visible
+    
+        const container = document.getElementById("question-container");
+        container.classList.add("flex-container");
+    
         passageElement.style.display = "block";
         passageElement.style.visibility = "visible";
         passageElement.style.opacity = "1";
-        
+    
         startQuiz(scienceQuestions);
     }
+    
 
     function updateCountdown() {
         const minutes = Math.floor(time / 60);
