@@ -1331,11 +1331,69 @@ h3 {
 }
 
 
-#question-container {
-  display: block;
-  margin: 0 auto;
-  width: 95%;
-  max-width: 900px;
-  padding: 20px;
-  max-height: 2600px;
+/* Two-column layout for English, Reading, Science */
+.english-section .question-row,
+.reading-section .question-row,
+.science-section .question-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
 }
+
+/* Passage styling (left column) */
+.english-section .passage-text,
+.reading-section .passage-text,
+.science-section .passage-text {
+    width: 48%;
+    background-color: #2a2e45; /* Match the dark background in the image */
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+/* Question and answers (right column) */
+.english-section .right-column,
+.reading-section .right-column,
+.science-section .right-column {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.english-section .question-text,
+.reading-section .question-text,
+.science-section .question-text {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.english-section .answer-choices,
+.reading-section .answer-choices,
+.science-section .answer-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.english-section .btn,
+.reading-section .btn,
+.science-section .btn {
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
+}
+
