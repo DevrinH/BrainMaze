@@ -235,12 +235,15 @@ function showQuestion() {
     console.log("Raw passage content:", currentQuestion.passage);
 
     if (passageElement) {
-        // Ensure passage content is a string and trim whitespace
         const passageContent = (currentQuestion.passage || "").trim();
         passageElement.innerHTML = passageContent;
         console.log("Trimmed passage content:", passageContent);
         console.log("Passage element after setting content:", passageElement);
-        passageElement.offsetHeight; // Trigger reflow (still okay to keep)
+        // Add a log to confirm the content is still there after a short delay
+        setTimeout(() => {
+            console.log("Passage content after delay:", passageElement.innerHTML);
+        }, 100);
+        passageElement.offsetHeight; // Trigger reflow
     } else {
         console.error("passageElement not found in DOM");
     }
