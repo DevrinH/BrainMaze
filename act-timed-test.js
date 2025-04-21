@@ -113,16 +113,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ];
 
-function startTest() {
-    if (!actIntroContainer || !document.getElementById("question-container")) {
-        console.error("Required elements not found");
-        return;
+    function startTest() {
+        if (!actIntroContainer || !document.getElementById("question-container")) {
+            console.error("Required elements not found");
+            return;
+        }
+        actIntroContainer.classList.add("hide");
+        document.getElementById("question-container").classList.remove("hide");
+        startEnglishSection();
     }
-    actIntroContainer.classList.add("hide");
-    document.getElementById("question-container").classList.remove("hide");
-    console.log("Question container visibility:", document.getElementById("question-container").classList);
-    startEnglishSection();
-}
 
     function startEnglishSection() {
         currentSection = "english";
@@ -230,6 +229,7 @@ function showQuestion() {
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
 
+    // Debug passage rendering
     console.log("Current section:", currentSection);
     console.log("Passage element:", passageElement);
     console.log("Raw passage content:", currentQuestion.passage);
@@ -237,16 +237,12 @@ function showQuestion() {
     if (passageElement) {
         const passageContent = (currentQuestion.passage || "").trim();
         passageElement.innerHTML = passageContent;
-        if (passageContent) {
-            passageElement.classList.add("has-content");
-        } else {
-            passageElement.classList.remove("has-content");
-        }
         console.log("Trimmed passage content:", passageContent);
         console.log("Passage element after setting content:", passageElement);
         setTimeout(() => {
             console.log("Passage content after delay:", passageElement.innerHTML);
         }, 100);
+        // Removed: passageElement.offsetHeight; // Removed to avoid rendering issues
     } else {
         console.error("passageElement not found in DOM");
     }
@@ -996,7 +992,7 @@ function showQuestion() {
         passageElement.innerHTML = "";
         questionElement.innerHTML = "This is a timed ACT Test. English: 45 min, Math: 60 min, Reading: 35 min, Science: 35 min.";
         questionElement.classList.add("centered-score");
-    
+
         const startButton = document.createElement("button");
         startButton.innerHTML = "Start Test";
         startButton.classList.add("btn", "centered-btn");
@@ -1005,8 +1001,6 @@ function showQuestion() {
             startEnglishSection();
         });
         answerButtons.appendChild(startButton);
-        // Ensure question container remains hidden during intro
-        document.getElementById("question-container").classList.add("hide");
     }
 
     // Event Listeners
