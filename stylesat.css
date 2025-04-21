@@ -1350,7 +1350,7 @@ background-color:var(--background-color);
     background-color: var(--background-color);
     padding: 15px;
     border-radius: 5px;
-    color: white;
+    color: var(--text-color);
     font-size: 1rem;
     line-height: 1.5;
     max-height: 1400px;
