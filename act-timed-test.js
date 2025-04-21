@@ -147,7 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endReadingSection, 2100000);
-        startQuiz(readingQuestions); // Removed passageElement.innerHTML = "";
+        passageElement.innerHTML = "";
+        startQuiz(readingQuestions);
     }
     
     function startScienceSection() {
@@ -156,7 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
         userResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endScienceSection, 2100000);
-        startQuiz(scienceQuestions); // Removed passageElement.innerHTML = "";
+        passageElement.innerHTML = "";
+        startQuiz(scienceQuestions);
     }
 
     function updateCountdown() {
@@ -227,9 +229,9 @@ document.addEventListener("DOMContentLoaded", () => {
         resetState();
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        passageElement.innerHTML = currentQuestion.passage || ""; // Ensure passage is set, default to empty string if undefined
+        passageElement.innerHTML = currentQuestion.passage; // Revert to exact old code
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-        
+    
         currentQuestion.answers.forEach(answer => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
@@ -240,9 +242,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             button.addEventListener("click", selectAnswer);
         });
-        
+    
         updateProgressBar();
     }
+
     function resetState() {
         nextButton.style.display = "none";
         nextButton.classList.remove("centered-btn");
@@ -997,19 +1000,24 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("next-btn element not found");
     }
+// Event Listener for Continue Button
+if (continueButton) {
+    continueButton.addEventListener("click", () => {
+        document.getElementById("break-message").classList.add("hide");
+        const questionContainer = document.getElementById("question-container");
+        questionContainer.classList.remove("hide");
 
-    if (continueButton) {
-        continueButton.addEventListener("click", () => {
-            document.getElementById("break-message").classList.add("hide");
-            document.getElementById("question-container").classList.remove("hide");
+        // Ensure the container is visible before proceeding
+        setTimeout(() => {
             switch (currentSection) {
                 case "english": startMathSection(); break;
                 case "math": startReadingSection(); break;
                 case "reading": startScienceSection(); break;
                 case "science": showFinalScore(); break;
             }
-        });
-    } else {
-        console.error("continue-btn element not found");
-    }
+        }, 50); // Small delay to ensure DOM is updated
+    });
+} else {
+    console.error("continue-btn element not found");
+}
 });

@@ -1240,56 +1240,6 @@ h3 {
 
 
 
-#passage {
-  display: block !important; /* Ensure the passage is not hidden */
-  visibility: visible !important; /* Ensure it's not invisible */
-  opacity: 1 !important; /* Ensure it's not transparent */
-  min-height: 100px; /* Ensure it takes up space even if empty */
-  margin-bottom: 20px; /* Space between passage and question */
-  padding: 10px;
-  background-color: #1e2a44; /* Match the dark background of the question container */
-  color: #ffffff; /* White text to match the theme */
-  border-radius: 8px;
-  font-size: 16px;
-  line-height: 1.5;
-  white-space: pre-wrap; /* Preserve line breaks and formatting */
-}
-
-#question-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.question-row {
-  width: 100%;
-  max-width: 600px;
-}
-
-#question {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
-
-#answer-buttons .btn {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  background-color: #2a3b5b;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#answer-buttons .btn:hover {
-  background-color: #3b4c6b;
-}
-
-
 
 
 
