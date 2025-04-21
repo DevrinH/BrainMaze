@@ -1410,3 +1410,111 @@ background-color:var(--background-color);
   color: white;
 }
 
+
+
+
+
+
+
+
+/* Ensure English, Reading, Science sections switch to column layout on mobile */
+@media (max-width: 768px) {
+    .english-section .question-row,
+    .reading-section .question-row,
+    .science-section .question-row {
+        flex-direction: column !important; /* Force column layout */
+        align-items: center;
+        padding: 15px;
+    }
+
+    .english-section .passage-text,
+    .reading-section .passage-text,
+    .science-section .passage-text {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        max-height: 400px; /* Slightly increase max-height for mobile readability */
+        font-size: 0.95rem; /* Slightly smaller font for better fit */
+    }
+
+    .english-section .right-column,
+    .reading-section .right-column,
+    .science-section .right-column {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .english-section .question-text,
+    .reading-section .question-text,
+    .science-section .question-text {
+        font-size: 1.1rem; /* Slightly smaller font for mobile */
+        margin-bottom: 15px;
+    }
+
+    .english-section .answer-choices,
+    .reading-section .answer-choices,
+    .science-section .answer-choices {
+        gap: 10px;
+    }
+
+    .english-section .btn,
+    .reading-section .btn,
+    .science-section .btn {
+        padding: 12px 15px; /* Increase padding for better tap targets */
+        font-size: 0.95rem; /* Slightly smaller font for mobile */
+        min-height: 50px; /* Ensure buttons are tall enough for easy tapping */
+    }
+}
+
+/* Adjust Math section for mobile as well */
+@media (max-width: 768px) {
+    .math-section .question-row {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .math-section .question-text {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .math-section .answer-choices {
+        max-width: 100%; /* Allow buttons to take full width on mobile */
+        gap: 10px;
+    }
+
+    .math-section .btn {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+        min-height: 50px; /* Better tap target */
+    }
+}
+
+/* General mobile optimizations */
+@media (max-width: 768px) {
+    .question-row {
+        margin: 20px 10px; /* Reduce side margins for more content space */
+        padding: 15px;
+        max-height: none; /* Remove max-height to allow content to expand */
+    }
+
+    #progress-bar-test {
+        width: 90%; /* Slightly narrower progress bar on mobile */
+        margin: 15px auto;
+    }
+
+    #countdown {
+        font-size: 1.3em; /* Slightly smaller countdown font */
+        margin: 15px 0;
+    }
+
+    #next-btn {
+        font-size: 16px; /* Smaller font for Next button */
+        height: 45px;
+        padding: 0 15px;
+    }
+}
+
+
+
