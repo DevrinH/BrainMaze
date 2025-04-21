@@ -229,7 +229,6 @@ function showQuestion() {
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
 
-    // Debug passage rendering
     console.log("Current section:", currentSection);
     console.log("Passage element:", passageElement);
     console.log("Raw passage content:", currentQuestion.passage);
@@ -237,12 +236,16 @@ function showQuestion() {
     if (passageElement) {
         const passageContent = (currentQuestion.passage || "").trim();
         passageElement.innerHTML = passageContent;
+        if (passageContent) {
+            passageElement.classList.add("has-content");
+        } else {
+            passageElement.classList.remove("has-content");
+        }
         console.log("Trimmed passage content:", passageContent);
         console.log("Passage element after setting content:", passageElement);
         setTimeout(() => {
             console.log("Passage content after delay:", passageElement.innerHTML);
         }, 100);
-        // Removed: passageElement.offsetHeight; // Removed to avoid rendering issues
     } else {
         console.error("passageElement not found in DOM");
     }
