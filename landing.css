@@ -2197,7 +2197,25 @@ footer h3 {
 }
 
 
+/* Add this CSS for side-by-side layout */
+.question-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Space between passage and answers */
+}
 
+.passage-container {
+  flex: 2; /* Allocate more space for the passage */
+  padding: 10px;
+}
+
+.answer-container {
+  flex: 1; /* Allocate less space for the answers */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
 
 
