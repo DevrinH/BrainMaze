@@ -2337,3 +2337,34 @@ footer h3 {
       max-height: 300px;
   }
 }
+
+#question-container.flex-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+#passage {
+  flex: 1;
+  max-width: 50%;
+}
+
+#question, #answer-buttons {
+  flex: 1;
+}
+#question-container.flex-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+#passage {
+  flex: 1;
+  max-width: 50%;
+}
+
+#question, #answer-buttons {
+  flex: 1;
+}
