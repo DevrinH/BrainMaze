@@ -42,7 +42,76 @@
         <p>Take a short break! Press continue to start the next section.</p>
         <button id="continue-btn" class="continue-btn">Continue</button>
     </div>
-
+    <style>
+        /* Add the updated CSS here, including all .passage-text, .question-row, etc. rules */
+        .passage-text {
+          flex: 1;
+          padding-right: 15px;
+          font-family: "Montserrat-SemiBold", sans-serif;
+          font-size: 1em;
+          line-height: 1.5;
+          max-height: 400px;
+          overflow-y: auto;
+          color: var(--text-color);
+          display: block !important;
+          visibility: visible !important;
+          border: 2px solid red !important;
+        }
+        #question-container .question-row #passage.passage-text {
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          border: 2px solid red !important;
+        }
+        .passage-text:empty {
+          display: none !important;
+        }
+        .passage-text:not(:empty) {
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+        #question-container {
+          display: block !important;
+          visibility: visible !important;
+        }
+        .question-row {
+          display: flex !important;
+          flex-direction: row !important;
+          visibility: visible !important;
+          gap: 20px;
+          max-width: 900px;
+          width: 95%;
+          background-color: var(--container-bg);
+          border-radius: 12px;
+          box-shadow: var(--container-shadow) 0 5px 15px;
+          padding: 20px;
+          margin: 30px auto;
+          overflow: hidden;
+          align-items: flex-start;
+        }
+        .question-row:has(.passage-text:empty) {
+          flex-direction: column;
+        }
+        .question-row:has(.passage-text:empty) .right-column {
+          align-items: center;
+          text-align: center;
+          width: 100%;
+        }
+        .question-row:has(.passage-text:not(:empty)) {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+        .right-column {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          align-items: flex-start;
+          text-align: left;
+        }
+        /* Add other necessary styles (e.g., .btn, theme variables, etc.) */
+      </style>
     <script src="theme-toggle.js"></script>
     <script src="act-timed-test.js"></script>
 </body>
