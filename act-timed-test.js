@@ -113,15 +113,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ];
 
-    function startTest() {
-        if (!actIntroContainer || !document.getElementById("question-container")) {
-            console.error("Required elements not found");
-            return;
-        }
-        actIntroContainer.classList.add("hide");
-        document.getElementById("question-container").classList.remove("hide");
-        startEnglishSection();
+function startTest() {
+    if (!actIntroContainer || !document.getElementById("question-container")) {
+        console.error("Required elements not found");
+        return;
     }
+    actIntroContainer.classList.add("hide");
+    document.getElementById("question-container").classList.remove("hide");
+    console.log("Question container visibility:", document.getElementById("question-container").classList);
+    startEnglishSection();
+}
 
     function startEnglishSection() {
         currentSection = "english";
@@ -995,7 +996,7 @@ function showQuestion() {
         passageElement.innerHTML = "";
         questionElement.innerHTML = "This is a timed ACT Test. English: 45 min, Math: 60 min, Reading: 35 min, Science: 35 min.";
         questionElement.classList.add("centered-score");
-
+    
         const startButton = document.createElement("button");
         startButton.innerHTML = "Start Test";
         startButton.classList.add("btn", "centered-btn");
@@ -1004,6 +1005,8 @@ function showQuestion() {
             startEnglishSection();
         });
         answerButtons.appendChild(startButton);
+        // Ensure question container remains hidden during intro
+        document.getElementById("question-container").classList.add("hide");
     }
 
     // Event Listeners
