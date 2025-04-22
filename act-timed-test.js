@@ -284,77 +284,76 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function selectAnswer(e) {
-        const selectedBtn = e.target;
-        const isCorrect = selectedBtn.dataset.correct === "true";
-        let currentQuestion = selectedQuestions[currentQuestionIndex];
-        let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-        let questionDifficulty = currentQuestion.difficulty;
-    
-        if (!categoryStats[questionCategory]) {
-            categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-        }
-    
-        const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-    
-        const safePassage = currentQuestion.passage || "No passage provided";
-        const safeQuestion = currentQuestion.question || "No question provided";
-    
-        // Log response creation
-        console.log("Creating response for", currentSection, ":", {
-            question: safePassage + "<br/><br/>" + safeQuestion,
-            userAnswer: selectedBtn.innerHTML,
-            correctAnswer: correctAnswer,
-            wasCorrect: isCorrect
-        });
-    
-        const response = {
-            section: currentSection,
-            question: safePassage + "<br/><br/>" + safeQuestion,
-            userAnswer: selectedBtn.innerHTML,
-            correctAnswer: correctAnswer,
-            wasCorrect: isCorrect
-        };
-    
-        // Push to section-specific array
-        if (currentSection === "english") {
-            englishResponses.push(response);
-        } else if (currentSection === "math") {
-            mathResponses.push(response);
-        } else if (currentSection === "reading") {
-            readingResponses.push(response);
-        } else if (currentSection === "science") {
-            scienceResponses.push(response);
-        }
-    
-        if (isCorrect) {
-            selectedBtn.classList.add("correct");
-            correctAnswers++;
-            if (questionDifficulty === "easy") {
-                score += 1;
-            } else if (questionDifficulty === "medium") {
-                score += 2;
-            } else if (questionDifficulty === "hard") {
-                score += 3;
-            }
-            categoryStats[questionCategory].correct++;
-        } else {
-            selectedBtn.classList.add("incorrect");
-            categoryStats[questionCategory].incorrect++;
-        }
-    
-        recordTestResults();
-    
-        Array.from(answerButtons.children).forEach(button => {
-            if (button.dataset.correct === "true") {
-                button.classList.add("correct");
-            }
-            button.disabled = true;
-        });
-    
-        nextButton.style.display = "block";
-        nextButton.disabled = false;
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+    let questionDifficulty = currentQuestion.difficulty;
+
+    if (!categoryStats[questionCategory]) {
+        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
+
+    const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+
+    const safePassage = currentQuestion.passage || "No passage provided";
+    const safeQuestion = currentQuestion.question || "No question provided";
+    const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
+
+    console.log("Creating user response:", currentSection, ":", {
+        question: responseQuestion,
+        userAnswer: selectedBtn.innerHTML,
+        correctAnswer: correctAnswer,
+        wasCorrect: isCorrect
+    });
+
+    const response = {
+        section: currentSection,
+        question: responseQuestion,
+        userAnswer: selectedBtn.innerHTML,
+        correctAnswer: correctAnswer,
+        wasCorrect: isCorrect
+    };
+
+    if (currentSection === "english") {
+        englishResponses.push(response);
+    } else if (currentSection === "math") {
+        mathResponses.push(response);
+    } else if (currentSection === "reading") {
+        readingResponses.push(response);
+    } else if (currentSection === "science") {
+        scienceResponses.push(response);
+    }
+
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        correctAnswers++;
+        if (questionDifficulty === "easy") {
+            score += 1;
+        } else if (questionDifficulty === "medium") {
+            score += 2;
+        } else if (questionDifficulty === "hard") {
+            score += 3;
+        }
+        categoryStats[questionCategory].correct++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats[questionCategory].incorrect++;
+    }
+
+    recordTestResults();
+
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+
+    nextButton.style.display = "block";
+    nextButton.disabled = false;
+}
 
 
     function showScore() {
@@ -435,68 +434,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function showExplanations() {
-    console.log("Entering showExplanations");
-    resetState();
-    passageElement.innerHTML = "";
-    questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
-    questionElement.style.overflowY = "scroll";
-    questionElement.style.maxHeight = "80vh";
-
-    // Combine all section responses
-    const allResponses = [
-        ...englishResponses.map(r => ({ ...r, section: "english" })),
-        ...mathResponses.map(r => ({ ...r, section: "math" })),
-        ...readingResponses.map(r => ({ ...r, section: "reading" })),
-        ...scienceResponses.map(r => ({ ...r, section: "science" }))
-    ];
-
-    const incorrectResponses = allResponses.filter(
-        response => response && response.wasCorrect === false && response.section
-    );
-    console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
-
-    if (incorrectResponses.length === 0) {
-        questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
-    } else {
-        const fragment = document.createDocumentFragment();
-        const sections = ["english", "math", "reading", "science"];
-        sections.forEach(section => {
-            const sectionResponses = incorrectResponses.filter(res => res.section === section);
-            if (sectionResponses.length > 0) {
-                const sectionDiv = document.createElement("div");
-                sectionDiv.innerHTML = `<h3>${section.charAt(0).toUpperCase() + section.slice(1)} Section</h3>`;
-                sectionResponses.forEach((response, index) => {
-                    console.log(`Processing ${section} response ${index + 1}:`, response);
-                    const explanation = generateExplanation(response);
-                    console.log(`Explanation for ${section} response ${index + 1}:`, explanation);
-                    const div = document.createElement("div");
-                    div.className = "explanation";
-                    div.innerHTML = `
-                        <h4>Question ${index + 1}</h4>
-                        <p><strong>Question:</strong> ${response.question || "Missing question"}</p>
-                        <p><strong>Your Answer:</strong> ${response.userAnswer || "N/A"}</p>
-                        <p><strong>Correct Answer:</strong> ${response.correctAnswer || "N/A"}</p>
-                        <p><strong>Explanation:</strong> ${explanation}</p>
-                    `;
-                    sectionDiv.appendChild(div);
-                });
-                fragment.appendChild(sectionDiv);
-            }
+    function showExplanations() {
+        console.log("Entering showExplanations");
+        resetState();
+        passageElement.innerHTML = "";
+        questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
+        questionElement.style.overflowY = "scroll";
+        questionElement.style.maxHeight = "80vh";
+    
+        // Combine responses from all sections
+        const allResponses = [
+            ...englishResponses.map(r => ({ ...r, section: "english" })),
+            ...mathResponses.map(r => ({ ...r, section: "math" })),
+            ...readingResponses.map(r => ({ ...r, section: "reading" })),
+            ...scienceResponses.map(r => ({ ...r, section: "science" }))
+        ];
+    
+        const incorrectResponses = allResponses.filter(
+            response => response && response.wasCorrect === false && response.section
+        );
+        console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
+    
+        if (incorrectResponses.length === 0) {
+            questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
+        } else {
+            const fragment = document.createDocumentFragment();
+            const sections = ["english", "math", "reading", "science"];
+            sections.forEach(section => {
+                const sectionResponses = incorrectResponses.filter(res => res.section === section);
+                if (sectionResponses.length > 0) {
+                    const sectionDiv = document.createElement("div");
+                    sectionDiv.innerHTML = `<h3>${section.charAt(0).toUpperCase() + section.slice(1)} Section</h3>`;
+                    sectionResponses.forEach((response, index) => {
+                        console.log(`Processing ${section} response ${index + 1}:`, response);
+                        const explanation = generateExplanation(response);
+                        console.log(`Explanation for ${section} response ${index + 1}:`, explanation);
+                        const div = document.createElement("div");
+                        div.className = "explanation";
+                        div.innerHTML = `
+                            <h4>Question ${index + 1}</h4>
+                            <p><strong>Question:</strong> ${response.question || "Missing question"}</p>
+                            <p><strong>Your Answer:</strong> ${response.userAnswer || "N/A"}</p>
+                            <p><strong>Correct Answer:</strong> ${response.correctAnswer || "N/A"}</p>
+                            <p><strong>Explanation:</strong> ${explanation}</p>
+                        `;
+                        sectionDiv.appendChild(div);
+                    });
+                    fragment.appendChild(sectionDiv);
+                }
+            });
+            console.log("Appending to questionElement:", questionElement);
+            questionElement.appendChild(fragment);
+        }
+    
+        console.log("Setting Finish button");
+        nextButton.innerHTML = "Finish";
+        nextButton.style.display = "block";
+        nextButton.classList.add("centered-btn");
+        nextButton.removeEventListener("click", showExplanations);
+        nextButton.addEventListener("click", () => {
+            window.location.href = "https://www.brainjelli.com/user-profile";
         });
-        console.log("Appending to questionElement:", questionElement);
-        questionElement.appendChild(fragment);
     }
-
-    console.log("Setting Finish button");
-    nextButton.innerHTML = "Finish";
-    nextButton.style.display = "block";
-    nextButton.classList.add("centered-btn");
-    nextButton.removeEventListener("click", showExplanations);
-    nextButton.addEventListener("click", () => {
-        window.location.href = "https://www.brainjelli.com/user-profile";
-    });
-}
 
 
  function generateExplanation(response) {
