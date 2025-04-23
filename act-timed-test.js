@@ -39,18 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             difficulty: "easy",
             category: "act-conventions-of-standard-english"
         },
-        {
-            "question": "If f(x) = x^2 + 3x - 4, what is f(2)?",
-            "answers": [
-                { "text": "8", "correct": false },
-                { "text": "4", "correct": false },
-                { "text": "6", "correct": true },
-                { "text": "10", "correct": false }
-            ],
-            "difficulty": "medium",
-            "category": "act-functions"
-        },
-    
+
 ];
 
 
@@ -67,7 +56,17 @@ const mathQuestions = [
         "difficulty": "medium",
         "category": "act-algebra"
     },
-   
+    {   passage: "", // No passage for Math
+        question: "If f(x) = x^2 + 3x - 4, what is f(2)?",
+        answers: [
+            { "text": "8", "correct": false },
+            { "text": "4", "correct": false },
+            { "text": "6", "correct": true },
+            { "text": "10", "correct": false }
+        ],
+        difficulty: "medium",
+        category: "act-functions"
+    },
 
 ];
 const readingQuestions = [  
