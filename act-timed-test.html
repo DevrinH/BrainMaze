@@ -44,7 +44,20 @@
         <p>Take a short break! Press continue to start the next section.</p>
         <button id="continue-btn" class="continue-btn">Continue</button>
     </div>
+<script>
 
+    // Add this in test.html, sat-untimed-test.html, etc., after the test is submitted
+function saveTestCompletion(examType) {
+    const completionData = {
+        exam: examType, // e.g., "SAT", "ACT", "GED"
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem("lastActivity", JSON.stringify(completionData));
+}
+
+// Call this when the test is submitted (e.g., in your submit button handler)
+saveTestCompletion("SAT");
+</script>
     <script src="theme-toggle.js"></script>
     <script src="act-timed-test.js"></script>
 </body>
