@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let results = storedResults ? JSON.parse(storedResults) : {};
     console.log("Parsed actTestResults:", results);
+    // Add console log to display all categories and their correct/incorrect counts
+    console.log("All ACT categories and their scores:", JSON.stringify(results, null, 2));
 
     // Get all progress items in the ACT progress container
     const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
@@ -80,6 +82,9 @@ document.querySelectorAll(".button-30").forEach(button => {
                 // Trigger the progress update logic
                 let storedResults = localStorage.getItem("actTestResults");
                 let results = storedResults ? JSON.parse(storedResults) : {};
+                // Add console log to display all categories after tab switch
+                console.log("All ACT categories and their scores after tab switch:", JSON.stringify(results, null, 2));
+
                 const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
 
                 progressItems.forEach(item => {
