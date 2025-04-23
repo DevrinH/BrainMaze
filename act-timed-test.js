@@ -501,7 +501,7 @@ function selectAnswer(e) {
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", showExplanations);
         nextButton.addEventListener("click", () => {
-            window.location.href = "https://www.brainjelli.com/user-profile";
+            window.location.href = "https://www.brainjelli.com/user-profile.html";
         });
     }
 
