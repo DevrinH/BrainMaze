@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "english",
             difficulty: "easy",
-            category: "act-conventions-of standard-english"
+            category: "act-conventions-of-standard-english"
         },
       
 ];
@@ -1015,15 +1015,10 @@ function selectAnswer(e) {
 
 
     function recordTestResults() {
-        console.log("Recording results. Current categoryStats:", categoryStats);
-    
-        let storedResults = localStorage.getItem("actResults"); // Changed to match existing key
+        let storedResults = localStorage.getItem("actTestResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
     
-        console.log("Previous actResults from localStorage:", results);
-    
         if (typeof results !== "object" || Array.isArray(results)) {
-            console.error("Error: results should be an object but got", results);
             results = {};
         }
     
@@ -1032,20 +1027,11 @@ function selectAnswer(e) {
                 results[category] = { correct: 0, incorrect: 0 };
             }
     
-            console.log(
-                `Before update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-            );
-    
             results[category].correct += categoryStats[category].correct || 0;
             results[category].incorrect += categoryStats[category].incorrect || 0;
-    
-            console.log(
-                `After update -> ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`
-            );
         }
     
-        localStorage.setItem("actResults", JSON.stringify(results)); // Changed to match existing key
-        console.log("Final stored actResults:", results);
+        localStorage.setItem("actTestResults", JSON.stringify(results));
     
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
