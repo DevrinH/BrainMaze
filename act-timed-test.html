@@ -43,16 +43,6 @@
         <button id="continue-btn" class="continue-btn">Continue</button>
     </div>
 
-    <script>
-        // Function to save test completion metadata
-        function saveTestCompletion(examType) {
-            const completionData = {
-                exam: examType, // e.g., "SAT", "ACT", "GED"
-                timestamp: new Date().toISOString()
-            };
-            localStorage.setItem("lastActivity", JSON.stringify(completionData));
-        }
-    </script>
     <script src="theme-toggle.js"></script>
     <script src="act-timed-test.js"></script>
 </body>
