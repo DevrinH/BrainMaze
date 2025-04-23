@@ -1,24 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Retrieve ACT test results from localStorage and log them regardless of active section
+    let storedResults = localStorage.getItem("actTestResults");
+    console.log("Retrieved actTestResults from localStorage:", storedResults);
+
+    let results = storedResults ? JSON.parse(storedResults) : {};
+    console.log("Parsed actTestResults:", results);
+    console.log("All ACT categories and their scores:", JSON.stringify(results, null, 2));
+
     // Check if the ACT section is active by looking for the 'hidden' class on line-chart-act
     const actSection = document.querySelector("#line-chart-act");
     const isActSectionActive = actSection && !actSection.classList.contains("hidden");
     console.log("ACT section element:", actSection);
     console.log("Is ACT section active?", isActSectionActive);
 
-    // Only proceed if the ACT section is active
+    // Only proceed with updating progress bars if the ACT section is active
     if (!isActSectionActive) {
         console.log("ACT section is not active, skipping ACT progress container update.");
         return;
     }
-
-    // Retrieve ACT test results from localStorage
-    let storedResults = localStorage.getItem("actTestResults");
-    console.log("Retrieved actTestResults from localStorage:", storedResults);
-
-    let results = storedResults ? JSON.parse(storedResults) : {};
-    console.log("Parsed actTestResults:", results);
-    // Add console log to display all categories and their correct/incorrect counts
-    console.log("All ACT categories and their scores:", JSON.stringify(results, null, 2));
 
     // Get all progress items in the ACT progress container
     const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
@@ -72,6 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
 // Listen for changes in the active section (when user clicks GED/SAT/ACT buttons)
 document.querySelectorAll(".button-30").forEach(button => {
     button.addEventListener("click", () => {
+        // Log actTestResults again on every tab switch, regardless of active section
+        let storedResults = localStorage.getItem("actTestResults");
+        let results = storedResults ? JSON.parse(storedResults) : {};
+        console.log("Tab switched - Retrieved actTestResults from localStorage:", storedResults);
+        console.log("Tab switched - Parsed actTestResults:", results);
+        console.log("Tab switched - All ACT categories and their scores:", JSON.stringify(results, null, 2));
+
         // Re-run the progress update logic after a short delay to ensure DOM updates
         setTimeout(() => {
             const actSection = document.querySelector("#line-chart-act");
@@ -80,11 +86,6 @@ document.querySelectorAll(".button-30").forEach(button => {
 
             if (isActSectionActive) {
                 // Trigger the progress update logic
-                let storedResults = localStorage.getItem("actTestResults");
-                let results = storedResults ? JSON.parse(storedResults) : {};
-                // Add console log to display all categories after tab switch
-                console.log("All ACT categories and their scores after tab switch:", JSON.stringify(results, null, 2));
-
                 const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
 
                 progressItems.forEach(item => {
