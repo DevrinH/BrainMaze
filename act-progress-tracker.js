@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Check which exam section is active
-    const activeExamElement = document.querySelector(".active-exam"); // Adjust selector based on your HTML
-    const activeExam = activeExamElement ? activeExamElement.dataset.exam : null;
-    console.log("Active exam section:", activeExam);
+    // Check which tab is active by looking for the 'active' class on the tab elements
+    const actTab = document.querySelector("#act-tab");
+    const isActTabActive = actTab && actTab.classList.contains("active");
+    console.log("ACT tab element:", actTab);
+    console.log("Is ACT tab active?", isActTabActive);
 
-    // Only proceed if the active exam is ACT
-    if (activeExam !== "act") {
-        console.log("Not in ACT section, skipping ACT progress container update.");
+    // Only proceed if the ACT tab is active
+    if (!isActTabActive) {
+        console.log("ACT tab is not active, skipping ACT progress container update.");
         return;
     }
 
