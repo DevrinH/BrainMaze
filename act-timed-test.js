@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "english",
             difficulty: "easy",
-            category: "conventions-of-standard-english"
+            category: "act-conventions-of standard-english"
         },
       
 ];
@@ -54,7 +54,7 @@ const mathQuestions = [
             { "text": "7", "correct": false }
         ],
         "difficulty": "medium",
-        "category": "Algebra"
+        "category": "act-algebra"
     },
    
 
@@ -71,7 +71,7 @@ const readingQuestions = [
     ],
     "type": "reading",
     "difficulty": "medium",
-    "category": "main idea"
+    "category": "act-main-idea"
   },
   
 
