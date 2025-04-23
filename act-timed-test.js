@@ -88,7 +88,7 @@ const scienceQuestions = [
     ],
     "type": "science",
     "difficulty": "medium",
-    "category": "data representation"
+    "category": "act-data-representation"
 },
 ];
 
