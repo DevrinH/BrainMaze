@@ -432,32 +432,14 @@ function selectAnswer(e) {
         nextButton.addEventListener("click", showExplanations);
     }
 
-// In act-timed-test.js
-// Assuming there's a function that handles test completion
-function completeTest() {
-    // Existing logic to save scores, calculate results, etc.
-    // For example, saving to localStorage
-    const scoreData = {
-        english: englishScore,
-        math: mathScore,
-        reading: readingScore,
-        science: scienceScore,
-        composite: compositeScore
-    };
-    let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-    scoreHistory[new Date().toISOString()] = scoreData;
-    localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
-
-    // Save test completion metadata
-    saveTestCompletion("ACT");
-
-    // Redirect to user profile page
-    window.location.href = "https://www.brainjelli.com/user-profile.html";
-}
-
-// Example: Call completeTest when the test is finished
-// This might be triggered after the last question or when results are displayed
-document.getElementById("submit-test-btn")?.addEventListener("click", completeTest);
+    function saveTestCompletion(examType) {
+        const completionData = {
+            exam: examType,
+            type: "test", // Indicate this is a test
+            timestamp: new Date().toISOString()
+        };
+        localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    }
 
 
     function showExplanations() {
