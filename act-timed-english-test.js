@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resetState();
 
         // Calculate English score
-        let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assume 75 questions (25 easy, 25 medium, 25 hard)
+        let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assume 75 questions
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
 
         // Save test completion metadata
-        saveTestCompletion("ACT English");
+        saveTestCompletion("ACT");
 
         // Update UI
         document.getElementById("question-container").classList.remove("hide");
