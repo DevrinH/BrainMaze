@@ -1945,6 +1945,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
 document.addEventListener("DOMContentLoaded", function () {
     // Function to update progress bars and arrows for a given exam
     function updateProgressBars(examType, progressKey, categories) {
@@ -1953,7 +1954,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Load stored data from localStorage
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
         let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("actTestResults")) || {}; // Use actTestResults for ACT
+        let currentTestResults = JSON.parse(localStorage.getItem("actTestResults")) || {};
 
         console.log(`${examType} Previous Progress:`, previousProgress);
         console.log(`${examType} Stored Progress:`, storedProgress);
@@ -1982,7 +1983,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`${examType} Updated Stored Progress:`, storedProgress);
 
         // Update progress bars and arrows
-        let updatedPreviousProgress = { ...previousProgress };
+        let updatedPreviousProgress = {};
         categories.forEach(category => {
             const correct = storedProgress[category]?.correct || 0;
             const incorrect = storedProgress[category]?.incorrect || 0;
@@ -2001,16 +2002,25 @@ document.addEventListener("DOMContentLoaded", function () {
             // Update progress text and arrow
             const progressText = document.getElementById(`${category}-text`);
             if (progressText) {
-                let previousPercentage = Number(previousProgress[category]?.percentage || 0);
+                // Ensure previousProgress[category] exists and has a percentage
+                let previousPercentage = previousProgress[category]?.percentage !== undefined 
+                    ? Number(previousProgress[category].percentage) 
+                    : 0;
                 let arrow = "→";
                 let arrowColor = "#4e5163";
+
+                console.log(`Comparing ${category}: current=${percentage}, previous=${previousPercentage}`);
 
                 if (percentage > previousPercentage && total > 0) {
                     arrow = "↑";
                     arrowColor = "green";
+                    console.log(`${category} improved: ${previousPercentage}% → ${percentage}%`);
                 } else if (percentage < previousPercentage && total > 0) {
                     arrow = "↓";
                     arrowColor = "red";
+                    console.log(`${category} decreased: ${previousPercentage}% → ${percentage}%`);
+                } else {
+                    console.log(`${category} no change or first test: ${percentage}%`);
                 }
 
                 progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
@@ -2020,7 +2030,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Store current percentage for future comparison
-            updatedPreviousProgress[category] = { percentage };
+            updatedPreviousProgress[category] = { percentage: percentage };
         });
 
         // Save updated previous progress
@@ -2064,6 +2074,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProgressBars("ACT", "actProgress", actCategories);
     }
 });
+
 
 function resetProgress() {
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
