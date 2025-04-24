@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let time;
     let userResponses = [];
     let currentSection = "english";
-    let categoryScores = {};
 
 
     // Sample questions (replace with full question banks)
@@ -392,44 +391,6 @@ function selectAnswer(e) {
     }
 
 
-    function saveTestResults(examType, progressKey, testResults) {
-        console.log(`Saving ${examType} test results...`);
-        
-        let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-        let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-    
-        Object.keys(testResults).forEach(category => {
-            if (!storedProgress[category]) {
-                storedProgress[category] = { correct: 0, incorrect: 0 };
-            }
-            storedProgress[category].correct += Number(testResults[category]?.correct || 0);
-            storedProgress[category].incorrect += Number(testResults[category]?.incorrect || 0);
-        });
-    
-        Object.keys(storedProgress).forEach(category => {
-            const correct = storedProgress[category].correct;
-            const incorrect = storedProgress[category].incorrect;
-            const total = correct + incorrect;
-            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-            previousProgress[category] = { percentage };
-        });
-    
-        localStorage.setItem(progressKey, JSON.stringify(storedProgress));
-        localStorage.setItem("testResults", JSON.stringify(testResults));
-        localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
-        localStorage.setItem("lastActivity", JSON.stringify({ exam: examType, type: "test", timestamp: Date.now() }));
-    
-        console.log(`${examType} Test Results Saved:`, testResults);
-        console.log(`${examType} Updated Progress:`, storedProgress);
-        console.log(`${examType} Updated Previous Progress:`, previousProgress);
-    }
-    
-    function getCategoryResults() {
-        let storedResults = localStorage.getItem("actTestResults");
-        let results = storedResults ? JSON.parse(storedResults) : {};
-        return results;
-    }
-    
     function showFinalScore() {
         clearInterval(refreshIntervalId);
         resetState();
@@ -451,11 +412,8 @@ function selectAnswer(e) {
         };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
     
+        // Save test completion metadata
         saveTestCompletion("ACT");
-    
-        const testResults = getCategoryResults();
-        saveTestResults("ACT", "actProgress", testResults);
-        localStorage.removeItem("testResults"); // Updated to testResults
     
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
@@ -473,6 +431,8 @@ function selectAnswer(e) {
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }
+
+    
 
     function saveTestCompletion(examType) {
         const completionData = {
@@ -543,10 +503,7 @@ function selectAnswer(e) {
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", showExplanations);
         nextButton.addEventListener("click", () => {
-            // Add a slight delay to ensure localStorage updates are complete
-            setTimeout(() => {
-                window.location.href = "user-profile.html"; // Updated to relative path
-            }, 100);
+            window.location.href = "https://www.brainjelli.com/user-profile.html";
         });
     }
 
@@ -1077,7 +1034,7 @@ function selectAnswer(e) {
 
 
     function recordTestResults() {
-        let storedResults = localStorage.getItem("testResults");
+        let storedResults = localStorage.getItem("actTestResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
     
         if (typeof results !== "object" || Array.isArray(results)) {
@@ -1093,7 +1050,7 @@ function selectAnswer(e) {
             results[category].incorrect += categoryStats[category].incorrect || 0;
         }
     
-        localStorage.setItem("testResults", JSON.stringify(results));
+        localStorage.setItem("actTestResults", JSON.stringify(results));
     
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
