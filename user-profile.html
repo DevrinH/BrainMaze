@@ -1945,8 +1945,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-ddocument.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     // Function to update progress bars and arrows for a given exam
     function updateProgressBars(examType, progressKey, categories) {
         console.log(`Updating ${examType} progress bars...`);
@@ -1954,10 +1953,7 @@ ddocument.addEventListener("DOMContentLoaded", function () {
         // Load stored data from localStorage
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
         let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-        // Use different keys for SAT and ACT test results
-        let currentTestResults = examType === "SAT" 
-            ? JSON.parse(localStorage.getItem("testResults")) || {}
-            : JSON.parse(localStorage.getItem("actTestResults")) || {};
+        let currentTestResults = JSON.parse(localStorage.getItem("actTestResults")) || {}; // Use actTestResults for ACT
 
         console.log(`${examType} Previous Progress:`, previousProgress);
         console.log(`${examType} Stored Progress:`, storedProgress);
@@ -1986,7 +1982,7 @@ ddocument.addEventListener("DOMContentLoaded", function () {
         console.log(`${examType} Updated Stored Progress:`, storedProgress);
 
         // Update progress bars and arrows
-        let updatedPreviousProgress = {};
+        let updatedPreviousProgress = { ...previousProgress };
         categories.forEach(category => {
             const correct = storedProgress[category]?.correct || 0;
             const incorrect = storedProgress[category]?.incorrect || 0;
@@ -2005,25 +2001,16 @@ ddocument.addEventListener("DOMContentLoaded", function () {
             // Update progress text and arrow
             const progressText = document.getElementById(`${category}-text`);
             if (progressText) {
-                // Ensure previousProgress[category] exists and has a percentage
-                let previousPercentage = previousProgress[category]?.percentage !== undefined 
-                    ? Number(previousProgress[category].percentage) 
-                    : 0;
+                let previousPercentage = Number(previousProgress[category]?.percentage || 0);
                 let arrow = "→";
                 let arrowColor = "#4e5163";
-
-                console.log(`Comparing ${category}: current=${percentage}, previous=${previousPercentage}`);
 
                 if (percentage > previousPercentage && total > 0) {
                     arrow = "↑";
                     arrowColor = "green";
-                    console.log(`${category} improved: ${previousPercentage}% → ${percentage}%`);
                 } else if (percentage < previousPercentage && total > 0) {
                     arrow = "↓";
                     arrowColor = "red";
-                    console.log(`${category} decreased: ${previousPercentage}% → ${percentage}%`);
-                } else {
-                    console.log(`${category} no change or first test: ${percentage}%`);
                 }
 
                 progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
@@ -2033,12 +2020,16 @@ ddocument.addEventListener("DOMContentLoaded", function () {
             }
 
             // Store current percentage for future comparison
-            updatedPreviousProgress[category] = { percentage: percentage };
+            updatedPreviousProgress[category] = { percentage };
         });
 
         // Save updated previous progress
         localStorage.setItem("previousTestResults", JSON.stringify(updatedPreviousProgress));
         console.log(`${examType} Updated Previous Progress:`, updatedPreviousProgress);
+
+        // Clear testResults to prevent duplicate accumulation
+        localStorage.removeItem("actTestResults");
+        console.log("Cleared actTestResults from localStorage");
     }
 
     // Define categories for SAT and ACT
@@ -2063,32 +2054,16 @@ ddocument.addEventListener("DOMContentLoaded", function () {
 
     // Update progress for active exam
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
-    console.log("Active exam detected:", activeExam);
     if (activeExam === "line-chart-sat") {
-        console.log("Processing SAT progress...");
         updateProgressBars("SAT", "satProgress", satCategories);
-        localStorage.removeItem("testResults"); // Clear after SAT processing
     } else if (activeExam === "line-chart-act") {
-        console.log("Processing ACT progress...");
         updateProgressBars("ACT", "actProgress", actCategories);
-        localStorage.removeItem("actTestResults"); // Clear after ACT processing
     } else {
-        console.log("No active exam detected, updating SAT first, then ACT");
+        console.log("No active exam detected, updating both SAT and ACT");
         updateProgressBars("SAT", "satProgress", satCategories);
-        localStorage.removeItem("testResults"); // Clear SAT results
         updateProgressBars("ACT", "actProgress", actCategories);
-        localStorage.removeItem("actTestResults"); // Clear ACT results
-    }
-
-    // Check last completed exam to auto-toggle
-    const lastCompletedExam = JSON.parse(localStorage.getItem("lastCompletedExam"));
-    if (lastCompletedExam && lastCompletedExam.examType === "SAT") {
-        console.log("Last completed exam was SAT, toggling to SAT tab...");
-        showSAT();
-        updateProgressBars("SAT", "satProgress", satCategories);
     }
 });
-
 
 function resetProgress() {
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
