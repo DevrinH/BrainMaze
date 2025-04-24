@@ -131,12 +131,14 @@ function startTest() {
 function startReadingWritingTest() {
     isMathTest = false;
     userResponses = [];
-    startQuiz(readingWritingQuestions, 18, 18, 18);
+    // Adjust question counts to match available questions
+    startQuiz(readingWritingQuestions, 1, 3, 0); // 1 easy, 3 medium, 0 hard
 }
 
 function startMathTest() {
     isMathTest = true;
-    startQuiz(mathQuestions, 14, 15, 15);
+    // Adjust question counts to match available questions
+    startQuiz(mathQuestions, 1, 1, 2); // 1 easy, 1 medium, 2 hard
 }
 
 function startQuiz(questions, numEasy, numMedium, numHard) {
@@ -155,7 +157,9 @@ function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     const hardQuestions = questions.filter(q => q.difficulty === "hard");
 
     function getRandom(arr, num) {
-        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
+        const available = arr.length;
+        const toSelect = Math.min(num, available); // Don't select more than available
+        return arr.sort(() => 0.5 - Math.random()).slice(0, toSelect);
     }
 
     const selectedEasy = getRandom(easyQuestions, numEasy);
@@ -245,21 +249,16 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
 
-    let maxPossibleScore;
-    if (!isMathTest) {
-        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
-    } else {
-        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
-    }
-    let rawScore = score;
-    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+    // Simplify scoring for untimed test: focus on percentage correct
+    let totalQuestions = selectedQuestions.length;
+    let percentageCorrect = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
 
     document.getElementById("question-container").classList.remove("hide");
 
     if (!isMathTest) {
-        localStorage.setItem("readingScore", scaledScore);
+        localStorage.setItem("readingScore", percentageCorrect);
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
+        questionElement.innerHTML = `Reading and Writing: ${correctAnswers} / ${totalQuestions} (${percentageCorrect}%)`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
@@ -268,20 +267,22 @@ function showScore() {
     } else {
         let readingScore = localStorage.getItem("readingScore") || 0;
         readingScore = parseInt(readingScore, 10);
-        let mathScore = scaledScore;
-        localStorage.setItem("mathScore", mathScore);
+        let mathPercentage = percentageCorrect;
+        localStorage.setItem("mathScore", mathPercentage);
 
-        let totalSATScore = readingScore + mathScore;
+        let totalCorrect = correctAnswers + (readingScore * readingWritingQuestions.length / 100);
+        let totalPossible = readingWritingQuestions.length + mathQuestions.length;
+        let overallPercentage = Math.round((totalCorrect / totalPossible) * 100);
 
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-        scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
+        scoreHistory[today] = { reading: readingScore, math: mathPercentage, total: overallPercentage };
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
-                                    <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
-                                    <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
+        questionElement.innerHTML = `<p><strong>Reading and Writing:</strong> ${readingScore}%</p>
+                                    <p><strong>Math:</strong> ${mathPercentage}%</p>
+                                    <p><strong>Overall:</strong> ${overallPercentage}%</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
@@ -291,6 +292,7 @@ function showScore() {
         nextButton.addEventListener("click", showExplanations);
     }
 }
+
 function showExplanations() {
     resetState();
     passageElement.innerHTML = "";
@@ -319,6 +321,7 @@ function showExplanations() {
     nextButton.style.display = "block";
     nextButton.removeEventListener("click", showExplanations);
     nextButton.addEventListener("click", () => {
+        saveTestCompletion("SAT");
         window.location.href = "https://www.brainjelli.com/user-profile";
     });
 }
@@ -339,7 +342,7 @@ function generateExplanation(response) {
     } else if (questionText.includes("A car's value depreciates by 15%")) {
         return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $25,500 × 0.85 = $21,675. Year 3: $21,675 × 0.85 = $18,423.75 ≈ $19,275 (rounded).";
     } else if (questionText.includes("The function f(x) is defined")) {
-        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(4²) - 3(4) + 5 = 2(16) - 12 + 5 = 32 - 12 + 5 = 25.";
+        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(16) - 3(4) + 5 = 32 - 12 + 5 = 25.";
     } else if (questionText.includes("A company rents out bicycles")) {
         return "Equation: $12 + $3h ≤ $45. Subtract 12: $3h ≤ $33. Divide by 3: h ≤ 11. Maximum whole hours = 9 (since $12 + $3 × 9 = $39 ≤ $45).";
     }
@@ -388,6 +391,11 @@ function recordTestResults() {
     }
 }
 
+function saveTestCompletion(examType) {
+    const timestamp = new Date().toISOString();
+    localStorage.setItem("lastCompletedExam", JSON.stringify({ examType, timestamp }));
+}
+
 nextButton.addEventListener("click", () => {
     if (nextButton.innerHTML === "Continue") {
         document.getElementById("break-message").classList.remove("hide");
@@ -402,21 +410,5 @@ continueButton.addEventListener("click", () => {
     document.getElementById("question-container").classList.remove("hide");
     startMathTest();
 });
-
-function showIntroMessage() {
-    resetState();
-    passageElement.innerHTML = "";
-    questionElement.innerHTML = "This is a timed SAT Test. The Reading portion will be 64 minutes and the math portion will be 44 minutes.";
-    questionElement.classList.add("centered-score");
-
-    const startButton = document.createElement("button");
-    startButton.innerHTML = "Start Test";
-    startButton.classList.add("btn", "centered-btn");
-    startButton.addEventListener("click", () => {
-        questionElement.classList.remove("centered-score");
-        startReadingWritingTest();
-    });
-    answerButtons.appendChild(startButton);
-}
 
 startTestButton.addEventListener("click", startTest);
