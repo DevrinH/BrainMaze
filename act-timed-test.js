@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let time;
     let userResponses = [];
     let currentSection = "english";
+    let categoryScores = {};
 
 
     // Sample questions (replace with full question banks)
