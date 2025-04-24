@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
-        categoryStats = {}; // Reset at the end of the section
+        categoryStats = {};
     }
 
     function endMathSection() {
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
-        categoryStats = {}; // Reset at the end of the section
+        categoryStats = {};
     }
 
     function endReadingSection() {
@@ -196,14 +196,14 @@ document.addEventListener("DOMContentLoaded", () => {
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
-        categoryStats = {}; // Reset at the end of the section
+        categoryStats = {};
     }
 
     function endScienceSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showFinalScore();
-        categoryStats = {}; // Reset at the end of the section
+        categoryStats = {};
     }
 
     function startQuiz(questions) {
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
-        categoryStats = {}; // Reset categoryStats at the start of a new section
+        categoryStats = {};
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
 
@@ -349,7 +349,6 @@ document.addEventListener("DOMContentLoaded", () => {
             results = {};
         }
 
-        // Update actTestResults with the current categoryStats
         for (let category in categoryStats) {
             if (!results[category]) {
                 results[category] = { correct: 0, incorrect: 0 };
@@ -393,6 +392,16 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
+
+        // Remove the old event listener to prevent looping
+        nextButton.removeEventListener("click", handleNextButton);
+
+        // Add a new event listener for section transition
+        nextButton.addEventListener("click", () => {
+            document.getElementById("question-container").classList.add("hide");
+            document.getElementById("break-message").classList.remove("hide");
+            nextButton.style.display = "none";
+        });
     }
 
     function saveTestResults(examType, progressKey, testResults) {
@@ -421,10 +430,6 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("testResults", JSON.stringify(testResults));
         localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
         localStorage.setItem("lastActivity", JSON.stringify({ exam: examType, type: "test", timestamp: Date.now() }));
-
-        console.log(`${examType} Test Results Saved:`, testResults);
-        console.log(`${examType} Updated Progress:`, storedProgress);
-        console.log(`${examType} Updated Previous Progress:`, previousProgress);
     }
 
     function getCategoryResults() {
@@ -548,7 +553,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function generateExplanation(response) {
-        // Truncated for brevity as per request
         const questionText = response.question || "";
         if (questionText.includes("What is the value of x in the equation 3x + 7 = 22?")) {
             return "Solve 3x + 7 = 22 by subtracting 7: 3x = 15. Divide by 3: x = 5. Option B) 5 is correct. A) 4, C) 6, and D) 7 do not satisfy the equation.";
@@ -562,8 +566,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const progressBar = document.getElementById("progress-bar");
         const progressText = document.getElementById("progress-text");
         const progress = (currentQuestionIndex / selectedQuestions.length) * 100;
-        progressBar.style.width = `${progress}%`;
-        progressText.textContent = `${currentQuestionIndex + 1} / ${selectedQuestions.length}`;
+
+        if (progressBar) {
+            progressBar.style.width = `${progress}%`;
+        } else {
+            console.warn("Progress bar element not found. Please ensure an element with ID 'progress-bar' exists in the HTML.");
+        }
+
+        if (progressText) {
+            progressText.textContent = `${currentQuestionIndex + 1} / ${selectedQuestions.length}`;
+        } else {
+            console.warn("Progress text element not found. Please ensure an element with ID 'progress-text' exists in the HTML.");
+        }
     }
 
     function handleNextButton() {
@@ -576,6 +590,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     startTestButton.addEventListener("click", startTest);
+
     continueButton.addEventListener("click", () => {
         document.getElementById("break-message").classList.add("hide");
         document.getElementById("question-container").classList.remove("hide");
