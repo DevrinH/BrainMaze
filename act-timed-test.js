@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", () => {
             results[category].incorrect = (results[category].incorrect || 0) + (categoryStats[category].incorrect || 0);
         }
 
-        localStorage.setItem("현재 actTestResults", JSON.stringify(results));
+        localStorage.setItem("actTestResults", JSON.stringify(results));
         console.log("Updated actTestResults:", results);
     }
 
@@ -545,6 +545,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "user-profile.html";
             }, 100);
         });
+    }
+
+    function generateExplanation(response) {
+        // Truncated for brevity as per request
+        const questionText = response.question || "";
+        if (questionText.includes("What is the value of x in the equation 3x + 7 = 22?")) {
+            return "Solve 3x + 7 = 22 by subtracting 7: 3x = 15. Divide by 3: x = 5. Option B) 5 is correct. A) 4, C) 6, and D) 7 do not satisfy the equation.";
+        } else if (questionText.includes("If f(x) = x^2 + 3x - 4, what is f(2)?")) {
+            return "Substitute x = 2 into f(x) = x^2 + 3x - 4: f(2) = 2^2 + 3(2) - 4 = 4 + 6 - 4 = 6. Option C) 6 is correct. A) 8, B) 4, and D) 10 are incorrect calculations.";
+        }
+        return "No specific explanation available for this question.";
     }
 
     function updateProgressBar() {
