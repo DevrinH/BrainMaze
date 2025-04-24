@@ -1946,7 +1946,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
+ddocument.addEventListener("DOMContentLoaded", function () {
     // Function to update progress bars and arrows for a given exam
     function updateProgressBars(examType, progressKey, categories) {
         console.log(`Updating ${examType} progress bars...`);
@@ -1954,7 +1954,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Load stored data from localStorage
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
         let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("actTestResults")) || {};
+        // Use different keys for SAT and ACT test results
+        let currentTestResults = examType === "SAT" 
+            ? JSON.parse(localStorage.getItem("testResults")) || {}
+            : JSON.parse(localStorage.getItem("actTestResults")) || {};
 
         console.log(`${examType} Previous Progress:`, previousProgress);
         console.log(`${examType} Stored Progress:`, storedProgress);
@@ -2036,10 +2039,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Save updated previous progress
         localStorage.setItem("previousTestResults", JSON.stringify(updatedPreviousProgress));
         console.log(`${examType} Updated Previous Progress:`, updatedPreviousProgress);
-
-        // Clear testResults to prevent duplicate accumulation
-        localStorage.removeItem("actTestResults");
-        console.log("Cleared actTestResults from localStorage");
     }
 
     // Define categories for SAT and ACT
@@ -2064,14 +2063,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Update progress for active exam
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
+    console.log("Active exam detected:", activeExam);
     if (activeExam === "line-chart-sat") {
+        console.log("Processing SAT progress...");
         updateProgressBars("SAT", "satProgress", satCategories);
+        localStorage.removeItem("testResults"); // Clear after SAT processing
     } else if (activeExam === "line-chart-act") {
+        console.log("Processing ACT progress...");
         updateProgressBars("ACT", "actProgress", actCategories);
+        localStorage.removeItem("actTestResults"); // Clear after ACT processing
     } else {
-        console.log("No active exam detected, updating both SAT and ACT");
+        console.log("No active exam detected, updating SAT first, then ACT");
         updateProgressBars("SAT", "satProgress", satCategories);
+        localStorage.removeItem("testResults"); // Clear SAT results
         updateProgressBars("ACT", "actProgress", actCategories);
+        localStorage.removeItem("actTestResults"); // Clear ACT results
+    }
+
+    // Check last completed exam to auto-toggle
+    const lastCompletedExam = JSON.parse(localStorage.getItem("lastCompletedExam"));
+    if (lastCompletedExam && lastCompletedExam.examType === "SAT") {
+        console.log("Last completed exam was SAT, toggling to SAT tab...");
+        showSAT();
+        updateProgressBars("SAT", "satProgress", satCategories);
     }
 });
 
