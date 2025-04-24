@@ -1945,83 +1945,109 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to update progress bars and arrows for a given exam
+    function updateProgressBars(examType, progressKey, categories) {
+        console.log(`Updating ${examType} progress bars...`);
 
-    document.addEventListener("DOMContentLoaded", function () {
-        // Load stored progress from previous tests
+        // Load stored data from localStorage
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
         let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
-        let storedProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+        let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
 
-        console.log("Previous Progress:", previousProgress);
-        console.log("Current Test Results:", currentTestResults);
-        console.log("Stored Progress Before Update:", storedProgress);
+        console.log(`${examType} Previous Progress:`, previousProgress);
+        console.log(`${examType} Current Test Results:`, currentTestResults);
+        console.log(`${examType} Stored Progress Before Update:`, storedProgress);
 
-        // **Accumulate results over multiple tests**
+        // Accumulate results from current test
         Object.keys(currentTestResults).forEach(category => {
-            if (!storedProgress[category]) {
+            if (categories.includes(category) && !storedProgress[category]) {
                 storedProgress[category] = { correct: 0, incorrect: 0 };
             }
-
-            // Ensure values are treated as numbers
-            let newCorrect = Number(currentTestResults[category]?.correct || 0);
-            let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
-
-            storedProgress[category].correct += newCorrect;
-            storedProgress[category].incorrect += newIncorrect;
+            if (categories.includes(category)) {
+                let newCorrect = Number(currentTestResults[category]?.correct || 0);
+                let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
+                storedProgress[category].correct += newCorrect;
+                storedProgress[category].incorrect += newIncorrect;
+            }
         });
 
         // Save updated progress
-        localStorage.setItem("satProgress", JSON.stringify(storedProgress));
-        console.log("Updated Stored Progress:", storedProgress);
+        localStorage.setItem(progressKey, JSON.stringify(storedProgress));
+        console.log(`${examType} Updated Stored Progress:`, storedProgress);
 
-        // Update progress bars
-        function updateProgressBars() {
-            console.log("Updating progress bars with data:", storedProgress);
+        // Update progress bars and arrows
+        categories.forEach(category => {
+            const correct = storedProgress[category]?.correct || 0;
+            const incorrect = storedProgress[category]?.incorrect || 0;
+            const total = correct + incorrect;
+            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-            Object.keys(storedProgress).forEach(category => {
-                const correct = storedProgress[category]?.correct || 0;
-                const incorrect = storedProgress[category]?.incorrect || 0;
-                const total = correct + incorrect;
-                const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+            // Update progress bar
+            const progressBar = document.getElementById(`${category}-bar`);
+            if (progressBar) {
+                progressBar.style.width = `${percentage}%`;
+            } else {
+                console.warn(`${examType} Progress bar not found: ${category}-bar`);
+            }
 
-                // Update progress bar
-                const progressBar = document.getElementById(`${category}-bar`);
-                if (progressBar) {
-                    progressBar.style.width = `${percentage}%`;
-                } else {
-                    console.warn(`Progress bar not found: ${category}-bar`);
+            // Update progress text and arrow
+            const progressText = document.getElementById(`${category}-text`);
+            if (progressText) {
+                let previousPercentage = previousProgress[category]?.percentage || 0;
+                let arrow = "→";
+                let arrowColor = "#4e5163";
+
+                if (percentage > previousPercentage) {
+                    arrow = "↑";
+                    arrowColor = "green";
+                } else if (percentage < previousPercentage) {
+                    arrow = "↓";
+                    arrowColor = "red";
                 }
 
-                // Update progress text
-                const progressText = document.getElementById(`${category}-text`);
-                if (progressText) {
-                    let previousPercentage = previousProgress[category]?.percentage || 0;
-                    let arrow = "→";
-                    let arrowColor = "#4e5163";
+                progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+            } else {
+                console.warn(`${examType} Progress text not found: ${category}-text`);
+            }
 
-                    if (percentage > previousPercentage) {
-                        arrow = "↑";
-                        arrowColor = "green";
-                    } else if (percentage < previousPercentage) {
-                        arrow = "↓";
-                        arrowColor = "red";
-                    }
+            // Store current percentage for future comparison
+            previousProgress[category] = { percentage };
+        });
 
-                    progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                } else {
-                    console.warn(`Progress text not found: ${category}-text`);
-                }
+        // Save updated previous progress
+        localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
+        console.log(`${examType} Updated Previous Progress:`, previousProgress);
+    }
 
-                // Store current progress for future reference
-                previousProgress[category] = { percentage };
-            });
+    // Define categories for SAT and ACT
+    const satCategories = [
+        "command-of-evidence", "central-ideas", "inferences", "words-in-context",
+        "text-structure-and-purpose", "cross-text-connections", "transitions",
+        "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
+        "problem-solving", "geometry"
+    ];
 
-            // Save updated progress
-            localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
-        }
+    const actCategories = [
+        "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing",
+        "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
+        "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
+        "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences",
+        "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
+        "act-vocabulary-in-context", "act-character-development", "act-symbolism",
+        "act-literary-device", "act-theme", "act-detail", "act-relationship",
+        "act-implication", "act-comparison", "act-data-representation",
+        "act-research-summary", "act-conflicting-viewpoints"
+    ];
 
-        updateProgressBars();
-    });
+    // Update progress for active exam
+    const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
+    if (activeExam === "line-chart-sat") {
+        updateProgressBars("SAT", "satProgress", satCategories);
+    } else if (activeExam === "line-chart-act") {
+        updateProgressBars("ACT", "actProgress", actCategories);
+    }
+});
 
     function resetProgress() {
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
