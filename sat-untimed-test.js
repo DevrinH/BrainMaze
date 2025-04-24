@@ -18,7 +18,7 @@ let userResponses = [];
 
 const readingWritingQuestions = [
     {
-        passage: "Emma stepped into the grand ballroom...",
+        passage: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.",
         question: "What does the passage suggest about Emma’s feelings?",
         answers: [
             { text: "A) She feels out of place despite having anticipated this moment for a long time.", correct: true },
@@ -28,10 +28,10 @@ const readingWritingQuestions = [
         ],
         type: "reading",
         difficulty: "easy",
-        category: "inferences" // Updated to match "inferences"
+        category: "inference"
     },
     {
-        passage: "Daniel stepped into the office...",
+        passage: "Daniel stepped into the office, straightening his tie as he took in the bustling atmosphere. Conversations hummed around him, and the clatter of keyboards filled the air. He had spent weeks preparing for this moment, yet a small knot of doubt twisted in his stomach. He took a deep breath and walked toward his desk, reminding himself that everyone had to start somewhere.",
         question: "What does the passage suggest about Daniel's attitude toward his new job?",
         answers: [
             { text: "A) He is uncertain about his abilities but determined to prove himself.", correct: true },
@@ -41,10 +41,10 @@ const readingWritingQuestions = [
         ],
         type: "reading",
         difficulty: "medium",
-        category: "inferences" // Updated to match "inferences"
+        category: "inference"
     },
     {
-        passage: "Liam set his pen down...",
+        passage: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.",
         question: "Which choice provides the best evidence for the idea that Liam is uncertain about his work?",
         answers: [
             { text: "A) 'Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind.'", correct: true },
@@ -54,10 +54,10 @@ const readingWritingQuestions = [
         ],
         type: "reading",
         difficulty: "medium",
-        category: "command-of-evidence" // Already matches
+        category: "command-of-evidence"
     },
     {
-        passage: "The scientist adjusted her glasses...",
+        passage: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.",
         question: "Which sentence best supports the idea that the scientist is struggling to accept her findings?",
         answers: [
             { text: "A) 'The scientist adjusted her glasses, peering at the data displayed on the screen.'", correct: false },
@@ -67,14 +67,14 @@ const readingWritingQuestions = [
         ],
         type: "reading",
         difficulty: "medium",
-        category: "command-of-evidence" // Already matches
+        category: "command-of-evidence"
     },
 ];
 
 const mathQuestions = [
     {
         passage: "",
-        question: "An airplane is flying from City A to City B, a total distance of 1,500 miles...",
+        question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
         answers: [
             { text: "A) 2.5 hours", correct: false },
             { text: "B) 2.6 hours", correct: false },
@@ -82,11 +82,11 @@ const mathQuestions = [
             { text: "D) 2.75 hours", correct: true }
         ],
         difficulty: "hard",
-        category: "advanced-math" // Already matches
+        category: "advanced-math"
     },
     {
         passage: "",
-        question: "A car's value depreciates by 15% each year...",
+        question: "A car's value depreciates by 15% each year. If the car was originally purchased for $30,000, what will its value be after 3 years, rounded to the nearest dollar?",
         answers: [
             { text: "A) $18,520", correct: false },
             { text: "B) $19,275", correct: true },
@@ -94,11 +94,11 @@ const mathQuestions = [
             { text: "D) $21,000", correct: false }
         ],
         difficulty: "hard",
-        category: "advanced-math" // Already matches
+        category: "advanced-math"
     },    
     {
         passage: "",
-        question: "The function f(x) is defined as f(x) = 2x² - 3x + 5...",
+        question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
         answers: [
             { text: "A) 27", correct: false },
             { text: "B) 29", correct: true },
@@ -106,11 +106,11 @@ const mathQuestions = [
             { text: "D) 25", correct: false }
         ],
         difficulty: "easy",
-        category: "algebra" // Already matches
+        category: "algebra"
     },
     {
         passage: "",
-        question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour...",
+        question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
         answers: [
             { text: "A) 10 hours", correct: false },
             { text: "B) 11 hours", correct: false },
@@ -118,7 +118,7 @@ const mathQuestions = [
             { text: "D) 8 hours", correct: false }
         ],
         difficulty: "medium",
-        category: "algebra" // Already matches
+        category: "algebra"
     },
 ];
 
@@ -131,14 +131,12 @@ function startTest() {
 function startReadingWritingTest() {
     isMathTest = false;
     userResponses = [];
-    // Adjust question counts to match available questions
-    startQuiz(readingWritingQuestions, 1, 3, 0); // 1 easy, 3 medium, 0 hard
+    startQuiz(readingWritingQuestions, 18, 18, 18);
 }
 
 function startMathTest() {
     isMathTest = true;
-    // Adjust question counts to match available questions
-    startQuiz(mathQuestions, 1, 1, 2); // 1 easy, 1 medium, 2 hard
+    startQuiz(mathQuestions, 14, 15, 15);
 }
 
 function startQuiz(questions, numEasy, numMedium, numHard) {
@@ -157,9 +155,7 @@ function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     const hardQuestions = questions.filter(q => q.difficulty === "hard");
 
     function getRandom(arr, num) {
-        const available = arr.length;
-        const toSelect = Math.min(num, available); // Don't select more than available
-        return arr.sort(() => 0.5 - Math.random()).slice(0, toSelect);
+        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
     }
 
     const selectedEasy = getRandom(easyQuestions, numEasy);
@@ -249,16 +245,21 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
 
-    // Simplify scoring for untimed test: focus on percentage correct
-    let totalQuestions = selectedQuestions.length;
-    let percentageCorrect = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
+    let maxPossibleScore;
+    if (!isMathTest) {
+        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
+    } else {
+        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
+    }
+    let rawScore = score;
+    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
     document.getElementById("question-container").classList.remove("hide");
 
     if (!isMathTest) {
-        localStorage.setItem("readingScore", percentageCorrect);
+        localStorage.setItem("readingScore", scaledScore);
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `Reading and Writing: ${correctAnswers} / ${totalQuestions} (${percentageCorrect}%)`;
+        questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
@@ -267,22 +268,20 @@ function showScore() {
     } else {
         let readingScore = localStorage.getItem("readingScore") || 0;
         readingScore = parseInt(readingScore, 10);
-        let mathPercentage = percentageCorrect;
-        localStorage.setItem("mathScore", mathPercentage);
+        let mathScore = scaledScore;
+        localStorage.setItem("mathScore", mathScore);
 
-        let totalCorrect = correctAnswers + (readingScore * readingWritingQuestions.length / 100);
-        let totalPossible = readingWritingQuestions.length + mathQuestions.length;
-        let overallPercentage = Math.round((totalCorrect / totalPossible) * 100);
+        let totalSATScore = readingScore + mathScore;
 
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-        scoreHistory[today] = { reading: readingScore, math: mathPercentage, total: overallPercentage };
+        scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
         localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Reading and Writing:</strong> ${readingScore}%</p>
-                                    <p><strong>Math:</strong> ${mathPercentage}%</p>
-                                    <p><strong>Overall:</strong> ${overallPercentage}%</p>`;
+        questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
+                                    <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
+                                    <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
@@ -292,7 +291,6 @@ function showScore() {
         nextButton.addEventListener("click", showExplanations);
     }
 }
-
 function showExplanations() {
     resetState();
     passageElement.innerHTML = "";
@@ -321,7 +319,6 @@ function showExplanations() {
     nextButton.style.display = "block";
     nextButton.removeEventListener("click", showExplanations);
     nextButton.addEventListener("click", () => {
-        saveTestCompletion("SAT");
         window.location.href = "https://www.brainjelli.com/user-profile";
     });
 }
@@ -342,7 +339,7 @@ function generateExplanation(response) {
     } else if (questionText.includes("A car's value depreciates by 15%")) {
         return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $25,500 × 0.85 = $21,675. Year 3: $21,675 × 0.85 = $18,423.75 ≈ $19,275 (rounded).";
     } else if (questionText.includes("The function f(x) is defined")) {
-        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(16) - 3(4) + 5 = 32 - 12 + 5 = 25.";
+        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(4²) - 3(4) + 5 = 2(16) - 12 + 5 = 32 - 12 + 5 = 25.";
     } else if (questionText.includes("A company rents out bicycles")) {
         return "Equation: $12 + $3h ≤ $45. Subtract 12: $3h ≤ $33. Divide by 3: h ≤ 11. Maximum whole hours = 9 (since $12 + $3 × 9 = $39 ≤ $45).";
     }
@@ -391,11 +388,6 @@ function recordTestResults() {
     }
 }
 
-function saveTestCompletion(examType) {
-    const timestamp = new Date().toISOString();
-    localStorage.setItem("lastCompletedExam", JSON.stringify({ examType, timestamp }));
-}
-
 nextButton.addEventListener("click", () => {
     if (nextButton.innerHTML === "Continue") {
         document.getElementById("break-message").classList.remove("hide");
@@ -410,5 +402,21 @@ continueButton.addEventListener("click", () => {
     document.getElementById("question-container").classList.remove("hide");
     startMathTest();
 });
+
+function showIntroMessage() {
+    resetState();
+    passageElement.innerHTML = "";
+    questionElement.innerHTML = "This is a timed SAT Test. The Reading portion will be 64 minutes and the math portion will be 44 minutes.";
+    questionElement.classList.add("centered-score");
+
+    const startButton = document.createElement("button");
+    startButton.innerHTML = "Start Test";
+    startButton.classList.add("btn", "centered-btn");
+    startButton.addEventListener("click", () => {
+        questionElement.classList.remove("centered-score");
+        startReadingWritingTest();
+    });
+    answerButtons.appendChild(startButton);
+}
 
 startTestButton.addEventListener("click", startTest);
