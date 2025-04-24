@@ -18,7 +18,7 @@ let userResponses = [];
 
 const readingWritingQuestions = [
     {
-        passage: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.",
+        passage: "Emma stepped into the grand ballroom...",
         question: "What does the passage suggest about Emma’s feelings?",
         answers: [
             { text: "A) She feels out of place despite having anticipated this moment for a long time.", correct: true },
@@ -28,10 +28,10 @@ const readingWritingQuestions = [
         ],
         type: "reading",
         difficulty: "easy",
-        category: "inference"
+        category: "inferences" // Updated to match "inferences"
     },
     {
-        passage: "Daniel stepped into the office, straightening his tie as he took in the bustling atmosphere. Conversations hummed around him, and the clatter of keyboards filled the air. He had spent weeks preparing for this moment, yet a small knot of doubt twisted in his stomach. He took a deep breath and walked toward his desk, reminding himself that everyone had to start somewhere.",
+        passage: "Daniel stepped into the office...",
         question: "What does the passage suggest about Daniel's attitude toward his new job?",
         answers: [
             { text: "A) He is uncertain about his abilities but determined to prove himself.", correct: true },
@@ -41,10 +41,10 @@ const readingWritingQuestions = [
         ],
         type: "reading",
         difficulty: "medium",
-        category: "inference"
+        category: "inferences" // Updated to match "inferences"
     },
     {
-        passage: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.",
+        passage: "Liam set his pen down...",
         question: "Which choice provides the best evidence for the idea that Liam is uncertain about his work?",
         answers: [
             { text: "A) 'Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind.'", correct: true },
@@ -54,10 +54,10 @@ const readingWritingQuestions = [
         ],
         type: "reading",
         difficulty: "medium",
-        category: "command-of-evidence"
+        category: "command-of-evidence" // Already matches
     },
     {
-        passage: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.",
+        passage: "The scientist adjusted her glasses...",
         question: "Which sentence best supports the idea that the scientist is struggling to accept her findings?",
         answers: [
             { text: "A) 'The scientist adjusted her glasses, peering at the data displayed on the screen.'", correct: false },
@@ -67,14 +67,14 @@ const readingWritingQuestions = [
         ],
         type: "reading",
         difficulty: "medium",
-        category: "command-of-evidence"
+        category: "command-of-evidence" // Already matches
     },
 ];
 
 const mathQuestions = [
     {
         passage: "",
-        question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
+        question: "An airplane is flying from City A to City B, a total distance of 1,500 miles...",
         answers: [
             { text: "A) 2.5 hours", correct: false },
             { text: "B) 2.6 hours", correct: false },
@@ -82,11 +82,11 @@ const mathQuestions = [
             { text: "D) 2.75 hours", correct: true }
         ],
         difficulty: "hard",
-        category: "advanced-math"
+        category: "advanced-math" // Already matches
     },
     {
         passage: "",
-        question: "A car's value depreciates by 15% each year. If the car was originally purchased for $30,000, what will its value be after 3 years, rounded to the nearest dollar?",
+        question: "A car's value depreciates by 15% each year...",
         answers: [
             { text: "A) $18,520", correct: false },
             { text: "B) $19,275", correct: true },
@@ -94,11 +94,11 @@ const mathQuestions = [
             { text: "D) $21,000", correct: false }
         ],
         difficulty: "hard",
-        category: "advanced-math"
+        category: "advanced-math" // Already matches
     },    
     {
         passage: "",
-        question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
+        question: "The function f(x) is defined as f(x) = 2x² - 3x + 5...",
         answers: [
             { text: "A) 27", correct: false },
             { text: "B) 29", correct: true },
@@ -106,11 +106,11 @@ const mathQuestions = [
             { text: "D) 25", correct: false }
         ],
         difficulty: "easy",
-        category: "algebra"
+        category: "algebra" // Already matches
     },
     {
         passage: "",
-        question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
+        question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour...",
         answers: [
             { text: "A) 10 hours", correct: false },
             { text: "B) 11 hours", correct: false },
@@ -118,7 +118,7 @@ const mathQuestions = [
             { text: "D) 8 hours", correct: false }
         ],
         difficulty: "medium",
-        category: "algebra"
+        category: "algebra" // Already matches
     },
 ];
 
