@@ -1953,7 +1953,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Load stored data from localStorage
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
         let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
+        let currentTestResults = JSON.parse(localStorage.getItem("actTestResults")) || {}; // Use actTestResults for ACT
 
         console.log(`${examType} Previous Progress:`, previousProgress);
         console.log(`${examType} Stored Progress:`, storedProgress);
@@ -1973,6 +1973,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
                 storedProgress[category].correct += newCorrect;
                 storedProgress[category].incorrect += newIncorrect;
+                console.log(`Updated ${category}: correct=${storedProgress[category].correct}, incorrect=${storedProgress[category].incorrect}`);
             }
         });
 
@@ -1992,6 +1993,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const progressBar = document.getElementById(`${category}-bar`);
             if (progressBar) {
                 progressBar.style.width = `${percentage}%`;
+                console.log(`Set ${category}-bar width to ${percentage}%`);
             } else {
                 console.warn(`${examType} Progress bar not found: ${category}-bar`);
             }
@@ -2012,6 +2014,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                console.log(`Set ${category}-text to ${percentage}% with arrow ${arrow}`);
             } else {
                 console.warn(`${examType} Progress text not found: ${category}-text`);
             }
@@ -2025,7 +2028,8 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`${examType} Updated Previous Progress:`, updatedPreviousProgress);
 
         // Clear testResults to prevent duplicate accumulation
-        localStorage.removeItem("testResults");
+        localStorage.removeItem("actTestResults");
+        console.log("Cleared actTestResults from localStorage");
     }
 
     // Define categories for SAT and ACT
@@ -2061,19 +2065,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-    function resetProgress() {
-    const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
+function resetProgress() {
+    const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
     let storageKey, progressPrefix;
 
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
-        progressPrefix = ["command-of-evidence", "central-ideas", "inferences", "words-in-context", 
-                          "text-structure-and-purpose", "cross-text-connections", "transitions", 
-                          "rhetorical-synthesis", "boundaries", "algebra", "advanced-math", 
-                          "problem-solving", "geometry"];
+        progressPrefix = [
+            "command-of-evidence", "central-ideas", "inferences", "words-in-context",
+            "text-structure-and-purpose", "cross-text-connections", "transitions",
+            "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
+            "problem-solving", "geometry"
+        ];
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
-        progressPrefix = ["act-english", "act-math", "act-reading", "act-science"];
+        progressPrefix = [
+            "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing",
+            "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
+            "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
+            "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences",
+            "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
+            "act-vocabulary-in-context", "act-character-development", "act-symbolism",
+            "act-literary-device", "act-theme", "act-detail", "act-relationship",
+            "act-implication", "act-comparison", "act-data-representation",
+            "act-research-summary", "act-conflicting-viewpoints"
+        ];
     } else if (activeExam === "line-chart-ged") {
         storageKey = "gedProgress";
         progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
@@ -2086,6 +2102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Remove specific exam progress from localStorage
         localStorage.removeItem(storageKey);
         localStorage.removeItem("testResults");
+        localStorage.removeItem("previousTestResults"); // Also clear previousTestResults
         localStorage.removeItem("scoreHistory");
 
         // Remove actScoreHistory for ACT exam
