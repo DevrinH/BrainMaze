@@ -425,8 +425,9 @@ function selectAnswer(e) {
     }
     
     function getCategoryResults() {
-        // Replace this with your actual data source
-        return categoryScores;
+        let storedResults = localStorage.getItem("actTestResults");
+        let results = storedResults ? JSON.parse(storedResults) : {};
+        return results;
     }
     
     function showFinalScore() {
