@@ -233,6 +233,8 @@ function selectAnswer(e) {
         categoryStats[questionCategory].incorrect++;
     }
 
+    recordTestResults();
+
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
@@ -251,9 +253,6 @@ function showScore() {
     let totalQuestions = selectedQuestions.length;
     let percentageCorrect = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
 
-    // Save results for this section
-    recordTestResults();
-
     document.getElementById("question-container").classList.remove("hide");
 
     if (!isMathTest) {
@@ -265,9 +264,6 @@ function showScore() {
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
-        // Reset categoryStats for the next section (Math)
-        categoryStats = {};
-        correctAnswers = 0;
     } else {
         let readingScore = localStorage.getItem("readingScore") || 0;
         readingScore = parseInt(readingScore, 10);
@@ -355,6 +351,7 @@ function generateExplanation(response) {
 }
 
 function handleNextButton() {
+    recordTestResults();
     currentQuestionIndex++;
     if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
@@ -384,11 +381,14 @@ function recordTestResults() {
 
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
-        console.log(`Saving ${category}: correct=${results[category].correct}, incorrect=${results[category].incorrect}`);
     }
 
     localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Updated testResults:", results);
+
+    for (let category in categoryStats) {
+        categoryStats[category].correct = 0;
+        categoryStats[category].incorrect = 0;
+    }
 }
 
 function saveTestCompletion(examType) {
