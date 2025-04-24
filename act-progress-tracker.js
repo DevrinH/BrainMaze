@@ -113,3 +113,79 @@ document.querySelectorAll(".button-30").forEach(button => {
         }, 100); // Small delay to ensure DOM updates are applied
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    // Load stored progress for ACT
+    let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
+    let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
+    let storedProgress = JSON.parse(localStorage.getItem("actProgress")) || {};
+
+    console.log("ACT Previous Progress:", previousProgress);
+    console.log("ACT Current Test Results:", currentTestResults);
+    console.log("ACT Stored Progress Before Update:", storedProgress);
+
+    // Accumulate results over multiple tests for ACT
+    Object.keys(currentTestResults).forEach(category => {
+        if (!storedProgress[category]) {
+            storedProgress[category] = { correct: 0, incorrect: 0 };
+        }
+
+        // Ensure values are treated as numbers
+        let newCorrect = Number(currentTestResults[category]?.correct || 0);
+        let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
+
+        storedProgress[category].correct += newCorrect;
+        storedProgress[category].incorrect += newIncorrect;
+    });
+
+    // Save updated ACT progress
+    localStorage.setItem("actProgress", JSON.stringify(storedProgress));
+    console.log("Updated ACT Stored Progress:", storedProgress);
+
+    // Update ACT progress bars and arrows
+    function updateActProgressBars() {
+        console.log("Updating ACT progress bars with data:", storedProgress);
+
+        Object.keys(storedProgress).forEach(category => {
+            const correct = storedProgress[category]?.correct || 0;
+            const incorrect = storedProgress[category]?.incorrect || 0;
+            const total = correct + incorrect;
+            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+            // Update progress bar
+            const progressBar = document.getElementById(`${category}-bar`);
+            if (progressBar) {
+                progressBar.style.width = `${percentage}%`;
+            } else {
+                console.warn(`ACT Progress bar not found: ${category}-bar`);
+            }
+
+            // Update progress text and arrow
+            const progressText = document.getElementById(`${category}-text`);
+            if (progressText) {
+                let previousPercentage = previousProgress[category]?.percentage || 0;
+                let arrow = "→";
+                let arrowColor = "#4e5163";
+
+                if (percentage > previousPercentage) {
+                    arrow = "↑";
+                    arrowColor = "green";
+                } else if (percentage < previousPercentage) {
+                    arrow = "↓";
+                    arrowColor = "red";
+                }
+
+                progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+            } else {
+                console.warn(`ACT Progress text not found: ${category}-text`);
+            }
+
+            // Store current progress for future reference
+            previousProgress[category] = { percentage };
+        });
+
+        // Save updated previous progress
+        localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
+    }
+
+    updateActProgressBars();
+});
