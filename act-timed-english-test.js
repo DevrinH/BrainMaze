@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let englishResponses = [];
     const currentSection = "english";
 
-    // English question bank (unchanged from original)
+    // English question bank (unchanged)
     const englishQuestions = [
         {
             passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
@@ -207,26 +207,31 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(refreshIntervalId);
         resetState();
 
-        let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assuming 75 questions for scaling
+        // Calculate English score
+        let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assume 75 questions (25 easy, 25 medium, 25 hard)
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
-        document.getElementById("question-container").classList.remove("hide");
-
+        // Store score in localStorage
         localStorage.setItem("englishScore", scaledScore);
 
+        // Update score history
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
         scoreHistory[today] = { english: scaledScore };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
 
+        // Save test completion metadata
         saveTestCompletion("ACT English");
 
+        // Update UI
+        document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `<p><strong>English ACT Score:</strong> ${scaledScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
+        // Set up review button
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
