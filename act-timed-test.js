@@ -574,7 +574,9 @@ const scienceQuestions = [
             }, 100);
         });
     }
-
+    setTimeout(() => {
+        window.location.href = "user-profile.html";
+    }, 100);
 
  function generateExplanation(response) {
         const questionText = response.question || "";
