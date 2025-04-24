@@ -453,9 +453,9 @@ function selectAnswer(e) {
     
         saveTestCompletion("ACT");
     
+        // Save category-specific progress
         const testResults = getCategoryResults();
         saveTestResults("ACT", "actProgress", testResults);
-        localStorage.removeItem("testResults"); // Updated to testResults
     
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
@@ -1077,7 +1077,7 @@ function selectAnswer(e) {
 
 
     function recordTestResults() {
-        let storedResults = localStorage.getItem("testResults");
+        let storedResults = localStorage.getItem("actTestResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
     
         if (typeof results !== "object" || Array.isArray(results)) {
@@ -1093,7 +1093,7 @@ function selectAnswer(e) {
             results[category].incorrect += categoryStats[category].incorrect || 0;
         }
     
-        localStorage.setItem("testResults", JSON.stringify(results));
+        localStorage.setItem("actTestResults", JSON.stringify(results));
     
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
