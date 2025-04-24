@@ -1968,6 +1968,11 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.removeItem("testResults");
         localStorage.removeItem("scoreHistory");
 
+        // Remove actScoreHistory for ACT exam
+        if (activeExam === "line-chart-act") {
+            localStorage.removeItem("actScoreHistory");
+        }
+
         // Reset progress bars and text for the active exam
         progressPrefix.forEach(prefix => {
             const bar = document.getElementById(`${prefix}-bar`);
