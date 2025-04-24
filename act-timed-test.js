@@ -432,6 +432,8 @@ function selectAnswer(e) {
         nextButton.addEventListener("click", showExplanations);
     }
 
+    
+
     function saveTestCompletion(examType) {
         const completionData = {
             exam: examType,

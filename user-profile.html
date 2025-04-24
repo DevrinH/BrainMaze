@@ -1952,18 +1952,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Load stored data from localStorage
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
         let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
+        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
 
         console.log(`${examType} Previous Progress:`, previousProgress);
+        console.log(`${examType} Stored Progress:`, storedProgress);
         console.log(`${examType} Current Test Results:`, currentTestResults);
-        console.log(`${examType} Stored Progress Before Update:`, storedProgress);
+
+        // Initialize storedProgress for categories if empty
+        categories.forEach(category => {
+            if (!storedProgress[category]) {
+                storedProgress[category] = { correct: 0, incorrect: 0 };
+            }
+        });
 
         // Accumulate results from current test
         Object.keys(currentTestResults).forEach(category => {
-            if (categories.includes(category) && !storedProgress[category]) {
-                storedProgress[category] = { correct: 0, incorrect: 0 };
-            }
             if (categories.includes(category)) {
                 let newCorrect = Number(currentTestResults[category]?.correct || 0);
                 let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
@@ -1977,6 +1981,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`${examType} Updated Stored Progress:`, storedProgress);
 
         // Update progress bars and arrows
+        let updatedPreviousProgress = { ...previousProgress };
         categories.forEach(category => {
             const correct = storedProgress[category]?.correct || 0;
             const incorrect = storedProgress[category]?.incorrect || 0;
@@ -1994,14 +1999,14 @@ document.addEventListener("DOMContentLoaded", function () {
             // Update progress text and arrow
             const progressText = document.getElementById(`${category}-text`);
             if (progressText) {
-                let previousPercentage = previousProgress[category]?.percentage || 0;
+                let previousPercentage = Number(previousProgress[category]?.percentage || 0);
                 let arrow = "→";
                 let arrowColor = "#4e5163";
 
-                if (percentage > previousPercentage) {
+                if (percentage > previousPercentage && total > 0) {
                     arrow = "↑";
                     arrowColor = "green";
-                } else if (percentage < previousPercentage) {
+                } else if (percentage < previousPercentage && total > 0) {
                     arrow = "↓";
                     arrowColor = "red";
                 }
@@ -2012,12 +2017,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Store current percentage for future comparison
-            previousProgress[category] = { percentage };
+            updatedPreviousProgress[category] = { percentage };
         });
 
         // Save updated previous progress
-        localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
-        console.log(`${examType} Updated Previous Progress:`, previousProgress);
+        localStorage.setItem("previousTestResults", JSON.stringify(updatedPreviousProgress));
+        console.log(`${examType} Updated Previous Progress:`, updatedPreviousProgress);
+
+        // Clear testResults to prevent duplicate accumulation
+        localStorage.removeItem("testResults");
     }
 
     // Define categories for SAT and ACT
@@ -2045,6 +2053,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeExam === "line-chart-sat") {
         updateProgressBars("SAT", "satProgress", satCategories);
     } else if (activeExam === "line-chart-act") {
+        updateProgressBars("ACT", "actProgress", actCategories);
+    } else {
+        console.log("No active exam detected, updating both SAT and ACT");
+        updateProgressBars("SAT", "satProgress", satCategories);
         updateProgressBars("ACT", "actProgress", actCategories);
     }
 });
