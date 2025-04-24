@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let categoryStats = {};
     let results = localStorage.getItem("actResults");
     results = results ? JSON.parse(results) : {};
-    let userResponses = [];
     let currentSection = "english";
+    let englishScore = 0, mathScore = 0, readingScore = 0, scienceScore = 0;
 
-    // Sample questions (unchanged from original)
+    // Sample questions (unchanged)
     const englishQuestions = [
         {
             passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
@@ -110,26 +110,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function startEnglishSection() {
         currentSection = "english";
-        englishResponses = []; // Reset only English responses
+        englishResponses = [];
+        score = 0;
+        correctAnswers = 0;
         startQuiz(englishQuestions);
     }
 
     function startMathSection() {
         currentSection = "math";
-        mathResponses = []; // Reset only Math responses
+        mathResponses = [];
+        score = 0;
+        correctAnswers = 0;
         startQuiz(mathQuestions);
     }
 
     function startReadingSection() {
         currentSection = "reading";
-        readingResponses = []; // Reset only Reading responses
+        readingResponses = [];
+        score = 0;
+        correctAnswers = 0;
         passageElement.innerHTML = "";
         startQuiz(readingQuestions);
     }
 
     function startScienceSection() {
         currentSection = "science";
-        scienceResponses = []; // Reset only Science responses
+        scienceResponses = [];
+        score = 0;
+        correctAnswers = 0;
         passageElement.innerHTML = "";
         startQuiz(scienceQuestions);
     }
@@ -170,8 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
         }
         currentQuestionIndex = 0;
-        score = 0;
-        correctAnswers = 0;
         categoryStats = {};
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
@@ -281,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             categoryStats[questionCategory].correct++;
         } else {
-            selectedeeeeeeBtn.classList.add("incorrect");
+            selectedBtn.classList.add("incorrect");
             categoryStats[questionCategory].incorrect++;
         }
 
@@ -313,6 +319,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("question-container").classList.remove("hide");
 
         localStorage.setItem(currentSection + "Score", scaledScore);
+        if (currentSection === "english") englishScore = scaledScore;
+        else if (currentSection === "math") mathScore = scaledScore;
+        else if (currentSection === "reading") readingScore = scaledScore;
+        else if (currentSection === "science") scienceScore = scaledScore;
+
         passageElement.innerHTML = "";
         questionElement.innerHTML = `${currentSection.charAt(0).toUpperCase() + currentSection.slice(1)} ACT Score: ${scaledScore} / 36`;
         questionElement.classList.add("centered-score");
@@ -332,10 +343,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function showFinalScore() {
         resetState();
 
-        let englishScore = parseInt(localStorage.getItem("englishScore") || 0, 10);
-        let mathScore = parseInt(localStorage.getItem("mathScore") || 0, 10);
-        let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
-        let scienceScore = parseInt(localStorage.getItem("scienceScore") || 0, 10);
         let compositeScore = Math.round((englishScore + mathScore + readingScore + scienceScore) / 4);
 
         let today = new Date().toLocaleDateString("en-CA");
@@ -441,14 +448,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function generateExplanation(response) {
         const questionText = response.question || "";
-
-        // ACT Math Questions
         if (questionText.includes("What is the value of x in the equation 3x + 7 = 22?")) {
             return "Solve 3x + 7 = 22 by subtracting 7: 3x = 15. Divide by 3: x = 5. Option B) 5 is correct. A) 4, C) 6, and D) 7 do not satisfy the equation.";
         } else if (questionText.includes("If f(x) = x^2 + 3x - 4, what is f(2)?")) {
             return "Substitute x = 2 into f(x) = x^2 + 3x - 4: f(2) = 2^2 + 3(2) - 4 = 4 + 6 - 4 = 6. Option C) 6 is correct. A) 8, B) 4, and D) 10 are incorrect calculations.";
         }
-
         return "No explanation available for this question.";
     }
 
@@ -485,7 +489,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!results[category]) {
                 results[category] = { correct: 0, incorrect: 0 };
             }
-
             results[category].correct += categoryStats[category].correct || 0;
             results[category].incorrect += categoryStats[category].incorrect || 0;
         }
