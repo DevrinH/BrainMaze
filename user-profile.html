@@ -1953,10 +1953,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Load stored data from localStorage
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
         let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-        // Use different keys for SAT and ACT test results
-        let currentTestResults = examType === "SAT" 
-            ? JSON.parse(localStorage.getItem("testResults")) || {}
-            : JSON.parse(localStorage.getItem("actTestResults")) || {};
+        let currentTestResults = JSON.parse(localStorage.getItem("actTestResults")) || {};
 
         console.log(`${examType} Previous Progress:`, previousProgress);
         console.log(`${examType} Stored Progress:`, storedProgress);
@@ -2004,29 +2001,35 @@ document.addEventListener("DOMContentLoaded", function () {
             // Update progress text and arrow
             const progressText = document.getElementById(`${category}-text`);
             if (progressText) {
-                // Ensure previousProgress[category] exists and has a percentage
-                let previousPercentage = previousProgress[category]?.percentage !== undefined 
+                // Retrieve previous percentage safely
+                const previousPercentage = previousProgress[category]?.percentage !== undefined 
                     ? Number(previousProgress[category].percentage) 
                     : 0;
+
                 let arrow = "→";
                 let arrowColor = "#4e5163";
 
                 console.log(`Comparing ${category}: current=${percentage}, previous=${previousPercentage}`);
 
-                if (percentage > previousPercentage && total > 0) {
-                    arrow = "↑";
-                    arrowColor = "green";
-                    console.log(`${category} improved: ${previousPercentage}% → ${percentage}%`);
-                } else if (percentage < previousPercentage && total > 0) {
-                    arrow = "↓";
-                    arrowColor = "red";
-                    console.log(`${category} decreased: ${previousPercentage}% → ${percentage}%`);
+                // Only update arrow if there's a previous result to compare against
+                if (previousProgress[category] && total > 0) {
+                    if (percentage > previousPercentage) {
+                        arrow = "↑";
+                        arrowColor = "green";
+                        console.log(`${category} improved: ${previousPercentage}% → ${percentage}%`);
+                    } else if (percentage < previousPercentage) {
+                        arrow = "↓";
+                        arrowColor = "red";
+                        console.log(`${category} decreased: ${previousPercentage}% → ${percentage}%`);
+                    } else {
+                        console.log(`${category} no change: ${percentage}%`);
+                    }
                 } else {
-                    console.log(`${category} no change or first test: ${percentage}%`);
+                    console.log(`${category} first test or no previous data: ${percentage}%`);
                 }
 
                 progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                console.log(`Set ${category}-text to ${percentage}% with arrow ${arrow}`);
+                console.log(`Set ${category}-text to ${percentage}% with arrow ${arrow} (color: ${arrowColor})`);
             } else {
                 console.warn(`${examType} Progress text not found: ${category}-text`);
             }
@@ -2040,13 +2043,8 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`${examType} Updated Previous Progress:`, updatedPreviousProgress);
 
         // Clear testResults to prevent duplicate accumulation
-        if (examType === "SAT") {
-            localStorage.removeItem("testResults");
-            console.log("Cleared testResults from localStorage");
-        } else {
-            localStorage.removeItem("actTestResults");
-            console.log("Cleared actTestResults from localStorage");
-        }
+        localStorage.removeItem("actTestResults");
+        console.log("Cleared actTestResults from localStorage");
     }
 
     // Define categories for SAT and ACT
