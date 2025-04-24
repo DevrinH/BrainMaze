@@ -186,31 +186,58 @@ const scienceQuestions = [
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
+        // Reset categoryStats for English section
+        for (let category in categoryStats) {
+            if (category.startsWith("act-conventions-of-standard-english") || 
+                category.startsWith("act-knowledge-of-language") || 
+                category.startsWith("act-production-of-writing")) {
+                categoryStats[category] = { correct: 0, incorrect: 0 };
+            }
+        }
     }
-
-
+    
     function endMathSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
+        // Reset categoryStats for Math section
+        for (let category in categoryStats) {
+            if (category.startsWith("act-algebra") || 
+                category.startsWith("act-functions") || 
+                category.startsWith("act-coordinate-geometry")) {
+                categoryStats[category] = { correct: 0, incorrect: 0 };
+            }
+        }
     }
-
-
+    
     function endReadingSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
+        // Reset categoryStats for Reading section
+        for (let category in categoryStats) {
+            if (category.startsWith("act-main-idea")) {
+                categoryStats[category] = { correct: 0, incorrect: 0 };
+            }
+        }
     }
-
-
+    
     function endScienceSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showFinalScore();
+        // Reset categoryStats for Science section
+        for (let category in categoryStats) {
+            if (category.startsWith("act-data-representation") || 
+                category.startsWith("act-research-summary") || 
+                category.startsWith("act-conflicting-viewpoints")) {
+                categoryStats[category] = { correct: 0, incorrect: 0 };
+            }
+        }
     }
 
 
@@ -286,76 +313,76 @@ const scienceQuestions = [
     }
 
 
-function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-    let questionDifficulty = currentQuestion.difficulty;
-
-    if (!categoryStats[questionCategory]) {
-        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-    }
-
-    const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-
-    const safePassage = currentQuestion.passage || "No passage provided";
-    const safeQuestion = currentQuestion.question || "No question provided";
-    const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
-
-    console.log("Creating user response:", currentSection, ":", {
-        question: responseQuestion,
-        userAnswer: selectedBtn.innerHTML,
-        correctAnswer: correctAnswer,
-        wasCorrect: isCorrect
-    });
-
-    const response = {
-        section: currentSection,
-        question: responseQuestion,
-        userAnswer: selectedBtn.innerHTML,
-        correctAnswer: correctAnswer,
-        wasCorrect: isCorrect
-    };
-
-    if (currentSection === "english") {
-        englishResponses.push(response);
-    } else if (currentSection === "math") {
-        mathResponses.push(response);
-    } else if (currentSection === "reading") {
-        readingResponses.push(response);
-    } else if (currentSection === "science") {
-        scienceResponses.push(response);
-    }
-
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        correctAnswers++;
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
+    function selectAnswer(e) {
+        const selectedBtn = e.target;
+        const isCorrect = selectedBtn.dataset.correct === "true";
+        let currentQuestion = selectedQuestions[currentQuestionIndex];
+        let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+        let questionDifficulty = currentQuestion.difficulty;
+    
+        if (!categoryStats[questionCategory]) {
+            categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
         }
-        categoryStats[questionCategory].correct++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats[questionCategory].incorrect++;
-    }
-
-    recordTestResults();
-
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
+    
+        const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+    
+        const safePassage = currentQuestion.passage || "No passage provided";
+        const safeQuestion = currentQuestion.question || "No question provided";
+        const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
+    
+        console.log("Creating user response:", currentSection, ":", {
+            question: responseQuestion,
+            userAnswer: selectedBtn.innerHTML,
+            correctAnswer: correctAnswer,
+            wasCorrect: isCorrect
+        });
+    
+        const response = {
+            section: currentSection,
+            question: responseQuestion,
+            userAnswer: selectedBtn.innerHTML,
+            correctAnswer: correctAnswer,
+            wasCorrect: isCorrect
+        };
+    
+        if (currentSection === "english") {
+            englishResponses.push(response);
+        } else if (currentSection === "math") {
+            mathResponses.push(response);
+        } else if (currentSection === "reading") {
+            readingResponses.push(response);
+        } else if (currentSection === "science") {
+            scienceResponses.push(response);
         }
-        button.disabled = true;
-    });
-
-    nextButton.style.display = "block";
-    nextButton.disabled = false;
-}
+    
+        if (isCorrect) {
+            selectedBtn.classList.add("correct");
+            correctAnswers++;
+            if (questionDifficulty === "easy") {
+                score += 1;
+            } else if (questionDifficulty === "medium") {
+                score += 2;
+            } else if (questionDifficulty === "hard") {
+                score += 3;
+            }
+            categoryStats[questionCategory].correct++;
+        } else {
+            selectedBtn.classList.add("incorrect");
+            categoryStats[questionCategory].incorrect++;
+        }
+    
+        recordTestResults();
+    
+        Array.from(answerButtons.children).forEach(button => {
+            if (button.dataset.correct === "true") {
+                button.classList.add("correct");
+            }
+            button.disabled = true;
+        });
+    
+        nextButton.style.display = "block";
+        nextButton.disabled = false;
+    }
 
 
     function showScore() {
@@ -391,10 +418,9 @@ function selectAnswer(e) {
         nextButton.classList.add("centered-btn");
     }
 
-
     function saveTestResults(examType, progressKey, testResults) {
         console.log(`Saving ${examType} test results...`);
-        
+    
         let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
     
@@ -415,7 +441,6 @@ function selectAnswer(e) {
         });
     
         localStorage.setItem(progressKey, JSON.stringify(storedProgress));
-        localStorage.setItem("testResults", JSON.stringify(testResults));
         localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
         localStorage.setItem("lastActivity", JSON.stringify({ exam: examType, type: "test", timestamp: Date.now() }));
     
@@ -1095,10 +1120,8 @@ function selectAnswer(e) {
     
         localStorage.setItem("actTestResults", JSON.stringify(results));
     
-        for (let category in categoryStats) {
-            categoryStats[category].correct = 0;
-            categoryStats[category].incorrect = 0;
-        }
+        console.log("Updated actTestResults:", results);
+        // Removed the resetting of categoryStats here
     }
 
 
