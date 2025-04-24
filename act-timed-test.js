@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let score = 0;
     let correctAnswers = 0;
     let selectedQuestions = [];
-    let categoryStats = {}; // Tracks stats for the current section
+    let categoryStats = {};
     let results = localStorage.getItem("actResults");
     results = results ? JSON.parse(results) : {};
     let refreshIntervalId;
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const readingQuestions = [
         {
-            passage: "The old house on Maple Street stood at the edge of town, its weathered clapboards sagging under the weight of decades. Ivy clung to its walls, curling around the cracked windows like fingers guarding secrets. To the townsfolk, it was a relic—haunted, they whispered, by the spirit of Eliza Hawthorne, who vanished in 1923. Clara, a young librarian with a penchant for unraveling mysteries, felt drawn to the house. She’d spent months poring over archives, piecing together Eliza’s life: a poet, a recluse, a woman who’d loved fiercely and lost tragically. Clara’s fascination wasn’t just academic; it was personal. Her grandmother had spoken of Eliza as if she’d known her, though the timelines didn’t align.\n\nOn a crisp October evening, Clara slipped through the rusted gate, her flashlight cutting through the dusk. The air inside the house was thick with dust, the floorboards groaning under her steps. In the parlor, she found a bureau, its drawers stuffed with letters and poems. One letter, penned in Eliza’s looping script, spoke of a hidden room where she’d kept her ‘heart’s truth.’ Clara’s pulse quickened. She tapped the walls, listening for hollows, until a panel behind the fireplace gave way, revealing a narrow staircase.\n\nThe hidden room was small, its walls lined with shelves of journals. A single chair faced a window overlooking the garden, now overgrown. Clara opened a journal, its pages brittle but legible. Eliza’s words painted a vivid picture: her love for a man named Thomas, a sailor who never returned from sea; her despair as the town turned against her, branding her eccentric; her resolve to hide her work, fearing it would be misunderstood. The final entry was dated the day she disappeared: ‘They will not have my words. I leave them to the one who seeks.’\n\nClara sat in the chair, the journal heavy in her hands. She felt an ache, not just for Eliza, but for herself—a life spent searching for meaning in others’ stories. Outside, the wind stirred the leaves, and for a moment, Clara swore she heard a whisper, soft as a sigh, urging her to keep reading.",
+            passage: "The old house on Maple Street stood at the edge of town, its weathered clapboards sagging under the weight of decades. Ivy clung to its walls, curling around the cracked windows like fingers guarding secrets. To the townsfolk, it Ascotia, it was a relic—haunted, they whispered, by the spirit of Eliza Hawthorne, who vanished in 1923. Clara, a young librarian with a penchant for unraveling mysteries, felt drawn to the house. She’d spent months poring over archives, piecing together Eliza’s life: a poet, a recluse, a woman who’d loved fiercely and lost tragically. Clara’s fascination wasn’t just academic; it was personal. Her grandmother had spoken of Eliza as if she’d known her, though the timelines didn’t align.\n\nOn a crisp October evening, Clara slipped through the rusted gate, her flashlight cutting through the dusk. The air inside the house was thick with dust, the floorboards groaning under her steps. In the parlor, she found a bureau, its drawers stuffed with letters and poems. One letter, penned in Eliza’s looping script, spoke of a hidden room where she’d kept her ‘heart’s truth.’ Clara’s pulse quickened. She tapped the walls, listening for hollows, until a panel behind the fireplace gave way, revealing a narrow staircase.\n\nThe hidden room was small, its walls lined with shelves of journals. A single chair faced a window overlooking the garden, now overgrown. Clara opened a journal, its pages brittle but legible. Eliza’s words painted a vivid picture: her love for a man named Thomas, a sailor who never returned from sea; her despair as the town turned against her, branding her eccentric; her resolve to hide her work, fearing it would be misunderstood. The final entry was dated the day she disappeared: ‘They will not have my words. I leave them to the one who seeks.’\n\nClara sat in the chair, the journal heavy in her hands. She felt an ache, not just for Eliza, but for herself—a life spent searching for meaning in others’ stories. Outside, the wind stirred the leaves, and for a moment, Clara swore she heard a whisper, soft as a sigh, urging her to keep reading.",
             question: "What is the primary reason Clara is drawn to the house on Maple Street?",
             answers: [
                 { text: "A) She wants to prove the house is haunted.", correct: false },
@@ -108,6 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Required elements not found");
             return;
         }
+        // Reset actTestResults at the start of a new test
+        localStorage.removeItem("actTestResults");
+        console.log("Cleared actTestResults from localStorage at the start of a new test");
         actIntroContainer.classList.add("hide");
         document.getElementById("question-container").classList.remove("hide");
         startEnglishSection();
@@ -215,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
-        categoryStats = {}; // Reset at the start of a new section
+        categoryStats = {}; // Reset categoryStats at the start of a new section
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
 
@@ -338,6 +341,28 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.disabled = false;
     }
 
+    function recordTestResults() {
+        let storedResults = localStorage.getItem("actTestResults");
+        let results = storedResults ? JSON.parse(storedResults) : {};
+
+        if (typeof results !== "object" || Array.isArray(results)) {
+            results = {};
+        }
+
+        // Update actTestResults with the current categoryStats
+        for (let category in categoryStats) {
+            if (!results[category]) {
+                results[category] = { correct: 0, incorrect: 0 };
+            }
+
+            results[category].correct = (results[category].correct || 0) + (categoryStats[category].correct || 0);
+            results[category].incorrect = (results[category].incorrect || 0) + (categoryStats[category].incorrect || 0);
+        }
+
+        localStorage.setItem("현재 actTestResults", JSON.stringify(results));
+        console.log("Updated actTestResults:", results);
+    }
+
     function showScore() {
         clearInterval(refreshIntervalId);
         resetState();
@@ -403,7 +428,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getCategoryResults() {
-        return categoryScores;
+        return categoryStats;
     }
 
     function showFinalScore() {
@@ -522,22 +547,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function generateExplanation(response) {
-        const questionText = response.question || "";
-
-        if (questionText.includes("What is the value of x in the equation 3x + 7 = 22?")) {
-            return "Solve 3x + 7 = 22 by subtracting 7: 3x = 15. Divide by 3: x = 5. Option B) 5 is correct. A) 4, C) 6, and D) 7 do not satisfy the equation.";
-        } else if (questionText.includes("If f(x) = x^2 + 3x - 4, what is f(2)?")) {
-            return "Substitute x = 2 into f(x) = x^2 + 3x - 4: f(2) = 2^2 + 3(2) - 4 = 4 + 6 - 4 = 6. Option C) 6 is correct. A) 8, B) 4, and D) 10 are incorrect calculations.";
-        } else if (questionText.includes("What is the primary reason Clara is drawn to the house on Maple Street?")) {
-            return "The passage states Clara spent months researching Eliza Hawthorne’s life, indicating her primary motivation. Option B) She is researching Eliza Hawthorne’s life is correct. A) is incorrect as Clara seeks history, not ghosts; C) lacks evidence of renovation plans; D) misinterprets her grandmother’s vague connection.";
-        } else if (questionText.includes("Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?")) {
-            return "Figure 1 shows glucose production rates at pH 7: 20°C (10 µmol/min), 30°C (25 µmol/min), 40°C (40 µmol/min), 50°C (30 µmol/min), 60°C (5 µmol/min). The highest rate is 40 µmol/min at 40°C. Option B) 40°C is correct. A) 20°C, C) 50°C, and D) 60°C have lower rates.";
-        } else if (questionText.includes("Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?")) {
-            return "Option B) correctly uses commas for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
-        }
-
-        return "No explanation available for this question.";
+    function updateProgressBar() {
+        const progressBar = document.getElementById("progress-bar");
+        const progressText = document.getElementById("progress-text");
+        const progress = (currentQuestionIndex / selectedQuestions.length) * 100;
+        progressBar.style.width = `${progress}%`;
+        progressText.textContent = `${currentQuestionIndex + 1} / ${selectedQuestions.length}`;
     }
 
     function handleNextButton() {
@@ -549,84 +564,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function updateProgressBar() {
-        const progressBar = document.getElementById("progress-bar-test");
-        let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
-        progressBar.firstElementChild.style.width = progress + "%";
-    }
-
-    function recordTestResults() {
-        let storedResults = localStorage.getItem("actTestResults");
-        let results = storedResults ? JSON.parse(storedResults) : {};
-
-        if (typeof results !== "object" || Array.isArray(results)) {
-            results = {};
+    startTestButton.addEventListener("click", startTest);
+    continueButton.addEventListener("click", () => {
+        document.getElementById("break-message").classList.add("hide");
+        document.getElementById("question-container").classList.remove("hide");
+        if (currentSection === "english") {
+            startMathSection();
+        } else if (currentSection === "math") {
+            startReadingSection();
+        } else if (currentSection === "reading") {
+            startScienceSection();
         }
+    });
 
-        for (let category in categoryStats) {
-            if (!results[category]) {
-                results[category] = { correct: 0, incorrect: 0 };
-            }
-
-            results[category].correct = (results[category].correct || 0) + (categoryStats[category].correct || 0);
-            results[category].incorrect = (results[category].incorrect || 0) + (categoryStats[category].incorrect || 0);
-        }
-
-        localStorage.setItem("actTestResults", JSON.stringify(results));
-        console.log("Updated actTestResults:", results);
-    }
-
-    function showIntroMessage() {
-        resetState();
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = "This is a timed ACT Test. English: 45 min, Math: 60 min, Reading: 35 min, Science: 35 min.";
-        questionElement.classList.add("centered-score");
-
-        const startButton = document.createElement("button");
-        startButton.innerHTML = "Start Test";
-        startButton.classList.add("btn", "centered-btn");
-        startButton.addEventListener("click", () => {
-            questionElement.classList.remove("centered-score");
-            startEnglishSection();
-        });
-        answerButtons.appendChild(startButton);
-    }
-
-    // Event Listeners
-    if (startTestButton) {
-        startTestButton.addEventListener("click", startTest);
-    } else {
-        console.error("start-test-btn element not found");
-    }
-
-    if (nextButton) {
-        nextButton.addEventListener("click", () => {
-            if (nextButton.innerHTML === "Continue") {
-                document.getElementById("break-message").classList.remove("hide");
-                document.getElementById("question-container").classList.add("hide");
-            } else {
-                handleNextButton();
-            }
-        });
-    } else {
-        console.error("next-btn element not found");
-    }
-
-    if (continueButton) {
-        continueButton.addEventListener("click", () => {
-            document.getElementById("break-message").classList.add("hide");
-            document.getElementById("question-container").classList.remove("hide");
-            switch (currentSection) {
-                case "english": startMathSection(); break;
-                case "math": startReadingSection(); break;
-                case "reading": startScienceSection(); break;
-                case "science": showFinalScore(); break;
-            }
-        });
-    } else {
-        console.error("continue-btn element not found");
-    }
-
-    // Initialize the test
-    showIntroMessage();
+    nextButton.addEventListener("click", handleNextButton);
 });
