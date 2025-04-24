@@ -1945,7 +1945,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
     // Function to update progress bars and arrows for a given exam
     function updateProgressBars(examType, progressKey, categories) {
@@ -1953,28 +1952,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Load stored data from localStorage
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
+        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
         let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("actTestResults")) || {};
 
         console.log(`${examType} Previous Progress:`, previousProgress);
-        console.log(`${examType} Stored Progress:`, storedProgress);
         console.log(`${examType} Current Test Results:`, currentTestResults);
-
-        // Initialize storedProgress for categories if empty
-        categories.forEach(category => {
-            if (!storedProgress[category]) {
-                storedProgress[category] = { correct: 0, incorrect: 0 };
-            }
-        });
+        console.log(`${examType} Stored Progress Before Update:`, storedProgress);
 
         // Accumulate results from current test
         Object.keys(currentTestResults).forEach(category => {
+            if (categories.includes(category) && !storedProgress[category]) {
+                storedProgress[category] = { correct: 0, incorrect: 0 };
+            }
             if (categories.includes(category)) {
                 let newCorrect = Number(currentTestResults[category]?.correct || 0);
                 let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
                 storedProgress[category].correct += newCorrect;
                 storedProgress[category].incorrect += newIncorrect;
-                console.log(`Updated ${category}: correct=${storedProgress[category].correct}, incorrect=${storedProgress[category].incorrect}`);
             }
         });
 
@@ -1983,7 +1977,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`${examType} Updated Stored Progress:`, storedProgress);
 
         // Update progress bars and arrows
-        let updatedPreviousProgress = {};
         categories.forEach(category => {
             const correct = storedProgress[category]?.correct || 0;
             const incorrect = storedProgress[category]?.incorrect || 0;
@@ -1994,7 +1987,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const progressBar = document.getElementById(`${category}-bar`);
             if (progressBar) {
                 progressBar.style.width = `${percentage}%`;
-                console.log(`Set ${category}-bar width to ${percentage}%`);
             } else {
                 console.warn(`${examType} Progress bar not found: ${category}-bar`);
             }
@@ -2002,44 +1994,30 @@ document.addEventListener("DOMContentLoaded", function () {
             // Update progress text and arrow
             const progressText = document.getElementById(`${category}-text`);
             if (progressText) {
-                // Ensure previousProgress[category] exists and has a percentage
-                let previousPercentage = previousProgress[category]?.percentage !== undefined 
-                    ? Number(previousProgress[category].percentage) 
-                    : 0;
+                let previousPercentage = previousProgress[category]?.percentage || 0;
                 let arrow = "→";
                 let arrowColor = "#4e5163";
 
-                console.log(`Comparing ${category}: current=${percentage}, previous=${previousPercentage}`);
-
-                if (percentage > previousPercentage && total > 0) {
+                if (percentage > previousPercentage) {
                     arrow = "↑";
                     arrowColor = "green";
-                    console.log(`${category} improved: ${previousPercentage}% → ${percentage}%`);
-                } else if (percentage < previousPercentage && total > 0) {
+                } else if (percentage < previousPercentage) {
                     arrow = "↓";
                     arrowColor = "red";
-                    console.log(`${category} decreased: ${previousPercentage}% → ${percentage}%`);
-                } else {
-                    console.log(`${category} no change or first test: ${percentage}%`);
                 }
 
                 progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                console.log(`Set ${category}-text to ${percentage}% with arrow ${arrow}`);
             } else {
                 console.warn(`${examType} Progress text not found: ${category}-text`);
             }
 
             // Store current percentage for future comparison
-            updatedPreviousProgress[category] = { percentage: percentage };
+            previousProgress[category] = { percentage };
         });
 
         // Save updated previous progress
-        localStorage.setItem("previousTestResults", JSON.stringify(updatedPreviousProgress));
-        console.log(`${examType} Updated Previous Progress:`, updatedPreviousProgress);
-
-        // Clear testResults to prevent duplicate accumulation
-        localStorage.removeItem("actTestResults");
-        console.log("Cleared actTestResults from localStorage");
+        localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
+        console.log(`${examType} Updated Previous Progress:`, previousProgress);
     }
 
     // Define categories for SAT and ACT
@@ -2068,39 +2046,22 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProgressBars("SAT", "satProgress", satCategories);
     } else if (activeExam === "line-chart-act") {
         updateProgressBars("ACT", "actProgress", actCategories);
-    } else {
-        console.log("No active exam detected, updating both SAT and ACT");
-        updateProgressBars("SAT", "satProgress", satCategories);
-        updateProgressBars("ACT", "actProgress", actCategories);
     }
 });
 
-
-function resetProgress() {
-    const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
+    function resetProgress() {
+    const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
     let storageKey, progressPrefix;
 
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
-        progressPrefix = [
-            "command-of-evidence", "central-ideas", "inferences", "words-in-context",
-            "text-structure-and-purpose", "cross-text-connections", "transitions",
-            "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
-            "problem-solving", "geometry"
-        ];
+        progressPrefix = ["command-of-evidence", "central-ideas", "inferences", "words-in-context", 
+                          "text-structure-and-purpose", "cross-text-connections", "transitions", 
+                          "rhetorical-synthesis", "boundaries", "algebra", "advanced-math", 
+                          "problem-solving", "geometry"];
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
-        progressPrefix = [
-            "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing",
-            "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
-            "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
-            "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences",
-            "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
-            "act-vocabulary-in-context", "act-character-development", "act-symbolism",
-            "act-literary-device", "act-theme", "act-detail", "act-relationship",
-            "act-implication", "act-comparison", "act-data-representation",
-            "act-research-summary", "act-conflicting-viewpoints"
-        ];
+        progressPrefix = ["act-english", "act-math", "act-reading", "act-science"];
     } else if (activeExam === "line-chart-ged") {
         storageKey = "gedProgress";
         progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
@@ -2113,7 +2074,6 @@ function resetProgress() {
         // Remove specific exam progress from localStorage
         localStorage.removeItem(storageKey);
         localStorage.removeItem("testResults");
-        localStorage.removeItem("previousTestResults"); // Also clear previousTestResults
         localStorage.removeItem("scoreHistory");
 
         // Remove actScoreHistory for ACT exam
