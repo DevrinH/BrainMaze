@@ -474,6 +474,8 @@ function startTest() {
 
 
     function showScore() {
+        console.log("Before recording results in showScore, categoryStats:", categoryStats);
+    recordTestResults();
         clearInterval(refreshIntervalId);
         resetState();
    
