@@ -415,6 +415,8 @@ function recordTestResults() {
         results = {};
     }
 
+    console.log("Before updating testResults:", results);
+
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
@@ -422,20 +424,18 @@ function recordTestResults() {
 
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
+        console.log(`Updated ${category} in testResults: correct=${results[category].correct}, incorrect=${results[category].incorrect}`);
     }
 
     localStorage.setItem("testResults", JSON.stringify(results));
-
-    for (let category in categoryStats) {
-        categoryStats[category].correct = 0;
-        categoryStats[category].incorrect = 0;
-    }
+    console.log("After updating testResults:", results);
 }
 
 function saveHistoricalProgress() {
     let storedResults = JSON.parse(localStorage.getItem("testResults")) || {};
     let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
 
+    console.log("testResults in saveHistoricalProgress:", storedResults);
     console.log("Before updating satHistoricalProgress:", satHistoricalProgress);
 
     Object.keys(categoryMapping).forEach(originalCategory => {
@@ -445,7 +445,7 @@ function saveHistoricalProgress() {
         const total = correct + incorrect;
         const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
         satHistoricalProgress[mappedCategory] = { percentage };
-        console.log(`Updated ${mappedCategory} in satHistoricalProgress: ${percentage}%`);
+        console.log(`Updated ${mappedCategory} in satHistoricalProgress: ${percentage}% (correct=${correct}, incorrect=${incorrect})`);
     });
 
     localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
