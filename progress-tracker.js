@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    function updateProgress() {
+    function updateProgress(source) {
+        console.log(`updateProgress called from: ${source}`);
+
         // Retrieve ACT test results from localStorage
         let storedResults = localStorage.getItem("actTestResults");
         console.log("Retrieved actTestResults from localStorage:", storedResults);
@@ -25,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Load historical progress for arrow comparison
         let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
+        console.log("Loaded actHistoricalProgress before update:", historicalProgress);
+
         let newProgress = {};
 
         // Update each progress item
@@ -77,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 text.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                // Force DOM reflow to ensure the update renders
                 text.offsetHeight;
             } else {
                 console.warn(`Text element not found for ${category}`);
@@ -86,8 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Save the new percentages to actHistoricalProgress
+        console.log("Saving actHistoricalProgress:", newProgress);
         localStorage.setItem("actHistoricalProgress", JSON.stringify(newProgress));
-        console.log("Updated actHistoricalProgress:", newProgress);
+        console.log("Updated actHistoricalProgress:", JSON.parse(localStorage.getItem("actHistoricalProgress")));
 
         // Ensure the ACT progress container is visible
         const actProgressContainer = document.getElementById("act-progress-container");
@@ -100,12 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Run the update immediately
-    updateProgress();
+    updateProgress("DOMContentLoaded");
 
     // Listen for test submission
     window.addEventListener("testSubmitted", () => {
         console.log("Test submitted, updating progress...");
-        updateProgress();
+        updateProgress("testSubmitted");
     });
 
     // Listen for changes in the active section (when user clicks GED/SAT/ACT buttons)
@@ -117,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("Button clicked - Is ACT section active?", isActSectionActive);
 
                 if (isActSectionActive) {
-                    updateProgress();
+                    updateProgress("tabSwitch");
                 }
             }, 100);
         });
