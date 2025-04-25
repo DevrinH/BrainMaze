@@ -111,35 +111,12 @@ function startTest() {
         console.error("Required elements not found");
         return;
     }
+    // Clear previous test results to avoid stale data
     localStorage.removeItem("actTestResults");
     actIntroContainer.classList.add("hide");
     document.getElementById("question-container").classList.remove("hide");
     startEnglishSection();
 }
-
-// Initialize Event Listeners
-nextButton.addEventListener("click", () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) {
-        showQuestion();
-    } else {
-        // End of section, call the appropriate endSection function
-        if (currentSection === "english") {
-            endEnglishSection();
-        } else if (currentSection === "math") {
-            endMathSection();
-        } else if (currentSection === "reading") {
-            endReadingSection();
-        } else if (currentSection === "science") {
-            endScienceSection();
-        }
-    }
-});
-
-// Start the test when the page loads (or on a button click)
-document.addEventListener("DOMContentLoaded", () => {
-    startTest();
-});
 
 
     let englishResponses = [];
