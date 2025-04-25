@@ -2115,18 +2115,19 @@ document.addEventListener("DOMContentLoaded", function () {
  console.log(`${examType} Current Test Results (Loaded):`, currentTestResults);
  console.log(`${examType} Stored Progress Before Update (Loaded):`, storedProgress);
 
- // Update stored progress with new test results
+ // Update stored progress with new test results, accumulating across tests
  Object.keys(currentTestResults).forEach(category => {
- if (categories.includes(category) && !storedProgress[category]) {
+ if (categories.includes(category)) {
+ // Initialize the category if it doesn't exist in storedProgress
+ if (!storedProgress[category]) {
  storedProgress[category] = { correct: 0, incorrect: 0 };
  console.log(`${examType} Initialized new category ${category}:`, storedProgress[category]);
  }
- if (categories.includes(category)) {
  let newCorrect = Number(currentTestResults[category]?.correct || 0);
  let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
  console.log(`${examType} Category: ${category}, Adding Correct: ${newCorrect}, Incorrect: ${newIncorrect}`);
- storedProgress[category].correct += newCorrect;
- storedProgress[category].incorrect += newIncorrect;
+ storedProgress[category].correct += newCorrect; // Accumulate correct answers
+ storedProgress[category].incorrect += newIncorrect; // Accumulate incorrect answers
  console.log(`${examType} Category: ${category}, Updated Correct: ${storedProgress[category].correct}, Incorrect: ${storedProgress[category].incorrect}`);
  }
  });
