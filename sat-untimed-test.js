@@ -411,15 +411,6 @@ function generateExplanation(response) {
     return "No specific explanation available for this question.";
 }
 
-function handleNextButton() {
-    recordTestResults();
-    currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) {
-        showQuestion();
-    } else {
-        showScore();
-    }
-}
 
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar-test");
