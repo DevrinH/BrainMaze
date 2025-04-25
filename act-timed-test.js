@@ -304,37 +304,27 @@ function startTest() {
 
 
     function showQuestion() {
-        resetState();
-        if (!selectedQuestions[currentQuestionIndex]) {
-            console.error("No question available at index", currentQuestionIndex);
-            return;
+        // Reset the question container
+        const questionElement = document.getElementById("question");
+        questionElement.innerText = selectedQuestions[currentQuestionIndex].question;
+    
+        // Reset answer buttons
+        while (answerButtons.firstChild) {
+            answerButtons.removeChild(answerButtons.firstChild);
         }
-        let currentQuestion = selectedQuestions[currentQuestionIndex];
-        let questionNo = currentQuestionIndex + 1;
-        console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
-        passageElement.style.display = currentSection === "math" ? "none" : "block";
-        passageElement.innerHTML = currentQuestion.passage || "";
-        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-    
-        const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("score-display");
-        questionElement.classList.remove("centered-score");
-    
-        // Display answer buttons without option letters
-        currentQuestion.answers.forEach((answer, index) => {
+        selectedQuestions[currentQuestionIndex].answers.forEach(answer => {
             const button = document.createElement("button");
-            button.innerHTML = answer.text; // Display only the answer text (e.g., "4")
-            button.classList.add("btn");
-            answerButtons.appendChild(button);
-            if (answer.correct) {
-                button.dataset.correct = answer.correct;
-            }
+            button.innerText = answer.text;
+            button.dataset.correct = answer.correct;
             button.addEventListener("click", selectAnswer);
+            answerButtons.appendChild(button);
         });
     
-        updateProgressBar();
+        // Hide the Next button at the start of the question
+        console.log("In showQuestion, hiding nextButton");
+        nextButton.classList.add("hide");
+        nextButton.style.display = "none"; // Ensure it’s hidden, even if CSS is overridden
     }
-
 
     function resetState() {
         nextButton.style.display = "none";
@@ -351,7 +341,6 @@ function startTest() {
         const isCorrect = selectedBtn.dataset.correct === "true";
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-        let questionDifficulty = currentQuestion.difficulty;
     
         console.log("Before updating categoryStats:", categoryStats);
     
@@ -376,10 +365,15 @@ function startTest() {
             button.disabled = true;
         });
     
-        // Show the next button after answering, but don't call showScore here
+        // Ensure the Next button is visible
+        console.log("Attempting to show nextButton, current state:", nextButton.classList.toString(), "style:", nextButton.style.display);
         nextButton.classList.remove("hide");
+        // Fallback: explicitly set display style if needed
+        if (nextButton.style.display === "none" || getComputedStyle(nextButton).display === "none") {
+            nextButton.style.display = "block"; // or "inline-block", depending on your layout
+        }
+        console.log("After showing nextButton, new state:", nextButton.classList.toString(), "style:", nextButton.style.display);
     }
-
 
     function showScore() {
         console.log("Before recording results in showScore, categoryStats:", categoryStats);
