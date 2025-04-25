@@ -1,4 +1,4 @@
-ACT Timed Test
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const passageElement = document.getElementById("passage");

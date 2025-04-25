@@ -1,4 +1,3 @@
-Progress Tracker
 
 document.addEventListener("DOMContentLoaded", () => {
     // Define categories for ACT and SAT
