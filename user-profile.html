@@ -2053,21 +2053,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Function to update progress bars and arrows for a given exam
-    function updateProgressBars(examType, progressKey, categories) {
+// Function to update progress bars and arrows for a given exam
+function updateProgressBars(examType, progressKey, categories) {
     console.log(`Updating ${examType} progress bars...`);
-
 
     // Load stored data from localStorage
     let historicalProgress = JSON.parse(localStorage.getItem(`${examType.toLowerCase()}HistoricalProgress`)) || {};
     let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
     let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
 
-
     console.log(`${examType} Historical Progress (Loaded):`, historicalProgress);
     console.log(`${examType} Current Test Results (Loaded):`, currentTestResults);
     console.log(`${examType} Stored Progress Before Update (Loaded):`, storedProgress);
 
-
+    // Update stored progress with new test results
     Object.keys(currentTestResults).forEach(category => {
         if (categories.includes(category) && !storedProgress[category]) {
             storedProgress[category] = { correct: 0, incorrect: 0 };
@@ -2083,14 +2082,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-
+    // Save the updated stored progress
     localStorage.setItem(progressKey, JSON.stringify(storedProgress));
     console.log(`${examType} Updated Stored Progress (Saved):`, storedProgress);
     console.log(`Verify ${progressKey} in localStorage:`, JSON.parse(localStorage.getItem(progressKey)));
 
-
+    // Calculate new percentages for display and historical tracking
     let newProgress = {};
-
+    let hasTestResults = Object.keys(currentTestResults).length > 0 && Object.keys(currentTestResults).some(category => categories.includes(category));
 
     categories.forEach(category => {
         const correct = storedProgress[category]?.correct || 0;
@@ -2098,14 +2097,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const total = correct + incorrect;
         const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-
         console.log(`${examType} Category: ${category}, Correct: ${correct}, Incorrect: ${incorrect}, Total: ${total}, Calculated Percentage: ${percentage}`);
-
 
         newProgress[category] = { percentage };
         console.log(`${examType} Category: ${category}, Stored New Percentage in newProgress:`, newProgress[category]);
 
-
+        // Update progress bar
         const progressBar = document.getElementById(`${category}-bar`);
         if (progressBar) {
             progressBar.style.width = `${percentage}%`;
@@ -2114,16 +2111,14 @@ document.addEventListener("DOMContentLoaded", function () {
             console.warn(`${examType} Progress bar not found: ${category}-bar`);
         }
 
-
+        // Update progress text and arrow
         const progressText = document.getElementById(`${category}-text`);
         if (progressText) {
             let previousPercentage = historicalProgress[category]?.percentage || 0;
             console.log(`${examType} Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
 
-
             let arrow = "→";
             let arrowColor = "#4e5163";
-
 
             console.log(`${examType} Category: ${category}, Comparison - Current: ${percentage}, Previous: ${previousPercentage}`);
             if (percentage > previousPercentage) {
@@ -2138,18 +2133,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(`${examType} Category: ${category}, Arrow Set to → (No Change)`);
             }
 
-
             progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+            progressText.offsetHeight; // Trigger reflow for animation
             console.log(`${examType} Category: ${category}, Progress Text Updated: ${progressText.innerHTML}`);
         } else {
             console.warn(`${examType} Progress text not found: ${category}-text`);
         }
     });
 
-
-    // Save the current progress as historical for the next comparison
-    localStorage.setItem(`${examType.toLowerCase()}HistoricalProgress`, JSON.stringify(newProgress));
-    console.log(`${examType} Updated Historical Progress (Saved):`, newProgress);
+    // Only save historical progress if there are test results to process
+    if (hasTestResults) {
+        localStorage.setItem(`${examType.toLowerCase()}HistoricalProgress`, JSON.stringify(newProgress));
+        console.log(`${examType} Updated Historical Progress (Saved):`, newProgress);
+    } else {
+        console.log(`${examType} No test results to process, skipping historical progress save.`);
+    }
 }
 
 

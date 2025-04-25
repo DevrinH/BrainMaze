@@ -1,8 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let isUpdating = false;
+
     function updateProgress(source) {
+        if (isUpdating) {
+            console.log(`updateProgress skipped (already running) from: ${source}`);
+            return;
+        }
+        isUpdating = true;
+
         console.log(`updateProgress called from: ${source}`);
 
-        // Retrieve ACT test results from localStorage
         let storedResults = localStorage.getItem("actTestResults");
         console.log("Retrieved actTestResults from localStorage:", storedResults);
 
@@ -10,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Parsed actTestResults:", results);
         console.log("All ACT categories and their scores:", JSON.stringify(results, null, 2));
 
-        // Check if the ACT section is active
         const actSection = document.querySelector("#line-chart-act");
         const isActSectionActive = actSection && !actSection.classList.contains("hidden");
         console.log("ACT section element:", actSection);
@@ -18,20 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!isActSectionActive) {
             console.log("ACT section is not active, skipping ACT progress container update.");
+            isUpdating = false;
             return;
         }
 
-        // Get all progress items in the ACT progress container
         const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
         console.log("Found progress items:", progressItems.length);
 
-        // Load historical progress for arrow comparison
         let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
+        // Initialize historicalProgress for all categories
+        progressItems.forEach(item => {
+            const category = item.dataset.category;
+            if (!historicalProgress[category]) {
+                historicalProgress[category] = { percentage: 0 };
+            }
+        });
         console.log("Loaded actHistoricalProgress before update:", historicalProgress);
 
         let newProgress = {};
 
-        // Update each progress item
         progressItems.forEach(item => {
             const category = item.dataset.category;
             console.log(`Processing category: ${category}`);
@@ -62,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (text) {
-                let previousPercentage = historicalProgress[category]?.percentage || 0;
+                let previousPercentage = Number(historicalProgress[category]?.percentage) || 0;
                 console.log(`Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
 
                 let arrow = "→";
@@ -88,12 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(`Updated ${category} - Bar width: ${bar?.style.width || "not found"}, Text: ${text?.innerHTML || "not found"}`);
         });
 
-        // Save the new percentages to actHistoricalProgress
         console.log("Saving actHistoricalProgress:", newProgress);
         localStorage.setItem("actHistoricalProgress", JSON.stringify(newProgress));
         console.log("Updated actHistoricalProgress:", JSON.parse(localStorage.getItem("actHistoricalProgress")));
 
-        // Ensure the ACT progress container is visible
         const actProgressContainer = document.getElementById("act-progress-container");
         if (actProgressContainer) {
             actProgressContainer.classList.remove("hidden");
@@ -101,18 +110,17 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             console.error("ACT progress container not found");
         }
+
+        isUpdating = false;
     }
 
-    // Run the update immediately
     updateProgress("DOMContentLoaded");
 
-    // Listen for test submission
     window.addEventListener("testSubmitted", () => {
         console.log("Test submitted, updating progress...");
         updateProgress("testSubmitted");
     });
 
-    // Listen for changes in the active section (when user clicks GED/SAT/ACT buttons)
     document.querySelectorAll(".button-30").forEach(button => {
         button.addEventListener("click", () => {
             setTimeout(() => {
