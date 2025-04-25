@@ -159,18 +159,20 @@ function startTest() {
     localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
     console.log("Initialized satHistoricalProgress:", satHistoricalProgress);
 
+    localStorage.removeItem("testResults"); // Reset testResults at the start of the test
     startReadingWritingTest();
 }
 
 function startReadingWritingTest() {
     isMathTest = false;
     userResponses = [];
-    startQuiz(readingWritingQuestions, 18, 18, 18);
+    localStorage.removeItem("testResults"); // Reset testResults at the start of the reading/writing section
+    startQuiz(readingWritingQuestions, 1, 3, 0); // Match the actual number of questions
 }
 
 function startMathTest() {
     isMathTest = true;
-    startQuiz(mathQuestions, 14, 15, 15);
+    startQuiz(mathQuestions, 1, 1, 2); // Match the actual number of questions
 }
 
 function startQuiz(questions, numEasy, numMedium, numHard) {
@@ -189,14 +191,18 @@ function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     const hardQuestions = questions.filter(q => q.difficulty === "hard");
 
     function getRandom(arr, num) {
-        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
+        const available = arr.length;
+        const toSelect = Math.min(num, available); // Don’t select more than available
+        return arr.sort(() => 0.5 - Math.random()).slice(0, toSelect);
     }
 
     const selectedEasy = getRandom(easyQuestions, numEasy);
     const selectedMedium = getRandom(mediumQuestions, numMedium);
     const selectedHard = getRandom(hardQuestions, numHard);
 
-    return [...selectedEasy, ...selectedMedium, ...selectedHard];
+    const selected = [...selectedEasy, ...selectedMedium, ...selectedHard];
+    console.log("Selected Questions:", selected); // Debug log
+    return selected;
 }
 
 function showQuestion() {
@@ -284,9 +290,9 @@ function showScore() {
 
     let maxPossibleScore;
     if (!isMathTest) {
-        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
+        maxPossibleScore = (1 * 1) + (3 * 2) + (0 * 3); // Adjusted for actual questions
     } else {
-        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
+        maxPossibleScore = (1 * 1) + (1 * 2) + (2 * 3); // Adjusted for actual questions
     }
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
