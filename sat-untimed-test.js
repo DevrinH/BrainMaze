@@ -122,6 +122,14 @@ const mathQuestions = [
     },
 ];
 
+// Map SAT categories to match user-profile document IDs
+const categoryMapping = {
+    "inference": "inferences",
+    "command-of-evidence": "command-of-evidence",
+    "advanced-math": "advanced-math",
+    "algebra": "algebra"
+};
+
 function startTest() {
     satIntroContainer.classList.add("hide");
     document.getElementById("question-container").classList.remove("hide");
@@ -200,6 +208,9 @@ function selectAnswer(e) {
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
     let questionDifficulty = currentQuestion.difficulty;
+
+    // Map the category to match user-profile IDs
+    questionCategory = categoryMapping[questionCategory] || questionCategory;
 
     if (!categoryStats[questionCategory]) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
@@ -289,8 +300,12 @@ function showScore() {
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
+
+        // Save historical progress after the test
+        saveHistoricalProgress();
     }
 }
+
 function showExplanations() {
     resetState();
     passageElement.innerHTML = "";
@@ -386,6 +401,23 @@ function recordTestResults() {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
+}
+
+function saveHistoricalProgress() {
+    let storedResults = JSON.parse(localStorage.getItem("testResults")) || {};
+    let newProgress = {};
+
+    Object.keys(categoryMapping).forEach(originalCategory => {
+        const mappedCategory = categoryMapping[originalCategory];
+        const correct = storedResults[mappedCategory]?.correct || 0;
+        const incorrect = storedResults[mappedCategory]?.incorrect || 0;
+        const total = correct + incorrect;
+        const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+        newProgress[mappedCategory] = { percentage };
+    });
+
+    localStorage.setItem("satHistoricalProgress", JSON.stringify(newProgress));
+    console.log("Updated satHistoricalProgress:", newProgress);
 }
 
 nextButton.addEventListener("click", () => {
