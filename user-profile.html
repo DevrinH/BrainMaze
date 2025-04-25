@@ -1,3 +1,5 @@
+User Profile
+
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -336,7 +338,89 @@
                     <p>Full-length untimed ACT practice test. Immediate feedback provided.</p>
                 </div>
             </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-english-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed English Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-english-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed English Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed Math Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-english-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed Math Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed Reading Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+    
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-english-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed Reading Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+    
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed Science Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+    
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-english-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed Science Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+
+
         </div>
+        
 
         <div id="act-lessons-container" class="container hidden">
             <div class="seccontainer">
@@ -1863,97 +1947,166 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to update progress bars and arrows for a given exam
+    function updateProgressBars(examType, progressKey, categories) {
+        console.log(`Updating ${examType} progress bars...`);
 
-    document.addEventListener("DOMContentLoaded", function () {
-        // Load stored progress from previous tests
+        // Load stored data from localStorage
         let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
-        let storedProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+        let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
+        let currentTestResults = JSON.parse(localStorage.getItem("actTestResults")) || {};
 
-        console.log("Previous Progress:", previousProgress);
-        console.log("Current Test Results:", currentTestResults);
-        console.log("Stored Progress Before Update:", storedProgress);
+        console.log(`${examType} Previous Progress:`, previousProgress);
+        console.log(`${examType} Stored Progress:`, storedProgress);
+        console.log(`${examType} Current Test Results:`, currentTestResults);
 
-        // **Accumulate results over multiple tests**
-        Object.keys(currentTestResults).forEach(category => {
+        // Initialize storedProgress for categories if empty
+        categories.forEach(category => {
             if (!storedProgress[category]) {
                 storedProgress[category] = { correct: 0, incorrect: 0 };
             }
+        });
 
-            // Ensure values are treated as numbers
-            let newCorrect = Number(currentTestResults[category]?.correct || 0);
-            let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
-
-            storedProgress[category].correct += newCorrect;
-            storedProgress[category].incorrect += newIncorrect;
+        // Accumulate results from current test
+        Object.keys(currentTestResults).forEach(category => {
+            if (categories.includes(category)) {
+                let newCorrect = Number(currentTestResults[category]?.correct || 0);
+                let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
+                storedProgress[category].correct += newCorrect;
+                storedProgress[category].incorrect += newIncorrect;
+                console.log(`Updated ${category}: correct=${storedProgress[category].correct}, incorrect=${storedProgress[category].incorrect}`);
+            }
         });
 
         // Save updated progress
-        localStorage.setItem("satProgress", JSON.stringify(storedProgress));
-        console.log("Updated Stored Progress:", storedProgress);
+        localStorage.setItem(progressKey, JSON.stringify(storedProgress));
+        console.log(`${examType} Updated Stored Progress:`, storedProgress);
 
-        // Update progress bars
-        function updateProgressBars() {
-            console.log("Updating progress bars with data:", storedProgress);
+        // Update progress bars and arrows
+        let updatedPreviousProgress = {};
+        categories.forEach(category => {
+            const correct = storedProgress[category]?.correct || 0;
+            const incorrect = storedProgress[category]?.incorrect || 0;
+            const total = correct + incorrect;
+            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-            Object.keys(storedProgress).forEach(category => {
-                const correct = storedProgress[category]?.correct || 0;
-                const incorrect = storedProgress[category]?.incorrect || 0;
-                const total = correct + incorrect;
-                const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+            // Update progress bar
+            const progressBar = document.getElementById(`${category}-bar`);
+            if (progressBar) {
+                progressBar.style.width = `${percentage}%`;
+                console.log(`Set ${category}-bar width to ${percentage}%`);
+            } else {
+                console.warn(`${examType} Progress bar not found: ${category}-bar`);
+            }
 
-                // Update progress bar
-                const progressBar = document.getElementById(`${category}-bar`);
-                if (progressBar) {
-                    progressBar.style.width = `${percentage}%`;
-                } else {
-                    console.warn(`Progress bar not found: ${category}-bar`);
-                }
+            // Update progress text and arrow
+            const progressText = document.getElementById(`${category}-text`);
+            if (progressText) {
+                // Retrieve previous percentage safely
+                const previousPercentage = previousProgress[category]?.percentage !== undefined 
+                    ? Number(previousProgress[category].percentage) 
+                    : 0;
 
-                // Update progress text
-                const progressText = document.getElementById(`${category}-text`);
-                if (progressText) {
-                    let previousPercentage = previousProgress[category]?.percentage || 0;
-                    let arrow = "→";
-                    let arrowColor = "#4e5163";
+                let arrow = "→";
+                let arrowColor = "#4e5163";
 
+                console.log(`Comparing ${category}: current=${percentage}, previous=${previousPercentage}`);
+
+                // Only update arrow if there's a previous result to compare against
+                if (previousProgress[category] && total > 0) {
                     if (percentage > previousPercentage) {
                         arrow = "↑";
                         arrowColor = "green";
+                        console.log(`${category} improved: ${previousPercentage}% → ${percentage}%`);
                     } else if (percentage < previousPercentage) {
                         arrow = "↓";
                         arrowColor = "red";
+                        console.log(`${category} decreased: ${previousPercentage}% → ${percentage}%`);
+                    } else {
+                        console.log(`${category} no change: ${percentage}%`);
                     }
-
-                    progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
                 } else {
-                    console.warn(`Progress text not found: ${category}-text`);
+                    console.log(`${category} first test or no previous data: ${percentage}%`);
                 }
 
-                // Store current progress for future reference
-                previousProgress[category] = { percentage };
-            });
+                progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                console.log(`Set ${category}-text to ${percentage}% with arrow ${arrow} (color: ${arrowColor})`);
+            } else {
+                console.warn(`${examType} Progress text not found: ${category}-text`);
+            }
 
-            // Save updated progress
-            localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
-        }
+            // Store current percentage for future comparison
+            updatedPreviousProgress[category] = { percentage: percentage };
+        });
 
-        updateProgressBars();
-    });
+        // Save updated previous progress
+        localStorage.setItem("previousTestResults", JSON.stringify(updatedPreviousProgress));
+        console.log(`${examType} Updated Previous Progress:`, updatedPreviousProgress);
 
-    function resetProgress() {
-    const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
+        // Clear testResults to prevent duplicate accumulation
+        localStorage.removeItem("actTestResults");
+        console.log("Cleared actTestResults from localStorage");
+    }
+
+    // Define categories for SAT and ACT
+    const satCategories = [
+        "command-of-evidence", "central-ideas", "inferences", "words-in-context",
+        "text-structure-and-purpose", "cross-text-connections", "transitions",
+        "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
+        "problem-solving", "geometry"
+    ];
+
+    const actCategories = [
+        "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing",
+        "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
+        "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
+        "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences",
+        "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
+        "act-vocabulary-in-context", "act-character-development", "act-symbolism",
+        "act-literary-device", "act-theme", "act-detail", "act-relationship",
+        "act-implication", "act-comparison", "act-data-representation",
+        "act-research-summary", "act-conflicting-viewpoints"
+    ];
+
+    // Update progress for active exam
+    const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
+    if (activeExam === "line-chart-sat") {
+        updateProgressBars("SAT", "satProgress", satCategories);
+    } else if (activeExam === "line-chart-act") {
+        updateProgressBars("ACT", "actProgress", actCategories);
+    } else {
+        console.log("No active exam detected, updating both SAT and ACT");
+        updateProgressBars("SAT", "satProgress", satCategories);
+        updateProgressBars("ACT", "actProgress", actCategories);
+    }
+});
+
+function resetProgress() {
+    const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
     let storageKey, progressPrefix;
 
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
-        progressPrefix = ["command-of-evidence", "central-ideas", "inferences", "words-in-context", 
-                          "text-structure-and-purpose", "cross-text-connections", "transitions", 
-                          "rhetorical-synthesis", "boundaries", "algebra", "advanced-math", 
-                          "problem-solving", "geometry"];
+        progressPrefix = [
+            "command-of-evidence", "central-ideas", "inferences", "words-in-context",
+            "text-structure-and-purpose", "cross-text-connections", "transitions",
+            "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
+            "problem-solving", "geometry"
+        ];
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
-        progressPrefix = ["act-english", "act-math", "act-reading", "act-science"];
+        progressPrefix = [
+            "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing",
+            "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
+            "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
+            "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences",
+            "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
+            "act-vocabulary-in-context", "act-character-development", "act-symbolism",
+            "act-literary-device", "act-theme", "act-detail", "act-relationship",
+            "act-implication", "act-comparison", "act-data-representation",
+            "act-research-summary", "act-conflicting-viewpoints"
+        ];
     } else if (activeExam === "line-chart-ged") {
         storageKey = "gedProgress";
         progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
@@ -1966,6 +2119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Remove specific exam progress from localStorage
         localStorage.removeItem(storageKey);
         localStorage.removeItem("testResults");
+        localStorage.removeItem("previousTestResults"); // Also clear previousTestResults
         localStorage.removeItem("scoreHistory");
 
         // Remove actScoreHistory for ACT exam
