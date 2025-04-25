@@ -53,8 +53,8 @@ const mathQuestions = [
             { "text": "6", "correct": false },
             { "text": "7", "correct": false }
         ],
-        "difficulty": "medium",
-        "category": "act-algebra"
+        difficulty: "medium",
+        category: "act-algebra"
     },
     {   passage: "", // No passage for Math
         question: "If f(x) = x^2 + 3x - 4, what is f(2)?",
