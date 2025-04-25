@@ -187,28 +187,33 @@ function startTest() {
         clearInterval(refreshIntervalId);
         resetState();
     
-        // Reset categoryStats for Math section categories *before* recording results
-        let mathStats = { ...categoryStats }; // Save current stats for recording
-        for (let category in categoryStats) {
-            if (
-                category.startsWith("act-algebra") ||
-                category.startsWith("act-functions") ||
-                category.startsWith("act-coordinate-geometry")
-            ) {
-                categoryStats[category] = { correct: 0, incorrect: 0 };
-            }
-        }
+        // Save the current section's stats for recording
+        let sectionStats = { ...categoryStats };
     
-        // Record the results using the saved stats
-        categoryStats = mathStats; // Temporarily restore for recording
-        showScore();
+        // Update categoryStats to only include categories for the next section (remove current section's categories)
         categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
             if (
-                category.startsWith("act-algebra") ||
-                category.startsWith("act-functions") ||
-                category.startsWith("act-coordinate-geometry")
+                !category.startsWith("act-algebra") &&
+                !category.startsWith("act-functions") &&
+                !category.startsWith("act-coordinate-geometry")
             ) {
-                acc[category] = { correct: 0, incorrect: 0 };
+                acc[category] = categoryStats[category];
+            }
+            return acc;
+        }, {});
+    
+        // Temporarily restore the section's stats for recording
+        categoryStats = sectionStats;
+        showScore();
+    
+        // Ensure categoryStats no longer includes math categories after recording
+        categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
+            if (
+                !category.startsWith("act-algebra") &&
+                !category.startsWith("act-functions") &&
+                !category.startsWith("act-coordinate-geometry")
+            ) {
+                acc[category] = categoryStats[category];
             }
             return acc;
         }, {});
@@ -221,26 +226,31 @@ function startTest() {
         clearInterval(refreshIntervalId);
         resetState();
     
-        // Reset categoryStats for English section categories *before* recording results
-        let englishStats = { ...categoryStats }; // Save current stats for recording
-        for (let category in categoryStats) {
-            if (
-                category.startsWith("act-conventions-of-standard-english") ||
-                category.startsWith("act-production-of-writing")
-            ) {
-                categoryStats[category] = { correct: 0, incorrect: 0 };
-            }
-        }
+        // Save the current section's stats for recording
+        let sectionStats = { ...categoryStats };
     
-        // Record the results using the saved stats
-        categoryStats = englishStats; // Temporarily restore for recording
-        showScore();
+        // Update categoryStats to only include categories for the next section
         categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
             if (
-                category.startsWith("act-conventions-of-standard-english") ||
-                category.startsWith("act-production-of-writing")
+                !category.startsWith("act-conventions-of-standard-english") &&
+                !category.startsWith("act-production-of-writing")
             ) {
-                acc[category] = { correct: 0, incorrect: 0 };
+                acc[category] = categoryStats[category];
+            }
+            return acc;
+        }, {});
+    
+        // Temporarily restore the section's stats for recording
+        categoryStats = sectionStats;
+        showScore();
+    
+        // Ensure categoryStats no longer includes English categories after recording
+        categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
+            if (
+                !category.startsWith("act-conventions-of-standard-english") &&
+                !category.startsWith("act-production-of-writing")
+            ) {
+                acc[category] = categoryStats[category];
             }
             return acc;
         }, {});
@@ -253,26 +263,31 @@ function startTest() {
         clearInterval(refreshIntervalId);
         resetState();
     
-        // Reset categoryStats for Reading section categories *before* recording results
-        let readingStats = { ...categoryStats }; // Save current stats for recording
-        for (let category in categoryStats) {
-            if (
-                category.startsWith("act-main-idea") ||
-                category.startsWith("act-supporting-details")
-            ) {
-                categoryStats[category] = { correct: 0, incorrect: 0 };
-            }
-        }
+        // Save the current section's stats for recording
+        let sectionStats = { ...categoryStats };
     
-        // Record the results using the saved stats
-        categoryStats = readingStats; // Temporarily restore for recording
-        showScore();
+        // Update categoryStats to only include categories for the next section
         categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
             if (
-                category.startsWith("act-main-idea") ||
-                category.startsWith("act-supporting-details")
+                !category.startsWith("act-main-idea") &&
+                !category.startsWith("act-supporting-details")
             ) {
-                acc[category] = { correct: 0, incorrect: 0 };
+                acc[category] = categoryStats[category];
+            }
+            return acc;
+        }, {});
+    
+        // Temporarily restore the section's stats for recording
+        categoryStats = sectionStats;
+        showScore();
+    
+        // Ensure categoryStats no longer includes Reading categories after recording
+        categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
+            if (
+                !category.startsWith("act-main-idea") &&
+                !category.startsWith("act-supporting-details")
+            ) {
+                acc[category] = categoryStats[category];
             }
             return acc;
         }, {});
@@ -285,26 +300,31 @@ function startTest() {
         clearInterval(refreshIntervalId);
         resetState();
     
-        // Reset categoryStats for Science section categories *before* recording results
-        let scienceStats = { ...categoryStats }; // Save current stats for recording
-        for (let category in categoryStats) {
-            if (
-                category.startsWith("act-interpretation-of-data") ||
-                category.startsWith("act-scientific-investigation")
-            ) {
-                categoryStats[category] = { correct: 0, incorrect: 0 };
-            }
-        }
+        // Save the current section's stats for recording
+        let sectionStats = { ...categoryStats };
     
-        // Record the results using the saved stats
-        categoryStats = scienceStats; // Temporarily restore for recording
-        showScore();
+        // Update categoryStats to only include categories for the next section (none in this case since it's the last section)
         categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
             if (
-                category.startsWith("act-interpretation-of-data") ||
-                category.startsWith("act-scientific-investigation")
+                !category.startsWith("act-interpretation-of-data") &&
+                !category.startsWith("act-scientific-investigation")
             ) {
-                acc[category] = { correct: 0, incorrect: 0 };
+                acc[category] = categoryStats[category];
+            }
+            return acc;
+        }, {});
+    
+        // Temporarily restore the section's stats for recording
+        categoryStats = sectionStats;
+        showScore();
+    
+        // Ensure categoryStats no longer includes Science categories after recording
+        categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
+            if (
+                !category.startsWith("act-interpretation-of-data") &&
+                !category.startsWith("act-scientific-investigation")
+            ) {
+                acc[category] = categoryStats[category];
             }
             return acc;
         }, {});
@@ -312,7 +332,6 @@ function startTest() {
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("final-score").classList.remove("hide");
     }
-
 
     function startQuiz(questions) {
         if (!questions || questions.length === 0) {
@@ -351,7 +370,6 @@ function startTest() {
         console.log(`Starting ${currentSection} section with categoryStats:`, categoryStats);
         showQuestion();
     }
-
 
 
     function showQuestion() {
@@ -1204,12 +1222,39 @@ function startTest() {
     
         // Update actTestResults only for the current section's categories
         for (let category in sectionStats) {
-            if (!results[category]) {
-                results[category] = { correct: 0, incorrect: 0 };
+            // Determine if this category belongs to the current section
+            let isCurrentSectionCategory = false;
+            if (currentSection === "english" && (
+                category.startsWith("act-conventions-of-standard-english") ||
+                category.startsWith("act-production-of-writing")
+            )) {
+                isCurrentSectionCategory = true;
+            } else if (currentSection === "math" && (
+                category.startsWith("act-algebra") ||
+                category.startsWith("act-functions") ||
+                category.startsWith("act-coordinate-geometry")
+            )) {
+                isCurrentSectionCategory = true;
+            } else if (currentSection === "reading" && (
+                category.startsWith("act-main-idea") ||
+                category.startsWith("act-supporting-details")
+            )) {
+                isCurrentSectionCategory = true;
+            } else if (currentSection === "science" && (
+                category.startsWith("act-interpretation-of-data") ||
+                category.startsWith("act-scientific-investigation")
+            )) {
+                isCurrentSectionCategory = true;
             }
-            // Only update the current section's categories, do not accumulate stale data
-            results[category].correct = (results[category].correct || 0) + (sectionStats[category].correct || 0);
-            results[category].incorrect = (results[category].incorrect || 0) + (sectionStats[category].incorrect || 0);
+    
+            // Only update actTestResults for categories belonging to the current section
+            if (isCurrentSectionCategory) {
+                if (!results[category]) {
+                    results[category] = { correct: 0, incorrect: 0 };
+                }
+                results[category].correct = (results[category].correct || 0) + (sectionStats[category].correct || 0);
+                results[category].incorrect = (results[category].incorrect || 0) + (sectionStats[category].incorrect || 0);
+            }
         }
     
         // Store the updated cumulative results in localStorage
