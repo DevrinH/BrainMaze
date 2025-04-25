@@ -2011,12 +2011,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const progressText = document.getElementById(`${category}-text`);
         if (progressText) {
             // Fetch the previous percentage for comparison
-            const previousPercentage = previousProgress[category]?.percentage || 0;
-            console.log(`${examType} Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
+            let previousPercentage = previousProgress[category]?.percentage || 0;
+            console.log(`${examType} Category: ${category}, Previous Percentage (Before Adjustment): ${previousPercentage}, Current Percentage: ${percentage}`);
+
+            // Temporary: Simulate a previous percentage for testing
+            if (category === "act-conventions-of-standard-english" && previousPercentage === 0) {
+                previousPercentage = 50; // Force a previous percentage to test arrow logic
+                console.log(`${examType} Category: ${category}, Forced Previous Percentage for Testing: ${previousPercentage}`);
+            }
 
             let arrow = "→";
             let arrowColor = "#4e5163";
 
+            console.log(`${examType} Category: ${category}, Comparison - Current: ${percentage}, Previous: ${previousPercentage}`);
             if (percentage > previousPercentage) {
                 arrow = "↑";
                 arrowColor = "green";
