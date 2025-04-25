@@ -7,7 +7,7 @@ let selectedQuestions = [];
 let userResponses = [];
 let categoryStats = {};
 let isMathTest = false;
-let questionsProcessed = new Set(); // Added to prevent double-counting of questions
+let questionsProcessed = new Set();
 
 const passageElement = document.getElementById("passage");
 const questionElement = document.getElementById("question");
@@ -129,18 +129,18 @@ const mathQuestions = [
 function startReadingWritingTest() {
     isMathTest = false;
     userResponses = [];
-    categoryStats = {}; // Reset categoryStats to prevent accumulation
-    questionsProcessed = new Set(); // Reset tracking to prevent double-counting
-    localStorage.removeItem("testResults"); // Reset testResults at the start of the test
-    startQuiz(readingWritingQuestions, 1, 3, 0); // Adjusted for actual questions
+    categoryStats = {};
+    questionsProcessed = new Set();
+    localStorage.removeItem("testResults");
+    startQuiz(readingWritingQuestions, 1, 3, 0);
 }
 
 function startMathTest() {
     isMathTest = true;
     userResponses = [];
-    categoryStats = {}; // Reset categoryStats to prevent accumulation
-    questionsProcessed = new Set(); // Reset tracking to prevent double-counting
-    startQuiz(mathQuestions, 1, 1, 2); // Adjusted for actual questions
+    categoryStats = {};
+    questionsProcessed = new Set();
+    startQuiz(mathQuestions, 1, 1, 2);
 }
 
 function startQuiz(questions, easyCount, mediumCount, hardCount) {
@@ -195,7 +195,6 @@ function selectAnswer(e) {
     let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
     let questionDifficulty = currentQuestion.difficulty;
 
-    // Map the category to match user-profile IDs
     questionCategory = categoryMapping[questionCategory] || questionCategory;
 
     if (!categoryStats[questionCategory]) {
@@ -238,7 +237,6 @@ function selectAnswer(e) {
 }
 
 function handleNextButton() {
-    // Record results only once per question
     const questionId = `${currentQuestionIndex}-${isMathTest ? 'math' : 'reading'}`;
     if (!questionsProcessed.has(questionId)) {
         recordTestResults();
@@ -299,7 +297,6 @@ function showScore() {
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
         
-        // Save results after reading/writing section
         recordTestResults();
         saveHistoricalProgress();
     } else {
@@ -327,7 +324,6 @@ function showScore() {
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
 
-        // Save results after math section
         recordTestResults();
         saveHistoricalProgress();
     }
@@ -341,13 +337,11 @@ function saveHistoricalProgress() {
     console.log("testResults in saveHistoricalProgress:", storedResults);
     console.log("Before updating satHistoricalProgress:", satHistoricalProgress);
 
-    // Copy current satHistoricalProgress to satPreviousProgress
     Object.keys(satHistoricalProgress).forEach(category => {
         satPreviousProgress[category] = satHistoricalProgress[category];
     });
     localStorage.setItem("satPreviousProgress", JSON.stringify(satPreviousProgress));
 
-    // Update satHistoricalProgress with new test results
     Object.keys(categoryMapping).forEach(originalCategory => {
         const mappedCategory = categoryMapping[originalCategory];
         const correct = storedResults[mappedCategory]?.correct || 0;
