@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const continueButton = document.getElementById("continue-btn");
 
 
+
+
     let currentQuestionIndex = 0;
     let score = 0;
     let correctAnswers = 0;
@@ -20,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let time;
     let userResponses = [];
     let currentSection = "english";
+
+
 
 
     // Sample questions (replace with full question banks)
@@ -40,7 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "act-conventions-of-standard-english"
         },
 
+
 ];
+
+
 
 
 const mathQuestions = [
@@ -68,6 +75,7 @@ const mathQuestions = [
         category: "act-functions"
     },
 
+
 ];
 const readingQuestions = [  
     {
@@ -83,7 +91,7 @@ const readingQuestions = [
     "difficulty": "medium",
     "category": "act-main-idea"
   },
-  
+ 
 ];
 const scienceQuestions = [          
        
@@ -104,6 +112,9 @@ const scienceQuestions = [
 
 
 
+
+
+
     function startTest() {
         if (!actIntroContainer || !document.getElementById("question-container")) {
             console.error("Required elements not found");
@@ -115,12 +126,14 @@ const scienceQuestions = [
     }
 
 
+
+
     let englishResponses = [];
     let mathResponses = [];
     let readingResponses = [];
     let scienceResponses = [];
  
-    
+   
     function startEnglishSection() {
         currentSection = "english";
         time = 45 * 60;
@@ -129,7 +142,7 @@ const scienceQuestions = [
         setTimeout(endEnglishSection, 2700000);
         startQuiz(englishQuestions);
     }
-    
+   
     function startMathSection() {
         currentSection = "math";
         time = 60 * 60;
@@ -138,7 +151,7 @@ const scienceQuestions = [
         setTimeout(endMathSection, 3600000);
         startQuiz(mathQuestions);
     }
-    
+   
     function startReadingSection() {
         currentSection = "reading";
         time = 35 * 60;
@@ -148,7 +161,7 @@ const scienceQuestions = [
         passageElement.innerHTML = "";
         startQuiz(readingQuestions);
     }
-    
+   
     function startScienceSection() {
         currentSection = "science";
         time = 35 * 60;
@@ -158,6 +171,8 @@ const scienceQuestions = [
         passageElement.innerHTML = "";
         startQuiz(scienceQuestions);
     }
+
+
 
 
     function updateCountdown() {
@@ -179,6 +194,8 @@ const scienceQuestions = [
     }
 
 
+
+
     function endEnglishSection() {
         clearInterval(refreshIntervalId);
         resetState();
@@ -186,6 +203,8 @@ const scienceQuestions = [
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
     }
+
+
 
 
     function endMathSection() {
@@ -197,6 +216,8 @@ const scienceQuestions = [
     }
 
 
+
+
     function endReadingSection() {
         clearInterval(refreshIntervalId);
         resetState();
@@ -206,11 +227,15 @@ const scienceQuestions = [
     }
 
 
+
+
     function endScienceSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showFinalScore();
     }
+
+
 
 
     function startQuiz(questions) {
@@ -243,6 +268,10 @@ const scienceQuestions = [
 
 
 
+
+
+
+
     function showQuestion() {
         resetState();
         if (!selectedQuestions[currentQuestionIndex]) {
@@ -255,11 +284,11 @@ const scienceQuestions = [
         passageElement.style.display = currentSection === "math" ? "none" : "block";
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-    
+   
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("score-display");
         questionElement.classList.remove("centered-score");
-    
+   
         // Display answer buttons without option letters
         currentQuestion.answers.forEach((answer, index) => {
             const button = document.createElement("button");
@@ -271,9 +300,11 @@ const scienceQuestions = [
             }
             button.addEventListener("click", selectAnswer);
         });
-    
+   
         updateProgressBar();
     }
+
+
 
 
     function resetState() {
@@ -285,6 +316,8 @@ const scienceQuestions = [
     }
 
 
+
+
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -292,15 +325,19 @@ function selectAnswer(e) {
     let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
     let questionDifficulty = currentQuestion.difficulty;
 
+
     if (!categoryStats[questionCategory]) {
         categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
 
+
     const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+
 
     const safePassage = currentQuestion.passage || "No passage provided";
     const safeQuestion = currentQuestion.question || "No question provided";
     const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
+
 
     console.log("Creating user response:", currentSection, ":", {
         question: responseQuestion,
@@ -309,6 +346,7 @@ function selectAnswer(e) {
         wasCorrect: isCorrect
     });
 
+
     const response = {
         section: currentSection,
         question: responseQuestion,
@@ -316,6 +354,7 @@ function selectAnswer(e) {
         correctAnswer: correctAnswer,
         wasCorrect: isCorrect
     };
+
 
     if (currentSection === "english") {
         englishResponses.push(response);
@@ -326,6 +365,7 @@ function selectAnswer(e) {
     } else if (currentSection === "science") {
         scienceResponses.push(response);
     }
+
 
     if (isCorrect) {
         selectedBtn.classList.add("correct");
@@ -343,7 +383,9 @@ function selectAnswer(e) {
         categoryStats[questionCategory].incorrect++;
     }
 
+
     recordTestResults();
+
 
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
@@ -352,9 +394,12 @@ function selectAnswer(e) {
         button.disabled = true;
     });
 
+
     nextButton.style.display = "block";
     nextButton.disabled = false;
 }
+
+
 
 
     function showScore() {
@@ -391,16 +436,18 @@ function selectAnswer(e) {
     }
 
 
+
+
     function showFinalScore() {
         clearInterval(refreshIntervalId);
         resetState();
-    
+   
         let englishScore = parseInt(localStorage.getItem("englishScore") || 0, 10);
         let mathScore = parseInt(localStorage.getItem("mathScore") || 0, 10);
         let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
         let scienceScore = parseInt(localStorage.getItem("scienceScore") || 0, 10);
         let compositeScore = Math.round((englishScore + mathScore + readingScore + scienceScore) / 4);
-    
+   
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
         scoreHistory[today] = {
@@ -411,10 +458,10 @@ function selectAnswer(e) {
             composite: compositeScore
         };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
-    
+   
         // Save test completion metadata
         saveTestCompletion("ACT");
-    
+   
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `
@@ -432,6 +479,7 @@ function selectAnswer(e) {
         nextButton.addEventListener("click", showExplanations);
     }
 
+
     function saveTestCompletion(examType) {
         const completionData = {
             exam: examType,
@@ -442,6 +490,8 @@ function selectAnswer(e) {
     }
 
 
+
+
     function showExplanations() {
         console.log("Entering showExplanations");
         resetState();
@@ -449,7 +499,7 @@ function selectAnswer(e) {
         questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
         questionElement.style.overflowY = "scroll";
         questionElement.style.maxHeight = "80vh";
-    
+   
         // Combine responses from all sections
         const allResponses = [
             ...englishResponses.map(r => ({ ...r, section: "english" })),
@@ -457,12 +507,12 @@ function selectAnswer(e) {
             ...readingResponses.map(r => ({ ...r, section: "reading" })),
             ...scienceResponses.map(r => ({ ...r, section: "science" }))
         ];
-    
+   
         const incorrectResponses = allResponses.filter(
             response => response && response.wasCorrect === false && response.section
         );
         console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
-    
+   
         if (incorrectResponses.length === 0) {
             questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
         } else {
@@ -494,7 +544,7 @@ function selectAnswer(e) {
             console.log("Appending to questionElement:", questionElement);
             questionElement.appendChild(fragment);
         }
-    
+   
         console.log("Setting Finish button");
         nextButton.innerHTML = "Finish";
         nextButton.style.display = "block";
@@ -504,6 +554,8 @@ function selectAnswer(e) {
             window.location.href = "https://www.brainjelli.com/user-profile.html";
         });
     }
+
+
 
 
  function generateExplanation(response) {
@@ -831,7 +883,11 @@ function selectAnswer(e) {
             return "The structure builds suspense and parallels Clara’s growing understanding. Option A) build suspense and mirror Clara’s journey of understanding is correct. B) lacks clear contrast; C) misplaces focus on the house; D) is secondary.";
 
 
+
+
     // Set 8: Chicago School of Sociology Passage
+
+
 
 
     }} else if (questionText.includes("In the early 20th century, the Chicago School of Sociology emerged")) {
@@ -1012,6 +1068,8 @@ function selectAnswer(e) {
     }
 
 
+
+
    
     function handleNextButton() {
         recordTestResults();
@@ -1024,6 +1082,8 @@ function selectAnswer(e) {
     }
 
 
+
+
     function updateProgressBar() {
         const progressBar = document.getElementById("progress-bar-test");
         let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
@@ -1031,25 +1091,27 @@ function selectAnswer(e) {
     }
 
 
+
+
     function recordTestResults() {
         let storedResults = localStorage.getItem("actTestResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
-    
+   
         if (typeof results !== "object" || Array.isArray(results)) {
             results = {};
         }
-    
+   
         for (let category in categoryStats) {
             if (!results[category]) {
                 results[category] = { correct: 0, incorrect: 0 };
             }
-    
+   
             results[category].correct += categoryStats[category].correct || 0;
             results[category].incorrect += categoryStats[category].incorrect || 0;
         }
-    
+   
         localStorage.setItem("actTestResults", JSON.stringify(results));
-    
+   
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
             categoryStats[category].incorrect = 0;
@@ -1057,11 +1119,15 @@ function selectAnswer(e) {
     }
 
 
+
+
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
         questionElement.innerHTML = "This is a timed ACT Test. English: 45 min, Math: 60 min, Reading: 35 min, Science: 35 min.";
         questionElement.classList.add("centered-score");
+
+
 
 
         const startButton = document.createElement("button");
@@ -1075,12 +1141,16 @@ function selectAnswer(e) {
     }
 
 
+
+
     // Event Listeners
     if (startTestButton) {
         startTestButton.addEventListener("click", startTest);
     } else {
         console.error("start-test-btn element not found");
     }
+
+
 
 
     if (nextButton) {
@@ -1095,6 +1165,8 @@ function selectAnswer(e) {
     } else {
         console.error("next-btn element not found");
     }
+
+
 
 
     if (continueButton) {
@@ -1112,3 +1184,4 @@ function selectAnswer(e) {
         console.error("continue-btn element not found");
     }
 });
+
