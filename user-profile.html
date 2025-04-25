@@ -2048,6 +2048,57 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// Define categories in global scope so resetProgress can access them
+const satCategories = [
+    "command-of-evidence",
+    "central-ideas-and-detail",
+    "inferences",
+    "words-in-context",
+    "text-structure-and-purpose",
+    "cross-text-connections",
+    "transitions",
+    "rhetorical-synthesis",
+    "boundaries",
+    "algebra",
+    "advanced-math",
+    "problem-solving-and-data",
+    "geometry-and-trigonometry"
+];
+
+const actCategories = [
+    "act-conventions-of-standard-english",
+    "act-knowledge-of-language",
+    "act-production-of-writing",
+    "act-algebra",
+    "act-functions",
+    "act-coordinate-geometry",
+    "act-systems-of-equations",
+    "act-geometry",
+    "act-trigonometry",
+    "act-quadratics",
+    "act-logarithms",
+    "act-complex-numbers",
+    "act-word-problems",
+    "act-probability",
+    "act-sequences",
+    "act-main-idea",
+    "act-authors-purpose",
+    "act-inference",
+    "act-character-motivation",
+    "act-vocabulary-in-context",
+    "act-character-development",
+    "act-symbolism",
+    "act-literary-device",
+    "act-theme",
+    "act-detail",
+    "act-relationship",
+    "act-implication",
+    "act-comparison",
+    "act-data-representation",
+    "act-research-summary",
+    "act-conflicting-viewpoints"
+];
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOMContentLoaded event fired. Script is running...");
 
@@ -2148,56 +2199,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    const satCategories = [
-        "command-of-evidence",
-        "central-ideas-and-detail",
-        "inferences",
-        "words-in-context",
-        "text-structure-and-purpose",
-        "cross-text-connections",
-        "transitions",
-        "rhetorical-synthesis",
-        "boundaries",
-        "algebra",
-        "advanced-math",
-        "problem-solving-and-data",
-        "geometry-and-trigonometry"
-    ];
-
-    const actCategories = [
-        "act-conventions-of-standard-english",
-        "act-knowledge-of-language",
-        "act-production-of-writing",
-        "act-algebra",
-        "act-functions",
-        "act-coordinate-geometry",
-        "act-systems-of-equations",
-        "act-geometry",
-        "act-trigonometry",
-        "act-quadratics",
-        "act-logarithms",
-        "act-complex-numbers",
-        "act-word-problems",
-        "act-probability",
-        "act-sequences",
-        "act-main-idea",
-        "act-authors-purpose",
-        "act-inference",
-        "act-character-motivation",
-        "act-vocabulary-in-context",
-        "act-character-development",
-        "act-symbolism",
-        "act-literary-device",
-        "act-theme",
-        "act-detail",
-        "act-relationship",
-        "act-implication",
-        "act-comparison",
-        "act-data-representation",
-        "act-research-summary",
-        "act-conflicting-viewpoints"
-    ];
-
     // Check last activity and show the corresponding exam
     function showLastExam() {
         const lastActivity = JSON.parse(localStorage.getItem("lastActivity"));
@@ -2250,42 +2251,10 @@ function resetProgress() {
 
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
-        progressPrefix = satCategories; // Use the updated satCategories array
+        progressPrefix = satCategories; // Now accessible because satCategories is in global scope
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
-        progressPrefix = [
-            "act-conventions-of-standard-english",
-            "act-knowledge-of-language",
-            "act-production-of-writing",
-            "act-algebra",
-            "act-functions",
-            "act-coordinate-geometry",
-            "act-systems-of-equations",
-            "act-geometry",
-            "act-trigonometry",
-            "act-quadratics",
-            "act-logarithms",
-            "act-complex-numbers",
-            "act-word-problems",
-            "act-probability",
-            "act-sequences",
-            "act-main-idea",
-            "act-authors-purpose",
-            "act-inference",
-            "act-character-motivation",
-            "act-vocabulary-in-context",
-            "act-character-development",
-            "act-symbolism",
-            "act-literary-device",
-            "act-theme",
-            "act-detail",
-            "act-relationship",
-            "act-implication",
-            "act-comparison",
-            "act-data-representation",
-            "act-research-summary",
-            "act-conflicting-viewpoints"
-        ];
+        progressPrefix = actCategories; // Now accessible because actCategories is in global scope
     } else if (activeExam === "line-chart-ged") {
         storageKey = "gedProgress";
         progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
