@@ -22,6 +22,110 @@ const categoryMapping = {
     "advanced math": "advanced-math"
 };
 
+// Reading/Writing Questions (4 questions: 2 inferences, 2 command-of-evidence)
+const readingWritingQuestions = [
+    {
+        passage: "The following passage is adapted from a 19th-century novel. The narrator describes a young woman named Clara who has recently moved to a small village. Clara was known for her reserved nature, often spending her days reading in the garden. However, she had a keen interest in the village's history, frequently asking the elders about past events. One elder remarked, 'Clara's curiosity about our traditions is refreshing—she listens more than she speaks, which is rare for someone her age.'",
+        question: "What can be inferred about Clara's personality based on the passage?",
+        answers: [
+            { text: "She is outgoing and talkative.", correct: false },
+            { text: "She is curious and reserved.", correct: true },
+            { text: "She is disinterested in the village.", correct: false },
+            { text: "She is impatient and impulsive.", correct: false }
+        ],
+        category: "inferences",
+        difficulty: "easy"
+    },
+    {
+        passage: "The following passage is adapted from a 19th-century novel. The narrator describes a young woman named Clara who has recently moved to a small village. Clara was known for her reserved nature, often spending her days reading in the garden. However, she had a keen interest in the village's history, frequently asking the elders about past events. One elder remarked, 'Clara's curiosity about our traditions is refreshing—she listens more than she speaks, which is rare for someone her age.'",
+        question: "What can be inferred about the elder's opinion of younger people in general?",
+        answers: [
+            { text: "They are typically more curious than Clara.", correct: false },
+            { text: "They often speak more than they listen.", correct: true },
+            { text: "They are uninterested in traditions.", correct: false },
+            { text: "They are disrespectful to elders.", correct: false }
+        ],
+        category: "inferences",
+        difficulty: "medium"
+    },
+    {
+        passage: "The following passage is adapted from a 20th-century essay on environmental conservation. The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade. Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration. Without intervention, the forest ecosystem may collapse within the next 20 years.'",
+        question: "Which of the following statements from the passage best supports the claim that deforestation threatens the forest ecosystem?",
+        answers: [
+            { text: "The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade.", correct: false },
+            { text: "Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration.", correct: true },
+            { text: "Without intervention, the forest ecosystem may collapse within the next 20 years.", correct: false },
+            { text: "The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations.'", correct: false }
+        ],
+        category: "command of evidence",
+        difficulty: "medium"
+    },
+    {
+        passage: "The following passage is adapted from a 20th-century essay on environmental conservation. The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade. Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration. Without intervention, the forest ecosystem may collapse within the next 20 years.'",
+        question: "Which of the following pieces of evidence from the passage most directly supports the idea that deforestation has measurable impacts?",
+        answers: [
+            { text: "The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade.", correct: true },
+            { text: "Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration.", correct: false },
+            { text: "Without intervention, the forest ecosystem may collapse within the next 20 years.", correct: false },
+            { text: "The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations.'", correct: false }
+        ],
+        category: "command of evidence",
+        difficulty: "medium"
+    }
+];
+
+// Math Questions (4 questions: 2 algebra, 2 advanced-math)
+const mathQuestions = [
+    {
+        passage: "",
+        question: "Solve for x: 2x + 3 = 7",
+        answers: [
+            { text: "x = 1", correct: false },
+            { text: "x = 2", correct: true },
+            { text: "x = 3", correct: false },
+            { text: "x = 4", correct: false }
+        ],
+        category: "algebra",
+        difficulty: "easy"
+    },
+    {
+        passage: "",
+        question: "Solve the system of equations: y = 2x + 1, y = x + 3",
+        answers: [
+            { text: "x = 1, y = 3", correct: false },
+            { text: "x = 2, y = 5", correct: true },
+            { text: "x = 3, y = 7", correct: false },
+            { text: "x = 0, y = 1", correct: false }
+        ],
+        category: "algebra",
+        difficulty: "medium"
+    },
+    {
+        passage: "",
+        question: "What is the value of sin(π/3)?",
+        answers: [
+            { text: "1/2", correct: false },
+            { text: "√2/2", correct: false },
+            { text: "√3/2", correct: true },
+            { text: "1", correct: false }
+        ],
+        category: "advanced math",
+        difficulty: "hard"
+    },
+    {
+        passage: "",
+        question: "If f(x) = x² + 2x + 1, what is f(2)?",
+        answers: [
+            { text: "5", correct: false },
+            { text: "7", correct: false },
+            { text: "9", correct: true },
+            { text: "11", correct: false }
+        ],
+        category: "advanced math",
+        difficulty: "hard"
+    }
+];
+
 function startReadingWritingTest() {
     isMathTest = false;
     userResponses = [];
