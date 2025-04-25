@@ -2250,7 +2250,7 @@ function resetProgress() {
 
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
-        progressPrefix = satCategories; // Updated to use satCategories
+        progressPrefix = satCategories; // Use the updated satCategories array
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
         progressPrefix = [
@@ -2297,10 +2297,10 @@ function resetProgress() {
     if (confirm("Are you sure you want to reset your progress for this exam? This action cannot be undone.")) {
         // Remove specific exam progress from localStorage
         localStorage.removeItem(storageKey);
-        // Add removal of actHistoricalProgress to ensure no stale data
+        // Remove historical progress to ensure no stale data
         localStorage.removeItem(`${storageKey.replace('Progress', '')}HistoricalProgress`);
 
-        // Only remove test-specific storage items
+        // Remove test-specific storage items
         if (activeExam === "line-chart-act") {
             localStorage.removeItem("actScoreHistory");
             localStorage.removeItem("actTestResults");
@@ -2310,6 +2310,10 @@ function resetProgress() {
             });
         } else if (activeExam === "line-chart-sat") {
             localStorage.removeItem("satTestResults");
+            // Also clear SAT score history if it exists
+            localStorage.removeItem("scoreHistory"); // From the untimed SAT code
+            localStorage.removeItem("readingScore");
+            localStorage.removeItem("mathScore");
         } else if (activeExam === "line-chart-ged") {
             localStorage.removeItem("gedTestResults");
         }
@@ -2318,8 +2322,16 @@ function resetProgress() {
         progressPrefix.forEach(prefix => {
             const bar = document.getElementById(`${prefix}-bar`);
             const text = document.getElementById(`${prefix}-text`);
-            if (bar) bar.style.width = "0%";
-            if (text) text.innerHTML = `0% <span class="arrow" style="color:#4e5163;">→</span>`;
+            if (bar) {
+                bar.style.width = "0%";
+            } else {
+                console.warn(`Progress bar not found: ${prefix}-bar`);
+            }
+            if (text) {
+                text.innerHTML = `0% <span class="arrow" style="color:#4e5163;">→</span>`;
+            } else {
+                console.warn(`Progress text not found: ${prefix}-text`);
+            }
         });
 
         // Reset the bar chart for the active exam
