@@ -111,12 +111,35 @@ function startTest() {
         console.error("Required elements not found");
         return;
     }
-    // Clear previous test results to avoid stale data
     localStorage.removeItem("actTestResults");
     actIntroContainer.classList.add("hide");
     document.getElementById("question-container").classList.remove("hide");
     startEnglishSection();
 }
+
+// Initialize Event Listeners
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < selectedQuestions.length) {
+        showQuestion();
+    } else {
+        // End of section, call the appropriate endSection function
+        if (currentSection === "english") {
+            endEnglishSection();
+        } else if (currentSection === "math") {
+            endMathSection();
+        } else if (currentSection === "reading") {
+            endReadingSection();
+        } else if (currentSection === "science") {
+            endScienceSection();
+        }
+    }
+});
+
+// Start the test when the page loads (or on a button click)
+document.addEventListener("DOMContentLoaded", () => {
+    startTest();
+});
 
 
     let englishResponses = [];
@@ -186,27 +209,9 @@ function startTest() {
     function endMathSection() {
         clearInterval(refreshIntervalId);
         resetState();
-    
-        // Save the current section's stats for recording
-        let sectionStats = { ...categoryStats };
-    
-        // Update categoryStats to only include categories for the next section (remove current section's categories)
-        categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
-            if (
-                !category.startsWith("act-algebra") &&
-                !category.startsWith("act-functions") &&
-                !category.startsWith("act-coordinate-geometry")
-            ) {
-                acc[category] = categoryStats[category];
-            }
-            return acc;
-        }, {});
-    
-        // Temporarily restore the section's stats for recording
-        categoryStats = sectionStats;
         showScore();
     
-        // Ensure categoryStats no longer includes math categories after recording
+        // Clear categoryStats for the math section
         categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
             if (
                 !category.startsWith("act-algebra") &&
@@ -225,26 +230,9 @@ function startTest() {
     function endEnglishSection() {
         clearInterval(refreshIntervalId);
         resetState();
-    
-        // Save the current section's stats for recording
-        let sectionStats = { ...categoryStats };
-    
-        // Update categoryStats to only include categories for the next section
-        categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
-            if (
-                !category.startsWith("act-conventions-of-standard-english") &&
-                !category.startsWith("act-production-of-writing")
-            ) {
-                acc[category] = categoryStats[category];
-            }
-            return acc;
-        }, {});
-    
-        // Temporarily restore the section's stats for recording
-        categoryStats = sectionStats;
         showScore();
     
-        // Ensure categoryStats no longer includes English categories after recording
+        // Clear categoryStats for the English section
         categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
             if (
                 !category.startsWith("act-conventions-of-standard-english") &&
@@ -262,26 +250,9 @@ function startTest() {
     function endReadingSection() {
         clearInterval(refreshIntervalId);
         resetState();
-    
-        // Save the current section's stats for recording
-        let sectionStats = { ...categoryStats };
-    
-        // Update categoryStats to only include categories for the next section
-        categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
-            if (
-                !category.startsWith("act-main-idea") &&
-                !category.startsWith("act-supporting-details")
-            ) {
-                acc[category] = categoryStats[category];
-            }
-            return acc;
-        }, {});
-    
-        // Temporarily restore the section's stats for recording
-        categoryStats = sectionStats;
         showScore();
     
-        // Ensure categoryStats no longer includes Reading categories after recording
+        // Clear categoryStats for the Reading section
         categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
             if (
                 !category.startsWith("act-main-idea") &&
@@ -299,26 +270,9 @@ function startTest() {
     function endScienceSection() {
         clearInterval(refreshIntervalId);
         resetState();
-    
-        // Save the current section's stats for recording
-        let sectionStats = { ...categoryStats };
-    
-        // Update categoryStats to only include categories for the next section (none in this case since it's the last section)
-        categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
-            if (
-                !category.startsWith("act-interpretation-of-data") &&
-                !category.startsWith("act-scientific-investigation")
-            ) {
-                acc[category] = categoryStats[category];
-            }
-            return acc;
-        }, {});
-    
-        // Temporarily restore the section's stats for recording
-        categoryStats = sectionStats;
         showScore();
     
-        // Ensure categoryStats no longer includes Science categories after recording
+        // Clear categoryStats for the Science section
         categoryStats = Object.keys(categoryStats).reduce((acc, category) => {
             if (
                 !category.startsWith("act-interpretation-of-data") &&
@@ -421,61 +375,22 @@ function startTest() {
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
         let questionDifficulty = currentQuestion.difficulty;
-
-
+    
+        console.log("Before updating categoryStats:", categoryStats);
     
         if (!categoryStats[questionCategory]) {
             categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
         }
     
-        const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-    
-        const safePassage = currentQuestion.passage || "No passage provided";
-        const safeQuestion = currentQuestion.question || "No question provided";
-        const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
-    
-        console.log("Creating user response:", currentSection, ":", {
-            question: responseQuestion,
-            userAnswer: selectedBtn.innerHTML,
-            correctAnswer: correctAnswer,
-            wasCorrect: isCorrect
-        });
-    
-        const response = {
-            section: currentSection,
-            question: responseQuestion,
-            userAnswer: selectedBtn.innerHTML,
-            correctAnswer: correctAnswer,
-            wasCorrect: isCorrect
-        };
-    
-        if (currentSection === "english") {
-            englishResponses.push(response);
-        } else if (currentSection === "math") {
-            mathResponses.push(response);
-        } else if (currentSection === "reading") {
-            readingResponses.push(response);
-        } else if (currentSection === "science") {
-            scienceResponses.push(response);
-        }
-    
         if (isCorrect) {
-            selectedBtn.classList.add("correct");
+            score++;
             correctAnswers++;
-            if (questionDifficulty === "easy") {
-                score += 1;
-            } else if (questionDifficulty === "medium") {
-                score += 2;
-            } else if (questionDifficulty === "hard") {
-                score += 3;
-            }
             categoryStats[questionCategory].correct++;
         } else {
-            selectedBtn.classList.add("incorrect");
             categoryStats[questionCategory].incorrect++;
         }
     
-        recordTestResults();
+        console.log("After updating categoryStats:", categoryStats);
     
         Array.from(answerButtons.children).forEach(button => {
             if (button.dataset.correct === "true") {
@@ -484,10 +399,8 @@ function startTest() {
             button.disabled = true;
         });
     
-        nextButton.style.display = "block";
-        nextButton.disabled = false;
-
-        console.log("After updating categoryStats:", categoryStats);
+        // Show the next button after answering, but don't call showScore here
+        nextButton.classList.remove("hide");
     }
 
 
@@ -1217,12 +1130,11 @@ function startTest() {
             results = {};
         }
     
-        // Create a copy of current section's categoryStats to avoid modifying it
+        // Create a copy of current section's categoryStats
         let sectionStats = { ...categoryStats };
     
         // Update actTestResults only for the current section's categories
         for (let category in sectionStats) {
-            // Determine if this category belongs to the current section
             let isCurrentSectionCategory = false;
             if (currentSection === "english" && (
                 category.startsWith("act-conventions-of-standard-english") ||
@@ -1247,17 +1159,17 @@ function startTest() {
                 isCurrentSectionCategory = true;
             }
     
-            // Only update actTestResults for categories belonging to the current section
             if (isCurrentSectionCategory) {
                 if (!results[category]) {
                     results[category] = { correct: 0, incorrect: 0 };
                 }
+                // Add the current section's stats (do not accumulate if already added)
                 results[category].correct = (results[category].correct || 0) + (sectionStats[category].correct || 0);
                 results[category].incorrect = (results[category].incorrect || 0) + (sectionStats[category].incorrect || 0);
             }
         }
     
-        // Store the updated cumulative results in localStorage
+        // Store the updated results in localStorage
         localStorage.setItem("actTestResults", JSON.stringify(results));
     
         // Log only the current section's results
