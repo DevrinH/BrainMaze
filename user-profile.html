@@ -2101,16 +2101,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-    function resetProgress() {
+function resetProgress() {
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
     let storageKey, progressPrefix;
 
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
         progressPrefix = ["command-of-evidence", "central-ideas", "inferences", "words-in-context", 
-                          "text-structure-and-purpose", "cross-text-connections", "transitions", 
-                          "rhetorical-synthesis", "boundaries", "algebra", "advanced-math", 
-                          "problem-solving", "geometry"];
+                         "text-structure-and-purpose", "cross-text-connections", "transitions", 
+                         "rhetorical-synthesis", "boundaries", "algebra", "advanced-math", 
+                         "problem-solving", "geometry"];
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
         progressPrefix = ["act-english", "act-math", "act-reading", "act-science"];
@@ -2125,12 +2125,19 @@ document.addEventListener("DOMContentLoaded", function () {
     if (confirm("Are you sure you want to reset your progress for this exam? This action cannot be undone.")) {
         // Remove specific exam progress from localStorage
         localStorage.removeItem(storageKey);
-        localStorage.removeItem("testResults");
-        localStorage.removeItem("scoreHistory");
-
-        // Remove actScoreHistory for ACT exam
+        
+        // Only remove test-specific storage items
         if (activeExam === "line-chart-act") {
             localStorage.removeItem("actScoreHistory");
+            localStorage.removeItem("actTestResults");
+            // Clear ACT category-specific storage
+            progressPrefix.forEach(category => {
+                localStorage.removeItem(`${category}Progress`);
+            });
+        } else if (activeExam === "line-chart-sat") {
+            localStorage.removeItem("satTestResults");
+        } else if (activeExam === "line-chart-ged") {
+            localStorage.removeItem("gedTestResults");
         }
 
         // Reset progress bars and text for the active exam
@@ -2141,7 +2148,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (text) text.innerHTML = "0% <span class='arrow'>→</span>";
         });
 
-        // Reset the bar chart for the active exam (if applicable)
+        // Reset the bar chart for the active exam
         let barChart;
         if (activeExam === "line-chart-sat" && window.lastScoreBarChart) {
             barChart = window.lastScoreBarChart;
@@ -2153,15 +2160,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (barChart) {
             barChart.data.datasets.forEach(dataset => {
-                dataset.data = Array(dataset.data.length).fill(0); // Reset scores
+                dataset.data = Array(dataset.data.length).fill(0);
             });
             barChart.update();
         }
 
-        // Reset the line chart for ACT (if applicable)
+        // Reset the line chart for ACT
         if (activeExam === "line-chart-act" && window.actScoreChart) {
             window.actScoreChart.data.datasets.forEach(dataset => {
-                dataset.data = Array(dataset.data.length).fill(0); // Reset scores
+                dataset.data = Array(dataset.data.length).fill(0);
             });
             window.actScoreChart.update();
         }
