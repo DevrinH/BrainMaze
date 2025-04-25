@@ -2048,6 +2048,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// Add localStorage monitoring
+(function () {
+ const originalSetItem = localStorage.setItem;
+ const originalRemoveItem = localStorage.removeItem;
+ const originalClear = localStorage.clear;
+
+ localStorage.setItem = function (key, value) {
+ console.log(`localStorage.setItem called - Key: ${key}, Value: ${value}`);
+ originalSetItem.apply(this, arguments);
+ };
+
+ localStorage.removeItem = function (key) {
+ console.log(`localStorage.removeItem called - Key: ${key}`);
+ originalRemoveItem.apply(this, arguments);
+ };
+
+ localStorage.clear = function () {
+ console.log("localStorage.clear called");
+ originalClear.apply(this, arguments);
+ };
+})();
+
 // Define categories in global scope so resetProgress can access them
 const satCategories = [
  "command-of-evidence",
@@ -2110,6 +2132,23 @@ document.addEventListener("DOMContentLoaded", function () {
  let historicalProgress = JSON.parse(localStorage.getItem(`${examType.toLowerCase()}HistoricalProgress`)) || {};
  let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
  let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
+
+ // Backup progress to prevent loss
+ let backupProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
+ let backupHistoricalProgress = JSON.parse(localStorage.getItem(`${examType.toLowerCase()}HistoricalProgress`)) || {};
+
+ // Restore from backup if progress is unexpectedly empty
+ if (Object.keys(storedProgress).length === 0 && Object.keys(backupProgress).length > 0) {
+ console.warn(`${examType} Warning: storedProgress is empty but backupProgress exists. Restoring from backup.`);
+ storedProgress = backupProgress;
+ localStorage.setItem(progressKey, JSON.stringify(storedProgress));
+ }
+
+ if (Object.keys(historicalProgress).length === 0 && Object.keys(backupHistoricalProgress).length > 0) {
+ console.warn(`${examType} Warning: historicalProgress is empty but backupHistoricalProgress exists. Restoring from backup.`);
+ historicalProgress = backupHistoricalProgress;
+ localStorage.setItem(`${examType.toLowerCase()}HistoricalProgress`, JSON.stringify(historicalProgress));
+ }
 
  console.log(`${examType} Historical Progress (Loaded):`, historicalProgress);
  console.log(`${examType} Current Test Results (Loaded):`, currentTestResults);
