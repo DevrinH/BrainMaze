@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Load historical progress for arrow comparison
     let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
+    let newProgress = {}; // To store the new percentages for saving
 
     // Update each progress item
     progressItems.forEach(item => {
@@ -44,6 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
             console.log(`Calculated percentage for ${category}: ${percentage}%`);
 
+            // Store the new percentage
+            newProgress[category] = { percentage };
+
             if (bar) {
                 bar.style.width = `${percentage}%`;
             } else {
@@ -51,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (text) {
-                // Get the previous percentage from historical progress
                 let previousPercentage = historicalProgress[category]?.percentage || 0;
                 console.log(`Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
 
@@ -77,8 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(`Updated ${category} - Bar width: ${bar?.style.width || "not found"}, Text: ${text?.innerHTML || "not found"}`);
         } else {
             console.log(`No data found for category ${category}`);
+            newProgress[category] = { percentage: 0 }; // Ensure 0% is saved for categories with no data
         }
     });
+
+    // Save the new percentages to actHistoricalProgress
+    localStorage.setItem("actHistoricalProgress", JSON.stringify(newProgress));
+    console.log("Updated actHistoricalProgress:", newProgress);
 
     // Ensure the ACT progress container is visible
     const actProgressContainer = document.getElementById("act-progress-container");
@@ -109,6 +117,7 @@ document.querySelectorAll(".button-30").forEach(button => {
             if (isActSectionActive) {
                 // Load historical progress for arrow comparison
                 let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
+                let newProgress = {}; // To store the new percentages for saving
 
                 // Trigger the progress update logic
                 const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
@@ -122,6 +131,8 @@ document.querySelectorAll(".button-30").forEach(button => {
                         const { correct, incorrect } = results[category];
                         const total = correct + incorrect;
                         const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+                        newProgress[category] = { percentage };
 
                         if (bar) bar.style.width = `${percentage}%`;
 
@@ -147,8 +158,14 @@ document.querySelectorAll(".button-30").forEach(button => {
                             text.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
                         }
                         console.log(`Updated ${category} after tab switch - Bar width: ${bar?.style.width || "not found"}, Text: ${text?.innerHTML || "not found"}`);
+                    } else {
+                        newProgress[category] = { percentage: 0 };
                     }
                 });
+
+                // Save the new percentages to actHistoricalProgress
+                localStorage.setItem("actHistoricalProgress", JSON.stringify(newProgress));
+                console.log("Tab switched - Updated actHistoricalProgress:", newProgress);
 
                 const actProgressContainer = document.getElementById("act-progress-container");
                 if (actProgressContainer) {
