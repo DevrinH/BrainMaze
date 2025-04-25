@@ -2107,13 +2107,25 @@ function resetProgress() {
 
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
-        progressPrefix = ["command-of-evidence", "central-ideas", "inferences", "words-in-context", 
-                         "text-structure-and-purpose", "cross-text-connections", "transitions", 
-                         "rhetorical-synthesis", "boundaries", "algebra", "advanced-math", 
-                         "problem-solving", "geometry"];
+        progressPrefix = [
+            "command-of-evidence", "central-ideas", "inferences", "words-in-context",
+            "text-structure-and-purpose", "cross-text-connections", "transitions",
+            "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
+            "problem-solving", "geometry"
+        ];
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
-        progressPrefix = ["act-english", "act-math", "act-reading", "act-science"];
+        progressPrefix = [
+            "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing",
+            "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
+            "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
+            "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences",
+            "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
+            "act-vocabulary-in-context", "act-character-development", "act-symbolism",
+            "act-literary-device", "act-theme", "act-detail", "act-relationship",
+            "act-implication", "act-comparison", "act-data-representation",
+            "act-research-summary", "act-conflicting-viewpoints"
+        ];
     } else if (activeExam === "line-chart-ged") {
         storageKey = "gedProgress";
         progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
@@ -2125,17 +2137,28 @@ function resetProgress() {
     if (confirm("Are you sure you want to reset your progress for this exam? This action cannot be undone.")) {
         // Remove specific exam progress from localStorage
         localStorage.removeItem(storageKey);
-        
+        localStorage.removeItem(`${storageKey.replace('Progress', '')}HistoricalProgress`);
+
         // Only remove test-specific storage items
         if (activeExam === "line-chart-act") {
             localStorage.removeItem("actScoreHistory");
             localStorage.removeItem("actTestResults");
-            // Clear ACT category-specific storage
+            // Clear ACT category-specific storage and lesson scores
             progressPrefix.forEach(category => {
                 localStorage.removeItem(`${category}Progress`);
+                // Remove lesson-specific scores
+                for (let i = 1; i <= 10; i++) {
+                    localStorage.removeItem(`${category}-lessonScore-${i}`);
+                }
             });
         } else if (activeExam === "line-chart-sat") {
             localStorage.removeItem("satTestResults");
+            // Clear SAT category-specific lesson scores
+            progressPrefix.forEach(category => {
+                for (let i = 1; i <= 10; i++) {
+                    localStorage.removeItem(`${category}-lessonScore-${i}`);
+                }
+            });
         } else if (activeExam === "line-chart-ged") {
             localStorage.removeItem("gedTestResults");
         }
