@@ -2484,42 +2484,7 @@ for (let i = 1; i <= 5; i++) {
 </script>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Existing code...
-   
-        // Check last activity and show the corresponding exam
-        function showLastExam() {
-            const lastActivity = JSON.parse(localStorage.getItem("lastActivity"));
-            if (lastActivity && lastActivity.exam) {
-                switch (lastActivity.exam) {
-                    case "SAT":
-                        showSAT();
-                        break;
-                    case "ACT":
-                        showACT();
-                        break;
-                    case "GED":
-                        showGED();
-                        break;
-                    default:
-                        showSAT(); // Default to SAT
-                }
-                // Show tests or lessons based on type
-                if (lastActivity.type === "test") {
-                    showTests();
-                } else if (lastActivity.type === "lesson") {
-                    showLessons();
-                }
-            } else {
-                showSAT(); // Default to SAT
-            }
-        }
-   
-        // Call the function to show the last exam
-        showLastExam();
-    });
-    </script>
+
    
 <div class="reset-container center">
     <button class="resetBtn" onclick="resetProgress()">Reset Progress</button>
