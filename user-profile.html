@@ -2230,16 +2230,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
     let storageKey, progressPrefix;
 
-
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
-        progressPrefix = ["command-of-evidence", "central-ideas", "inferences", "words-in-context",
-                          "text-structure-and-purpose", "cross-text-connections", "transitions",
-                          "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
-                          "problem-solving", "geometry"];
+        progressPrefix = ["command-of-evidence", "central-ideas", "inferences", "words-in-context", 
+                         "text-structure-and-purpose", "cross-text-connections", "transitions", 
+                         "rhetorical-synthesis", "boundaries", "algebra", "advanced-math", 
+                         "problem-solving", "geometry"];
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
-        progressPrefix = ["act-english", "act-math", "act-reading", "act-science"];
+        progressPrefix = [
+            "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing",
+            "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
+            "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
+            "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences",
+            "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
+            "act-vocabulary-in-context", "act-character-development", "act-symbolism",
+            "act-literary-device", "act-theme", "act-detail", "act-relationship",
+            "act-implication", "act-comparison", "act-data-representation",
+            "act-research-summary", "act-conflicting-viewpoints"
+        ];
     } else if (activeExam === "line-chart-ged") {
         storageKey = "gedProgress";
         progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
@@ -2248,30 +2257,35 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-
     if (confirm("Are you sure you want to reset your progress for this exam? This action cannot be undone.")) {
         // Remove specific exam progress from localStorage
         localStorage.removeItem(storageKey);
-        localStorage.removeItem("testResults");
-        localStorage.removeItem("scoreHistory");
+        // Add removal of actHistoricalProgress to ensure no stale data
+        localStorage.removeItem(`${storageKey.replace('Progress', '')}HistoricalProgress`);
 
-
-        // Remove actScoreHistory for ACT exam
+        // Only remove test-specific storage items
         if (activeExam === "line-chart-act") {
             localStorage.removeItem("actScoreHistory");
+            localStorage.removeItem("actTestResults");
+            // Clear ACT category-specific storage
+            progressPrefix.forEach(category => {
+                localStorage.removeItem(`${category}Progress`);
+            });
+        } else if (activeExam === "line-chart-sat") {
+            localStorage.removeItem("satTestResults");
+        } else if (activeExam === "line-chart-ged") {
+            localStorage.removeItem("gedTestResults");
         }
-
 
         // Reset progress bars and text for the active exam
         progressPrefix.forEach(prefix => {
             const bar = document.getElementById(`${prefix}-bar`);
             const text = document.getElementById(`${prefix}-text`);
             if (bar) bar.style.width = "0%";
-            if (text) text.innerHTML = "0% <span class='arrow'>→</span>";
+            if (text) text.innerHTML = `0% <span class="arrow" style="color:#4e5163;">→</span>`;
         });
 
-
-        // Reset the bar chart for the active exam (if applicable)
+        // Reset the bar chart for the active exam
         let barChart;
         if (activeExam === "line-chart-sat" && window.lastScoreBarChart) {
             barChart = window.lastScoreBarChart;
@@ -2281,23 +2295,20 @@ document.addEventListener("DOMContentLoaded", function () {
             barChart = window.gedLastScoreBarChart;
         }
 
-
         if (barChart) {
             barChart.data.datasets.forEach(dataset => {
-                dataset.data = Array(dataset.data.length).fill(0); // Reset scores
+                dataset.data = Array(dataset.data.length).fill(0);
             });
             barChart.update();
         }
 
-
-        // Reset the line chart for ACT (if applicable)
+        // Reset the line chart for ACT
         if (activeExam === "line-chart-act" && window.actScoreChart) {
             window.actScoreChart.data.datasets.forEach(dataset => {
-                dataset.data = Array(dataset.data.length).fill(0); // Reset scores
+                dataset.data = Array(dataset.data.length).fill(0);
             });
             window.actScoreChart.update();
         }
-
 
         alert("Progress for this exam has been reset!");
     }
