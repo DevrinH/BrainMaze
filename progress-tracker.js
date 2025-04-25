@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
     console.log("Found progress items:", progressItems.length);
 
+    // Load historical progress for arrow comparison
+    let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
+
     // Update each progress item
     progressItems.forEach(item => {
         const category = item.dataset.category;
@@ -48,7 +51,26 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (text) {
-                text.innerHTML = `${percentage}% <span class="arrow">→</span>`;
+                // Get the previous percentage from historical progress
+                let previousPercentage = historicalProgress[category]?.percentage || 0;
+                console.log(`Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
+
+                let arrow = "→";
+                let arrowColor = "#4e5163";
+
+                if (percentage > previousPercentage) {
+                    arrow = "↑";
+                    arrowColor = "green";
+                    console.log(`Category: ${category}, Arrow Set to ↑ (Increased)`);
+                } else if (percentage < previousPercentage) {
+                    arrow = "↓";
+                    arrowColor = "red";
+                    console.log(`Category: ${category}, Arrow Set to ↓ (Decreased)`);
+                } else {
+                    console.log(`Category: ${category}, Arrow Set to → (No Change)`);
+                }
+
+                text.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
             } else {
                 console.warn(`Text element not found for ${category}`);
             }
@@ -85,6 +107,9 @@ document.querySelectorAll(".button-30").forEach(button => {
             console.log("Button clicked - Is ACT section active?", isActSectionActive);
 
             if (isActSectionActive) {
+                // Load historical progress for arrow comparison
+                let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
+
                 // Trigger the progress update logic
                 const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
 
@@ -99,7 +124,28 @@ document.querySelectorAll(".button-30").forEach(button => {
                         const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
                         if (bar) bar.style.width = `${percentage}%`;
-                        if (text) text.innerHTML = `${percentage}% <span class="arrow">→</span>`;
+
+                        if (text) {
+                            let previousPercentage = historicalProgress[category]?.percentage || 0;
+                            console.log(`Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
+
+                            let arrow = "→";
+                            let arrowColor = "#4e5163";
+
+                            if (percentage > previousPercentage) {
+                                arrow = "↑";
+                                arrowColor = "green";
+                                console.log(`Category: ${category}, Arrow Set to ↑ (Increased)`);
+                            } else if (percentage < previousPercentage) {
+                                arrow = "↓";
+                                arrowColor = "red";
+                                console.log(`Category: ${category}, Arrow Set to ↓ (Decreased)`);
+                            } else {
+                                console.log(`Category: ${category}, Arrow Set to → (No Change)`);
+                            }
+
+                            text.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                        }
                         console.log(`Updated ${category} after tab switch - Bar width: ${bar?.style.width || "not found"}, Text: ${text?.innerHTML || "not found"}`);
                     }
                 });
