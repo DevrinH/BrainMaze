@@ -106,16 +106,17 @@ const scienceQuestions = [
 ];
 
 
-
-    function startTest() {
-        if (!actIntroContainer || !document.getElementById("question-container")) {
-            console.error("Required elements not found");
-            return;
-        }
-        actIntroContainer.classList.add("hide");
-        document.getElementById("question-container").classList.remove("hide");
-        startEnglishSection();
+function startTest() {
+    if (!actIntroContainer || !document.getElementById("question-container")) {
+        console.error("Required elements not found");
+        return;
     }
+    // Clear previous test results to avoid stale data
+    localStorage.removeItem("actTestResults");
+    actIntroContainer.classList.add("hide");
+    document.getElementById("question-container").classList.remove("hide");
+    startEnglishSection();
+}
 
 
     let englishResponses = [];
@@ -204,11 +205,14 @@ const scienceQuestions = [
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
-        // Reset categoryStats for Math section
+    
+        // Reset categoryStats for Math section categories only
         for (let category in categoryStats) {
-            if (category.startsWith("act-algebra") || 
-                category.startsWith("act-functions") || 
-                category.startsWith("act-coordinate-geometry")) {
+            if (
+                category.startsWith("act-algebra") ||
+                category.startsWith("act-functions") ||
+                category.startsWith("act-coordinate-geometry")
+            ) {
                 categoryStats[category] = { correct: 0, incorrect: 0 };
             }
         }
@@ -255,21 +259,30 @@ const scienceQuestions = [
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
+    
+        // Reset categoryStats completely for the current section
         categoryStats = {};
+        // Initialize categoryStats for the current section's categories
+        questions.forEach(question => {
+            const category = question.category.toLowerCase().replace(/\s+/g, "-");
+            if (!categoryStats[category]) {
+                categoryStats[category] = { correct: 0, incorrect: 0 };
+            }
+        });
+    
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
-   
+    
         // Reset layout classes
         document.querySelector(".question-row").classList.remove("score-display");
-   
+    
         // Add section-specific class
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
         questionRow.classList.add(`${currentSection}-section`);
-   
+    
         showQuestion();
     }
-
 
 
 
@@ -1111,21 +1124,19 @@ const scienceQuestions = [
             results = {};
         }
     
+        // Only record stats for the current section's categories
         for (let category in categoryStats) {
             if (!results[category]) {
                 results[category] = { correct: 0, incorrect: 0 };
             }
-    
-            results[category].correct += categoryStats[category].correct || 0;
-            results[category].incorrect += categoryStats[category].incorrect || 0;
+            // Add current section's stats (do not accumulate previous runs)
+            results[category].correct = (results[category].correct || 0) + (categoryStats[category].correct || 0);
+            results[category].incorrect = (results[category].incorrect || 0) + (categoryStats[category].incorrect || 0);
         }
     
         localStorage.setItem("actTestResults", JSON.stringify(results));
-    
         console.log("Updated actTestResults:", results);
-        // Removed the resetting of categoryStats here
     }
-
 
     function showIntroMessage() {
         resetState();
