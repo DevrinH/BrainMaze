@@ -1,168 +1,212 @@
-// sat-untimed-test.js
+const passageElement = document.getElementById("passage");
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+const continueButton = document.getElementById("continue-btn");
+const satIntroContainer = document.getElementById("sat-intro-container");
+const startTestButton = document.getElementById("start-test-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswers = 0;
 let selectedQuestions = [];
-let userResponses = [];
 let categoryStats = {};
+let results = localStorage.getItem("testResults");
+results = results ? JSON.parse(results) : {};
 let isMathTest = false;
-let questionsProcessed = new Set();
+let userResponses = [];
 
-const passageElement = document.getElementById("passage");
-const questionElement = document.getElementById("question");
-const answerButtons = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-btn");
-const restartButton = document.getElementById("restart-btn");
-
-const categoryMapping = {
-    "inferences": "inferences",
-    "command of evidence": "command-of-evidence",
-    "algebra": "algebra",
-    "advanced math": "advanced-math"
-};
-
-// Reading/Writing Questions (4 questions: 2 inferences, 2 command-of-evidence)
 const readingWritingQuestions = [
     {
-        passage: "The following passage is adapted from a 19th-century novel. The narrator describes a young woman named Clara who has recently moved to a small village. Clara was known for her reserved nature, often spending her days reading in the garden. However, she had a keen interest in the village's history, frequently asking the elders about past events. One elder remarked, 'Clara's curiosity about our traditions is refreshing—she listens more than she speaks, which is rare for someone her age.'",
-        question: "What can be inferred about Clara's personality based on the passage?",
+        passage: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.",
+        question: "What does the passage suggest about Emma’s feelings?",
         answers: [
-            { text: "She is outgoing and talkative.", correct: false },
-            { text: "She is curious and reserved.", correct: true },
-            { text: "She is disinterested in the village.", correct: false },
-            { text: "She is impatient and impulsive.", correct: false }
+            { text: "A) She feels out of place despite having anticipated this moment for a long time.", correct: true },
+            { text: "B) She is overwhelmed by the beauty of the ballroom and struggles to contain her excitement.", correct: false },
+            { text: "C) She is intimidated by the other guests and decides to leave before entering the ballroom.", correct: false },
+            { text: "D) She is eager to impress others and makes a confident entrance into the event.", correct: false },
         ],
-        category: "inferences",
-        difficulty: "easy"
+        type: "reading",
+        difficulty: "easy",
+        category: "inference"
     },
     {
-        passage: "The following passage is adapted from a 19th-century novel. The narrator describes a young woman named Clara who has recently moved to a small village. Clara was known for her reserved nature, often spending her days reading in the garden. However, she had a keen interest in the village's history, frequently asking the elders about past events. One elder remarked, 'Clara's curiosity about our traditions is refreshing—she listens more than she speaks, which is rare for someone her age.'",
-        question: "What can be inferred about the elder's opinion of younger people in general?",
+        passage: "Daniel stepped into the office, straightening his tie as he took in the bustling atmosphere. Conversations hummed around him, and the clatter of keyboards filled the air. He had spent weeks preparing for this moment, yet a small knot of doubt twisted in his stomach. He took a deep breath and walked toward his desk, reminding himself that everyone had to start somewhere.",
+        question: "What does the passage suggest about Daniel's attitude toward his new job?",
         answers: [
-            { text: "They are typically more curious than Clara.", correct: false },
-            { text: "They often speak more than they listen.", correct: true },
-            { text: "They are uninterested in traditions.", correct: false },
-            { text: "They are disrespectful to elders.", correct: false }
+            { text: "A) He is uncertain about his abilities but determined to prove himself.", correct: true },
+            { text: "B) He is uninterested in the work and only took the job for financial reasons.", correct: false },
+            { text: "C) He is confident that he will excel without any major challenges.", correct: false },
+            { text: "D) He regrets accepting the position and is considering quitting.", correct: false },
         ],
-        category: "inferences",
-        difficulty: "medium"
+        type: "reading",
+        difficulty: "medium",
+        category: "inference"
     },
     {
-        passage: "The following passage is adapted from a 20th-century essay on environmental conservation. The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade. Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration. Without intervention, the forest ecosystem may collapse within the next 20 years.'",
-        question: "Which of the following statements from the passage best supports the claim that deforestation threatens the forest ecosystem?",
+        passage: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.",
+        question: "Which choice provides the best evidence for the idea that Liam is uncertain about his work?",
         answers: [
-            { text: "The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade.", correct: false },
-            { text: "Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration.", correct: true },
-            { text: "Without intervention, the forest ecosystem may collapse within the next 20 years.", correct: false },
-            { text: "The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations.'", correct: false }
+            { text: "A) 'Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind.'", correct: true },
+            { text: "B) 'He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.'", correct: false },
+            { text: "C) 'Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript.'", correct: false },
+            { text: "D) 'He had imagined this moment countless times, picturing the satisfaction of a completed draft.'", correct: false },
         ],
-        category: "command of evidence",
-        difficulty: "medium"
+        type: "reading",
+        difficulty: "medium",
+        category: "command-of-evidence"
     },
     {
-        passage: "The following passage is adapted from a 20th-century essay on environmental conservation. The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade. Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration. Without intervention, the forest ecosystem may collapse within the next 20 years.'",
-        question: "Which of the following pieces of evidence from the passage most directly supports the idea that deforestation has measurable impacts?",
+        passage: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.",
+        question: "Which sentence best supports the idea that the scientist is struggling to accept her findings?",
         answers: [
-            { text: "The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade.", correct: true },
-            { text: "Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration.", correct: false },
-            { text: "Without intervention, the forest ecosystem may collapse within the next 20 years.", correct: false },
-            { text: "The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations.'", correct: false }
+            { text: "A) 'The scientist adjusted her glasses, peering at the data displayed on the screen.'", correct: false },
+            { text: "B) 'She tapped her fingers against the desk, reviewing each calculation.'", correct: false },
+            { text: "C) 'The results were unexpected—far different from what she and her team had predicted.'", correct: false },
+            { text: "D) 'There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.'", correct: true },
         ],
-        category: "command of evidence",
-        difficulty: "medium"
-    }
+        type: "reading",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
 ];
 
-// Math Questions (4 questions: 2 algebra, 2 advanced-math)
 const mathQuestions = [
     {
         passage: "",
-        question: "Solve for x: 2x + 3 = 7",
+        question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
         answers: [
-            { text: "x = 1", correct: false },
-            { text: "x = 2", correct: true },
-            { text: "x = 3", correct: false },
-            { text: "x = 4", correct: false }
+            { text: "A) 2.5 hours", correct: false },
+            { text: "B) 2.6 hours", correct: false },
+            { text: "C) 2.8 hours", correct: false },
+            { text: "D) 2.75 hours", correct: true }
         ],
-        category: "algebra",
-        difficulty: "easy"
+        difficulty: "hard",
+        category: "advanced-math"
     },
     {
         passage: "",
-        question: "Solve the system of equations: y = 2x + 1, y = x + 3",
+        question: "A car's value depreciates by 15% each year. If the car was originally purchased for $30,000, what will its value be after 3 years, rounded to the nearest dollar?",
         answers: [
-            { text: "x = 1, y = 3", correct: false },
-            { text: "x = 2, y = 5", correct: true },
-            { text: "x = 3, y = 7", correct: false },
-            { text: "x = 0, y = 1", correct: false }
+            { text: "A) $18,520", correct: false },
+            { text: "B) $19,275", correct: true },
+            { text: "C) $20,250", correct: false },
+            { text: "D) $21,000", correct: false }
         ],
-        category: "algebra",
-        difficulty: "medium"
+        difficulty: "hard",
+        category: "advanced-math"
+    },    
+    {
+        passage: "",
+        question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
+        answers: [
+            { text: "A) 27", correct: false },
+            { text: "B) 29", correct: true },
+            { text: "C) 31", correct: false },
+            { text: "D) 25", correct: false }
+        ],
+        difficulty: "easy",
+        category: "algebra"
     },
     {
         passage: "",
-        question: "What is the value of sin(π/3)?",
+        question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
         answers: [
-            { text: "1/2", correct: false },
-            { text: "√2/2", correct: false },
-            { text: "√3/2", correct: true },
-            { text: "1", correct: false }
+            { text: "A) 10 hours", correct: false },
+            { text: "B) 11 hours", correct: false },
+            { text: "C) 9 hours", correct: true },
+            { text: "D) 8 hours", correct: false }
         ],
-        category: "advanced math",
-        difficulty: "hard"
+        difficulty: "medium",
+        category: "algebra"
     },
-    {
-        passage: "",
-        question: "If f(x) = x² + 2x + 1, what is f(2)?",
-        answers: [
-            { text: "5", correct: false },
-            { text: "7", correct: false },
-            { text: "9", correct: true },
-            { text: "11", correct: false }
-        ],
-        category: "advanced math",
-        difficulty: "hard"
-    }
 ];
+
+// Map SAT categories to match user-profile document IDs
+const categoryMapping = {
+    "inference": "inferences",
+    "command-of-evidence": "command-of-evidence",
+    "advanced-math": "advanced-math",
+    "algebra": "algebra"
+};
+
+function startTest() {
+    satIntroContainer.classList.add("hide");
+    document.getElementById("question-container").classList.remove("hide");
+
+    // Initialize satHistoricalProgress with all categories
+    let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
+    const allCategories = [
+        "command-of-evidence",
+        "central-ideas-and-detail",
+        "inferences",
+        "words-in-context",
+        "text-structure-and-purpose",
+        "cross-text-connections",
+        "transitions",
+        "rhetorical-synthesis",
+        "boundaries",
+        "algebra",
+        "advanced-math",
+        "problem-solving-and-data",
+        "geometry-and-trigonometry"
+    ];
+    allCategories.forEach(category => {
+        if (!satHistoricalProgress[category]) {
+            satHistoricalProgress[category] = { percentage: 0 };
+        }
+    });
+    localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
+    console.log("Initialized satHistoricalProgress:", satHistoricalProgress);
+
+    localStorage.removeItem("testResults"); // Reset testResults at the start of the test
+    startReadingWritingTest();
+}
 
 function startReadingWritingTest() {
     isMathTest = false;
     userResponses = [];
-    categoryStats = {};
-    questionsProcessed = new Set();
-    localStorage.removeItem("testResults");
-    startQuiz(readingWritingQuestions, 1, 3, 0);
+    localStorage.removeItem("testResults"); // Reset testResults at the start of the reading/writing section
+    startQuiz(readingWritingQuestions, 1, 3, 0); // Match the actual number of questions
 }
 
 function startMathTest() {
     isMathTest = true;
-    userResponses = [];
-    categoryStats = {};
-    questionsProcessed = new Set();
-    startQuiz(mathQuestions, 1, 1, 2);
+    startQuiz(mathQuestions, 1, 1, 2); // Match the actual number of questions
 }
 
-function startQuiz(questions, easyCount, mediumCount, hardCount) {
+function startQuiz(questions, numEasy, numMedium, numHard) {
     currentQuestionIndex = 0;
     score = 0;
     correctAnswers = 0;
-    selectedQuestions = [];
-
-    const easyQuestions = questions.filter(q => q.difficulty === "easy").slice(0, easyCount);
-    const mediumQuestions = questions.filter(q => q.difficulty === "medium").slice(0, mediumCount);
-    const hardQuestions = questions.filter(q => q.difficulty === "hard").slice(0, hardCount);
-
-    selectedQuestions = [...easyQuestions, ...mediumQuestions, ...hardQuestions];
-    console.log("Selected questions:", selectedQuestions);
-
-    document.getElementById("question-container").classList.remove("hide");
+    categoryStats = {};
+    selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
+    nextButton.innerHTML = "Next";
     showQuestion();
+}
+
+function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
+    const easyQuestions = questions.filter(q => q.difficulty === "easy");
+    const mediumQuestions = questions.filter(q => q.difficulty === "medium");
+    const hardQuestions = questions.filter(q => q.difficulty === "hard");
+
+    function getRandom(arr, num) {
+        const available = arr.length;
+        const toSelect = Math.min(num, available); // Don’t select more than available
+        return arr.sort(() => 0.5 - Math.random()).slice(0, toSelect);
+    }
+
+    const selectedEasy = getRandom(easyQuestions, numEasy);
+    const selectedMedium = getRandom(mediumQuestions, numMedium);
+    const selectedHard = getRandom(hardQuestions, numHard);
+
+    const selected = [...selectedEasy, ...selectedMedium, ...selectedHard];
+    console.log("Selected Questions:", selected); // Debug log
+    return selected;
 }
 
 function showQuestion() {
     resetState();
-
     let currentQuestion = selectedQuestions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     passageElement.innerHTML = currentQuestion.passage;
@@ -172,115 +216,97 @@ function showQuestion() {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
-        button.dataset.correct = answer.correct;
-        button.addEventListener("click", selectAnswer);
         answerButtons.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
     });
 
-    document.getElementById("question-counter").innerHTML = `Question ${questionNo} of ${selectedQuestions.length}`;
+    updateProgressBar();
 }
 
 function resetState() {
     nextButton.style.display = "none";
-    nextButton.disabled = true;
+    nextButton.classList.remove("centered-btn");
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
 
 function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-    let questionDifficulty = currentQuestion.difficulty;
+const selectedBtn = e.target;
+const isCorrect = selectedBtn.dataset.correct === "true";
+let currentQuestion = selectedQuestions[currentQuestionIndex];
+let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+let questionDifficulty = currentQuestion.difficulty;
 
-    questionCategory = categoryMapping[questionCategory] || questionCategory;
+// Map the category to match user-profile IDs
+questionCategory = categoryMapping[questionCategory] || questionCategory;
 
-    if (!categoryStats[questionCategory]) {
-        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-    }
+if (!categoryStats[questionCategory]) {
+categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
+}
 
-    const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-    userResponses.push({
-        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
-        userAnswer: selectedBtn.innerHTML,
-        correctAnswer: correctAnswer,
-        wasCorrect: isCorrect
-    });
+const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+userResponses.push({
+question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
+userAnswer: selectedBtn.innerHTML,
+correctAnswer: correctAnswer,
+wasCorrect: isCorrect
+});
 
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        correctAnswers++;
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
-        }
-        categoryStats[questionCategory].correct++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats[questionCategory].incorrect++;
-    }
+if (isCorrect) {
+selectedBtn.classList.add("correct");
+correctAnswers++;
+if (questionDifficulty === "easy") {
+score += 1;
+} else if (questionDifficulty === "medium") {
+score += 2;
+} else if (questionDifficulty === "hard") {
+score += 3;
+}
+categoryStats[questionCategory].correct++;
+} else {
+selectedBtn.classList.add("incorrect");
+categoryStats[questionCategory].incorrect++;
+}
 
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
+// Remove this call to prevent double-counting
+// recordTestResults();
 
-    nextButton.style.display = "block";
-    nextButton.disabled = false;
+Array.from(answerButtons.children).forEach(button => {
+if (button.dataset.correct === "true") {
+button.classList.add("correct");
+}
+button.disabled = true;
+});
+
+nextButton.style.display = "block";
+nextButton.disabled = false;
 }
 
 function handleNextButton() {
-    const questionId = `${currentQuestionIndex}-${isMathTest ? 'math' : 'reading'}`;
-    if (!questionsProcessed.has(questionId)) {
-        recordTestResults();
-        questionsProcessed.add(questionId);
-    }
-
-    currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) {
-        showQuestion();
-    } else {
-        showScore();
-    }
+// Record results only once per question, right before moving to the next
+recordTestResults();
+currentQuestionIndex++;
+if (currentQuestionIndex < selectedQuestions.length) {
+showQuestion();
+} else {
+showScore();
+}
 }
 
-function recordTestResults() {
-    let storedResults = JSON.parse(localStorage.getItem("testResults")) || {};
 
-    if (typeof storedResults !== "object" || Array.isArray(storedResults)) {
-        storedResults = {};
-    }
-
-    console.log("Before updating testResults:", storedResults);
-
-    for (let category in categoryStats) {
-        if (!storedResults[category]) {
-            storedResults[category] = { correct: 0, incorrect: 0 };
-        }
-        storedResults[category].correct = categoryStats[category].correct || 0;
-        storedResults[category].incorrect = categoryStats[category].incorrect || 0;
-        console.log(`Updated ${category} in testResults: correct=${storedResults[category].correct}, incorrect=${storedResults[category].incorrect}`);
-    }
-
-    localStorage.setItem("testResults", JSON.stringify(storedResults));
-    console.log("After updating testResults:", storedResults);
-}
 
 function showScore() {
     resetState();
 
     let maxPossibleScore;
     if (!isMathTest) {
-        maxPossibleScore = (1 * 1) + (3 * 2) + (0 * 3);
+        maxPossibleScore = (1 * 1) + (3 * 2) + (0 * 3); // Adjusted for actual questions
     } else {
-        maxPossibleScore = (1 * 1) + (1 * 2) + (2 * 3);
+        maxPossibleScore = (1 * 1) + (1 * 2) + (2 * 3); // Adjusted for actual questions
     }
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
@@ -297,7 +323,7 @@ function showScore() {
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
         
-        recordTestResults();
+        // Save historical progress after reading/writing section
         saveHistoricalProgress();
     } else {
         let readingScore = localStorage.getItem("readingScore") || 0;
@@ -324,23 +350,104 @@ function showScore() {
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
 
-        recordTestResults();
+        // Save historical progress after the math section
         saveHistoricalProgress();
     }
+}
+
+function showExplanations() {
+    resetState();
+    passageElement.innerHTML = "";
+    questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
+
+    const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
+
+    if (incorrectResponses.length === 0) {
+        questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
+    } else {
+        incorrectResponses.forEach((response, index) => {
+            const explanation = generateExplanation(response);
+            questionElement.innerHTML += `
+                <div class="explanation">
+                    <h3>Question ${index + 1}</h3>
+                    <p><strong>Question:</strong> ${response.question}</p>
+                    <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
+                    <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
+                    <p><strong>Explanation:</strong> ${explanation}</p>
+                </div>
+            `;
+        });
+    }
+
+    nextButton.innerHTML = "Finish";
+    nextButton.style.display = "block";
+    nextButton.removeEventListener("click", showExplanations);
+    nextButton.addEventListener("click", () => {
+        window.location.href = "https://www.brainjelli.com/user-profile";
+    });
+}
+
+function generateExplanation(response) {
+    const questionText = response.question;
+
+    if (questionText.includes("Emma stepped into the grand ballroom")) {
+        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation. The text highlights her discomfort rather than excitement or confidence.";
+    } else if (questionText.includes("Daniel stepped into the office")) {
+        return "Daniel’s doubt and deep breath indicate uncertainty, but his reminder that 'everyone had to start somewhere' shows determination, not disinterest or regret.";
+    } else if (questionText.includes("Liam set his pen down")) {
+        return "The best evidence is the explicit mention of 'nagging doubt,' directly showing his uncertainty about the manuscript’s quality.";
+    } else if (questionText.includes("The scientist adjusted her glasses")) {
+        return "The scientist’s struggle to accept the findings is best supported by her disbelief in the consistent results, despite repeated checks.";
+    } else if (questionText.includes("An airplane is flying from City A to City B")) {
+        return "The trip is split into two 750-mile segments. Time against the wind = 750 / 500 = 1.5 hours. Time with the wind = 750 / 600 = 1.25 hours. Total time = 1.5 + 1.25 = 2.75 hours.";
+    } else if (questionText.includes("A car's value depreciates by 15%")) {
+        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $25,500 × 0.85 = $21,675. Year 3: $21,675 × 0.85 = $18,423.75 ≈ $19,275 (rounded).";
+    } else if (questionText.includes("The function f(x) is defined")) {
+        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(4²) - 3(4) + 5 = 2(16) - 12 + 5 = 32 - 12 + 5 = 25.";
+    } else if (questionText.includes("A company rents out bicycles")) {
+        return "Equation: $12 + $3h ≤ $45. Subtract 12: $3h ≤ $33. Divide by 3: h ≤ 11. Maximum whole hours = 9 (since $12 + $3 × 9 = $39 ≤ $45).";
+    }
+
+    return "No specific explanation available for this question.";
+}
+
+
+function updateProgressBar() {
+    const progressBar = document.getElementById("progress-bar-test");
+    let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+    progressBar.firstElementChild.style.width = progress + "%";
+}
+
+function recordTestResults() {
+    let storedResults = localStorage.getItem("testResults");
+    let results = storedResults ? JSON.parse(storedResults) : {};
+
+    if (typeof results !== "object" || Array.isArray(results)) {
+        results = {};
+    }
+
+    console.log("Before updating testResults:", results);
+
+    for (let category in categoryStats) {
+        if (!results[category]) {
+            results[category] = { correct: 0, incorrect: 0 };
+        }
+
+        results[category].correct += categoryStats[category].correct || 0;
+        results[category].incorrect += categoryStats[category].incorrect || 0;
+        console.log(`Updated ${category} in testResults: correct=${results[category].correct}, incorrect=${results[category].incorrect}`);
+    }
+
+    localStorage.setItem("testResults", JSON.stringify(results));
+    console.log("After updating testResults:", results);
 }
 
 function saveHistoricalProgress() {
     let storedResults = JSON.parse(localStorage.getItem("testResults")) || {};
     let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
-    let satPreviousProgress = JSON.parse(localStorage.getItem("satPreviousProgress")) || {};
 
     console.log("testResults in saveHistoricalProgress:", storedResults);
     console.log("Before updating satHistoricalProgress:", satHistoricalProgress);
-
-    Object.keys(satHistoricalProgress).forEach(category => {
-        satPreviousProgress[category] = satHistoricalProgress[category];
-    });
-    localStorage.setItem("satPreviousProgress", JSON.stringify(satPreviousProgress));
 
     Object.keys(categoryMapping).forEach(originalCategory => {
         const mappedCategory = categoryMapping[originalCategory];
@@ -356,49 +463,35 @@ function saveHistoricalProgress() {
     console.log("After updating satHistoricalProgress:", satHistoricalProgress);
 }
 
-function showExplanations() {
+nextButton.addEventListener("click", () => {
+    if (nextButton.innerHTML === "Continue") {
+        document.getElementById("break-message").classList.remove("hide");
+        document.getElementById("question-container").classList.add("hide");
+    } else {
+        handleNextButton();
+    }
+});
+
+continueButton.addEventListener("click", () => {
+    document.getElementById("break-message").classList.add("hide");
+    document.getElementById("question-container").classList.remove("hide");
+    startMathTest();
+});
+
+function showIntroMessage() {
     resetState();
-    document.getElementById("question-counter").innerHTML = "";
     passageElement.innerHTML = "";
-    questionElement.innerHTML = "";
+    questionElement.innerHTML = "This is a timed SAT Test. The Reading portion will be 64 minutes and the math portion will be 44 minutes.";
+    questionElement.classList.add("centered-score");
 
-    if (userResponses.length === 0) {
-        questionElement.innerHTML = "No incorrect answers to review.";
-        restartButton.style.display = "block";
-        restartButton.classList.add("centered-btn");
-        return;
-    }
-
-    const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
-
-    if (incorrectResponses.length === 0) {
-        questionElement.innerHTML = "No incorrect answers to review.";
-        restartButton.style.display = "block";
-        restartButton.classList.add("centered-btn");
-        return;
-    }
-
-    incorrectResponses.forEach((response, index) => {
-        const explanationDiv = document.createElement("div");
-        explanationDiv.classList.add("explanation");
-        explanationDiv.innerHTML = `
-            <p><strong>Question ${index + 1}:</strong> ${response.question}</p>
-            <p><strong>Your Answer:</strong> ${response.userAnswer} <span class="incorrect">Incorrect</span></p>
-            <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
-            <hr>
-        `;
-        questionElement.appendChild(explanationDiv);
+    const startButton = document.createElement("button");
+    startButton.innerHTML = "Start Test";
+    startButton.classList.add("btn", "centered-btn");
+    startButton.addEventListener("click", () => {
+        questionElement.classList.remove("centered-score");
+        startReadingWritingTest();
     });
-
-    restartButton.style.display = "block";
-    restartButton.classList.add("centered-btn");
+    answerButtons.appendChild(startButton);
 }
 
-function restartQuiz() {
-    window.location.href = "sat-untimed.html";
-}
-
-nextButton.addEventListener("click", handleNextButton);
-restartButton.addEventListener("click", restartQuiz);
-
-startReadingWritingTest();
+startTestButton.addEventListener("click", startTest);
