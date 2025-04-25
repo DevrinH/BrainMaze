@@ -39,18 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             difficulty: "easy",
             category: "act-conventions-of-standard-english"
         },
-        {
-            "question": "If f(x) = x^2 + 3x - 4, what is f(2)?",
-            "answers": [
-                { "text": "8", "correct": false },
-                { "text": "4", "correct": false },
-                { "text": "6", "correct": true },
-                { "text": "10", "correct": false }
-            ],
-            "difficulty": "medium",
-            "category": "act-functions"
-        },
-    
+
 ];
 
 
@@ -67,7 +56,17 @@ const mathQuestions = [
         "difficulty": "medium",
         "category": "act-algebra"
     },
-   
+    {   passage: "", // No passage for Math
+        question: "If f(x) = x^2 + 3x - 4, what is f(2)?",
+        answers: [
+            { "text": "8", "correct": false },
+            { "text": "4", "correct": false },
+            { "text": "6", "correct": true },
+            { "text": "10", "correct": false }
+        ],
+        difficulty: "medium",
+        category: "act-functions"
+    },
 
 ];
 const readingQuestions = [  
@@ -395,15 +394,13 @@ function selectAnswer(e) {
     function showFinalScore() {
         clearInterval(refreshIntervalId);
         resetState();
-
-
+    
         let englishScore = parseInt(localStorage.getItem("englishScore") || 0, 10);
         let mathScore = parseInt(localStorage.getItem("mathScore") || 0, 10);
         let readingScore = parseInt(localStorage.getItem("readingScore") || 0, 10);
         let scienceScore = parseInt(localStorage.getItem("scienceScore") || 0, 10);
         let compositeScore = Math.round((englishScore + mathScore + readingScore + scienceScore) / 4);
-
-
+    
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
         scoreHistory[today] = {
@@ -414,8 +411,10 @@ function selectAnswer(e) {
             composite: compositeScore
         };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
-
-
+    
+        // Save test completion metadata
+        saveTestCompletion("ACT");
+    
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `
@@ -433,7 +432,14 @@ function selectAnswer(e) {
         nextButton.addEventListener("click", showExplanations);
     }
 
-
+    function saveTestCompletion(examType) {
+        const completionData = {
+            exam: examType,
+            type: "test", // Indicate this is a test
+            timestamp: new Date().toISOString()
+        };
+        localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    }
 
 
     function showExplanations() {
@@ -495,7 +501,7 @@ function selectAnswer(e) {
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", showExplanations);
         nextButton.addEventListener("click", () => {
-            window.location.href = "https://www.brainjelli.com/user-profile";
+            window.location.href = "https://www.brainjelli.com/user-profile.html";
         });
     }
 
