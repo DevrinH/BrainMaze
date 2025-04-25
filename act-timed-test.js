@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const passageElement = document.getElementById("passage");
     const questionElement = document.getElementById("question");
@@ -22,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let time;
     let userResponses = [];
     let currentSection = "english";
-    let categoryScores = {};
 
 
     // Sample questions (replace with full question banks)
@@ -106,17 +103,16 @@ const scienceQuestions = [
 ];
 
 
-function startTest() {
-    if (!actIntroContainer || !document.getElementById("question-container")) {
-        console.error("Required elements not found");
-        return;
+
+    function startTest() {
+        if (!actIntroContainer || !document.getElementById("question-container")) {
+            console.error("Required elements not found");
+            return;
+        }
+        actIntroContainer.classList.add("hide");
+        document.getElementById("question-container").classList.remove("hide");
+        startEnglishSection();
     }
-    // Clear previous test results to avoid stale data
-    localStorage.removeItem("actTestResults");
-    actIntroContainer.classList.add("hide");
-    document.getElementById("question-container").classList.remove("hide");
-    startEnglishSection();
-}
 
 
     let englishResponses = [];
@@ -189,61 +185,31 @@ function startTest() {
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
-        // Reset categoryStats for English section
-        for (let category in categoryStats) {
-            if (category.startsWith("act-conventions-of-standard-english") || 
-                category.startsWith("act-knowledge-of-language") || 
-                category.startsWith("act-production-of-writing")) {
-                categoryStats[category] = { correct: 0, incorrect: 0 };
-            }
-        }
     }
-    
+
+
     function endMathSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
-    
-        // Reset categoryStats for Math section categories only
-        for (let category in categoryStats) {
-            if (
-                category.startsWith("act-algebra") ||
-                category.startsWith("act-functions") ||
-                category.startsWith("act-coordinate-geometry")
-            ) {
-                categoryStats[category] = { correct: 0, incorrect: 0 };
-            }
-        }
     }
-    
+
+
     function endReadingSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
-        // Reset categoryStats for Reading section
-        for (let category in categoryStats) {
-            if (category.startsWith("act-main-idea")) {
-                categoryStats[category] = { correct: 0, incorrect: 0 };
-            }
-        }
     }
-    
+
+
     function endScienceSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showFinalScore();
-        // Reset categoryStats for Science section
-        for (let category in categoryStats) {
-            if (category.startsWith("act-data-representation") || 
-                category.startsWith("act-research-summary") || 
-                category.startsWith("act-conflicting-viewpoints")) {
-                categoryStats[category] = { correct: 0, incorrect: 0 };
-            }
-        }
     }
 
 
@@ -259,30 +225,21 @@ function startTest() {
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
-    
-        // Reset categoryStats completely for the current section
         categoryStats = {};
-        // Initialize categoryStats for the current section's categories
-        questions.forEach(question => {
-            const category = question.category.toLowerCase().replace(/\s+/g, "-");
-            if (!categoryStats[category]) {
-                categoryStats[category] = { correct: 0, incorrect: 0 };
-            }
-        });
-    
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
-    
+   
         // Reset layout classes
         document.querySelector(".question-row").classList.remove("score-display");
-    
+   
         // Add section-specific class
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
         questionRow.classList.add(`${currentSection}-section`);
-    
+   
         showQuestion();
     }
+
 
 
 
@@ -328,76 +285,76 @@ function startTest() {
     }
 
 
-    function selectAnswer(e) {
-        const selectedBtn = e.target;
-        const isCorrect = selectedBtn.dataset.correct === "true";
-        let currentQuestion = selectedQuestions[currentQuestionIndex];
-        let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-        let questionDifficulty = currentQuestion.difficulty;
-    
-        if (!categoryStats[questionCategory]) {
-            categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-        }
-    
-        const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-    
-        const safePassage = currentQuestion.passage || "No passage provided";
-        const safeQuestion = currentQuestion.question || "No question provided";
-        const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
-    
-        console.log("Creating user response:", currentSection, ":", {
-            question: responseQuestion,
-            userAnswer: selectedBtn.innerHTML,
-            correctAnswer: correctAnswer,
-            wasCorrect: isCorrect
-        });
-    
-        const response = {
-            section: currentSection,
-            question: responseQuestion,
-            userAnswer: selectedBtn.innerHTML,
-            correctAnswer: correctAnswer,
-            wasCorrect: isCorrect
-        };
-    
-        if (currentSection === "english") {
-            englishResponses.push(response);
-        } else if (currentSection === "math") {
-            mathResponses.push(response);
-        } else if (currentSection === "reading") {
-            readingResponses.push(response);
-        } else if (currentSection === "science") {
-            scienceResponses.push(response);
-        }
-    
-        if (isCorrect) {
-            selectedBtn.classList.add("correct");
-            correctAnswers++;
-            if (questionDifficulty === "easy") {
-                score += 1;
-            } else if (questionDifficulty === "medium") {
-                score += 2;
-            } else if (questionDifficulty === "hard") {
-                score += 3;
-            }
-            categoryStats[questionCategory].correct++;
-        } else {
-            selectedBtn.classList.add("incorrect");
-            categoryStats[questionCategory].incorrect++;
-        }
-    
-        recordTestResults();
-    
-        Array.from(answerButtons.children).forEach(button => {
-            if (button.dataset.correct === "true") {
-                button.classList.add("correct");
-            }
-            button.disabled = true;
-        });
-    
-        nextButton.style.display = "block";
-        nextButton.disabled = false;
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+    let questionDifficulty = currentQuestion.difficulty;
+
+    if (!categoryStats[questionCategory]) {
+        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
     }
+
+    const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+
+    const safePassage = currentQuestion.passage || "No passage provided";
+    const safeQuestion = currentQuestion.question || "No question provided";
+    const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
+
+    console.log("Creating user response:", currentSection, ":", {
+        question: responseQuestion,
+        userAnswer: selectedBtn.innerHTML,
+        correctAnswer: correctAnswer,
+        wasCorrect: isCorrect
+    });
+
+    const response = {
+        section: currentSection,
+        question: responseQuestion,
+        userAnswer: selectedBtn.innerHTML,
+        correctAnswer: correctAnswer,
+        wasCorrect: isCorrect
+    };
+
+    if (currentSection === "english") {
+        englishResponses.push(response);
+    } else if (currentSection === "math") {
+        mathResponses.push(response);
+    } else if (currentSection === "reading") {
+        readingResponses.push(response);
+    } else if (currentSection === "science") {
+        scienceResponses.push(response);
+    }
+
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        correctAnswers++;
+        if (questionDifficulty === "easy") {
+            score += 1;
+        } else if (questionDifficulty === "medium") {
+            score += 2;
+        } else if (questionDifficulty === "hard") {
+            score += 3;
+        }
+        categoryStats[questionCategory].correct++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats[questionCategory].incorrect++;
+    }
+
+    recordTestResults();
+
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+
+    nextButton.style.display = "block";
+    nextButton.disabled = false;
+}
 
 
     function showScore() {
@@ -433,43 +390,7 @@ function startTest() {
         nextButton.classList.add("centered-btn");
     }
 
-    function saveTestResults(examType, progressKey, testResults) {
-        console.log(`Saving ${examType} test results...`);
-    
-        let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-        let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-    
-        Object.keys(testResults).forEach(category => {
-            if (!storedProgress[category]) {
-                storedProgress[category] = { correct: 0, incorrect: 0 };
-            }
-            storedProgress[category].correct += Number(testResults[category]?.correct || 0);
-            storedProgress[category].incorrect += Number(testResults[category]?.incorrect || 0);
-        });
-    
-        Object.keys(storedProgress).forEach(category => {
-            const correct = storedProgress[category].correct;
-            const incorrect = storedProgress[category].incorrect;
-            const total = correct + incorrect;
-            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-            previousProgress[category] = { percentage };
-        });
-    
-        localStorage.setItem(progressKey, JSON.stringify(storedProgress));
-        localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
-        localStorage.setItem("lastActivity", JSON.stringify({ exam: examType, type: "test", timestamp: Date.now() }));
-    
-        console.log(`${examType} Test Results Saved:`, testResults);
-        console.log(`${examType} Updated Progress:`, storedProgress);
-        console.log(`${examType} Updated Previous Progress:`, previousProgress);
-    }
-    
-    function getCategoryResults() {
-        let storedResults = localStorage.getItem("actTestResults");
-        let results = storedResults ? JSON.parse(storedResults) : {};
-        return results;
-    }
-    
+
     function showFinalScore() {
         clearInterval(refreshIntervalId);
         resetState();
@@ -491,11 +412,8 @@ function startTest() {
         };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
     
+        // Save test completion metadata
         saveTestCompletion("ACT");
-    
-        // Save category-specific progress
-        const testResults = getCategoryResults();
-        saveTestResults("ACT", "actProgress", testResults);
     
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
@@ -583,10 +501,7 @@ function startTest() {
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", showExplanations);
         nextButton.addEventListener("click", () => {
-            // Add a slight delay to ensure localStorage updates are complete
-            setTimeout(() => {
-                window.location.href = "user-profile.html"; // Updated to relative path
-            }, 100);
+            window.location.href = "https://www.brainjelli.com/user-profile.html";
         });
     }
 
@@ -1124,19 +1039,23 @@ function startTest() {
             results = {};
         }
     
-        // Only record stats for the current section's categories
         for (let category in categoryStats) {
             if (!results[category]) {
                 results[category] = { correct: 0, incorrect: 0 };
             }
-            // Add current section's stats (do not accumulate previous runs)
-            results[category].correct = (results[category].correct || 0) + (categoryStats[category].correct || 0);
-            results[category].incorrect = (results[category].incorrect || 0) + (categoryStats[category].incorrect || 0);
+    
+            results[category].correct += categoryStats[category].correct || 0;
+            results[category].incorrect += categoryStats[category].incorrect || 0;
         }
     
         localStorage.setItem("actTestResults", JSON.stringify(results));
-        console.log("Updated actTestResults:", results);
+    
+        for (let category in categoryStats) {
+            categoryStats[category].correct = 0;
+            categoryStats[category].incorrect = 0;
+        }
     }
+
 
     function showIntroMessage() {
         resetState();
@@ -1193,4 +1112,3 @@ function startTest() {
         console.error("continue-btn element not found");
     }
 });
-
