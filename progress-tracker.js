@@ -32,14 +32,34 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Found progress items:", progressItems.length);
 
         let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
-        // Initialize historicalProgress for all categories
+        let storedProgress = JSON.parse(localStorage.getItem("actProgress")) || {};
+
+        // Initialize historicalProgress and storedProgress for all categories
         progressItems.forEach(item => {
             const category = item.dataset.category;
             if (!historicalProgress[category]) {
                 historicalProgress[category] = { percentage: 0 };
             }
+            if (!storedProgress[category]) {
+                storedProgress[category] = { correct: 0, incorrect: 0 };
+            }
         });
         console.log("Loaded actHistoricalProgress before update:", historicalProgress);
+        console.log("Loaded actProgress before update:", storedProgress);
+
+        // Update storedProgress with the latest test results
+        Object.keys(results).forEach(category => {
+            if (!storedProgress[category]) {
+                storedProgress[category] = { correct: 0, incorrect: 0 };
+            }
+            storedProgress[category].correct = Number(results[category]?.correct || 0);
+            storedProgress[category].incorrect = Number(results[category]?.incorrect || 0);
+            console.log(`Category: ${category}, Updated actProgress - Correct: ${storedProgress[category].correct}, Incorrect: ${storedProgress[category].incorrect}`);
+        });
+
+        // Save updated actProgress
+        localStorage.setItem("actProgress", JSON.stringify(storedProgress));
+        console.log("Updated actProgress:", storedProgress);
 
         let newProgress = {};
 
