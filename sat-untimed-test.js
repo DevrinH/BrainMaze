@@ -235,55 +235,69 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-    let questionDifficulty = currentQuestion.difficulty;
+const selectedBtn = e.target;
+const isCorrect = selectedBtn.dataset.correct === "true";
+let currentQuestion = selectedQuestions[currentQuestionIndex];
+let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+let questionDifficulty = currentQuestion.difficulty;
 
-    // Map the category to match user-profile IDs
-    questionCategory = categoryMapping[questionCategory] || questionCategory;
+// Map the category to match user-profile IDs
+questionCategory = categoryMapping[questionCategory] || questionCategory;
 
-    if (!categoryStats[questionCategory]) {
-        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-    }
-
-    const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-    userResponses.push({
-        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
-        userAnswer: selectedBtn.innerHTML,
-        correctAnswer: correctAnswer,
-        wasCorrect: isCorrect
-    });
-
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        correctAnswers++;
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
-        }
-        categoryStats[questionCategory].correct++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats[questionCategory].incorrect++;
-    }
-
-    recordTestResults();
-
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
-
-    nextButton.style.display = "block";
-    nextButton.disabled = false;
+if (!categoryStats[questionCategory]) {
+categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
 }
+
+const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+userResponses.push({
+question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
+userAnswer: selectedBtn.innerHTML,
+correctAnswer: correctAnswer,
+wasCorrect: isCorrect
+});
+
+if (isCorrect) {
+selectedBtn.classList.add("correct");
+correctAnswers++;
+if (questionDifficulty === "easy") {
+score += 1;
+} else if (questionDifficulty === "medium") {
+score += 2;
+} else if (questionDifficulty === "hard") {
+score += 3;
+}
+categoryStats[questionCategory].correct++;
+} else {
+selectedBtn.classList.add("incorrect");
+categoryStats[questionCategory].incorrect++;
+}
+
+// Remove this call to prevent double-counting
+// recordTestResults();
+
+Array.from(answerButtons.children).forEach(button => {
+if (button.dataset.correct === "true") {
+button.classList.add("correct");
+}
+button.disabled = true;
+});
+
+nextButton.style.display = "block";
+nextButton.disabled = false;
+}
+
+function handleNextButton() {
+// Record results only once per question, right before moving to the next
+recordTestResults();
+currentQuestionIndex++;
+if (currentQuestionIndex < selectedQuestions.length) {
+showQuestion();
+} else {
+showScore();
+}
+}
+
+
 
 function showScore() {
     resetState();
