@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Retrieve ACT test results from localStorage and log them regardless of active section
     let storedResults = localStorage.getItem("actTestResults");
     console.log("Retrieved actTestResults from localStorage:", storedResults);
 
@@ -7,27 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Parsed actTestResults:", results);
     console.log("All ACT categories and their scores:", JSON.stringify(results, null, 2));
 
-    // Check if the ACT section is active by looking for the 'hidden' class on line-chart-act
     const actSection = document.querySelector("#line-chart-act");
     const isActSectionActive = actSection && !actSection.classList.contains("hidden");
     console.log("ACT section element:", actSection);
     console.log("Is ACT section active?", isActSectionActive);
 
-    // Only proceed with updating progress bars if the ACT section is active
     if (!isActSectionActive) {
         console.log("ACT section is not active, skipping ACT progress container update.");
         return;
     }
 
-    // Get all progress items in the ACT progress container
     const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
     console.log("Found progress items:", progressItems.length);
 
-    // Load historical progress for arrow comparison
     let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
-    let newProgress = {}; // To store the new percentages for saving
+    let newProgress = {};
 
-    // Update each progress item
     progressItems.forEach(item => {
         const category = item.dataset.category;
         console.log(`Processing category: ${category}`);
@@ -45,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
             console.log(`Calculated percentage for ${category}: ${percentage}%`);
 
-            // Store the new percentage
             newProgress[category] = { percentage };
 
             if (bar) {
@@ -80,15 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(`Updated ${category} - Bar width: ${bar?.style.width || "not found"}, Text: ${text?.innerHTML || "not found"}`);
         } else {
             console.log(`No data found for category ${category}`);
-            newProgress[category] = { percentage: 0 }; // Ensure 0% is saved for categories with no data
+            newProgress[category] = { percentage: 0 };
         }
     });
 
-    // Save the new percentages to actHistoricalProgress
     localStorage.setItem("actHistoricalProgress", JSON.stringify(newProgress));
     console.log("Updated actHistoricalProgress:", newProgress);
 
-    // Ensure the ACT progress container is visible
     const actProgressContainer = document.getElementById("act-progress-container");
     if (actProgressContainer) {
         actProgressContainer.classList.remove("hidden");
