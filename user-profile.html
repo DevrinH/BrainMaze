@@ -2143,11 +2143,7 @@ console.log(`${examType} Previous Progress (Loaded):`, previousProgress);
 let testResults = JSON.parse(localStorage.getItem(testResultsKey)) || {};
 console.log(`${examType} Current Test Results (Loaded):`, testResults);
 
-let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-console.log(`${examType} Stored Progress Before Update (Loaded):`, storedProgress);
-
-// Reset storedProgress to avoid accumulation
-storedProgress = {};
+let storedProgress = {};
 let hasTestResults = Object.keys(testResults).length > 0;
 
 let allCategories = examType === "SAT" ? [
@@ -2168,19 +2164,27 @@ let allCategories = examType === "SAT" ? [
 // ... (ACT categories)
 ];
 
-if (hasTestResults) {
-Object.keys(testResults).forEach(category => {
-if (!storedProgress[category]) {
+// Initialize storedProgress with all categories set to 0
+allCategories.forEach(category => {
 storedProgress[category] = { correct: 0, incorrect: 0 };
-}
-storedProgress[category].correct = testResults[category].correct || 0;
-storedProgress[category].incorrect = testResults[category].incorrect || 0;
+});
+
+if (hasTestResults) {
+// Update only the categories present in testResults
+Object.keys(testResults).forEach(category => {
+storedProgress[category] = {
+correct: testResults[category].correct || 0,
+incorrect: testResults[category].incorrect || 0
+};
 console.log(`${examType} Category: ${category}, Adding Correct: ${storedProgress[category].correct}, Incorrect: ${storedProgress[category].incorrect}`);
 });
 
 localStorage.setItem(progressKey, JSON.stringify(storedProgress));
 console.log(`${examType} Updated Stored Progress (Saved):`, storedProgress);
 console.log(`Verify ${progressKey} in localStorage:`, JSON.parse(localStorage.getItem(progressKey)));
+} else {
+console.log(`${examType} No test results to process, using existing stored progress.`);
+storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
 }
 
 console.log(`${examType} Has Test Results to Process:`, hasTestResults);
@@ -2252,6 +2256,7 @@ console.log(`${examType} No test results to process, skipping historical progres
 console.log(`${examType} Final localStorage state - ${progressKey}:`, JSON.parse(localStorage.getItem(progressKey)));
 console.log(`${examType} Final localStorage state - ${historicalProgressKey}:`, JSON.parse(localStorage.getItem(historicalProgressKey)));
 }
+
 
  // Check last activity and show the corresponding exam
  function showLastExam() {
