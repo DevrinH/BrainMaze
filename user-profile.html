@@ -2139,6 +2139,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Calculate new percentages for display and historical tracking
         let newProgress = {};
         let hasTestResults = Object.keys(currentTestResults).length > 0 && Object.keys(currentTestResults).some(category => categories.includes(category));
+        console.log(`${examType} Has Test Results to Process:`, hasTestResults);
 
         categories.forEach(category => {
             const correct = storedProgress[category]?.correct || 0;
@@ -2194,6 +2195,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (hasTestResults) {
             localStorage.setItem(`${examType.toLowerCase()}HistoricalProgress`, JSON.stringify(newProgress));
             console.log(`${examType} Updated Historical Progress (Saved):`, newProgress);
+            // Clear testResults after processing to prevent re-processing on next page load
+            localStorage.removeItem("testResults");
+            console.log(`${examType} Cleared testResults after processing.`);
         } else {
             console.log(`${examType} No test results to process, skipping historical progress save.`);
         }
@@ -2251,10 +2255,10 @@ function resetProgress() {
 
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
-        progressPrefix = satCategories; // Now accessible because satCategories is in global scope
+        progressPrefix = satCategories;
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
-        progressPrefix = actCategories; // Now accessible because actCategories is in global scope
+        progressPrefix = actCategories;
     } else if (activeExam === "line-chart-ged") {
         storageKey = "gedProgress";
         progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
@@ -2280,7 +2284,7 @@ function resetProgress() {
         } else if (activeExam === "line-chart-sat") {
             localStorage.removeItem("satTestResults");
             // Also clear SAT score history if it exists
-            localStorage.removeItem("scoreHistory"); // From the untimed SAT code
+            localStorage.removeItem("scoreHistory");
             localStorage.removeItem("readingScore");
             localStorage.removeItem("mathScore");
         } else if (activeExam === "line-chart-ged") {
@@ -2330,6 +2334,7 @@ function resetProgress() {
 
         alert("Progress for this exam has been reset!");
     }
+}
 }
     function showTests() {
             document.getElementById('tests-container').classList.remove('hidden');
