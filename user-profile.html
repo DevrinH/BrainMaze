@@ -1948,77 +1948,83 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Function to update progress bars and arrows for a given exam
     function updateProgressBars(examType, progressKey, categories) {
-        console.log(`Updating ${examType} progress bars...`);
+    console.log(`Updating ${examType} progress bars...`);
 
-        // Load stored data from localStorage
-        let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
-        let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
+    // Load stored data from localStorage
+    let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
+    let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
+    let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
 
-        console.log(`${examType} Previous Progress:`, previousProgress);
-        console.log(`${examType} Current Test Results:`, currentTestResults);
-        console.log(`${examType} Stored Progress Before Update:`, storedProgress);
+    console.log(`${examType} Previous Progress:`, previousProgress);
+    console.log(`${examType} Current Test Results:`, currentTestResults);
+    console.log(`${examType} Stored Progress Before Update:`, storedProgress);
 
-        // Accumulate results from current test
-        Object.keys(currentTestResults).forEach(category => {
-            if (categories.includes(category) && !storedProgress[category]) {
-                storedProgress[category] = { correct: 0, incorrect: 0 };
+    // Accumulate results from current test
+    Object.keys(currentTestResults).forEach(category => {
+        if (categories.includes(category) && !storedProgress[category]) {
+            storedProgress[category] = { correct: 0, incorrect: 0 };
+        }
+        if (categories.includes(category)) {
+            let newCorrect = Number(currentTestResults[category]?.correct || 0);
+            let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
+            storedProgress[category].correct += newCorrect;
+            storedProgress[category].incorrect += newIncorrect;
+        }
+    });
+
+    // Save updated progress
+    localStorage.setItem(progressKey, JSON.stringify(storedProgress));
+    console.log(`${examType} Updated Stored Progress:`, storedProgress);
+
+    // Create a temporary object to store the new percentages for comparison
+    let newProgress = {};
+
+    // Update progress bars and arrows
+    categories.forEach(category => {
+        const correct = storedProgress[category]?.correct || 0;
+        const incorrect = storedProgress[category]?.incorrect || 0;
+        const total = correct + incorrect;
+        const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+        // Store the new percentage for this category
+        newProgress[category] = { percentage };
+
+        // Update progress bar
+        const progressBar = document.getElementById(`${category}-bar`);
+        if (progressBar) {
+            progressBar.style.width = `${percentage}%`;
+        } else {
+            console.warn(`${examType} Progress bar not found: ${category}-bar`);
+        }
+
+        // Update progress text and arrow
+        const progressText = document.getElementById(`${category}-text`);
+        if (progressText) {
+            // Fetch the previous percentage for comparison
+            const previousPercentage = previousProgress[category]?.percentage || 0;
+            console.log(`${examType} Category: ${category}, Previous: ${previousPercentage}, Current: ${percentage}`);
+
+            let arrow = "→";
+            let arrowColor = "#4e5163";
+
+            if (percentage > previousPercentage) {
+                arrow = "↑";
+                arrowColor = "green";
+            } else if (percentage < previousPercentage) {
+                arrow = "↓";
+                arrowColor = "red";
             }
-            if (categories.includes(category)) {
-                let newCorrect = Number(currentTestResults[category]?.correct || 0);
-                let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
-                storedProgress[category].correct += newCorrect;
-                storedProgress[category].incorrect += newIncorrect;
-            }
-        });
 
-        // Save updated progress
-        localStorage.setItem(progressKey, JSON.stringify(storedProgress));
-        console.log(`${examType} Updated Stored Progress:`, storedProgress);
+            progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+        } else {
+            console.warn(`${examType} Progress text not found: ${category}-text`);
+        }
+    });
 
-        // Update progress bars and arrows
-        categories.forEach(category => {
-            const correct = storedProgress[category]?.correct || 0;
-            const incorrect = storedProgress[category]?.incorrect || 0;
-            const total = correct + incorrect;
-            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-
-            // Update progress bar
-            const progressBar = document.getElementById(`${category}-bar`);
-            if (progressBar) {
-                progressBar.style.width = `${percentage}%`;
-            } else {
-                console.warn(`${examType} Progress bar not found: ${category}-bar`);
-            }
-
-            // Update progress text and arrow
-            const progressText = document.getElementById(`${category}-text`);
-            if (progressText) {
-                let previousPercentage = previousProgress[category]?.percentage || 0;
-                let arrow = "→";
-                let arrowColor = "#4e5163";
-
-                if (percentage > previousPercentage) {
-                    arrow = "↑";
-                    arrowColor = "green";
-                } else if (percentage < previousPercentage) {
-                    arrow = "↓";
-                    arrowColor = "red";
-                }
-
-                progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-            } else {
-                console.warn(`${examType} Progress text not found: ${category}-text`);
-            }
-
-            // Store current percentage for future comparison
-            previousProgress[category] = { percentage };
-        });
-
-        // Save updated previous progress
-        localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
-        console.log(`${examType} Updated Previous Progress:`, previousProgress);
-    }
+    // Save updated previous progress (using newProgress)
+    localStorage.setItem("previousTestResults", JSON.stringify(newProgress));
+    console.log(`${examType} Updated Previous Progress:`, newProgress);
+}
 
     // Define categories for SAT and ACT
     const satCategories = [
