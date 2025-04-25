@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Retrieve ACT test results from localStorage and log them regardless of active section
     let storedResults = localStorage.getItem("actTestResults");
     console.log("Retrieved actTestResults from localStorage:", storedResults);
 
@@ -7,27 +6,56 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Parsed actTestResults:", results);
     console.log("All ACT categories and their scores:", JSON.stringify(results, null, 2));
 
-    // Check if the ACT section is active by looking for the 'hidden' class on line-chart-act
+    // Map old categories to new ones
+    const categoryMapping = {
+        "act-english": [
+            "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing"
+        ],
+        "act-math": [
+            "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
+            "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
+            "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences"
+        ],
+        "act-reading": [
+            "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
+            "act-vocabulary-in-context", "act-character-development", "act-symbolism",
+            "act-literary-device", "act-theme", "act-detail", "act-relationship",
+            "act-implication", "act-comparison"
+        ],
+        "act-science": [
+            "act-data-representation", "act-research-summary", "act-conflicting-viewpoints"
+        ]
+    };
+
+    // Transform old category results to new categories
+    let transformedResults = {};
+    Object.keys(categoryMapping).forEach(oldCategory => {
+        if (results[oldCategory]) {
+            const newCategories = categoryMapping[oldCategory];
+            newCategories.forEach(newCategory => {
+                transformedResults[newCategory] = results[oldCategory]; // Copy the same scores to all mapped categories
+            });
+        }
+    });
+
+    console.log("Transformed actTestResults:", transformedResults);
+
     const actSection = document.querySelector("#line-chart-act");
     const isActSectionActive = actSection && !actSection.classList.contains("hidden");
     console.log("ACT section element:", actSection);
     console.log("Is ACT section active?", isActSectionActive);
 
-    // Only proceed with updating progress bars if the ACT section is active
     if (!isActSectionActive) {
         console.log("ACT section is not active, skipping ACT progress container update.");
         return;
     }
 
-    // Get all progress items in the ACT progress container
     const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
     console.log("Found progress items:", progressItems.length);
 
-    // Load historical progress for arrow comparison
     let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
-    let newProgress = {}; // To store the new percentages for saving
+    let newProgress = {};
 
-    // Update each progress item
     progressItems.forEach(item => {
         const category = item.dataset.category;
         console.log(`Processing category: ${category}`);
@@ -37,15 +65,14 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(`Bar element for ${category}:`, bar);
         console.log(`Text element for ${category}:`, text);
 
-        if (results[category]) {
-            const { correct, incorrect } = results[category];
+        if (transformedResults[category]) {
+            const { correct, incorrect } = transformedResults[category];
             console.log(`Category ${category} stats - Correct: ${correct}, Incorrect: ${incorrect}`);
 
             const total = correct + incorrect;
             const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
             console.log(`Calculated percentage for ${category}: ${percentage}%`);
 
-            // Store the new percentage
             newProgress[category] = { percentage };
 
             if (bar) {
@@ -80,15 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(`Updated ${category} - Bar width: ${bar?.style.width || "not found"}, Text: ${text?.innerHTML || "not found"}`);
         } else {
             console.log(`No data found for category ${category}`);
-            newProgress[category] = { percentage: 0 }; // Ensure 0% is saved for categories with no data
+            newProgress[category] = { percentage: 0 };
         }
     });
 
-    // Save the new percentages to actHistoricalProgress
     localStorage.setItem("actHistoricalProgress", JSON.stringify(newProgress));
     console.log("Updated actHistoricalProgress:", newProgress);
 
-    // Ensure the ACT progress container is visible
     const actProgressContainer = document.getElementById("act-progress-container");
     if (actProgressContainer) {
         actProgressContainer.classList.remove("hidden");
@@ -96,83 +121,87 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("ACT progress container not found");
     }
-});
 
-// Listen for changes in the active section (when user clicks GED/SAT/ACT buttons)
-document.querySelectorAll(".button-30").forEach(button => {
-    button.addEventListener("click", () => {
-        // Log actTestResults again on every tab switch, regardless of active section
-        let storedResults = localStorage.getItem("actTestResults");
-        let results = storedResults ? JSON.parse(storedResults) : {};
-        console.log("Tab switched - Retrieved actTestResults from localStorage:", storedResults);
-        console.log("Tab switched - Parsed actTestResults:", results);
-        console.log("Tab switched - All ACT categories and their scores:", JSON.stringify(results, null, 2));
+    document.querySelectorAll(".button-30").forEach(button => {
+        button.addEventListener("click", () => {
+            setTimeout(() => {
+                const actSection = document.querySelector("#line-chart-act");
+                const isActSectionActive = actSection && !actSection.classList.contains("hidden");
+                console.log("Button clicked - Is ACT section active?", isActSectionActive);
 
-        // Re-run the progress update logic after a short delay to ensure DOM updates
-        setTimeout(() => {
-            const actSection = document.querySelector("#line-chart-act");
-            const isActSectionActive = actSection && !actSection.classList.contains("hidden");
-            console.log("Button clicked - Is ACT section active?", isActSectionActive);
+                if (isActSectionActive) {
+                    let storedResults = localStorage.getItem("actTestResults");
+                    let results = storedResults ? JSON.parse(storedResults) : {};
+                    console.log("Tab switched - Retrieved actTestResults from localStorage:", storedResults);
+                    console.log("Tab switched - Parsed actTestResults:", results);
 
-            if (isActSectionActive) {
-                // Load historical progress for arrow comparison
-                let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
-                let newProgress = {}; // To store the new percentages for saving
-
-                // Trigger the progress update logic
-                const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
-
-                progressItems.forEach(item => {
-                    const category = item.dataset.category;
-                    const bar = document.getElementById(`${category}-bar`);
-                    const text = document.getElementById(`${category}-text`);
-
-                    if (results[category]) {
-                        const { correct, incorrect } = results[category];
-                        const total = correct + incorrect;
-                        const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-
-                        newProgress[category] = { percentage };
-
-                        if (bar) bar.style.width = `${percentage}%`;
-
-                        if (text) {
-                            let previousPercentage = historicalProgress[category]?.percentage || 0;
-                            console.log(`Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
-
-                            let arrow = "→";
-                            let arrowColor = "#4e5163";
-
-                            if (percentage > previousPercentage) {
-                                arrow = "↑";
-                                arrowColor = "green";
-                                console.log(`Category: ${category}, Arrow Set to ↑ (Increased)`);
-                            } else if (percentage < previousPercentage) {
-                                arrow = "↓";
-                                arrowColor = "red";
-                                console.log(`Category: ${category}, Arrow Set to ↓ (Decreased)`);
-                            } else {
-                                console.log(`Category: ${category}, Arrow Set to → (No Change)`);
-                            }
-
-                            text.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                    // Transform results again for tab switch
+                    let transformedResults = {};
+                    Object.keys(categoryMapping).forEach(oldCategory => {
+                        if (results[oldCategory]) {
+                            const newCategories = categoryMapping[oldCategory];
+                            newCategories.forEach(newCategory => {
+                                transformedResults[newCategory] = results[oldCategory];
+                            });
                         }
-                        console.log(`Updated ${category} after tab switch - Bar width: ${bar?.style.width || "not found"}, Text: ${text?.innerHTML || "not found"}`);
-                    } else {
-                        newProgress[category] = { percentage: 0 };
+                    });
+
+                    let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
+                    let newProgress = {};
+
+                    const progressItems = document.querySelectorAll("#act-progress-container .progress-item");
+
+                    progressItems.forEach(item => {
+                        const category = item.dataset.category;
+                        const bar = document.getElementById(`${category}-bar`);
+                        const text = document.getElementById(`${category}-text`);
+
+                        if (transformedResults[category]) {
+                            const { correct, incorrect } = transformedResults[category];
+                            const total = correct + incorrect;
+                            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+                            newProgress[category] = { percentage };
+
+                            if (bar) bar.style.width = `${percentage}%`;
+
+                            if (text) {
+                                let previousPercentage = historicalProgress[category]?.percentage || 0;
+                                console.log(`Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
+
+                                let arrow = "→";
+                                let arrowColor = "#4e5163";
+
+                                if (percentage > previousPercentage) {
+                                    arrow = "↑";
+                                    arrowColor = "green";
+                                    console.log(`Category: ${category}, Arrow Set to ↑ (Increased)`);
+                                } else if (percentage < previousPercentage) {
+                                    arrow = "↓";
+                                    arrowColor = "red";
+                                    console.log(`Category: ${category}, Arrow Set to ↓ (Decreased)`);
+                                } else {
+                                    console.log(`Category: ${category}, Arrow Set to → (No Change)`);
+                                }
+
+                                text.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                            }
+                            console.log(`Updated ${category} after tab switch - Bar width: ${bar?.style.width || "not found"}, Text: ${text?.innerHTML || "not found"}`);
+                        } else {
+                            newProgress[category] = { percentage: 0 };
+                        }
+                    });
+
+                    localStorage.setItem("actHistoricalProgress", JSON.stringify(newProgress));
+                    console.log("Tab switched - Updated actHistoricalProgress:", newProgress);
+
+                    const actProgressContainer = document.getElementById("act-progress-container");
+                    if (actProgressContainer) {
+                        actProgressContainer.classList.remove("hidden");
+                        console.log("ACT progress container made visible after tab switch");
                     }
-                });
-
-                // Save the new percentages to actHistoricalProgress
-                localStorage.setItem("actHistoricalProgress", JSON.stringify(newProgress));
-                console.log("Tab switched - Updated actHistoricalProgress:", newProgress);
-
-                const actProgressContainer = document.getElementById("act-progress-container");
-                if (actProgressContainer) {
-                    actProgressContainer.classList.remove("hidden");
-                    console.log("ACT progress container made visible after tab switch");
                 }
-            }
-        }, 100); // Small delay to ensure DOM updates are applied
+            }, 500);
+        });
     });
 });
