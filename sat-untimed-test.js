@@ -159,20 +159,18 @@ function startTest() {
     localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
     console.log("Initialized satHistoricalProgress:", satHistoricalProgress);
 
-    localStorage.removeItem("testResults"); // Reset testResults at the start of the test
     startReadingWritingTest();
 }
 
 function startReadingWritingTest() {
     isMathTest = false;
     userResponses = [];
-    localStorage.removeItem("testResults"); // Reset testResults at the start of the reading/writing section
-    startQuiz(readingWritingQuestions, 1, 3, 0); // Match the actual number of questions
+    startQuiz(readingWritingQuestions, 18, 18, 18);
 }
 
 function startMathTest() {
     isMathTest = true;
-    startQuiz(mathQuestions, 1, 1, 2); // Match the actual number of questions
+    startQuiz(mathQuestions, 14, 15, 15);
 }
 
 function startQuiz(questions, numEasy, numMedium, numHard) {
@@ -191,18 +189,14 @@ function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
     const hardQuestions = questions.filter(q => q.difficulty === "hard");
 
     function getRandom(arr, num) {
-        const available = arr.length;
-        const toSelect = Math.min(num, available); // Don’t select more than available
-        return arr.sort(() => 0.5 - Math.random()).slice(0, toSelect);
+        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
     }
 
     const selectedEasy = getRandom(easyQuestions, numEasy);
     const selectedMedium = getRandom(mediumQuestions, numMedium);
     const selectedHard = getRandom(hardQuestions, numHard);
 
-    const selected = [...selectedEasy, ...selectedMedium, ...selectedHard];
-    console.log("Selected Questions:", selected); // Debug log
-    return selected;
+    return [...selectedEasy, ...selectedMedium, ...selectedHard];
 }
 
 function showQuestion() {
@@ -235,78 +229,64 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-const selectedBtn = e.target;
-const isCorrect = selectedBtn.dataset.correct === "true";
-let currentQuestion = selectedQuestions[currentQuestionIndex];
-let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-let questionDifficulty = currentQuestion.difficulty;
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    let currentQuestion = selectedQuestions[currentQuestionIndex];
+    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+    let questionDifficulty = currentQuestion.difficulty;
 
-// Map the category to match user-profile IDs
-questionCategory = categoryMapping[questionCategory] || questionCategory;
+    // Map the category to match user-profile IDs
+    questionCategory = categoryMapping[questionCategory] || questionCategory;
 
-if (!categoryStats[questionCategory]) {
-categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
+    if (!categoryStats[questionCategory]) {
+        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
+    }
+
+    const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+    userResponses.push({
+        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
+        userAnswer: selectedBtn.innerHTML,
+        correctAnswer: correctAnswer,
+        wasCorrect: isCorrect
+    });
+
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        correctAnswers++;
+        if (questionDifficulty === "easy") {
+            score += 1;
+        } else if (questionDifficulty === "medium") {
+            score += 2;
+        } else if (questionDifficulty === "hard") {
+            score += 3;
+        }
+        categoryStats[questionCategory].correct++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats[questionCategory].incorrect++;
+    }
+
+    recordTestResults();
+
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+
+    nextButton.style.display = "block";
+    nextButton.disabled = false;
 }
-
-const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-userResponses.push({
-question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
-userAnswer: selectedBtn.innerHTML,
-correctAnswer: correctAnswer,
-wasCorrect: isCorrect
-});
-
-if (isCorrect) {
-selectedBtn.classList.add("correct");
-correctAnswers++;
-if (questionDifficulty === "easy") {
-score += 1;
-} else if (questionDifficulty === "medium") {
-score += 2;
-} else if (questionDifficulty === "hard") {
-score += 3;
-}
-categoryStats[questionCategory].correct++;
-} else {
-selectedBtn.classList.add("incorrect");
-categoryStats[questionCategory].incorrect++;
-}
-
-// Remove this call to prevent double-counting
-// recordTestResults();
-
-Array.from(answerButtons.children).forEach(button => {
-if (button.dataset.correct === "true") {
-button.classList.add("correct");
-}
-button.disabled = true;
-});
-
-nextButton.style.display = "block";
-nextButton.disabled = false;
-}
-
-function handleNextButton() {
-// Record results only once per question, right before moving to the next
-recordTestResults();
-currentQuestionIndex++;
-if (currentQuestionIndex < selectedQuestions.length) {
-showQuestion();
-} else {
-showScore();
-}
-}
-
-
 
 function showScore() {
     resetState();
 
     let maxPossibleScore;
     if (!isMathTest) {
-        maxPossibleScore = (1 * 1) + (3 * 2) + (0 * 3); // Adjusted for actual questions
+        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
     } else {
-        maxPossibleScore = (1 * 1) + (1 * 2) + (2 * 3); // Adjusted for actual questions
+        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
     }
     let rawScore = score;
     let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
@@ -411,6 +391,15 @@ function generateExplanation(response) {
     return "No specific explanation available for this question.";
 }
 
+function handleNextButton() {
+    recordTestResults();
+    currentQuestionIndex++;
+    if (currentQuestionIndex < selectedQuestions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
 
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar-test");
@@ -426,8 +415,6 @@ function recordTestResults() {
         results = {};
     }
 
-    console.log("Before updating testResults:", results);
-
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
@@ -435,18 +422,20 @@ function recordTestResults() {
 
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
-        console.log(`Updated ${category} in testResults: correct=${results[category].correct}, incorrect=${results[category].incorrect}`);
     }
 
     localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("After updating testResults:", results);
+
+    for (let category in categoryStats) {
+        categoryStats[category].correct = 0;
+        categoryStats[category].incorrect = 0;
+    }
 }
 
 function saveHistoricalProgress() {
     let storedResults = JSON.parse(localStorage.getItem("testResults")) || {};
     let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
 
-    console.log("testResults in saveHistoricalProgress:", storedResults);
     console.log("Before updating satHistoricalProgress:", satHistoricalProgress);
 
     Object.keys(categoryMapping).forEach(originalCategory => {
@@ -456,7 +445,7 @@ function saveHistoricalProgress() {
         const total = correct + incorrect;
         const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
         satHistoricalProgress[mappedCategory] = { percentage };
-        console.log(`Updated ${mappedCategory} in satHistoricalProgress: ${percentage}% (correct=${correct}, incorrect=${incorrect})`);
+        console.log(`Updated ${mappedCategory} in satHistoricalProgress: ${percentage}%`);
     });
 
     localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
