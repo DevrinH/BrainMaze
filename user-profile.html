@@ -2196,12 +2196,17 @@ document.addEventListener("DOMContentLoaded", function () {
  if (hasTestResults) {
  localStorage.setItem(`${examType.toLowerCase()}HistoricalProgress`, JSON.stringify(newProgress));
  console.log(`${examType} Updated Historical Progress (Saved):`, newProgress);
+ console.log(`Verify ${examType.toLowerCase()}HistoricalProgress in localStorage:`, JSON.parse(localStorage.getItem(`${examType.toLowerCase()}HistoricalProgress`)));
  // Clear testResults after processing to prevent re-processing on next page load
  localStorage.removeItem("testResults");
  console.log(`${examType} Cleared testResults after processing.`);
  } else {
  console.log(`${examType} No test results to process, skipping historical progress save.`);
  }
+
+ // Additional logging to detect if localStorage is cleared unexpectedly
+ console.log(`${examType} Final localStorage state - ${progressKey}:`, localStorage.getItem(progressKey));
+ console.log(`${examType} Final localStorage state - ${examType.toLowerCase()}HistoricalProgress:`, localStorage.getItem(`${examType.toLowerCase()}HistoricalProgress`));
  }
 
  // Check last activity and show the corresponding exam
