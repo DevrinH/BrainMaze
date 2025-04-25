@@ -133,6 +133,32 @@ const categoryMapping = {
 function startTest() {
     satIntroContainer.classList.add("hide");
     document.getElementById("question-container").classList.remove("hide");
+
+    // Initialize satHistoricalProgress with all categories
+    let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
+    const allCategories = [
+        "command-of-evidence",
+        "central-ideas-and-detail",
+        "inferences",
+        "words-in-context",
+        "text-structure-and-purpose",
+        "cross-text-connections",
+        "transitions",
+        "rhetorical-synthesis",
+        "boundaries",
+        "algebra",
+        "advanced-math",
+        "problem-solving-and-data",
+        "geometry-and-trigonometry"
+    ];
+    allCategories.forEach(category => {
+        if (!satHistoricalProgress[category]) {
+            satHistoricalProgress[category] = { percentage: 0 };
+        }
+    });
+    localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
+    console.log("Initialized satHistoricalProgress:", satHistoricalProgress);
+
     startReadingWritingTest();
 }
 
@@ -276,6 +302,9 @@ function showScore() {
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
+        
+        // Save historical progress after reading/writing section
+        saveHistoricalProgress();
     } else {
         let readingScore = localStorage.getItem("readingScore") || 0;
         readingScore = parseInt(readingScore, 10);
@@ -301,7 +330,7 @@ function showScore() {
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
 
-        // Save historical progress after the test
+        // Save historical progress after the math section
         saveHistoricalProgress();
     }
 }
@@ -405,7 +434,9 @@ function recordTestResults() {
 
 function saveHistoricalProgress() {
     let storedResults = JSON.parse(localStorage.getItem("testResults")) || {};
-    let newProgress = {};
+    let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
+
+    console.log("Before updating satHistoricalProgress:", satHistoricalProgress);
 
     Object.keys(categoryMapping).forEach(originalCategory => {
         const mappedCategory = categoryMapping[originalCategory];
@@ -413,11 +444,12 @@ function saveHistoricalProgress() {
         const incorrect = storedResults[mappedCategory]?.incorrect || 0;
         const total = correct + incorrect;
         const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-        newProgress[mappedCategory] = { percentage };
+        satHistoricalProgress[mappedCategory] = { percentage };
+        console.log(`Updated ${mappedCategory} in satHistoricalProgress: ${percentage}%`);
     });
 
-    localStorage.setItem("satHistoricalProgress", JSON.stringify(newProgress));
-    console.log("Updated satHistoricalProgress:", newProgress);
+    localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
+    console.log("After updating satHistoricalProgress:", satHistoricalProgress);
 }
 
 nextButton.addEventListener("click", () => {
