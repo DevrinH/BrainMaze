@@ -3,100 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAT Untimed Test</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .hide {
-            display: none !important;
-        }
-        .question-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        #passage {
-            margin-bottom: 20px;
-        }
-        #question {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            background: #f0f0f0;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: left;
-        }
-        .btn:hover {
-            background: #e0e0e0;
-        }
-        .correct {
-            background: #d4edda !important;
-            color: #155724;
-        }
-        .incorrect {
-            background: #f8d7da !important;
-            color: #721c24;
-        }
-        #next-btn, #restart-btn {
-            padding: 10px 20px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            display: none;
-        }
-        #next-btn:hover, #restart-btn:hover {
-            background: #0056b3;
-        }
-        .centered-btn {
-            display: block;
-            margin: 0 auto;
-        }
-        .centered-score {
-            text-align: center;
-        }
-        .score-display {
-            justify-content: center;
-        }
-        .explanation {
-            margin-bottom: 20px;
-        }
-        .incorrect {
-            color: red;
-        }
-        #question-counter {
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-    </style>
+    <title>SAT Test</title>
+    <link rel="stylesheet" href="https://www.brainjelli.com/stylesat.css">
 </head>
 <body>
-    <div class="question-container hide" id="question-container">
-        <div id="question-counter"></div>
-        <div id="passage"></div>
-        <div class="question-row">
-            <div id="question"></div>
-            <div id="answer-buttons"></div>
+    <header>
+        <div class="header-container">
+          <img src="BrainJelli-header.png" class="logo">
+          <div class="button-group">
+            <button class="theme-toggle"><span class="toggle-icon"></span></button>
+            <button class="login-button">Login</button>
+          </div>
         </div>
-        <button id="next-btn">Next</button>
-        <button id="restart-btn">Restart</button>
+      </header>
+
+    <h1>SAT Timed Prep Test</h1>
+    <div id="progress-bar-test"><div></div></div>
+    
+    <!-- New SAT Intro Container -->
+    <div id="sat-intro-container">
+        <p id="intro-message">This is an untimed SAT preperation test. The Reading portion will consist of 54 questions and the math portion will consist of 44 questions. There are 500 questions that will be chosen randomly verying in difficulty, but each test will have the same allocation of question difficulty. There will be a break in-between sections. Good luck!</p>
+        <button id="start-test-btn" class="start-test-btn">Start Test</button>
     </div>
-    <script src="sat-untimed-test.js" defer></script>
+
+    <!-- Question Container (hidden initially) -->
+    <div id="question-container" class="hide">
+        <div class="question-row">
+            <div id="passage" class="passage-text"></div>
+            <div class="right-column">
+                <div id="question" class="question-text"></div>
+                <div id="answer-buttons" class="answer-choices"></div>
+            </div>
+        </div>
+        <button id="next-btn" class="btn hide">Next</button>
+    </div>
+
+
+    <div id="break-message" class="hide">
+        <p>Take a short break! Press continue to start the Math test.</p>
+        <button id="continue-btn" class="continue-btn">Continue</button>
+    </div>
+    <script src="theme-toggle.js"></script>
+    <script src="sat-untimed-test.js"></script>
 </body>
 </html>
