@@ -2049,177 +2049,302 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Add localStorage monitoring
+// Add localStorage monitoring
 (function () {
- const originalSetItem = localStorage.setItem;
- const originalRemoveItem = localStorage.removeItem;
- const originalClear = localStorage.clear;
+    const originalSetItem = localStorage.setItem;
+    const originalRemoveItem = localStorage.removeItem;
+    const originalClear = localStorage.clear;
 
- localStorage.setItem = function (key, value) {
- console.log(`localStorage.setItem called - Key: ${key}, Value: ${value}`);
- originalSetItem.apply(this, arguments);
- };
+    localStorage.setItem = function (key, value) {
+        console.log(`localStorage.setItem called - Key: ${key}, Value: ${value}`);
+        originalSetItem.apply(this, arguments);
+    };
 
- localStorage.removeItem = function (key) {
- console.log(`localStorage.removeItem called - Key: ${key}`);
- originalRemoveItem.apply(this, arguments);
- };
+    localStorage.removeItem = function (key) {
+        console.log(`localStorage.removeItem called - Key: ${key}`);
+        originalRemoveItem.apply(this, arguments);
+    };
 
- localStorage.clear = function () {
- console.log("localStorage.clear called");
- originalClear.apply(this, arguments);
- };
+    localStorage.clear = function () {
+        console.log("localStorage.clear called");
+        originalClear.apply(this, arguments);
+    };
 })();
 
 // Define categories in global scope so resetProgress can access them
 const satCategories = [
- "command-of-evidence",
- "central-ideas-and-detail",
- "inferences",
- "words-in-context",
- "text-structure-and-purpose",
- "cross-text-connections",
- "transitions",
- "rhetorical-synthesis",
- "boundaries",
- "algebra",
- "advanced-math",
- "problem-solving-and-data",
- "geometry-and-trigonometry"
+    "command-of-evidence",
+    "central-ideas-and-detail",
+    "inferences",
+    "words-in-context",
+    "text-structure-and-purpose",
+    "cross-text-connections",
+    "transitions",
+    "rhetorical-synthesis",
+    "boundaries",
+    "algebra",
+    "advanced-math",
+    "problem-solving-and-data",
+    "geometry-and-trigonometry"
 ];
 
 const actCategories = [
- "act-conventions-of-standard-english",
- "act-knowledge-of-language",
- "act-production-of-writing",
- "act-algebra",
- "act-functions",
- "act-coordinate-geometry",
- "act-systems-of-equations",
- "act-geometry",
- "act-trigonometry",
- "act-quadratics",
- "act-logarithms",
- "act-complex-numbers",
- "act-word-problems",
- "act-probability",
- "act-sequences",
- "act-main-idea",
- "act-authors-purpose",
- "act-inference",
- "act-character-motivation",
- "act-vocabulary-in-context",
- "act-character-development",
- "act-symbolism",
- "act-literary-device",
- "act-theme",
- "act-detail",
- "act-relationship",
- "act-implication",
- "act-comparison",
- "act-data-representation",
- "act-research-summary",
- "act-conflicting-viewpoints"
+    "act-conventions-of-standard-english",
+    "act-knowledge-of-language",
+    "act-production-of-writing",
+    "act-algebra",
+    "act-functions",
+    "act-coordinate-geometry",
+    "act-systems-of-equations",
+    "act-geometry",
+    "act-trigonometry",
+    "act-quadratics",
+    "act-logarithms",
+    "act-complex-numbers",
+    "act-word-problems",
+    "act-probability",
+    "act-sequences",
+    "act-main-idea",
+    "act-authors-purpose",
+    "act-inference",
+    "act-character-motivation",
+    "act-vocabulary-in-context",
+    "act-character-development",
+    "act-symbolism",
+    "act-literary-device",
+    "act-theme",
+    "act-detail",
+    "act-relationship",
+    "act-implication",
+    "act-comparison",
+    "act-data-representation",
+    "act-research-summary",
+    "act-conflicting-viewpoints"
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
- console.log("DOMContentLoaded event fired. Script is running...");
+    console.log("DOMContentLoaded event fired. Script is running...");
 
- // Function to update progress bars and arrows for a given exam
- let progressUpdatedByMainScript = false;
+    // Function to update progress bars and arrows for a given exam
+    let progressUpdatedByMainScript = false;
 
-function updateProgress() {
-    if (progressUpdatedByMainScript) {
-        console.log("Progress already updated by main script, skipping progress-tracker.js update.");
-        return;
-    }
+    function updateProgress() {
+        if (progressUpdatedByMainScript) {
+            console.log("Progress already updated by main script, skipping progress-tracker.js update.");
+            return;
+        }
 
-    console.log("updateProgress called from: DOMContentLoaded");
+        console.log("updateProgress called from: DOMContentLoaded");
 
-    let actTestResults = localStorage.getItem("actTestResults");
-    console.log("Retrieved actTestResults from localStorage:", actTestResults);
+        // Process ACT progress
+        console.log("Processing ACT progress...");
+        let actTestResults = localStorage.getItem("actTestResults");
+        console.log("Retrieved ACT testResults from localStorage:", actTestResults);
+        let parsedActResults = actTestResults ? JSON.parse(actTestResults) : {};
+        console.log("Parsed ACT testResults:", parsedActResults);
+        console.log("All ACT categories and their scores:", parsedActResults);
 
-    let parsedActResults = actTestResults ? JSON.parse(actTestResults) : {};
-    console.log("Parsed actTestResults:", parsedActResults);
-    console.log("All ACT categories and their scores:", parsedActResults);
+        let actSection = document.getElementById("line-chart-act");
+        console.log("ACT section element:", actSection);
+        console.log("Is ACT section active?", actSection && !actSection.classList.contains("hidden"));
 
-    let actSection = document.getElementById("line-chart-act");
-    console.log("ACT section element:", actSection);
-    console.log("Is ACT section active?", actSection && actSection.classList.contains("active"));
+        if (actSection && !actSection.classList.contains("hidden")) {
+            let progressItems = actSection.querySelectorAll(".progress-item");
+            console.log("Found ACT progress items:", progressItems.length);
 
-    if (actSection && actSection.classList.contains("active")) {
-        let progressItems = actSection.querySelectorAll(".progress-item");
-        console.log("Found progress items:", progressItems.length);
+            let actHistoricalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
+            let actProgress = JSON.parse(localStorage.getItem("actProgress")) || {};
+            console.log("Loaded ACT historicalProgress before update:", actHistoricalProgress);
+            console.log("Loaded ACT progress before update:", actProgress);
 
-        let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
-        let actProgress = JSON.parse(localStorage.getItem("actProgress")) || {};
-        console.log("Loaded actHistoricalProgress before update:", historicalProgress);
-        console.log("Loaded actProgress before update:", actProgress);
+            // Accumulate ACT test results into actProgress
+            Object.keys(parsedActResults).forEach(category => {
+                if (!actProgress[category]) {
+                    actProgress[category] = { correct: 0, incorrect: 0 };
+                }
+                actProgress[category].correct += Number(parsedActResults[category]?.correct || 0);
+                actProgress[category].incorrect += Number(parsedActResults[category]?.incorrect || 0);
+                console.log(`Category: ${category}, Updated ACT progress - Correct: ${actProgress[category].correct}, Incorrect: ${actProgress[category].incorrect}`);
+            });
 
-        localStorage.setItem("actProgress", JSON.stringify(actProgress));
-        console.log("Updated actProgress:", actProgress);
+            localStorage.setItem("actProgress", JSON.stringify(actProgress));
+            console.log("Updated ACT progress:", actProgress);
 
-        progressItems.forEach(item => {
-            let category = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
-            console.log("Processing category:", category);
+            // Clear actTestResults after processing
+            localStorage.removeItem("actTestResults");
+            console.log("Cleared actTestResults from localStorage");
 
-            let progressBarElement = document.getElementById(`${category}-bar`);
-            let progressTextElement = document.getElementById(`${category}-text`);
-            console.log(`Bar element for ${category}:`, progressBarElement);
-            console.log(`Text element for ${category}:`, progressTextElement);
+            // Update ACT progress bars
+            progressItems.forEach(item => {
+                let category = item.dataset.category;
+                console.log("Processing ACT category:", category);
 
-            let categoryData = parsedActResults[category] || actProgress[category] || { correct: 0, incorrect: 0 };
-            let total = categoryData.correct + categoryData.incorrect;
-            let percentage = total > 0 ? Math.round((categoryData.correct / total) * 100) : 0;
+                let progressBarElement = document.getElementById(`${category}-bar`);
+                let progressTextElement = document.getElementById(`${category}-text`);
+                console.log(`Bar element for ${category}:`, progressBarElement);
+                console.log(`Text element for ${category}:`, progressTextElement);
 
-            if (!categoryData) {
-                console.log(`No data found for category ${category}`);
-            }
-
-            if (progressBarElement) {
-                progressBarElement.style.width = `${percentage}%`;
-            }
-
-            if (progressTextElement) {
-                let previousPercentage = historicalProgress[category]?.percentage || 0;
-                console.log(`Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
-
-                let arrow = "→";
-                let increased = percentage > previousPercentage;
-                let decreased = percentage < previousPercentage;
-                if (increased) {
-                    arrow = "↑";
-                } else if (decreased) {
-                    arrow = "↓";
+                let percentage = 0;
+                if (actProgress[category]) {
+                    const { correct, incorrect } = actProgress[category];
+                    const total = correct + incorrect;
+                    percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+                    console.log(`Category ${category} stats - Correct: ${correct}, Incorrect: ${incorrect}`);
+                    console.log(`Calculated percentage for ${category}: ${percentage}%`);
                 }
 
-                if (increased) {
-                    console.log(`Category: ${category}, Arrow Set to ↑ (Increased)`);
-                } else if (decreased) {
-                    console.log(`Category: ${category}, Arrow Set to ↓ (Decreased)`);
-                } else {
-                    console.log(`Category: ${category}, Arrow Set to → (No Change)`);
+                if (!actHistoricalProgress[category]) {
+                    actHistoricalProgress[category] = { percentage: 0 };
                 }
 
-                let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
-                progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                console.log(`Updated ${category} - Bar width: ${percentage}%, Text: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
-            } else {
-                console.log(`Text element not found for ${category}`);
+                if (progressBarElement) {
+                    progressBarElement.style.width = `${percentage}%`;
+                }
+
+                if (progressTextElement) {
+                    let previousPercentage = Number(actHistoricalProgress[category]?.percentage) || 0;
+                    console.log(`ACT Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
+
+                    let arrow = "→";
+                    let arrowColor = "#4e5163";
+                    if (percentage > previousPercentage) {
+                        arrow = "↑";
+                        arrowColor = "green";
+                        console.log(`ACT Category: ${category}, Arrow Set to ↑ (Increased)`);
+                    } else if (percentage < previousPercentage) {
+                        arrow = "↓";
+                        arrowColor = "red";
+                        console.log(`ACT Category: ${category}, Arrow Set to ↓ (Decreased)`);
+                    } else {
+                        console.log(`ACT Category: ${category}, Arrow Set to → (No Change)`);
+                    }
+
+                    progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                    console.log(`Updated ACT ${category} - Bar width: ${percentage}%, Text: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
+                }
+
+                actHistoricalProgress[category] = { percentage };
+            });
+
+            console.log("Saving ACT historicalProgress:", actHistoricalProgress);
+            localStorage.setItem("actHistoricalProgress", JSON.stringify(actHistoricalProgress));
+            console.log("Updated ACT historicalProgress:", actHistoricalProgress);
+
+            let actProgressContainer = document.getElementById("act-progress-container");
+            if (actProgressContainer) {
+                actProgressContainer.classList.remove("hidden");
+                console.log("ACT progress container made visible in ACT section");
             }
+        } else {
+            console.log("ACT section is not active, skipping ACT progress container update.");
+        }
 
-            historicalProgress[category] = { percentage };
-        });
+        // Process SAT progress
+        console.log("Processing SAT progress...");
+        let satTestResults = localStorage.getItem("satTestResults");
+        console.log("Retrieved SAT testResults from localStorage:", satTestResults);
+        let parsedSatResults = satTestResults ? JSON.parse(satTestResults) : {};
+        console.log("Parsed SAT testResults:", parsedSatResults);
+        console.log("All SAT categories and their scores:", parsedSatResults);
 
-        console.log("Saving actHistoricalProgress:", historicalProgress);
-        localStorage.setItem("actHistoricalProgress", JSON.stringify(historicalProgress));
-        console.log("Updated actHistoricalProgress:", historicalProgress);
+        let satSection = document.getElementById("line-chart-sat");
+        console.log("SAT section element:", satSection);
+        console.log("Is SAT section active?", satSection && !satSection.classList.contains("hidden"));
 
-        actSection.style.display = "block";
-        console.log("ACT progress container made visible in ACT section");
+        if (satSection && !satSection.classList.contains("hidden")) {
+            let progressItems = satSection.querySelectorAll(".progress-item");
+            console.log("Found SAT progress items:", progressItems.length);
+
+            let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
+            let satProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+            console.log("Loaded SAT historicalProgress before update:", satHistoricalProgress);
+            console.log("Loaded SAT progress before update:", satProgress);
+
+            // Accumulate SAT test results into satProgress
+            Object.keys(parsedSatResults).forEach(category => {
+                if (!satProgress[category]) {
+                    satProgress[category] = { correct: 0, incorrect: 0 };
+                }
+                satProgress[category].correct += Number(parsedSatResults[category]?.correct || 0);
+                satProgress[category].incorrect += Number(parsedSatResults[category]?.incorrect || 0);
+                console.log(`Category: ${category}, Updated SAT progress - Correct: ${satProgress[category].correct}, Incorrect: ${satProgress[category].incorrect}`);
+            });
+
+            localStorage.setItem("satProgress", JSON.stringify(satProgress));
+            console.log("Updated SAT progress:", satProgress);
+
+            // Clear satTestResults after processing
+            localStorage.removeItem("satTestResults");
+            console.log("Cleared satTestResults from localStorage");
+
+            // Update SAT progress bars
+            progressItems.forEach(item => {
+                let category = item.dataset.category;
+                console.log("Processing SAT category:", category);
+
+                let progressBarElement = document.getElementById(`${category}-bar`);
+                let progressTextElement = document.getElementById(`${category}-text`);
+                console.log(`Bar element for ${category}:`, progressBarElement);
+                console.log(`Text element for ${category}:`, progressTextElement);
+
+                let percentage = 0;
+                if (satProgress[category]) {
+                    const { correct, incorrect } = satProgress[category];
+                    const total = correct + incorrect;
+                    percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+                    console.log(`Category ${category} stats - Correct: ${correct}, Incorrect: ${incorrect}`);
+                    console.log(`Calculated percentage for ${category}: ${percentage}%`);
+                }
+
+                if (!satHistoricalProgress[category]) {
+                    satHistoricalProgress[category] = { percentage: 0 };
+                }
+
+                if (progressBarElement) {
+                    progressBarElement.style.width = `${percentage}%`;
+                }
+
+                if (progressTextElement) {
+                    let previousPercentage = Number(satHistoricalProgress[category]?.percentage) || 0;
+                    console.log(`SAT Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${percentage}`);
+
+                    let arrow = "→";
+                    let arrowColor = "#4e5163";
+                    if (percentage > previousPercentage) {
+                        arrow = "↑";
+                        arrowColor = "green";
+                        console.log(`SAT Category: ${category}, Arrow Set to ↑ (Increased)`);
+                    } else if (percentage < previousPercentage) {
+                        arrow = "↓";
+                        arrowColor = "red";
+                        console.log(`SAT Category: ${category}, Arrow Set to ↓ (Decreased)`);
+                    } else {
+                        console.log(`SAT Category: ${category}, Arrow Set to → (No Change)`);
+                    }
+
+                    progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                    console.log(`Updated SAT ${category} - Bar width: ${percentage}%, Text: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
+                }
+
+                satHistoricalProgress[category] = { percentage };
+            });
+
+            console.log("Saving SAT historicalProgress:", satHistoricalProgress);
+            localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
+            console.log("Updated SAT historicalProgress:", satHistoricalProgress);
+
+            let satProgressContainer = document.getElementById("sat-progress-container");
+            if (satProgressContainer) {
+                satProgressContainer.classList.remove("hidden");
+                console.log("SAT progress container made visible in SAT section");
+            }
+        } else {
+            console.log("SAT section is not active, skipping SAT progress container update.");
+        }
     }
-}
 
-document.addEventListener("DOMContentLoaded", updateProgress);
+    document.addEventListener("DOMContentLoaded", updateProgress);
+
  // Check last activity and show the corresponding exam
  function showLastExam() {
  const lastActivity = JSON.parse(localStorage.getItem("lastActivity"));
