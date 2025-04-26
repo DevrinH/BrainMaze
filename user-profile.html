@@ -2125,136 +2125,87 @@ document.addEventListener("DOMContentLoaded", function () {
  console.log("DOMContentLoaded event fired. Script is running...");
 
  // Function to update progress bars and arrows for a given exam
-function updateProgressBars(examType) {
-console.log(`Calling updateProgressBars for ${examType}...`);
-console.log(`Updating ${examType} progress bars...`);
+ function updateProgressBars(examType) {
+    console.log(`Updating ${examType} progress bars...`);
+    const historicalProgressKey = `${examType.toLowerCase()}HistoricalProgress`;
+    const previousProgressKey = `${examType.toLowerCase()}PreviousProgress`;
+    const testResultsKey = `${examType.toLowerCase()}TestResults`;
 
-let historicalProgressKey = examType === "SAT" ? "satHistoricalProgress" : "actHistoricalProgress";
-let previousProgressKey = examType === "SAT" ? "satPreviousProgress" : "actPreviousProgress";
-let progressKey = examType === "SAT" ? "satProgress" : "actProgress";
-let testResultsKey = "testResults";
+    let historicalProgress = JSON.parse(localStorage.getItem(historicalProgressKey)) || {};
+    let previousProgress = JSON.parse(localStorage.getItem(previousProgressKey)) || {};
+    let testResults = JSON.parse(localStorage.getItem(testResultsKey)) || {};
 
-let historicalProgress = JSON.parse(localStorage.getItem(historicalProgressKey)) || {};
-console.log(`${examType} Historical Progress (Loaded):`, historicalProgress);
+    console.log(`${examType} Historical Progress (Loaded):`, historicalProgress);
+    console.log(`${examType} Previous Progress (Loaded):`, previousProgress);
+    console.log(`${examType} Current Test Results (Loaded):`, testResults);
 
-let previousProgress = JSON.parse(localStorage.getItem(previousProgressKey)) || {};
-console.log(`${examType} Previous Progress (Loaded):`, previousProgress);
+    let hasTestResults = Object.keys(testResults).length > 0;
+    console.log(`${examType} Has Test Results to Process:`, hasTestResults);
 
-let testResults = JSON.parse(localStorage.getItem(testResultsKey)) || {};
-console.log(`${examType} Current Test Results (Loaded):`, testResults);
+    if (hasTestResults) {
+        Object.keys(testResults).forEach(category => {
+            const correct = testResults[category].correct || 0;
+            const incorrect = testResults[category].incorrect || 0;
+            const total = correct + incorrect;
+            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-let storedProgress = {};
-let hasTestResults = Object.keys(testResults).length > 0;
+            historicalProgress[category] = historicalProgress[category] || {};
+            historicalProgress[category].percentage = percentage;
 
-let allCategories = examType === "SAT" ? [
-"command-of-evidence",
-"central-ideas-and-detail",
-"inferences",
-"words-in-context",
-"text-structure-and-purpose",
-"cross-text-connections",
-"transitions",
-"rhetorical-synthesis",
-"boundaries",
-"algebra",
-"advanced-math",
-"problem-solving-and-data",
-"geometry-and-trigonometry"
-] : [
-// ... (ACT categories)
-];
+            console.log(`${examType} Category: ${category}, Correct: ${correct}, Incorrect: ${incorrect}, Total: ${total}, Calculated Percentage: ${percentage}`);
+        });
 
-// Initialize storedProgress with all categories set to 0
-allCategories.forEach(category => {
-storedProgress[category] = { correct: 0, incorrect: 0 };
-});
+        localStorage.setItem(historicalProgressKey, JSON.stringify(historicalProgress));
+    } else {
+        console.log(`${examType} No test results to process, using existing stored progress.`);
+    }
 
-if (hasTestResults) {
-// Update only the categories present in testResults
-Object.keys(testResults).forEach(category => {
-storedProgress[category] = {
-correct: testResults[category].correct || 0,
-incorrect: testResults[category].incorrect || 0
-};
-console.log(`${examType} Category: ${category}, Adding Correct: ${storedProgress[category].correct}, Incorrect: ${storedProgress[category].incorrect}`);
-});
+    const categories = examType === "SAT" ? [
+        "command-of-evidence", "central-ideas-and-detail", "inferences", "words-in-context",
+        "text-structure-and-purpose", "cross-text-connections", "transitions",
+        "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
+        "problem-solving-and-data-analysis", "geometry-and-trigonometry"
+    ] : [/* ACT categories */];
 
-localStorage.setItem(progressKey, JSON.stringify(storedProgress));
-console.log(`${examType} Updated Stored Progress (Saved):`, storedProgress);
-console.log(`Verify ${progressKey} in localStorage:`, JSON.parse(localStorage.getItem(progressKey)));
-} else {
-console.log(`${examType} No test results to process, using existing stored progress.`);
-storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-}
+    categories.forEach(category => {
+        const correct = testResults[category]?.correct || 0;
+        const incorrect = testResults[category]?.incorrect || 0;
+        const total = correct + incorrect;
+        let percentage = total > 0 ? Math.round((correct / total) * 100) : (historicalProgress[category]?.percentage || 0);
 
-console.log(`${examType} Has Test Results to Process:`, hasTestResults);
+        console.log(`${examType} Category: ${category}, Correct: ${correct}, Incorrect: ${incorrect}, Total: ${total}, Calculated Percentage: ${percentage}`);
 
-let newProgress = {};
-let currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-allCategories.forEach(category => {
-let categoryProgress = storedProgress[category] || { correct: 0, incorrect: 0 };
-let correct = categoryProgress.correct;
-let incorrect = categoryProgress.incorrect;
-let total = correct + incorrect;
-let percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+        const progressBar = document.getElementById(`${category}-bar`);
+        const progressText = document.getElementById(`${category}-text`);
 
-console.log(`${examType} Category: ${category}, Correct: ${correct}, Incorrect: ${incorrect}, Total: ${total}, Calculated Percentage: ${percentage}`);
-newProgress[category] = { percentage };
+        if (progressBar) {
+            progressBar.style.width = `${percentage}%`;
+            console.log(`${examType} Category: ${category}, Progress Bar Updated to ${percentage}%`);
+        } else {
+            console.log(`${examType} Progress bar not found: ${category}-bar`);
+        }
 
-let progressBarElement = document.getElementById(`${category}-bar`);
-let progressTextElement = document.getElementById(`${category}-text`);
+        if (progressText) {
+            const previousPercentage = previousProgress[category]?.percentage || 0;
+            let arrow = "→";
+            let arrowColor = "#4e5163";
 
-if (progressBarElement) {
-progressBarElement.style.width = `${percentage}%`;
-console.log(`${examType} Category: ${category}, Progress Bar Updated to ${percentage}%`);
-} else {
-console.log(`${examType} Progress bar not found: ${category}-bar`);
-}
+            if (percentage > previousPercentage) {
+                arrow = "↑";
+                arrowColor = "#00FF00";
+            } else if (percentage < previousPercentage) {
+                arrow = "↓";
+                arrowColor = "#FF0000";
+            }
 
-if (progressTextElement) {
-let previousPercentage = previousProgress[category]?.percentage || 0;
-let currentPercentage = percentage;
-console.log(`${examType} Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${currentPercentage}`);
+            progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+            console.log(`${examType} Category: ${category}, Progress Text Updated: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
+        } else {
+            console.log(`${examType} Progress text not found: ${category}-text`);
+        }
+    });
 
-let arrow = "→";
-let increased = currentPercentage > previousPercentage;
-let decreased = currentPercentage < previousPercentage;
-if (increased) {
-arrow = "↑";
-} else if (decreased) {
-arrow = "↓";
-}
-console.log(`${examType} Category: ${category}, Comparison - Current: ${currentPercentage}, Previous: ${previousPercentage}`);
-console.log(`${examType} Category: ${category}, Arrow Set to ${arrow} (${increased ? "Increased" : decreased ? "Decreased" : "No Change"})`);
-
-let arrowColor;
-if (currentTheme === "dark") {
-arrowColor = increased ? "#00FF00" : decreased ? "#FF0000" : "#CCCCCC";
-} else {
-arrowColor = increased ? "#008000" : decreased ? "#FF0000" : "#4e5163";
-}
-
-progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-console.log(`${examType} Category: ${category}, Progress Text Updated: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
-} else {
-console.log(`${examType} Progress text not found: ${category}-text`);
-}
-
-historicalProgress[category] = { percentage };
-});
-
-if (hasTestResults) {
-localStorage.setItem(historicalProgressKey, JSON.stringify(historicalProgress));
-console.log(`${examType} Updated Historical Progress (Saved):`, historicalProgress);
-console.log(`Verify ${historicalProgressKey} in localStorage:`, JSON.parse(localStorage.getItem(historicalProgressKey)));
-localStorage.removeItem(testResultsKey);
-console.log(`${examType} Cleared testResults after processing.`);
-} else {
-console.log(`${examType} No test results to process, skipping historical progress save.`);
-}
-
-console.log(`${examType} Final localStorage state - ${progressKey}:`, JSON.parse(localStorage.getItem(progressKey)));
-console.log(`${examType} Final localStorage state - ${historicalProgressKey}:`, JSON.parse(localStorage.getItem(historicalProgressKey)));
+    localStorage.setItem(previousProgressKey, JSON.stringify(historicalProgress));
 }
 
 
