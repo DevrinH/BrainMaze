@@ -158,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function endReadingWritingSection() {
+        recordTestResults(); // Save results at the end of the section
         resetState();
         showScore();
         document.getElementById("question-container").classList.add("hide");
@@ -165,6 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function endMathSection() {
+        recordTestResults(); // Save results at the end of the section
         resetState();
         showFinalScore();
     }
@@ -284,8 +286,6 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedBtn.classList.add("incorrect");
             categoryStats[questionCategory].incorrect++;
         }
-
-        recordTestResults();
 
         Array.from(answerButtons.children).forEach(button => {
             if (button.dataset.correct === "true") {
@@ -453,7 +453,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function handleNextButton() {
-        recordTestResults();
         currentQuestionIndex++;
         if (currentQuestionIndex < selectedQuestions.length) {
             showQuestion();
@@ -485,6 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             results[category].correct += categoryStats[category].correct || 0;
             results[category].incorrect += categoryStats[category].incorrect || 0;
+            console.log(`SAT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         }
     
         localStorage.setItem("satTestResults", JSON.stringify(results));
@@ -494,36 +494,6 @@ document.addEventListener("DOMContentLoaded", () => {
             categoryStats[category].correct = 0;
             categoryStats[category].incorrect = 0;
         }
-    
-        saveHistoricalProgress(results);
-    }
-
-    function saveHistoricalProgress(storedResults) {
-        let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
-        let satPreviousProgress = JSON.parse(localStorage.getItem("satPreviousProgress")) || {};
-
-        Object.keys(satHistoricalProgress).forEach(category => {
-            satPreviousProgress[category] = satHistoricalProgress[category];
-        });
-        localStorage.setItem("satPreviousProgress", JSON.stringify(satPreviousProgress));
-
-        const satCategories = [
-            "command-of-evidence", "central-ideas-and-detail", "inferences", "words-in-context",
-            "text-structure-and-purpose", "cross-text-connections", "transitions",
-            "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
-            "problem-solving-and-data-analysis", "geometry-and-trigonometry"
-        ];
-
-        satCategories.forEach(category => {
-            const correct = storedResults[category]?.correct || 0;
-            const incorrect = storedResults[category]?.incorrect || 0;
-            const total = correct + incorrect;
-            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-            satHistoricalProgress[category] = { percentage };
-            console.log(`Updated ${category} in satHistoricalProgress: ${percentage}% (correct=${correct}, incorrect=${incorrect})`);
-        });
-
-        localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
     }
 
     function showIntroMessage() {
