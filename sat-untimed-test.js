@@ -1,287 +1,356 @@
-const passageElement = document.getElementById("passage");
-const questionElement = document.getElementById("question");
-const answerButtons = document.getElementById("answer-buttons");
-const nextButton = document.getElementById("next-btn");
-const continueButton = document.getElementById("continue-btn");
-const satIntroContainer = document.getElementById("sat-intro-container");
-const startTestButton = document.getElementById("start-test-btn");
+document.addEventListener("DOMContentLoaded", () => {
+    const passageElement = document.getElementById("passage");
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer-buttons");
+    const nextButton = document.getElementById("next-btn");
+    const satIntroContainer = document.getElementById("sat-intro-container");
+    const startTestButton = document.getElementById("start-test-btn");
+    const continueButton = document.getElementById("continue-btn");
 
-let currentQuestionIndex = 0;
-let score = 0;
-let correctAnswers = 0;
-let selectedQuestions = [];
-let categoryStats = {};
-let results = localStorage.getItem("testResults");
-results = results ? JSON.parse(results) : {};
-let isMathTest = false;
-let userResponses = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let correctAnswers = 0;
+    let selectedQuestions = [];
+    let categoryStats = {};
+    let results = localStorage.getItem("satResults");
+    results = results ? JSON.parse(results) : {};
+    let currentSection = "reading-writing";
+    let readingWritingScore = 0, mathScore = 0;
 
-const readingWritingQuestions = [
-    {
-        passage: "Emma stepped into the grand ballroom, her gown brushing against the polished floor as chandeliers cast golden light across the room. The guests moved with ease, their conversations flowing effortlessly. She had imagined this moment countless times, yet standing there now, a strange unease settled in her chest. Adjusting her gloves, she forced a smile and took a hesitant step forward, unsure if she truly belonged.",
-        question: "What does the passage suggest about Emma’s feelings?",
-        answers: [
-            { text: "A) She feels out of place despite having anticipated this moment for a long time.", correct: true },
-            { text: "B) She is overwhelmed by the beauty of the ballroom and struggles to contain her excitement.", correct: false },
-            { text: "C) She is intimidated by the other guests and decides to leave before entering the ballroom.", correct: false },
-            { text: "D) She is eager to impress others and makes a confident entrance into the event.", correct: false },
-        ],
-        type: "reading",
-        difficulty: "easy",
-        category: "inference"
-    },
-    {
-        passage: "Daniel stepped into the office, straightening his tie as he took in the bustling atmosphere. Conversations hummed around him, and the clatter of keyboards filled the air. He had spent weeks preparing for this moment, yet a small knot of doubt twisted in his stomach. He took a deep breath and walked toward his desk, reminding himself that everyone had to start somewhere.",
-        question: "What does the passage suggest about Daniel's attitude toward his new job?",
-        answers: [
-            { text: "A) He is uncertain about his abilities but determined to prove himself.", correct: true },
-            { text: "B) He is uninterested in the work and only took the job for financial reasons.", correct: false },
-            { text: "C) He is confident that he will excel without any major challenges.", correct: false },
-            { text: "D) He regrets accepting the position and is considering quitting.", correct: false },
-        ],
-        type: "reading",
-        difficulty: "medium",
-        category: "inference"
-    },
-    {
-        passage: "Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript. Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind. He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.",
-        question: "Which choice provides the best evidence for the idea that Liam is uncertain about his work?",
-        answers: [
-            { text: "A) 'Months of tireless effort had led to this moment, yet a nagging doubt lingered in his mind.'", correct: true },
-            { text: "B) 'He reread the paragraph, then again, each time questioning whether his words carried the weight he had intended.'", correct: false },
-            { text: "C) 'Liam set his pen down and exhaled slowly, his eyes scanning over the final sentence of his manuscript.'", correct: false },
-            { text: "D) 'He had imagined this moment countless times, picturing the satisfaction of a completed draft.'", correct: false },
-        ],
-        type: "reading",
-        difficulty: "medium",
-        category: "command-of-evidence"
-    },
-    {
-        passage: "The scientist adjusted her glasses, peering at the data displayed on the screen. The results were unexpected—far different from what she and her team had predicted. She tapped her fingers against the desk, reviewing each calculation. There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.",
-        question: "Which sentence best supports the idea that the scientist is struggling to accept her findings?",
-        answers: [
-            { text: "A) 'The scientist adjusted her glasses, peering at the data displayed on the screen.'", correct: false },
-            { text: "B) 'She tapped her fingers against the desk, reviewing each calculation.'", correct: false },
-            { text: "C) 'The results were unexpected—far different from what she and her team had predicted.'", correct: false },
-            { text: "D) 'There had to be a mistake, but no matter how many times she went through the figures, the numbers remained the same.'", correct: true },
-        ],
-        type: "reading",
-        difficulty: "medium",
-        category: "command-of-evidence"
-    },
-];
-
-const mathQuestions = [
-    {
-        passage: "",
-        question: "An airplane is flying from City A to City B, a total distance of 1,500 miles. The airplane flies against the wind at 500 mph for half the trip and with the wind at 600 mph for the other half. What is the total flight time?",
-        answers: [
-            { text: "A) 2.5 hours", correct: false },
-            { text: "B) 2.6 hours", correct: false },
-            { text: "C) 2.8 hours", correct: false },
-            { text: "D) 2.75 hours", correct: true }
-        ],
-        difficulty: "hard",
-        category: "advanced-math"
-    },
-    {
-        passage: "",
-        question: "A car's value depreciates by 15% each year. If the car was originally purchased for $30,000, what will its value be after 3 years, rounded to the nearest dollar?",
-        answers: [
-            { text: "A) $18,520", correct: false },
-            { text: "B) $19,275", correct: true },
-            { text: "C) $20,250", correct: false },
-            { text: "D) $21,000", correct: false }
-        ],
-        difficulty: "hard",
-        category: "advanced-math"
-    },    
-    {
-        passage: "",
-        question: "The function f(x) is defined as f(x) = 2x² - 3x + 5. What is the value of f(4)?",
-        answers: [
-            { text: "A) 27", correct: false },
-            { text: "B) 29", correct: true },
-            { text: "C) 31", correct: false },
-            { text: "D) 25", correct: false }
-        ],
-        difficulty: "easy",
-        category: "algebra"
-    },
-    {
-        passage: "",
-        question: "A company rents out bicycles for a flat fee of $12 plus $3 per hour. If a customer has $45 to spend, what is the maximum number of hours they can rent a bicycle?",
-        answers: [
-            { text: "A) 10 hours", correct: false },
-            { text: "B) 11 hours", correct: false },
-            { text: "C) 9 hours", correct: true },
-            { text: "D) 8 hours", correct: false }
-        ],
-        difficulty: "medium",
-        category: "algebra"
-    },
-];
-
-function startTest() {
-    satIntroContainer.classList.add("hide");
-    document.getElementById("question-container").classList.remove("hide");
-    startReadingWritingTest();
-}
-
-function startReadingWritingTest() {
-    isMathTest = false;
-    userResponses = [];
-    startQuiz(readingWritingQuestions, 18, 18, 18);
-}
-
-function startMathTest() {
-    isMathTest = true;
-    startQuiz(mathQuestions, 14, 15, 15);
-}
-
-function startQuiz(questions, numEasy, numMedium, numHard) {
-    currentQuestionIndex = 0;
-    score = 0;
-    correctAnswers = 0;
-    categoryStats = {};
-    selectedQuestions = selectRandomQuestions(questions, numEasy, numMedium, numHard);
-    nextButton.innerHTML = "Next";
-    showQuestion();
-}
-
-function selectRandomQuestions(questions, numEasy, numMedium, numHard) {
-    const easyQuestions = questions.filter(q => q.difficulty === "easy");
-    const mediumQuestions = questions.filter(q => q.difficulty === "medium");
-    const hardQuestions = questions.filter(q => q.difficulty === "hard");
-
-    function getRandom(arr, num) {
-        return arr.sort(() => 0.5 - Math.random()).slice(0, num);
-    }
-
-    const selectedEasy = getRandom(easyQuestions, numEasy);
-    const selectedMedium = getRandom(mediumQuestions, numMedium);
-    const selectedHard = getRandom(hardQuestions, numHard);
-
-    return [...selectedEasy, ...selectedMedium, ...selectedHard];
-}
-
-function showQuestion() {
-    resetState();
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
-    passageElement.innerHTML = currentQuestion.passage;
-    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        answerButtons.appendChild(button);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
+    const readingWritingQuestions = [
+        {
+            passage: "The following passage is adapted from a 19th-century novel. The narrator describes a young woman named Clara who has recently moved to a small village. Clara was known for her reserved nature, often spending her days reading in the garden. However, she had a keen interest in the village's history, frequently asking the elders about past events. One elder remarked, 'Clara's curiosity about our traditions is refreshing—she listens more than she speaks, which is rare for someone her age.'",
+            question: "What can be inferred about Clara's personality based on the passage?",
+            answers: [
+                { text: "She is outgoing and talkative.", correct: false },
+                { text: "She is curious and reserved.", correct: true },
+                { text: "She is disinterested in the village.", correct: false },
+                { text: "She is impatient and impulsive.", correct: false }
+            ],
+            type: "reading-writing",
+            difficulty: "easy",
+            category: "inferences"
+        },
+        {
+            passage: "The following passage is adapted from a 19th-century novel. The narrator describes a young woman named Clara who has recently moved to a small village. Clara was known for her reserved nature, often spending her days reading in the garden. However, she had a keen interest in the village's history, frequently asking the elders about past events. One elder remarked, 'Clara's curiosity about our traditions is refreshing—she listens more than she speaks, which is rare for someone her age.'",
+            question: "What can be inferred about the elder's opinion of younger people in general?",
+            answers: [
+                { text: "They are typically more curious than Clara.", correct: false },
+                { text: "They often speak more than they listen.", correct: true },
+                { text: "They are uninterested in traditions.", correct: false },
+                { text: "They are disrespectful to elders.", correct: false }
+            ],
+            type: "reading-writing",
+            difficulty: "medium",
+            category: "inferences"
+        },
+        {
+            passage: "The following passage is adapted from a 20th-century essay on environmental conservation. The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade. Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration. Without intervention, the forest ecosystem may collapse within the next 20 years.'",
+            question: "Which of the following statements from the passage best supports the claim that deforestation threatens the forest ecosystem?",
+            answers: [
+                { text: "The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade.", correct: false },
+                { text: "Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration.", correct: true },
+                { text: "Without intervention, the forest ecosystem may collapse within the next 20 years.", correct: false },
+                { text: "The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations.'", correct: false }
+            ],
+            type: "reading-writing",
+            difficulty: "medium",
+            category: "command-of-evidence"
+        },
+        {
+            passage: "The following passage is adapted from a 20th-century essay on environmental conservation. The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade. Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration. Without intervention, the forest ecosystem may collapse within the next 20 years.'",
+            question: "Which of the following pieces of evidence from the passage most directly supports the idea that deforestation has measurable impacts?",
+            answers: [
+                { text: "The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade.", correct: true },
+                { text: "Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration.", correct: false },
+                { text: "Without intervention, the forest ecosystem may collapse within the next 20 years.", correct: false },
+                { text: "The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations.'", correct: false }
+            ],
+            type: "reading-writing",
+            difficulty: "medium",
+            category: "command-of-evidence"
         }
-        button.addEventListener("click", selectAnswer);
-    });
+    ];
 
-    updateProgressBar();
-}
-
-function resetState() {
-    nextButton.style.display = "none";
-    nextButton.classList.remove("centered-btn");
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
-    }
-}
-
-function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-    let questionDifficulty = currentQuestion.difficulty;
-
-    if (!categoryStats[questionCategory]) {
-        categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-    }
-
-    const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-    userResponses.push({
-        question: currentQuestion.passage + "<br/><br/>" + currentQuestion.question,
-        userAnswer: selectedBtn.innerHTML,
-        correctAnswer: correctAnswer,
-        wasCorrect: isCorrect
-    });
-
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        correctAnswers++;
-        if (questionDifficulty === "easy") {
-            score += 1;
-        } else if (questionDifficulty === "medium") {
-            score += 2;
-        } else if (questionDifficulty === "hard") {
-            score += 3;
+    const mathQuestions = [
+        {
+            passage: "",
+            question: "Solve for x: 2x + 3 = 7",
+            answers: [
+                { text: "x = 1", correct: false },
+                { text: "x = 2", correct: true },
+                { text: "x = 3", correct: false },
+                { text: "x = 4", correct: false }
+            ],
+            type: "math",
+            difficulty: "easy",
+            category: "algebra"
+        },
+        {
+            passage: "",
+            question: "Solve the system of equations: y = 2x + 1, y = x + 3",
+            answers: [
+                { text: "x = 1, y = 3", correct: false },
+                { text: "x = 2, y = 5", correct: true },
+                { text: "x = 3, y = 7", correct: false },
+                { text: "x = 0, y = 1", correct: false }
+            ],
+            type: "math",
+            difficulty: "medium",
+            category: "algebra"
+        },
+        {
+            passage: "",
+            question: "What is the value of sin(π/3)?",
+            answers: [
+                { text: "1/2", correct: false },
+                { text: "√2/2", correct: false },
+                { text: "√3/2", correct: true },
+                { text: "1", correct: false }
+            ],
+            type: "math",
+            difficulty: "hard",
+            category: "advanced-math"
+        },
+        {
+            passage: "",
+            question: "If f(x) = x² + 2x + 1, what is f(2)?",
+            answers: [
+                { text: "5", correct: false },
+                { text: "7", correct: false },
+                { text: "9", correct: true },
+                { text: "11", correct: false }
+            ],
+            type: "math",
+            difficulty: "hard",
+            category: "advanced-math"
         }
-        categoryStats[questionCategory].correct++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats[questionCategory].incorrect++;
-    }
+    ];
 
-    recordTestResults();
-
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
+    function startTest() {
+        if (!satIntroContainer || !document.getElementById("question-container")) {
+            console.error("Required elements not found");
+            return;
         }
-        button.disabled = true;
-    });
-
-    nextButton.style.display = "block";
-    nextButton.disabled = false;
-}
-
-function showScore() {
-    resetState();
-
-    let maxPossibleScore;
-    if (!isMathTest) {
-        maxPossibleScore = (18 * 1) + (18 * 2) + (18 * 3);
-    } else {
-        maxPossibleScore = (14 * 1) + (15 * 2) + (15 * 3);
+        satIntroContainer.classList.add("hide");
+        document.getElementById("question-container").classList.remove("hide");
+        startReadingWritingSection();
     }
-    let rawScore = score;
-    let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
-    document.getElementById("question-container").classList.remove("hide");
+    let readingWritingResponses = [];
+    let mathResponses = [];
 
-    if (!isMathTest) {
-        localStorage.setItem("readingScore", scaledScore);
+    function startReadingWritingSection() {
+        currentSection = "reading-writing";
+        readingWritingResponses = [];
+        score = 0;
+        correctAnswers = 0;
+        startQuiz(readingWritingQuestions);
+    }
+
+    function startMathSection() {
+        currentSection = "math";
+        mathResponses = [];
+        score = 0;
+        correctAnswers = 0;
+        passageElement.innerHTML = "";
+        startQuiz(mathQuestions);
+    }
+
+    function endReadingWritingSection() {
+        resetState();
+        showScore();
+        document.getElementById("question-container").classList.add("hide");
+        document.getElementById("break-message").classList.remove("hide");
+    }
+
+    function endMathSection() {
+        resetState();
+        showFinalScore();
+    }
+
+    function startQuiz(questions) {
+        if (!questions || questions.length === 0) {
+            console.error("No questions available for", currentSection);
+            return;
+        }
+        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
+        if (missingPassages.length > 0 && currentSection !== "math") {
+            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
+        }
+        currentQuestionIndex = 0;
+        categoryStats = {};
+        selectedQuestions = questions;
+        nextButton.innerHTML = "Next";
+
+        document.querySelector(".question-row").classList.remove("score-display");
+
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("reading-writing-section", "math-section");
+        questionRow.classList.add(`${currentSection}-section`);
+
+        showQuestion();
+    }
+
+    function showQuestion() {
+        resetState();
+        if (!selectedQuestions[currentQuestionIndex]) {
+            console.error("No question available at index", currentQuestionIndex);
+            return;
+        }
+        let currentQuestion = selectedQuestions[currentQuestionIndex];
+        let questionNo = currentQuestionIndex + 1;
+        console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
+        passageElement.style.display = currentSection === "math" ? "none" : "block";
+        passageElement.innerHTML = currentQuestion.passage || "";
+        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("score-display");
+        questionElement.classList.remove("centered-score");
+
+        currentQuestion.answers.forEach((answer, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            answerButtons.appendChild(button);
+            if (answer.correct) {
+                button.dataset.correct = answer.correct;
+            }
+            button.addEventListener("click", selectAnswer);
+        });
+
+        updateProgressBar();
+    }
+
+    function resetState() {
+        nextButton.style.display = "none";
+        nextButton.classList.remove("centered-btn");
+        while (answerButtons.firstChild) {
+            answerButtons.removeChild(answerButtons.firstChild);
+        }
+    }
+
+    function selectAnswer(e) {
+        const selectedBtn = e.target;
+        const isCorrect = selectedBtn.dataset.correct === "true";
+        let currentQuestion = selectedQuestions[currentQuestionIndex];
+        let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+        let questionDifficulty = currentQuestion.difficulty;
+
+        if (!categoryStats[questionCategory]) {
+            categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
+        }
+
+        const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+
+        const safePassage = currentQuestion.passage || "No passage provided";
+        const safeQuestion = currentQuestion.question || "No question provided";
+        const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
+
+        console.log("Creating user response:", currentSection, ":", {
+            question: responseQuestion,
+            userAnswer: selectedBtn.innerHTML,
+            correctAnswer: correctAnswer,
+            wasCorrect: isCorrect
+        });
+
+        const response = {
+            section: currentSection,
+            question: responseQuestion,
+            userAnswer: selectedBtn.innerHTML,
+            correctAnswer: correctAnswer,
+            wasCorrect: isCorrect
+        };
+
+        if (currentSection === "reading-writing") {
+            readingWritingResponses.push(response);
+        } else if (currentSection === "math") {
+            mathResponses.push(response);
+        }
+
+        if (isCorrect) {
+            selectedBtn.classList.add("correct");
+            correctAnswers++;
+            if (questionDifficulty === "easy") {
+                score += 1;
+            } else if (questionDifficulty === "medium") {
+                score += 2;
+            } else if (questionDifficulty === "hard") {
+                score += 3;
+            }
+            categoryStats[questionCategory].correct++;
+        } else {
+            selectedBtn.classList.add("incorrect");
+            categoryStats[questionCategory].incorrect++;
+        }
+
+        recordTestResults();
+
+        Array.from(answerButtons.children).forEach(button => {
+            if (button.dataset.correct === "true") {
+                button.classList.add("correct");
+            }
+            button.disabled = true;
+        });
+
+        nextButton.style.display = "block";
+        nextButton.disabled = false;
+    }
+
+    function showScore() {
+        resetState();
+
+        let maxPossibleScore = (1 * 1) + (3 * 2) + (0 * 3);
+        let rawScore = score;
+        let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+
+        document.getElementById("question-container").classList.remove("hide");
+
+        localStorage.setItem("readingWritingScore", scaledScore);
+        readingWritingScore = scaledScore;
+
         passageElement.innerHTML = "";
         questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
         questionElement.classList.add("centered-score");
-        document.querySelector(".question-row").classList.add("score-display");
+
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.add("score-display");
+
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
-    } else {
-        let readingScore = localStorage.getItem("readingScore") || 0;
-        readingScore = parseInt(readingScore, 10);
-        let mathScore = scaledScore;
-        localStorage.setItem("mathScore", mathScore);
+    }
 
-        let totalSATScore = readingScore + mathScore;
+    function showFinalScore() {
+        resetState();
+
+        let maxPossibleScore = (1 * 1) + (1 * 2) + (2 * 3);
+        let rawScore = score;
+        let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
+
+        mathScore = scaledScore;
+        localStorage.setItem("mathScore", scaledScore);
+
+        let totalSATScore = readingWritingScore + mathScore;
 
         let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-        scoreHistory[today] = { reading: readingScore, math: mathScore, total: totalSATScore };
-        localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
+        let scoreHistory = JSON.parse(localStorage.getItem("satScoreHistory")) || {};
+        scoreHistory[today] = {
+            readingWriting: readingWritingScore,
+            math: mathScore,
+            total: totalSATScore
+        };
+        localStorage.setItem("satScoreHistory", JSON.stringify(scoreHistory));
 
+        saveTestCompletion("SAT");
+
+        document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Reading and Writing SAT Score:</strong> ${readingScore} / 800</p>
-                                    <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
-                                    <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
+        questionElement.innerHTML = `
+            <p><strong>Reading and Writing SAT Score:</strong> ${readingWritingScore} / 800</p>
+            <p><strong>Math SAT Score:</strong> ${mathScore} / 800</p>
+            <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Review Incorrect Answers";
@@ -290,133 +359,219 @@ function showScore() {
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }
-}
-function showExplanations() {
-    resetState();
-    passageElement.innerHTML = "";
-    questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
 
-    const incorrectResponses = userResponses.filter(response => !response.wasCorrect);
+    function saveTestCompletion(examType) {
+        const completionData = {
+            exam: examType,
+            type: "test",
+            timestamp: new Date().toISOString()
+        };
+        localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    }
 
-    if (incorrectResponses.length === 0) {
-        questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
-    } else {
-        incorrectResponses.forEach((response, index) => {
-            const explanation = generateExplanation(response);
-            questionElement.innerHTML += `
-                <div class="explanation">
-                    <h3>Question ${index + 1}</h3>
-                    <p><strong>Question:</strong> ${response.question}</p>
-                    <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
-                    <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
-                    <p><strong>Explanation:</strong> ${explanation}</p>
-                </div>
-            `;
+    function showExplanations() {
+        console.log("Entering showExplanations");
+        resetState();
+        passageElement.innerHTML = "";
+        questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
+        questionElement.style.overflowY = "scroll";
+        questionElement.style.maxHeight = "80vh";
+
+        const allResponses = [
+            ...readingWritingResponses.map(r => ({ ...r, section: "reading-writing" })),
+            ...mathResponses.map(r => ({ ...r, section: "math" }))
+        ];
+
+        const incorrectResponses = allResponses.filter(
+            response => response && response.wasCorrect === false && response.section
+        );
+        console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
+
+        if (incorrectResponses.length === 0) {
+            questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
+        } else {
+            const fragment = document.createDocumentFragment();
+            const sections = ["reading-writing", "math"];
+            sections.forEach(section => {
+                const sectionResponses = incorrectResponses.filter(res => res.section === section);
+                if (sectionResponses.length > 0) {
+                    const sectionDiv = document.createElement("div");
+                    sectionDiv.innerHTML = `<h3>${section === "reading-writing" ? "Reading and Writing" : "Math"} Section</h3>`;
+                    sectionResponses.forEach((response, index) => {
+                        console.log(`Processing ${section} response ${index + 1}:`, response);
+                        const explanation = generateExplanation(response);
+                        console.log(`Explanation for ${section} response ${index + 1}:`, explanation);
+                        const div = document.createElement("div");
+                        div.className = "explanation";
+                        div.innerHTML = `
+                            <h4>Question ${index + 1}</h4>
+                            <p><strong>Question:</strong> ${response.question || "Missing question"}</p>
+                            <p><strong>Your Answer:</strong> ${response.userAnswer || "N/A"}</p>
+                            <p><strong>Correct Answer:</strong> ${response.correctAnswer || "N/A"}</p>
+                            <p><strong>Explanation:</strong> ${explanation}</p>
+                        `;
+                        sectionDiv.appendChild(div);
+                    });
+                    fragment.appendChild(sectionDiv);
+                }
+            });
+            console.log("Appending to questionElement:", questionElement);
+            questionElement.appendChild(fragment);
+        }
+
+        console.log("Setting Finish button");
+        nextButton.innerHTML = "Finish";
+        nextButton.style.display = "block";
+        nextButton.classList.add("centered-btn");
+        nextButton.removeEventListener("click", showExplanations);
+        nextButton.addEventListener("click", () => {
+            console.log("Final satTestResults before redirect:", localStorage.getItem("satTestResults"));
+            window.location.href = "https://www.brainjelli.com/user-profile.html";
         });
     }
 
-    nextButton.innerHTML = "Finish";
-    nextButton.style.display = "block";
-    nextButton.removeEventListener("click", showExplanations);
-    nextButton.addEventListener("click", () => {
-        window.location.href = "https://www.brainjelli.com/user-profile";
-    });
-}
-
-function generateExplanation(response) {
-    const questionText = response.question;
-
-    if (questionText.includes("Emma stepped into the grand ballroom")) {
-        return "Emma’s unease and hesitation suggest she feels out of place, despite her anticipation. The text highlights her discomfort rather than excitement or confidence.";
-    } else if (questionText.includes("Daniel stepped into the office")) {
-        return "Daniel’s doubt and deep breath indicate uncertainty, but his reminder that 'everyone had to start somewhere' shows determination, not disinterest or regret.";
-    } else if (questionText.includes("Liam set his pen down")) {
-        return "The best evidence is the explicit mention of 'nagging doubt,' directly showing his uncertainty about the manuscript’s quality.";
-    } else if (questionText.includes("The scientist adjusted her glasses")) {
-        return "The scientist’s struggle to accept the findings is best supported by her disbelief in the consistent results, despite repeated checks.";
-    } else if (questionText.includes("An airplane is flying from City A to City B")) {
-        return "The trip is split into two 750-mile segments. Time against the wind = 750 / 500 = 1.5 hours. Time with the wind = 750 / 600 = 1.25 hours. Total time = 1.5 + 1.25 = 2.75 hours.";
-    } else if (questionText.includes("A car's value depreciates by 15%")) {
-        return "Year 1: $30,000 × 0.85 = $25,500. Year 2: $25,500 × 0.85 = $21,675. Year 3: $21,675 × 0.85 = $18,423.75 ≈ $19,275 (rounded).";
-    } else if (questionText.includes("The function f(x) is defined")) {
-        return "Substitute x = 4 into f(x) = 2x² - 3x + 5: f(4) = 2(4²) - 3(4) + 5 = 2(16) - 12 + 5 = 32 - 12 + 5 = 25.";
-    } else if (questionText.includes("A company rents out bicycles")) {
-        return "Equation: $12 + $3h ≤ $45. Subtract 12: $3h ≤ $33. Divide by 3: h ≤ 11. Maximum whole hours = 9 (since $12 + $3 × 9 = $39 ≤ $45).";
+    function generateExplanation(response) {
+        const questionText = response.question || "";
+        if (questionText.includes("Solve for x: 2x + 3 = 7")) {
+            return "Solve 2x + 3 = 7 by subtracting 3: 2x = 4. Divide by 2: x = 2. The correct answer is x = 2.";
+        } else if (questionText.includes("Solve the system of equations: y = 2x + 1, y = x + 3")) {
+            return "Set the equations equal: 2x + 1 = x + 3. Subtract x: x + 1 = 3. Subtract 1: x = 2. Substitute x = 2 into y = x + 3: y = 2 + 3 = 5. The correct answer is x = 2, y = 5.";
+        } else if (questionText.includes("What is the value of sin(π/3)?")) {
+            return "The value of sin(π/3) is a standard trigonometric value. π/3 radians is 60 degrees, and sin(60°) = √3/2. The correct answer is √3/2.";
+        } else if (questionText.includes("If f(x) = x² + 2x + 1, what is f(2)?")) {
+            return "Substitute x = 2 into f(x) = x² + 2x + 1: f(2) = 2² + 2(2) + 1 = 4 + 4 + 1 = 9. The correct answer is 9.";
+        } else if (questionText.includes("What can be inferred about Clara's personality based on the passage?")) {
+            return "The passage states Clara is reserved and spends her days reading, but she has a keen interest in the village's history. This suggests she is curious and reserved. The correct answer is 'She is curious and reserved.'";
+        } else if (questionText.includes("What can be inferred about the elder's opinion of younger people in general?")) {
+            return "The elder says Clara 'listens more than she speaks, which is rare for someone her age,' implying younger people typically speak more than they listen. The correct answer is 'They often speak more than they listen.'";
+        } else if (questionText.includes("Which of the following statements from the passage best supports the claim that deforestation threatens the forest ecosystem?")) {
+            return "The statement 'Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration' directly links the decline in bird populations (caused by deforestation) to impaired forest regeneration, supporting the claim. This is the correct answer.";
+        } else if (questionText.includes("Which of the following pieces of evidence from the passage most directly supports the idea that deforestation has measurable impacts?")) {
+            return "The statement 'The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade' provides a specific, measurable impact (30% decline) of deforestation, making it the correct answer.";
+        }
+        return "No explanation available for this question.";
     }
 
-    return "No specific explanation available for this question.";
-}
-
-function handleNextButton() {
-    recordTestResults();
-    currentQuestionIndex++;
-    if (currentQuestionIndex < selectedQuestions.length) {
-        showQuestion();
-    } else {
-        showScore();
-    }
-}
-
-function updateProgressBar() {
-    const progressBar = document.getElementById("progress-bar-test");
-    let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
-    progressBar.firstElementChild.style.width = progress + "%";
-}
-
-function recordTestResults() {
-    let storedResults = localStorage.getItem("testResults");
-    let results = storedResults ? JSON.parse(storedResults) : {};
-
-    if (typeof results !== "object" || Array.isArray(results)) {
-        results = {};
+    function handleNextButton() {
+        recordTestResults();
+        currentQuestionIndex++;
+        if (currentQuestionIndex < selectedQuestions.length) {
+            showQuestion();
+        } else {
+            switch (currentSection) {
+                case "reading-writing": endReadingWritingSection(); break;
+                case "math": endMathSection(); break;
+            }
+        }
     }
 
-    for (let category in categoryStats) {
-        if (!results[category]) {
-            results[category] = { correct: 0, incorrect: 0 };
+    function updateProgressBar() {
+        const progressBar = document.getElementById("progress-bar-test");
+        let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+        progressBar.firstElementChild.style.width = progress + "%";
+    }
+
+    function recordTestResults() {
+        let storedResults = localStorage.getItem("satTestResults");
+        let results = storedResults ? JSON.parse(storedResults) : {};
+
+        if (typeof results !== "object" || Array.isArray(results)) {
+            results = {};
         }
 
-        results[category].correct += categoryStats[category].correct || 0;
-        results[category].incorrect += categoryStats[category].incorrect || 0;
+        for (let category in categoryStats) {
+            if (!results[category]) {
+                results[category] = { correct: 0, incorrect: 0 };
+            }
+            results[category].correct += categoryStats[category].correct || 0;
+            results[category].incorrect += categoryStats[category].incorrect || 0;
+        }
+
+        localStorage.setItem("satTestResults", JSON.stringify(results));
+
+        for (let category in categoryStats) {
+            categoryStats[category].correct = 0;
+            categoryStats[category].incorrect = 0;
+        }
+
+        saveHistoricalProgress(results);
     }
 
-    localStorage.setItem("testResults", JSON.stringify(results));
+    function saveHistoricalProgress(storedResults) {
+        let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
+        let satPreviousProgress = JSON.parse(localStorage.getItem("satPreviousProgress")) || {};
 
-    for (let category in categoryStats) {
-        categoryStats[category].correct = 0;
-        categoryStats[category].incorrect = 0;
+        Object.keys(satHistoricalProgress).forEach(category => {
+            satPreviousProgress[category] = satHistoricalProgress[category];
+        });
+        localStorage.setItem("satPreviousProgress", JSON.stringify(satPreviousProgress));
+
+        const satCategories = [
+            "command-of-evidence", "central-ideas-and-detail", "inferences", "words-in-context",
+            "text-structure-and-purpose", "cross-text-connections", "transitions",
+            "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
+            "problem-solving-and-data-analysis", "geometry-and-trigonometry"
+        ];
+
+        satCategories.forEach(category => {
+            const correct = storedResults[category]?.correct || 0;
+            const incorrect = storedResults[category]?.incorrect || 0;
+            const total = correct + incorrect;
+            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+            satHistoricalProgress[category] = { percentage };
+            console.log(`Updated ${category} in satHistoricalProgress: ${percentage}% (correct=${correct}, incorrect=${incorrect})`);
+        });
+
+        localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
     }
-}
 
-nextButton.addEventListener("click", () => {
-    if (nextButton.innerHTML === "Continue") {
-        document.getElementById("break-message").classList.remove("hide");
-        document.getElementById("question-container").classList.add("hide");
+    function showIntroMessage() {
+        resetState();
+        passageElement.innerHTML = "";
+        questionElement.innerHTML = "This is an untimed SAT Test. Complete each section at your own pace.";
+        questionElement.classList.add("centered-score");
+
+        const startButton = document.createElement("button");
+        startButton.innerHTML = "Start Test";
+        startButton.classList.add("btn", "centered-btn");
+        startButton.addEventListener("click", () => {
+            questionElement.classList.remove("centered-score");
+            startReadingWritingSection();
+        });
+        answerButtons.appendChild(startButton);
+    }
+
+    if (startTestButton) {
+        startTestButton.addEventListener("click", startTest);
     } else {
-        handleNextButton();
+        console.error("start-test-btn element not found");
     }
+
+    if (nextButton) {
+        nextButton.addEventListener("click", () => {
+            if (nextButton.innerHTML === "Continue") {
+                document.getElementById("break-message").classList.remove("hide");
+                document.getElementById("question-container").classList.add("hide");
+            } else {
+                handleNextButton();
+            }
+        });
+    } else {
+        console.error("next-btn element not found");
+    }
+
+    if (continueButton) {
+        continueButton.addEventListener("click", () => {
+            document.getElementById("break-message").classList.add("hide");
+            document.getElementById("question-container").classList.remove("hide");
+            switch (currentSection) {
+                case "reading-writing": startMathSection(); break;
+                case "math": showFinalScore(); break;
+            }
+        });
+    } else {
+        console.error("continue-btn element not found");
+    }
+
+    showIntroMessage();
 });
-
-continueButton.addEventListener("click", () => {
-    document.getElementById("break-message").classList.add("hide");
-    document.getElementById("question-container").classList.remove("hide");
-    startMathTest();
-});
-
-function showIntroMessage() {
-    resetState();
-    passageElement.innerHTML = "";
-    questionElement.innerHTML = "This is a timed SAT Test. The Reading portion will be 64 minutes and the math portion will be 44 minutes.";
-    questionElement.classList.add("centered-score");
-
-    const startButton = document.createElement("button");
-    startButton.innerHTML = "Start Test";
-    startButton.classList.add("btn", "centered-btn");
-    startButton.addEventListener("click", () => {
-        questionElement.classList.remove("centered-score");
-        startReadingWritingTest();
-    });
-    answerButtons.appendChild(startButton);
-}
-
-startTestButton.addEventListener("click", startTest);
