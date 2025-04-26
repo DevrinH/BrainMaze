@@ -478,29 +478,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function recordTestResults() {
-        let storedResults = localStorage.getItem("actTestResults");
-        let results = storedResults ? JSON.parse(storedResults) : {};
-
-        if (typeof results !== "object" || Array.isArray(results)) {
-            results = {};
-        }
-
+        let results = {};
+    
         for (let category in categoryStats) {
-            if (!results[category]) {
-                results[category] = { correct: 0, incorrect: 0 };
-            }
-            results[category].correct += categoryStats[category].correct || 0;
-            results[category].incorrect += categoryStats[category].incorrect || 0;
+            results[category] = {
+                correct: categoryStats[category].correct || 0,
+                incorrect: categoryStats[category].incorrect || 0
+            };
+            console.log(`ACT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         }
-
+    
         localStorage.setItem("actTestResults", JSON.stringify(results));
-
+        console.log("ACT Test Results Saved:", results);
+    
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
             categoryStats[category].incorrect = 0;
         }
     }
-
+    
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
