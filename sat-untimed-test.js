@@ -472,13 +472,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function recordTestResults() {
-        let storedResults = localStorage.getItem("satTestResults");
+        let storedResults = localStorage.getItem("actTestResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
-
+    
         if (typeof results !== "object" || Array.isArray(results)) {
             results = {};
         }
-
+    
         for (let category in categoryStats) {
             if (!results[category]) {
                 results[category] = { correct: 0, incorrect: 0 };
@@ -486,14 +486,14 @@ document.addEventListener("DOMContentLoaded", () => {
             results[category].correct += categoryStats[category].correct || 0;
             results[category].incorrect += categoryStats[category].incorrect || 0;
         }
-
-        localStorage.setItem("satTestResults", JSON.stringify(results));
-
+    
+        localStorage.setItem("actTestResults", JSON.stringify(results));
+    
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
             categoryStats[category].incorrect = 0;
         }
-
+    
         saveHistoricalProgress(results);
     }
 
