@@ -12,72 +12,65 @@ document.addEventListener("DOMContentLoaded", () => {
     let correctAnswers = 0;
     let selectedQuestions = [];
     let categoryStats = {};
-    let results = localStorage.getItem("satResults");
-    results = results ? JSON.parse(results) : {};
-    let currentSection = "reading";
-    let readingScore = 0, writingScore = 0, mathScore = 0;
+    let currentSection = "reading-writing";
+    let readingWritingScore = 0, mathScore = 0;
 
-    // SAT-specific questions
-    const readingQuestions = [
+    const readingWritingQuestions = [
         {
-            passage: "The old house on Maple Street stood at the edge of town, its weathered clapboards sagging under the weight of decades...",
-            question: "What is the primary reason Clara is drawn to the house on Maple Street?",
+            passage: "The following passage is adapted from a 19th-century novel. The narrator describes a young woman named Clara who has recently moved to a small village. Clara was known for her reserved nature, often spending her days reading in the garden. However, she had a keen interest in the village's history, frequently asking the elders about past events. One elder remarked, 'Clara's curiosity about our traditions is refreshing—she listens more than she speaks, which is rare for someone her age.'",
+            question: "What can be inferred about Clara's personality based on the passage?",
             answers: [
-                { text: "A) She wants to prove the house is haunted.", correct: false },
-                { text: "B) She is researching Eliza Hawthorne’s life.", correct: true },
-                { text: "C) She plans to renovate the property.", correct: false },
-                { text: "D) She is following a family tradition.", correct: false }
+                { text: "She is outgoing and talkative.", correct: false },
+                { text: "She is curious and reserved.", correct: true },
+                { text: "She is disinterested in the village.", correct: false },
+                { text: "She is impatient and impulsive.", correct: false }
             ],
-            type: "reading",
-            difficulty: "medium",
-            category: "sat-reading-main-idea"
-        },
-    ];
-
-    const writingQuestions = [
-        {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project...",
-            question: "Which punctuation correctly completes the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?",
-            answers: [
-                { text: "A) Aisha the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: true },
-                { text: "C) Aisha the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "D) Aisha, the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false }
-            ],
-            type: "writing",
+            type: "reading-writing",
             difficulty: "easy",
-            category: "sat-writing-conventions"
+            category: "inferences"
         },
+        {
+            passage: "The following passage is adapted from a 20th-century essay on environmental conservation. The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade. Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration. Without intervention, the forest ecosystem may collapse within the next 20 years.'",
+            question: "Which of the following pieces of evidence from the passage most directly supports the idea that deforestation has measurable impacts?",
+            answers: [
+                { text: "The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade.", correct: true },
+                { text: "Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration.", correct: false },
+                { text: "Without intervention, the forest ecosystem may collapse within the next 20 years.", correct: false },
+                { text: "The author writes, 'The rapid deforestation in the region has led to a 30% decline in local bird populations.'", correct: false }
+            ],
+            type: "reading-writing",
+            difficulty: "medium",
+            category: "command-of-evidence"
+        }
     ];
 
-    const mathNoCalcQuestions = [
+    const mathQuestions = [
         {
             passage: "",
-            question: "What is the value of x in the equation 3x + 7 = 22?",
+            question: "Solve for x: 2x + 3 = 7",
             answers: [
-                { text: "4", correct: false },
-                { text: "5", correct: true },
-                { text: "6", correct: false },
-                { text: "7", correct: false }
+                { text: "x = 1", correct: false },
+                { text: "x = 2", correct: true },
+                { text: "x = 3", correct: false },
+                { text: "x = 4", correct: false }
             ],
-            difficulty: "medium",
-            category: "sat-math-algebra"
+            type: "math",
+            difficulty: "easy",
+            category: "algebra"
         },
-    ];
-
-    const mathWithCalcQuestions = [
         {
             passage: "",
-            question: "If f(x) = x^2 + 3x - 4, what is f(2)?",
+            question: "If f(x) = x² + 2x + 1, what is f(2)?",
             answers: [
-                { text: "8", correct: false },
-                { text: "4", correct: false },
-                { text: "6", correct: true },
-                { text: "10", correct: false }
+                { text: "5", correct: false },
+                { text: "7", correct: false },
+                { text: "9", correct: true },
+                { text: "11", correct: false }
             ],
-            difficulty: "medium",
-            category: "sat-math-functions"
-        },
+            type: "math",
+            difficulty: "hard",
+            category: "advanced-math"
+        }
     ];
 
     function startTest() {
@@ -87,70 +80,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         satIntroContainer.classList.add("hide");
         document.getElementById("question-container").classList.remove("hide");
-        startReadingSection();
+        startReadingWritingSection();
     }
 
-    let readingResponses = [];
-    let writingResponses = [];
-    let mathNoCalcResponses = [];
-    let mathWithCalcResponses = [];
+    let readingWritingResponses = [];
+    let mathResponses = [];
 
-    function startReadingSection() {
-        currentSection = "reading";
-        readingResponses = [];
+    function startReadingWritingSection() {
+        currentSection = "reading-writing";
+        readingWritingResponses = [];
         score = 0;
         correctAnswers = 0;
-        startQuiz(readingQuestions);
+        startQuiz(readingWritingQuestions);
     }
 
-    function startWritingSection() {
-        currentSection = "writing";
-        writingResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        startQuiz(writingQuestions);
-    }
-
-    function startMathNoCalcSection() {
-        currentSection = "math-no-calc";
-        mathNoCalcResponses = [];
+    function startMathSection() {
+        currentSection = "math";
+        mathResponses = [];
         score = 0;
         correctAnswers = 0;
         passageElement.innerHTML = "";
-        startQuiz(mathNoCalcQuestions);
+        startQuiz(mathQuestions);
     }
 
-    function startMathWithCalcSection() {
-        currentSection = "math-with-calc";
-        mathWithCalcResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        passageElement.innerHTML = "";
-        startQuiz(mathWithCalcQuestions);
-    }
-
-    function endReadingSection() {
+    function endReadingWritingSection() {
+        recordTestResults();
         resetState();
         showScore();
         document.getElementById("question-container").classList.add("hide");
         document.getElementById("break-message").classList.remove("hide");
     }
 
-    function endWritingSection() {
-        resetState();
-        showScore();
-        document.getElementById("question-container").classList.add("hide");
-        document.getElementById("break-message").classList.remove("hide");
-    }
-
-    function endMathNoCalcSection() {
-        resetState();
-        showScore();
-        document.getElementById("question-container").classList.add("hide");
-        document.getElementById("break-message").classList.remove("hide");
-    }
-
-    function endMathWithCalcSection() {
+    function endMathSection() {
+        recordTestResults();
         resetState();
         showFinalScore();
     }
@@ -161,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
-        if (missingPassages.length > 0 && currentSection !== "math-no-calc" && currentSection !== "math-with-calc") {
+        if (missingPassages.length > 0 && currentSection !== "math") {
             console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
         }
         currentQuestionIndex = 0;
@@ -169,12 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
 
-        // Reset layout classes
         document.querySelector(".question-row").classList.remove("score-display");
 
-        // Add section-specific class
         const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("reading-section", "writing-section", "math-no-calc", "math-with-calc");
+        questionRow.classList.remove("reading-writing-section", "math-section");
         questionRow.classList.add(`${currentSection}-section`);
 
         showQuestion();
@@ -287,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showScore() {
         resetState();
 
-        let maxPossibleScore = (1 * 1) + (3 * 2) + (0 * 3);
+        let maxPossibleScore = (1 * 1) + (1 * 2); // Adjust based on difficulties in readingWritingQuestions
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
@@ -311,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showFinalScore() {
         resetState();
 
-        let maxPossibleScore = (1 * 1) + (1 * 2) + (2 * 3);
+        let maxPossibleScore = (1 * 1) + (1 * 3); // Adjust based on difficulties in mathQuestions
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
 
@@ -339,11 +299,13 @@ document.addEventListener("DOMContentLoaded", () => {
             <p><strong>Total SAT Score:</strong> ${totalSATScore} / 1600</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
-        nextButton.innerHTML = "Review Incorrect Answers";
+        nextButton.innerHTML = "Finish";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", handleNextButton);
-        nextButton.addEventListener("click", showExplanations);
+        nextButton.addEventListener("click", () => {
+            window.location.href = "https://www.brainjelli.com/user-profile.html";
+        });
     }
 
     function saveTestCompletion(examType) {
@@ -353,89 +315,6 @@ document.addEventListener("DOMContentLoaded", () => {
             timestamp: new Date().toISOString()
         };
         localStorage.setItem("lastActivity", JSON.stringify(completionData));
-    }
-
-    function showExplanations() {
-        console.log("Entering showExplanations");
-        resetState();
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
-        questionElement.style.overflowY = "scroll";
-        questionElement.style.maxHeight = "80vh";
-
-        const allResponses = [
-            ...readingWritingResponses.map(r => ({ ...r, section: "reading-writing" })),
-            ...mathResponses.map(r => ({ ...r, section: "math" }))
-        ];
-
-        const incorrectResponses = allResponses.filter(
-            response => response && response.wasCorrect === false && response.section
-        );
-        console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
-
-        if (incorrectResponses.length === 0) {
-            questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
-        } else {
-            const fragment = document.createDocumentFragment();
-            const sections = ["reading-writing", "math"];
-            sections.forEach(section => {
-                const sectionResponses = incorrectResponses.filter(res => res.section === section);
-                if (sectionResponses.length > 0) {
-                    const sectionDiv = document.createElement("div");
-                    sectionDiv.innerHTML = `<h3>${section === "reading-writing" ? "Reading and Writing" : "Math"} Section</h3>`;
-                    sectionResponses.forEach((response, index) => {
-                        console.log(`Processing ${section} response ${index + 1}:`, response);
-                        const explanation = generateExplanation(response);
-                        console.log(`Explanation for ${section} response ${index + 1}:`, explanation);
-                        const div = document.createElement("div");
-                        div.className = "explanation";
-                        div.innerHTML = `
-                            <h4>Question ${index + 1}</h4>
-                            <p><strong>Question:</strong> ${response.question || "Missing question"}</p>
-                            <p><strong>Your Answer:</strong> ${response.userAnswer || "N/A"}</p>
-                            <p><strong>Correct Answer:</strong> ${response.correctAnswer || "N/A"}</p>
-                            <p><strong>Explanation:</strong> ${explanation}</p>
-                        `;
-                        sectionDiv.appendChild(div);
-                    });
-                    fragment.appendChild(sectionDiv);
-                }
-            });
-            console.log("Appending to questionElement:", questionElement);
-            questionElement.appendChild(fragment);
-        }
-
-        console.log("Setting Finish button");
-        nextButton.innerHTML = "Finish";
-        nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn");
-        nextButton.removeEventListener("click", showExplanations);
-        nextButton.addEventListener("click", () => {
-            console.log("Final satTestResults before redirect:", localStorage.getItem("satTestResults"));
-            window.location.href = "https://www.brainjelli.com/user-profile.html";
-        });
-    }
-
-    function generateExplanation(response) {
-        const questionText = response.question || "";
-        if (questionText.includes("Solve for x: 2x + 3 = 7")) {
-            return "Solve 2x + 3 = 7 by subtracting 3: 2x = 4. Divide by 2: x = 2. The correct answer is x = 2.";
-        } else if (questionText.includes("Solve the system of equations: y = 2x + 1, y = x + 3")) {
-            return "Set the equations equal: 2x + 1 = x + 3. Subtract x: x + 1 = 3. Subtract 1: x = 2. Substitute x = 2 into y = x + 3: y = 2 + 3 = 5. The correct answer is x = 2, y = 5.";
-        } else if (questionText.includes("What is the value of sin(π/3)?")) {
-            return "The value of sin(π/3) is a standard trigonometric value. π/3 radians is 60 degrees, and sin(60°) = √3/2. The correct answer is √3/2.";
-        } else if (questionText.includes("If f(x) = x² + 2x + 1, what is f(2)?")) {
-            return "Substitute x = 2 into f(x) = x² + 2x + 1: f(2) = 2² + 2(2) + 1 = 4 + 4 + 1 = 9. The correct answer is 9.";
-        } else if (questionText.includes("What can be inferred about Clara's personality based on the passage?")) {
-            return "The passage states Clara is reserved and spends her days reading, but she has a keen interest in the village's history. This suggests she is curious and reserved. The correct answer is 'She is curious and reserved.'";
-        } else if (questionText.includes("What can be inferred about the elder's opinion of younger people in general?")) {
-            return "The elder says Clara 'listens more than she speaks, which is rare for someone her age,' implying younger people typically speak more than they listen. The correct answer is 'They often speak more than they listen.'";
-        } else if (questionText.includes("Which of the following statements from the passage best supports the claim that deforestation threatens the forest ecosystem?")) {
-            return "The statement 'Studies show that these birds play a critical role in seed dispersal, which supports forest regeneration' directly links the decline in bird populations (caused by deforestation) to impaired forest regeneration, supporting the claim. This is the correct answer.";
-        } else if (questionText.includes("Which of the following pieces of evidence from the passage most directly supports the idea that deforestation has measurable impacts?")) {
-            return "The statement 'The rapid deforestation in the region has led to a 30% decline in local bird populations over the past decade' provides a specific, measurable impact (30% decline) of deforestation, making it the correct answer.";
-        }
-        return "No explanation available for this question.";
     }
 
     function handleNextButton() {
@@ -458,7 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function recordTestResults() {
         let results = {};
-    
+
         for (let category in categoryStats) {
             results[category] = {
                 correct: categoryStats[category].correct || 0,
@@ -466,14 +345,9 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             console.log(`SAT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         }
-    
+
         localStorage.setItem("satTestResults", JSON.stringify(results));
         console.log("SAT Test Results Saved:", results);
-    
-        for (let category in categoryStats) {
-            categoryStats[category].correct = 0;
-            categoryStats[category].incorrect = 0;
-        }
     }
 
     function showIntroMessage() {
