@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSection = "reading-writing";
     let readingWritingScore = 0, mathScore = 0;
 
-    // SAT questions (same as before)
     const readingWritingQuestions = [
         {
             passage: "The following passage is adapted from a 19th-century novel. The narrator describes a young woman named Clara who has recently moved to a small village. Clara was known for her reserved nature, often spending her days reading in the garden. However, she had a keen interest in the village's history, frequently asking the elders about past events. One elder remarked, 'Clara's curiosity about our traditions is refreshing—she listens more than she speaks, which is rare for someone her age.'",
@@ -184,10 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
 
-        // Reset layout classes
         document.querySelector(".question-row").classList.remove("score-display");
 
-        // Add section-specific class
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("reading-writing-section", "math-section");
         questionRow.classList.add(`${currentSection}-section`);
@@ -212,7 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
         questionRow.classList.remove("score-display");
         questionElement.classList.remove("centered-score");
 
-        // Display answer buttons without option letters
         currentQuestion.answers.forEach((answer, index) => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
@@ -429,6 +425,7 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", showExplanations);
         nextButton.addEventListener("click", () => {
+            console.log("Final satTestResults before redirect:", localStorage.getItem("satTestResults"));
             window.location.href = "https://www.brainjelli.com/user-profile.html";
         });
     }
@@ -492,13 +489,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem("satTestResults", JSON.stringify(results));
 
-        // Reset categoryStats after recording to prevent accumulation
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
             categoryStats[category].incorrect = 0;
         }
 
-        // Update historical progress for progress bars
         saveHistoricalProgress(results);
     }
 
@@ -546,7 +541,6 @@ document.addEventListener("DOMContentLoaded", () => {
         answerButtons.appendChild(startButton);
     }
 
-    // Event Listeners
     if (startTestButton) {
         startTestButton.addEventListener("click", startTest);
     } else {
@@ -579,6 +573,5 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("continue-btn element not found");
     }
 
-    // Initialize the test by showing the intro message
     showIntroMessage();
 });
