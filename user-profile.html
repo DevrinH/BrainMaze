@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-    <title>user-profile</title> 
+<head>
+    <title>user-profile</title>
     <link href="https://www.brainjelli.com/landing.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="BrainJelli LOGO.png">
@@ -14,18 +14,20 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 </head>
 
+
 <body>
-    <header> 
-        <div class="header-container"> 
-            <img src="BrainJelli-header.png" class="logo"> 
+    <header>
+        <div class="header-container">
+            <img src="BrainJelli-header.png" class="logo">
             <div class="button-group">
                 <button class="theme-toggle" aria-label="Toggle dark mode">
                     <span class="toggle-icon">☀️</span>
                 </button>
-                <button class="login-button">Login</button> 
+                <button class="login-button">Login</button>
             </div>
-        </div> 
+        </div>
     </header>
+
 
 <main>
     <div class="line-chart-container" id="line-chart-sat">
@@ -35,7 +37,7 @@
         </div>
         <div class="last-score-container">
             <p class="last-score-text">Last SAT Score:</p>
-        </div>   
+        </div>  
         <div class="chart-container-bar">
             <canvas id="lastScoreBarChart"></canvas>
         </div>
@@ -47,7 +49,7 @@
         </div>
         <div class="last-score-container">
             <p class="last-score-text">Last ACT Score:</p>
-        </div>   
+        </div>  
         <div class="chart-container-bar">
             <canvas id="actLastScoreBarChart"></canvas>
         </div>
@@ -59,17 +61,18 @@
         </div>
         <div class="last-score-container">
             <p class="last-score-text">Last GED Score:</p>
-        </div>   
+        </div>  
         <div class="chart-container-bar">
             <canvas id="gedLastScoreBarChart"></canvas>
         </div>
     </div>
 </main>
-<div class="button-container"> 
-    <button class="button-30" role="button" onclick="showGED()">GED</button> 
-    <button class="button-30" role="button" onclick="showSAT()">SAT</button> 
-    <button class="button-30" role="button" onclick="showACT()">ACT</button> 
+<div class="button-container">
+    <button class="button-30" role="button" onclick="showGED()">GED</button>
+    <button class="button-30" role="button" onclick="showSAT()">SAT</button>
+    <button class="button-30" role="button" onclick="showACT()">ACT</button>
 </div>
+
 
 <div class="flex-container">          
     <div class="testlessonscontainer">
@@ -82,7 +85,8 @@
             </div><br/><br/>
         </div>
 
-        <div id="sat-tests-container" class="container"> 
+
+        <div id="sat-tests-container" class="container">
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/test.html'">START</button>
@@ -92,6 +96,7 @@
                     <p>Wrong Answers will be displayed at the end.</p>
                 </div>
             </div>
+
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -103,6 +108,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/dsat-timed-test.html'">START</button>
@@ -112,6 +118,7 @@
                     <p>Description here</p>
                 </div>
             </div>
+
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -123,6 +130,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-31" role="button" type="button" onclick="location.href='https://www.brainjelli.com/sat-timed-reading-test.html'">START</button>
@@ -132,6 +140,7 @@
                     <p>This is a timed SAT practice test. Wrong answers will be displayed.</p>
                 </div>
             </div>
+
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -143,6 +152,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/sat-timed-math-test.html'">START</button>
@@ -153,6 +163,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-untimed-math-test.html'">START</button>
@@ -161,8 +172,9 @@
                     <p class="pbungee">SAT Untimed Math Test</p>
                     <p>Timed SAT practice test. Wrong answers will be shown.</p>
                 </div>
-            </div> 
-        </div> 
+            </div>
+        </div>
+
 
         <div id="sat-lessons-container" class="container hidden">
             <div class="seccontainer">
@@ -175,6 +187,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-landing'">START</button>
@@ -185,7 +198,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showCommandOfEvidenceLessons()">START</button>
                 </div>
@@ -195,7 +209,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showCentralIdeasAndDetailLessons()">START</button>
                 </div>
@@ -205,7 +220,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showInferenceLessons()">START</button>
                 </div>
@@ -215,7 +231,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showWordsInContextLessons()">START</button>
                 </div>
@@ -224,8 +241,8 @@
                     <p>4 Lessons</p>
                 </div>
             </div>
-            
-            <div class="seccontainer"> 
+           
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showTextStructureAndPurposeLessons()">START</button>
                 </div>
@@ -235,7 +252,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showCrossTextConnectionsLessons()">START</button>
                 </div>
@@ -245,7 +263,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showTransitionsLessons()">START</button>
                 </div>
@@ -255,7 +274,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showRhetoricalSynthesisLessons()">START</button>
                 </div>
@@ -265,7 +285,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showBoundariesLessons()">START</button>
                 </div>
@@ -275,7 +296,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showAlgebraLessons()">START</button>
                 </div>
@@ -285,7 +307,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showAdvancedMathLessons()">START</button>
                 </div>
@@ -295,7 +318,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showProblemSolvingDataLessons()">START</button>
                 </div>
@@ -305,7 +329,8 @@
                 </div>
             </div>
 
-            <div class="seccontainer"> 
+
+            <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" onclick="showGeometryLessons()">START</button>
                 </div>
@@ -315,6 +340,7 @@
                 </div>
             </div>
         </div>
+
 
         <div id="act-tests-container" class="container hidden">
             <div class="seccontainer">
@@ -327,6 +353,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-test.html'">START</button>
@@ -336,6 +363,7 @@
                     <p>Full-length untimed ACT practice test. Immediate feedback provided.</p>
                 </div>
             </div>
+
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -347,6 +375,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-english-test.html'">START</button>
@@ -357,6 +386,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-math-test.html'">START</button>
@@ -366,6 +396,7 @@
                     <p>Full-length timed ACT practice test. Results shown at the end.</p>
                 </div>
             </div>
+
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -385,7 +416,7 @@
                     <p>Full-length timed ACT practice test. Results shown at the end.</p>
                 </div>
             </div>
-    
+   
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-english-test.html'">START</button>
@@ -395,7 +426,7 @@
                     <p>Full-length timed ACT practice test. Results shown at the end.</p>
                 </div>
             </div>
-    
+   
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-math-test.html'">START</button>
@@ -405,7 +436,7 @@
                     <p>Full-length timed ACT practice test. Results shown at the end.</p>
                 </div>
             </div>
-    
+   
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-english-test.html'">START</button>
@@ -417,8 +448,11 @@
             </div>
 
 
+
+
         </div>
-        
+       
+
 
         <div id="act-lessons-container" class="container hidden">
             <div class="seccontainer">
@@ -431,6 +465,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-math-lessons.html'">START</button>
@@ -441,6 +476,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-reading-lessons.html'">START</button>
@@ -450,6 +486,7 @@
                     <p>Lessons to improve comprehension and analysis skills.</p>
                 </div>
             </div>
+
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -462,6 +499,7 @@
             </div>
         </div>
 
+
         <div id="ged-tests-container" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -472,6 +510,7 @@
                     <p>Full-length timed GED practice test. Results shown at the end.</p>
                 </div>
             </div>
+
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -484,6 +523,7 @@
             </div>
         </div>
 
+
         <div id="ged-lessons-container" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -495,6 +535,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-english-lessons.html'">START</button>
@@ -504,6 +545,7 @@
                     <p>Lessons on reading comprehension and writing skills.</p>
                 </div>
             </div>
+
 
             <div class="seccontainer">
                 <div class="satplacement">
@@ -515,6 +557,7 @@
                 </div>
             </div>
 
+
             <div class="seccontainer">
                 <div class="satplacement">
                     <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-social-studies-lessons.html'">START</button>
@@ -525,6 +568,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--Command of evidence lessons-->
         <div id="lessons-container-command-of-evidence" class="container hidden">
@@ -565,6 +609,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--Central Ideas lessons-->
         <div id="lessons-container-central-ideas-and-detail" class="container hidden">
@@ -614,6 +659,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--Inferences lessons-->
         <div id="lessons-container-inferences" class="container hidden">
@@ -673,6 +719,7 @@
             </div>
         </div>
 
+
         <!--Words in context lessons-->
         <div id="lessons-container-words-in-context" class="container hidden">
             <div class="seccontainer">
@@ -712,6 +759,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--Text Structure lessons-->
         <div id="lessons-container-text-structure-and-purpose" class="container hidden">
@@ -753,6 +801,7 @@
             </div>
         </div>
 
+
         <!--Cross Text lessons-->
         <div id="lessons-container-cross-text-connections" class="container hidden">
             <div class="seccontainer">
@@ -793,6 +842,7 @@
             </div>
         </div>
 
+
         <!--Transitions lessons-->
         <div id="lessons-container-transitions" class="container hidden">
             <div class="seccontainer">
@@ -832,6 +882,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--Rhetorical lessons-->
         <div id="lessons-container-rhetorical-synthesis" class="container hidden">
@@ -882,6 +933,7 @@
             </div>
         </div>
 
+
         <!--Boundaries lessons-->
         <div id="lessons-container-boundaries" class="container hidden">
             <div class="seccontainer">
@@ -921,6 +973,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--Geometry lessons-->
         <div id="lessons-container-geometry" class="container hidden">
@@ -998,6 +1051,7 @@
             </div>
         </div>
 
+
         <div id="lessons-container-algebra" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -1072,6 +1126,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--Advanced math lessons-->
         <div id="lessons-container-advanced-math" class="container hidden">
@@ -1149,6 +1204,7 @@
             </div>
         </div>
 
+
         <div id="lessons-container-problem-solving-data" class="container hidden">
             <div class="seccontainer">
                 <div class="satplacement">
@@ -1225,6 +1281,7 @@
         </div>
     </div>
 
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Select Containers
@@ -1249,6 +1306,8 @@
             const problemSolvingDataContainer = document.getElementById("lessons-container-problem-solving-data");
 
 
+
+
             // Select Line Charts
             const testTitle = document.getElementById("test-title");
             const satLineChart = document.getElementById("line-chart-sat");
@@ -1257,6 +1316,7 @@
             const satProgressContainer = document.getElementById("sat-progress-container");
             const actProgressContainer = document.getElementById("act-progress-container");
             const gedProgressContainer = document.getElementById("ged-progress-container");
+
 
             // Function to hide all containers
             window.hideAllContainers = function () {
@@ -1302,6 +1362,7 @@
                 });
             };
 
+
             // Functions to show specific sections
             window.showSAT = function () {
                 hideAllContainers();
@@ -1311,6 +1372,7 @@
                 if (testTitle) testTitle.textContent = "SAT Practice Tests and Lessons";
             };
 
+
             window.showACT = function () {
                 hideAllContainers();
                 if (actTestsContainer) actTestsContainer.classList.remove("hidden");
@@ -1319,6 +1381,7 @@
                 if (testTitle) testTitle.textContent = "ACT Practice Tests and Lessons";
             };
 
+
             window.showGED = function () {
                 hideAllContainers();
                 if (gedTestsContainer) gedTestsContainer.classList.remove("hidden");
@@ -1326,6 +1389,7 @@
                 if (gedProgressContainer) gedProgressContainer.classList.remove("hidden");
                 if (testTitle) testTitle.textContent = "GED Practice Tests and Lessons";
             };
+
 
             window.showTests = function () {
                 hideAllContainers();
@@ -1344,6 +1408,7 @@
                 }
             };
 
+
             window.showLessons = function () {
                 hideAllContainers();
                 if (testTitle.textContent.includes("SAT")) {
@@ -1361,12 +1426,14 @@
                 }
             };
 
+
             window.showAlgebraLessons = function () {
                 hideAllContainers();
                 if (algebraContainer) algebraContainer.classList.remove("hidden");
                 if (satLineChart) satLineChart.classList.remove("hidden");
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
+
 
             window.showInferenceLessons = function () {
                 hideAllContainers();
@@ -1375,12 +1442,14 @@
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
+
             window.showGeometryLessons = function () {
                 hideAllContainers();
                 if (geometryContainer) geometryContainer.classList.remove("hidden");
                 if (satLineChart) satLineChart.classList.remove("hidden");
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
+
 
             window.showCommandOfEvidenceLessons = function () {
                 hideAllContainers();
@@ -1389,12 +1458,14 @@
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
+
             window.showCentralIdeasAndDetailLessons = function () {
                 hideAllContainers();
                 if (centralIdeasAndDetailContainer) centralIdeasAndDetailContainer.classList.remove("hidden");
                 if (satLineChart) satLineChart.classList.remove("hidden");
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
+
 
             window.showWordsInContextLessons = function () {
                 hideAllContainers();
@@ -1403,12 +1474,14 @@
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
+
             window.showTextStructureAndPurposeLessons = function () {
                 hideAllContainers();
                 if (textStructureAndPurposeContainer) textStructureAndPurposeContainer.classList.remove("hidden");
                 if (satLineChart) satLineChart.classList.remove("hidden");
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
+
 
             window.showCrossTextConnectionsLessons = function () {
                 hideAllContainers();
@@ -1417,12 +1490,14 @@
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
+
             window.showTransitionsLessons = function () {
                 hideAllContainers();
                 if (transitionsContainer) transitionsContainer.classList.remove("hidden");
                 if (satLineChart) satLineChart.classList.remove("hidden");
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
+
 
             window.showRhetoricalSynthesisLessons = function () {
                 hideAllContainers();
@@ -1431,6 +1506,7 @@
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
+
             window.showBoundariesLessons = function () {
                 hideAllContainers();
                 if (boundariesContainer) boundariesContainer.classList.remove("hidden");
@@ -1438,12 +1514,14 @@
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
 
+
             window.showAdvancedMathLessons = function () {
                 hideAllContainers();
                 if (advancedMathContainer) advancedMathContainer.classList.remove("hidden");
                 if (satLineChart) satLineChart.classList.remove("hidden");
                 if (satProgressContainer) satProgressContainer.classList.remove("hidden");
             };
+
 
             window.showProblemSolvingDataLessons = function () {
                 hideAllContainers();
@@ -1455,6 +1533,7 @@
     </script>
     <script src="scoreChart.js"></script>
     <script src="actScoreChart.js"></script>
+
 
     <div class="progress-container" id="sat-progress-container">
         <h2>SAT Category Progress</h2>
@@ -1526,8 +1605,9 @@
         </div>
     </div>
 
-    
-    
+
+   
+   
     <div class="progress-container hidden" id="act-progress-container">
         <h2>ACT Category Progress</h2>
         <br/>
@@ -1652,6 +1732,7 @@
             <div class="progress-percentage" id="act-theme-text">0% <span class="arrow">→</span></div>
         </div>
 
+
         <div class="progress-item" data-category="act-detail">
             <div class="progress-label">Detail</div>
             <div class="progress-bar"><div class="progress-fill" id="act-detail-bar"></div></div>
@@ -1688,7 +1769,7 @@
             <div class="progress-percentage" id="act-conflicting-viewpoints-text">0% <span class="arrow">→</span></div>
         </div>
     </div>
-    
+   
     <div class="progress-container hidden" id="ged-progress-container">
         <h2>GED Category Progress</h2>
         <br/>
@@ -1714,9 +1795,12 @@
         </div>
     </div>
 
+
 </div> <!-- End of main container -->
 
+
 </div>    
+
 
 </div>
 </div>
@@ -1724,27 +1808,34 @@
 </div>
 
 
+
+
 <script>
-    
+   
     document.addEventListener("DOMContentLoaded", function () {
         const canvas = document.getElementById("lastScoreBarChart");
+
 
         if (!canvas) {
             console.error("Last Score Bar Chart element not found!");
             return;
         }
 
+
         const ctx = canvas.getContext("2d");
+
 
         if (!ctx) {
             console.error("Failed to get 2D context for Last Score Bar Chart!");
             return;
         }
 
+
         // Retrieve the last test score from localStorage
         let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
         let dates = Object.keys(scoreHistory).sort();
         let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+
 
         let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
         let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
@@ -1752,10 +1843,12 @@
         const maxScore = 1600;
         const unfilledScore = maxScore - lastTotal; // Remaining portion
 
+
         // Destroy previous chart if it exists
         if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
             window.lastScoreBarChart.destroy();
         }
+
 
         // Create the new Last Score Single Bar Chart
         window.lastScoreBarChart = new Chart(ctx, {
@@ -1827,25 +1920,32 @@
     });
 
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("actLastScoreBarChart");
+
 
     if (!canvas) {
         console.error("ACT Last Score Bar Chart element not found!");
         return;
     }
 
+
     const ctx = canvas.getContext("2d");
+
 
     if (!ctx) {
         console.error("Failed to get 2D context for ACT Last Score Bar Chart!");
         return;
     }
 
+
     // Retrieve the last test score from localStorage
     let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
     let dates = Object.keys(scoreHistory).sort();
     let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+
 
     let lastEnglish = lastDate ? scoreHistory[lastDate]?.english ?? 0 : 0;
     let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
@@ -1855,10 +1955,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const maxScore = 36;
     const unfilledScore = Math.max(0, maxScore - lastComposite); // Remaining portion
 
+
     // Destroy previous chart if it exists
     if (window.actLastScoreBarChart && typeof window.actLastScoreBarChart.destroy === "function") {
         window.actLastScoreBarChart.destroy();
     }
+
 
     // Create the new ACT Last Score Single Bar Chart
     window.actLastScoreBarChart = new Chart(ctx, {
@@ -1945,242 +2047,412 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+// Add localStorage monitoring
+(function () {
+ const originalSetItem = localStorage.setItem;
+ const originalRemoveItem = localStorage.removeItem;
+ const originalClear = localStorage.clear;
+
+ localStorage.setItem = function (key, value) {
+ console.log(`localStorage.setItem called - Key: ${key}, Value: ${value}`);
+ originalSetItem.apply(this, arguments);
+ };
+
+ localStorage.removeItem = function (key) {
+ console.log(`localStorage.removeItem called - Key: ${key}`);
+ originalRemoveItem.apply(this, arguments);
+ };
+
+ localStorage.clear = function () {
+ console.log("localStorage.clear called");
+ originalClear.apply(this, arguments);
+ };
+})();
+
+// Define categories in global scope so resetProgress can access them
+const satCategories = [
+ "command-of-evidence",
+ "central-ideas-and-detail",
+ "inferences",
+ "words-in-context",
+ "text-structure-and-purpose",
+ "cross-text-connections",
+ "transitions",
+ "rhetorical-synthesis",
+ "boundaries",
+ "algebra",
+ "advanced-math",
+ "problem-solving-and-data",
+ "geometry-and-trigonometry"
+];
+
+const actCategories = [
+ "act-conventions-of-standard-english",
+ "act-knowledge-of-language",
+ "act-production-of-writing",
+ "act-algebra",
+ "act-functions",
+ "act-coordinate-geometry",
+ "act-systems-of-equations",
+ "act-geometry",
+ "act-trigonometry",
+ "act-quadratics",
+ "act-logarithms",
+ "act-complex-numbers",
+ "act-word-problems",
+ "act-probability",
+ "act-sequences",
+ "act-main-idea",
+ "act-authors-purpose",
+ "act-inference",
+ "act-character-motivation",
+ "act-vocabulary-in-context",
+ "act-character-development",
+ "act-symbolism",
+ "act-literary-device",
+ "act-theme",
+ "act-detail",
+ "act-relationship",
+ "act-implication",
+ "act-comparison",
+ "act-data-representation",
+ "act-research-summary",
+ "act-conflicting-viewpoints"
+];
+
 document.addEventListener("DOMContentLoaded", function () {
-    // Function to update progress bars and arrows for a given exam
-    function updateProgressBars(examType, progressKey, categories) {
-        console.log(`Updating ${examType} progress bars...`);
+ console.log("DOMContentLoaded event fired. Script is running...");
 
-        // Load stored data from localStorage
-        let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-        let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("actTestResults")) || {};
+ // Function to update progress bars and arrows for a given exam
+ function updateProgressBars(examType) {
+    console.log(`Calling updateProgressBars for ${examType}...`);
+    console.log(`Updating ${examType} progress bars...`);
 
-        console.log(`${examType} Previous Progress:`, previousProgress);
-        console.log(`${examType} Stored Progress:`, storedProgress);
-        console.log(`${examType} Current Test Results:`, currentTestResults);
+    let historicalProgressKey = examType === "SAT" ? "satHistoricalProgress" : "actHistoricalProgress";
+    let previousProgressKey = examTypePENNY === "SAT" ? "satPreviousProgress" : "actPreviousProgress";
+    let progressKey = examType === "SAT" ? "satProgress" : "actProgress";
+    let testResultsKey = examType === "SAT" ? "satTestResults" : "actTestResults";
 
-        // Initialize storedProgress for categories if empty
-        categories.forEach(category => {
-            if (!storedProgress[category]) {
-                storedProgress[category] = { correct: 0, incorrect: 0 };
-            }
+    let historicalProgress = JSON.parse(localStorage.getItem(historicalProgressKey)) || {};
+    console.log(`${examType} Historical Progress (Loaded):`, historicalProgress);
+
+    let previousProgress = JSON.parse(localStorage.getItem(previousProgressKey)) || {};
+    console.log(`${examType} Previous Progress (Loaded):`, previousProgress);
+
+    let testResults = JSON.parse(localStorage.getItem(testResultsKey)) || {};
+    console.log(`${examType} Current Test Results (Loaded):`, testResults);
+
+    let storedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
+    let hasTestResults = Object.keys(testResults).length > 0;
+    console.log(`${examType} Has Test Results to Process:`, hasTestResults);
+
+    let allCategories = examType === "SAT" ? [
+        "command-of-evidence",
+        "central-ideas-and-detail",
+        "inferences",
+        "words-in-context",
+        "text-structure-and-purpose",
+        "cross-text-connections",
+        "transitions",
+        "rhetorical-synthesis",
+        "boundaries",
+        "algebra",
+        "advanced-math",
+        "problem-solving-and-data-analysis",
+        "geometry-and-trigonometry"
+    ] : [
+        "act-conventions-of-standard-english",
+        "act-knowledge-of-language",
+        "act-production-of-writing",
+        "act-algebra",
+        "act-functions",
+        "act-coordinate-geometry",
+        "act-systems-of-equations",
+        "act-geometry",
+        "act-trigonometry",
+        "act-quadratics",
+        "act-logarithms",
+        "act-complex-numbers",
+        "act-word-problems",
+        "act-probability",
+        "act-sequences",
+        "act-main-idea",
+        "act-authors-purpose",
+        "act-inference",
+        "act-character-motivation",
+        "act-vocabulary-in-context",
+        "act-character-development",
+        "act-symbolism",
+        "act-literary-device",
+        "act-theme",
+        "act-detail",
+        "act-relationship",
+        "act-implication",
+        "act-comparison",
+        "act-data-representation",
+        "act-research-summary",
+        "act-conflicting-viewpoints",
+        "english",
+        "math",
+        "reading",
+        "science"
+    ];
+
+    // Initialize storedProgress if it doesn't exist
+    allCategories.forEach(category => {
+        if (!storedProgress[category]) {
+            storedProgress[category] = { correct: 0, incorrect: 0 };
+        }
+    });
+
+    if (hasTestResults) {
+        // Update storedProgress with test results
+        Object.keys(testResults).forEach(category => {
+            storedProgress[category] = {
+                correct: testResults[category].correct || 0,
+                incorrect: testResults[category].incorrect || 0
+            };
+            console.log(`${examType} Category: ${category}, Adding Correct: ${storedProgress[category].correct}, Incorrect: ${storedProgress[category].incorrect}`);
         });
 
-        // Accumulate results from current test
-        Object.keys(currentTestResults).forEach(category => {
-            if (categories.includes(category)) {
-                let newCorrect = Number(currentTestResults[category]?.correct || 0);
-                let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
-                storedProgress[category].correct += newCorrect;
-                storedProgress[category].incorrect += newIncorrect;
-                console.log(`Updated ${category}: correct=${storedProgress[category].correct}, incorrect=${storedProgress[category].incorrect}`);
-            }
-        });
-
-        // Save updated progress
         localStorage.setItem(progressKey, JSON.stringify(storedProgress));
-        console.log(`${examType} Updated Stored Progress:`, storedProgress);
-
-        // Update progress bars and arrows
-        let updatedPreviousProgress = {};
-        categories.forEach(category => {
-            const correct = storedProgress[category]?.correct || 0;
-            const incorrect = storedProgress[category]?.incorrect || 0;
-            const total = correct + incorrect;
-            const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-
-            // Update progress bar
-            const progressBar = document.getElementById(`${category}-bar`);
-            if (progressBar) {
-                progressBar.style.width = `${percentage}%`;
-                console.log(`Set ${category}-bar width to ${percentage}%`);
-            } else {
-                console.warn(`${examType} Progress bar not found: ${category}-bar`);
-            }
-
-            // Update progress text and arrow
-            const progressText = document.getElementById(`${category}-text`);
-            if (progressText) {
-                // Retrieve previous percentage safely
-                const previousPercentage = previousProgress[category]?.percentage !== undefined 
-                    ? Number(previousProgress[category].percentage) 
-                    : 0;
-
-                let arrow = "→";
-                let arrowColor = "#4e5163";
-
-                console.log(`Comparing ${category}: current=${percentage}, previous=${previousPercentage}`);
-
-                // Only update arrow if there's a previous result to compare against
-                if (previousProgress[category] && total > 0) {
-                    if (percentage > previousPercentage) {
-                        arrow = "↑";
-                        arrowColor = "green";
-                        console.log(`${category} improved: ${previousPercentage}% → ${percentage}%`);
-                    } else if (percentage < previousPercentage) {
-                        arrow = "↓";
-                        arrowColor = "red";
-                        console.log(`${category} decreased: ${previousPercentage}% → ${percentage}%`);
-                    } else {
-                        console.log(`${category} no change: ${percentage}%`);
-                    }
-                } else {
-                    console.log(`${category} first test or no previous data: ${percentage}%`);
-                }
-
-                progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                console.log(`Set ${category}-text to ${percentage}% with arrow ${arrow} (color: ${arrowColor})`);
-            } else {
-                console.warn(`${examType} Progress text not found: ${category}-text`);
-            }
-
-            // Store current percentage for future comparison
-            updatedPreviousProgress[category] = { percentage: percentage };
-        });
-
-        // Save updated previous progress
-        localStorage.setItem("previousTestResults", JSON.stringify(updatedPreviousProgress));
-        console.log(`${examType} Updated Previous Progress:`, updatedPreviousProgress);
-
-        // Clear testResults to prevent duplicate accumulation
-        localStorage.removeItem("actTestResults");
-        console.log("Cleared actTestResults from localStorage");
-    }
-
-    // Define categories for SAT and ACT
-    const satCategories = [
-        "command-of-evidence", "central-ideas", "inferences", "words-in-context",
-        "text-structure-and-purpose", "cross-text-connections", "transitions",
-        "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
-        "problem-solving", "geometry"
-    ];
-
-    const actCategories = [
-        "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing",
-        "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
-        "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
-        "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences",
-        "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
-        "act-vocabulary-in-context", "act-character-development", "act-symbolism",
-        "act-literary-device", "act-theme", "act-detail", "act-relationship",
-        "act-implication", "act-comparison", "act-data-representation",
-        "act-research-summary", "act-conflicting-viewpoints"
-    ];
-
-    // Update progress for active exam
-    const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
-    if (activeExam === "line-chart-sat") {
-        updateProgressBars("SAT", "satProgress", satCategories);
-    } else if (activeExam === "line-chart-act") {
-        updateProgressBars("ACT", "actProgress", actCategories);
+        console.log(`${examType} Updated Stored Progress (Saved):`, storedProgress);
+        console.log(`Verify ${progressKey} in localStorage:`, JSON.parse(localStorage.getItem(progressKey)));
     } else {
-        console.log("No active exam detected, updating both SAT and ACT");
-        updateProgressBars("SAT", "satProgress", satCategories);
-        updateProgressBars("ACT", "actProgress", actCategories);
+        console.log(`${examType} No test results to process, using existing stored progress.`);
     }
+
+    let newProgress = {};
+    let currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+    allCategories.forEach(category => {
+        let categoryProgress = storedProgress[category] || { correct: 0, incorrect: 0 };
+        let correct = categoryProgress.correct;
+        let incorrect = categoryProgress.incorrect;
+        let total = correct + incorrect;
+        let percentage = total > 0 ? Math.round((correct / total) * 100) : (historicalProgress[category]?.percentage || 0);
+
+        console.log(`${examType} Category: ${category}, Correct: ${correct}, Incorrect: ${incorrect}, Total: ${total}, Calculated Percentage: ${percentage}`);
+        newProgress[category] = { percentage };
+
+        let progressBarElement = document.getElementById(`${category}-bar`);
+        let progressTextElement = document.getElementById(`${category}-text`);
+
+        if (progressBarElement) {
+            progressBarElement.style.width = `${percentage}%`;
+            console.log(`${examType} Category: ${category}, Progress Bar Updated to ${percentage}%`);
+        } else {
+            console.log(`${examType} Progress bar not found: ${category}-bar`);
+        }
+
+        if (progressTextElement) {
+            let previousPercentage = previousProgress[category]?.percentage || 0;
+            let currentPercentage = percentage;
+            console.log(`${examType} Category: ${category}, Previous Percentage: ${previousPercentage}, Current Percentage: ${currentPercentage}`);
+
+            let arrow = "→";
+            let increased = currentPercentage > previousPercentage;
+            let decreased = currentPercentage < previousPercentage;
+            if (increased) {
+                arrow = "↑";
+            } else if (decreased) {
+                arrow = "↓";
+            }
+            console.log(`${examType} Category: ${category}, Comparison - Current: ${currentPercentage}, Previous: ${previousPercentage}`);
+            console.log(`${examType} Category: ${category}, Arrow Set to ${arrow} (${increased ? "Increased" : decreased ? "Decreased" : "No Change"})`);
+
+            let arrowColor;
+            if (currentTheme === "dark") {
+                arrowColor = increased ? "#00FF00" : decreased ? "#FF0000" : "#CCCCCC";
+            } else {
+                arrowColor = increased ? "#008000" : decreased ? "#FF0000" : "#4e5163";
+            }
+
+            progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+            console.log(`${examType} Category: ${category}, Progress Text Updated: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
+        } else {
+            console.log(`${examType} Progress text not found: ${category}-text`);
+        }
+
+        historicalProgress[category] = { percentage };
+    });
+
+    if (hasTestResults) {
+        localStorage.setItem(historicalProgressKey, JSON.stringify(historicalProgress));
+        console.log(`${examType} Updated Historical Progress (Saved):`, historicalProgress);
+        console.log(`Verify ${historicalProgressKey} in localStorage:`, JSON.parse(localStorage.getItem(historicalProgressKey)));
+
+        localStorage.setItem(previousProgressKey, JSON.stringify(historicalProgress));
+        console.log(`${examType} Updated Previous Progress (Saved):`, historicalProgress);
+        console.log(`Verify ${previousProgressKey} in localStorage:`, JSON.parse(localStorage.getItem(previousProgressKey)));
+
+        localStorage.removeItem(testResultsKey);
+        console.log(`${examType} Cleared testResults after processing.`);
+    } else {
+        console.log(`${examType} No test results to process, skipping historical progress save.`);
+    }
+
+    console.log(`${examType} Final localStorage state - ${progressKey}:`, JSON.parse(localStorage.getItem(progressKey)));
+    console.log(`${examType} Final localStorage state - ${historicalProgressKey}:`, JSON.parse(localStorage.getItem(historicalProgressKey)));
+    console.log(`${examType} Final localStorage state - ${previousProgressKey}:`, JSON.parse(localStorage.getItem(previousProgressKey)));
+}
+
+
+ // Check last activity and show the corresponding exam
+ function showLastExam() {
+ const lastActivity = JSON.parse(localStorage.getItem("lastActivity"));
+ let activeExam = "line-chart-sat"; // Default to SAT
+
+ if (lastActivity && lastActivity.exam) {
+ switch (lastActivity.exam) {
+ case "SAT":
+ showSAT();
+ activeExam = "line-chart-sat";
+ break;
+ case "ACT":
+ showACT();
+ activeExam = "line-chart-act";
+ break;
+ case "GED":
+ showGED();
+ activeExam = "line-chart-ged";
+ break;
+ default:
+ showSAT();
+ }
+ if (lastActivity.type === "test") {
+ showTests();
+ } else if (lastActivity.type === "lesson") {
+ showLessons();
+ }
+ } else {
+ showSAT();
+ }
+ return activeExam;
+ }
+
+ // Run showLastExam and then update progress
+ const activeExam = showLastExam();
+ console.log("Active Exam after showLastExam:", activeExam);
+
+ // Update progress bars for SAT
+ console.log("Calling updateProgressBars for SAT...");
+ updateProgressBars("SAT", "satProgress", satCategories);
+
+ // Update progress bars for ACT
+ console.log("Calling updateProgressBars for ACT...");
+ updateProgressBars("ACT", "actProgress", actCategories);
 });
 
 function resetProgress() {
-    const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
-    let storageKey, progressPrefix;
+ const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
+ let storageKey, progressPrefix;
 
-    if (activeExam === "line-chart-sat") {
-        storageKey = "satProgress";
-        progressPrefix = [
-            "command-of-evidence", "central-ideas", "inferences", "words-in-context",
-            "text-structure-and-purpose", "cross-text-connections", "transitions",
-            "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
-            "problem-solving", "geometry"
-        ];
-    } else if (activeExam === "line-chart-act") {
-        storageKey = "actProgress";
-        progressPrefix = [
-            "act-conventions-of-standard-english", "act-knowledge-of-language", "act-production-of-writing",
-            "act-algebra", "act-functions", "act-coordinate-geometry", "act-systems-of-equations",
-            "act-geometry", "act-trigonometry", "act-quadratics", "act-logarithms",
-            "act-complex-numbers", "act-word-problems", "act-probability", "act-sequences",
-            "act-main-idea", "act-authors-purpose", "act-inference", "act-character-motivation",
-            "act-vocabulary-in-context", "act-character-development", "act-symbolism",
-            "act-literary-device", "act-theme", "act-detail", "act-relationship",
-            "act-implication", "act-comparison", "act-data-representation",
-            "act-research-summary", "act-conflicting-viewpoints"
-        ];
-    } else if (activeExam === "line-chart-ged") {
-        storageKey = "gedProgress";
-        progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
-    } else {
-        alert("No exam selected!");
-        return;
-    }
+ if (activeExam === "line-chart-sat") {
+ storageKey = "satProgress";
+ progressPrefix = satCategories;
+ } else if (activeExam === "line-chart-act") {
+ storageKey = "actProgress";
+ progressPrefix = actCategories;
+ } else if (activeExam === "line-chart-ged") {
+ storageKey = "gedProgress";
+ progressPrefix = ["ged-math", "ged-language-arts", "ged-science", "ged-social-studies"];
+ } else {
+ alert("No exam selected!");
+ return;
+ }
 
-    if (confirm("Are you sure you want to reset your progress for this exam? This action cannot be undone.")) {
-        // Remove specific exam progress from localStorage
-        localStorage.removeItem(storageKey);
-        localStorage.removeItem("testResults");
-        localStorage.removeItem("previousTestResults"); // Also clear previousTestResults
-        localStorage.removeItem("scoreHistory");
+ if (confirm("Are you sure you want to reset your progress for this exam? This action cannot be undone.")) {
+ // Remove specific exam progress from localStorage
+ localStorage.removeItem(storageKey);
+ // Remove historical progress to ensure no stale data
+ localStorage.removeItem(`${storageKey.replace('Progress', '')}HistoricalProgress`);
 
-        // Remove actScoreHistory for ACT exam
-        if (activeExam === "line-chart-act") {
-            localStorage.removeItem("actScoreHistory");
-        }
+ // Remove test-specific storage items
+ if (activeExam === "line-chart-act") {
+ localStorage.removeItem("actScoreHistory");
+ localStorage.removeItem("actTestResults");
+ // Clear ACT category-specific storage
+ progressPrefix.forEach(category => {
+ localStorage.removeItem(`${category}Progress`);
+ });
+ } else if (activeExam === "line-chart-sat") {
+ localStorage.removeItem("satTestResults");
+ // Also clear SAT score history if it exists
+ localStorage.removeItem("scoreHistory");
+ localStorage.removeItem("readingScore");
+ localStorage.removeItem("mathScore");
+ } else if (activeExam === "line-chart-ged") {
+ localStorage.removeItem("gedTestResults");
+ }
 
-        // Reset progress bars and text for the active exam
-        progressPrefix.forEach(prefix => {
-            const bar = document.getElementById(`${prefix}-bar`);
-            const text = document.getElementById(`${prefix}-text`);
-            if (bar) bar.style.width = "0%";
-            if (text) text.innerHTML = "0% <span class='arrow'>→</span>";
-        });
+ // Reset progress bars and text for the active exam
+ progressPrefix.forEach(prefix => {
+ const bar = document.getElementById(`${prefix}-bar`);
+ const text = document.getElementById(`${prefix}-text`);
+ if (bar) {
+ bar.style.width = "0%";
+ } else {
+ console.warn(`Progress bar not found: ${prefix}-bar`);
+ }
+ if (text) {
+ text.innerHTML = `0% <span class="arrow" style="color:#4e5163;">→</span>`;
+ } else {
+ console.warn(`Progress text not found: ${prefix}-text`);
+ }
+ });
 
-        // Reset the bar chart for the active exam (if applicable)
-        let barChart;
-        if (activeExam === "line-chart-sat" && window.lastScoreBarChart) {
-            barChart = window.lastScoreBarChart;
-        } else if (activeExam === "line-chart-act" && window.actLastScoreBarChart) {
-            barChart = window.actLastScoreBarChart;
-        } else if (activeExam === "line-chart-ged" && window.gedLastScoreBarChart) {
-            barChart = window.gedLastScoreBarChart;
-        }
+ // Reset the bar chart for the active exam
+ let barChart;
+ if (activeExam === "line-chart-sat" && window.lastScoreBarChart) {
+ barChart = window.lastScoreBarChart;
+ } else if (activeExam === "line-chart-act" && window.actLastScoreBarChart) {
+ barChart = window.actLastScoreBarChart;
+ } else if (activeExam === "line-chart-ged" && window.gedLastScoreBarChart) {
+ barChart = window.gedLastScoreBarChart;
+ }
 
-        if (barChart) {
-            barChart.data.datasets.forEach(dataset => {
-                dataset.data = Array(dataset.data.length).fill(0); // Reset scores
-            });
-            barChart.update();
-        }
+ if (barChart) {
+ barChart.data.datasets.forEach(dataset => {
+ dataset.data = Array(dataset.data.length).fill(0);
+ });
+ barChart.update();
+ }
 
-        // Reset the line chart for ACT (if applicable)
-        if (activeExam === "line-chart-act" && window.actScoreChart) {
-            window.actScoreChart.data.datasets.forEach(dataset => {
-                dataset.data = Array(dataset.data.length).fill(0); // Reset scores
-            });
-            window.actScoreChart.update();
-        }
+ // Reset the line chart for ACT
+ if (activeExam === "line-chart-act" && window.actScoreChart) {
+ window.actScoreChart.data.datasets.forEach(dataset => {
+ dataset.data = Array(dataset.data.length).fill(0);
+ });
+ window.actScoreChart.update();
+ }
 
-        alert("Progress for this exam has been reset!");
-    }
+ alert("Progress for this exam has been reset!");
+ }
 }
     function showTests() {
             document.getElementById('tests-container').classList.remove('hidden');
             document.getElementById('lessons-container').classList.add('hidden');
         }
 
+
         function showLessons() {
             document.getElementById('tests-container').classList.add('hidden');
             document.getElementById('lessons-container').classList.remove('hidden');
         }
 </script>
-    
+   
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         console.log("User profile page loaded, updating score summaries");
+
 
         function getScore(lessonId, subject) {
             const score = localStorage.getItem(`${subject}-lessonScore-${lessonId}`) || "Not completed yet";
             console.log(`Fetching ${subject}-lessonScore-${lessonId}: ${score}`);
             return score;
         }
+
 
         // Update Algebra lesson scores (1–10)
         for (let i = 1; i <= 10; i++) {
@@ -2194,6 +2466,7 @@ function resetProgress() {
             }
         }
 
+
         // Update Geometry lesson scores (1–8)
         for (let i = 1; i <= 8; i++) {
             const scoreElement = document.getElementById(`geometry-score-summary-${i}`);
@@ -2206,6 +2479,7 @@ function resetProgress() {
             }
         }
 
+
         // Update Command of Evidence lesson scores (1–4)
         for (let i = 1; i <= 4; i++) {
             const scoreElement = document.getElementById(`command-of-evidence-score-summary-${i}`);
@@ -2217,6 +2491,7 @@ function resetProgress() {
                 console.warn(`Command of Evidence score summary element for lesson ${i} not found`);
             }
         }
+
 
         for (let i = 1; i <= 5; i++) {
           const scoreElement = document.getElementById(`central-ideas-and-detail-score-summary-${i}`);
@@ -2269,6 +2544,7 @@ for (let i = 1; i <= 4; i++) {
     }
 }
 
+
 for (let i = 1; i <= 4; i++) {
     const scoreElement = document.getElementById(`transitions-score-summary-${i}`);
     if (scoreElement) {
@@ -2279,6 +2555,7 @@ for (let i = 1; i <= 4; i++) {
         console.warn(`Transitions score summary element for lesson ${i} not found`);
     }
 }
+
 
 for (let i = 1; i <= 5; i++) {
     const scoreElement = document.getElementById(`rhetorical-synthesis-score-summary-${i}`);
@@ -2291,6 +2568,7 @@ for (let i = 1; i <= 5; i++) {
     }
 }
 
+
         for (let i = 1; i <= 4; i++) {
             const scoreElement = document.getElementById(`boundaries-score-summary-${i}`);
             if (scoreElement) {
@@ -2302,6 +2580,7 @@ for (let i = 1; i <= 5; i++) {
             }
         }
 
+
         for (let i = 1; i <= 8; i++) {
     const scoreElement = document.getElementById(`advanced-math-score-summary-${i}`);
     if (scoreElement) {
@@ -2312,6 +2591,7 @@ for (let i = 1; i <= 5; i++) {
         console.warn(`Advanced Math score summary element for lesson ${i} not found`);
     }
 }
+
 
         // Update Problem Solving and Data Analysis lesson scores (1–4)
         for (let i = 1; i <= 8; i++) {
@@ -2326,13 +2606,16 @@ for (let i = 1; i <= 5; i++) {
 }
 
 
+
+
     });
 </script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Existing code...
-    
+   
         // Check last activity and show the corresponding exam
         function showLastExam() {
             const lastActivity = JSON.parse(localStorage.getItem("lastActivity"));
@@ -2360,15 +2643,16 @@ for (let i = 1; i <= 5; i++) {
                 showSAT(); // Default to SAT
             }
         }
-    
+   
         // Call the function to show the last exam
         showLastExam();
     });
     </script>
-    
+   
 <div class="reset-container center">
     <button class="resetBtn" onclick="resetProgress()">Reset Progress</button>
 </div>
+
 
 <div class="center">
     <footer>
@@ -2390,10 +2674,10 @@ for (let i = 1; i <= 5; i++) {
     <!-- Load SAT Chart JavaScript (Move it here to ensure canvas exists first) -->
 <script src="scoreChart.js" defer></script>
 <script src="actScoreChart.js"></script>
-<script defer src="test-2.js"></script>
-<script src="test-2.js"></script>
+
+
 <script src="algebra-lessons.js"></script>
 <script src="theme-toggle.js"></script>
-<script src="act-progress-tracker.js"></script>
+<script src="progress-tracker.js"></script>
 </body>
 </html>
