@@ -472,7 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function recordTestResults() {
         let results = {};
-
+    
         for (let category in categoryStats) {
             results[category] = {
                 correct: categoryStats[category].correct || 0,
@@ -480,10 +480,10 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             console.log(`SAT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         }
-
+    
         localStorage.setItem("satTestResults", JSON.stringify(results));
         console.log("SAT Test Results Saved:", results);
-
+    
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
             categoryStats[category].incorrect = 0;
