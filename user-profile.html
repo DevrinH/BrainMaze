@@ -2130,7 +2130,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(`Updating ${examType} progress bars...`);
 
     let historicalProgressKey = examType === "SAT" ? "satHistoricalProgress" : "actHistoricalProgress";
-    let previousProgressKey = examTypePENNY === "SAT" ? "satPreviousProgress" : "actPreviousProgress";
+    let previousProgressKey = examType === "SAT" ? "satPreviousProgress" : "actPreviousProgress";
     let progressKey = examType === "SAT" ? "satProgress" : "actProgress";
     let testResultsKey = examType === "SAT" ? "satTestResults" : "actTestResults";
 
@@ -2205,6 +2205,10 @@ document.addEventListener("DOMContentLoaded", function () {
             storedProgress[category] = { correct: 0, incorrect: 0 };
         }
     });
+
+    // Always save storedProgress to ensure progressKey exists
+    localStorage.setItem(progressKey, JSON.stringify(storedProgress));
+    console.log(`${examType} Initialized Stored Progress (Saved):`, storedProgress);
 
     if (hasTestResults) {
         // Update storedProgress with test results
@@ -2296,7 +2300,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(`${examType} Final localStorage state - ${historicalProgressKey}:`, JSON.parse(localStorage.getItem(historicalProgressKey)));
     console.log(`${examType} Final localStorage state - ${previousProgressKey}:`, JSON.parse(localStorage.getItem(previousProgressKey)));
 }
-
 
  // Check last activity and show the corresponding exam
  function showLastExam() {

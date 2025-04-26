@@ -472,7 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function recordTestResults() {
-        let storedResults = localStorage.getItem("actTestResults");
+        let storedResults = localStorage.getItem("satTestResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
     
         if (typeof results !== "object" || Array.isArray(results)) {
@@ -487,7 +487,8 @@ document.addEventListener("DOMContentLoaded", () => {
             results[category].incorrect += categoryStats[category].incorrect || 0;
         }
     
-        localStorage.setItem("actTestResults", JSON.stringify(results));
+        localStorage.setItem("satTestResults", JSON.stringify(results));
+        console.log("SAT Test Results Saved:", results);
     
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
