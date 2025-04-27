@@ -110,7 +110,7 @@ function updateScoreChart() {
                 padding: {
                     left: 40,
                     right: 40,
-                    top: 20, // Increased top padding to ensure labels are visible
+                    top: 30,
                     bottom: 20
                 }
             },
@@ -135,9 +135,16 @@ function updateScoreChart() {
                 y: {
                     ticks: {
                         color: textColor,
-                        font: { size: 14, weight: "bold" }
+                        font: { size: 14, weight: "bold" },
+                        stepSize: 400, // Set step size to control tick intervals
+                        callback: function(value) {
+                            // Only show ticks up to 1600
+                            if (value <= 1600) return value;
+                            return null; // Exclude 1650
+                        }
                     },
-                    max: 1650, // Increased to prevent clipping at 1600
+                    max: 1650, // Keep max above 1600 to prevent clipping
+                    min: 0, // Explicitly set min for clarity
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -165,7 +172,6 @@ function updateScoreChart() {
                     formatter: (value) => (isNaN(value) ? "" : value),
                     align: function (context) {
                         let value = context.dataset.data[context.dataIndex];
-                        // Position labels below for scores near 1600 to avoid clipping
                         if (value >= 1550) return "bottom";
                         return "top";
                     },
