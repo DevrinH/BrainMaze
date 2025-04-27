@@ -2143,7 +2143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Parsed actTestResults:", parsedActResults);
         console.log("All ACT categories and their scores:", parsedActResults);
 
-        let actSection = document.getElementById("line-chart-act");
+        let actSection = document.getElementById("act-progress-container"); // Updated ID
         console.log("ACT section element:", actSection);
         console.log("Is ACT section active?", actSection && !actSection.classList.contains("hidden"));
 
@@ -2243,7 +2243,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Parsed satTestResults:", parsedSatResults);
         console.log("All SAT categories and their scores:", parsedSatResults);
 
-        let satSection = document.getElementById("line-chart-sat");
+        let satSection = document.getElementById("sat-progress-container"); // Updated ID
         console.log("SAT section element:", satSection);
         console.log("Is SAT section active?", satSection && !satSection.classList.contains("hidden"));
 
@@ -2379,8 +2379,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".button-30").forEach(button => {
         button.addEventListener("click", () => {
             setTimeout(() => {
-                const actSection = document.querySelector("#line-chart-act");
-                const satSection = document.querySelector("#line-chart-sat");
+                const actSection = document.querySelector("#act-progress-container"); // Updated ID
+                const satSection = document.querySelector("#sat-progress-container"); // Updated ID
                 const isActSectionActive = actSection && !actSection.classList.contains("hidden");
                 const isSatSectionActive = satSection && !satSection.classList.contains("hidden");
                 console.log("Button clicked - Is ACT section active?", isActSectionActive);
@@ -2393,6 +2393,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 function resetProgress() {
  const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
