@@ -96,8 +96,7 @@ const mathQuestions = [
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
         console.log(`Displaying question ${questionNo} in Math, passage:`, currentQuestion.passage || "No passage");
-        passageElement.style.display = "block";
-        passageElement.innerHTML = currentQuestion.passage || "";
+        passageElement.style.display = "none"; // Math questions typically have no passage
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
         const questionRow = document.querySelector(".question-row");
