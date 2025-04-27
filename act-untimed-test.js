@@ -477,29 +477,48 @@ document.addEventListener("DOMContentLoaded", () => {
         progressBar.firstElementChild.style.width = progress + "%";
     }
 
+ 
+
     function recordTestResults() {
-        let storedResults = localStorage.getItem("actTestResults");
-        let results = storedResults ? JSON.parse(storedResults) : {};
-
-        if (typeof results !== "object" || Array.isArray(results)) {
-            results = {};
-        }
-
+        let results = {};
+    
         for (let category in categoryStats) {
-            if (!results[category]) {
-                results[category] = { correct: 0, incorrect: 0 };
-            }
-            results[category].correct += categoryStats[category].correct || 0;
-            results[category].incorrect += categoryStats[category].incorrect || 0;
+            results[category] = {
+                correct: categoryStats[category].correct || 0,
+                incorrect: categoryStats[category].incorrect || 0
+            };
+            console.log(`ACT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         }
-
+    
         localStorage.setItem("actTestResults", JSON.stringify(results));
-
-        for (let category in categoryStats) {
-            categoryStats[category].correct = 0;
-            categoryStats[category].incorrect = 0;
-        }
+        console.log("ACT Test Results Saved:", results);
+    
+        // Dispatch testSubmitted event
+        window.dispatchEvent(new Event("testSubmitted"));
     }
+    
+    // Example function to simulate answering a question
+    function answerQuestion(category, isCorrect) {
+        if (!categoryStats[category]) {
+            categoryStats[category] = { correct: 0, incorrect: 0 };
+        }
+        if (isCorrect) {
+            categoryStats[category].correct++;
+        } else {
+            categoryStats[category].incorrect++;
+        }
+        recordTestResults();
+    }
+    
+    // Simulate test questions
+    console.log("Displaying question 1 in english, passage: The community center buzzed with anticipation...");
+    answerQuestion("act-conventions-of-standard-english", true);
+    
+    console.log("Displaying question 1 in math, passage: No passage");
+    answerQuestion("act-algebra", true);
+    
+    console.log("Displaying question 2 in math, passage: No passage");
+    answerQuestion("act-functions", true);
 
     function showIntroMessage() {
         resetState();
