@@ -348,6 +348,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem("satTestResults", JSON.stringify(results));
         console.log("SAT Test Results Saved:", results);
+
+        // Dispatch testSubmitted event
+        window.dispatchEvent(new Event("testSubmitted"));
     }
 
     function showIntroMessage() {
