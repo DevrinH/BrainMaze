@@ -136,11 +136,11 @@ function updateScoreChart() {
                     ticks: {
                         color: textColor,
                         font: { size: 14, weight: "bold" },
-                        stepSize: 400, // Set step size to control tick intervals
                         callback: function(value) {
-                            // Only show ticks up to 1600
-                            if (value <= 1600) return value;
-                            return null; // Exclude 1650
+                            // Only show specific tick values: 400, 800, 1200, 1600
+                            const allowedTicks = [400, 800, 1200, 1600];
+                            if (allowedTicks.includes(value)) return value;
+                            return null;
                         }
                     },
                     max: 1650, // Keep max above 1600 to prevent clipping
