@@ -35,6 +35,7 @@ function updateScoreChart() {
 
     // Log local date for chart update
     console.log(`Updating score chart on local date: ${new Date().toLocaleDateString()}`);
+    console.log("Y-axis tick values set to: [400, 800, 1200, 1600]");
 
     // Get corresponding scores
     selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
@@ -137,11 +138,11 @@ function updateScoreChart() {
                         color: textColor,
                         font: { size: 14, weight: "bold" },
                         callback: function(value) {
-                            // Only show specific tick values: 400, 800, 1200, 1600
                             const allowedTicks = [400, 800, 1200, 1600];
-                            if (allowedTicks.includes(value)) return value;
-                            return null;
-                        }
+                            return allowedTicks.includes(value) ? value : null;
+                        },
+                        stepSize: 400, // Enforce 400 intervals
+                        maxTicksLimit: 4 // Strictly limit to 4 ticks
                     },
                     max: 1650, // Keep max above 1600 to prevent clipping
                     min: 0, // Explicitly set min for clarity
