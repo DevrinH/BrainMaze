@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showFinalScore() {
         resetState();
-
+    
         let maxPossibleScore = selectedQuestions.reduce((total, q) => {
             if (q.difficulty === "easy") return total + 1;
             if (q.difficulty === "medium") return total + 2;
@@ -367,12 +367,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 0);
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 600 + 200);
-
+    
         mathScore = scaledScore;
         localStorage.setItem("mathScore", scaledScore);
-
+    
         let totalSATScore = readingWritingScore + mathScore;
-
+    
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("satScoreHistory")) || {};
         scoreHistory[today] = {
@@ -381,12 +381,16 @@ document.addEventListener("DOMContentLoaded", () => {
             total: totalSATScore
         };
         localStorage.setItem("satScoreHistory", JSON.stringify(scoreHistory));
-
+    
         saveTestCompletion("SAT");
-
-        // Update the score chart
-        updateScoreChart();
-
+    
+        // Safeguard to check if updateScoreChart is defined
+        if (typeof updateScoreChart === "function") {
+            updateScoreChart();
+        } else {
+            console.warn("updateScoreChart is not defined. Ensure scoreChart.js is included.");
+        }
+    
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `
