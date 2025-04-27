@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
         "type": "science",
         "difficulty": "medium",
-        "category": "data representation"
+        "category": "act-data-representation"
     },
     {
         "passage": "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
         "type": "science",
         "difficulty": "medium",
-        "category": "data representation"
+        "category": "act-data-representation"
     },
     ];
 
