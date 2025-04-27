@@ -1812,43 +1812,39 @@
 
 <script>
    
-    document.addEventListener("DOMContentLoaded", function () {
+   document.addEventListener("DOMContentLoaded", function () {
         const canvas = document.getElementById("lastScoreBarChart");
-
 
         if (!canvas) {
             console.error("Last Score Bar Chart element not found!");
             return;
         }
 
-
         const ctx = canvas.getContext("2d");
-
 
         if (!ctx) {
             console.error("Failed to get 2D context for Last Score Bar Chart!");
             return;
         }
 
-
-        // Retrieve the last test score from localStorage
-        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+        // Retrieve the last test score from satScoreHistory
+        let scoreHistory = JSON.parse(localStorage.getItem("satScoreHistory")) || {};
         let dates = Object.keys(scoreHistory).sort();
         let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
 
-
         let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
-        let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
+        let lastReading = lastDate ? scoreHistory[lastDate]?.readingWriting ?? 0 : 0;
         let lastTotal = lastMath + lastReading;
         const maxScore = 1600;
         const unfilledScore = maxScore - lastTotal; // Remaining portion
 
+        // Log for debugging
+        console.log(`Updating lastScoreBarChart with local date: ${new Date().toLocaleDateString()}`);
 
         // Destroy previous chart if it exists
         if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
             window.lastScoreBarChart.destroy();
         }
-
 
         // Create the new Last Score Single Bar Chart
         window.lastScoreBarChart = new Chart(ctx, {
@@ -1918,7 +1914,6 @@
             plugins: [ChartDataLabels]
         });
     });
-
 
 
 
