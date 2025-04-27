@@ -1,8 +1,6 @@
 function updateScoreChart() {
-    // Changed from scoreHistory to satScoreHistory
     let scoreHistory = JSON.parse(localStorage.getItem("satScoreHistory")) || {};
 
-    // Ensure dates are sorted properly and use local timezone
     let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
     if (rawDates.length === 0) {
@@ -16,29 +14,21 @@ function updateScoreChart() {
     let selectedTotalScores = [];
 
     if (totalCount <= 10) {
-        // If 10 or fewer scores exist, use them all
         selectedDates = rawDates;
     } else {
-        // Always include first and last date
         selectedDates.push(rawDates[0]);
-
-        // Pick evenly spaced dates (excluding first and last)
-        let interval = Math.floor((totalCount - 2) / 8); // 8 more points needed
+        let interval = Math.floor((totalCount - 2) / 8);
         for (let i = 1; i <= 8; i++) {
             selectedDates.push(rawDates[i * interval]);
         }
-
-        // Include the last date
         selectedDates.push(rawDates[totalCount - 1]);
     }
 
-    // Convert selected dates to proper format
     let dates = selectedDates.map(date => {
         let d = new Date(date + "T00:00:00");
         return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
     });
 
-    // Get corresponding scores (updated field names to match satScoreHistory)
     selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
     selectedReadingScores = selectedDates.map(date => scoreHistory[date]?.readingWriting ?? NaN);
     selectedTotalScores = selectedDates.map(date => scoreHistory[date]?.total ?? NaN);
@@ -58,18 +48,16 @@ function updateScoreChart() {
 
     Chart.register(ChartDataLabels);
 
-    // Create fading gradient for the total score fill
     function createFadingGradient(ctx) {
         let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.clientHeight);
-        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
-        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)"); // Quick fade
-        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)"); // Fully transparent near the middle
+        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)");
+        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)");
+        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)");
         return gradient;
     }
 
     let totalGradient = createFadingGradient(ctx);
 
-    // Determine text color based on theme
     const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
     const textColor = currentTheme === "dark" ? "white" : "black";
 
@@ -90,7 +78,7 @@ function updateScoreChart() {
                 {
                     label: "Reading & Writing",
                     data: selectedReadingScores,
-                    borderColor: "rgb(205, 120, 255)", 
+                    borderColor: "rgb(205, 120, 255)",
                     backgroundColor: "rgb(205, 120, 255)",
                     fill: false,
                     borderWidth: 2.5,
@@ -99,7 +87,7 @@ function updateScoreChart() {
                 {
                     label: "Math",
                     data: selectedMathScores,
-                    borderColor: "rgb(0, 222, 230)", 
+                    borderColor: "rgb(0, 222, 230)",
                     backgroundColor: "rgb(0, 222, 230)",
                     fill: false,
                     borderWidth: 2.5,
@@ -121,7 +109,7 @@ function updateScoreChart() {
             scales: {
                 x: {
                     ticks: {
-                        color: textColor, // Dynamic based on theme
+                        color: textColor,
                         font: { size: 14, weight: "bold" },
                         maxRotation: 45,
                         minRotation: 30,
@@ -138,7 +126,7 @@ function updateScoreChart() {
                 },
                 y: {
                     ticks: {
-                        color: textColor, // Dynamic based on theme
+                        color: textColor,
                         font: { size: 14, weight: "bold" }
                     },
                     max: 1600,
@@ -157,14 +145,14 @@ function updateScoreChart() {
                     display: true,
                     position: "bottom",
                     labels: {
-                        color: textColor, // Dynamic based on theme
+                        color: textColor,
                         font: { size: 14, weight: "bold" },
                         usePointStyle: true,
                         pointStyle: "circle"
                     }
                 },
                 datalabels: {
-                    color: textColor, // Dynamic based on theme
+                    color: textColor,
                     font: { size: 12, weight: "bold" },
                     formatter: (value) => (isNaN(value) ? "" : value),
                     align: function (context) {
@@ -197,15 +185,12 @@ function updateScoreChart() {
     });
 }
 
-// Initial chart render
 document.addEventListener("DOMContentLoaded", updateScoreChart);
 
-// Update chart on theme change
 document.addEventListener("DOMContentLoaded", () => {
     const toggleButton = document.querySelector(".theme-toggle");
     if (toggleButton) {
         toggleButton.addEventListener("click", () => {
-            // Delay to allow theme attribute to update
             setTimeout(updateScoreChart, 100);
         });
     }
