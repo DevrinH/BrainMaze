@@ -1097,6 +1097,7 @@ h3 {
 .answer-choices {
   display: flex;
   flex-direction: column;
+  
 }
 
 #break-message {
@@ -1298,8 +1299,8 @@ background-color:var(--background-color);
 }
 
 .math-section .btn {
-  background-color: #3f4461; /* Slightly lighter background for buttons */
-  color: white; /* White text for buttons */
+  background-color: var(--text-color); /* Slightly lighter background for buttons */
+  color: var(--text-color); /* White text for buttons */
   padding: 12px 15px; /* Adjusted padding for better appearance */
   border: none;
   border-radius: 5px;
