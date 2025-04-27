@@ -479,46 +479,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
 
-    function recordTestResults() {
-        let results = {};
+    document.addEventListener("DOMContentLoaded", () => {
+        let categoryStats = {};
+        let testCompleted = false;
     
-        for (let category in categoryStats) {
-            results[category] = {
-                correct: categoryStats[category].correct || 0,
-                incorrect: categoryStats[category].incorrect || 0
-            };
-            console.log(`ACT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
+        function recordTestResults() {
+            // Load existing test results from localStorage
+            let existingResults = localStorage.getItem("actTestResults");
+            let results = existingResults ? JSON.parse(existingResults) : {};
+    
+            // Accumulate new results into existing results
+            for (let category in categoryStats) {
+                if (!results[category]) {
+                    results[category] = { correct: 0, incorrect: 0 };
+                }
+                results[category].correct += categoryStats[category].correct || 0;
+                results[category].incorrect += categoryStats[category].incorrect || 0;
+                console.log(`ACT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
+            }
+    
+            localStorage.setItem("actTestResults", JSON.stringify(results));
+            console.log("ACT Test Results Saved:", results);
+    
+            // Dispatch testSubmitted event
+            window.dispatchEvent(new Event("testSubmitted"));
+    
+            // Reset categoryStats for the next question
+            if (!testCompleted) {
+                categoryStats = {};
+            }
         }
     
-        localStorage.setItem("actTestResults", JSON.stringify(results));
-        console.log("ACT Test Results Saved:", results);
-    
-        // Dispatch testSubmitted event
-        window.dispatchEvent(new Event("testSubmitted"));
-    }
-    
-    // Example function to simulate answering a question
-    function answerQuestion(category, isCorrect) {
-        if (!categoryStats[category]) {
-            categoryStats[category] = { correct: 0, incorrect: 0 };
+        // Example function to simulate answering a question
+        function answerQuestion(category, isCorrect) {
+            if (!categoryStats[category]) {
+                categoryStats[category] = { correct: 0, incorrect: 0 };
+            }
+            if (isCorrect) {
+                categoryStats[category].correct++;
+            } else {
+                categoryStats[category].incorrect++;
+            }
+            recordTestResults();
         }
-        if (isCorrect) {
-            categoryStats[category].correct++;
-        } else {
-            categoryStats[category].incorrect++;
+    
+        // Simulate test questions
+        console.log("Displaying question 1 in english, passage: The community center buzzed with anticipation...");
+        answerQuestion("act-conventions-of-standard-english", true);
+    
+        console.log("Displaying question 1 in math, passage: No passage");
+        answerQuestion("act-algebra", true);
+    
+        console.log("Displaying question 2 in math, passage: No passage");
+        answerQuestion("act-functions", true);
+    
+        // Simulate additional questions from the log
+        console.log("Displaying question 1 in reading, passage: The old house on Maple Street...");
+        answerQuestion("act-main-idea", true);
+    
+        console.log("Displaying question 1 in science, passage: A group of scientists conducted experiments...");
+        answerQuestion("act-data-representation", true);
+    
+        // Simulate test completion
+        function endTest() {
+            testCompleted = true;
+            recordTestResults();
+            // Navigate to user profile page (simulated)
+            console.log("Test completed, navigating to user profile...");
         }
-        recordTestResults();
-    }
     
-    // Simulate test questions
-    console.log("Displaying question 1 in english, passage: The community center buzzed with anticipation...");
-    answerQuestion("act-conventions-of-standard-english", true);
-    
-    console.log("Displaying question 1 in math, passage: No passage");
-    answerQuestion("act-algebra", true);
-    
-    console.log("Displaying question 2 in math, passage: No passage");
-    answerQuestion("act-functions", true);
+        // Simulate test completion after all questions
+        endTest();
+    });
 
     function showIntroMessage() {
         resetState();
