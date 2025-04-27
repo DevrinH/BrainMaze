@@ -203,7 +203,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    updateProgress("DOMContentLoaded");
+    // Commented out to avoid conflicts with user-profile.html
+    /*
+    document.addEventListener("DOMContentLoaded", () => updateProgress("DOMContentLoaded"));
 
     window.addEventListener("testSubmitted", () => {
         console.log("Test submitted, updating progress...");
@@ -226,4 +228,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 100);
         });
     });
+    */
 });
