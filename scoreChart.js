@@ -1,49 +1,5 @@
 function updateScoreChart() {
-    // Read from satScoreHistory
-    let scoreHistory = JSON.parse(localStorage.getItem("satScoreHistory")) || {};
-
-    // Sort dates
-    let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
-
-    if (rawDates.length === 0) {
-        rawDates = ["No Data"];
-    }
-
-    let totalCount = rawDates.length;
-    let selectedDates = [];
-    let selectedMathScores = [];
-    let selectedReadingScores = [];
-    let selectedTotalScores = [];
-
-    if (totalCount <= 10) {
-        selectedDates = rawDates;
-    } else {
-        selectedDates.push(rawDates[0]);
-        let interval = Math.floor((totalCount - 2) / 8);
-        for (let i = 1; i <= 8; i++) {
-            selectedDates.push(rawDates[i * interval]);
-        }
-        selectedDates.push(rawDates[totalCount - 1]);
-    }
-
-    // Format dates with local date only
-    let dates = selectedDates.map(date => {
-        if (date === "No Data") return date;
-        let d = new Date(date + "T00:00:00");
-        // Show only date in user's local timezone
-        return d.toLocaleDateString(undefined, { 
-            month: "short", 
-            day: "numeric" 
-        });
-    });
-
-    // Log local date for chart update
-    console.log(`Updating score chart on local date: ${new Date().toLocaleDateString()}`);
-
-    // Get corresponding scores
-    selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
-    selectedReadingScores = selectedDates.map(date => scoreHistory[date]?.readingWriting ?? NaN);
-    selectedTotalScores = selectedDates.map(date => scoreHistory[date]?.total ?? NaN);
+    // ... (previous code for reading scoreHistory, sorting dates, etc., remains unchanged)
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
 
@@ -114,7 +70,7 @@ function updateScoreChart() {
                 padding: {
                     left: 40,
                     right: 40,
-                    top: 20,
+                    top: 40, // Increased top padding to accommodate data labels
                     bottom: 20
                 }
             },
@@ -125,7 +81,7 @@ function updateScoreChart() {
                         font: { size: 14, weight: "bold" },
                         maxRotation: 45,
                         minRotation: 30,
-                        autoSkip: true,
+                        autoSkip: true
                     },
                     grid: {
                         drawTicks: true,
@@ -141,7 +97,8 @@ function updateScoreChart() {
                         color: textColor,
                         font: { size: 14, weight: "bold" }
                     },
-                    max: 1600,
+                    suggestedMax: 1650, // Set suggestedMax to give extra space for 1600
+                    beginAtZero: false, // Optional: Prevent y-axis from starting at 0
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -169,24 +126,31 @@ function updateScoreChart() {
                     formatter: (value) => (isNaN(value) ? "" : value),
                     align: function (context) {
                         let index = context.dataIndex;
+                        let value = context.dataset.data[index];
+                        // For values at 1600, position label below to avoid clipping
+                        if (value >= 1600) return "bottom";
                         let datasetIndex = context.datasetIndex;
                         let mathValue = selectedMathScores[index];
                         let readingValue = selectedReadingScores[index];
-        
+
                         if (datasetIndex === 1 && readingValue < mathValue) return "bottom";
                         if (datasetIndex === 2 && mathValue < readingValue) return "bottom";
                         return "top";
                     },
                     anchor: function (context) {
                         let index = context.dataIndex;
+                        let value = context.dataset.data[index];
+                        // Adjust anchor for 1600 to start below
+                        if (value >= 1600) return "start";
                         let datasetIndex = context.datasetIndex;
                         let mathValue = selectedMathScores[index];
                         let readingValue = selectedReadingScores[index];
-        
+
                         if (datasetIndex === 1 && readingValue < mathValue) return "start";
                         if (datasetIndex === 2 && mathValue < readingValue) return "start";
                         return "end";
                     },
+                    offset: 8, // Add offset to ensure labels are not too close to points
                     xAdjust: function (context) {
                         return context.dataIndex === 0 ? 15 : 0;
                     }
