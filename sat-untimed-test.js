@@ -1,3 +1,33 @@
+let categoryStats = {};
+let testCompleted = false;
+
+function recordTestResults() {
+    // Load existing test results from localStorage
+    let existingResults = localStorage.getItem("satTestResults");
+    let results = existingResults ? JSON.parse(existingResults) : {};
+
+    // Accumulate new results into existing results
+    for (let category in categoryStats) {
+        if (!results[category]) {
+            results[category] = { correct: 0, incorrect: 0 };
+        }
+        results[category].correct += categoryStats[category].correct || 0;
+        results[category].incorrect += categoryStats[category].incorrect || 0;
+        console.log(`SAT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
+    }
+
+    localStorage.setItem("satTestResults", JSON.stringify(results));
+    console.log("SAT Test Results Saved:", results);
+
+    // Dispatch testSubmitted event
+    window.dispatchEvent(new Event("testSubmitted"));
+
+    // Reset categoryStats for the next question, but only if the test isn't completed
+    if (!testCompleted) {
+        categoryStats = {};
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const passageElement = document.getElementById("passage");
     const questionElement = document.getElementById("question");
@@ -11,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let score = 0;
     let correctAnswers = 0;
     let selectedQuestions = [];
-    let categoryStats = {};
     let currentSection = "reading-writing";
     let readingWritingScore = 0, mathScore = 0;
 
@@ -115,6 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
         recordTestResults();
         resetState();
         showFinalScore();
+        testCompleted = true; // Mark the test as completed
+        recordTestResults(); // Save final results
     }
 
     function startQuiz(questions) {
@@ -127,7 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
         }
         currentQuestionIndex = 0;
-        categoryStats = {};
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
 
@@ -240,6 +270,8 @@ document.addEventListener("DOMContentLoaded", () => {
             button.disabled = true;
         });
 
+        recordTestResults();
+
         nextButton.style.display = "block";
         nextButton.disabled = false;
     }
@@ -333,24 +365,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const progressBar = document.getElementById("progress-bar-test");
         let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
         progressBar.firstElementChild.style.width = progress + "%";
-    }
-
-    function recordTestResults() {
-        let results = {};
-
-        for (let category in categoryStats) {
-            results[category] = {
-                correct: categoryStats[category].correct || 0,
-                incorrect: categoryStats[category].incorrect || 0
-            };
-            console.log(`SAT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
-        }
-
-        localStorage.setItem("satTestResults", JSON.stringify(results));
-        console.log("SAT Test Results Saved:", results);
-
-        // Dispatch testSubmitted event
-        window.dispatchEvent(new Event("testSubmitted"));
     }
 
     function showIntroMessage() {
