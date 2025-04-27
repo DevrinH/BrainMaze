@@ -2398,14 +2398,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (isActSectionActive || isSatSectionActive) {
                     updateProgress("tabSwitch");
                 }
-            }, 100);
+            }, 10); // Reduced delay for faster updates
         });
     });
 
-    // Listen for test completion to trigger immediate progress update
-    window.addEventListener("testSubmitted", () => {
-        console.log("Test submitted, updating progress...");
-        updateProgress("testSubmitted");
+    // Ensure progress updates after navigation
+    window.addEventListener("load", () => {
+        console.log("Window loaded, updating progress...");
+        updateProgress("windowLoad");
     });
 });
 
