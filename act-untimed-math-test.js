@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let categoryStats = {};
     let results = localStorage.getItem("actResults");
     results = results ? JSON.parse(results) : {};
-    let englishResponses = [];
-    let englishScore = 0;
-    const currentSection = "english";
+    let mathResponses = [];
+    let mathScore = 0;
+    const currentSection = "math";
 
 // Math question bank
 const mathQuestions = [
@@ -52,24 +52,24 @@ const mathQuestions = [
         }
         actIntroContainer.classList.add("hide");
         document.getElementById("question-container").classList.remove("hide");
-        startEnglishSection();
+        startMathSection();
     }
 
-    function startEnglishSection() {
-        englishResponses = [];
+    function startMathSection() {
+        mathResponses = [];
         score = 0;
         correctAnswers = 0;
-        startQuiz(englishQuestions);
+        startQuiz(mathQuestions);
     }
 
     function startQuiz(questions) {
         if (!questions || questions.length === 0) {
-            console.error("No questions available for English section");
+            console.error("No questions available for Math section");
             return;
         }
         const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
         if (missingPassages.length > 0) {
-            console.warn(`Warning: ${missingPassages.length} questions in English lack a valid passage`);
+            console.warn(`Warning: ${missingPassages.length} questions in Math lack a valid passage`);
         }
         currentQuestionIndex = 0;
         categoryStats = {};
@@ -81,8 +81,8 @@ const mathQuestions = [
 
         // Add section-specific class
         const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("english-section");
-        questionRow.classList.add("english-section");
+        questionRow.classList.remove("math-section");
+        questionRow.classList.add("math-section");
 
         showQuestion();
     }
@@ -95,7 +95,7 @@ const mathQuestions = [
         }
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        console.log(`Displaying question ${questionNo} in English, passage:`, currentQuestion.passage || "No passage");
+        console.log(`Displaying question ${questionNo} in Math, passage:`, currentQuestion.passage || "No passage");
         passageElement.style.display = "block";
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
@@ -152,14 +152,14 @@ const mathQuestions = [
         });
 
         const response = {
-            section: "english",
+            section: "math",
             question: responseQuestion,
             userAnswer: selectedBtn.innerHTML,
             correctAnswer: correctAnswer,
             wasCorrect: isCorrect
         };
 
-        englishResponses.push(response);
+        mathResponses.push(response);
 
         if (isCorrect) {
             selectedBtn.classList.add("correct");
@@ -193,18 +193,18 @@ const mathQuestions = [
     function showFinalScore() {
         resetState();
 
-        // Calculate English score
+        // Calculate Math score
         let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assume 75 questions
         let rawScore = score;
-        englishScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
+        mathScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
         // Store score in localStorage
-        localStorage.setItem("englishScore", englishScore);
+        localStorage.setItem("mathScore", mathScore);
 
         // Update score history
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-        scoreHistory[today] = { english: englishScore };
+        scoreHistory[today] = { math: mathScore };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
 
         // Save test completion metadata
@@ -213,7 +213,7 @@ const mathQuestions = [
         // Update UI
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>English ACT Score:</strong> ${englishScore} / 36</p>`;
+        questionElement.innerHTML = `<p><strong>Math ACT Score:</strong> ${mathScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
@@ -242,7 +242,7 @@ const mathQuestions = [
         questionElement.style.overflowY = "scroll";
         questionElement.style.maxHeight = "80vh";
 
-        const incorrectResponses = englishResponses.filter(
+        const incorrectResponses = mathResponses.filter(
             response => response && response.wasCorrect === false
         );
         console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
@@ -252,11 +252,11 @@ const mathQuestions = [
         } else {
             const fragment = document.createDocumentFragment();
             const sectionDiv = document.createElement("div");
-            sectionDiv.innerHTML = "<h3>English Section</h3>";
+            sectionDiv.innerHTML = "<h3>Math Section</h3>";
             incorrectResponses.forEach((response, index) => {
-                console.log(`Processing English response ${index + 1}:`, response);
+                console.log(`Processing Math response ${index + 1}:`, response);
                 const explanation = generateExplanation(response);
-                console.log(`Explanation for English response ${index + 1}:`, explanation);
+                console.log(`Explanation for Math response ${index + 1}:`, explanation);
                 const div = document.createElement("div");
                 div.className = "explanation";
                 div.innerHTML = `
@@ -330,7 +330,7 @@ const mathQuestions = [
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
-        questionElement.innerHTML = "This is an untimed ACT English Test. Complete the section at your own pace.";
+        questionElement.innerHTML = "This is an untimed ACT Math Test. Complete the section at your own pace.";
         questionElement.classList.add("centered-score");
 
         const startButton = document.createElement("button");
@@ -338,7 +338,7 @@ const mathQuestions = [
         startButton.classList.add("btn", "centered-btn");
         startButton.addEventListener("click", () => {
             questionElement.classList.remove("centered-score");
-            startEnglishSection();
+            startMathSection();
         });
         answerButtons.appendChild(startButton);
     }
