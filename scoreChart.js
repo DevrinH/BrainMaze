@@ -1,5 +1,6 @@
 function updateScoreChart() {
-    let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
+    // Changed from scoreHistory to satScoreHistory
+    let scoreHistory = JSON.parse(localStorage.getItem("satScoreHistory")) || {};
 
     // Ensure dates are sorted properly and use local timezone
     let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
@@ -37,9 +38,9 @@ function updateScoreChart() {
         return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
     });
 
-    // Get corresponding scores
+    // Get corresponding scores (updated field names to match satScoreHistory)
     selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
-    selectedReadingScores = selectedDates.map(date => scoreHistory[date]?.reading ?? NaN);
+    selectedReadingScores = selectedDates.map(date => scoreHistory[date]?.readingWriting ?? NaN);
     selectedTotalScores = selectedDates.map(date => scoreHistory[date]?.total ?? NaN);
 
     let ctx = document.getElementById("scoreChart").getContext("2d");
@@ -57,7 +58,7 @@ function updateScoreChart() {
 
     Chart.register(ChartDataLabels);
 
-    // **Create fading gradient for the total score fill**
+    // Create fading gradient for the total score fill
     function createFadingGradient(ctx) {
         let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.clientHeight);
         gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)"); // Darkest near the line
@@ -68,7 +69,7 @@ function updateScoreChart() {
 
     let totalGradient = createFadingGradient(ctx);
 
-    // **Determine text color based on theme**
+    // Determine text color based on theme
     const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
     const textColor = currentTheme === "dark" ? "white" : "black";
 
