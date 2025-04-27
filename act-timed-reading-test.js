@@ -643,7 +643,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
-        questionElement.innerHTML = "This is a timed ACT English Test. You have 45 minutes to complete the section.";
+        questionElement.innerHTML = "This is a timed ACT Reading Test. You have 35 minutes to complete the section.";
         questionElement.classList.add("centered-score");
 
         const startButton = document.createElement("button");
