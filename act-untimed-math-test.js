@@ -67,10 +67,6 @@ const mathQuestions = [
             console.error("No questions available for Math section");
             return;
         }
-        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
-        if (missingPassages.length > 0) {
-            console.warn(`Warning: ${missingPassages.length} questions in Math lack a valid passage`);
-        }
         currentQuestionIndex = 0;
         categoryStats = {};
         selectedQuestions = questions;
