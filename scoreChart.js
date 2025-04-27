@@ -30,11 +30,7 @@ function updateScoreChart() {
     let dates = selectedDates.map(date => {
         if (date === "No Data") return date;
         let d = new Date(date + "T00:00:00");
-        // Show only date in user's local timezone
-        return d.toLocaleDateString(undefined, { 
-            month: "short", 
-            day: "numeric" 
-        });
+        return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
     });
 
     // Log local date for chart update
@@ -114,7 +110,7 @@ function updateScoreChart() {
                 padding: {
                     left: 40,
                     right: 40,
-                    top: 20,
+                    top: 20, // Increased top padding to ensure labels are visible
                     bottom: 20
                 }
             },
@@ -141,7 +137,7 @@ function updateScoreChart() {
                         color: textColor,
                         font: { size: 14, weight: "bold" }
                     },
-                    max: 1600,
+                    max: 1650, // Increased to prevent clipping at 1600
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -168,23 +164,14 @@ function updateScoreChart() {
                     font: { size: 12, weight: "bold" },
                     formatter: (value) => (isNaN(value) ? "" : value),
                     align: function (context) {
-                        let index = context.dataIndex;
-                        let datasetIndex = context.datasetIndex;
-                        let mathValue = selectedMathScores[index];
-                        let readingValue = selectedReadingScores[index];
-        
-                        if (datasetIndex === 1 && readingValue < mathValue) return "bottom";
-                        if (datasetIndex === 2 && mathValue < readingValue) return "bottom";
+                        let value = context.dataset.data[context.dataIndex];
+                        // Position labels below for scores near 1600 to avoid clipping
+                        if (value >= 1550) return "bottom";
                         return "top";
                     },
                     anchor: function (context) {
-                        let index = context.dataIndex;
-                        let datasetIndex = context.datasetIndex;
-                        let mathValue = selectedMathScores[index];
-                        let readingValue = selectedReadingScores[index];
-        
-                        if (datasetIndex === 1 && readingValue < mathValue) return "start";
-                        if (datasetIndex === 2 && mathValue < readingValue) return "start";
+                        let value = context.dataset.data[context.dataIndex];
+                        if (value >= 1550) return "start";
                         return "end";
                     },
                     xAdjust: function (context) {
