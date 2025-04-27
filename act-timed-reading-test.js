@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let refreshIntervalId;
     let time;
     let englishResponses = [];
-    const currentSection = "english";
+    const currentSection = "reading";
 
     // Reading question bank (unchanged)
     const readingQuestions = [  
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
         startEnglishSection();
     }
 
-    function startEnglishSection() {
-        time = 45 * 60; // 45 minutes in seconds
+    function startReadingSection() {
+        time = 35 * 60; // 45 minutes in seconds
         englishResponses = []; // Reset English responses
         refreshIntervalId = setInterval(updateCountdown, 1000);
         setTimeout(endEnglishSection, 2700000); // End after 45 minutes
