@@ -26,21 +26,19 @@ function updateScoreChart() {
         selectedDates.push(rawDates[totalCount - 1]);
     }
 
-    // Format dates with local time
+    // Format dates with local date only
     let dates = selectedDates.map(date => {
         if (date === "No Data") return date;
         let d = new Date(date + "T00:00:00");
-        // Include time in user's local timezone
-        return d.toLocaleString(undefined, { 
+        // Show only date in user's local timezone
+        return d.toLocaleDateString(undefined, { 
             month: "short", 
-            day: "numeric", 
-            hour: "2-digit", 
-            minute: "2-digit" 
+            day: "numeric" 
         });
     });
 
-    // Log local time for each score update
-    console.log(`Updating score chart at local time: ${new Date().toLocaleString()}`);
+    // Log local date for chart update
+    console.log(`Updating score chart on local date: ${new Date().toLocaleDateString()}`);
 
     // Get corresponding scores
     selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
