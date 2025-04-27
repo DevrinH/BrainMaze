@@ -111,7 +111,7 @@ function updateScoreChart() {
                 padding: {
                     left: 40,
                     right: 40,
-                    top: 30,
+                    top: 40, // Increased to ensure 1600 label is visible
                     bottom: 20
                 }
             },
@@ -137,12 +137,8 @@ function updateScoreChart() {
                     ticks: {
                         color: textColor,
                         font: { size: 14, weight: "bold" },
-                        callback: function(value) {
-                            const allowedTicks = [400, 800, 1200, 1600];
-                            return allowedTicks.includes(value) ? value : null;
-                        },
-                        stepSize: 400, // Enforce 400 intervals
-                        maxTicksLimit: 4 // Strictly limit to 4 ticks
+                        values: [400, 800, 1200, 1600], // Explicitly set tick labels
+                        autoSkip: false // Prevent Chart.js from skipping ticks
                     },
                     max: 1650, // Keep max above 1600 to prevent clipping
                     min: 0, // Explicitly set min for clarity
