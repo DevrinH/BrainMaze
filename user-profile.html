@@ -2376,18 +2376,21 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Active Exam after showLastExam:", activeExam);
 
     // Add event listeners for tab switching
-    document.getElementById("act-tab").addEventListener("click", function() {
-        console.log("ACT tab clicked");
-        document.getElementById("line-chart-act").classList.remove("hidden");
-        document.getElementById("line-chart-sat").classList.add("hidden");
-        updateProgress();
-    });
+    document.querySelectorAll(".button-30").forEach(button => {
+        button.addEventListener("click", () => {
+            setTimeout(() => {
+                const actSection = document.querySelector("#line-chart-act");
+                const satSection = document.querySelector("#line-chart-sat");
+                const isActSectionActive = actSection && !actSection.classList.contains("hidden");
+                const isSatSectionActive = satSection && !satSection.classList.contains("hidden");
+                console.log("Button clicked - Is ACT section active?", isActSectionActive);
+                console.log("Button clicked - Is SAT section active?", isSatSectionActive);
 
-    document.getElementById("sat-tab").addEventListener("click", function() {
-        console.log("SAT tab clicked");
-        document.getElementById("line-chart-sat").classList.remove("hidden");
-        document.getElementById("line-chart-act").classList.add("hidden");
-        updateProgress();
+                if (isActSectionActive || isSatSectionActive) {
+                    updateProgress("tabSwitch");
+                }
+            }, 100);
+        });
     });
 });
 
