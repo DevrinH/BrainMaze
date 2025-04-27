@@ -2143,7 +2143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Parsed actTestResults:", parsedActResults);
         console.log("All ACT categories and their scores:", parsedActResults);
 
-        let actSection = document.getElementById("act-progress-container"); // Updated ID
+        let actSection = document.getElementById("act-progress-container");
         console.log("ACT section element:", actSection);
         console.log("Is ACT section active?", actSection && !actSection.classList.contains("hidden"));
 
@@ -2174,7 +2174,8 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Cleared actTestResults from localStorage");
 
             progressItems.forEach(item => {
-                let category = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                let category = `act-${displayCategory}`; // Add "act-" prefix to match test results
                 console.log("Processing ACT category:", category);
 
                 let progressBarElement = document.getElementById(`${category}-bar`);
@@ -2243,7 +2244,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Parsed satTestResults:", parsedSatResults);
         console.log("All SAT categories and their scores:", parsedSatResults);
 
-        let satSection = document.getElementById("sat-progress-container"); // Updated ID
+        let satSection = document.getElementById("sat-progress-container");
         console.log("SAT section element:", satSection);
         console.log("Is SAT section active?", satSection && !satSection.classList.contains("hidden"));
 
@@ -2379,8 +2380,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".button-30").forEach(button => {
         button.addEventListener("click", () => {
             setTimeout(() => {
-                const actSection = document.querySelector("#act-progress-container"); // Updated ID
-                const satSection = document.querySelector("#sat-progress-container"); // Updated ID
+                const actSection = document.querySelector("#act-progress-container");
+                const satSection = document.querySelector("#sat-progress-container");
                 const isActSectionActive = actSection && !actSection.classList.contains("hidden");
                 const isSatSectionActive = satSection && !satSection.classList.contains("hidden");
                 console.log("Button clicked - Is ACT section active?", isActSectionActive);
