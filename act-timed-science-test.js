@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { "text": "C) 50°C", "correct": false },
             { "text": "D) 60°C", "correct": false }
         ],
-        "type": "reading",
+        "type": "science",
         "difficulty": "medium",
         "category": "data representation"
     },
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { "text": "C) It remains constant", "correct": false },
             { "text": "D) It increases then decreases", "correct": false }
         ],
-        "type": "reading",
+        "type": "science",
         "difficulty": "medium",
         "category": "data representation"
     },
@@ -57,15 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         actIntroContainer.classList.add("hide");
         document.getElementById("question-container").classList.remove("hide");
-        startReadingSection();
+        startScienceSection();
     }
 
-    function startReadingSection() {
+    function startScienceSection() {
         time = 35 * 60; // 45 minutes in seconds
-        readingResponses = []; // Reset Reading responses
+        scienceResponses = []; // Reset Science responses
         refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endReadingSection, 2700000); // End after 45 minutes
-        startQuiz(readingQuestions);
+        setTimeout(endScienceSection, 2700000); // End after 45 minutes
+        startQuiz(scienceQuestions);
     }
 
     function updateCountdown() {
@@ -75,13 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
         countdownEl.innerHTML = `${minutes} : ${seconds}`;
         if (time === 0) {
             clearInterval(refreshIntervalId);
-            endReadingSection();
+            endScienceSection();
         } else {
             time--;
         }
     }
 
-    function endReadingSection() {
+    function endScienceSection() {
         clearInterval(refreshIntervalId);
         resetState();
         showFinalScore();
@@ -89,12 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function startQuiz(questions) {
         if (!questions || questions.length === 0) {
-            console.error("No questions available for Reading section");
+            console.error("No questions available for Science section");
             return;
         }
         const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
         if (missingPassages.length > 0) {
-            console.warn(`Warning: ${missingPassages.length} questions in Reading lack a valid passage`);
+            console.warn(`Warning: ${missingPassages.length} questions in Science lack a valid passage`);
         }
         currentQuestionIndex = 0;
         score = 0;
@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add section-specific class
         const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("reading-section");
-        questionRow.classList.add("reading-section");
+        questionRow.classList.remove("science-section");
+        questionRow.classList.add("science-section");
 
         showQuestion();
     }
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        console.log(`Displaying question ${questionNo} in Reading, passage:`, currentQuestion.passage || "No passage");
+        console.log(`Displaying question ${questionNo} in Science, passage:`, currentQuestion.passage || "No passage");
         passageElement.style.display = "block";
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
@@ -179,14 +179,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const response = {
-            section: "reading",
+            section: "science",
             question: responseQuestion,
             userAnswer: selectedBtn.innerHTML,
             correctAnswer: correctAnswer,
             wasCorrect: isCorrect
         };
 
-        readingResponses.push(response);
+        scienceResponses.push(response);
 
         if (isCorrect) {
             selectedBtn.classList.add("correct");
@@ -221,18 +221,18 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(refreshIntervalId);
         resetState();
 
-        // Calculate Reading score
+        // Calculate Science score
         let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assume 75 questions
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
         // Store score in localStorage
-        localStorage.setItem("readingScore", scaledScore);
+        localStorage.setItem("scienceScore", scaledScore);
 
         // Update score history
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-        scoreHistory[today] = { reading: scaledScore };
+        scoreHistory[today] = { science: scaledScore };
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
 
         // Save test completion metadata
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update UI
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Reading ACT Score:</strong> ${scaledScore} / 36</p>`;
+        questionElement.innerHTML = `<p><strong>Science ACT Score:</strong> ${scaledScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
         questionElement.style.overflowY = "scroll";
         questionElement.style.maxHeight = "80vh";
 
-        const incorrectResponses = readingResponses.filter(
+        const incorrectResponses = scienceResponses.filter(
             response => response && response.wasCorrect === false
         );
         console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
@@ -280,11 +280,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             const fragment = document.createDocumentFragment();
             const sectionDiv = document.createElement("div");
-            sectionDiv.innerHTML = "<h3>Reading Section</h3>";
+            sectionDiv.innerHTML = "<h3>Science Section</h3>";
             incorrectResponses.forEach((response, index) => {
-                console.log(`Processing Reading response ${index + 1}:`, response);
+                console.log(`Processing Science response ${index + 1}:`, response);
                 const explanation = generateExplanation(response);
-                console.log(`Explanation for Reading response ${index + 1}:`, explanation);
+                console.log(`Explanation for Science response ${index + 1}:`, explanation);
                 const div = document.createElement("div");
                 div.className = "explanation";
                 div.innerHTML = `
@@ -606,7 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentQuestionIndex < selectedQuestions.length) {
             showQuestion();
         } else {
-            endReadingSection();
+            endScienceSection();
         }
     }
 
@@ -644,7 +644,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
-        questionElement.innerHTML = "This is a timed ACT Reading Test. You have 35 minutes to complete the section.";
+        questionElement.innerHTML = "This is a timed ACT Science Test. You have 35 minutes to complete the section.";
         questionElement.classList.add("centered-score");
 
         const startButton = document.createElement("button");
@@ -652,7 +652,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startButton.classList.add("btn", "centered-btn");
         startButton.addEventListener("click", () => {
             questionElement.classList.remove("centered-score");
-            startReadingSection();
+            startScienceSection();
         });
         answerButtons.appendChild(startButton);
     }
