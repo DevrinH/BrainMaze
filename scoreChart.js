@@ -1,6 +1,8 @@
 function updateScoreChart() {
+    // Read from satScoreHistory
     let scoreHistory = JSON.parse(localStorage.getItem("satScoreHistory")) || {};
 
+    // Sort dates
     let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
     if (rawDates.length === 0) {
@@ -24,11 +26,23 @@ function updateScoreChart() {
         selectedDates.push(rawDates[totalCount - 1]);
     }
 
+    // Format dates with local time
     let dates = selectedDates.map(date => {
+        if (date === "No Data") return date;
         let d = new Date(date + "T00:00:00");
-        return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+        // Include time in user's local timezone
+        return d.toLocaleString(undefined, { 
+            month: "short", 
+            day: "numeric", 
+            hour: "2-digit", 
+            minute: "2-digit" 
+        });
     });
 
+    // Log local time for each score update
+    console.log(`Updating score chart at local time: ${new Date().toLocaleString()}`);
+
+    // Get corresponding scores
     selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
     selectedReadingScores = selectedDates.map(date => scoreHistory[date]?.readingWriting ?? NaN);
     selectedTotalScores = selectedDates.map(date => scoreHistory[date]?.total ?? NaN);
