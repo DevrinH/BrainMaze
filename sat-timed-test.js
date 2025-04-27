@@ -384,6 +384,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         saveTestCompletion("SAT");
 
+        // Update the score chart
+        updateScoreChart();
+
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `
