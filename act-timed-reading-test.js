@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         type: "reading",
         difficulty: "medium",
     category: "act-authors-purpose"
-      },
+      }
     ];
 
     function startTest() {
