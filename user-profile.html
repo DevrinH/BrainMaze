@@ -2175,7 +2175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             progressItems.forEach(item => {
                 let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
-                let category = `act-${displayCategory}`; // Add "act-" prefix to match test results
+                let category = `act-${displayCategory}`;
                 console.log("Processing ACT category:", category);
 
                 let progressBarElement = document.getElementById(`${category}-bar`);
@@ -2183,7 +2183,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(`Bar element for ${category}:`, progressBarElement);
                 console.log(`Text element for ${category}:`, progressTextElement);
 
-                let categoryData = parsedActResults[category] || actProgress[category] || { correct: 0, incorrect: 0 };
+                let categoryData = actProgress[category] || { correct: 0, incorrect: 0 };
                 let total = categoryData.correct + categoryData.incorrect;
                 let percentage = total > 0 ? Math.round((categoryData.correct / total) * 100) : 0;
 
@@ -2193,6 +2193,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (progressBarElement) {
                     progressBarElement.style.width = `${percentage}%`;
+                    // Force reflow to ensure rendering
+                    progressBarElement.offsetHeight;
                 } else {
                     console.warn(`Progress bar element not found for category ${category}. Expected ID: ${category}-bar`);
                 }
@@ -2220,6 +2222,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
                     progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                    // Force reflow to ensure rendering
+                    progressTextElement.offsetHeight;
                     console.log(`Updated ACT ${category} - Bar width: ${percentage}%, Text: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
                 } else {
                     console.log(`Text element not found for ${category}`);
@@ -2283,7 +2287,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(`Bar element for ${category}:`, progressBarElement);
                 console.log(`Text element for ${category}:`, progressTextElement);
 
-                let categoryData = parsedSatResults[category] || satProgress[category] || { correct: 0, incorrect: 0 };
+                let categoryData = satProgress[category] || { correct: 0, incorrect: 0 };
                 let total = categoryData.correct + categoryData.incorrect;
                 let percentage = total > 0 ? Math.round((categoryData.correct / total) * 100) : 0;
 
@@ -2293,6 +2297,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (progressBarElement) {
                     progressBarElement.style.width = `${percentage}%`;
+                    // Force reflow to ensure rendering
+                    progressBarElement.offsetHeight;
                 } else {
                     console.warn(`Progress bar element not found for category ${category}. Expected ID: ${category}-bar`);
                 }
@@ -2320,6 +2326,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
                     progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                    // Force reflow to ensure rendering
+                    progressTextElement.offsetHeight;
                     console.log(`Updated SAT ${category} - Bar width: ${percentage}%, Text: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
                 } else {
                     console.log(`Text element not found for ${category}`);
@@ -2392,6 +2400,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }, 100);
         });
+    });
+
+    // Listen for test completion to trigger immediate progress update
+    window.addEventListener("testSubmitted", () => {
+        console.log("Test submitted, updating progress...");
+        updateProgress("testSubmitted");
     });
 });
 
