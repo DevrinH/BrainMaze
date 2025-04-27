@@ -137,12 +137,15 @@ function updateScoreChart() {
                     ticks: {
                         color: textColor,
                         font: { size: 14, weight: "bold" },
-                        values: [400, 800, 1200, 1600], // Explicitly set tick labels
-                        maxTicksLimit: 5 // Limit to prevent additional ticks
+                        callback: function(value) {
+                            const allowedTicks = [400, 800, 1200, 1600];
+                            return allowedTicks.includes(value) ? value : null;
+                        },
+                        stepSize: 400, // Enforce 400 intervals
+                        maxTicksLimit: 5 // Limit to prevent extra ticks
                     },
                     max: 1650, // Keep max above 1600 to prevent clipping
                     min: 0, // Explicitly set min for clarity
-                    suggestedMax: 1600, // Suggest max tick at 1600
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
