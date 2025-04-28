@@ -139,12 +139,15 @@ function updateScoreChart() {
         font: { size: 14, weight: "bold" },
         stepSize: 400,
         callback: function (value) {
-            return value;
+            // Only show tick labels for 400, 800, 1200, 1600
+            if ([400, 800, 1200, 1600].includes(value)) {
+                return value;
+            }
+            return '';
         }
     },
-    suggestedMin: 0,    // <-- suggest starting lower (like 0)
-    min: 200,           // <-- hard minimum at 200
-    max: 1600,
+    suggestedMin: 100,    // Graph starts lower
+    suggestedMax: 1700,   // A little space above
     grid: {
         drawTicks: true,
         tickLength: 8,
