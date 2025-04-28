@@ -142,7 +142,7 @@ function updateScoreChart() {
                             return value; // <-- REMOVE the filtering here!
                         }
                     },
-                    min: 400,  // <-- Start at 400
+                    min: 200,  // <-- Start at 400
                     max: 1600, // <-- End at 1600
                     grid: {
                         drawTicks: true,
