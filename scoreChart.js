@@ -137,17 +137,16 @@ function updateScoreChart() {
     ticks: {
         color: textColor,
         font: { size: 14, weight: "bold" },
-        stepSize: 400,
         callback: function (value) {
-            // Only show labels for 400, 800, 1200, 1600
+            // Only label 400, 800, 1200, 1600
             if ([400, 800, 1200, 1600].includes(value)) {
                 return value;
             }
             return '';
         }
     },
-    min: 100,   // True minimum (no suggestedMin)
-    max: 1600,  // Stop exactly at 1600
+    min: 100,           // minimum for breathing room
+    max: 1600,          // hard limit at 1600
     grid: {
         drawTicks: true,
         tickLength: 8,
