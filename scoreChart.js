@@ -134,25 +134,26 @@ function updateScoreChart() {
                     }
                 },
                 y: {
-                    ticks: {
-                        color: textColor,
-                        font: { size: 14, weight: "bold" },
-                        stepSize: 400,
-                        callback: function (value) {
-                            return value; // <-- REMOVE the filtering here!
-                        }
-                    },
-                    min: 200,  // <-- Start at 400
-                    max: 1600, // <-- End at 1600
-                    grid: {
-                        drawTicks: true,
-                        tickLength: 8,
-                        tickWidth: 2,
-                        color: "black",
-                        drawOnChartArea: false,
-                        drawBorder: false
-                    }
-                }
+    ticks: {
+        color: textColor,
+        font: { size: 14, weight: "bold" },
+        stepSize: 400,
+        callback: function (value) {
+            return value;
+        }
+    },
+    suggestedMin: 0,    // <-- suggest starting lower (like 0)
+    min: 200,           // <-- hard minimum at 200
+    max: 1600,
+    grid: {
+        drawTicks: true,
+        tickLength: 8,
+        tickWidth: 2,
+        color: "black",
+        drawOnChartArea: false,
+        drawBorder: false
+    }
+}
                 
                 
             },
