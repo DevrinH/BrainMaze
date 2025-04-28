@@ -137,11 +137,16 @@ function updateScoreChart() {
                     ticks: {
                         color: textColor,
                         font: { size: 14, weight: "bold" },
-                        values: [400, 800, 1200, 1600], // Explicitly set tick labels
-                        autoSkip: false // Prevent Chart.js from skipping ticks
+                        stepSize: 400, // Add this!
+                        callback: function (value) {
+                            if ([400, 800, 1200, 1600].includes(value)) {
+                                return value;
+                            }
+                            return '';
+                        }
                     },
-                    max: 1650, // Keep max above 1600 to prevent clipping
-                    min: 0, // Explicitly set min for clarity
+                    min: 0,
+                    max: 1700, // Give some extra breathing room (buffer) above 1600
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -151,6 +156,7 @@ function updateScoreChart() {
                         drawBorder: false
                     }
                 }
+                
             },
             plugins: {
                 legend: {
