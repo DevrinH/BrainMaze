@@ -137,16 +137,13 @@ function updateScoreChart() {
                     ticks: {
                         color: textColor,
                         font: { size: 14, weight: "bold" },
-                        stepSize: 400, // Add this!
+                        stepSize: 400,
                         callback: function (value) {
-                            if ([400, 800, 1200, 1600].includes(value)) {
-                                return value;
-                            }
-                            return '';
+                            return value; // <-- REMOVE the filtering here!
                         }
                     },
-                    min: 0,
-                    max: 1700, // Give some extra breathing room (buffer) above 1600
+                    min: 400,  // <-- Start at 400
+                    max: 1600, // <-- End at 1600
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -156,6 +153,7 @@ function updateScoreChart() {
                         drawBorder: false
                     }
                 }
+                
                 
             },
             plugins: {
