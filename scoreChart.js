@@ -107,7 +107,7 @@ window.scoreChart = new Chart(ctx, {
             padding: {
                 left: 40,
                 right: 40,
-                top: 40, // Ensure 1600 label is visible
+                top: 50, // Increased to ensure 1600 label is visible
                 bottom: 20
             }
         },
@@ -134,13 +134,16 @@ window.scoreChart = new Chart(ctx, {
                     color: textColor,
                     font: { size: 14, weight: "bold" },
                     callback: function(value) {
-                        const allowedTicks = [200, 400, 600, 800, 1000, 1200, 1400, 1600];
-                        return allowedTicks.includes(value) ? value : null;
+                        // Allow ticks at 200 intervals up to 1600
+                        if (value % 200 === 0 && value >= 200 && value <= 1600) {
+                            return value;
+                        }
+                        return null;
                     },
                     stepSize: 200, // Increment by 200
                     maxTicksLimit: 9 // Allow up to 8 ticks (200 to 1600) plus boundary
                 },
-                max: 1650, // Keep max above 1600 to prevent clipping
+                max: 1700, // Increased for extra padding
                 min: 0, // Explicitly set min for clarity
                 grid: {
                     drawTicks: true,
@@ -185,3 +188,6 @@ window.scoreChart = new Chart(ctx, {
     },
     plugins: [ChartDataLabels]
 });
+
+// Debug rendered ticks
+console.log("Rendered y-axis ticks:", window.scoreChart.scales.y.ticks.map(tick => tick.value));
