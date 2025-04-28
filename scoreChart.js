@@ -133,21 +133,21 @@ function updateScoreChart() {
                         drawBorder: false
                     }
                 },
-                y: {
+               y: {
     ticks: {
         color: textColor,
         font: { size: 14, weight: "bold" },
         stepSize: 400,
         callback: function (value) {
-            // Only show tick labels for 400, 800, 1200, 1600
+            // Only show labels for 400, 800, 1200, 1600
             if ([400, 800, 1200, 1600].includes(value)) {
                 return value;
             }
             return '';
         }
     },
-    suggestedMin: 100,    // Graph starts lower
-    suggestedMax: 1700,   // A little space above
+    min: 100,   // True minimum (no suggestedMin)
+    max: 1600,  // Stop exactly at 1600
     grid: {
         drawTicks: true,
         tickLength: 8,
