@@ -156,37 +156,39 @@ document.addEventListener("DOMContentLoaded", () => {
     // Section Starters
     function startRlaSection() {
         currentSection = "rla";
-        time = 150 * 60; // 150 minutes
+        time = 150 * 60;
         rlaResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endRlaSection, 9000000); // 150 min in ms
+        setTimeout(endRlaSection, 9000000);
         startQuiz(rlaQuestions);
     }
 
     function startMathSection() {
         currentSection = "math";
-        time = 115 * 60; // 115 minutes
+        time = 115 * 60;
         mathResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endMathSection, 6900000); // 115 min in ms
+        setTimeout(endMathSection, 6900000);
         startQuiz(mathQuestions);
     }
 
     function startScienceSection() {
         currentSection = "science";
-        time = 90 * 60; // 90 minutes
+        time = 90 * 60;
         scienceResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endScienceSection, 5400000); // 90 min in ms
+        setTimeout(endScienceSection, 5400000);
+        passageElement.innerHTML = ""; // Clear passage to mimic ACT
         startQuiz(scienceQuestions);
     }
 
     function startSocialStudiesSection() {
         currentSection = "social studies";
-        time = 70 * 60; // 70 minutes
+        time = 70 * 60;
         socialStudiesResponses = [];
         refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endSocialStudiesSection, 4200000); // 70 min in ms
+        setTimeout(endSocialStudiesSection, 4200000);
+        passageElement.innerHTML = ""; // Clear passage to mimic ACT
         startQuiz(socialStudiesQuestions);
     }
 
@@ -246,6 +248,10 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("No questions available for", currentSection);
             return;
         }
+        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
+        if (missingPassages.length > 0 && currentSection !== "math") {
+            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
+        }
         currentQuestionIndex = 0;
         score = 0;
         correctAnswers = 0;
@@ -253,6 +259,10 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
 
+        // Reset layout classes
+        document.querySelector(".question-row").classList.remove("score-display");
+
+        // Add section-specific class
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("rla-section", "math-section", "science-section", "social-studies-section");
         questionRow.classList.add(`${currentSection.replace(" ", "-")}-section`);
@@ -264,15 +274,21 @@ document.addEventListener("DOMContentLoaded", () => {
     function showQuestion() {
         resetState();
         if (!selectedQuestions[currentQuestionIndex]) {
-            console.error("No question at index", currentQuestionIndex);
+            console.error("No question available at index", currentQuestionIndex);
             return;
         }
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
+        console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
         passageElement.style.display = currentSection === "math" ? "none" : "block";
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
+        const questionRow = document.querySelector(".question-row");
+        questionRow.classList.remove("score-display");
+        questionElement.classList.remove("centered-score");
+
+        // Display answer buttons without option letters
         currentQuestion.answers.forEach((answer) => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
@@ -309,9 +325,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+        const safePassage = currentQuestion.passage || "No passage provided";
+        const safeQuestion = currentQuestion.question || "No question provided";
+        const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
+
+        console.log("Creating user response:", currentSection, ":", {
+            question: responseQuestion,
+            userAnswer: selectedBtn.innerHTML,
+            correctAnswer: correctAnswer,
+            wasCorrect: isCorrect
+        });
+
         const response = {
             section: currentSection,
-            question: currentSection === "math" ? currentQuestion.question : (currentQuestion.passage || "") + "<br/><br/>" + currentQuestion.question,
+            question: responseQuestion,
             userAnswer: selectedBtn.innerHTML,
             correctAnswer: correctAnswer,
             wasCorrect: isCorrect
@@ -350,9 +377,9 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(refreshIntervalId);
         resetState();
 
-        let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3); // Assume 30 questions
+        let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
         let rawScore = score;
-        let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100); // GED scale: 100–200
+        let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
 
         document.getElementById("question-container").classList.remove("hide");
         localStorage.setItem(currentSection + "Score", scaledScore);
@@ -419,6 +446,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show Explanations
     function showExplanations() {
+        console.log("Entering showExplanations");
         resetState();
         passageElement.innerHTML = "";
         questionElement.innerHTML = "<h2>Review of Incorrect Answers</h2>";
@@ -432,7 +460,10 @@ document.addEventListener("DOMContentLoaded", () => {
             ...socialStudiesResponses.map(r => ({ ...r, section: "social studies" }))
         ];
 
-        const incorrectResponses = allResponses.filter(response => response.wasCorrect === false);
+        const incorrectResponses = allResponses.filter(
+            response => response && response.wasCorrect === false && response.section
+        );
+        console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
 
         if (incorrectResponses.length === 0) {
             questionElement.innerHTML += "<p>Congratulations! You got all answers correct.</p>";
@@ -443,16 +474,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 const sectionResponses = incorrectResponses.filter(res => res.section === section);
                 if (sectionResponses.length > 0) {
                     const sectionDiv = document.createElement("div");
-                    sectionDiv.innerHTML = `<h3>${section.toUpperCase()} Section</h3>`;
+                    sectionDiv.innerHTML = `<h3>${section.charAt(0).toUpperCase() + section.slice(1)} Section</h3>`;
                     sectionResponses.forEach((response, index) => {
+                        console.log(`Processing ${section} response ${index + 1}:`, response);
                         const explanation = generateExplanation(response);
+                        console.log(`Explanation for ${section} response ${index + 1}:`, explanation);
                         const div = document.createElement("div");
                         div.className = "explanation";
                         div.innerHTML = `
                             <h4>Question ${index + 1}</h4>
-                            <p><strong>Question:</strong> ${response.question}</p>
-                            <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
-                            <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
+                            <p><strong>Question:</strong> ${response.question || "Missing question"}</p>
+                            <p><strong>Your Answer:</strong> ${response.userAnswer || "N/A"}</p>
+                            <p><strong>Correct Answer:</strong> ${response.correctAnswer || "N/A"}</p>
                             <p><strong>Explanation:</strong> ${explanation}</p>
                         `;
                         sectionDiv.appendChild(div);
@@ -460,9 +493,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     fragment.appendChild(sectionDiv);
                 }
             });
+            console.log("Appending to questionElement:", questionElement);
             questionElement.appendChild(fragment);
         }
 
+        console.log("Setting Finish button");
         nextButton.innerHTML = "Finish";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
@@ -594,14 +629,4 @@ document.addEventListener("DOMContentLoaded", () => {
             switch (currentSection) {
                 case "rla": startMathSection(); break;
                 case "math": startScienceSection(); break;
-                case "science": startSocialStudiesSection(); break;
-                case "social studies": showFinalScore(); break;
-            }
-        });
-    } else {
-        console.error("continue-btn element not found");
-    }
-
-    // Initialize
-    showIntroMessage();
-});
+                case "science": startSocial HeyStudiesSection(); break
