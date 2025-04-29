@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "rla",
             difficulty: "medium",
-            category: "language"
+            category: "ged-language"
         },
         {
             passage: "The small town of Millville faced a dilemma in 2023...",
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "rla",
             difficulty: "medium",
-            category: "reading"
+            category: "ged-reading"
         }
     ];
 
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "math",
             difficulty: "medium",
-            category: "algebra"
+            category: "ged-algebra"
         },
         {
             passage: "",
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "math",
             difficulty: "easy",
-            category: "geometry"
+            category: "ged-geometry"
         }
     ];
 
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "social studies",
             difficulty: "medium",
-            category: "civics"
+            category: "ged-civics"
         },
         {
             passage: "In 1963, the March on Washington drew over 200,000 people...",
