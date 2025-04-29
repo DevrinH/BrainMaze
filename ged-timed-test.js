@@ -15,10 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let correctAnswers = 0;
     let selectedQuestions = [];
     let categoryStats = {};
-    let results = localStorage.getItem("gedResults");
-    results = results ? JSON.parse(results) : {};
-    let refreshIntervalId;
+    let testCompleted = false;
     let time;
+    let refreshIntervalId;
     let currentSection = "rla";
     let rlaResponses = [];
     let mathResponses = [];
@@ -38,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "rla",
             difficulty: "medium",
-            category: "ged-language"
+            category: "ged-language-arts"
         },
         {
             passage: "The small town of Millville faced a dilemma in 2023...",
@@ -51,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "rla",
             difficulty: "medium",
-            category: "ged-reading"
+            category: "ged-language-arts"
         }
     ];
 
@@ -96,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "science",
             difficulty: "medium",
-            category: "data representation"
+            category: "ged-science"
         },
         {
             passage: "The researcher also tested water pH levels (5, 7, 9) on plant growth...",
@@ -109,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "science",
             difficulty: "medium",
-            category: "scientific reasoning"
+            category: "ged-science"
         }
     ];
 
@@ -125,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "social studies",
             difficulty: "medium",
-            category: "ged-civics"
+            category: "ged-social-studies"
         },
         {
             passage: "In 1963, the March on Washington drew over 200,000 people...",
@@ -138,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             type: "social studies",
             difficulty: "medium",
-            category: "history"
+            category: "ged-social-studies"
         }
     ];
 
@@ -158,8 +157,10 @@ document.addEventListener("DOMContentLoaded", () => {
         currentSection = "rla";
         time = 150 * 60;
         rlaResponses = [];
+        score = 0;
+        correctAnswers = 0;
         refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endRlaSection, 9000000);
+        setTimeout(endRlaSection, 150 * 60 * 1000);
         startQuiz(rlaQuestions);
     }
 
@@ -167,8 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
         currentSection = "math";
         time = 115 * 60;
         mathResponses = [];
+        score = 0;
+        correctAnswers = 0;
         refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endMathSection, 6900000);
+        setTimeout(endMathSection, 115 * 60 * 1000);
         startQuiz(mathQuestions);
     }
 
@@ -176,9 +179,11 @@ document.addEventListener("DOMContentLoaded", () => {
         currentSection = "science";
         time = 90 * 60;
         scienceResponses = [];
+        score = 0;
+        correctAnswers = 0;
         refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endScienceSection, 5400000);
-        passageElement.innerHTML = ""; // Clear passage to mimic ACT
+        setTimeout(endScienceSection, 90 * 60 * 1000);
+        passageElement.innerHTML = "";
         startQuiz(scienceQuestions);
     }
 
@@ -186,9 +191,11 @@ document.addEventListener("DOMContentLoaded", () => {
         currentSection = "social studies";
         time = 70 * 60;
         socialStudiesResponses = [];
+        score = 0;
+        correctAnswers = 0;
         refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endSocialStudiesSection, 4200000);
-        passageElement.innerHTML = ""; // Clear passage to mimic ACT
+        setTimeout(endSocialStudiesSection, 70 * 60 * 1000);
+        passageElement.innerHTML = "";
         startQuiz(socialStudiesQuestions);
     }
 
@@ -214,6 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Section Enders
     function endRlaSection() {
         clearInterval(refreshIntervalId);
+        recordTestResults();
         resetState();
         showScore();
         document.getElementById("question-container").classList.add("hide");
@@ -222,6 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function endMathSection() {
         clearInterval(refreshIntervalId);
+        recordTestResults();
         resetState();
         showScore();
         document.getElementById("question-container").classList.add("hide");
@@ -230,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function endScienceSection() {
         clearInterval(refreshIntervalId);
+        recordTestResults();
         resetState();
         showScore();
         document.getElementById("question-container").classList.add("hide");
@@ -238,8 +248,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function endSocialStudiesSection() {
         clearInterval(refreshIntervalId);
+        recordTestResults();
         resetState();
         showFinalScore();
+        testCompleted = true;
+        recordTestResults();
     }
 
     // Start Quiz
@@ -259,10 +272,8 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
 
-        // Reset layout classes
         document.querySelector(".question-row").classList.remove("score-display");
 
-        // Add section-specific class
         const questionRow = document.querySelector(".question-row");
         questionRow.classList.remove("rla-section", "math-section", "science-section", "social-studies-section");
         questionRow.classList.add(`${currentSection.replace(" ", "-")}-section`);
@@ -288,7 +299,6 @@ document.addEventListener("DOMContentLoaded", () => {
         questionRow.classList.remove("score-display");
         questionElement.classList.remove("centered-score");
 
-        // Display answer buttons without option letters
         currentQuestion.answers.forEach((answer) => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
@@ -361,12 +371,12 @@ document.addEventListener("DOMContentLoaded", () => {
             categoryStats[questionCategory].incorrect++;
         }
 
-        recordTestResults();
-
         Array.from(answerButtons.children).forEach(button => {
             if (button.dataset.correct === "true") button.classList.add("correct");
             button.disabled = true;
         });
+
+        recordTestResults();
 
         nextButton.style.display = "block";
         nextButton.disabled = false;
@@ -387,9 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
         questionElement.innerHTML = `${currentSection.toUpperCase()} GED Score: ${scaledScore} / 200`;
         questionElement.classList.add("centered-score");
 
-        const questionRow = document.querySelector(".question-row");
-        questionRow.classList.add("score-display");
-
+        document.querySelector(".question-row").classList.add("score-display");
         nextButton.innerHTML = "Continue";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
@@ -544,12 +552,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle Next Button
     function handleNextButton() {
-        recordTestResults();
         currentQuestionIndex++;
         if (currentQuestionIndex < selectedQuestions.length) {
             showQuestion();
         } else {
-            showScore();
+            switch (currentSection) {
+                case "rla": endRlaSection(); break;
+                case "math": endMathSection(); break;
+                case "science": endScienceSection(); break;
+                case "social studies": endSocialStudiesSection(); break;
+            }
         }
     }
 
@@ -575,13 +587,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             results[category].correct += categoryStats[category].correct || 0;
             results[category].incorrect += categoryStats[category].incorrect || 0;
+            console.log(`Saving category ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         }
 
         localStorage.setItem("gedTestResults", JSON.stringify(results));
+        console.log("Stored gedTestResults:", results);
 
-        for (let category in categoryStats) {
-            categoryStats[category].correct = 0;
-            categoryStats[category].incorrect = 0;
+        if (!testCompleted) {
+            for (let category in categoryStats) {
+                categoryStats[category].correct = 0;
+                categoryStats[category].incorrect = 0;
+            }
         }
     }
 
@@ -635,6 +651,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     } else {
         console.error("continue-btn element not found");
+    }
+
+    if (!countdownEl) {
+        console.error("countdown element not found");
     }
 
     // Initialize
