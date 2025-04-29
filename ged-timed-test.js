@@ -629,4 +629,14 @@ document.addEventListener("DOMContentLoaded", () => {
             switch (currentSection) {
                 case "rla": startMathSection(); break;
                 case "math": startScienceSection(); break;
-                case "science": startSocial HeyStudiesSection(); break
+                case "science": startSocial HeyStudiesSection(); break;
+                case "social studies": showFinalScore(); break;
+            }
+        });
+    } else {
+        console.error("continue-btn element not found");
+    }
+
+    // Initialize
+    showIntroMessage();
+});
