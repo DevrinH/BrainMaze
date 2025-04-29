@@ -2073,66 +2073,66 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 
 // Define categories in global scope so resetProgress can access them
-const satCategories = [
-    "command-of-evidence",
-    "central-ideas-and-detail",
-    "inferences",
-    "words-in-context",
-    "text-structure-and-purpose",
-    "cross-text-connections",
-    "transitions",
-    "rhetorical-synthesis",
-    "boundaries",
-    "algebra",
-    "advanced-math",
-    "problem-solving-and-data",
-    "geometry-and-trigonometry"
-];
-
-const actCategories = [
-    "act-conventions-of-standard-english",
-    "act-knowledge-of-language",
-    "act-production-of-writing",
-    "act-algebra",
-    "act-functions",
-    "act-coordinate-geometry",
-    "act-systems-of-equations",
-    "act-geometry",
-    "act-trigonometry",
-    "act-quadratics",
-    "act-logarithms",
-    "act-complex-numbers",
-    "act-word-problems",
-    "act-probability",
-    "act-sequences",
-    "act-main-idea",
-    "act-authors-purpose",
-    "act-inference",
-    "act-character-motivation",
-    "act-vocabulary-in-context",
-    "act-character-development",
-    "act-symbolism",
-    "act-literary-device",
-    "act-theme",
-    "act-detail",
-    "act-relationship",
-    "act-implication",
-    "act-comparison",
-    "act-data-representation",
-    "act-research-summary",
-    "act-conflicting-viewpoints"
-];
-
-const gedCategories = [
-    "ged-algebra",
-    "ged-geometry",
-    "ged-language-arts",
-    "ged-science",
-    "ged-social-studies"
-];
-
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOMContentLoaded event fired. Script is running...");
+
+    const satCategories = [
+        "command-of-evidence",
+        "central-ideas-and-detail",
+        "inferences",
+        "words-in-context",
+        "text-structure-and-purpose",
+        "cross-text-connections",
+        "transitions",
+        "rhetorical-synthesis",
+        "boundaries",
+        "algebra",
+        "advanced-math",
+        "problem-solving-and-data",
+        "geometry-and-trigonometry"
+    ];
+
+    const actCategories = [
+        "act-conventions-of-standard-english",
+        "act-knowledge-of-language",
+        "act-production-of-writing",
+        "act-algebra",
+        "act-functions",
+        "act-coordinate-geometry",
+        "act-systems-of-equations",
+        "act-geometry",
+        "act-trigonometry",
+        "act-quadratics",
+        "act-logarithms",
+        "act-complex-numbers",
+        "act-word-problems",
+        "act-probability",
+        "act-sequences",
+        "act-main-idea",
+        "act-authors-purpose",
+        "act-inference",
+        "act-character-motivation",
+        "act-vocabulary-in-context",
+        "act-character-development",
+        "act-symbolism",
+        "act-literary-device",
+        "act-theme",
+        "act-detail",
+        "act-relationship",
+        "act-implication",
+        "act-comparison",
+        "act-data-representation",
+        "act-research-summary",
+        "act-conflicting-viewpoints"
+    ];
+
+    const gedCategories = [
+        "ged-algebra",
+        "ged-geometry",
+        "ged-language-arts",
+        "ged-science",
+        "ged-social-studies"
+    ];
 
     // Function to update progress bars and arrows for ACT, SAT, and GED
     let progressUpdatedByMainScript = false;
@@ -2166,7 +2166,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Loaded actHistoricalProgress before update:", historicalProgress);
             console.log("Loaded actProgress before update:", actProgress);
 
-            // Accumulate ACT test results into actProgress
             Object.keys(parsedActResults).forEach(category => {
                 if (!actProgress[category]) {
                     actProgress[category] = { correct: 0, incorrect: 0 };
@@ -2179,7 +2178,6 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("actProgress", JSON.stringify(actProgress));
             console.log("Updated actProgress:", actProgress);
 
-            // Clear actTestResults after processing to prevent double-counting
             localStorage.removeItem("actTestResults");
             console.log("Cleared actTestResults from localStorage");
 
@@ -2203,7 +2201,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (progressBarElement) {
                     progressBarElement.style.width = `${percentage}%`;
-                    progressBarElement.offsetHeight; // Force reflow
+                    progressBarElement.offsetHeight;
                 } else {
                     console.warn(`Progress bar element not found for category ${category}. Expected ID: ${category}-bar`);
                 }
@@ -2231,7 +2229,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
                     progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                    progressTextElement.offsetHeight; // Force reflow
+                    progressTextElement.offsetHeight;
                     console.log(`Updated ACT ${category} - Bar width: ${percentage}%, Text: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
                 } else {
                     console.log(`Text element not found for ${category}`);
@@ -2369,7 +2367,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Loaded gedHistoricalProgress before update:", historicalProgress);
             console.log("Loaded gedProgress before update:", gedProgress);
 
-            // Accumulate GED test results into gedProgress
             Object.keys(parsedGedResults).forEach(category => {
                 if (!gedProgress[category]) {
                     gedProgress[category] = { correct: 0, incorrect: 0 };
@@ -2386,7 +2383,8 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Cleared gedTestResults from localStorage");
 
             progressItems.forEach(item => {
-                let category = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                let category = `ged-${displayCategory}`; // Add ged- prefix for GED categories
                 console.log("Processing GED category:", category);
 
                 let progressBarElement = document.getElementById(`${category}-bar`);
@@ -2452,10 +2450,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("DOMContentLoaded", updateProgress);
 
-    // Check last activity and show the corresponding exam
     function showLastExam() {
         const lastActivity = JSON.parse(localStorage.getItem("lastActivity"));
-        let activeExam = "line-chart-sat"; // Default to SAT
+        let activeExam = "line-chart-sat";
 
         if (lastActivity && lastActivity.exam) {
             switch (lastActivity.exam) {
@@ -2485,11 +2482,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return activeExam;
     }
 
-    // Run showLastExam
     const activeExam = showLastExam();
     console.log("Active Exam after showLastExam:", activeExam);
 
-    // Add event listeners for tab switching
     document.querySelectorAll(".button-30").forEach(button => {
         button.addEventListener("click", () => {
             setTimeout(() => {
@@ -2510,13 +2505,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Ensure progress updates after navigation
     window.addEventListener("load", () => {
         console.log("Window loaded, updating progress...");
         updateProgress("windowLoad");
     });
 });
-
 
 function resetProgress() {
  const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
