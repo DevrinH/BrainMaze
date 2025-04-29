@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Loaded actHistoricalProgress before update:", historicalProgress);
             console.log("Loaded actProgress before update:", actProgress);
 
-            // Accumulate ACT test results into actProgress
             Object.keys(parsedActResults).forEach(category => {
                 if (!actProgress[category]) {
                     actProgress[category] = { correct: 0, incorrect: 0 };
@@ -59,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (progressBarElement) {
                     progressBarElement.style.width = `${percentage}%`;
-                    progressBarElement.offsetHeight; // Force reflow
+                    progressBarElement.offsetHeight;
                 } else {
                     console.warn(`Progress bar element not found for category ${category}. Expected ID: ${category}-bar`);
                 }
@@ -87,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
                     progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                    progressTextElement.offsetHeight; // Force reflow
+                    progressTextElement.offsetHeight;
                     console.log(`Updated ACT ${category} - Bar width: ${percentage}%, Text: ${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`);
                 } else {
                     console.log(`Text element not found for ${category}`);
@@ -225,7 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Loaded gedHistoricalProgress before update:", historicalProgress);
             console.log("Loaded gedProgress before update:", gedProgress);
 
-            // Accumulate GED test results into gedProgress
             Object.keys(parsedGedResults).forEach(category => {
                 if (!gedProgress[category]) {
                     gedProgress[category] = { correct: 0, incorrect: 0 };
@@ -242,7 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Cleared gedTestResults from localStorage");
 
             progressItems.forEach(item => {
-                let category = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                let category = `ged-${displayCategory}`; // Add ged- prefix for GED categories
                 console.log("Processing GED category:", category);
 
                 let progressBarElement = document.getElementById(`${category}-bar`);
@@ -306,8 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Commented out to avoid conflicts with user-profile.html
-    /*
+    // Event Listeners
     document.addEventListener("DOMContentLoaded", () => updateProgress("DOMContentLoaded"));
 
     window.addEventListener("testSubmitted", () => {
@@ -318,18 +316,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".button-30").forEach(button => {
         button.addEventListener("click", () => {
             setTimeout(() => {
-                const actSection = document.querySelector("#line-chart-act");
-                const satSection = document.querySelector("#line-chart-sat");
+                const actSection = document.querySelector("#act-progress-container");
+                const satSection = document.querySelector("#sat-progress-container");
+                const gedSection = document.querySelector("#ged-progress-container");
                 const isActSectionActive = actSection && !actSection.classList.contains("hidden");
                 const isSatSectionActive = satSection && !satSection.classList.contains("hidden");
+                const isGedSectionActive = gedSection && !gedSection.classList.contains("hidden");
                 console.log("Button clicked - Is ACT section active?", isActSectionActive);
                 console.log("Button clicked - Is SAT section active?", isSatSectionActive);
+                console.log("Button clicked - Is GED section active?", isGedSectionActive);
 
-                if (isActSectionActive || isSatSectionActive) {
+                if (isActSectionActive || isSatSectionActive || isGedSectionActive) {
                     updateProgress("tabSwitch");
                 }
             }, 100);
         });
     });
-    */
 });
