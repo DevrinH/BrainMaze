@@ -629,7 +629,7 @@ document.addEventListener("DOMContentLoaded", () => {
             switch (currentSection) {
                 case "rla": startMathSection(); break;
                 case "math": startScienceSection(); break;
-                case "science": startSocial HeyStudiesSection(); break;
+                case "science": startSocialStudiesSection(); break;
                 case "social studies": showFinalScore(); break;
             }
         });
