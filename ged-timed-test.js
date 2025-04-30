@@ -153,51 +153,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Section Starters
-    function startRlaSection() {
-        currentSection = "rla";
-        time = 150 * 60;
-        rlaResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endRlaSection, 150 * 60 * 1000);
-        startQuiz(rlaQuestions);
-    }
+// Section Starters (with logging)
+function startRlaSection() {
+    console.log("Starting RLA section");
+    currentSection = "rla";
+    time = 150 * 60;
+    rlaResponses = [];
+    score = 0;
+    correctAnswers = 0;
+    refreshIntervalId = setInterval(updateCountdown, 1000);
+    setTimeout(endRlaSection, 150 * 60 * 1000);
+    startQuiz(rlaQuestions);
+}
 
-    function startMathSection() {
-        currentSection = "math";
-        time = 115 * 60;
-        mathResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endMathSection, 115 * 60 * 1000);
-        startQuiz(mathQuestions);
-    }
+function startMathSection() {
+    console.log("Starting Math section");
+    currentSection = "math";
+    time = 115 * 60;
+    mathResponses = [];
+    score = 0;
+    correctAnswers = 0;
+    refreshIntervalId = setInterval(updateCountdown, 1000);
+    setTimeout(endMathSection, 115 * 60 * 1000);
+    startQuiz(mathQuestions);
+}
 
-    function startScienceSection() {
-        currentSection = "science";
-        time = 90 * 60;
-        scienceResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endScienceSection, 90 * 60 * 1000);
-        passageElement.innerHTML = "";
-        startQuiz(scienceQuestions);
-    }
+function startScienceSection() {
+    console.log("Starting Science section");
+    currentSection = "science";
+    time = 90 * 60;
+    scienceResponses = [];
+    score = 0;
+    correctAnswers = 0;
+    refreshIntervalId = setInterval(updateCountdown, 1000);
+    setTimeout(endScienceSection, 90 * 60 * 1000);
+    passageElement.innerHTML = "";
+    startQuiz(scienceQuestions);
+}
 
-    function startSocialStudiesSection() {
-        currentSection = "social studies";
-        time = 70 * 60;
-        socialStudiesResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        refreshIntervalId = setInterval(updateCountdown, 1000);
-        setTimeout(endSocialStudiesSection, 70 * 60 * 1000);
-        passageElement.innerHTML = "";
-        startQuiz(socialStudiesQuestions);
-    }
+function startSocialStudiesSection() {
+    console.log("Starting Social Studies section");
+    currentSection = "social studies";
+    time = 70 * 60;
+    socialStudiesResponses = [];
+    score = 0;
+    correctAnswers = 0;
+    refreshIntervalId = setInterval(updateCountdown, 1000);
+    setTimeout(endSocialStudiesSection, 70 * 60 * 1000);
+    passageElement.innerHTML = "";
+    startQuiz(socialStudiesQuestions);
+}
 
     // Timer
     function updateCountdown() {
@@ -383,64 +388,71 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Show Score
-    function showScore() {
-        clearInterval(refreshIntervalId);
-        resetState();
+// Show Score (with logging)
+function showScore() {
+    clearInterval(refreshIntervalId);
+    resetState();
 
-        let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
-        let rawScore = score;
-        let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
+    let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
+    let rawScore = score;
+    let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
 
-        document.getElementById("question-container").classList.remove("hide");
-        localStorage.setItem(currentSection + "Score", scaledScore);
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = `${currentSection.toUpperCase()} GED Score: ${scaledScore} / 200`;
-        questionElement.classList.add("centered-score");
+    console.log(`Saving ${currentSection} score: ${scaledScore}/200`);
 
-        document.querySelector(".question-row").classList.add("score-display");
-        nextButton.innerHTML = "Continue";
-        nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn");
-    }
+    document.getElementById("question-container").classList.remove("hide");
+    localStorage.setItem(currentSection + "Score", scaledScore);
+    passageElement.innerHTML = "";
+    questionElement.innerHTML = `${currentSection.toUpperCase()} GED Score: ${scaledScore} / 200`;
+    questionElement.classList.add("centered-score");
+
+    document.querySelector(".question-row").classList.add("score-display");
+    nextButton.innerHTML = "Continue";
+    nextButton.style.display = "block";
+    nextButton.classList.add("centered-btn");
+}
 
     // Show Final Score
-    function showFinalScore() {
-        clearInterval(refreshIntervalId);
-        resetState();
+// Show Final Score (with logging and fallback)
+function showFinalScore() {
+    clearInterval(refreshIntervalId);
+    resetState();
 
-        let rlaScore = parseInt(localStorage.getItem("rlaScore") || 100, 10);
-        let mathScore = parseInt(localStorage.getItem("mathScore") || 100, 10);
-        let scienceScore = parseInt(localStorage.getItem("scienceScore") || 100, 10);
-        let socialStudiesScore = parseInt(localStorage.getItem("socialStudiesScore") || 100, 10);
+    let rlaScore = parseInt(localStorage.getItem("rlaScore") || 100, 10);
+    let mathScore = parseInt(localStorage.getItem("mathScore") || 100, 10);
+    let scienceScore = parseInt(localStorage.getItem("scienceScore") || 100, 10);
+    let socialStudiesScore = parseInt(localStorage.getItem("socialStudiesScore") || 100, 10);
 
-        let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
-        scoreHistory[today] = {
-            rla: rlaScore,
-            math: mathScore,
-            science: scienceScore,
-            socialStudies: socialStudiesScore
-        };
-        localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
+    let today = new Date().toLocaleDateString("en-CA");
+    let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
+    scoreHistory[today] = {
+        rla: rlaScore,
+        math: mathScore,
+        science: scienceScore,
+        socialStudies: socialStudiesScore,
+        total: rlaScore + mathScore + scienceScore + socialStudiesScore
+    };
+    localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
 
-        saveTestCompletion("GED");
+    console.log(`Final GED scores saved for ${today}:`, scoreHistory[today]);
 
-        document.getElementById("question-container").classList.remove("hide");
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = `
-            <p><strong>RLA GED Score:</strong> ${rlaScore} / 200</p>
-            <p><strong>Math GED Score:</strong> ${mathScore} / 200</p>
-            <p><strong>Science GED Score:</strong> ${scienceScore} / 200</p>
-            <p><strong>Social Studies GED Score:</strong> ${socialStudiesScore} / 200</p>`;
-        questionElement.classList.add("centered-score");
-        document.querySelector(".question-row").classList.add("score-display");
+    saveTestCompletion("GED");
 
-        nextButton.innerHTML = "Review Incorrect Answers";
-        nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn");
-        nextButton.removeEventListener("click", handleNextButton);
-        nextButton.addEventListener("click", showExplanations);
-    }
+    document.getElementById("question-container").classList.remove("hide");
+    passageElement.innerHTML = "";
+    questionElement.innerHTML = `
+        <p><strong>RLA GED Score:</strong> ${rlaScore} / 200</p>
+        <p><strong>Math GED Score:</strong> ${mathScore} / 200</p>
+        <p><strong>Science GED Score:</strong> ${scienceScore} / 200</p>
+        <p><strong>Social Studies GED Score:</strong> ${socialStudiesScore} / 200</p>`;
+    questionElement.classList.add("centered-score");
+    document.querySelector(".question-row").classList.add("score-display");
+
+    nextButton.innerHTML = "Review Incorrect Answers";
+    nextButton.style.display = "block";
+    nextButton.classList.add("centered-btn");
+    nextButton.removeEventListener("click", handleNextButton);
+    nextButton.addEventListener("click", showExplanations);
+}
 
     // Save Test Completion
     function saveTestCompletion(examType) {
@@ -638,20 +650,32 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("next-btn element not found");
     }
 
-    if (continueButton) {
-        continueButton.addEventListener("click", () => {
-            document.getElementById("break-message").classList.add("hide");
-            document.getElementById("question-container").classList.remove("hide");
-            switch (currentSection) {
-                case "rla": startMathSection(); break;
-                case "math": startScienceSection(); break;
-                case "science": startSocialStudiesSection(); break;
-                case "social studies": showFinalScore(); break;
-            }
-        });
-    } else {
-        console.error("continue-btn element not found");
-    }
+// Continue Button Handler (with logging)
+if (continueButton) {
+    continueButton.addEventListener("click", () => {
+        console.log(`Continue button clicked, transitioning from ${currentSection}`);
+        document.getElementById("break-message").classList.add("hide");
+        document.getElementById("question-container").classList.remove("hide");
+        switch (currentSection) {
+            case "rla":
+                startMathSection();
+                break;
+            case "math":
+                startScienceSection();
+                break;
+            case "science":
+                startSocialStudiesSection();
+                break;
+            case "social studies":
+                showFinalScore();
+                break;
+            default:
+                console.error(`Unknown section: ${currentSection}`);
+        }
+    });
+} else {
+    console.error("continue-btn element not found");
+}
 
     if (!countdownEl) {
         console.error("countdown element not found");
