@@ -49,6 +49,11 @@ function updateGEDScoreChart() {
 
     let ctx = document.getElementById("gedScoreChart").getContext("2d");
 
+    if (!ctx) {
+        console.error("Canvas element with ID 'gedScoreChart' not found.");
+        return;
+    }
+
     if (window.gedScoreChart && typeof window.gedScoreChart.destroy === "function") {
         window.gedScoreChart.destroy();
     }
@@ -86,7 +91,7 @@ function updateGEDScoreChart() {
                     label: "Total Score",
                     data: selectedTotalScores,
                     borderColor: "rgb(89, 0, 255)",
-                    backgroundColor: cozGradient,
+                    backgroundColor: totalGradient, // Fixed typo: was cozGradient
                     fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
@@ -136,7 +141,7 @@ function updateGEDScoreChart() {
                 padding: {
                     left: 40,
                     right: 40,
-                    top: 40, // Increased to ensure top label is visible
+                    top: 40,
                     bottom: 20
                 }
             },
@@ -162,16 +167,13 @@ function updateGEDScoreChart() {
                     ticks: {
                         color: textColor,
                         font: { size: 14, weight: "bold" },
-                        callback: function (value, index, values) {
-                            // Use different ticks for Total Score vs. Subjects based on dataset visibility
+                        callback: function (value) {
                             const isTotalVisible = this.chart.data.datasets[0].hidden !== true;
                             if (isTotalVisible) {
-                                // Total score ticks: 400, 580, 660, 800
                                 if ([400, 580, 660, 800].includes(value)) {
                                     return value;
                                 }
                             } else {
-                                // Subject score ticks: 100, 145, 165, 200
                                 if ([100, 145, 165, 200].includes(value)) {
                                     return value;
                                 }
@@ -179,8 +181,8 @@ function updateGEDScoreChart() {
                             return '';
                         }
                     },
-                    min: 80, // Breathing room below minimum score
-                    max: 800, // Hard limit at 800 for total score
+                    min: 80,
+                    max: 800,
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -208,7 +210,6 @@ function updateGEDScoreChart() {
                     formatter: (value) => (isNaN(value) ? "" : value),
                     align: function (context) {
                         let value = context.dataset.data[context.dataIndex];
-                        // Adjust for total (up to 800) vs. subjects (up to 200)
                         if (context.dataset.label === "Total Score" && value >= 780) return "bottom";
                         else if (value >= 195) return "bottom";
                         return "top";
