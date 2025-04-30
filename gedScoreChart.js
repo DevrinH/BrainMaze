@@ -80,7 +80,7 @@ function updateGEDScoreChart() {
     let totalGradient = createFadingGradient(ctx);
 
     const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-    const textColor = currentTheme === "dark" ? "white" : "black";
+    const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
     console.log(`GED Chart: Current theme: ${currentTheme}, Text color: ${textColor}`);
 
     window.gedScoreChart = new Chart(ctx, {
@@ -150,7 +150,10 @@ function updateGEDScoreChart() {
                 x: {
                     ticks: {
                         color: textColor,
-                        font: { size: 14, weight: "bold" }
+                        font: { size: 14, weight: "bold" },
+                        maxRotation: 45,
+                        minRotation: 30,
+                        autoSkip: true
                     },
                     grid: {
                         drawTicks: true,
@@ -202,7 +205,7 @@ function updateGEDScoreChart() {
                         pointStyle: "circle"
                     }
                 },
-                datalabels: **options: {
+                datalabels: {
                     color: textColor,
                     font: { size: 12, weight: "bold" },
                     formatter: (value) => (isNaN(value) ? "" : value),
