@@ -2065,8 +2065,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Delay rendering to ensure DOM and localStorage are ready
-    setTimeout(() => {
+    // Function to render the chart
+    const renderChart = () => {
         // Retrieve the last test score from localStorage
         let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
         let dates = Object.keys(scoreHistory).sort();
@@ -2096,11 +2096,11 @@ document.addEventListener("DOMContentLoaded", function () {
             window.gedLastScoreBarChart.destroy();
         }
 
-        // Get text color from CSS
+        // Get theme and text color
         const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-        const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
+        const textColor = currentTheme === "light" ? "black" : "rgb(220, 220, 220)";
         const dataLabelColor = "white"; // Always white for visibility on colored bars
-        console.log(`GED Last Score Bar Chart: Theme: ${currentTheme}, Text color: ${textColor}, Data label color: ${dataLabelColor}`);
+        console.log(`GED Last Score Bar Chart: Theme: ${currentTheme}, Tick color: ${textColor}, Data label color: ${dataLabelColor}`);
 
         // Create the new GED Last Score Single Bar Chart
         window.gedLastScoreBarChart = new Chart(ctx, {
@@ -2183,7 +2183,17 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             plugins: typeof ChartDataLabels !== "undefined" ? [ChartDataLabels] : []
         });
-    }, 100); // 100ms delay to stabilize rendering
+    };
+
+    // Initial render with delay
+    setTimeout(renderChart, 100);
+
+    // Re-render on theme changes
+    const observer = new MutationObserver(() => {
+        console.log("data-theme changed, re-rendering GED Last Score Bar Chart");
+        renderChart();
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 });
 
 // Add localStorage monitoring
