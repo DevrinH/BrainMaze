@@ -2074,6 +2074,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let lastRLA = lastDate ? scoreHistory[lastDate]?.rla ?? 0 : 0;
     let lastSocialStudies = lastDate ? scoreHistory[lastDate]?.socialStudies ?? 0 : 0;
     let lastScience = lastDate ? scoreHistory[lastDate]?.science ?? 0 : 0;
+
+    // Log scores for debugging
+    console.log(`GED Last Score Bar Chart - Scores for ${lastDate || "No Data"}:`, {
+        math: lastMath,
+        rla: lastRLA,
+        socialStudies: lastSocialStudies,
+        science: lastScience
+    });
+
     // Calculate average subject score to determine "Missed" portion
     let averageScore = lastDate ? (lastMath + lastRLA + lastSocialStudies + lastScience) / 4 : 0;
     const maxScore = 200; // Max GED subject score
@@ -2085,8 +2094,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Get text color from CSS
+    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
     const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
-    console.log(`GED Last Score Bar Chart: Text color: ${textColor}`);
+    const dataLabelColor = currentTheme === "dark" ? "white" : "white"; // White for visibility on colored bars
+    console.log(`GED Last Score Bar Chart: Theme: ${currentTheme}, Text color: ${textColor}, Data label color: ${dataLabelColor}`);
 
     // Create the new GED Last Score Single Bar Chart
     window.gedLastScoreBarChart = new Chart(ctx, {
@@ -2161,7 +2172,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 datalabels: {
                     anchor: "center",
                     align: "center",
-                    color: "white",
+                    color: dataLabelColor,
                     font: { size: 18, weight: "bold" },
                     formatter: (value) => (value > 0 ? value : "")
                 }

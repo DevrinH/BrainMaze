@@ -1550,3 +1550,15 @@ background-color:var(--background-color);
   color: rgb(220, 220, 220) !important;
   fill: rgb(220, 220, 220) !important;
 }
+
+/* Ensure GED bar chart text is correct in dark mode */
+[data-theme="dark"] .ged-chart #gedLastScoreBarChart {
+  color: var(--text-color) !important; /* rgb(220, 220, 220) */
+  fill: var(--text-color) !important;
+}
+
+/* Ensure GED bar chart text is correct in light mode */
+[data-theme="light"] .ged-chart #gedLastScoreBarChart {
+  color: var(--text-color) !important; /* rgb(0, 0, 0) */
+  fill: var(--text-color) !important;
+}
