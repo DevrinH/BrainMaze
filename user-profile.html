@@ -2219,6 +2219,7 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 
 // Define categories in global scope so resetProgress can access them
+// Define categories in global scope so resetProgress can access them
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOMContentLoaded event fired. Script is running...");
 
@@ -2279,6 +2280,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "ged-science",
         "ged-social-studies"
     ];
+
+    // Category mapping for GED to handle label mismatches
+    const gedCategoryMap = {
+        "reasoning-through-language-arts": "ged-language-arts"
+    };
 
     // Function to update progress bars and arrows for ACT, SAT, and GED
     let progressUpdatedByMainScript = false;
@@ -2530,7 +2536,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             progressItems.forEach(item => {
                 let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
-                let category = `ged-${displayCategory}`; // Add ged- prefix for GED categories
+                // Use category map or fallback to data-category attribute
+                let category = gedCategoryMap[displayCategory] || item.dataset.category || `ged-${displayCategory}`;
                 console.log("Processing GED category:", category);
 
                 let progressBarElement = document.getElementById(`${category}-bar`);
