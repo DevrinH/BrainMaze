@@ -1533,3 +1533,20 @@ background-color:var(--background-color);
 
 
 
+/* Ensure GED chart text is white in dark mode */
+[data-theme="dark"] .ged-chart canvas {
+  color: var(--text-color) !important; /* rgb(220, 220, 220) from dark theme */
+  fill: var(--text-color) !important;
+}
+
+/* Ensure GED chart text is black in light mode */
+[data-theme="light"] .ged-chart canvas {
+  color: var(--text-color) !important; /* rgb(0, 0, 0) from light theme */
+  fill: var(--text-color) !important;
+}
+
+/* Target Chart.js canvas container for additional specificity */
+[data-theme="dark"] .line-chart-container .ged-chart canvas {
+  color: rgb(220, 220, 220) !important;
+  fill: rgb(220, 220, 220) !important;
+}
