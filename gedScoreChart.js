@@ -36,7 +36,7 @@ function updateGEDScoreChart() {
         return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
     });
 
-    // Log local date for chart update
+    // Log chart update details
     console.log(`Updating GED score chart on local date: ${new Date().toLocaleDateString()}`);
     console.log("Y-axis tick values set to: [100, 145, 165, 200] for subjects, [400, 580, 660, 800] for total");
 
@@ -81,6 +81,7 @@ function updateGEDScoreChart() {
 
     const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
     const textColor = currentTheme === "dark" ? "white" : "black";
+    console.log(`GED Chart: Current theme: ${currentTheme}, Text color: ${textColor}`);
 
     window.gedScoreChart = new Chart(ctx, {
         type: "line",
@@ -91,7 +92,7 @@ function updateGEDScoreChart() {
                     label: "Total Score",
                     data: selectedTotalScores,
                     borderColor: "rgb(89, 0, 255)",
-                    backgroundColor: totalGradient, // Fixed typo: was cozGradient
+                    backgroundColor: totalGradient,
                     fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
@@ -149,10 +150,7 @@ function updateGEDScoreChart() {
                 x: {
                     ticks: {
                         color: textColor,
-                        font: { size: 14, weight: "bold" },
-                        maxRotation: 45,
-                        minRotation: 30,
-                        autoSkip: true
+                        font: { size: 14, weight: "bold" }
                     },
                     grid: {
                         drawTicks: true,
@@ -204,7 +202,7 @@ function updateGEDScoreChart() {
                         pointStyle: "circle"
                     }
                 },
-                datalabels: {
+                datalabels: **options: {
                     color: textColor,
                     font: { size: 12, weight: "bold" },
                     formatter: (value) => (isNaN(value) ? "" : value),
@@ -230,13 +228,23 @@ function updateGEDScoreChart() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", updateGEDScoreChart);
-
+// Ensure chart updates on DOM load
 document.addEventListener("DOMContentLoaded", () => {
+    updateGEDScoreChart();
     const toggleButton = document.querySelector(".theme-toggle");
     if (toggleButton) {
         toggleButton.addEventListener("click", () => {
+            console.log("Theme toggle clicked, updating GED chart...");
             setTimeout(updateGEDScoreChart, 100);
         });
     }
+});
+
+// Listen for theme changes dynamically
+document.addEventListener("DOMContentLoaded", () => {
+    const observer = new MutationObserver(() => {
+        console.log("data-theme attribute changed, updating GED chart...");
+        updateGEDScoreChart();
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 });
