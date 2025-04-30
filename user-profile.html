@@ -2050,6 +2050,127 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("gedLastScoreBarChart");
+
+    if (!canvas) {
+        console.error("GED Last Score Bar Chart element not found!");
+        return;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) {
+        console.error("Failed to get 2D context for GED Last Score Bar Chart!");
+        return;
+    }
+
+    // Retrieve the last test score from localStorage
+    let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
+    let dates = Object.keys(scoreHistory).sort();
+    let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+
+    let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+    let lastRLA = lastDate ? scoreHistory[lastDate]?.rla ?? 0 : 0;
+    let lastSocialStudies = lastDate ? scoreHistory[lastDate]?.socialStudies ?? 0 : 0;
+    let lastScience = lastDate ? scoreHistory[lastDate]?.science ?? 0 : 0;
+    // Calculate average subject score to determine "Missed" portion
+    let averageScore = lastDate ? (lastMath + lastRLA + lastSocialStudies + lastScience) / 4 : 0;
+    const maxScore = 200; // Max GED subject score
+    const unfilledScore = Math.max(0, maxScore - averageScore); // Remaining portion
+
+    // Destroy previous chart if it exists
+    if (window.gedLastScoreBarChart && typeof window.gedLastScoreBarChart.destroy === "function") {
+        window.gedLastScoreBarChart.destroy();
+    }
+
+    // Get text color from CSS
+    const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
+    console.log(`GED Last Score Bar Chart: Text color: ${textColor}`);
+
+    // Create the new GED Last Score Single Bar Chart
+    window.gedLastScoreBarChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: [""], // Single bar
+            datasets: [
+                {
+                    label: "Math",
+                    data: [lastMath],
+                    backgroundColor: "rgb(0, 222, 230)", // Cyan
+                    stack: "total"
+                },
+                {
+                    label: "Reasoning Through Language Arts",
+                    data: [lastRLA],
+                    backgroundColor: "rgb(205, 120, 255)", // Light purple
+                    stack: "total"
+                },
+                {
+                    label: "Social Studies",
+                    data: [lastSocialStudies],
+                    backgroundColor: "rgb(255, 165, 0)", // Orange
+                    stack: "total"
+                },
+                {
+                    label: "Science",
+                    data: [lastScience],
+                    backgroundColor: "rgb(50, 205, 50)", // Green
+                    stack: "total"
+                },
+                {
+                    label: "Missed",
+                    data: [unfilledScore],
+                    backgroundColor: "#d3d3d3", // Gray
+                    stack: "total"
+                }
+            ]
+        },
+        options: {
+            indexAxis: "y", // Horizontal bar
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    stacked: true,
+                    max: maxScore,
+                    ticks: {
+                        stepSize: 50, // Increments of 50 for GED subject scores
+                        color: textColor,
+                        font: { size: 14, weight: "bold" }
+                    },
+                    grid: {
+                        display: false,
+                        drawBorder: false,
+                        drawOnChartArea: false
+                    }
+                },
+                y: {
+                    stacked: true,
+                    display: false,
+                    grid: {
+                        display: false,
+                        drawBorder: false,
+                        drawOnChartArea: false
+                    }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: { enabled: true },
+                datalabels: {
+                    anchor: "center",
+                    align: "center",
+                    color: "white",
+                    font: { size: 18, weight: "bold" },
+                    formatter: (value) => (value > 0 ? value : "")
+                }
+            }
+        },
+        plugins: typeof ChartDataLabels !== "undefined" ? [ChartDataLabels] : []
+    });
+});
+
 // Add localStorage monitoring
 (function () {
  const originalSetItem = localStorage.setItem;
