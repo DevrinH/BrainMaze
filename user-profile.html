@@ -2763,7 +2763,18 @@ function resetProgress() {
             window.actScoreChart.data.datasets.forEach(dataset => {
                 dataset.data = Array(dataset.data.length).fill(0);
             });
+            window.actScoreChart.data.labels = ["No Data"];
             window.actScoreChart.update();
+        }
+
+        // Reset the line chart for GED
+        if (activeExam === "line-chart-ged" && window.gedScoreChart) {
+            window.gedScoreChart.data.datasets.forEach(dataset => {
+                dataset.data = Array(dataset.data.length).fill(NaN); // Use NaN to match gedScoreChart.js
+            });
+            window.gedScoreChart.data.labels = ["No Data"];
+            window.gedScoreChart.update();
+            console.log("GED line chart reset: datasets cleared, labels set to 'No Data'");
         }
 
         alert("Progress for this exam has been reset!");
