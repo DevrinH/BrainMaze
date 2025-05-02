@@ -192,30 +192,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show Final Score
     function showFinalScore() {
-        clearInterval(refreshIntervalId);
         resetState();
     
         let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
     
-        console.log(`Saving Social Studies score: ${scaledScore}/200`);
+        console.log(`Saving Untimed Social Studies score: ${scaledScore}/200`);
     
-        localStorage.setItem("socialStudiesScore", scaledScore);
+        localStorage.setItem("socialStudiesUntimedScore", scaledScore);
     
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
         scoreHistory[today] = scoreHistory[today] || {};
-        scoreHistory[today].socialStudies = scaledScore;
+        scoreHistory[today].socialStudiesUntimed = scaledScore; // Use distinct key for untimed social studies
         localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
     
-        console.log(`Social Studies score saved for ${today}:`, scoreHistory[today]);
+        console.log(`Untimed Social Studies score saved for ${today}:`, scoreHistory[today]);
     
-        saveTestCompletion("GED-Social-Studies");
+        saveTestCompletion("GED-Social-Studies-Untimed");
     
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Social Studies GED Score:</strong> ${scaledScore} / 200</p>`;
+        questionElement.innerHTML = `<p><strong>Untimed Social Studies GED Score:</strong> ${scaledScore} / 200</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
     

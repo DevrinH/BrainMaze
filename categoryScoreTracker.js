@@ -98,4 +98,18 @@ document.addEventListener("DOMContentLoaded", () => {
             : `Last Score: ${socialStudiesScore}/200`;
         socialStudiesScoreDisplay.textContent = displayText;
     }
+
+    // Untimed Social Studies Test Score
+    const socialStudiesUntimedScore = localStorage.getItem("socialStudiesUntimedScore");
+    const socialStudiesUntimedScoreDisplay = document.getElementById("social-studies-untimed-score");
+    if (socialStudiesUntimedScore && socialStudiesUntimedScoreDisplay) {
+        const latestDate = Object.keys(scoreHistory)
+            .filter(date => scoreHistory[date].socialStudiesUntimed)
+            .sort()
+            .pop();
+        const displayText = latestDate
+            ? `Last Score: ${socialStudiesUntimedScore}/200 (Taken: ${latestDate})`
+            : `Last Score: ${socialStudiesUntimedScore}/200`;
+        socialStudiesUntimedScoreDisplay.textContent = displayText;
+    }
 });
