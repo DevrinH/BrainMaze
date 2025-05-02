@@ -2,14 +2,21 @@ function updateGEDScoreChart() {
     // Read from gedScoreHistory
     let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
 
-    // Sort dates
-    let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+    // Filter dates where all four subject scores are present (full test)
+    let fullTestDates = Object.keys(scoreHistory).filter(date => {
+        return (
+            scoreHistory[date].math !== undefined &&
+            scoreHistory[date].rla !== undefined &&
+            scoreHistory[date].science !== undefined &&
+            scoreHistory[date].socialStudies !== undefined
+        );
+    }).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
-    if (rawDates.length === 0) {
-        rawDates = ["No Data"];
+    if (fullTestDates.length === 0) {
+        fullTestDates = ["No Data"];
     }
 
-    let totalCount = rawDates.length;
+    let totalCount = fullTestDates.length;
     let selectedDates = [];
     let selectedMathScores = [];
     let selectedRLAScores = [];
@@ -19,14 +26,14 @@ function updateGEDScoreChart() {
 
     // Select up to 10 dates for display
     if (totalCount <= 10) {
-        selectedDates = rawDates;
+        selectedDates = fullTestDates;
     } else {
-        selectedDates.push(rawDates[0]);
+        selectedDates.push(fullTestDates[0]);
         let interval = Math.floor((totalCount - 2) / 8);
         for (let i = 1; i <= 8; i++) {
-            selectedDates.push(rawDates[i * interval]);
+            selectedDates.push(fullTestDates[i * interval]);
         }
-        selectedDates.push(rawDates[totalCount - 1]);
+        selectedDates.push(fullTestDates[totalCount - 1]);
     }
 
     // Format dates with local date only
@@ -40,12 +47,20 @@ function updateGEDScoreChart() {
     console.log(`Updating GED score chart on local date: ${new Date().toLocaleDateString()}`);
     console.log("Y-axis tick values set to: [100, 145, 165, 200] for subjects, [400, 580, 660, 800] for total");
 
-    // Get corresponding scores
+    // Get corresponding scores for full test dates
     selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
     selectedRLAScores = selectedDates.map(date => scoreHistory[date]?.rla ?? NaN);
     selectedSocialStudiesScores = selectedDates.map(date => scoreHistory[date]?.socialStudies ?? NaN);
     selectedScienceScores = selectedDates.map(date => scoreHistory[date]?.science ?? NaN);
-    selectedTotalScores = selectedDates.map(date => scoreHistory[date]?.total ?? NaN);
+    // Calculate total score as sum of subject scores
+    selectedTotalScores = selectedDates.map(date => {
+        if (date === "No Data") return NaN;
+        let math = scoreHistory[date]?.math ?? 0;
+        let rla = scoreHistory[date]?.rla ?? 0;
+        let science = scoreHistory[date]?.science ?? 0;
+        let socialStudies = scoreHistory[date]?.socialStudies ?? 0;
+        return math + rla + science + socialStudies;
+    });
 
     let ctx = document.getElementById("gedScoreChart").getContext("2d");
 
@@ -140,9 +155,9 @@ function updateGEDScoreChart() {
             maintainAspectRatio: false,
             layout: {
                 padding: {
-                    left: 40,  // Match SAT chart padding
+                    left: 40,
                     right: 40,
-                    top: 40,   // Ensure top label (800) is visible
+                    top: 40,
                     bottom: 20
                 }
             },
@@ -151,10 +166,10 @@ function updateGEDScoreChart() {
                     ticks: {
                         color: textColor,
                         font: {
-                            size: window.innerWidth <= 768 ? 12 : 14, // Match mobile adjustments
+                            size: window.innerWidth <= 768 ? 12 : 14,
                             weight: "bold"
                         },
-                        maxRotation: window.innerWidth <= 768 ? 0 : 45, // Match mobile adjustments
+                        maxRotation: window.innerWidth <= 768 ? 0 : 45,
                         minRotation: window.innerWidth <= 768 ? 0 : 30,
                         autoSkip: true
                     },
@@ -171,7 +186,7 @@ function updateGEDScoreChart() {
                     ticks: {
                         color: textColor,
                         font: {
-                            size: window.innerWidth <= 768 ? 12 : 14, // Match mobile adjustments
+                            size: window.innerWidth <= 768 ? 12 : 14,
                             weight: "bold"
                         },
                         callback: function (value) {
@@ -188,8 +203,8 @@ function updateGEDScoreChart() {
                             return '';
                         }
                     },
-                    min: 80,  // Match SAT's breathing room (100 for SAT)
-                    max: 800, // Hard limit at 800, matching SAT's 1600
+                    min: 80,
+                    max: 800,
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -207,7 +222,7 @@ function updateGEDScoreChart() {
                     labels: {
                         color: textColor,
                         font: {
-                            size: window.innerWidth <= 768 ? 12 : 14, // Match mobile adjustments
+                            size: window.innerWidth <= 768 ? 12 : 14,
                             weight: "bold"
                         },
                         usePointStyle: true,
@@ -217,14 +232,14 @@ function updateGEDScoreChart() {
                 datalabels: {
                     color: textColor,
                     font: {
-                        size: window.innerWidth <= 768 ? 10 : 12, // Match mobile adjustments
+                        size: window.innerWidth <= 768 ? 10 : 12,
                         weight: "bold"
                     },
                     formatter: (value) => (isNaN(value) ? "" : value),
                     align: function (context) {
                         let value = context.dataset.data[context.dataIndex];
-                        if (context.dataset.label === "Total Score" && value >= 780) return "bottom"; // Match SAT's 1550 threshold
-                        else if (value >= 195) return "bottom"; // Adjusted for subject scores
+                        if (context.dataset.label === "Total Score" && value >= 780) return "bottom";
+                        else if (value >= 195) return "bottom";
                         return "top";
                     },
                     anchor: function (context) {
