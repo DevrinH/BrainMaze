@@ -192,31 +192,32 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show Final Score
     function showFinalScore() {
         resetState();
-
+    
         let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
-
-        console.log(`Saving RLA score: ${scaledScore}/200`);
-
-        localStorage.setItem("rlaScore", scaledScore);
-
+    
+        console.log(`Saving RLA Untimed score: ${scaledScore}/200`);
+    
+        // Save score under a unique key for untimed test
+        localStorage.setItem("rlaUntimedScore", scaledScore);
+    
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
         scoreHistory[today] = scoreHistory[today] || {};
-        scoreHistory[today].rla = scaledScore;
+        scoreHistory[today].rlaUntimed = scaledScore; // Use distinct key for untimed score
         localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
-
-        console.log(`RLA score saved for ${today}:`, scoreHistory[today]);
-
-        saveTestCompletion("GED-RLA");
-
+    
+        console.log(`RLA Untimed score saved for ${today}:`, scoreHistory[today]);
+    
+        saveTestCompletion("GED-RLA-Untimed");
+    
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>RLA GED Score:</strong> ${scaledScore} / 200</p>`;
+        questionElement.innerHTML = `<p><strong>RLA GED Untimed Score:</strong> ${scaledScore} / 200</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
-
+    
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
