@@ -56,4 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
             : `Last Score: ${mathUntimedScore}/200`;
         mathUntimedScoreDisplay.textContent = displayText;
     }
+
+    // Timed Science Test Score
+    const scienceScore = localStorage.getItem("scienceScore");
+    const scienceScoreDisplay = document.getElementById("science-score");
+    if (scienceScore && scienceScoreDisplay) {
+        const latestDate = Object.keys(scoreHistory)
+            .filter(date => scoreHistory[date].science)
+            .sort()
+            .pop();
+        const displayText = latestDate
+            ? `Last Score: ${scienceScore}/200 (Taken: ${latestDate})`
+            : `Last Score: ${scienceScore}/200`;
+        scienceScoreDisplay.textContent = displayText;
+    }
 });
