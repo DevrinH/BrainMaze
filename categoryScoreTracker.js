@@ -1,115 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
-
     // Timed RLA Test Score
     const rlaScore = localStorage.getItem("rlaScore");
     const rlaScoreDisplay = document.getElementById("rla-score");
     if (rlaScore && rlaScoreDisplay) {
-        const latestDate = Object.keys(scoreHistory)
-            .filter(date => scoreHistory[date].rla)
-            .sort()
-            .pop();
-        const displayText = latestDate
-            ? `Last Score: ${rlaScore}/200 (Taken: ${latestDate})`
-            : `Last Score: ${rlaScore}/200`;
-        rlaScoreDisplay.textContent = displayText;
+        rlaScoreDisplay.textContent = `Last Score: ${rlaScore}/200`;
     }
 
     // Untimed RLA Test Score
     const rlaUntimedScore = localStorage.getItem("rlaUntimedScore");
     const rlaUntimedScoreDisplay = document.getElementById("rla-untimed-score");
     if (rlaUntimedScore && rlaUntimedScoreDisplay) {
-        const latestDate = Object.keys(scoreHistory)
-            .filter(date => scoreHistory[date].rlaUntimed)
-            .sort()
-            .pop();
-        const displayText = latestDate
-            ? `Last Score: ${rlaUntimedScore}/200 (Taken: ${latestDate})`
-            : `Last Score: ${rlaUntimedScore}/200`;
-        rlaUntimedScoreDisplay.textContent = displayText;
+        rlaUntimedScoreDisplay.textContent = `Last Score: ${rlaUntimedScore}/200`;
     }
 
     // Timed Math Test Score
     const mathScore = localStorage.getItem("mathScore");
     const mathScoreDisplay = document.getElementById("math-score");
     if (mathScore && mathScoreDisplay) {
-        const latestDate = Object.keys(scoreHistory)
-            .filter(date => scoreHistory[date].math)
-            .sort()
-            .pop();
-        const displayText = latestDate
-            ? `Last Score: ${mathScore}/200 (Taken: ${latestDate})`
-            : `Last Score: ${mathScore}/200`;
-        mathScoreDisplay.textContent = displayText;
+        mathScoreDisplay.textContent = `Last Score: ${mathScore}/200`;
     }
 
     // Untimed Math Test Score
     const mathUntimedScore = localStorage.getItem("mathUntimedScore");
     const mathUntimedScoreDisplay = document.getElementById("math-untimed-score");
     if (mathUntimedScore && mathUntimedScoreDisplay) {
-        const latestDate = Object.keys(scoreHistory)
-            .filter(date => scoreHistory[date].mathUntimed)
-            .sort()
-            .pop();
-        const displayText = latestDate
-            ? `Last Score: ${mathUntimedScore}/200 (Taken: ${latestDate})`
-            : `Last Score: ${mathUntimedScore}/200`;
-        mathUntimedScoreDisplay.textContent = displayText;
+        mathUntimedScoreDisplay.textContent = `Last Score: ${mathUntimedScore}/200`;
     }
 
     // Timed Science Test Score
     const scienceScore = localStorage.getItem("scienceScore");
     const scienceScoreDisplay = document.getElementById("science-score");
     if (scienceScore && scienceScoreDisplay) {
-        const latestDate = Object.keys(scoreHistory)
-            .filter(date => scoreHistory[date].science)
-            .sort()
-            .pop();
-        const displayText = latestDate
-            ? `Last Score: ${scienceScore}/200 (Taken: ${latestDate})`
-            : `Last Score: ${scienceScore}/200`;
-        scienceScoreDisplay.textContent = displayText;
+        scienceScoreDisplay.textContent = `Last Score: ${scienceScore}/200`;
     }
 
     // Untimed Science Test Score
     const scienceUntimedScore = localStorage.getItem("scienceUntimedScore");
     const scienceUntimedScoreDisplay = document.getElementById("science-untimed-score");
     if (scienceUntimedScore && scienceUntimedScoreDisplay) {
-        const latestDate = Object.keys(scoreHistory)
-            .filter(date => scoreHistory[date].scienceUntimed)
-            .sort()
-            .pop();
-        const displayText = latestDate
-            ? `Last Score: ${scienceUntimedScore}/200 (Taken: ${latestDate})`
-            : `Last Score: ${scienceUntimedScore}/200`;
-        scienceUntimedScoreDisplay.textContent = displayText;
+        scienceUntimedScoreDisplay.textContent = `Last Score: ${scienceUntimedScore}/200`;
     }
 
     // Timed Social Studies Test Score
     const socialStudiesScore = localStorage.getItem("socialStudiesScore");
     const socialStudiesScoreDisplay = document.getElementById("social-studies-score");
     if (socialStudiesScore && socialStudiesScoreDisplay) {
-        const latestDate = Object.keys(scoreHistory)
-            .filter(date => scoreHistory[date].socialStudies)
-            .sort()
-            .pop();
-        const displayText = latestDate
-            ? `Last Score: ${socialStudiesScore}/200 (Taken: ${latestDate})`
-            : `Last Score: ${socialStudiesScore}/200`;
-        socialStudiesScoreDisplay.textContent = displayText;
+        socialStudiesScoreDisplay.textContent = `Last Score: ${socialStudiesScore}/200`;
     }
 
     // Untimed Social Studies Test Score
     const socialStudiesUntimedScore = localStorage.getItem("socialStudiesUntimedScore");
     const socialStudiesUntimedScoreDisplay = document.getElementById("social-studies-untimed-score");
     if (socialStudiesUntimedScore && socialStudiesUntimedScoreDisplay) {
-        const latestDate = Object.keys(scoreHistory)
-            .filter(date => scoreHistory[date].socialStudiesUntimed)
-            .sort()
-            .pop();
-        const displayText = latestDate
-            ? `Last Score: ${socialStudiesUntimedScore}/200 (Taken: ${latestDate})`
-            : `Last Score: ${socialStudiesUntimedScore}/200`;
-        socialStudiesUntimedScoreDisplay.textContent = displayText;
+        socialStudiesUntimedScoreDisplay.textContent = `Last Score: ${socialStudiesUntimedScore}/200`;
     }
 });
