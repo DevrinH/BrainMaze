@@ -80,7 +80,7 @@ function updateGEDScoreChart() {
     let totalGradient = createFadingGradient(ctx);
 
     const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-    const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
+    const textColor = currentTheme === "dark" ? "white" : "black";
     console.log(`GED Chart: Current theme: ${currentTheme}, Text color: ${textColor}`);
 
     window.gedScoreChart = new Chart(ctx, {
@@ -140,9 +140,9 @@ function updateGEDScoreChart() {
             maintainAspectRatio: false,
             layout: {
                 padding: {
-                    left: 40,
+                    left: 40,  // Match SAT chart padding
                     right: 40,
-                    top: 40,
+                    top: 40,   // Ensure top label (800) is visible
                     bottom: 20
                 }
             },
@@ -150,9 +150,12 @@ function updateGEDScoreChart() {
                 x: {
                     ticks: {
                         color: textColor,
-                        font: { size: 14, weight: "bold" },
-                        maxRotation: 45,
-                        minRotation: 30,
+                        font: {
+                            size: window.innerWidth <= 768 ? 12 : 14, // Match mobile adjustments
+                            weight: "bold"
+                        },
+                        maxRotation: window.innerWidth <= 768 ? 0 : 45, // Match mobile adjustments
+                        minRotation: window.innerWidth <= 768 ? 0 : 30,
                         autoSkip: true
                     },
                     grid: {
@@ -167,7 +170,10 @@ function updateGEDScoreChart() {
                 y: {
                     ticks: {
                         color: textColor,
-                        font: { size: 14, weight: "bold" },
+                        font: {
+                            size: window.innerWidth <= 768 ? 12 : 14, // Match mobile adjustments
+                            weight: "bold"
+                        },
                         callback: function (value) {
                             const isTotalVisible = this.chart.data.datasets[0].hidden !== true;
                             if (isTotalVisible) {
@@ -182,8 +188,8 @@ function updateGEDScoreChart() {
                             return '';
                         }
                     },
-                    min: 80,
-                    max: 800,
+                    min: 80,  // Match SAT's breathing room (100 for SAT)
+                    max: 800, // Hard limit at 800, matching SAT's 1600
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -200,19 +206,25 @@ function updateGEDScoreChart() {
                     position: "bottom",
                     labels: {
                         color: textColor,
-                        font: { size: 14, weight: "bold" },
+                        font: {
+                            size: window.innerWidth <= 768 ? 12 : 14, // Match mobile adjustments
+                            weight: "bold"
+                        },
                         usePointStyle: true,
                         pointStyle: "circle"
                     }
                 },
                 datalabels: {
                     color: textColor,
-                    font: { size: 12, weight: "bold" },
+                    font: {
+                        size: window.innerWidth <= 768 ? 10 : 12, // Match mobile adjustments
+                        weight: "bold"
+                    },
                     formatter: (value) => (isNaN(value) ? "" : value),
                     align: function (context) {
                         let value = context.dataset.data[context.dataIndex];
-                        if (context.dataset.label === "Total Score" && value >= 780) return "bottom";
-                        else if (value >= 195) return "bottom";
+                        if (context.dataset.label === "Total Score" && value >= 780) return "bottom"; // Match SAT's 1550 threshold
+                        else if (value >= 195) return "bottom"; // Adjusted for subject scores
                         return "top";
                     },
                     anchor: function (context) {
