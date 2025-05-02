@@ -184,34 +184,33 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.disabled = false;
     }
 
-    // Show Final Score
     function showFinalScore() {
         resetState();
-
+    
         let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
-
-        console.log(`Saving Math score: ${scaledScore}/200`);
-
-        localStorage.setItem("mathScore", scaledScore);
-
+    
+        console.log(`Saving Untimed Math score: ${scaledScore}/200`);
+    
+        localStorage.setItem("mathUntimedScore", scaledScore);
+    
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
         scoreHistory[today] = scoreHistory[today] || {};
-        scoreHistory[today].math = scaledScore;
+        scoreHistory[today].mathUntimed = scaledScore; // Use distinct key for untimed math
         localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
-
-        console.log(`Math score saved for ${today}:`, scoreHistory[today]);
-
-        saveTestCompletion("GED-Math");
-
+    
+        console.log(`Untimed Math score saved for ${today}:`, scoreHistory[today]);
+    
+        saveTestCompletion("GED-Math-Untimed");
+    
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Math GED Score:</strong> ${scaledScore} / 200</p>`;
+        questionElement.innerHTML = `<p><strong>Untimed Math GED Score:</strong> ${scaledScore} / 200</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
-
+    
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
