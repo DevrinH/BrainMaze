@@ -222,33 +222,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show Final Score
     function showFinalScore() {
-        clearInterval(refreshIntervalId);
         resetState();
-
+    
         let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
-
+    
         console.log(`Saving Science score: ${scaledScore}/200`);
-
+    
         localStorage.setItem("scienceScore", scaledScore);
-
+    
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
         scoreHistory[today] = scoreHistory[today] || {};
-        scoreHistory[today].science = scaledScore;
+        scoreHistory[today].science = scaledScore; // Use distinct key for science
         localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
-
+    
         console.log(`Science score saved for ${today}:`, scoreHistory[today]);
-
+    
         saveTestCompletion("GED-Science");
-
+    
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `<p><strong>Science GED Score:</strong> ${scaledScore} / 200</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
-
+    
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
