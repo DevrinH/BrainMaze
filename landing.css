@@ -2124,13 +2124,3 @@ footer h3 {
 .passage-text {
   border: 2px solid red; /* Temporary for debugging */
 }
-
-
-
-
-#gedScoreChart {
-  width: 100% !important;
-  max-width: none !important;
-  min-height: 400px !important;
-  max-height: 500px;
-}
