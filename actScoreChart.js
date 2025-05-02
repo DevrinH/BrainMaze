@@ -1,270 +1,256 @@
-document.addEventListener("DOMContentLoaded", () => {
-    function getTheme() {
-        // Check data-theme attribute
-        const dataTheme = document.documentElement.getAttribute("data-theme");
-        if (dataTheme) return dataTheme;
+function updateACTScoreChart() {
+    // Read from actScoreHistory
+    let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
 
-        // Fallback: Check for 'dark' class on body
-        if (document.body.classList.contains("dark")) return "dark";
+    // Sort dates
+    let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
-        // Fallback: System preference
-        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            return "dark";
-        }
-
-        return "light";
+    if (rawDates.length === 0) {
+        rawDates = ["No Data"];
     }
 
-    function updateScoreChart() {
-        let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
+    let totalCount = rawDates.length;
+    let selectedDates = [];
+    let selectedEnglishScores = [];
+    let selectedMathScores = [];
+    let selectedReadingScores = [];
+    let selectedScienceScores = [];
+    let selectedCompositeScores = [];
 
-        // Sort dates in chronological order
-        let rawDates = Object.keys(scoreHistory).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
-
-        if (rawDates.length === 0) {
-            rawDates = ["No Data"];
+    // Select up to 10 dates for display
+    if (totalCount <= 10) {
+        selectedDates = rawDates;
+    } else {
+        selectedDates.push(rawDates[0]);
+        let interval = Math.floor((totalCount - 2) / 8);
+        for (let i = 1; i <= 8; i++) {
+            selectedDates.push(rawDates[i * interval]);
         }
+        selectedDates.push(rawDates[totalCount - 1]);
+    }
 
-        let totalCount = rawDates.length;
-        let selectedDates = [];
-        let selectedEnglishScores = [];
-        let selectedMathScores = [];
-        let selectedReadingScores = [];
-        let selectedScienceScores = [];
-        let selectedCompositeScores = [];
+    // Format dates with local date only
+    let dates = selectedDates.map(date => {
+        if (date === "No Data") return date;
+        let d = new Date(date + "T00:00:00");
+        return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    });
 
-        if (totalCount <= 10) {
-            selectedDates = rawDates;
-        } else {
-            selectedDates.push(rawDates[0]);
-            let interval = Math.floor((totalCount - 2) / 8);
-            for (let i = 1; i <= 8; i++) {
-                selectedDates.push(rawDates[i * interval]);
-            }
-            selectedDates.push(rawDates[totalCount - 1]);
-        }
+    // Log chart update details
+    console.log(`Updating ACT score chart on local date: ${new Date().toLocaleDateString()}`);
+    console.log("Y-axis tick values set to: [0, 12, 24, 36]");
 
-        let dates = selectedDates.map(date => {
-            let d = new Date(date + "T00:00:00");
-            return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-        });
+    // Get corresponding scores
+    selectedEnglishScores = selectedDates.map(date => scoreHistory[date]?.english ?? NaN);
+    selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
+    selectedReadingScores = selectedDates.map(date => scoreHistory[date]?.reading ?? NaN);
+    selectedScienceScores = selectedDates.map(date => scoreHistory[date]?.science ?? NaN);
+    selectedCompositeScores = selectedDates.map(date => scoreHistory[date]?.composite ?? NaN);
 
-        selectedEnglishScores = selectedDates.map(date => scoreHistory[date]?.english ?? NaN);
-        selectedMathScores = selectedDates.map(date => scoreHistory[date]?.math ?? NaN);
-        selectedReadingScores = selectedDates.map(date => scoreHistory[date]?.reading ?? NaN);
-        selectedScienceScores = selectedDates.map(date => scoreHistory[date]?.science ?? NaN);
-        selectedCompositeScores = selectedDates.map(date => scoreHistory[date]?.composite ?? NaN);
+    let ctx = document.getElementById("actScoreChart").getContext("2d");
 
-        let ctx = document.getElementById("actScoreChart").getContext("2d");
+    if (!ctx) {
+        console.error("Canvas element with ID 'actScoreChart' not found.");
+        return;
+    }
 
-        if (!ctx) {
-            console.error("Canvas element 'actScoreChart' not found.");
-            return;
-        }
+    if (window.actScoreChart && typeof window.actScoreChart.destroy === "function") {
+        window.actScoreChart.destroy();
+    }
 
-        if (window.actScoreChart && typeof window.actScoreChart.destroy === "function") {
-            window.actScoreChart.destroy();
-        }
+    if (dates.length === 0) {
+        dates = ["No Data"];
+        selectedEnglishScores = [NaN];
+        selectedMathScores = [NaN];
+        selectedReadingScores = [NaN];
+        selectedScienceScores = [NaN];
+        selectedCompositeScores = [NaN];
+    }
 
-        if (dates.length === 0) {
-            dates = ["No Data"];
-            selectedEnglishScores = [NaN];
-            selectedMathScores = [NaN];
-            selectedReadingScores = [NaN];
-            selectedScienceScores = [NaN];
-            selectedCompositeScores = [NaN];
-        }
+    Chart.register(ChartDataLabels);
 
-        if (typeof ChartDataLabels !== "undefined") {
-            Chart.register(ChartDataLabels);
-        } else {
-            console.warn("ChartDataLabels plugin not loaded.");
-        }
+    function createFadingGradient(ctx) {
+        let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.clientHeight);
+        gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)");
+        gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)");
+        gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)");
+        return gradient;
+    }
 
-        function createFadingGradient(ctx) {
-            let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.clientHeight);
-            gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)");
-            gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)");
-            gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)");
-            return gradient;
-        }
+    let totalGradient = createFadingGradient(ctx);
 
-        let compositeGradient = createFadingGradient(ctx);
+    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+    const textColor = currentTheme === "dark" ? "white" : "black";
+    console.log(`ACT Chart: Current theme: ${currentTheme}, Text color: ${textColor}`);
 
-        const currentTheme = getTheme();
-        const textColor = currentTheme === "dark" ? "white" : "black";
-        console.log("Current theme:", currentTheme, "Text color:", textColor);
-
-        window.actScoreChart = new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: dates,
-                datasets: [
-                    {
-                        label: "Composite Score",
-                        data: selectedCompositeScores,
-                        borderColor: "rgb(89, 0, 255)",
-                        backgroundColor: compositeGradient,
-                        fill: true,
-                        borderWidth: 2.5,
-                        tension: 0.4
-                    },
-                    {
-                        label: "English",
-                        data: selectedEnglishScores,
-                        borderColor: "rgb(255, 99, 132)",
-                        backgroundColor: "rgb(255, 99, 132)",
-                        fill: false,
-                        borderWidth: 2.5,
-                        tension: 0.4
-                    },
-                    {
-                        label: "Math",
-                        data: selectedMathScores,
-                        borderColor: "rgb(0, 222, 230)",
-                        backgroundColor: "rgb(0, 222, 230)",
-                        fill: false,
-                        borderWidth: 2.5,
-                        tension: 0.4
-                    },
-                    {
-                        label: "Reading",
-                        data: selectedReadingScores,
-                        borderColor: "rgb(205, 120, 255)",
-                        backgroundColor: "rgb(205, 120, 255)",
-                        fill: false,
-                        borderWidth: 2.5,
-                        tension: 0.4
-                    },
-                    {
-                        label: "Science",
-                        data: selectedScienceScores,
-                        borderColor: "rgb(75, 192, 192)",
-                        backgroundColor: "rgb(75, 192, 192)",
-                        fill: false,
-                        borderWidth: 2.5,
-                        tension: 0.4
-                    }
-                ]
+    window.actScoreChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: dates,
+            datasets: [
+                {
+                    label: "Total Score",
+                    data: selectedCompositeScores,
+                    borderColor: "rgb(89, 0, 255)",
+                    backgroundColor: totalGradient,
+                    fill: true,
+                    borderWidth: 2.5,
+                    tension: 0.4
+                },
+                {
+                    label: "English",
+                    data: selectedEnglishScores,
+                    borderColor: "rgb(205, 120, 255)",
+                    backgroundColor: "rgb(205, 120, 255)",
+                    fill: false,
+                    borderWidth: 2.5,
+                    tension: 0.4
+                },
+                {
+                    label: "Math",
+                    data: selectedMathScores,
+                    borderColor: "rgb(0, 222, 230)",
+                    backgroundColor: "rgb(0, 222, 230)",
+                    fill: false,
+                    borderWidth: 2.5,
+                    tension: 0.4
+                },
+                {
+                    label: "Reading",
+                    data: selectedReadingScores,
+                    borderColor: "rgb(255, 165, 0)",
+                    backgroundColor: "rgb(255, 165, 0)",
+                    fill: false,
+                    borderWidth: 2.5,
+                    tension: 0.4
+                },
+                {
+                    label: "Science",
+                    data: selectedScienceScores,
+                    borderColor: "rgb(50, 205, 50)",
+                    backgroundColor: "rgb(50, 205, 50)",
+                    fill: false,
+                    borderWidth: 2.5,
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: 40,  // Match SAT chart padding
+                    right: 40,
+                    top: 40,   // Ensure top label (36) is visible
+                    bottom: 20
+                }
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                layout: {
-                    padding: {
-                        left: 40,
-                        right: 40,
-                        top: 20,
-                        bottom: 20
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            color: textColor,
-                            font: { size: 14, weight: "bold" }
-                        },
-                        grid: {
-                            drawTicks: true,
-                            tickLength: 8,
-                            tickWidth: 2,
-                            color: textColor,
-                            drawOnChartArea: false,
-                            drawBorder: false
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            color: textColor,
-                            font: { size: 14, weight: "bold" }
-                        },
-                        max: 36,
-                        min: 1,
-                        grid: {
-                            drawTicks: true,
-                            tickLength: 8,
-                            tickWidth: 2,
-                            color: textColor,
-                            drawOnChartArea: false,
-                            drawBorder: false
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: "bottom",
-                        labels: {
-                            color: textColor,
-                            font: { size: 14, weight: "bold" },
-                            usePointStyle: true,
-                            pointStyle: "circle"
-                        }
-                    },
-                    datalabels: {
+            scales: {
+                x: {
+                    ticks: {
                         color: textColor,
-                        font: { size: 12, weight: "bold" },
-                        formatter: (value) => (isNaN(value) ? "" : value),
-                        align: function (context) {
-                            let index = context.dataIndex;
-                            let datasetIndex = context.datasetIndex;
-                            let englishValue = selectedEnglishScores[index] || Infinity;
-                            let mathValue = selectedMathScores[index] || Infinity;
-                            let readingValue = selectedReadingScores[index] || Infinity;
-                            let scienceValue = selectedScienceScores[index] || Infinity;
-
-                            if (datasetIndex === 1 && englishValue < Math.min(mathValue, readingValue, scienceValue)) return "bottom";
-                            if (datasetIndex === 2 && mathValue < Math.min(englishValue, readingValue, scienceValue)) return "bottom";
-                            if (datasetIndex === 3 && readingValue < Math.min(englishValue, mathValue, scienceValue)) return "bottom";
-                            if (datasetIndex === 4 && scienceValue < Math.min(englishValue, mathValue, readingValue)) return "bottom";
-                            return "top";
+                        font: {
+                            size: window.innerWidth <= 768 ? 12 : 14, // Match mobile adjustments
+                            weight: "bold"
                         },
-                        anchor: function (context) {
-                            let index = context.dataIndex;
-                            let datasetIndex = context.datasetIndex;
-                            let englishValue = selectedEnglishScores[index] || Infinity;
-                            let mathValue = selectedMathScores[index] || Infinity;
-                            let readingValue = selectedReadingScores[index] || Infinity;
-                            let scienceValue = selectedScienceScores[index] || Infinity;
-
-                            if (datasetIndex === 1 && englishValue < Math.min(mathValue, readingValue, scienceValue)) return "start";
-                            if (datasetIndex === 2 && mathValue < Math.min(englishValue, readingValue, scienceValue)) return "start";
-                            if (datasetIndex === 3 && readingValue < Math.min(englishValue, mathValue, scienceValue)) return "start";
-                            if (datasetIndex === 4 && scienceValue < Math.min(englishValue, mathValue, readingValue)) return "start";
-                            return "end";
+                        maxRotation: window.innerWidth <= 768 ? 0 : 45, // Match mobile adjustments
+                        minRotation: window.innerWidth <= 768 ? 0 : 30,
+                        autoSkip: true
+                    },
+                    grid: {
+                        drawTicks: true,
+                        tickLength: 8,
+                        tickWidth: 2,
+                        color: "black",
+                        drawOnChartArea: false,
+                        drawBorder: false
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: textColor,
+                        font: {
+                            size: window.innerWidth <= 768 ? 12 : 14, // Match mobile adjustments
+                            weight: "bold"
                         },
-                        xAdjust: function (context) {
-                            return context.dataIndex === 0 ? 15 : 0;
+                        callback: function (value) {
+                            if ([0, 12, 24, 36].includes(value)) {
+                                return value;
+                            }
+                            return '';
                         }
+                    },
+                    min: 0,   // Minimum for breathing room
+                    max: 36,  // Hard limit at 36
+                    grid: {
+                        drawTicks: true,
+                        tickLength: 8,
+                        tickWidth: 2,
+                        color: "black",
+                        drawOnChartArea: false,
+                        drawBorder: false
                     }
                 }
             },
-            plugins: typeof ChartDataLabels !== "undefined" ? [ChartDataLabels] : []
-        });
-    }
+            plugins: {
+                legend: {
+                    display: true,
+                    position: "bottom",
+                    labels: {
+                        color: textColor,
+                        font: {
+                            size: window.innerWidth <= 768 ? 12 : 14, // Match mobile adjustments
+                            weight: "bold"
+                        },
+                        usePointStyle: true,
+                        pointStyle: "circle"
+                    }
+                },
+                datalabels: {
+                    color: textColor,
+                    font: {
+                        size: window.innerWidth <= 768 ? 10 : 12, // Match mobile adjustments
+                        weight: "bold"
+                    },
+                    formatter: (value) => (isNaN(value) ? "" : value),
+                    align: function (context) {
+                        let value = context.dataset.data[context.dataIndex];
+                        if (value >= 35) return "bottom"; // Move label below for high scores
+                        return "top";
+                    },
+                    anchor: function (context) {
+                        let value = context.dataset.data[context.dataIndex];
+                        if (value >= 35) return "start";
+                        return "end";
+                    },
+                    xAdjust: function (context) {
+                        return context.dataIndex === 0 ? 15 : 0;
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+}
 
-    // Initial chart render
-    updateScoreChart();
-
-    // Update chart on theme change
+// Ensure chart updates on DOM load
+document.addEventListener("DOMContentLoaded", () => {
+    updateACTScoreChart();
     const toggleButton = document.querySelector(".theme-toggle");
     if (toggleButton) {
         toggleButton.addEventListener("click", () => {
-            console.log("Theme toggle clicked, updating chart...");
-            updateScoreChart();
+            console.log("Theme toggle clicked, updating ACT chart...");
+            setTimeout(updateACTScoreChart, 100);
         });
     }
+});
 
-    // Listen for changes in system theme
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-        console.log("System theme changed, updating chart...");
-        updateScoreChart();
-    });
-
-    // Observe changes to data-theme attribute
+// Listen for theme changes dynamically
+document.addEventListener("DOMContentLoaded", () => {
     const observer = new MutationObserver(() => {
-        console.log("data-theme attribute changed, updating chart...");
-        updateScoreChart();
+        console.log("data-theme attribute changed, updating ACT chart...");
+        updateACTScoreChart();
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 });
