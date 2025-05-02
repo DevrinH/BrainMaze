@@ -70,4 +70,18 @@ document.addEventListener("DOMContentLoaded", () => {
             : `Last Score: ${scienceScore}/200`;
         scienceScoreDisplay.textContent = displayText;
     }
+
+    // Untimed Science Test Score
+    const scienceUntimedScore = localStorage.getItem("scienceUntimedScore");
+    const scienceUntimedScoreDisplay = document.getElementById("science-untimed-score");
+    if (scienceUntimedScore && scienceUntimedScoreDisplay) {
+        const latestDate = Object.keys(scoreHistory)
+            .filter(date => scoreHistory[date].scienceUntimed)
+            .sort()
+            .pop();
+        const displayText = latestDate
+            ? `Last Score: ${scienceUntimedScore}/200 (Taken: ${latestDate})`
+            : `Last Score: ${scienceUntimedScore}/200`;
+        scienceUntimedScoreDisplay.textContent = displayText;
+    }
 });
