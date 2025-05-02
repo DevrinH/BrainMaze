@@ -254,7 +254,6 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }
-
     // Save Test Completion
     function saveTestCompletion(examType) {
         const completionData = {
