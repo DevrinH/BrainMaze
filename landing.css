@@ -2125,11 +2125,8 @@ footer h3 {
   border: 2px solid red; /* Temporary for debugging */
 }
 
-@media (max-width: 768px) {
-  .line-chart-container {
-    min-height: 300px; /* Reduce height on mobile */
-    max-height: 400px; /* Cap the height to prevent overflow */
-  }
+@media  {
+
 
   #gedScoreChart {
     min-height: 300px !important; /* Ensure the chart canvas adjusts */
