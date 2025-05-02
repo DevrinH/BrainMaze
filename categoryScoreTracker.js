@@ -12,4 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (rlaUntimedScore && rlaUntimedScoreDisplay) {
         rlaUntimedScoreDisplay.textContent = `Last Score: ${rlaUntimedScore}/200`;
     }
+
+    // Timed Math Test Score
+    const mathScore = localStorage.getItem("mathScore");
+    const mathScoreDisplay = document.getElementById("math-score");
+    if (mathScore && mathScoreDisplay) {
+        mathScoreDisplay.textContent = `Last Score: ${mathScore}/200`;
+    }
 });
