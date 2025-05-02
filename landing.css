@@ -2125,14 +2125,6 @@ footer h3 {
   border: 2px solid red; /* Temporary for debugging */
 }
 
-@media  {
-
-
-  #gedScoreChart {
-    min-height: 300px !important; /* Ensure the chart canvas adjusts */
-    max-height: 400px !important;
-  }
-}
 
 
 
