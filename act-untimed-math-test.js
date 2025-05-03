@@ -17,33 +17,33 @@ document.addEventListener("DOMContentLoaded", () => {
     let mathScore = 0;
     const currentSection = "math";
 
-// Math question bank
-const mathQuestions = [
-    {
-        passage: "",
-        question: "What is the value of x in the equation 3x + 7 = 22?",
-        answers: [
-            { text: "4", correct: false },
-            { text: "5", correct: true },
-            { text: "6", correct: false },
-            { text: "7", correct: false }
-        ],
-        difficulty: "medium",
-        category: "act-algebra"
-    },
-    {
-        passage: "",
-        question: "If f(x) = x^2 + 3x - 4, what is f(2)?",
-        answers: [
-            { text: "8", correct: false },
-            { text: "4", correct: false },
-            { text: "6", correct: true },
-            { text: "10", correct: false }
-        ],
-        difficulty: "medium",
-        category: "act-functions"
-    },
-];
+    // Math question bank
+    const mathQuestions = [
+        {
+            passage: "",
+            question: "What is the value of x in the equation 3x + 7 = 22?",
+            answers: [
+                { text: "4", correct: false },
+                { text: "5", correct: true },
+                { text: "6", correct: false },
+                { text: "7", correct: false }
+            ],
+            difficulty: "medium",
+            category: "act-algebra"
+        },
+        {
+            passage: "",
+            question: "If f(x) = x^2 + 3x - 4, what is f(2)?",
+            answers: [
+                { text: "8", correct: false },
+                { text: "4", correct: false },
+                { text: "6", correct: true },
+                { text: "10", correct: false }
+            ],
+            difficulty: "medium",
+            category: "act-functions"
+        },
+    ];
 
     function startTest() {
         if (!actIntroContainer || !document.getElementById("question-container")) {
@@ -189,26 +189,27 @@ const mathQuestions = [
         resetState();
 
         // Calculate Math score
-        let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assume 75 questions
+        let maxPossibleScore = (20 * 1) + (20 * 2) + (20 * 3); // Assume 60 questions
         let rawScore = score;
         mathScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
         // Store score in localStorage
-        localStorage.setItem("mathScore", mathScore);
+        localStorage.setItem("actMathUntimedScore", mathScore);
 
         // Update score history
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-        scoreHistory[today] = { math: mathScore };
+        scoreHistory[today] = scoreHistory[today] || {}; // Ensure date entry exists
+        scoreHistory[today].actMathUntimed = mathScore;
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
 
         // Save test completion metadata
-        saveTestCompletion("ACT");
+        saveTestCompletion("ACT-Math-Untimed");
 
         // Update UI
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Math ACT Score:</strong> ${mathScore} / 36</p>`;
+        questionElement.innerHTML = `<p><strong>ACT Untimed Math Score:</strong> ${mathScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
@@ -279,6 +280,11 @@ const mathQuestions = [
 
     function generateExplanation(response) {
         const questionText = response.question || "";
+        if (questionText.includes("What is the value of x in the equation 3x + 7 = 22?")) {
+            return "Solve 3x + 7 = 22 by subtracting 7: 3x = 15. Divide by 3: x = 5. The correct answer is 5.";
+        } else if (questionText.includes("If f(x) = x^2 + 3x - 4, what is f(2)?")) {
+            return "Substitute x = 2 into f(x) = x^2 + 3x - 4: f(2) = 2^2 + 3(2) - 4 = 4 + 6 - 4 = 6. The correct answer is 6.";
+        }
         return "No explanation available for this question.";
     }
 
