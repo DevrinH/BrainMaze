@@ -103,4 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (actMathScore && actMathScoreDisplay) {
         actMathScoreDisplay.textContent = `Last Score: ${actMathScore}/36`;
     }
+
+    // Untimed Math Test Score (ACT)
+    const actMathUntimedScore = localStorage.getItem("actMathUntimedScore");
+    const actMathUntimedScoreDisplay = document.getElementById("act-math-untimed-score");
+    if (actMathUntimedScore && actMathUntimedScoreDisplay) {
+        actMathUntimedScoreDisplay.textContent = `Last Score: ${actMathUntimedScore}/36`;
+    }
 });
