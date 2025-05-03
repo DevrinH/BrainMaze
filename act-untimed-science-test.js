@@ -18,35 +18,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentSection = "science";
 
     // Science question bank (unchanged)
-    const scienceQuestions = [          
-   
+    const scienceQuestions = [
         {
-        "passage": "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
-        "question": "Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?",
-        "answers": [
-            { "text": "A) 20°C", "correct": false },
-            { "text": "B) 40°C", "correct": true },
-            { "text": "C) 50°C", "correct": false },
-            { "text": "D) 60°C", "correct": false }
-        ],
-        "type": "science",
-        "difficulty": "medium",
-        "category": "act-data-representation"
-    },
-    {
-        "passage": "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
-        "question": "According to Figure 2, how does the enzymatic activity of amylase change as pH increases from 7 to 9 at 37°C?",
-        "answers": [
-            { "text": "A) It increases steadily", "correct": false },
-            { "text": "B) It decreases", "correct": true },
-            { "text": "C) It remains constant", "correct": false },
-            { "text": "D) It increases then decreases", "correct": false }
-        ],
-        "type": "science",
-        "difficulty": "medium",
-        "category": "act-data-representation"
-    },
-];
+            passage: "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
+            question: "Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?",
+            answers: [
+                { text: "A) 20°C", correct: false },
+                { text: "B) 40°C", correct: true },
+                { text: "C) 50°C", correct: false },
+                { text: "D) 60°C", correct: false }
+            ],
+            type: "science",
+            difficulty: "medium",
+            category: "act-data-representation"
+        },
+        {
+            passage: "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
+            question: "According to Figure 2, how does the enzymatic activity of amylase change as pH increases from 7 to 9 at 37°C?",
+            answers: [
+                { text: "A) It increases steadily", correct: false },
+                { text: "B) It decreases", correct: true },
+                { text: "C) It remains constant", correct: false },
+                { text: "D) It increases then decreases", correct: false }
+            ],
+            type: "science",
+            difficulty: "medium",
+            category: "act-data-representation"
+        }
+    ];
 
     function startTest() {
         if (!actIntroContainer || !document.getElementById("question-container")) {
@@ -197,26 +196,27 @@ document.addEventListener("DOMContentLoaded", () => {
         resetState();
 
         // Calculate Science score
-        let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assume 75 questions
+        let maxPossibleScore = (13 * 1) + (14 * 2) + (13 * 3); // Assume 40 questions (standard ACT Science)
         let rawScore = score;
         scienceScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
         // Store score in localStorage
-        localStorage.setItem("scienceScore", scienceScore);
+        localStorage.setItem("actScienceUntimedScore", scienceScore);
 
         // Update score history
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-        scoreHistory[today] = { science: scienceScore };
+        scoreHistory[today] = scoreHistory[today] || {}; // Ensure date entry exists
+        scoreHistory[today].actScienceUntimed = scienceScore;
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
 
         // Save test completion metadata
-        saveTestCompletion("ACT");
+        saveTestCompletion("ACT-Science-Untimed");
 
         // Update UI
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Science ACT Score:</strong> ${scienceScore} / 36</p>`;
+        questionElement.innerHTML = `<p><strong>ACT Untimed Science Score:</strong> ${scienceScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
@@ -287,6 +287,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function generateExplanation(response) {
         const questionText = response.question || "";
+        if (questionText.includes("Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?")) {
+            return "Figure 1 shows glucose production rates at pH 7: 20°C (10 µmol/min), 30°C (25 µmol/min), 40°C (40 µmol/min), 50°C (30 µmol/min), 60°C (5 µmol/min). The highest rate is 40 µmol/min at 40°C. Option B) 40°C is correct. A) 20°C, C) 50°C, and D) 60°C have lower rates.";
+        } else if (questionText.includes("According to Figure 2, how does the enzymatic activity of amylase change as pH increases from 7 to 9 at 37°C?")) {
+            return "Figure 2 shows glucose production rates at 37°C: pH 7 (40 µmol/min), pH 8 (35 µmol/min), pH 9 (20 µmol/min). From pH 7 to 9, the rate decreases from 40 to 20 µmol/min. Option B) It decreases is correct. A) is incorrect as the rate doesn’t increase; C) is wrong as it’s not constant; D) is false as there’s no increase.";
+        }
         return "No explanation available for this question.";
     }
 
@@ -341,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startButton.classList.add("btn", "centered-btn");
         startButton.addEventListener("click", () => {
             questionElement.classList.remove("centered-score");
-            startReradingSection();
+            startScienceSection();
         });
         answerButtons.appendChild(startButton);
     }
