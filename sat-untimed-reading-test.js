@@ -2155,14 +2155,15 @@ function showScore() {
 
     document.getElementById("question-container").classList.remove("hide");
     passageElement.innerHTML = "";
-    questionElement.innerHTML = `Reading and Writing SAT Score: ${scaledScore} / 800`;
+    questionElement.innerHTML = `Untimed Reading and Writing SAT Score: ${scaledScore} / 800`;
     questionElement.classList.add("centered-score");
     document.querySelector(".question-row").classList.add("score-display");
 
-    localStorage.setItem("readingScore", scaledScore);
+    localStorage.setItem("readingUntimedScore", scaledScore);
     let today = new Date().toLocaleDateString("en-CA");
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    scoreHistory[today] = { reading: scaledScore };
+    scoreHistory[today] = scoreHistory[today] || {}; // Ensure the date entry exists
+    scoreHistory[today].readingUntimed = scaledScore; // Use distinct key for untimed
     localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
     nextButton.innerHTML = "Review Incorrect Answers";
