@@ -75,4 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (satMathScore && satMathScoreDisplay) {
         satMathScoreDisplay.textContent = `Last Score: ${satMathScore}/800`;
     }
+
+    // Untimed Math Test Score (SAT)
+    const satMathUntimedScore = localStorage.getItem("satMathUntimedScore");
+    const satMathUntimedScoreDisplay = document.getElementById("sat-math-untimed-score");
+    if (satMathUntimedScore && satMathUntimedScoreDisplay) {
+        satMathUntimedScoreDisplay.textContent = `Last Score: ${satMathUntimedScore}/800`;
+    }
 });
