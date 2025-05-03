@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionElement = document.getElementById("question");
     const answerButtons = document.getElementById("answer-buttons");
     const nextButton = document.getElementById("next-btn");
+    const countdownEl = document.getElementById("countdown");
     const actIntroContainer = document.getElementById("act-intro-container");
     const startTestButton = document.getElementById("start-test-btn");
 
@@ -13,26 +14,38 @@ document.addEventListener("DOMContentLoaded", () => {
     let categoryStats = {};
     let results = localStorage.getItem("actResults");
     results = results ? JSON.parse(results) : {};
-    let englishResponses = [];
-    let englishScore = 0;
-    const currentSection = "english";
+    let refreshIntervalId;
+    let time;
+    let mathResponses = [];
+    let mathScore = 0;
+    const currentSection = "math";
 
-    // English question bank (unchanged)
-    const englishQuestions = [
+    // Math question bank
+    const mathQuestions = [
         {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
-            question: "Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?",
+            passage: "",
+            question: "What is the value of x in the equation 3x + 7 = 22?",
             answers: [
-                { text: "A) Aisha the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: true },
-                { text: "C) Aisha the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
-                { text: "D) Aisha, the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false }
+                { text: "4", correct: false },
+                { text: "5", correct: true },
+                { text: "6", correct: false },
+                { text: "7", correct: false }
             ],
-            type: "english",
-            difficulty: "easy",
-            category: "act-conventions-of-standard-english"
+            difficulty: "medium",
+            category: "act-algebra"
         },
-        // Add more questions as needed
+        {
+            passage: "",
+            question: "If f(x) = x^2 + 3x - 4, what is f(2)?",
+            answers: [
+                { text: "8", correct: false },
+                { text: "4", correct: false },
+                { text: "6", correct: true },
+                { text: "10", correct: false }
+            ],
+            difficulty: "medium",
+            category: "act-functions"
+        },
     ];
 
     function startTest() {
@@ -42,24 +55,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         actIntroContainer.classList.add("hide");
         document.getElementById("question-container").classList.remove("hide");
-        startEnglishSection();
+        startMathSection();
     }
 
-    function startEnglishSection() {
-        englishResponses = [];
+    function startMathSection() {
+        time = 60 * 60; // 60 minutes in seconds
+        mathResponses = [];
         score = 0;
         correctAnswers = 0;
-        startQuiz(englishQuestions);
+        refreshIntervalId = setInterval(updateCountdown, 1000);
+        setTimeout(endMathSection, 3600000); // End after 60 minutes
+        startQuiz(mathQuestions);
+    }
+
+    function updateCountdown() {
+        const minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        countdownEl.innerHTML = `${minutes} : ${seconds}`;
+        if (time === 0) {
+            clearInterval(refreshIntervalId);
+            endMathSection();
+        } else {
+            time--;
+        }
+    }
+
+    function endMathSection() {
+        clearInterval(refreshIntervalId);
+        resetState();
+        showFinalScore();
     }
 
     function startQuiz(questions) {
         if (!questions || questions.length === 0) {
-            console.error("No questions available for English section");
+            console.error("No questions available for Math section");
             return;
-        }
-        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
-        if (missingPassages.length > 0) {
-            console.warn(`Warning: ${missingPassages.length} questions in English lack a valid passage`);
         }
         currentQuestionIndex = 0;
         categoryStats = {};
@@ -71,8 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add section-specific class
         const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("english-section");
-        questionRow.classList.add("english-section");
+        questionRow.classList.remove("math-section");
+        questionRow.classList.add("math-section");
 
         showQuestion();
     }
@@ -85,9 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        console.log(`Displaying question ${questionNo} in English, passage:`, currentQuestion.passage || "No passage");
-        passageElement.style.display = "block";
-        passageElement.innerHTML = currentQuestion.passage || "";
+        console.log(`Displaying question ${questionNo} in Math, passage:`, currentQuestion.passage || "No passage");
+        passageElement.style.display = "none"; // Math questions typically have no passage
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
         const questionRow = document.querySelector(".question-row");
@@ -130,9 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
 
-        const safePassage = currentQuestion.passage || "No passage provided";
         const safeQuestion = currentQuestion.question || "No question provided";
-        const responseQuestion = safePassage + "<br/><br/>" + safeQuestion;
+        const responseQuestion = safeQuestion;
 
         console.log("Creating user response:", {
             question: responseQuestion,
@@ -142,14 +171,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const response = {
-            section: "english",
+            section: "math",
             question: responseQuestion,
             userAnswer: selectedBtn.innerHTML,
             correctAnswer: correctAnswer,
             wasCorrect: isCorrect
         };
 
-        englishResponses.push(response);
+        mathResponses.push(response);
 
         if (isCorrect) {
             selectedBtn.classList.add("correct");
@@ -181,30 +210,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showFinalScore() {
+        clearInterval(refreshIntervalId);
         resetState();
 
-        // Calculate English score
-        let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assume 75 questions
+        // Calculate Math score
+        let maxPossibleScore = (20 * 1) + (20 * 2) + (20 * 3); // Assume 60 questions
         let rawScore = score;
-        englishScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
+        mathScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
         // Store score in localStorage
-        localStorage.setItem("englishUntimedScore", englishScore);
+        localStorage.setItem("actMathScore", mathScore);
 
         // Update score history
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
         scoreHistory[today] = scoreHistory[today] || {}; // Ensure date entry exists
-        scoreHistory[today].englishUntimed = englishScore;
+        scoreHistory[today].actMath = mathScore;
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
 
         // Save test completion metadata
-        saveTestCompletion("ACT-English-Untimed");
+        saveTestCompletion("ACT-Math");
 
         // Update UI
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>ACT Untimed English Score:</strong> ${englishScore} / 36</p>`;
+        questionElement.innerHTML = `<p><strong>ACT Math Score:</strong> ${mathScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
@@ -233,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
         questionElement.style.overflowY = "scroll";
         questionElement.style.maxHeight = "80vh";
 
-        const incorrectResponses = englishResponses.filter(
+        const incorrectResponses = mathResponses.filter(
             response => response && response.wasCorrect === false
         );
         console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
@@ -243,11 +273,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             const fragment = document.createDocumentFragment();
             const sectionDiv = document.createElement("div");
-            sectionDiv.innerHTML = "<h3>English Section</h3>";
+            sectionDiv.innerHTML = "<h3>Math Section</h3>";
             incorrectResponses.forEach((response, index) => {
-                console.log(`Processing English response ${index + 1}:`, response);
+                console.log(`Processing Math response ${index + 1}:`, response);
                 const explanation = generateExplanation(response);
-                console.log(`Explanation for English response ${index + 1}:`, explanation);
+                console.log(`Explanation for Math response ${index + 1}:`, explanation);
                 const div = document.createElement("div");
                 div.className = "explanation";
                 div.innerHTML = `
@@ -275,6 +305,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function generateExplanation(response) {
         const questionText = response.question || "";
+        if (questionText.includes("What is the value of x in the equation 3x + 7 = 22?")) {
+            return "Solve 3x + 7 = 22 by subtracting 7: 3x = 15. Divide by 3: x = 5. Option B) 5 is correct. A) 4, C) 6, and D) 7 do not satisfy the equation.";
+        } else if (questionText.includes("If f(x) = x^2 + 3x - 4, what is f(2)?")) {
+            return "Substitute x = 2 into f(x) = x^2 + 3x - 4: f(2) = 2^2 + 3(2) - 4 = 4 + 6 - 4 = 6. Option C) 6 is correct. A) 8, B) 4, and D) 10 are incorrect calculations.";
+        }
         return "No explanation available for this question.";
     }
 
@@ -284,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentQuestionIndex < selectedQuestions.length) {
             showQuestion();
         } else {
-            showFinalScore();
+            endMathSection();
         }
     }
 
@@ -321,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
-        questionElement.innerHTML = "This is an untimed ACT English Test. Complete the section at your own pace.";
+        questionElement.innerHTML = "This is a timed ACT Math Test. You have 60 minutes to complete the section.";
         questionElement.classList.add("centered-score");
 
         const startButton = document.createElement("button");
@@ -329,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startButton.classList.add("btn", "centered-btn");
         startButton.addEventListener("click", () => {
             questionElement.classList.remove("centered-score");
-            startEnglishSection();
+            startMathSection();
         });
         answerButtons.appendChild(startButton);
     }
