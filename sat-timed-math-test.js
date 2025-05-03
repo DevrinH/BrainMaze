@@ -1370,13 +1370,15 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
     passageElement.style.display = "none";
-    questionElement.innerHTML = `Math SAT Score: ${Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200)} / 800`;
+    questionElement.innerHTML = `SAT Math Score: ${Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200)} / 800`;
     questionElement.classList.add("centered-score");
 
-    localStorage.setItem("mathScore", Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200));
+    const scaledScore = Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200);
+    localStorage.setItem("satMathScore", scaledScore);
     let today = new Date().toLocaleDateString("en-CA");
     let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-    scoreHistory[today] = { math: Math.round((score / ((14 * 1) + (15 * 2) + (15 * 3))) * 600 + 200) };
+    scoreHistory[today] = scoreHistory[today] || {}; // Ensure the date entry exists
+    scoreHistory[today].satMath = scaledScore; // Use distinct key for SAT Math
     localStorage.setItem("scoreHistory", JSON.stringify(scoreHistory));
 
     nextButton.innerHTML = "Review Incorrect Answers";
