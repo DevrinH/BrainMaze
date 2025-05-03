@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButton = document.getElementById("next-btn");
     const actIntroContainer = document.getElementById("act-intro-container");
     const startTestButton = document.getElementById("start-test-btn");
+    const countdownEl = document.getElementById("countdown");
 
     let currentQuestionIndex = 0;
     let score = 0;
@@ -15,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     results = results ? JSON.parse(results) : {};
     let englishResponses = [];
     let englishScore = 0;
+    let refreshIntervalId;
+    let time = 45 * 60; // 45 minutes in seconds
     const currentSection = "english";
 
     // English question bank (unchanged)
@@ -32,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
             difficulty: "easy",
             category: "act-conventions-of-standard-english"
         },
+        // Add more questions as needed
     ];
 
     function startTest() {
@@ -48,7 +52,31 @@ document.addEventListener("DOMContentLoaded", () => {
         englishResponses = [];
         score = 0;
         correctAnswers = 0;
+        time = 45 * 60; // 45 minutes
+        refreshIntervalId = setInterval(updateCountdown, 1000);
+        setTimeout(endEnglishSection, 45 * 60 * 1000); // End after 45 minutes
         startQuiz(englishQuestions);
+    }
+
+    function updateCountdown() {
+        const minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        if (countdownEl) {
+            countdownEl.innerHTML = `${minutes} : ${seconds}`;
+        }
+        if (time === 0) {
+            clearInterval(refreshIntervalId);
+            endEnglishSection();
+        } else {
+            time--;
+        }
+    }
+
+    function endEnglishSection() {
+        clearInterval(refreshIntervalId);
+        resetState();
+        showFinalScore();
     }
 
     function startQuiz(questions) {
@@ -193,16 +221,17 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update score history
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-        scoreHistory[today] = { english: englishScore };
+        scoreHistory[today] = scoreHistory[today] || {}; // Ensure date entry exists
+        scoreHistory[today].english = englishScore;
         localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
 
         // Save test completion metadata
-        saveTestCompletion("ACT");
+        saveTestCompletion("ACT-English");
 
         // Update UI
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>English ACT Score:</strong> ${englishScore} / 36</p>`;
+        questionElement.innerHTML = `<p><strong>ACT English Score:</strong> ${englishScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
@@ -282,6 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentQuestionIndex < selectedQuestions.length) {
             showQuestion();
         } else {
+            clearInterval(refreshIntervalId); // Stop timer if finished early
             showFinalScore();
         }
     }
@@ -319,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
-        questionElement.innerHTML = "This is an untimed ACT English Test. Complete the section at your own pace.";
+        questionElement.innerHTML = "This is a timed ACT English Test. You will have 45 minutes to complete the section.";
         questionElement.classList.add("centered-score");
 
         const startButton = document.createElement("button");
