@@ -131,4 +131,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (actScienceScore && actScienceScoreDisplay) {
         actScienceScoreDisplay.textContent = `Last Score: ${actScienceScore}/36`;
     }
+
+    // Untimed Science Test Score (ACT)
+    const actScienceUntimedScore = localStorage.getItem("actScienceUntimedScore");
+    const actScienceUntimedScoreDisplay = document.getElementById("act-science-untimed-score");
+    if (actScienceUntimedScore && actScienceUntimedScoreDisplay) {
+        actScienceUntimedScoreDisplay.textContent = `Last Score: ${actScienceUntimedScore}/36`;
+    }
 });
