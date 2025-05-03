@@ -10,49 +10,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const rlaUntimedScore = localStorage.getItem("rlaUntimedScore");
     const rlaUntimedScoreDisplay = document.getElementById("rla-untimed-score");
     if (rlaUntimedScore && rlaUntimedScoreDisplay) {
-        rlaScoreDisplay.textContent = `Last Score: ${rlaUntimedScore}/200`;
+        rlaUntimedScoreDisplay.textContent = `Last Score: ${rlaUntimedScore}/200`;
     }
 
     // Timed Math Test Score (GED)
     const mathScore = localStorage.getItem("mathScore");
     const mathScoreDisplay = document.getElementById("math-score");
     if (mathScore && mathScoreDisplay) {
-        rlaScoreDisplay.textContent = `Last Score: ${mathScore}/200`;
+        mathScoreDisplay.textContent = `Last Score: ${mathScore}/200`;
     }
 
     // Untimed Math Test Score (GED)
     const mathUntimedScore = localStorage.getItem("mathUntimedScore");
     const mathUntimedScoreDisplay = document.getElementById("math-untimed-score");
     if (mathUntimedScore && mathUntimedScoreDisplay) {
-        rlaScoreDisplay.textContent = `Last Score: ${mathUntimedScore}/200`;
+        mathUntimedScoreDisplay.textContent = `Last Score: ${mathUntimedScore}/200`;
     }
 
     // Timed Science Test Score (GED)
     const scienceScore = localStorage.getItem("scienceScore");
     const scienceScoreDisplay = document.getElementById("science-score");
     if (scienceScore && scienceScoreDisplay) {
-        rlaScoreDisplay.textContent = `Last Score: ${scienceScore}/200`;
+        scienceScoreDisplay.textContent = `Last Score: ${scienceScore}/200`;
     }
 
     // Untimed Science Test Score (GED)
     const scienceUntimedScore = localStorage.getItem("scienceUntimedScore");
     const scienceUntimedScoreDisplay = document.getElementById("science-untimed-score");
     if (scienceUntimedScore && scienceUntimedScoreDisplay) {
-        rlaScoreDisplay.textContent = `Last Score: ${scienceUntimedScore}/200`;
+        scienceUntimedScoreDisplay.textContent = `Last Score: ${scienceUntimedScore}/200`;
     }
 
     // Timed Social Studies Test Score (GED)
     const socialStudiesScore = localStorage.getItem("socialStudiesScore");
     const socialStudiesScoreDisplay = document.getElementById("social-studies-score");
     if (socialStudiesScore && socialStudiesScoreDisplay) {
-        rlaScoreDisplay.textContent = `Last Score: ${socialStudiesScore}/200`;
+        socialStudiesScoreDisplay.textContent = `Last Score: ${socialStudiesScore}/200`;
     }
 
     // Untimed Social Studies Test Score (GED)
     const socialStudiesUntimedScore = localStorage.getItem("socialStudiesUntimedScore");
     const socialStudiesUntimedScoreDisplay = document.getElementById("social-studies-untimed-score");
     if (socialStudiesUntimedScore && socialStudiesUntimedScoreDisplay) {
-        rlaScoreDisplay.textContent = `Last Score: ${socialStudiesUntimedScore}/200`;
+        socialStudiesUntimedScoreDisplay.textContent = `Last Score: ${socialStudiesUntimedScore}/200`;
     }
 
     // Timed Reading and Writing Test Score (SAT)
@@ -123,5 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const actReadingUntimedScoreDisplay = document.getElementById("act-reading-untimed-score");
     if (actReadingUntimedScore && actReadingUntimedScoreDisplay) {
         actReadingUntimedScoreDisplay.textContent = `Last Score: ${actReadingUntimedScore}/36`;
+    }
+
+    // Timed Science Test Score (ACT)
+    const actScienceScore = localStorage.getItem("actScienceScore");
+    const actScienceScoreDisplay = document.getElementById("act-science-score");
+    if (actScienceScore && actScienceScoreDisplay) {
+        actScienceScoreDisplay.textContent = `Last Score: ${actScienceScore}/36`;
     }
 });
