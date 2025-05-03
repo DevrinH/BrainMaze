@@ -89,4 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (englishScore && englishScoreDisplay) {
         englishScoreDisplay.textContent = `Last Score: ${englishScore}/36`;
     }
+
+    // Untimed English Test Score (ACT)
+    const englishUntimedScore = localStorage.getItem("englishUntimedScore");
+    const englishUntimedScoreDisplay = document.getElementById("act-english-untimed-score");
+    if (englishUntimedScore && englishUntimedScoreDisplay) {
+        englishUntimedScoreDisplay.textContent = `Last Score: ${englishUntimedScore}/36`;
+    }
 });
