@@ -61,4 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (readingScore && readingScoreDisplay) {
         readingScoreDisplay.textContent = `Last Score: ${readingScore}/800`;
     }
+
+    // Untimed Reading and Writing Test Score (SAT)
+    const readingUntimedScore = localStorage.getItem("readingUntimedScore");
+    const readingUntimedScoreDisplay = document.getElementById("reading-untimed-score");
+    if (readingUntimedScore && readingUntimedScoreDisplay) {
+        readingUntimedScoreDisplay.textContent = `Last Score: ${readingUntimedScore}/800`;
+    }
 });
