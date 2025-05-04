@@ -157,6 +157,7 @@ function updateScoreChart() {
                 
                 
                 
+                
             },
             plugins: {
                 legend: {
