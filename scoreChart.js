@@ -133,29 +133,30 @@ function updateScoreChart() {
                         drawBorder: false
                     }
                 },
-               y: {
-    ticks: {
-        color: textColor,
-        font: { size: 14, weight: "bold" },
-        callback: function (value) {
-            // Only label 400, 800, 1200, 1600
-            if ([400, 800, 1200, 1600].includes(value)) {
-                return value;
-            }
-            return '';
-        }
-    },
-    min: 100,           // minimum for breathing room
-    max: 1600,          // hard limit at 1600
-    grid: {
-        drawTicks: true,
-        tickLength: 8,
-        tickWidth: 2,
-        color: "black",
-        drawOnChartArea: false,
-        drawBorder: false
-    }
-}
+                y: {
+                    ticks: {
+                        color: textColor,
+                        font: { size: 14, weight: "bold" },
+                        callback: function (value) {
+                            // Only label 400, 800, 1200, 1600
+                            if ([400, 800, 1200, 1600].includes(value)) {
+                                return value;
+                            }
+                            return '';
+                        }
+                    },
+                    min: 100,           // minimum for breathing room
+                    max: 1600,          // hard limit at 1600
+                    grid: {
+                        drawTicks: true,
+                        tickLength: 8,
+                        tickWidth: 2,
+                        color: "black",
+                        drawOnChartArea: false,
+                        drawBorder: false
+                    }
+                }
+                
                 
                 
             },
