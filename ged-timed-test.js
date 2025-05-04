@@ -2053,7 +2053,71 @@ document.addEventListener("DOMContentLoaded", () => {
             "difficulty": "really hard",
             "category": "ged-geography-environmental-issues"
         },
-
+        {
+            "passage": "Excerpt from the Declaration of Independence (1776): 'We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.'",
+            "question": "What is the main idea expressed in this excerpt?",
+            "answers": [
+                { "text": "A) The need for a strong central government", "correct": false },
+                { "text": "B) The equality and rights of individuals", "correct": true },
+                { "text": "C) The importance of economic prosperity", "correct": false },
+                { "text": "D) The justification for military action", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-reading-and-analyzing-historical-docs"
+        },
+        {
+            "passage": "Excerpt from Federalist No. 10 (1787) by James Madison: 'Among the numerous advantages promised by a well-constructed Union, none deserves to be more accurately developed than its tendency to break and control the violence of faction.'",
+            "question": "What does Madison identify as a key benefit of a strong Union?",
+            "answers": [
+                { "text": "A) Controlling factions", "correct": true },
+                { "text": "B) Expanding state powers", "correct": false },
+                { "text": "C) Limiting federal authority", "correct": false },
+                { "text": "D) Promoting economic inequality", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-reading-and-analyzing-historical-docs"
+        },
+        {
+            "passage": "Excerpt from Abraham Lincoln’s Gettysburg Address (1863): 'Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.'",
+            "question": "What historical event does Lincoln reference as occurring 87 years prior?",
+            "answers": [
+                { "text": "A) The Civil War", "correct": false },
+                { "text": "B) The Constitutional Convention", "correct": false },
+                { "text": "C) The Declaration of Independence", "correct": true },
+                { "text": "D) The Emancipation Proclamation", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-reading-and-analyzing-historical-docs"
+        },
+        {
+            "passage": "Excerpt from Martin Luther King Jr.’s 'I Have a Dream' speech (1963): 'I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.'",
+            "question": "What is the primary goal expressed in this excerpt?",
+            "answers": [
+                { "text": "A) Economic equality", "correct": false },
+                { "text": "B) Racial equality", "correct": true },
+                { "text": "C) Political reform", "correct": false },
+                { "text": "D) Educational reform", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-reading-and-analyzing-historical-docs"
+        },
+        {
+            "passage": "Excerpt from the Seneca Falls Declaration (1848): 'We hold these truths to be self-evident: that all men and women are created equal; that they are endowed by their Creator with certain inalienable rights… The history of mankind is a history of repeated injuries and usurpations on the part of man toward woman.'",
+            "question": "What is the main purpose of this excerpt from the Seneca Falls Declaration?",
+            "answers": [
+                { "text": "A) To advocate for economic reforms", "correct": false },
+                { "text": "B) To demand equal rights for women", "correct": true },
+                { "text": "C) To support abolition of slavery", "correct": false },
+                { "text": "D) To criticize religious institutions", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "really hard",
+            "category": "ged-reading-and-analyzing-historical-docs"
+        }
         
     ];
 
@@ -2747,6 +2811,16 @@ function showFinalScore() {
             return "The Great Pacific Garbage Patch threatens marine life due to microplastics harming ecosystems. Option B is correct. A (improved habitats) and C (increased fish populations) are incorrect as pollution harms marine life. D (enhanced currents) is unrelated to the patch’s impact.";
         } else if (questionText === "Why did the U.S. decline to ratify the Kyoto Protocol?") {
             return "The U.S. declined to ratify the Kyoto Protocol due to economic concerns, as stated in the passage. Option B is correct. A (lack of evidence) is incorrect as climate science was established, C (opposition to agreements) is too vague, and D (no targets) is false as targets were set.";
+        } else if (questionText === "What is the main idea expressed in this excerpt?") {
+            return "The excerpt from the Declaration of Independence emphasizes the equality of individuals and their unalienable rights to life, liberty, and the pursuit of happiness. Option B is correct. A (strong government) is unrelated, C (economic prosperity) is not the focus, and D (military action) is not mentioned.";
+        } else if (questionText === "What does Madison identify as a key benefit of a strong Union?") {
+            return "Madison argues that a strong Union controls the violence of factions, as stated in Federalist No. 10. Option A is correct. B (state powers) and C (limit federal authority) contradict the Union’s purpose, and D (economic inequality) is unrelated.";
+        } else if (questionText === "What historical event does Lincoln reference as occurring 87 years prior?") {
+            return "Lincoln’s 'four score and seven years ago' (87 years before 1863) refers to 1776, the year of the Declaration of Independence. Option C is correct. A (Civil War) began in 1861, B (Constitutional Convention) was in 1787, and D (Emancipation Proclamation) was in 1863.";
+        } else if (questionText === "What is the primary goal expressed in this excerpt?") {
+            return "Martin Luther King Jr.’s dream is for racial equality, where people are judged by character, not skin color. Option B is correct. A (economic equality), C (political reform), and D (educational reform) are not the primary focus of the excerpt.";
+        } else if (questionText === "What is the main purpose of this excerpt from the Seneca Falls Declaration?") {
+            return "The Seneca Falls Declaration asserts that men and women are equal and demands equal rights for women, highlighting gender-based injustices. Option B is correct. A (economic reforms), C (abolition), and D (religious criticism) are not the focus of the excerpt.";
 
 
         
