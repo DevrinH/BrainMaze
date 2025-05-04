@@ -138,13 +138,12 @@ function updateScoreChart() {
                         color: textColor,
                         font: { size: 14, weight: "bold" },
                         callback: function (value) {
-                            // Only label these values
                             return [400, 800, 1200, 1600].includes(value) ? value : '';
                         },
                         stepSize: 400
                     },
-                    min: 100,                // buffer below 200
-                    suggestedMax: 1650,      // allows space above 1600, without removing its label
+                    min: 100,
+                    max: 1610, // just 10 points above 1600 for buffer — label will still show
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
