@@ -1424,6 +1424,242 @@ document.addEventListener("DOMContentLoaded", () => {
             "difficulty": "really hard",
             "category": "ged-physical-science"
         },
+        {
+            "passage": "A meteorologist recorded rainfall in a region over three months: June (120 mm), July (150 mm), August (90 mm). The region’s average annual rainfall is 1200 mm.",
+            "question": "Which month had the lowest rainfall?",
+            "answers": [
+                { "text": "A) June", "correct": false },
+                { "text": "B) July", "correct": false },
+                { "text": "C) August", "correct": true },
+                { "text": "D) All equal", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "medium",
+            "category": "ged-earth-space"
+        },
+        {
+            "passage": "A geologist studied rock layers in a canyon. Sedimentary rock Layer A was found above Layer B. Layer B contained fossils dated to 50 million years ago.",
+            "question": "What can be inferred about the age of Layer A relative to Layer B?",
+            "answers": [
+                { "text": "A) Layer A is older than Layer B", "correct": false },
+                { "text": "B) Layer A is younger than Layer B", "correct": true },
+                { "text": "C) Layer A is the same age as Layer B", "correct": false },
+                { "text": "D) Cannot determine", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "medium",
+            "category": "ged-earth-space"
+        },
+        {
+            "passage": "An astronomer observed the Moon’s phases over a month. The Moon’s appearance changed from full to new due to its position relative to Earth and the Sun. A full Moon occurs when the Moon is on the opposite side of Earth from the Sun.",
+            "question": "What causes a new Moon?",
+            "answers": [
+                { "text": "A) The Moon is between Earth and the Sun", "correct": true },
+                { "text": "B) The Moon is on the opposite side of Earth", "correct": false },
+                { "text": "C) Earth is between the Moon and the Sun", "correct": false },
+                { "text": "D) The Moon is at a 90-degree angle to the Sun", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-earth-space"
+        },
+        {
+            "passage": "A climatologist studied ocean currents. The Gulf Stream carries warm water from the Gulf of Mexico to the North Atlantic, influencing Europe’s climate. Without the Gulf Stream, Western Europe’s temperatures would drop by 5-10°C.",
+            "question": "What is the primary effect of the Gulf Stream on Western Europe?",
+            "answers": [
+                { "text": "A) It increases rainfall", "correct": false },
+                { "text": "B) It warms the climate", "correct": true },
+                { "text": "C) It reduces wind speeds", "correct": false },
+                { "text": "D) It causes colder winters", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-earth-space"
+        },
+        {
+            "passage": "A geologist analyzed earthquake data. A fault line produced a quake with a magnitude of 6.0. The energy released by a magnitude 6.0 quake is 31.6 times greater than a magnitude 5.0 quake.",
+            "question": "How much more energy does a magnitude 6.0 quake release compared to a magnitude 5.0 quake?",
+            "answers": [
+                { "text": "A) 10 times", "correct": false },
+                { "text": "B) 20 times", "correct": false },
+                { "text": "C) 31.6 times", "correct": true },
+                { "text": "D) 50 times", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-earth-space"
+        },
+        {
+            "passage": "An astronomer studied Earth’s axial tilt. Earth’s axis is tilted at 23.5°, causing seasonal variations. If the tilt were 0°, seasonal temperature differences would be minimal, and day length would be constant year-round.",
+            "question": "What would be the primary effect of Earth having no axial tilt?",
+            "answers": [
+                { "text": "A) Increased global temperatures", "correct": false },
+                { "text": "B) Constant day length worldwide", "correct": true },
+                { "text": "C) More frequent earthquakes", "correct": false },
+                { "text": "D) Stronger ocean currents", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "really hard",
+            "category": "ged-earth-space"
+        },
+        {
+            "passage": "A scientist tested the effect of fertilizer on tomato plants. Three groups of 10 plants each received 0 g, 10 g, or 20 g of fertilizer weekly. After 6 weeks, the average fruit yield was measured: 0 g (2 kg), 10 g (3 kg), 20 g (2.8 kg).",
+            "question": "What was the independent variable in this experiment?",
+            "answers": [
+                { "text": "A) Number of plants", "correct": false },
+                { "text": "B) Amount of fertilizer", "correct": true },
+                { "text": "C) Fruit yield", "correct": false },
+                { "text": "D) Growth period", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "medium",
+            "category": "ged-scientific-method-and-experimental-design"
+        },
+        {
+            "passage": "A researcher studied the effect of water pH on fish survival. Four aquariums with 20 fish each had water pH levels of 5, 6, 7, or 8. After 4 weeks, survival rates were: pH 5 (60%), pH 6 (80%), pH 7 (95%), pH 8 (85%). Temperature and food were constant.",
+            "question": "What was the dependent variable in this experiment?",
+            "answers": [
+                { "text": "A) Water pH", "correct": false },
+                { "text": "B) Fish survival rate", "correct": true },
+                { "text": "C) Aquarium temperature", "correct": false },
+                { "text": "D) Amount of food", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-scientific-method-and-experimental-design"
+        },
+        {
+            "passage": "A student tested how soil type affects bean plant growth. Three groups of 15 plants were grown in sand, loam, or clay. All received 100 mL water daily and 8 hours of sunlight. After 5 weeks, average plant height was: sand (12 cm), loam (18 cm), clay (10 cm).",
+            "question": "Which variable was controlled in this experiment?",
+            "answers": [
+                { "text": "A) Soil type", "correct": false },
+                { "text": "B) Plant height", "correct": false },
+                { "text": "C) Amount of water", "correct": true },
+                { "text": "D) Type of plant", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-scientific-method-and-experimental-design"
+        },
+        {
+            "passage": "A biologist investigated the effect of temperature on bacterial growth. Four petri dishes were incubated at 20°C, 25°C, 30°C, or 35°C. Each dish had the same nutrient agar and initial bacterial count. After 48 hours, colony counts were: 20°C (50), 25°C (80), 30°C (120), 35°C (90).",
+            "question": "What could the biologist do to improve the reliability of the results?",
+            "answers": [
+                { "text": "A) Use different bacterial species", "correct": false },
+                { "text": "B) Increase the number of petri dishes per temperature", "correct": true },
+                { "text": "C) Change the nutrient agar for each temperature", "correct": false },
+                { "text": "D) Measure growth after 24 hours", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-scientific-method-and-experimental-design"
+        },
+        {
+            "passage": "A chemist tested the effect of light intensity on a chemical reaction rate. Three setups with identical solutions were exposed to 100 lux, 200 lux, or 300 lux. Reaction times were: 100 lux (60 s), 200 lux (45 s), 300 lux (40 s). The experiment was repeated once with similar results.",
+            "question": "What is a limitation of this experimental design?",
+            "answers": [
+                { "text": "A) Only one type of solution was tested", "correct": true },
+                { "text": "B) Light intensity was varied", "correct": false },
+                { "text": "C) Reaction time was measured", "correct": false },
+                { "text": "D) The experiment was repeated once", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-scientific-method-and-experimental-design"
+        },
+        {
+            "passage": "A researcher studied the effect of noise levels on mouse behavior. Four groups of 10 mice were exposed to 40 dB, 60 dB, 80 dB, or 100 dB for 2 hours daily. After 3 weeks, maze navigation times were: 40 dB (30 s), 60 dB (35 s), 80 dB (50 s), 100 dB (60 s). The control group (0 dB) averaged 28 s.",
+            "question": "Why was the control group included in this experiment?",
+            "answers": [
+                { "text": "A) To vary the noise levels", "correct": false },
+                { "text": "B) To increase the sample size", "correct": false },
+                { "text": "C) To provide a baseline for comparison", "correct": true },
+                { "text": "D) To test a different maze", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "really hard",
+            "category": "ged-scientific-method-and-experimental-design"
+        },
+        {
+            "passage": "A biologist recorded the number of bird species in four habitats: Forest (25 species), Grassland (15 species), Wetland (20 species), Desert (10 species).",
+            "question": "Which habitat had the highest biodiversity of bird species?",
+            "answers": [
+                { "text": "A) Forest", "correct": true },
+                { "text": "B) Grassland", "correct": false },
+                { "text": "C) Wetland", "correct": false },
+                { "text": "D) Desert", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "medium",
+            "category": "ged-data-analysis-interpretation"
+        },
+        {
+            "passage": "A researcher measured air pollution levels (in parts per million, ppm) at three locations over a week: Urban (50 ppm), Suburban (30 ppm), Rural (15 ppm).",
+            "question": "What is the percentage difference in pollution levels between Urban and Rural areas?",
+            "answers": [
+                { "text": "A) 50%", "correct": false },
+                { "text": "B) 70%", "correct": false },
+                { "text": "C) 233%", "correct": true },
+                { "text": "D) 300%", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "medium",
+            "category": "ged-data-analysis-interpretation"
+        },
+        {
+            "passage": "A scientist tracked ocean temperatures (°C) at four depths: 10 m (22°C), 50 m (18°C), 100 m (12°C), 200 m (8°C).",
+            "question": "What is the average temperature across the four depths?",
+            "answers": [
+                { "text": "A) 12°C", "correct": false },
+                { "text": "B) 15°C", "correct": true },
+                { "text": "C) 18°C", "correct": false },
+                { "text": "D) 20°C", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-data-analysis-interpretation"
+        },
+        {
+            "passage": "A geologist recorded earthquake frequencies in a region over five years: Year 1 (10 quakes), Year 2 (12 quakes), Year 3 (15 quakes), Year 4 (8 quakes), Year 5 (10 quakes).",
+            "question": "What is the median number of earthquakes per year?",
+            "answers": [
+                { "text": "A) 8", "correct": false },
+                { "text": "B) 10", "correct": true },
+                { "text": "C) 12", "correct": false },
+                { "text": "D) 15", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-data-analysis-interpretation"
+        },
+        {
+            "passage": "A botanist measured plant growth rates (cm/week) under different soil conditions: Sandy (2.5 cm), Loamy (4.0 cm), Clay (1.8 cm). The experiment ran for 8 weeks.",
+            "question": "How much taller would a plant in loamy soil be compared to one in clay soil after 8 weeks?",
+            "answers": [
+                { "text": "A) 1.7 cm", "correct": false },
+                { "text": "B) 4.8 cm", "correct": false },
+                { "text": "C) 17.6 cm", "correct": true },
+                { "text": "D) 22.4 cm", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-data-analysis-interpretation"
+        },
+        {
+            "passage": "A climatologist analyzed rainfall data (mm) from four cities over a year: City A (800 mm), City B (950 mm), City C (700 mm), City D (850 mm). The standard deviation of the data is approximately 100 mm.",
+            "question": "What does the standard deviation indicate about the rainfall data?",
+            "answers": [
+                { "text": "A) The average rainfall is 100 mm", "correct": false },
+                { "text": "B) Rainfall varies by about 100 mm from the mean", "correct": true },
+                { "text": "C) The maximum rainfall is 100 mm above the minimum", "correct": false },
+                { "text": "D) Rainfall is evenly distributed across cities", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "really hard",
+            "category": "ged-data-analysis-interpretation"
+        }
+    
+
     ];
 
     const socialStudiesQuestions = [
@@ -1452,7 +1688,8 @@ document.addEventListener("DOMContentLoaded", () => {
             type: "social studies",
             difficulty: "medium",
             category: "ged-social-studies"
-        }
+        },
+        
     ];
 
     // Start Test
@@ -2049,6 +2286,42 @@ function showFinalScore() {
                     return "Expansion formula: ΔL = αLΔT. Percent increase: 0.02% = 0.0002. ΔT = 100°C − 20°C = 80°C. α = 0.000012/°C. 0.0002L = 0.000012 × L × 80. Simplify: 0.0002 = 0.00096L, L = 0.0002 ÷ 0.00096 ≈ 2.08 m. Option B is correct. A, C, and D miscalculate the length.";
                 } else if (questionText === "What is the new pressure of the gas?") {
                     return "Use Gay-Lussac’s Law: P1/T1 = P2/T2 (T in Kelvin). T1 = 27°C = 300 K, T2 = 127°C = 400 K, P1 = 2 atm. P2 = (2 × 400) ÷ 300 = 800 ÷ 300 ≈ 2.67 atm. Option C is correct. A, B, and D miscalculate the pressure ratio or use incorrect temperatures.";
+                } else if (questionText === "Which month had the lowest rainfall?") {
+                    return "The rainfall amounts are: June (120 mm), July (150 mm), August (90 mm). August has the lowest rainfall at 90 mm. Option C is correct. A (June, 120 mm), B (July, 150 mm), and D (all equal) are incorrect as August’s rainfall is clearly the lowest.";
+                } else if (questionText === "What can be inferred about the age of Layer A relative to Layer B?") {
+                    return "In sedimentary rock layers, those above are younger than those below. Since Layer A is above Layer B, Layer A is younger. Option B is correct. A (older) contradicts the principle of superposition. C (same age) is incorrect as layers differ in age. D (cannot determine) is incorrect as position provides age information.";
+                } else if (questionText === "What causes a new Moon?") {
+                    return "A new Moon occurs when the Moon is between Earth and the Sun, making it nearly invisible from Earth. Option A is correct. B (opposite side) describes a full Moon. C (Earth between) would cause a lunar eclipse. D (90-degree angle) describes quarter phases.";
+                } else if (questionText === "What is the primary effect of the Gulf Stream on Western Europe?") {
+                    return "The Gulf Stream carries warm water, warming Western Europe’s climate by 5-10°C. Option B is correct. A (increased rainfall) is not the primary effect. C (reduced wind speeds) and D (colder winters) are incorrect as the Gulf Stream warms, not cools, the region.";
+                } else if (questionText === "How much more energy does a magnitude 6.0 quake release compared to a magnitude 5.0 quake?") {
+                    return "The passage states a magnitude 6.0 quake releases 31.6 times more energy than a magnitude 5.0 quake. Option C is correct. A (10), B (20), and D (50) are incorrect as they do not match the given energy ratio.";
+                } else if (questionText === "What would be the primary effect of Earth having no axial tilt?") {
+                    return "With no axial tilt, seasonal variations would be minimal, and day length would remain constant year-round. Option B is correct. A (increased temperatures) is incorrect as tilt affects distribution, not overall temperature. C (earthquakes) and D (ocean currents) are unrelated to axial tilt.";
+                } else if (questionText === "What was the independent variable in this experiment?") {
+                    return "The independent variable is the factor manipulated by the scientist. In this experiment, the amount of fertilizer (0 g, 10 g, 20 g) was varied to test its effect on fruit yield. Option B is correct. A (number of plants) was controlled, C (fruit yield) is the dependent variable, and D (growth period) was constant.";
+                } else if (questionText === "What was the dependent variable in this experiment?") {
+                    return "The dependent variable is the factor measured in response to the independent variable. Fish survival rate was measured to assess the effect of water pH. Option B is correct. A (water pH) is the independent variable, C (temperature) and D (food) were controlled constants.";
+                } else if (questionText === "Which variable was controlled in this experiment?") {
+                    return "Controlled variables are kept constant to isolate the effect of the independent variable (soil type). The amount of water (100 mL daily) was the same for all groups. Option C is correct. A (soil type) is the independent variable, B (plant height) is the dependent variable, and D (type of plant) was constant but not the focus.";
+                } else if (questionText === "What could the biologist do to improve the reliability of the results?") {
+                    return "Increasing the number of petri dishes per temperature (replicates) reduces variability and improves reliability. Option B is correct. A (different species) introduces new variables, C (changing agar) alters conditions, and D (shorter time) may reduce measurable growth.";
+                } else if (questionText === "What is a limitation of this experimental design?") {
+                    return "Testing only one type of solution limits the generalizability of the results to other solutions. Option A is correct. B (varying light intensity) is the independent variable, not a limitation. C (measuring reaction time) is the dependent variable. D (repeating once) is a strength, not a limitation.";
+                } else if (questionText === "Why was the control group included in this experiment?") {
+                    return "The control group (0 dB) provides a baseline to compare the effect of noise levels on maze navigation time, isolating the independent variable’s impact. Option C is correct. A (vary noise) describes the experimental groups, B (sample size) is unrelated, and D (different maze) is incorrect as the maze was constant.";
+                } else if (questionText === "Which habitat had the highest biodiversity of bird species?") {
+                    return "The number of bird species are: Forest (25), Grassland (15), Wetland (20), Desert (10). Forest has the highest biodiversity with 25 species. Option A is correct. B (15), C (20), and D (10) are incorrect as they have fewer species.";
+                } else if (questionText === "What is the percentage difference in pollution levels between Urban and Rural areas?") {
+                    return "Difference: 50 ppm − 15 ppm = 35 ppm. Percentage difference: (35 ÷ 15) × 100 = 233%. Option C is correct. A (50%), B (70%), and D (300%) miscalculate the percentage difference.";
+                } else if (questionText === "What is the average temperature across the four depths?") {
+                    return "Sum of temperatures: 22 + 18 + 12 + 8 = 60°C. Average: 60 ÷ 4 = 15°C. Option B is correct. A (12°C), C (18°C), and D (20°C) miscalculate the mean.";
+                } else if (questionText === "What is the median number of earthquakes per year?") {
+                    return "Ordered data: 8, 10, 10, 12, 15. Median (middle value) is 10. Option B is correct. A (8), C (12), and D (15) are incorrect as they do not represent the middle value.";
+                } else if (questionText === "How much taller would a plant in loamy soil be compared to one in clay soil after 8 weeks?") {
+                    return "Loamy growth: 4.0 cm/week × 8 = 32 cm. Clay growth: 1.8 cm/week × 8 = 14.4 cm. Difference: 32 − 14.4 = 17.6 cm. Option C is correct. A (1.7 cm), B (4.8 cm), and D (22.4 cm) miscalculate the growth difference.";
+                } else if (questionText === "What does the standard deviation indicate about the rainfall data?") {
+                    return "Standard deviation (100 mm) measures how much rainfall varies from the mean. Option B is correct. A (average is 100 mm) misinterprets standard deviation. C (max-min difference) is unrelated. D (even distribution) is incorrect as standard deviation indicates variability.";
         
    
     }
