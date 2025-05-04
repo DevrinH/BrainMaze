@@ -1910,6 +1910,149 @@ document.addEventListener("DOMContentLoaded", () => {
             "difficulty": "really hard",
             "category": "ged-civics-and-government"
         },
+        {
+            "passage": "In a market economy, prices are determined by the interaction of supply and demand. When demand for a product increases and supply remains constant, the price typically rises.",
+            "question": "What happens to the price of a product when demand increases and supply stays the same?",
+            "answers": [
+                { "text": "A) It decreases", "correct": false },
+                { "text": "B) It increases", "correct": true },
+                { "text": "C) It stays the same", "correct": false },
+                { "text": "D) It becomes unpredictable", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-economics"
+        },
+        {
+            "passage": "The U.S. operates a mixed economy, combining elements of capitalism and government intervention. The government regulates industries to ensure fair competition and consumer safety.",
+            "question": "What is a key role of government in a mixed economy?",
+            "answers": [
+                { "text": "A) To control all production", "correct": false },
+                { "text": "B) To regulate industries", "correct": true },
+                { "text": "C) To eliminate competition", "correct": false },
+                { "text": "D) To set consumer prices", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-economics"
+        },
+        {
+            "passage": "During the Great Depression (1929–1939), unemployment in the U.S. reached 25%. The stock market crash of 1929 triggered a collapse in consumer spending and business investment.",
+            "question": "What was a primary cause of the Great Depression?",
+            "answers": [
+                { "text": "A) Stock market crash", "correct": true },
+                { "text": "B) Overregulation of banks", "correct": false },
+                { "text": "C) Increased government spending", "correct": false },
+                { "text": "D) Global trade expansion", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-economics"
+        },
+        {
+            "passage": "The Federal Reserve, the U.S. central bank, manages monetary policy. It can raise interest rates to slow inflation or lower them to stimulate economic growth.",
+            "question": "What is the effect of the Federal Reserve raising interest rates?",
+            "answers": [
+                { "text": "A) It stimulates economic growth", "correct": false },
+                { "text": "B) It slows inflation", "correct": true },
+                { "text": "C) It increases consumer spending", "correct": false },
+                { "text": "D) It reduces government debt", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-economics"
+        },
+        {
+            "passage": "A trade deficit occurs when a country imports more goods and services than it exports. In 2020, the U.S. trade deficit was approximately $679 billion.",
+            "question": "What does a trade deficit indicate about a country’s economy?",
+            "answers": [
+                { "text": "A) It exports more than it imports", "correct": false },
+                { "text": "B) It imports more than it exports", "correct": true },
+                { "text": "C) It has balanced trade", "correct": false },
+                { "text": "D) It has no international trade", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-economics"
+        },
+        {
+            "passage": "Gross Domestic Product (GDP) measures the total value of goods and services produced in a country. In a recession, GDP typically declines for two consecutive quarters.",
+            "question": "What is a common indicator of a recession?",
+            "answers": [
+                { "text": "A) Rising unemployment", "correct": false },
+                { "text": "B) Increasing GDP", "correct": false },
+                { "text": "C) Declining GDP for two quarters", "correct": true },
+                { "text": "D) Stable consumer prices", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "really hard",
+            "category": "ged-economics"
+        },
+        {
+            "passage": "Deforestation in the Amazon rainforest has increased due to logging and agriculture. From 2015 to 2020, approximately 11,088 km² of forest was lost annually, impacting biodiversity and carbon storage.",
+            "question": "What is a major consequence of deforestation in the Amazon?",
+            "answers": [
+                { "text": "A) Increased biodiversity", "correct": false },
+                { "text": "B) Loss of carbon storage", "correct": true },
+                { "text": "C) Reduced agricultural activity", "correct": false },
+                { "text": "D) Improved air quality", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-geography-environmental-issues"
+        },
+        {
+            "passage": "Urbanization in coastal cities like Miami has led to increased flooding risks. Rising sea levels, driven by climate change, exacerbate the problem, with a projected 0.3–0.8 m rise by 2100.",
+            "question": "What is a primary cause of increased flooding in coastal cities like Miami?",
+            "answers": [
+                { "text": "A) Rising sea levels", "correct": true },
+                { "text": "B) Decreased rainfall", "correct": false },
+                { "text": "C) Reduced urban development", "correct": false },
+                { "text": "D) Improved drainage systems", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-geography-environmental-issues"
+        },
+        {
+            "passage": "The Dust Bowl of the 1930s in the U.S. Great Plains was caused by severe drought and poor farming practices, leading to massive soil erosion and economic hardship for farmers.",
+            "question": "What was a key environmental factor contributing to the Dust Bowl?",
+            "answers": [
+                { "text": "A) Overirrigation", "correct": false },
+                { "text": "B) Severe drought", "correct": true },
+                { "text": "C) Excessive rainfall", "correct": false },
+                { "text": "D) Urban expansion", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-geography-environmental-issues"
+        },
+        {
+            "passage": "Plastic pollution in the Pacific Ocean has formed the Great Pacific Garbage Patch, a region with high concentrations of microplastics. It threatens marine life and ecosystems, with an estimated 1.8 trillion plastic pieces.",
+            "question": "What is a major impact of the Great Pacific Garbage Patch?",
+            "answers": [
+                { "text": "A) Improved marine habitats", "correct": false },
+                { "text": "B) Threat to marine life", "correct": true },
+                { "text": "C) Increased fish populations", "correct": false },
+                { "text": "D) Enhanced ocean currents", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-geography-environmental-issues"
+        },
+        {
+            "passage": "The Kyoto Protocol, adopted in 1997, was an international agreement to reduce greenhouse gas emissions. Developed nations committed to specific reduction targets, but the U.S. did not ratify it, citing economic concerns.",
+            "question": "Why did the U.S. decline to ratify the Kyoto Protocol?",
+            "answers": [
+                { "text": "A) Lack of scientific evidence", "correct": false },
+                { "text": "B) Economic concerns", "correct": true },
+                { "text": "C) Opposition to international agreements", "correct": false },
+                { "text": "D) Absence of emission targets", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "really hard",
+            "category": "ged-geography-environmental-issues"
+        },
 
         
     ];
@@ -2582,6 +2725,28 @@ function showFinalScore() {
                         return "Proposing an amendment requires a two-thirds vote in both houses of Congress or a convention called by two-thirds of states. Option B is correct. A (majority vote) is insufficient, C (presidential approval) is not required, and D (unanimous states) is incorrect.";
                     } else if (questionText === "How can Congress counteract a presidential veto?") {
                         return "Congress can override a presidential veto with a two-thirds vote in both houses. Option C is correct. A (new law) requires starting over, B (Supreme Court) is unrelated, and D (referendum) is not a constitutional process.";
+        } else if (questionText === "What happens to the price of a product when demand increases and supply stays the same?") {
+            return "In a market economy, when demand increases and supply remains constant, the price rises due to higher competition for the product. Option B is correct. A (decreases) contradicts supply and demand, C (stays the same) ignores demand increase, and D (unpredictable) is incorrect as the outcome is predictable.";
+        } else if (questionText === "What is a key role of government in a mixed economy?") {
+            return "In a mixed economy, the government regulates industries to ensure fair competition and consumer safety. Option B is correct. A (control production) is not typical, C (eliminate competition) contradicts fair markets, and D (set prices) is rare in a mixed economy.";
+        } else if (questionText === "What was a primary cause of the Great Depression?") {
+            return "The stock market crash of 1929 triggered a collapse in spending and investment, causing the Great Depression. Option A is correct. B (overregulation) is not a primary cause, C (government spending) increased later, and D (trade expansion) is unrelated.";
+        } else if (questionText === "What is the effect of the Federal Reserve raising interest rates?") {
+            return "Raising interest rates slows inflation by reducing borrowing and spending. Option B is correct. A (stimulates growth) is the opposite, C (increases spending) contradicts the effect, and D (reduces debt) is unrelated.";
+        } else if (questionText === "What does a trade deficit indicate about a country’s economy?") {
+            return "A trade deficit means a country imports more than it exports, as stated in the passage. Option B is correct. A (exports more) describes a surplus, C (balanced trade) is incorrect, and D (no trade) contradicts the deficit.";
+        } else if (questionText === "What is a common indicator of a recession?") {
+            return "A recession is indicated by declining GDP for two consecutive quarters. Option C is correct. A (rising unemployment) is a result, not the definition, B (increasing GDP) indicates growth, and D (stable prices) is unrelated to the definition.";
+        } else if (questionText === "What is a major consequence of deforestation in the Amazon?") {
+            return "Deforestation in the Amazon reduces carbon storage, as trees absorb CO2, impacting climate change. Option B is correct. A (increased biodiversity) is incorrect as deforestation harms species. C (reduced agriculture) contradicts the passage’s mention of agriculture. D (improved air quality) is incorrect as deforestation worsens air quality.";
+        } else if (questionText === "What is a primary cause of increased flooding in coastal cities like Miami?") {
+            return "Rising sea levels, driven by climate change, are a primary cause of increased flooding in coastal cities like Miami. Option A is correct. B (decreased rainfall) would reduce flooding, C (reduced urban development) is not mentioned, and D (improved drainage) would mitigate, not cause, flooding.";
+        } else if (questionText === "What was a key environmental factor contributing to the Dust Bowl?") {
+            return "Severe drought was a key environmental factor in the Dust Bowl, causing soil erosion alongside poor farming practices. Option B is correct. A (overirrigation) and C (excessive rainfall) contradict drought conditions, and D (urban expansion) is unrelated.";
+        } else if (questionText === "What is a major impact of the Great Pacific Garbage Patch?") {
+            return "The Great Pacific Garbage Patch threatens marine life due to microplastics harming ecosystems. Option B is correct. A (improved habitats) and C (increased fish populations) are incorrect as pollution harms marine life. D (enhanced currents) is unrelated to the patch’s impact.";
+        } else if (questionText === "Why did the U.S. decline to ratify the Kyoto Protocol?") {
+            return "The U.S. declined to ratify the Kyoto Protocol due to economic concerns, as stated in the passage. Option B is correct. A (lack of evidence) is incorrect as climate science was established, C (opposition to agreements) is too vague, and D (no targets) is false as targets were set.";
 
 
         
