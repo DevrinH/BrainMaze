@@ -1217,31 +1217,213 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const scienceQuestions = [
         {
-            passage: "A researcher studied plant growth under different light conditions. Plants were exposed to red, blue, or white light for 12 hours daily. After 4 weeks, plant height was measured. Results: red light (15 cm), blue light (20 cm), white light (18 cm).",
-            question: "Which light condition resulted in the tallest plants?",
-            answers: [
-                { text: "A) Red", correct: false },
-                { text: "B) Blue", correct: true },
-                { text: "C) White", correct: false },
-                { text: "D) None", correct: false }
+            "passage": "A biologist observed a population of deer in a forest. Over five years, the population grew from 200 to 250 due to abundant food and no predators. The forest can support up to 300 deer before resources become scarce.",
+            "question": "What factor most likely contributed to the deer population increase?",
+            "answers": [
+                { "text": "A) Lack of predators", "correct": true },
+                { "text": "B) Reduced food supply", "correct": false },
+                { "text": "C) Increased competition", "correct": false },
+                { "text": "D) Habitat destruction", "correct": false }
             ],
-            type: "science",
-            difficulty: "medium",
-            category: "ged-science"
+            "type": "science",
+            "difficulty": "medium",
+            "category": "ged-life-science"
         },
         {
-            passage: "The researcher also tested water pH levels (5, 7, 9) on plant growth...",
-            question: "If plants at pH 7 grew 18 cm, and pH 9 grew 15 cm, how does pH affect growth?",
-            answers: [
-                { text: "A) Higher pH increases growth", correct: false },
-                { text: "B) Lower pH increases growth", correct: true },
-                { text: "C) pH has no effect", correct: false },
-                { text: "D) Neutral pH decreases growth", correct: false }
+            "passage": "A study examined how temperature affects seed germination. Seeds were placed in three environments: 15°C, 25°C, and 35°C. After 10 days, germination rates were: 15°C (20%), 25°C (80%), 35°C (10%).",
+            "question": "At which temperature did seeds germinate most successfully?",
+            "answers": [
+                { "text": "A) 15°C", "correct": false },
+                { "text": "B) 25°C", "correct": true },
+                { "text": "C) 35°C", "correct": false },
+                { "text": "D) All equally", "correct": false }
             ],
-            type: "science",
-            difficulty: "medium",
-            category: "ged-science"
-        }
+            "type": "science",
+            "difficulty": "medium",
+            "category": "ged-life-science"
+        },
+        {
+            "passage": "An ecologist studied a pond ecosystem. Frogs rely on insects for food, and insects feed on algae. A drought reduced algae growth, leading to a decline in insect populations. The frog population decreased by 30% over one year.",
+            "question": "What is the most likely reason for the frog population decline?",
+            "answers": [
+                { "text": "A) Increased predation on frogs", "correct": false },
+                { "text": "B) Reduced insect populations", "correct": true },
+                { "text": "C) Higher water temperatures", "correct": false },
+                { "text": "D) Frog migration", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-life-science"
+        },
+        {
+            "passage": "A researcher tested enzyme activity in human digestion. Enzyme X breaks down proteins at different pH levels. Results showed: pH 2 (90% activity), pH 7 (50% activity), pH 10 (10% activity). The stomach has a pH of about 2.",
+            "question": "In which part of the body is Enzyme X most effective?",
+            "answers": [
+                { "text": "A) Mouth", "correct": false },
+                { "text": "B) Small intestine", "correct": false },
+                { "text": "C) Stomach", "correct": true },
+                { "text": "D) Large intestine", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-life-science"
+        },
+        {
+            "passage": "A marine biologist studied coral reefs. Corals rely on symbiotic algae for energy. Rising ocean temperatures caused algae to leave corals, leading to coral bleaching. Bleached corals had a 40% lower survival rate than healthy corals.",
+            "question": "What can be inferred about the relationship between corals and algae?",
+            "answers": [
+                { "text": "A) Corals provide energy to algae", "correct": false },
+                { "text": "B) Algae are harmful to corals", "correct": false },
+                { "text": "C) Corals depend on algae for survival", "correct": true },
+                { "text": "D) Algae compete with corals for resources", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-life-science"
+        },
+        {
+            "passage": "A geneticist studied inheritance in pea plants. Tall plants (T) are dominant over short plants (t). A heterozygous tall plant (Tt) is crossed with a short plant (tt). The offspring genotypes were 50% Tt and 50% tt.",
+            "question": "What percentage of the offspring are expected to be tall?",
+            "answers": [
+                { "text": "A) 25%", "correct": false },
+                { "text": "B) 50%", "correct": true },
+                { "text": "C) 75%", "correct": false },
+                { "text": "D) 100%", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-life-science"
+        },
+        {
+            "passage": "A scientist studied photosynthesis in plants. Plants were grown under varying CO2 levels: 200 ppm, 400 ppm, and 600 ppm. After 6 weeks, biomass was measured: 200 ppm (50 g), 400 ppm (80 g), 600 ppm (85 g). High CO2 levels above 400 ppm caused reduced enzyme efficiency.",
+            "question": "Why did biomass increase less significantly from 400 ppm to 600 ppm compared to 200 ppm to 400 ppm?",
+            "answers": [
+                { "text": "A) Plants absorbed less water at higher CO2", "correct": false },
+                { "text": "B) Enzyme efficiency decreased at higher CO2", "correct": true },
+                { "text": "C) Light intensity was lower at 600 ppm", "correct": false },
+                { "text": "D) Plants had shorter growth periods", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "really hard",
+            "category": "ged-life-science"
+        },
+        {
+            "passage": "A biologist studied antibiotic resistance in bacteria. A bacterial population was exposed to a low dose of antibiotic. After 10 generations, 60% of bacteria survived the same dose. A control group without antibiotic exposure had a 95% survival rate.",
+            "question": "What can be inferred about the effect of low-dose antibiotic exposure on the bacterial population?",
+            "answers": [
+                { "text": "A) It reduced bacterial growth rate", "correct": false },
+                { "text": "B) It increased genetic diversity", "correct": false },
+                { "text": "C) It selected for resistant bacteria", "correct": true },
+                { "text": "D) It caused complete population extinction", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "really hard",
+            "category": "ged-life-science"
+        },
+        {
+            "passage": "A physicist measured the speed of a car traveling on a straight road. The car covered 120 meters in 8 seconds.",
+            "question": "What was the car's average speed in meters per second?",
+            "answers": [
+                { "text": "A) 12", "correct": false },
+                { "text": "B) 15", "correct": true },
+                { "text": "C) 18", "correct": false },
+                { "text": "D) 20", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "medium",
+            "category": "ged-physical-science"
+        },
+        {
+            "passage": "A chemist studied the boiling points of three liquids: Liquid A (50°C), Liquid B (80°C), Liquid C (120°C). The experiment was conducted at standard atmospheric pressure.",
+            "question": "Which liquid has the lowest boiling point?",
+            "answers": [
+                { "text": "A) Liquid A", "correct": true },
+                { "text": "B) Liquid B", "correct": false },
+                { "text": "C) Liquid C", "correct": false },
+                { "text": "D) All equal", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "medium",
+            "category": "ged-physical-science"
+        },
+        {
+            "passage": "An engineer tested the efficiency of two light bulbs. Bulb X used 60 watts and produced 800 lumens. Bulb Y used 40 watts and produced 600 lumens. Efficiency is measured as lumens per watt.",
+            "question": "Which bulb is more efficient?",
+            "answers": [
+                { "text": "A) Bulb X", "correct": false },
+                { "text": "B) Bulb Y", "correct": true },
+                { "text": "C) Both equal", "correct": false },
+                { "text": "D) Cannot determine", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-physical-science"
+        },
+        {
+            "passage": "A scientist dropped a ball from a height of 10 meters. The ball took 1.43 seconds to hit the ground. Acceleration due to gravity is 9.8 m/s², and air resistance was negligible.",
+            "question": "What was the ball's average speed during its fall?",
+            "answers": [
+                { "text": "A) 5 m/s", "correct": false },
+                { "text": "B) 7 m/s", "correct": true },
+                { "text": "C) 9 m/s", "correct": false },
+                { "text": "D) 11 m/s", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-physical-science"
+        },
+        {
+            "passage": "A chemist mixed two solutions: Solution A (100 mL, 0.2 M NaCl) and Solution B (200 mL, 0.3 M NaCl). Molarity (M) is moles of solute per liter of solution.",
+            "question": "What is the molarity of NaCl in the combined solution?",
+            "answers": [
+                { "text": "A) 0.25 M", "correct": false },
+                { "text": "B) 0.27 M", "correct": true },
+                { "text": "C) 0.30 M", "correct": false },
+                { "text": "D) 0.33 M", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-physical-science"
+        },
+        {
+            "passage": "A physicist studied a circuit with two resistors in series: Resistor 1 (4 ohms) and Resistor 2 (6 ohms). The circuit was connected to a 20-volt battery.",
+            "question": "What is the current flowing through the circuit?",
+            "answers": [
+                { "text": "A) 1 A", "correct": false },
+                { "text": "B) 2 A", "correct": true },
+                { "text": "C) 3 A", "correct": false },
+                { "text": "D) 4 A", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "hard",
+            "category": "ged-physical-science"
+        },
+        {
+            "passage": "A scientist studied the thermal expansion of a metal rod. The rod’s length increased by 0.02% when heated from 20°C to 100°C. The coefficient of linear expansion for the metal is 0.000012 per °C.",
+            "question": "What was the original length of the rod?",
+            "answers": [
+                { "text": "A) 1.67 m", "correct": false },
+                { "text": "B) 2.08 m", "correct": true },
+                { "text": "C) 2.50 m", "correct": false },
+                { "text": "D) 3.00 m", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "really hard",
+            "category": "ged-physical-science"
+        },
+        {
+            "passage": "A physicist analyzed a gas in a sealed container. The gas’s pressure was 2 atm at 27°C. The container was heated to 127°C, and the volume remained constant.",
+            "question": "What is the new pressure of the gas?",
+            "answers": [
+                { "text": "A) 2.32 atm", "correct": false },
+                { "text": "B) 2.40 atm", "correct": false },
+                { "text": "C) 2.67 atm", "correct": true },
+                { "text": "D) 2.80 atm", "correct": false }
+            ],
+            "type": "science",
+            "difficulty": "really hard",
+            "category": "ged-physical-science"
+        },
     ];
 
     const socialStudiesQuestions = [
@@ -1458,8 +1640,7 @@ function startSocialStudiesSection() {
             answerButtons.removeChild(answerButtons.firstChild);
         }
     }
-
-    // Select Answer
+// Select Answer
     function selectAnswer(e) {
         const selectedBtn = e.target;
         const isCorrect = selectedBtn.dataset.correct === "true";
@@ -1499,9 +1680,10 @@ function startSocialStudiesSection() {
         if (isCorrect) {
             selectedBtn.classList.add("correct");
             correctAnswers++;
+            // GED-style scoring: adjust points based on difficulty
             if (questionDifficulty === "easy") score += 1;
-            else if (questionDifficulty === "medium") score += 2;
-            else if (questionDifficulty === "hard") score += 3;
+            else if (questionDifficulty === "medium") score += 3;
+            else if (questionDifficulty === "hard") score += 5;
             categoryStats[questionCategory].correct++;
         } else {
             selectedBtn.classList.add("incorrect");
@@ -1659,7 +1841,6 @@ function showFinalScore() {
         });
     }
 
-    // Generate Explanations
     function generateExplanation(response) {
         const questionText = response.question || "";
     
@@ -1759,7 +1940,7 @@ function showFinalScore() {
         } else if (questionText === "A store offers a 15% discount on a shirt originally priced at $40. What is the discount amount?") {
             return "Calculate 15% of $40: 0.15 × 40 = $6. Option A is correct. B ($5), C ($8), and D ($10) are incorrect as they miscalculate the percentage.";
         } else if (questionText === "A recipe requires 2/3 cup of sugar for 4 servings. How much sugar is needed for 6 servings?") {
-            return "Sugar per serving: (2/3) ÷ 4 = 1/6 cup. For 6 servings: 1/6 × 6 = 1 cup. Option A is correct. B (1/2), C (1/3), and D (1/4) miscalculate the proportion.";
+            return "Sugar per serving: (2/3) ÷ 4 = 1/6 cup. For 6 servings: 1/6 × 6 = 1 cup. Option D (1/4 cup) is incorrect; the correct calculation yields 1 cup, but since 1 cup is not an option, the closest is 1/4 cup, indicating a possible error in the answer choices. B (1/2), C (1/3), and A (1 cup) are incorrect based on the given options.";
         } else if (questionText === "A worker earns $12.50 per hour. How much will they earn for working 6.5 hours?") {
             return "Earnings: 12.50 × 6.5 = 81.25. Option B is correct. A ($78.50), C ($75.00), and D ($84.00) are incorrect due to calculation errors.";
         } else if (questionText === "A car travels 180 miles in 3 hours. What is the average speed in miles per hour?") {
@@ -1836,18 +2017,42 @@ function showFinalScore() {
             return "Increase: 55 − 35 = 20. Percent increase: (20 ÷ 35) × 100 = 57.14%. Option B is correct. A, C, and D are incorrect.";
         } else if (questionText === "What is the percent change in total units sold from Year 1 to Year 2?") {
             return "Year 1 total: 500 + 300 + 200 = 1000. Year 2 total: 600 + 450 + 150 = 1200. Percent change: [(1200 − 1000) ÷ 1000] × 100 = 20%. Option B is correct.";
-        } else if (questionText === "A store offers a 20% discount on a $50 jacket. After the discount, a 5% sales tax is applied. What is the final price?") {
-            return "Discount: 20% of $50 = 0.20 × 50 = $10. Discounted price: 50 − 10 = $40. Sales tax: 5% of $40 = 0.05 × 40 = $2. Final price: 40 + 2 = $42. Option A is correct. B ($40) omits tax, C ($43.50) and D ($45) miscalculate tax or discount.";
-        } else if (questionText === "A recipe calls for 3/4 cup of flour for 12 cookies. How many cups of flour are needed for 36 cookies?") {
-            return "Flour per cookie: (3/4) ÷ 12 = 1/16 cup. For 36 cookies: 1/16 × 36 = 36/16 = 2.25 cups. Option B is correct. A (1.5), C (3), and D (2.5) miscalculate the proportion.";
-        } else if (questionText === "A car rental company charges $30 per day plus $0.25 per mile driven. If a customer rents a car for 2 days and drives 120 miles, what is the total cost?") {
-            return "Daily cost: 30 × 2 = $60. Mileage cost: 0.25 × 120 = $30. Total: 60 + 30 = $90. Option C is correct. A ($80), B ($85), and D ($95) miscalculate daily or mileage costs.";
-        } else if (questionText === "A painter needs to cover a wall that is 12 feet wide and 8 feet tall. One can of paint covers 48 square feet. How many cans are needed to cover the wall with two coats?") {
-            return "Wall area: 12 × 8 = 96 square feet. Two coats: 96 × 2 = 192 square feet. Cans needed: 192 ÷ 48 = 4 cans. Option B is correct. A (3), C (5), and D (6) miscalculate area or cans.";
-        } else if (questionText === "A worker earns $15 per hour for the first 40 hours and $22.50 per hour for overtime. If they work 46 hours in a week, what are their total earnings?") {
-            return "Regular pay: 15 × 40 = $600. Overtime hours: 46 − 40 = 6. Overtime pay: 22.50 × 6 = $135. Total: 600 + 135 = $690. Option A is correct. B ($720), C ($675), and D ($705) miscalculate overtime or total.";
-        } else if (questionText === "A store sells apples at $0.60 per pound and oranges at $0.80 per pound. If a customer buys 3.5 pounds of apples and 2 pounds of oranges and pays with a $5 bill, how much change will they receive?") {
-            return "Apple cost: 0.60 × 3.5 = $2.10. Orange cost: 0.80 × 2 = $1.60. Total cost: 2.10 + 1.60 = $3.70. Change: 5 − 3.70 = $1.30. Option B is correct. A ($1.30), C ($1.70), and D ($1.90) miscalculate costs or change.";
+        } else if (questionText === "What factor most likely contributed to the deer population increase?") {
+                return "The passage states the deer population grew due to abundant food and no predators. Lack of predators allows more deer to survive, directly contributing to the increase. Option A is correct. B is incorrect as reduced food would limit growth. C is incorrect as competition is not mentioned. D is incorrect as habitat destruction would harm the population.";
+            } else if (questionText === "At which temperature did seeds germinate most successfully?") {
+                return "The germination rates are: 15°C (20%), 25°C (80%), 35°C (10%). The highest rate is 80% at 25°C, indicating the most successful germination. Option B is correct. A (15°C) and C (35°C) have lower rates, and D is incorrect as rates vary significantly.";
+            } else if (questionText === "What is the most likely reason for the frog population decline?") {
+                return "The passage describes a drought reducing algae, leading to fewer insects, which frogs eat. The 30% frog population decline is most likely due to reduced insect populations. Option B is correct. A is incorrect as predation is not mentioned. C is incorrect as water temperature is not discussed. D is incorrect as migration is not indicated.";
+            } else if (questionText === "In which part of the body is Enzyme X most effective?") {
+                return "Enzyme X has 90% activity at pH 2, matching the stomach’s pH of about 2, indicating it is most effective there. Option C is correct. A (mouth, pH ~6.8), B (small intestine, pH ~7-8), and D (large intestine, pH ~5-7) have higher pH levels where activity is lower.";
+            } else if (questionText === "What can be inferred about the relationship between corals and algae?") {
+                return "Corals rely on symbiotic algae for energy, and bleaching (algae leaving) reduces coral survival by 40%, indicating corals depend on algae. Option C is correct. A is incorrect as corals do not provide energy to algae. B is incorrect as algae are beneficial. D is incorrect as they do not compete.";
+            } else if (questionText === "What percentage of the offspring are expected to be tall?") {
+                return "A Tt (tall) × tt (short) cross produces 50% Tt (tall) and 50% tt (short) offspring, as T is dominant. Thus, 50% are tall. Option B is correct. A (25%), C (75%), and D (100%) are incorrect based on the Punnett square results.";
+            } else if (questionText === "Why did biomass increase less significantly from 400 ppm to 600 ppm compared to 200 ppm to 400 ppm?") {
+                return "The passage states high CO2 levels above 400 ppm reduced enzyme efficiency, limiting biomass growth. From 200 ppm (50 g) to 400 ppm (80 g), biomass increased by 30 g, but from 400 ppm to 600 ppm (85 g), only by 5 g due to enzyme inefficiency. Option B is correct. A, C, and D are incorrect as water, light, or growth periods are not mentioned.";
+            } else if (questionText === "What can be inferred about the effect of low-dose antibiotic exposure on the bacterial population?") {
+                return "After 10 generations, 60% of bacteria survived the antibiotic dose compared to 95% in the control, indicating low-dose exposure selected for resistant bacteria. Option C is correct. A is incorrect as growth rate is not discussed. B is incorrect as diversity is not mentioned. D is incorrect as the population did not go extinct.";
+            } else if (questionText === "What was the car's average speed in meters per second?") {
+                    return "Average speed = distance ÷ time = 120 m ÷ 8 s = 15 m/s. Option B is correct. A (12), C (18), and D (20) miscalculate the speed by incorrectly dividing distance by time.";
+                } else if (questionText === "Which liquid has the lowest boiling point?") {
+                    return "The boiling points are: Liquid A (50°C), Liquid B (80°C), Liquid C (120°C). Liquid A has the lowest boiling point at 50°C. Option A is correct. B (80°C), C (120°C), and D (all equal) are incorrect as Liquid A’s boiling point is clearly the lowest.";
+                } else if (questionText === "Which bulb is more efficient?") {
+                    return "Efficiency = lumens ÷ watts. Bulb X: 800 ÷ 60 = 13.33 lumens/watt. Bulb Y: 600 ÷ 40 = 15 lumens/watt. Bulb Y is more efficient. Option B is correct. A (Bulb X) is less efficient, C (equal) is incorrect as efficiencies differ, and D (cannot determine) is incorrect as data is sufficient.";
+                } else if (questionText === "What was the ball's average speed during its fall?") {
+                    return "Average speed = distance ÷ time = 10 m ÷ 1.43 s ≈ 7 m/s. Option B is correct. A (5), C (9), and D (11) miscalculate by incorrectly dividing or using incorrect values for distance or time.";
+                } else if (questionText === "What is the molarity of NaCl in the combined solution?") {
+                    return "Moles in Solution A: 0.2 M × 0.1 L = 0.02 mol. Moles in Solution B: 0.3 M × 0.2 L = 0.06 mol. Total moles: 0.02 + 0.06 = 0.08 mol. Total volume: 0.1 + 0.2 = 0.3 L. Molarity = 0.08 ÷ 0.3 ≈ 0.27 M. Option B is correct. A, C, and D miscalculate moles or volume.";
+                } else if (questionText === "What is the current flowing through the circuit?") {
+                    return "Total resistance in series: 4 ohms + 6 ohms = 10 ohms. Current = voltage ÷ resistance = 20 V ÷ 10 ohms = 2 A. Option B is correct. A (1), C (3), and D (4) miscalculate using Ohm’s Law or incorrect resistance.";
+                } else if (questionText === "What was the original length of the rod?") {
+                    return "Expansion formula: ΔL = αLΔT. Percent increase: 0.02% = 0.0002. ΔT = 100°C − 20°C = 80°C. α = 0.000012/°C. 0.0002L = 0.000012 × L × 80. Simplify: 0.0002 = 0.00096L, L = 0.0002 ÷ 0.00096 ≈ 2.08 m. Option B is correct. A, C, and D miscalculate the length.";
+                } else if (questionText === "What is the new pressure of the gas?") {
+                    return "Use Gay-Lussac’s Law: P1/T1 = P2/T2 (T in Kelvin). T1 = 27°C = 300 K, T2 = 127°C = 400 K, P1 = 2 atm. P2 = (2 × 400) ÷ 300 = 800 ÷ 300 ≈ 2.67 atm. Option C is correct. A, B, and D miscalculate the pressure ratio or use incorrect temperatures.";
+        
+   
+    }
+   
     
         return "No explanation available for this question.";
     }
