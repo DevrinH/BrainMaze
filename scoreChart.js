@@ -143,7 +143,7 @@ function updateScoreChart() {
                         stepSize: 400
                     },
                     min: 100,              // buffer below 200
-                    suggestedMax: 1650,    // allows room above 1600, but 1600 still gets a label
+                    suggestedMax: 1610,    // allows room above 1600, but 1600 still gets a label
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
