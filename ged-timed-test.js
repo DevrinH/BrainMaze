@@ -1664,31 +1664,253 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const socialStudiesQuestions = [
         {
-            passage: "In 1963, the March on Washington drew over 200,000 people to demand civil rights. Martin Luther King Jr. delivered his 'I Have a Dream' speech, calling for racial equality. The event pressured Congress to pass the Civil Rights Act of 1964.",
-            question: "What was the primary goal of the March on Washington?",
-            answers: [
-                { text: "A) Economic reform", correct: false },
-                { text: "B) Civil rights legislation", correct: true },
-                { text: "C) Voting rights", correct: false },
-                { text: "D) Education reform", correct: false }
+            "passage": "In 1776, the Continental Congress adopted the Declaration of Independence, primarily authored by Thomas Jefferson. It outlined grievances against King George III and asserted the colonies’ right to self-governance.",
+            "question": "What was the primary purpose of the Declaration of Independence?",
+            "answers": [
+                { "text": "A) To establish a new government", "correct": false },
+                { "text": "B) To declare separation from Britain", "correct": true },
+                { "text": "C) To create a military alliance", "correct": false },
+                { "text": "D) To propose peace negotiations", "correct": false }
             ],
-            type: "social studies",
-            difficulty: "medium",
-            category: "ged-social-studies"
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-us-history"
         },
         {
-            passage: "In 1963, the March on Washington drew over 200,000 people...",
-            question: "What legislation was influenced by the March?",
-            answers: [
-                { text: "A) Voting Rights Act", correct: false },
-                { text: "B) Civil Rights Act", correct: true },
-                { text: "C) Fair Housing Act", correct: false },
-                { text: "D) Equal Pay Act", correct: false }
+            "passage": "The Bill of Rights, ratified in 1791, consists of the first ten amendments to the U.S. Constitution. It was added to address concerns raised by Anti-Federalists about individual liberties.",
+            "question": "Why was the Bill of Rights added to the Constitution?",
+            "answers": [
+                { "text": "A) To limit state powers", "correct": false },
+                { "text": "B) To protect individual freedoms", "correct": true },
+                { "text": "C) To expand federal authority", "correct": false },
+                { "text": "D) To regulate trade", "correct": false }
             ],
-            type: "social studies",
-            difficulty: "medium",
-            category: "ged-social-studies"
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-us-history"
         },
+        {
+            "passage": "The Louisiana Purchase in 1803 doubled the size of the United States. President Thomas Jefferson negotiated the deal with France, acquiring 828,000 square miles for $15 million.",
+            "question": "What was the main impact of the Louisiana Purchase?",
+            "answers": [
+                { "text": "A) It strengthened ties with France", "correct": false },
+                { "text": "B) It expanded U.S. territory", "correct": true },
+                { "text": "C) It ended the War of 1812", "correct": false },
+                { "text": "D) It reduced federal debt", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-us-history"
+        },
+        {
+            "passage": "The Missouri Compromise of 1820 addressed the balance between free and slave states. It admitted Missouri as a slave state and Maine as a free state, and prohibited slavery north of the 36°30' latitude line in the Louisiana Territory.",
+            "question": "What was the primary goal of the Missouri Compromise?",
+            "answers": [
+                { "text": "A) To abolish slavery nationwide", "correct": false },
+                { "text": "B) To maintain balance between free and slave states", "correct": true },
+                { "text": "C) To expand the Louisiana Territory", "correct": false },
+                { "text": "D) To grant states full control over slavery", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-us-history"
+        },
+        {
+            "passage": "During the Civil War (1861–1865), the Emancipation Proclamation was issued by President Abraham Lincoln in 1863. It declared freedom for slaves in Confederate states but did not apply to border states or Union-controlled areas.",
+            "question": "What was a key limitation of the Emancipation Proclamation?",
+            "answers": [
+                { "text": "A) It freed all slaves in the United States", "correct": false },
+                { "text": "B) It only applied to Confederate states", "correct": true },
+                { "text": "C) It was issued after the Civil War ended", "correct": false },
+                { "text": "D) It banned slavery in border states", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-us-history"
+        },
+        {
+            "passage": "The 19th Amendment, ratified in 1920, granted women the right to vote in the United States. It was the culmination of decades of activism by suffragists like Susan B. Anthony and Elizabeth Cady Stanton.",
+            "question": "What was the main effect of the 19th Amendment?",
+            "answers": [
+                { "text": "A) It ended racial discrimination in voting", "correct": false },
+                { "text": "B) It expanded women’s voting rights", "correct": true },
+                { "text": "C) It lowered the voting age", "correct": false },
+                { "text": "D) It restricted state voting laws", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-us-history"
+        },
+        {
+            "passage": "The New Deal, implemented by President Franklin D. Roosevelt in the 1930s, aimed to address the Great Depression. Programs like the Civilian Conservation Corps and Social Security provided jobs and economic security.",
+            "question": "What was a primary objective of the New Deal?",
+            "answers": [
+                { "text": "A) To reduce government spending", "correct": false },
+                { "text": "B) To provide economic relief and recovery", "correct": true },
+                { "text": "C) To expand U.S. military power", "correct": false },
+                { "text": "D) To limit workers’ rights", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-us-history"
+        },
+        {
+            "passage": "The Civil Rights Act of 1964 outlawed discrimination based on race, color, religion, sex, or national origin. It was signed into law by President Lyndon B. Johnson after significant activism, including the March on Washington in 1963.",
+            "question": "What was a key factor that led to the passage of the Civil Rights Act of 1964?",
+            "answers": [
+                { "text": "A) Economic recovery from the Great Depression", "correct": false },
+                { "text": "B) Civil rights activism and protests", "correct": true },
+                { "text": "C) Military victories in World War II", "correct": false },
+                { "text": "D) Expansion of voting rights", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-us-history"
+        },
+        {
+            "passage": "The Federalist Papers, written by Alexander Hamilton, James Madison, and John Jay under the pseudonym 'Publius,' were published in 1787–1788. They argued for the ratification of the U.S. Constitution, addressing concerns about federal power and state sovereignty.",
+            "question": "What was the authors’ primary argument in the Federalist Papers?",
+            "answers": [
+                { "text": "A) To support a strong federal government", "correct": true },
+                { "text": "B) To advocate for state independence", "correct": false },
+                { "text": "C) To oppose the Bill of Rights", "correct": false },
+                { "text": "D) To limit the judiciary’s power", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "really hard",
+            "category": "ged-us-history"
+        },
+        {
+            "passage": "The Dred Scott v. Sandford decision of 1857 ruled that African Americans were not U.S. citizens and that Congress could not ban slavery in the territories. The decision heightened tensions between North and South, contributing to the Civil War.",
+            "question": "How did the Dred Scott decision impact sectional tensions in the United States?",
+            "answers": [
+                { "text": "A) It reduced conflicts by clarifying citizenship", "correct": false },
+                { "text": "B) It increased tensions by denying African American citizenship", "correct": true },
+                { "text": "C) It resolved disputes over territorial expansion", "correct": false },
+                { "text": "D) It promoted unity between North and South", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "really hard",
+            "category": "ged-us-history"
+        },
+        {
+            "passage": "The U.S. Constitution, ratified in 1788, established a federal system with three branches: legislative, executive, and judicial. Each branch has specific powers to prevent any one branch from dominating the government.",
+            "question": "What is the primary purpose of the separation of powers in the U.S. Constitution?",
+            "answers": [
+                { "text": "A) To centralize government authority", "correct": false },
+                { "text": "B) To prevent abuse of power", "correct": true },
+                { "text": "C) To eliminate state governments", "correct": false },
+                { "text": "D) To simplify lawmaking", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-civics-and-government"
+        },
+        {
+            "passage": "The Electoral College is used to elect the U.S. President. Each state has electors equal to its total congressional representation, and a candidate needs a majority of electoral votes to win.",
+            "question": "How is the number of electors for each state determined?",
+            "answers": [
+                { "text": "A) By state population", "correct": false },
+                { "text": "B) By congressional representation", "correct": true },
+                { "text": "C) By voter turnout", "correct": false },
+                { "text": "D) By geographic size", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-civics-and-government"
+        },
+        {
+            "passage": "The First Amendment to the U.S. Constitution protects freedoms of speech, religion, press, assembly, and petition. These rights limit government actions against individuals.",
+            "question": "Which right is protected by the First Amendment?",
+            "answers": [
+                { "text": "A) Right to bear arms", "correct": false },
+                { "text": "B) Freedom of speech", "correct": true },
+                { "text": "C) Right to a speedy trial", "correct": false },
+                { "text": "D) Protection against unreasonable searches", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "medium",
+            "category": "ged-civics-and-government"
+        },
+        {
+            "passage": "Federalism in the U.S. divides power between the national and state governments. The 10th Amendment reserves powers not delegated to the federal government to the states or the people.",
+            "question": "What does the 10th Amendment primarily address?",
+            "answers": [
+                { "text": "A) Federal supremacy over states", "correct": false },
+                { "text": "B) Powers reserved to states", "correct": true },
+                { "text": "C) Judicial review", "correct": false },
+                { "text": "D) Taxation authority", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-civics-and-government"
+        },
+        {
+            "passage": "The Supreme Court case Marbury v. Madison (1803) established the principle of judicial review, allowing courts to strike down laws that violate the Constitution.",
+            "question": "What was the significance of Marbury v. Madison?",
+            "answers": [
+                { "text": "A) It expanded voting rights", "correct": false },
+                { "text": "B) It established judicial review", "correct": true },
+                { "text": "C) It limited presidential powers", "correct": false },
+                { "text": "D) It abolished slavery", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-civics-and-government"
+        },
+        {
+            "passage": "The U.S. Congress consists of the House of Representatives and the Senate. The House has 435 members, apportioned by population, while the Senate has 100 members, with two per state.",
+            "question": "What is the basis for representation in the House of Representatives?",
+            "answers": [
+                { "text": "A) Equal per state", "correct": false },
+                { "text": "B) State population", "correct": true },
+                { "text": "C) Number of voters", "correct": false },
+                { "text": "D) State land area", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-civics-and-government"
+        },
+        {
+            "passage": "The 14th Amendment, ratified in 1868, grants citizenship to all persons born or naturalized in the U.S. and ensures equal protection under the law. It was passed to protect the rights of former slaves.",
+            "question": "What is a key provision of the 14th Amendment?",
+            "answers": [
+                { "text": "A) Voting rights for women", "correct": false },
+                { "text": "B) Equal protection under the law", "correct": true },
+                { "text": "C) Freedom of religion", "correct": false },
+                { "text": "D) Right to bear arms", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-civics-and-government"
+        },
+        {
+            "passage": "The process to amend the U.S. Constitution requires a two-thirds vote in both houses of Congress or a constitutional convention called by two-thirds of states, followed by ratification by three-fourths of states.",
+            "question": "What is required to propose a constitutional amendment?",
+            "answers": [
+                { "text": "A) Majority vote in Congress", "correct": false },
+                { "text": "B) Two-thirds vote in Congress", "correct": true },
+                { "text": "C) Presidential approval", "correct": false },
+                { "text": "D) Unanimous state agreement", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "hard",
+            "category": "ged-civics-and-government"
+        },
+        {
+            "passage": "The U.S. system of checks and balances allows each branch of government to limit the powers of the others. For example, the President can veto laws passed by Congress, but Congress can override a veto with a two-thirds vote.",
+            "question": "How can Congress counteract a presidential veto?",
+            "answers": [
+                { "text": "A) Pass a new law", "correct": false },
+                { "text": "B) Appeal to the Supreme Court", "correct": false },
+                { "text": "C) Override with a two-thirds vote", "correct": true },
+                { "text": "D) Request a public referendum", "correct": false }
+            ],
+            "type": "social-studies",
+            "difficulty": "really hard",
+            "category": "ged-civics-and-government"
+        },
+
         
     ];
 
@@ -2322,6 +2544,46 @@ function showFinalScore() {
                     return "Loamy growth: 4.0 cm/week × 8 = 32 cm. Clay growth: 1.8 cm/week × 8 = 14.4 cm. Difference: 32 − 14.4 = 17.6 cm. Option C is correct. A (1.7 cm), B (4.8 cm), and D (22.4 cm) miscalculate the growth difference.";
                 } else if (questionText === "What does the standard deviation indicate about the rainfall data?") {
                     return "Standard deviation (100 mm) measures how much rainfall varies from the mean. Option B is correct. A (average is 100 mm) misinterprets standard deviation. C (max-min difference) is unrelated. D (even distribution) is incorrect as standard deviation indicates variability.";
+                } else if (questionText === "What was the primary purpose of the Declaration of Independence?") {
+                        return "The Declaration of Independence aimed to assert the colonies’ right to self-governance and declare separation from Britain. Option B is correct. A (establish government) occurred later, C (military alliance) is unrelated, and D (peace negotiations) was not the goal.";
+                    } else if (questionText === "Why was the Bill of Rights added to the Constitution?") {
+                        return "The Bill of Rights was added to address Anti-Federalist concerns by protecting individual freedoms. Option B is correct. A (limit state powers) is incorrect as it focuses on individuals, C (expand federal authority) contradicts its purpose, and D (regulate trade) is unrelated.";
+                    } else if (questionText === "What was the main impact of the Louisiana Purchase?") {
+                        return "The Louisiana Purchase doubled U.S. territory, significantly expanding its land. Option B is correct. A (ties with France) was secondary, C (War of 1812) is unrelated, and D (reduced debt) is incorrect as it increased spending.";
+                    } else if (questionText === "What was the primary goal of the Missouri Compromise?") {
+                        return "The Missouri Compromise aimed to maintain balance between free and slave states by admitting Missouri (slave) and Maine (free) and setting a slavery boundary. Option B is correct. A (abolish slavery) was not the goal, C (expand territory) is incorrect, and D (state control) contradicts the federal boundary.";
+                    } else if (questionText === "What was a key limitation of the Emancipation Proclamation?") {
+                        return "The Emancipation Proclamation only freed slaves in Confederate states, not in border states or Union areas. Option B is correct. A (freed all slaves) is incorrect, C (post-war) is factually wrong, and D (banned in border states) misstates the scope.";
+                    } else if (questionText === "What was the main effect of the 19th Amendment?") {
+                        return "The 19th Amendment granted women the right to vote, expanding their voting rights. Option B is correct. A (racial discrimination) is unrelated, C (voting age) refers to a different amendment, and D (restrict state laws) is incorrect.";
+                    } else if (questionText === "What was a primary objective of the New Deal?") {
+                        return "The New Deal aimed to provide economic relief and recovery during the Great Depression through programs like Social Security. Option B is correct. A (reduce spending) contradicts its purpose, C (military power) is unrelated, and D (limit workers’ rights) is incorrect.";
+                    } else if (questionText === "What was a key factor that led to the passage of the Civil Rights Act of 1964?") {
+                        return "Civil rights activism, including the March on Washington, was a key factor in passing the Civil Rights Act. Option B is correct. A (Great Depression) is unrelated, C (World War II) is earlier, and D (voting rights) came later with the Voting Rights Act.";
+                    } else if (questionText === "What was the authors’ primary argument in the Federalist Papers?") {
+                        return "The Federalist Papers argued for ratifying the Constitution by supporting a strong federal government to ensure stability. Option A is correct. B (state independence) aligns with Anti-Federalists, C (oppose Bill of Rights) is incorrect, and D (limit judiciary) is not the focus.";
+                    } else if (questionText === "How did the Dred Scott decision impact sectional tensions in the United States?") {
+                        return "The Dred Scott decision denied African American citizenship and allowed slavery in territories, increasing North-South tensions. Option B is correct. A (reduced conflicts) is incorrect, C (resolved disputes) is false, and D (promoted unity) contradicts its divisive impact.";
+                    } else if (questionText === "What is the primary purpose of the separation of powers in the U.S. Constitution?") {
+                        return "Separation of powers divides government into three branches to prevent any one from dominating, thus preventing abuse of power. Option B is correct. A (centralize authority) contradicts the purpose, C (eliminate state governments) is unrelated, and D (simplify lawmaking) is incorrect.";
+                    } else if (questionText === "How is the number of electors for each state determined?") {
+                        return "Each state’s electors equal its total congressional representation (senators plus representatives). Option B is correct. A (population) is indirect, C (voter turnout) and D (geographic size) are unrelated to the Electoral College.";
+                    } else if (questionText === "Which right is protected by the First Amendment?") {
+                        return "The First Amendment protects freedoms including speech. Option B is correct. A (bear arms) is the Second Amendment, C (speedy trial) is the Sixth, and D (unreasonable searches) is the Fourth.";
+                    } else if (questionText === "What does the 10th Amendment primarily address?") {
+                        return "The 10th Amendment reserves powers not delegated to the federal government to states or the people. Option B is correct. A (federal supremacy) contradicts it, C (judicial review) is unrelated, and D (taxation) is not the focus.";
+                    } else if (questionText === "What was the significance of Marbury v. Madison?") {
+                        return "Marbury v. Madison established judicial review, allowing courts to strike down unconstitutional laws. Option B is correct. A (voting rights), C (presidential powers), and D (slavery) are unrelated to the case.";
+                    } else if (questionText === "What is the basis for representation in the House of Representatives?") {
+                        return "House representation is based on state population, with 435 members apportioned accordingly. Option B is correct. A (equal per state) applies to the Senate, C (voters) and D (land area) are incorrect.";
+                    } else if (questionText === "What is a key provision of the 14th Amendment?") {
+                        return "The 14th Amendment ensures equal protection under the law. Option B is correct. A (voting for women) is the 19th Amendment, C (religion) is the First, and D (bear arms) is the Second.";
+                    } else if (questionText === "What is required to propose a constitutional amendment?") {
+                        return "Proposing an amendment requires a two-thirds vote in both houses of Congress or a convention called by two-thirds of states. Option B is correct. A (majority vote) is insufficient, C (presidential approval) is not required, and D (unanimous states) is incorrect.";
+                    } else if (questionText === "How can Congress counteract a presidential veto?") {
+                        return "Congress can override a presidential veto with a two-thirds vote in both houses. Option C is correct. A (new law) requires starting over, B (Supreme Court) is unrelated, and D (referendum) is not a constitutional process.";
+
+
         
    
     }
