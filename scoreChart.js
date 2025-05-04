@@ -138,15 +138,12 @@ function updateScoreChart() {
                         color: textColor,
                         font: { size: 14, weight: "bold" },
                         callback: function (value) {
-                            // Only show these labels
-                            if ([400, 800, 1200, 1600].includes(value)) {
-                                return value;
-                            }
-                            return '';
-                        }
+                            return [400, 800, 1200, 1600].includes(value) ? value : '';
+                        },
+                        stepSize: 400
                     },
-                    min: 100,     // breathing room at the bottom
-                    max: 1650,    // extra space at the top for cutoff prevention
+                    min: 100,              // buffer below 200
+                    suggestedMax: 1650,    // allows room above 1600, but 1600 still gets a label
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -156,6 +153,7 @@ function updateScoreChart() {
                         drawBorder: false
                     }
                 }
+                
                 
                 
                 
