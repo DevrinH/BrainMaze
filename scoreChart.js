@@ -133,28 +133,29 @@ function updateScoreChart() {
                         drawBorder: false
                     }
                 },
-                y: {
-                    ticks: {
-                        color: textColor,
-                        font: { size: 14, weight: "bold" },
-                        callback: function (value) {
-                            return [400, 800, 1200, 1600].includes(value) ? value : '';
-                        },
-                        stepSize: 400
-                    },
-                    min: 100,              // buffer below 200
-                    suggestedMax: 1610,    // allows room above 1600, but 1600 still gets a label
-                    grid: {
-                        drawTicks: true,
-                        tickLength: 8,
-                        tickWidth: 2,
-                        color: "black",
-                        drawOnChartArea: false,
-                        drawBorder: false
-                    }
-                }
-                
-                
+               y: {
+    ticks: {
+        color: textColor,
+        font: { size: 14, weight: "bold" },
+        callback: function (value) {
+            // Only label 400, 800, 1200, 1600
+            if ([400, 800, 1200, 1600].includes(value)) {
+                return value;
+            }
+            return '';
+        }
+    },
+    min: 100,           // minimum for breathing room
+    max: 1615,          // hard limit at 1600
+    grid: {
+        drawTicks: true,
+        tickLength: 8,
+        tickWidth: 2,
+        color: "black",
+        drawOnChartArea: false,
+        drawBorder: false
+    }
+}
                 
                 
             },
