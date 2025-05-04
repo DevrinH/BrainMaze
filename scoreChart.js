@@ -146,7 +146,7 @@ function updateScoreChart() {
         }
     },
     min: 100,           // minimum for breathing room
-    max: 1615,          // hard limit at 1600
+    max: 1600,          // hard limit at 1600
     grid: {
         drawTicks: true,
         tickLength: 8,
