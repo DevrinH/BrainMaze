@@ -230,15 +230,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log(`Saving RLA score: ${scaledScore}/200`);
 
+        // Store RLA score for profile display
         localStorage.setItem("rlaScore", scaledScore);
 
-        let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
-        scoreHistory[today] = scoreHistory[today] || {};
-        scoreHistory[today].rla = scaledScore;
-        localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
-
-        console.log(`RLA score saved for ${today}:`, scoreHistory[today]);
+        // Do not write to gedScoreHistory to avoid affecting the chart
+        // Removed: Writing partial RLA score to gedScoreHistory
+        console.log(`RLA score ${scaledScore} saved to rlaScore for ${new Date().toLocaleDateString("en-CA")}`);
 
         saveTestCompletion("GED-RLA");
 
