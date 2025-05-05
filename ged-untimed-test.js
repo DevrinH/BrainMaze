@@ -366,25 +366,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show Final Score
     function showFinalScore() {
+        clearInterval(refreshIntervalId);
         resetState();
-
-     let rlaScore = parseInt(localStorage.getItem("rlaScore") || 100, 10);
+    
+        // Ensure scores are set during the test session (example assumes variables are set)
+        // If scores are calculated elsewhere, use those values instead
+        let rlaScore = parseInt(localStorage.getItem("rlaScore") || 100, 10);
         let mathScore = parseInt(localStorage.getItem("mathScore") || 100, 10);
         let scienceScore = parseInt(localStorage.getItem("scienceScore") || 100, 10);
         let socialStudiesScore = parseInt(localStorage.getItem("socialStudiesScore") || 100, 10);
-
+    
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
         scoreHistory[today] = {
+            testType: "full", // Flag as full test
             rla: rlaScore,
             math: mathScore,
             science: scienceScore,
-            socialStudies: socialStudiesScore
+            socialStudies: socialStudiesScore,
+            total: rlaScore + mathScore + scienceScore + socialStudiesScore
         };
         localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
-
-        saveTestCompletion("GED");
-
+    
+        console.log(`Final GED full test scores saved for ${today}:`, scoreHistory[today]);
+    
+        saveTestCompletion("GED-Full"); // Updated for clarity
+    
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `
@@ -394,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p><strong>Social Studies GED Score:</strong> ${socialStudiesScore} / 200</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
-
+    
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
