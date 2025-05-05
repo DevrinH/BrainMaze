@@ -2,9 +2,10 @@ function updateGEDScoreChart() {
     // Read from gedScoreHistory
     let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
 
-    // Filter dates where all four subject scores are present (full test)
+    // Filter dates where testType is "full" (indicating a complete test with all four subjects)
     let fullTestDates = Object.keys(scoreHistory).filter(date => {
         return (
+            scoreHistory[date].testType === "full" &&
             scoreHistory[date].math !== undefined &&
             scoreHistory[date].rla !== undefined &&
             scoreHistory[date].science !== undefined &&

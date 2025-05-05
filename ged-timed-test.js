@@ -2397,6 +2397,8 @@ function showFinalScore() {
     clearInterval(refreshIntervalId);
     resetState();
 
+    // Ensure scores are set during the test session (example assumes variables are set)
+    // If scores are calculated elsewhere, use those values instead
     let rlaScore = parseInt(localStorage.getItem("rlaScore") || 100, 10);
     let mathScore = parseInt(localStorage.getItem("mathScore") || 100, 10);
     let scienceScore = parseInt(localStorage.getItem("scienceScore") || 100, 10);
@@ -2405,6 +2407,7 @@ function showFinalScore() {
     let today = new Date().toLocaleDateString("en-CA");
     let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
     scoreHistory[today] = {
+        testType: "full", // Flag as full test
         rla: rlaScore,
         math: mathScore,
         science: scienceScore,
@@ -2413,9 +2416,9 @@ function showFinalScore() {
     };
     localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
 
-    console.log(`Final GED scores saved for ${today}:`, scoreHistory[today]);
+    console.log(`Final GED full test scores saved for ${today}:`, scoreHistory[today]);
 
-    saveTestCompletion("GED");
+    saveTestCompletion("GED-Full"); // Updated for clarity
 
     document.getElementById("question-container").classList.remove("hide");
     passageElement.innerHTML = "";
