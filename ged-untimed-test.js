@@ -366,20 +366,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show Final Score
     function showFinalScore() {
-        clearInterval(refreshIntervalId);
         resetState();
     
-        // Ensure scores are set during the test session (example assumes variables are set)
-        // If scores are calculated elsewhere, use those values instead
+        // Retrieve scores from localStorage (or calculate if set during test)
         let rlaScore = parseInt(localStorage.getItem("rlaScore") || 100, 10);
         let mathScore = parseInt(localStorage.getItem("mathScore") || 100, 10);
         let scienceScore = parseInt(localStorage.getItem("scienceScore") || 100, 10);
         let socialStudiesScore = parseInt(localStorage.getItem("socialStudiesScore") || 100, 10);
     
+        // Save scores to gedScoreHistory with testType: "full"
         let today = new Date().toLocaleDateString("en-CA");
         let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
         scoreHistory[today] = {
-            testType: "full", // Flag as full test
+            testType: "full", // Flag as full test for chart
             rla: rlaScore,
             math: mathScore,
             science: scienceScore,
@@ -388,10 +387,12 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
     
-        console.log(`Final GED full test scores saved for ${today}:`, scoreHistory[today]);
+        console.log(`Final GED Untimed Full Test scores saved for ${today}:`, scoreHistory[today]);
     
-        saveTestCompletion("GED-Full"); // Updated for clarity
+        // Save test completion metadata
+        saveTestCompletion("GED-Full-Untimed");
     
+        // Update UI to display scores
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `
@@ -402,6 +403,7 @@ document.addEventListener("DOMContentLoaded", () => {
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
     
+        // Set up review button
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
