@@ -218,37 +218,34 @@ document.addEventListener("DOMContentLoaded", () => {
     function showFinalScore() {
         clearInterval(refreshIntervalId);
         resetState();
-    
+
         let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
         let rawScore = score;
         let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
-    
+
         console.log(`Saving Math score: ${scaledScore}/200`);
-    
+
+        // Store Math score for profile display
         localStorage.setItem("mathScore", scaledScore);
-    
-        let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
-        scoreHistory[today] = scoreHistory[today] || {};
-        scoreHistory[today].math = scaledScore;
-        localStorage.setItem("gedScoreHistory", JSON.stringify(scoreHistory));
-    
-        console.log(`Math score saved for ${today}:`, scoreHistory[today]);
-    
+
+        // Do not write to gedScoreHistory to avoid affecting the chart
+        console.log(`Math score ${scaledScore} saved to mathScore for ${new Date().toLocaleDateString("en-CA")}`);
+
         saveTestCompletion("GED-Math");
-    
+
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
         questionElement.innerHTML = `<p><strong>Math GED Score:</strong> ${scaledScore} / 200</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
-    
+
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
         nextButton.removeEventListener("click", handleNextButton);
         nextButton.addEventListener("click", showExplanations);
     }
+
     // Save Test Completion
     function saveTestCompletion(examType) {
         const completionData = {
