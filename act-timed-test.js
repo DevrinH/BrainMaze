@@ -3187,8 +3187,8 @@ function selectAnswer(e) {
 
     function saveTestCompletion(examType) {
         const completionData = {
-            exam: examType,
-            type: "test", // Indicate this is a test
+            exam: "ACT", // Changed from examType to "GED"
+            type: "test",
             timestamp: new Date().toISOString()
         };
         localStorage.setItem("lastActivity", JSON.stringify(completionData));
