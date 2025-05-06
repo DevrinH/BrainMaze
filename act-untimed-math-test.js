@@ -196,12 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Store score in localStorage
         localStorage.setItem("actMathUntimedScore", mathScore);
 
-        // Update score history
-        let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-        scoreHistory[today] = scoreHistory[today] || {}; // Ensure date entry exists
-        scoreHistory[today].actMathUntimed = mathScore;
-        localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
+        // Do not write to actScoreHistory to avoid affecting the chart
+        console.log(`Untimed Math score ${mathScore} saved to actMathUntimedScore for ${new Date().toLocaleDateString("en-CA")}`);
 
         // Save test completion metadata
         saveTestCompletion("ACT-Math-Untimed");

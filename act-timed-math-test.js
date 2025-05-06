@@ -219,10 +219,14 @@ document.addEventListener("DOMContentLoaded", () => {
         mathScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
         // Store score in localStorage
-        localStorage.setItem("mathScore", mathScore);
+        localStorage.setItem("actMathScore", mathScore);
 
-        // Do not write to actScoreHistory to avoid affecting the chart
-        console.log(`Math score ${mathScore} saved to mathScore for ${new Date().toLocaleDateString("en-CA")}`);
+        // Update score history
+        let today = new Date().toLocaleDateString("en-CA");
+        let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
+        scoreHistory[today] = scoreHistory[today] || {}; // Ensure date entry exists
+        scoreHistory[today].actMath = mathScore;
+        localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
 
         // Save test completion metadata
         saveTestCompletion("ACT-Math");
@@ -230,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update UI
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Math ACT Score:</strong> ${mathScore} / 36</p>`;
+        questionElement.innerHTML = `<p><strong>ACT Math Score:</strong> ${mathScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
@@ -242,10 +246,9 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.addEventListener("click", showExplanations);
     }
 
-
     function saveTestCompletion(examType) {
         const completionData = {
-            exam: "ACT", // Changed from examType to "GED"
+            exam: examType,
             type: "test",
             timestamp: new Date().toISOString()
         };
