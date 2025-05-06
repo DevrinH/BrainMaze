@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let readingScore = 0;
     const currentSection = "reading";
 
-    // Reading question bank (unchanged)
+    // Reading question bank
     const readingQuestions = [
         {
             passage: "The old house on Maple Street stood at the edge of town, its weathered clapboards sagging under the weight of decades. Ivy clung to its walls, curling around the cracked windows like fingers guarding secrets. To the townsfolk, it was a relic—haunted, they whispered, by the spirit of Eliza Hawthorne, who vanished in 1923. Clara, a young librarian with a penchant for unraveling mysteries, felt drawn to the house. She’d spent months poring over archives, piecing together Eliza’s life: a poet, a recluse, a woman who’d loved fiercely and lost tragically. Clara’s fascination wasn’t just academic; it was personal. Her grandmother had spoken of Eliza as if she’d known her, though the timelines didn’t align.\n\nOn a crisp October evening, Clara slipped through the rusted gate, her flashlight cutting through the dusk. The air inside the house was thick with dust, the floorboards groaning under her steps. In the parlor, she found a bureau, its drawers stuffed with letters and poems. One letter, penned in Eliza’s looping script, spoke of a hidden room where she’d kept her ‘heart’s truth.’ Clara’s pulse quickened. She tapped the walls, listening for hollows, until a panel behind the fireplace gave way, revealing a narrow staircase.\n\nThe hidden room was small, its walls lined with shelves of journals. A single chair faced a window overlooking the garden, now overgrown. Clara opened a journal, its pages brittle but legible. Eliza’s words painted a vivid picture: her love for a man named Thomas, a sailor who never returned from sea; her despair as the town turned against her, branding her eccentric; her resolve to hide her work, fearing it would be misunderstood. The final entry was dated the day she disappeared: ‘They will not have my words. I leave them to the one who seeks.’\n\nClara sat in the chair, the journal heavy in her hands. She felt an ache, not just for Eliza, but for herself—a life spent searching for meaning in others’ stories. Outside, the wind stirred the leaves, and for a moment, Clara swore she heard a whisper, soft as a sigh, urging her to keep reading.",
@@ -203,12 +203,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Store score in localStorage
         localStorage.setItem("actReadingUntimedScore", readingScore);
 
-        // Update score history
-        let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-        scoreHistory[today] = scoreHistory[today] || {}; // Ensure date entry exists
-        scoreHistory[today].actReadingUntimed = readingScore;
-        localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
+        // Do not write to actScoreHistory to avoid affecting the chart
+        console.log(`Untimed Reading score ${readingScore} saved to actReadingUntimedScore for ${new Date().toLocaleDateString("en-CA")}`);
 
         // Save test completion metadata
         saveTestCompletion("ACT-Reading-Untimed");
@@ -230,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function saveTestCompletion(examType) {
         const completionData = {
-            exam: examType,
+            exam: "ACT", // Changed from examType to "GED"
             type: "test",
             timestamp: new Date().toISOString()
         };
