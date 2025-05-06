@@ -2440,7 +2440,7 @@ function showFinalScore() {
     // Save Test Completion
     function saveTestCompletion(examType) {
         const completionData = {
-            exam: examType,
+            exam: "GED", // Changed from examType to "GED"
             type: "test",
             timestamp: new Date().toISOString()
         };
