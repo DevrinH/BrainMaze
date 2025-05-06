@@ -2753,6 +2753,74 @@ document.addEventListener("DOMContentLoaded", function () {
 const satCategories = ["sat-reading", "sat-math"];
 const actCategories = ["act-english", "act-math", "act-reading", "act-science"];
 
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOMContentLoaded event fired. Script is running...");
+
+    // Define categories in global scope so resetProgress can access them
+    window.satCategories = [
+        "command-of-evidence",
+        "central-ideas-and-detail",
+        "inferences",
+        "words-in-context",
+        "text-structure-and-purpose",
+        "cross-text-connections",
+        "transitions",
+        "rhetorical-synthesis",
+        "boundaries",
+        "algebra",
+        "advanced-math",
+        "problem-solving-and-data",
+        "geometry-and-trigonometry"
+    ];
+
+    window.actCategories = [
+        "act-conventions-of-standard-english",
+        "act-knowledge-of-language",
+        "act-production-of-writing",
+        "act-algebra",
+        "act-functions",
+        "act-coordinate-geometry",
+        "act-systems-of-equations",
+        "act-geometry",
+        "act-trigonometry",
+        "act-quadratics",
+        "act-logarithms",
+        "act-complex-numbers",
+        "act-word-problems",
+        "act-probability",
+        "act-sequences",
+        "act-main-idea",
+        "act-authors-purpose",
+        "act-inference",
+        "act-character-motivation",
+        "act-vocabulary-in-context",
+        "act-character-development",
+        "act-symbolism",
+        "act-literary-device",
+        "act-theme",
+        "act-detail",
+        "act-relationship",
+        "act-implication",
+        "act-comparison",
+        "act-data-representation",
+        "act-research-summary",
+        "act-conflicting-viewpoints"
+    ];
+
+    window.gedCategories = [
+        "ged-algebra",
+        "ged-geometry",
+        "ged-language-arts",
+        "ged-science",
+        "ged-social-studies"
+    ];
+
+    // Category mapping for GED to handle label mismatches
+    window.gedCategoryMap = {
+        "reasoning-through-language-arts": "ged-language-arts"
+    };
+});
+
 // Define resetProgress function
 function resetProgress() {
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
