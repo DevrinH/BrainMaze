@@ -2686,39 +2686,42 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("DOMContentLoaded", updateProgress);
 
     function showLastExam() {
-        const lastActivity = JSON.parse(localStorage.getItem("lastActivity"));
-        let activeExam = "line-chart-sat";
+    const lastActivity = JSON.parse(localStorage.getItem("lastActivity"));
+    let activeExam = "line-chart-sat";
 
-        if (lastActivity && lastActivity.exam) {
-            switch (lastActivity.exam) {
-                case "SAT":
-                    showSAT();
-                    activeExam = "line-chart-sat";
-                    break;
-                case "ACT":
-                    showACT();
-                    activeExam = "line-chart-act";
-                    break;
-                case "GED":
-                    showGED();
-                    activeExam = "line-chart-ged";
-                    break;
-                default:
-                    showSAT();
-            }
-            if (lastActivity.type === "test") {
-                showTests();
-            } else if (lastActivity.type === "lesson") {
-                showLessons();
-            }
-        } else {
-            showSAT();
+    console.log("Last Activity:", lastActivity); // Debug log
+
+    if (lastActivity && lastActivity.exam) {
+        switch (lastActivity.exam) {
+            case "SAT":
+                showSAT();
+                activeExam = "line-chart-sat";
+                break;
+            case "ACT":
+                showACT();
+                activeExam = "line-chart-act";
+                break;
+            case "GED":
+                showGED();
+                activeExam = "line-chart-ged";
+                break;
+            default:
+                showSAT();
         }
-        return activeExam;
+        if (lastActivity.type === "test") {
+            showTests();
+            console.log("Showing tests for exam:", lastActivity.exam); // Debug log
+        } else if (lastActivity.type === "lesson") {
+            showLessons();
+            console.log("Showing lessons for exam:", lastActivity.exam); // Debug log
+        }
+    } else {
+        showSAT();
+        console.log("No last activity, defaulting to SAT"); // Debug log
     }
-
-    const activeExam = showLastExam();
-    console.log("Active Exam after showLastExam:", activeExam);
+    console.log("Active Exam:", activeExam); // Debug log
+    return activeExam;
+}
 
     document.querySelectorAll(".button-30").forEach(button => {
         button.addEventListener("click", () => {
