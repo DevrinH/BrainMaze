@@ -2753,19 +2753,20 @@ document.addEventListener("DOMContentLoaded", function () {
 const satCategories = ["sat-reading", "sat-math"];
 const actCategories = ["act-english", "act-math", "act-reading", "act-science"];
 
+// Define resetProgress function
 function resetProgress() {
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
     let storageKey, progressPrefix;
 
     if (activeExam === "line-chart-sat") {
         storageKey = "satProgress";
-        progressPrefix = satCategories;
+        progressPrefix = window.satCategories;
     } else if (activeExam === "line-chart-act") {
         storageKey = "actProgress";
-        progressPrefix = actCategories;
+        progressPrefix = window.actCategories;
     } else if (activeExam === "line-chart-ged") {
         storageKey = "gedProgress";
-        progressPrefix = ["ged-algebra", "ged-geometry", "ged-language-arts", "ged-science", "ged-social-studies"];
+        progressPrefix = window.gedCategories;
     } else {
         alert("No exam selected!");
         return;
