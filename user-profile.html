@@ -2749,6 +2749,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Define category arrays globally or in an accessible scope
+const satCategories = ["sat-reading", "sat-math"];
+const actCategories = ["act-english", "act-math", "act-reading", "act-science"];
+
 function resetProgress() {
     const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
     let storageKey, progressPrefix;
@@ -2764,6 +2768,12 @@ function resetProgress() {
         progressPrefix = ["ged-algebra", "ged-geometry", "ged-language-arts", "ged-science", "ged-social-studies"];
     } else {
         alert("No exam selected!");
+        return;
+    }
+
+    if (!progressPrefix) {
+        console.error(`Progress prefix not defined for exam: ${activeExam}`);
+        alert("Error: Unable to reset progress due to missing category definitions.");
         return;
     }
 
