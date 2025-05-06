@@ -2,27 +2,19 @@ let categoryStats = {};
 let testCompleted = false;
 
 function recordTestResults() {
-    // Load existing test results from localStorage
     let existingResults = localStorage.getItem("actTestResults");
     let results = existingResults ? JSON.parse(existingResults) : {};
-
-    // Accumulate new results into existing results
     for (let category in categoryStats) {
         if (!results[category]) {
             results[category] = { correct: 0, incorrect: 0 };
         }
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
-        console.log(`ACT Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
+        console.log(`Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
     }
-
     localStorage.setItem("actTestResults", JSON.stringify(results));
-    console.log("ACT Test Results Saved:", results);
-
-    // Dispatch testSubmitted event
+    console.log("Test Results:", results);
     window.dispatchEvent(new Event("testSubmitted"));
-
-    // Reset categoryStats for the next question
     if (!testCompleted) {
         categoryStats = {};
     }
