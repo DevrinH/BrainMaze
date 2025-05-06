@@ -221,12 +221,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Store score in localStorage
         localStorage.setItem("actMathScore", mathScore);
 
-        // Update score history
-        let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-        scoreHistory[today] = scoreHistory[today] || {}; // Ensure date entry exists
-        scoreHistory[today].actMath = mathScore;
-        localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
+        // Do not write to actScoreHistory to avoid affecting the chart
+        console.log(`Timed Math score ${mathScore} saved to actMathScore for ${new Date().toLocaleDateString("en-CA")}`);
 
         // Save test completion metadata
         saveTestCompletion("ACT-Math");
@@ -246,9 +242,10 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.addEventListener("click", showExplanations);
     }
 
+
     function saveTestCompletion(examType) {
         const completionData = {
-            exam: examType,
+            exam: "ACT", // Changed from examType to "GED"
             type: "test",
             timestamp: new Date().toISOString()
         };

@@ -217,9 +217,10 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.addEventListener("click", showExplanations);
     }
 
+
     function saveTestCompletion(examType) {
         const completionData = {
-            exam: examType,
+            exam: "ACT", // Changed from examType to "GED"
             type: "test",
             timestamp: new Date().toISOString()
         };
