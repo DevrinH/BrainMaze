@@ -2006,39 +2006,45 @@
 
 
 
-ddocument.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("actLastScoreBarChart");
+
 
     if (!canvas) {
         console.error("ACT Last Score Bar Chart element not found!");
         return;
     }
 
+
     const ctx = canvas.getContext("2d");
+
 
     if (!ctx) {
         console.error("Failed to get 2D context for ACT Last Score Bar Chart!");
         return;
     }
 
+
     // Retrieve the last test score from localStorage
     let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
     let dates = Object.keys(scoreHistory).sort();
     let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
 
+
     let lastEnglish = lastDate ? scoreHistory[lastDate]?.english ?? 0 : 0;
     let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
     let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
     let lastScience = lastDate ? scoreHistory[lastDate]?.science ?? 0 : 0;
+    let lastComposite = lastDate ? scoreHistory[lastDate]?.composite ?? 0 : 0;
     const maxScore = 36;
+    const unfilledScore = Math.max(0, maxScore - lastComposite); // Remaining portion
 
-    // Debug data
-    console.log({ lastEnglish, lastMath, lastReading, lastScience });
 
     // Destroy previous chart if it exists
     if (window.actLastScoreBarChart && typeof window.actLastScoreBarChart.destroy === "function") {
         window.actLastScoreBarChart.destroy();
     }
+
 
     // Create the new ACT Last Score Single Bar Chart
     window.actLastScoreBarChart = new Chart(ctx, {
@@ -2069,6 +2075,12 @@ ddocument.addEventListener("DOMContentLoaded", function () {
                     data: [lastScience],
                     backgroundColor: "rgb(75, 192, 192)", // Teal
                     stack: "total"
+                },
+                {
+                    label: "Missed",
+                    data: [unfilledScore],
+                    backgroundColor: "#d3d3d3", // Gray
+                    stack: "total"
                 }
             ]
         },
@@ -2081,7 +2093,7 @@ ddocument.addEventListener("DOMContentLoaded", function () {
                     stacked: true,
                     max: maxScore,
                     ticks: {
-                        stepSize: 18,
+                        stepSize: 18, // Half of 36 for clear increments
                         color: function(context) {
                             const theme = document.documentElement.getAttribute("data-theme") || "light";
                             return theme === "dark" ? "white" : "black";
@@ -2104,7 +2116,7 @@ ddocument.addEventListener("DOMContentLoaded", function () {
                 }
             },
             plugins: {
-                legend: { display: true }, // Show legend
+                legend: { display: false },
                 tooltip: { enabled: true },
                 datalabels: {
                     anchor: "center",
@@ -2118,6 +2130,7 @@ ddocument.addEventListener("DOMContentLoaded", function () {
         plugins: typeof ChartDataLabels !== "undefined" ? [ChartDataLabels] : []
     });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("gedLastScoreBarChart");
