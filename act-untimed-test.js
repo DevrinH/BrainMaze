@@ -426,6 +426,51 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function reviewIncorrectAnswers() {
+        try {
+            console.log("Reviewing incorrect answers");
+            const incorrectAnswers = [
+                ...englishResponses.filter(r => !r.wasCorrect),
+                ...mathResponses.filter(r => !r.wasCorrect),
+                ...readingResponses.filter(r => !r.wasCorrect),
+                ...scienceResponses.filter(r => !r.wasCorrect)
+            ];
+
+            resetState();
+            passageElement.innerHTML = "";
+            document.getElementById("question-container")?.classList.remove("hide");
+            questionElement.classList.add("centered-score");
+
+            if (incorrectAnswers.length === 0) {
+                questionElement.innerHTML = "<p>No incorrect answers to review.</p>";
+                const backButton = document.createElement("button");
+                backButton.innerHTML = "Back to Scores";
+                backButton.classList.add("btn", "centered-btn");
+                backButton.addEventListener("click", showFinalScore);
+                answerButtons.appendChild(backButton);
+            } else {
+                questionElement.innerHTML = "<h3>Incorrect Answers</h3>";
+                incorrectAnswers.forEach((response, index) => {
+                    const answerDiv = document.createElement("div");
+                    answerDiv.innerHTML = `
+                        <p><strong>${response.section.toUpperCase()} Question ${index + 1}:</strong></p>
+                        <p>${response.question}</p>
+                        <p><strong>Your Answer:</strong> ${response.userAnswer}</p>
+                        <p><strong>Correct Answer:</strong> ${response.correctAnswer}</p>
+                        <hr>`;
+                    questionElement.appendChild(answerDiv);
+                });
+                const backButton = document.createElement("button");
+                backButton.innerHTML = "Back to Scores";
+                backButton.classList.add("btn", "centered-btn");
+                backButton.addEventListener("click", showFinalScore);
+                answerButtons.appendChild(backButton);
+            }
+        } catch (error) {
+            console.error("Error in reviewIncorrectAnswers:", error);
+        }
+    }
+
     function showFinalScore() {
         try {
             resetState();
@@ -462,14 +507,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p><strong>Composite ACT Score:</strong> ${compositeScore} / 36</p>`;
             questionElement.classList.add("centered-score");
             document.querySelector(".question-row")?.classList.add("score-display");
+
+            // Add "Review Incorrect Answers" button
+            const incorrectAnswers = [
+                ...englishResponses.filter(r => !r.wasCorrect),
+                ...mathResponses.filter(r => !r.wasCorrect),
+                ...readingResponses.filter(r => !r.wasCorrect),
+                ...scienceResponses.filter(r => !r.wasCorrect)
+            ];
+            const reviewButton = document.createElement("button");
+            reviewButton.innerHTML = "Review Incorrect Answers";
+            reviewButton.classList.add("btn", "centered-btn");
+            if (incorrectAnswers.length === 0) {
+                reviewButton.disabled = true;
+                reviewButton.style.opacity = "0.5";
+            }
+            reviewButton.addEventListener("click", reviewIncorrectAnswers);
+            answerButtons.appendChild(reviewButton);
+
+            // Add "Finish" button
             nextButton.innerHTML = "Finish";
-            nextButton.style.display = "Ublock";
+            nextButton.style.display = "block";
             nextButton.classList.add("centered-btn");
             nextButton.removeEventListener("click", handleNextButton);
             nextButton.addEventListener("click", () => {
                 console.log("Finish button clicked, redirecting to user-profile.html");
                 window.location.href = "https://www.brainjelli.com/user-profile.html";
             });
+            answerButtons.appendChild(nextButton);
         } catch (error) {
             console.error("Error in showFinalScore:", error);
         }
