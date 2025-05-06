@@ -410,6 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleNextButton() {
         currentQuestionIndex++;
+        console.log(`Next Button: Section=${currentSection}, QuestionIndex=${currentQuestionIndex}, TotalQuestions=${selectedQuestions.length}`);
         if (currentQuestionIndex < selectedQuestions.length) {
             showQuestion();
         } else {
@@ -418,6 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 case "math": endMathSection(); break;
                 case "reading": endReadingSection(); break;
                 case "science": endScienceSection(); break;
+                default: console.error("Unknown section:", currentSection);
             }
         }
     }
