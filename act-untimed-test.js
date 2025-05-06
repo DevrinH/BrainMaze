@@ -2,21 +2,25 @@ let categoryStats = {};
 let testCompleted = false;
 
 function recordTestResults() {
-    let existingResults = localStorage.getItem("actTestResults");
-    let results = existingResults ? JSON.parse(existingResults) : {};
-    for (let category in categoryStats) {
-        if (!results[category]) {
-            results[category] = { correct: 0, incorrect: 0 };
+    try {
+        let existingResults = localStorage.getItem("actTestResults");
+        let results = existingResults ? JSON.parse(existingResults) : {};
+        for (let category in categoryStats) {
+            if (!results[category]) {
+                results[category] = { correct: 0, incorrect: 0 };
+            }
+            results[category].correct += categoryStats[category].correct || 0;
+            results[category].incorrect += categoryStats[category].incorrect || 0;
+            console.log(`Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         }
-        results[category].correct += categoryStats[category].correct || 0;
-        results[category].incorrect += categoryStats[category].incorrect || 0;
-        console.log(`Category: ${category}, Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
-    }
-    localStorage.setItem("actTestResults", JSON.stringify(results));
-    console.log("Test Results:", results);
-    window.dispatchEvent(new Event("testSubmitted"));
-    if (!testCompleted) {
-        categoryStats = {};
+        localStorage.setItem("actTestResults", JSON.stringify(results));
+        console.log("Test Results:", results);
+        window.dispatchEvent(new Event("testSubmitted"));
+        if (!testCompleted) {
+            categoryStats = {};
+        }
+    } catch (error) {
+        console.error("Error in recordTestResults:", error);
     }
 }
 
@@ -114,13 +118,18 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     function startTest() {
-        if (!actIntroContainer || !document.getElementById("question-container")) {
-            console.error("Required elements not found");
-            return;
+        try {
+            if (!actIntroContainer || !document.getElementById("question-container")) {
+                console.error("Required elements not found");
+                return;
+            }
+            actIntroContainer.classList.add("hide");
+            document.getElementById("question-container")?.classList.remove("hide");
+            console.log("Starting ACT Test");
+            startEnglishSection();
+        } catch (error) {
+            console.error("Error in startTest:", error);
         }
-        actIntroContainer.classList.add("hide");
-        document.getElementById("question-container").classList.remove("hide");
-        startEnglishSection();
     }
 
     let englishResponses = [];
@@ -129,348 +138,443 @@ document.addEventListener("DOMContentLoaded", () => {
     let scienceResponses = [];
 
     function startEnglishSection() {
-        currentSection = "english";
-        englishResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        startQuiz(englishQuestions);
+        try {
+            currentSection = "english";
+            englishResponses = [];
+            score = 0;
+            correctAnswers = 0;
+            console.log("Starting English Section, questions:", englishQuestions);
+            startQuiz(englishQuestions);
+        } catch (error) {
+            console.error("Error in startEnglishSection:", error);
+        }
     }
 
     function startMathSection() {
-        currentSection = "math";
-        mathResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        passageElement.innerHTML = "";
-        startQuiz(mathQuestions);
+        try {
+            currentSection = "math";
+            mathResponses = [];
+            score = 0;
+            correctAnswers = 0;
+            passageElement.innerHTML = "";
+            console.log("Starting Math Section, questions:", mathQuestions);
+            startQuiz(mathQuestions);
+        } catch (error) {
+            console.error("Error in startMathSection:", error);
+        }
     }
 
     function startReadingSection() {
-        currentSection = "reading";
-        readingResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        startQuiz(readingQuestions);
+        try {
+            currentSection = "reading";
+            readingResponses = [];
+            score = 0;
+            correctAnswers = 0;
+            console.log("Starting Reading Section, questions:", readingQuestions);
+            startQuiz(readingQuestions);
+        } catch (error) {
+            console.error("Error in startReadingSection:", error);
+        }
     }
 
     function startScienceSection() {
-        currentSection = "science";
-        scienceResponses = [];
-        score = 0;
-        correctAnswers = 0;
-        startQuiz(scienceQuestions);
+        try {
+            currentSection = "science";
+            scienceResponses = [];
+            score = 0;
+            correctAnswers = 0;
+            console.log("Starting Science Section, questions:", scienceQuestions);
+            startQuiz(scienceQuestions);
+        } catch (error) {
+            console.error("Error in startScienceSection:", error);
+        }
     }
 
     function endEnglishSection() {
-        recordTestResults();
-        resetState();
-        showScore("English");
-        document.getElementById("question-container").classList.add("hide");
-        document.getElementById("break-message").classList.remove("hide");
+        try {
+            console.log("Ending English Section, score:", score, "correctAnswers:", correctAnswers);
+            recordTestResults();
+            resetState();
+            showScore("English");
+            document.getElementById("question-container")?.classList.add("hide");
+            document.getElementById("break-message")?.classList.remove("hide");
+        } catch (error) {
+            console.error("Error in endEnglishSection:", error);
+        }
     }
 
     function endMathSection() {
-        recordTestResults();
-        resetState();
-        showScore("Math");
-        document.getElementById("question-container").classList.add("hide");
-        document.getElementById("break-message").classList.remove("hide");
+        try {
+            console.log("Ending Math Section, score:", score, "correctAnswers:", correctAnswers);
+            recordTestResults();
+            resetState();
+            showScore("Math");
+            document.getElementById("question-container")?.classList.add("hide");
+            document.getElementById("break-message")?.classList.remove("hide");
+        } catch (error) {
+            console.error("Error in endMathSection:", error);
+        }
     }
 
     function endReadingSection() {
-        recordTestResults();
-        resetState();
-        showScore("Reading");
-        document.getElementById("question-container").classList.add("hide");
-        document.getElementById("break-message").classList.remove("hide");
+        try {
+            console.log("Ending Reading Section, score:", score, "correctAnswers:", correctAnswers);
+            recordTestResults();
+            resetState();
+            showScore("Reading");
+            document.getElementById("question-container")?.classList.add("hide");
+            document.getElementById("break-message")?.classList.remove("hide");
+        } catch (error) {
+            console.error("Error in endReadingSection:", error);
+        }
     }
 
     function endScienceSection() {
-        recordTestResults();
-        resetState();
-        showFinalScore();
+        try {
+            console.log("Ending Science Section, score:", score, "correctAnswers:", correctAnswers);
+            recordTestResults();
+            resetState();
+            showScore("Science");
+            console.log("Science section ended, calling showFinalScore");
+            showFinalScore();
+        } catch (error) {
+            console.error("Error in endScienceSection:", error);
+        }
     }
 
     function startQuiz(questions) {
-        if (!questions || questions.length === 0) {
-            console.error("No questions available for", currentSection);
-            return;
+        try {
+            if (!questions || questions.length === 0) {
+                console.error("No questions available for", currentSection);
+                return;
+            }
+            const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
+            if (missingPassages.length > 0 && currentSection !== "math") {
+                console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
+            }
+            currentQuestionIndex = 0;
+            selectedQuestions = questions;
+            nextButton.innerHTML = "Next";
+            document.querySelector(".question-row")?.classList.remove("score-display");
+            const questionRow = document.querySelector(".question-row");
+            questionRow?.classList.remove("english-section", "math-section", "reading-section", "science-section");
+            questionRow?.classList.add(`${currentSection}-section`);
+            console.log(`Starting quiz for ${currentSection}, total questions: ${questions.length}`);
+            showQuestion();
+        } catch (error) {
+            console.error("Error in startQuiz:", error);
         }
-        const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
-        if (missingPassages.length > 0 && currentSection !== "math") {
-            console.warn(`Warning: ${missingPassages.length} questions in ${currentSection} lack a valid passage`);
-        }
-        currentQuestionIndex = 0;
-        selectedQuestions = questions;
-        nextButton.innerHTML = "Next";
-
-        document.querySelector(".question-row").classList.remove("score-display");
-
-        const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("english-section", "math-section", "reading-section", "science-section");
-        questionRow.classList.add(`${currentSection}-section`);
-
-        showQuestion();
     }
 
     function showQuestion() {
-        resetState();
-        if (!selectedQuestions[currentQuestionIndex]) {
-            console.error("No question available at index", currentQuestionIndex);
-            return;
-        }
-        let currentQuestion = selectedQuestions[currentQuestionIndex];
-        let questionNo = currentQuestionIndex + 1;
-        console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
-        passageElement.style.display = currentSection === "math" ? "none" : "block";
-        passageElement.innerHTML = currentQuestion.passage || "";
-        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
-
-        const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("score-display");
-        questionElement.classList.remove("centered-score");
-
-        currentQuestion.answers.forEach((answer, index) => {
-            const button = document.createElement("button");
-            button.innerHTML = answer.text;
-            button.classList.add("btn");
-            answerButtons.appendChild(button);
-            if (answer.correct) {
-                button.dataset.correct = answer.correct;
+        try {
+            resetState();
+            if (!selectedQuestions[currentQuestionIndex]) {
+                console.error("No question available at index", currentQuestionIndex);
+                return;
             }
-            button.addEventListener("click", selectAnswer);
-        });
-
-        updateProgressBar();
+            let currentQuestion = selectedQuestions[currentQuestionIndex];
+            let questionNo = currentQuestionIndex + 1;
+            console.log(`Displaying question ${questionNo} in ${currentSection}, passage:`, currentQuestion.passage || "No passage");
+            passageElement.style.display = currentSection === "math" ? "none" : "block";
+            passageElement.innerHTML = currentQuestion.passage || "";
+            questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+            const questionRow = document.querySelector(".question-row");
+            questionRow?.classList.remove("score-display");
+            questionElement.classList.remove("centered-score");
+            currentQuestion.answers.forEach((answer, index) => {
+                const button = document.createElement("button");
+                button.innerHTML = answer.text;
+                button.classList.add("btn");
+                answerButtons.appendChild(button);
+                if (answer.correct) {
+                    button.dataset.correct = answer.correct;
+                }
+                button.addEventListener("click", selectAnswer);
+            });
+            updateProgressBar();
+        } catch (error) {
+            console.error("Error in showQuestion:", error);
+        }
     }
 
     function resetState() {
-        nextButton.style.display = "none";
-        nextButton.classList.remove("centered-btn");
-        while (answerButtons.firstChild) {
-            answerButtons.removeChild(answerButtons.firstChild);
+        try {
+            nextButton.style.display = "none";
+            nextButton.classList.remove("centered-btn");
+            while (answerButtons.firstChild) {
+                answerButtons.removeChild(answerButtons.firstChild);
+            }
+        } catch (error) {
+            console.error("Error in resetState:", error);
         }
     }
 
     function selectAnswer(e) {
-        const selectedBtn = e.target;
-        const isCorrect = selectedBtn.dataset.correct === "true";
-        let currentQuestion = selectedQuestions[currentQuestionIndex];
-        let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
-        let questionDifficulty = currentQuestion.difficulty;
+        try {
+            const selectedBtn = e.target;
+            const isCorrect = selectedBtn.dataset.correct === "true";
+            let currentQuestion = selectedQuestions[currentQuestionIndex];
+            let questionCategory = currentQuestion.category.toLowerCase().replace(/\s+/g, "-");
+            let questionDifficulty = currentQuestion.difficulty;
 
-        if (!categoryStats[questionCategory]) {
-            categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
-        }
-
-        const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
-
-        const safePassage = currentQuestion.passage || "No passage provided";
-        const safeQuestion = currentQuestion.question || "No question provided";
-        const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
-
-        console.log("Creating user response:", currentSection, ":", {
-            question: responseQuestion,
-            userAnswer: selectedBtn.innerHTML,
-            correctAnswer: correctAnswer,
-            wasCorrect: isCorrect
-        });
-
-        const response = {
-            section: currentSection,
-            question: responseQuestion,
-            userAnswer: selectedBtn.innerHTML,
-            correctAnswer: correctAnswer,
-            wasCorrect: isCorrect
-        };
-
-        if (currentSection === "english") {
-            englishResponses.push(response);
-        } else if (currentSection === "math") {
-            mathResponses.push(response);
-        } else if (currentSection === "reading") {
-            readingResponses.push(response);
-        } else if (currentSection === "science") {
-            scienceResponses.push(response);
-        }
-
-        if (isCorrect) {
-            selectedBtn.classList.add("correct");
-            correctAnswers++;
-            if (questionDifficulty === "easy") {
-                score += 1;
-            } else if (questionDifficulty === "medium") {
-                score += 2;
-            } else if (questionDifficulty === "hard") {
-                score += 3;
+            if (!categoryStats[questionCategory]) {
+                categoryStats[questionCategory] = { correct: 0, incorrect: 0 };
             }
-            categoryStats[questionCategory].correct++;
-        } else {
-            selectedBtn.classList.add("incorrect");
-            categoryStats[questionCategory].incorrect++;
-        }
 
-        Array.from(answerButtons.children).forEach(button => {
-            if (button.dataset.correct === "true") {
-                button.classList.add("correct");
+            const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+
+            const safePassage = currentQuestion.passage || "No passage provided";
+            const safeQuestion = currentQuestion.question || "No question provided";
+            const responseQuestion = currentSection === "math" ? safeQuestion : safePassage + "<br/><br/>" + safeQuestion;
+
+            console.log("Creating user response:", currentSection, ":", {
+                question: responseQuestion,
+                userAnswer: selectedBtn.innerHTML,
+                correctAnswer: correctAnswer,
+                wasCorrect: isCorrect
+            });
+
+            const response = {
+                section: currentSection,
+                question: responseQuestion,
+                userAnswer: selectedBtn.innerHTML,
+                correctAnswer: correctAnswer,
+                wasCorrect: isCorrect
+            };
+
+            if (currentSection === "english") {
+                englishResponses.push(response);
+            } else if (currentSection === "math") {
+                mathResponses.push(response);
+            } else if (currentSection === "reading") {
+                readingResponses.push(response);
+            } else if (currentSection === "science") {
+                scienceResponses.push(response);
             }
-            button.disabled = true;
-        });
 
-        recordTestResults();
+            if (isCorrect) {
+                selectedBtn.classList.add("correct");
+                correctAnswers++;
+                if (questionDifficulty === "easy") {
+                    score += 1;
+                } else if (questionDifficulty === "medium") {
+                    score += 2;
+                } else if (questionDifficulty === "hard") {
+                    score += 3;
+                }
+                categoryStats[questionCategory].correct++;
+                console.log(`Correct Answer: Section=${currentSection}, Category=${questionCategory}, Score=${score}`);
+            } else {
+                selectedBtn.classList.add("incorrect");
+                categoryStats[questionCategory].incorrect++;
+                console.log(`Incorrect Answer: Section=${currentSection}, Category=${questionCategory}, Score=${score}`);
+            }
 
-        nextButton.style.display = "block";
-        nextButton.disabled = false;
+            Array.from(answerButtons.children).forEach(button => {
+                if (button.dataset.correct === "true") {
+                    button.classList.add("correct");
+                }
+                button.disabled = true;
+            });
+
+            recordTestResults();
+
+            nextButton.style.display = "block";
+            nextButton.disabled = false;
+        } catch (error) {
+            console.error("Error in selectAnswer:", error);
+        }
     }
 
     function showScore(section) {
-        resetState();
+        try {
+            resetState();
 
-        let maxPossibleScore = selectedQuestions.reduce((total, q) => {
-            if (q.difficulty === "easy") return total + 1;
-            if (q.difficulty === "medium") return total + 2;
-            return total + 3;
-        }, 0);
-        let rawScore = score;
-        let scaledScore = Math.round((rawScore / maxPossibleScore) * 36);
+            let maxPossibleScore = selectedQuestions.reduce((total, q) => {
+                if (q.difficulty === "easy") return total + 1;
+                if (q.difficulty === "medium") return total + 2;
+                return total + 3;
+            }, 0);
+            let rawScore = score;
+            let scaledScore = Math.round((rawScore / maxPossibleScore) * 36);
 
-        document.getElementById("question-container").classList.remove("hide");
+            console.log(`Calculating ${section} Score: rawScore=${rawScore}, maxPossibleScore=${maxPossibleScore}, scaledScore=${scaledScore}`);
 
-        if (section === "English") englishScore = scaledScore;
-        else if (section === "Math") mathScore = scaledScore;
-        else if (section === "Reading") readingScore = scaledScore;
-        else if (section === "Science") scienceScore = scaledScore;
+            document.getElementById("question-container")?.classList.remove("hide");
 
-        localStorage.setItem(`${section.toLowerCase()}Score`, scaledScore);
+            if (section === "English") englishScore = scaledScore;
+            else if (section === "Math") mathScore = scaledScore;
+            else if (section === "Reading") readingScore = scaledScore;
+            else if (section === "Science") scienceScore = scaledScore;
 
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = `${section} ACT Score: ${scaledScore} / 36`;
-        questionElement.classList.add("centered-score");
+            localStorage.setItem(`${section.toLowerCase()}Score`, scaledScore);
+            console.log(`Saved ${section} Score to localStorage: ${scaledScore}`);
 
-        const questionRow = document.querySelector(".question-row");
-        questionRow.classList.add("score-display");
+            passageElement.innerHTML = "";
+            questionElement.innerHTML = `${section} ACT Score: ${scaledScore} / 36`;
+            questionElement.classList.add("centered-score");
 
-        nextButton.innerHTML = "Continue";
-        nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn");
+            const questionRow = document.querySelector(".question-row");
+            questionRow?.classList.add("score-display");
+
+            nextButton.innerHTML = "Continue";
+            nextButton.style.display = "block";
+            nextButton.classList.add("centered-btn");
+        } catch (error) {
+            console.error(`Error in showScore for ${section}:`, error);
+        }
     }
 
     function showFinalScore() {
-        resetState();
+        try {
+            resetState();
 
-        let compositeScore = Math.round((englishScore + mathScore + readingScore + scienceScore) / 4);
-        let today = new Date().toLocaleDateString("en-CA");
-        let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
-        scoreHistory[today] = {
-            english: englishScore,
-            math: mathScore,
-            reading: readingScore,
-            science: scienceScore,
-            composite: compositeScore
-        };
-        localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
+            let compositeScore = Math.round((englishScore + mathScore + readingScore + scienceScore) / 4);
+            let today = new Date().toLocaleDateString("en-CA");
+            let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
+            scoreHistory[today] = {
+                english: englishScore,
+                math: mathScore,
+                reading: readingScore,
+                science: scienceScore,
+                composite: compositeScore
+            };
+            console.log("Saving Final Scores:", {
+                english: englishScore,
+                math: mathScore,
+                reading: readingScore,
+                science: scienceScore,
+                composite: compositeScore
+            });
+            localStorage.setItem("actScoreHistory", JSON.stringify(scoreHistory));
+            console.log("actScoreHistory saved to localStorage:", scoreHistory);
 
-        saveTestCompletion("ACT");
+            saveTestCompletion("ACT");
 
-        document.getElementById("question-container").classList.remove("hide");
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = `
-            <p><strong>English ACT Score:</strong> ${englishScore} / 36</p>
-            <p><strong>Math ACT Score:</strong> ${mathScore} / 36</p>
-            <p><strong>Reading ACT Score:</strong> ${readingScore} / 36</p>
-            <p><strong>Science ACT Score:</strong> ${scienceScore} / 36</p>
-            <p><strong>Composite ACT Score:</strong> ${compositeScore} / 36</p>`;
-        questionElement.classList.add("centered-score");
-        document.querySelector(".question-row").classList.add("score-display");
-        nextButton.innerHTML = "Finish";
-        nextButton.style.display = "block";
-        nextButton.classList.add("centered-btn");
-        nextButton.removeEventListener("click", handleNextButton);
-        nextButton.addEventListener("click", () => {
-            window.location.href = "https://www.brainjelli.com/user-profile.html";
-        });
+            document.getElementById("question-container")?.classList.remove("hide");
+            passageElement.innerHTML = "";
+            questionElement.innerHTML = `
+                <p><strong>English ACT Score:</strong> ${englishScore} / 36</p>
+                <p><strong>Math ACT Score:</strong> ${mathScore} / 36</p>
+                <p><strong>Reading ACT Score:</strong> ${readingScore} / 36</p>
+                <p><strong>Science ACT Score:</strong> ${scienceScore} / 36</p>
+                <p><strong>Composite ACT Score:</strong> ${compositeScore} / 36</p>`;
+            questionElement.classList.add("centered-score");
+            document.querySelector(".question-row")?.classList.add("score-display");
+            nextButton.innerHTML = "Finish";
+            nextButton.style.display = "Ublock";
+            nextButton.classList.add("centered-btn");
+            nextButton.removeEventListener("click", handleNextButton);
+            nextButton.addEventListener("click", () => {
+                console.log("Finish button clicked, redirecting to user-profile.html");
+                window.location.href = "https://www.brainjelli.com/user-profile.html";
+            });
+        } catch (error) {
+            console.error("Error in showFinalScore:", error);
+        }
     }
 
     function saveTestCompletion(examType) {
-        const completionData = {
-            exam: examType,
-            type: "test",
-            timestamp: new Date().toISOString()
-        };
-        localStorage.setItem("lastActivity", JSON.stringify(completionData));
+        try {
+            const completionData = {
+                exam: examType,
+                type: "test",
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem("lastActivity", JSON.stringify(completionData));
+            console.log("Saved test completion:", completionData);
+        } catch (error) {
+            console.error("Error in saveTestCompletion:", error);
+        }
     }
 
     function handleNextButton() {
-        currentQuestionIndex++;
-        console.log(`Next Button: Section=${currentSection}, QuestionIndex=${currentQuestionIndex}, TotalQuestions=${selectedQuestions.length}`);
-        if (currentQuestionIndex < selectedQuestions.length) {
-            showQuestion();
-        } else {
-            switch (currentSection) {
-                case "english": endEnglishSection(); break;
-                case "math": endMathSection(); break;
-                case "reading": endReadingSection(); break;
-                case "science": endScienceSection(); break;
-                default: console.error("Unknown section:", currentSection);
+        try {
+            currentQuestionIndex++;
+            console.log(`Next Button: Section=${currentSection}, QuestionIndex=${currentQuestionIndex}, TotalQuestions=${selectedQuestions.length}`);
+            if (currentQuestionIndex < selectedQuestions.length) {
+                showQuestion();
+            } else {
+                switch (currentSection) {
+                    case "english": endEnglishSection(); break;
+                    case "math": endMathSection(); break;
+                    case "reading": endReadingSection(); break;
+                    case "science": endScienceSection(); break;
+                    default: console.error("Unknown section:", currentSection);
+                }
             }
+        } catch (error) {
+            console.error("Error in handleNextButton:", error);
         }
     }
 
     function updateProgressBar() {
-        const progressBar = document.getElementById("progress-bar-test");
-        let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
-        progressBar.firstElementChild.style.width = progress + "%";
+        try {
+            const progressBar = document.getElementById("progress-bar-test");
+            let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+            progressBar.firstElementChild.style.width = progress + "%";
+        } catch (error) {
+            console.error("Error in updateProgressBar:", error);
+        }
     }
 
     function showIntroMessage() {
-        resetState();
-        passageElement.innerHTML = "";
-        questionElement.innerHTML = "This is an untimed ACT Test. Complete each section at your own pace.";
-        questionElement.classList.add("centered-score");
-
-        const startButton = document.createElement("button");
-        startButton.innerHTML = "Start Test";
-        startButton.classList.add("btn", "centered-btn");
-        startButton.addEventListener("click", () => {
-            questionElement.classList.remove("centered-score");
-            startEnglishSection();
-        });
-        answerButtons.appendChild(startButton);
+        try {
+            resetState();
+            passageElement.innerHTML = "";
+            questionElement.innerHTML = "This is an untimed ACT Test. Complete each section at your own pace.";
+            questionElement.classList.add("centered-score");
+            const startButton = document.createElement("button");
+            startButton.innerHTML = "Start Test";
+            startButton.classList.add("btn", "centered-btn");
+            startButton.addEventListener("click", () => {
+                questionElement.classList.remove("centered-score");
+                startEnglishSection();
+            });
+            answerButtons.appendChild(startButton);
+        } catch (error) {
+            console.error("Error in showIntroMessage:", error);
+        }
     }
 
-    if (startTestButton) {
-        startTestButton.addEventListener("click", startTest);
-    } else {
-        console.error("start-test-btn element not found");
-    }
+    try {
+        if (startTestButton) {
+            startTestButton.addEventListener("click", startTest);
+        } else {
+            console.error("start-test-btn element not found");
+        }
 
-    if (nextButton) {
-        nextButton.addEventListener("click", () => {
-            if (nextButton.innerHTML === "Continue") {
-                document.getElementById("break-message").classList.remove("hide");
-                document.getElementById("question-container").classList.add("hide");
-            } else {
-                handleNextButton();
-            }
-        });
-    } else {
-        console.error("next-btn element not found");
-    }
+        if (nextButton) {
+            nextButton.addEventListener("click", () => {
+                if (nextButton.innerHTML === "Continue") {
+                    document.getElementById("break-message")?.classList.remove("hide");
+                    document.getElementById("question-container")?.classList.add("hide");
+                } else {
+                    handleNextButton();
+                }
+            });
+        } else {
+            console.error("next-btn element not found");
+        }
 
-    if (continueButton) {
-        continueButton.addEventListener("click", () => {
-            document.getElementById("break-message").classList.add("hide");
-            document.getElementById("question-container").classList.remove("hide");
-            switch (currentSection) {
-                case "english": startMathSection(); break;
-                case "math": startReadingSection(); break;
-                case "reading": startScienceSection(); break;
-                case "science": showFinalScore(); break;
-            }
-        });
-    } else {
-        console.error("continue-btn element not found");
-    }
+        if (continueButton) {
+            continueButton.addEventListener("click", () => {
+                document.getElementById("break-message")?.classList.add("hide");
+                document.getElementById("question-container")?.classList.remove("hide");
+                switch (currentSection) {
+                    case "english": startMathSection(); break;
+                    case "math": startReadingSection(); break;
+                    case "reading": startScienceSection(); break;
+                    case "science": showFinalScore(); break;
+                }
+            });
+        } else {
+            console.error("continue-btn element not found");
+        }
 
-    showIntroMessage();
+        showIntroMessage();
+    } catch (error) {
+        console.error("Error in DOMContentLoaded setup:", error);
+    }
 });
