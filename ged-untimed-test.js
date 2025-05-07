@@ -48,7 +48,33 @@ document.addEventListener("DOMContentLoaded", () => {
             type: "rla",
             difficulty: "medium",
             category: "ged-language-arts"
-        }
+        },
+        {
+            "passage": "The small farming community of Greenvale faced a crisis in 2023 when a major drought depleted water reserves. A 2021 study showed the aquifer supplying 60% of the town’s water was at historic lows. Farmer Jane Kim proposed a water-sharing agreement with neighboring towns, but local business owner Tom Harris argued it would raise costs for residents. At a town meeting, Jane cited a case where a similar agreement saved a nearby town during a 2018 drought. Tom countered that Greenvale’s economy depended on low water rates. The council delayed the decision, leaving tensions high.",
+            "question": "Which phrase best describes the tone of the passage?",
+            "answers": [
+                { "text": "A) Emotional and confrontational", "correct": false },
+                { "text": "B) Critical and dismissive", "correct": false },
+                { "text": "C) Optimistic and collaborative", "correct": false },
+                { "text": "D) Neutral and informative", "correct": true }
+            ],
+            "type": "rla",
+            "difficulty": "medium",
+            "category": "ged-reading-comprehension"
+        },
+        {
+            "passage": "In 2024, the town of Clearwater faced a public transportation crisis. A 2022 study showed that 40% of residents relied on buses, but the fleet was outdated, causing frequent delays. Mayor Anna Ruiz proposed a $3 million upgrade to electric buses, citing environmental benefits. Local merchant Tim Blake opposed the plan, arguing it would increase taxes. At a town meeting, Anna highlighted a 2021 survey showing 60% of residents supported green initiatives. The council approved a scaled-down plan, balancing costs and sustainability.",
+            "question": "What is the central idea of the passage?",
+            "answers": [
+                { "text": "A) The importance of upgrading public transportation for environmental benefits", "correct": true },
+                { "text": "B) The economic challenges of maintaining an outdated bus fleet", "correct": false },
+                { "text": "C) The conflict between merchants and the town council", "correct": false },
+                { "text": "D) The need for tax increases to fund public services", "correct": false }
+            ],
+            "type": "rla",
+            "difficulty": "medium",
+            "category": "ged-central-ideas"
+        },
     ];
 
     const mathQuestions = [
