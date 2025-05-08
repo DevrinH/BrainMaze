@@ -220,7 +220,7 @@ const mainIdeaDetailsQuestions = [
 
 // Variables
 let categoryStats = {
-    "reading_comprehension": { correct: 0, incorrect: 0 }
+    "ged-reading-comprehension": { correct: 0, incorrect: 0 }
 };
 let currentItemIndex = 0;
 let currentLesson = "1"; // Default as string to match lessons object keys
@@ -356,10 +356,10 @@ function selectAnswer(selectedBtn, item) {
 
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
-        categoryStats["reading_comprehension"].correct++;
+        categoryStats["ged-reading-comprehension"].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats["reading_comprehension"].incorrect++;
+        categoryStats["ged-reading-comprehension"].incorrect++;
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
@@ -482,8 +482,8 @@ function nextQuizItem() {
 // Show final score
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = categoryStats["reading_comprehension"].correct;
-    let totalAttempted = totalCorrect + categoryStats["reading_comprehension"].incorrect;
+    let totalCorrect = categoryStats["ged-reading-comprehension"].correct;
+    let totalAttempted = totalCorrect + categoryStats["ged-reading-comprehension"].incorrect;
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
@@ -513,15 +513,15 @@ function showFinalScore() {
 // Record test results
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
-    let storedResults = localStorage.getItem("testResults");
+    let storedResults = localStorage.getItem("gedTestResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
     for (let category in categoryStats) {
         if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
-    localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
+    localStorage.setItem("gedTestResults", JSON.stringify(results));
+    console.log("Final stored gedTestResults:", results);
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
@@ -542,13 +542,13 @@ function logFinalScore(totalCorrect, totalAttempted) {
 
 // Save score
 function saveScore(lessonId, score) {
-    localStorage.setItem(`reading_comprehension-lessonScore-${lessonId}`, score);
-    console.log(`Saved reading_comprehension-lessonScore-${lessonId}: ${score}`);
+    localStorage.setItem(`ged-reading-comprehension-lessonScore-${lessonId}`, score);
+    console.log(`Saved ged-reading-comprehension-lessonScore-${lessonId}: ${score}`);
 }
 
 // Get score
 function getScore(lessonId) {
-    return localStorage.getItem(`reading_comprehension-lessonScore-${lessonId}`) || "Not completed yet";
+    return localStorage.getItem(`ged-reading-comprehension-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
 // Show score on page load
