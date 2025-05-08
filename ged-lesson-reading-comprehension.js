@@ -214,7 +214,7 @@ const mainIdeaDetailsQuestions = [
         ],
         explanation: "The main idea is the policy’s focus on diversity, while the other options are supporting details.",
         difficulty: "easy",
-        category: "reading_comprehension"
+        category: "ged-reading-comprehension"
     }
 ];
 
