@@ -479,6 +479,17 @@ function nextQuizItem() {
     showNextQuizQuestion(quizQuestions);
 }
 
+// Save lesson completion
+function saveLessonCompletion() {
+    const completionData = {
+        exam: "GED",
+        type: "lesson",
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    console.log("Saved lesson completion:", completionData);
+}
+
 // Show final score
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
@@ -504,6 +515,7 @@ function showFinalScore() {
     const finalScoreElement = document.getElementById('final-score');
     if (finalScoreElement) finalScoreElement.classList.add('hide'); // Hide if exists
     document.getElementById('continue-button').addEventListener('click', () => {
+        saveLessonCompletion();
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     }, { once: true });
 
