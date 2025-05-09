@@ -21,198 +21,198 @@ document.addEventListener("DOMContentLoaded", function() {
 // Define all lessons
 const lessons = {
     1: {
-        title: "Identifying Main Ideas and Supporting Details",
+        title: "Identifying Central Ideas",
         content: [
             {
                 type: "example",
-                title: "Example 1: Finding the Main Idea",
+                title: "Example 1: Finding the Central Idea",
                 content: `
-                    <h2>Example 1: Finding the Main Idea</h2>
-                    <p>Passage: 'The employee handbook outlines safety protocols to prevent workplace injuries. All staff must wear protective gear, report hazards, and attend training sessions.'</p>
-                    <p>Question: What is the main idea?</p>
-                    <p>Step 1: Identify the topic: Safety protocols in the handbook.</p>
-                    <p>Step 2: Determine the focus: Outlining rules to prevent injuries.</p>
-                    <p>Main Idea: The handbook provides safety rules to protect employees.</p>
+                    <h2>Example 1: Finding the Central Idea</h2>
+                    <p>Passage: 'The company’s new policy encourages remote work to improve employee satisfaction. It allows flexible hours, provides technology stipends, and promotes virtual collaboration tools.'</p>
+                    <p>Question: What is the central idea?</p>
+                    <p>Step 1: Identify the topic: Remote work policy.</p>
+                    <p>Step 2: Determine the focus: Encouraging remote work to enhance satisfaction.</p>
+                    <p>Central Idea: The policy promotes remote work to boost employee satisfaction.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: 'The new recycling program requires employees to sort waste into bins for paper, plastic, and glass.' What is the main idea?",
+                question: "Passage: 'The community garden project aims to improve local health. It offers fresh vegetables, hosts nutrition workshops, and encourages physical activity.' What is the central idea?",
                 options: [
-                    { text: "A) The recycling program mandates sorting waste.", correct: true },
-                    { text: "B) Employees dislike recycling.", correct: false },
-                    { text: "C) The company produces too much waste.", correct: false },
-                    { text: "D) Bins are available for paper only.", correct: false }
+                    { text: "A) The garden project enhances community health.", correct: true },
+                    { text: "B) Nutrition workshops are popular.", correct: false },
+                    { text: "C) The community grows vegetables.", correct: false },
+                    { text: "D) Physical activity is mandatory.", correct: false }
                 ],
-                explanation: "The passage focuses on the requirement to sort waste, making A the main idea."
+                explanation: "The passage focuses on the garden project’s goal to improve health, making A the central idea."
             },
             {
                 type: "example",
-                title: "Example 2: Identifying Supporting Details",
+                title: "Example 2: Distinguishing Central Idea from Details",
                 content: `
-                    <h2>Example 2: Identifying Supporting Details</h2>
-                    <p>Passage: 'Regular exercise improves health. It reduces stress, strengthens the heart, and boosts energy levels.'</p>
-                    <p>Question: What are the supporting details?</p>
-                    <p>Step 1: Find the main idea: Exercise improves health.</p>
-                    <p>Step 2: List details that support it: Stress reduction, heart strength, energy boost.</p>
-                    <p>Supporting Details: Exercise reduces stress, strengthens the heart, and boosts energy.</p>
+                    <h2>Example 2: Distinguishing Central Idea from Details</h2>
+                    <p>Passage: 'Recycling programs reduce environmental waste. They collect plastics, paper, and glass, educate residents, and lower landfill use.'</p>
+                    <p>Question: What is the central idea?</p>
+                    <p>Step 1: Identify the topic: Recycling programs.</p>
+                    <p>Step 2: Determine the focus: Reducing environmental waste.</p>
+                    <p>Central Idea: Recycling programs decrease environmental waste.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'The company’s training program enhances skills. It offers workshops, online courses, and mentorship.' What are the supporting details?",
+                question: "Passage: 'The employee wellness program supports mental health. It offers counseling, stress management classes, and mindfulness sessions.' What is the central idea?",
                 options: [
-                    { text: "A) Workshops, online courses, mentorship", correct: true },
-                    { text: "B) Enhanced skills", correct: false },
-                    { text: "C) Company growth", correct: false },
-                    { text: "D) Employee promotions", correct: false }
+                    { text: "A) The wellness program promotes mental health.", correct: true },
+                    { text: "B) Counseling is available to employees.", correct: false },
+                    { text: "C) Stress management classes are effective.", correct: false },
+                    { text: "D) Mindfulness sessions are mandatory.", correct: false }
                 ],
-                explanation: "The details supporting skill enhancement are the specific offerings: workshops, courses, and mentorship."
+                explanation: "The central idea is the program’s focus on mental health, while other options are supporting details."
             },
             {
                 type: "example",
-                title: "Example 3: Distinguishing Main Idea from Details",
+                title: "Example 3: Summarizing the Central Idea",
                 content: `
-                    <h2>Example 3: Distinguishing Main Idea from Details</h2>
-                    <p>Passage: 'The city’s public transit system is efficient. Buses run every 10 minutes, trains are rarely late, and fares are affordable.'</p>
-                    <p>Question: What is the main idea?</p>
-                    <p>Step 1: Separate the focus: Efficiency of transit.</p>
-                    <p>Step 2: Identify details: Frequent buses, punctual trains, low fares.</p>
-                    <p>Main Idea: The transit system is efficient.</p>
+                    <h2>Example 3: Summarizing the Central Idea</h2>
+                    <p>Passage: 'Public libraries enhance community learning. They provide free books, host educational workshops, and offer internet access.'</p>
+                    <p>Question: What is the central idea?</p>
+                    <p>Step 1: Focus on the subject: Public libraries.</p>
+                    <p>Step 2: Identify the key point: Enhancing community learning.</p>
+                    <p>Central Idea: Public libraries support community learning.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: 'The new policy promotes workplace diversity. It includes hiring initiatives, cultural training, and inclusive events.' What is the main idea?",
+                question: "Passage: 'The safety training program prevents workplace accidents. It includes hazard identification, emergency drills, and equipment safety checks.' What is the central idea?",
                 options: [
-                    { text: "A) The policy promotes workplace diversity.", correct: true },
-                    { text: "B) Hiring initiatives are effective.", correct: false },
-                    { text: "C) Cultural training is mandatory.", correct: false },
-                    { text: "D) Events are inclusive.", correct: false }
+                    { text: "A) The training program reduces workplace accidents.", correct: true },
+                    { text: "B) Hazard identification is critical.", correct: false },
+                    { text: "C) Emergency drills are frequent.", correct: false },
+                    { text: "D) Equipment checks are mandatory.", correct: false }
                 ],
-                explanation: "The main idea is the policy’s focus on diversity, while the other options are supporting details."
+                explanation: "The central idea is the program’s goal to prevent accidents, with other options as details."
             },
             {
                 type: "example",
-                title: "Example 4: Summarizing the Main Idea",
+                title: "Example 4: Central Idea in Informational Texts",
                 content: `
-                    <h2>Example 4: Summarizing the Main Idea</h2>
-                    <p>Passage: 'Solar panels benefit the environment. They reduce carbon emissions, conserve fossil fuels, and promote clean energy.'</p>
-                    <p>Question: What is the main idea?</p>
-                    <p>Step 1: Focus on the subject: Solar panels.</p>
-                    <p>Step 2: Identify the key point: Environmental benefits.</p>
-                    <p>Main Idea: Solar panels help the environment.</p>
+                    <h2>Example 4: Central Idea in Informational Texts</h2>
+                    <p>Passage: 'Renewable energy sources benefit the planet. Solar panels, wind turbines, and hydroelectric dams reduce reliance on fossil fuels.'</p>
+                    <p>Question: What is the central idea?</p>
+                    <p>Step 1: Identify the topic: Renewable energy sources.</p>
+                    <p>Step 2: Determine the focus: Environmental benefits.</p>
+                    <p>Central Idea: Renewable energy sources help the environment.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: 'The job fair connects employers with talent. It features booths, interviews, and networking sessions.' What is the main idea?",
+                question: "Passage: 'The mentorship program fosters career growth. It pairs employees with experienced leaders, offers skill workshops, and provides networking opportunities.' What is the central idea?",
                 options: [
-                    { text: "A) The job fair links employers and talent.", correct: true },
-                    { text: "B) Booths attract talent.", correct: false },
-                    { text: "C) Interviews are scheduled.", correct: false },
-                    { text: "D) Networking is optional.", correct: false }
+                    { text: "A) The mentorship program supports career development.", correct: true },
+                    { text: "B) Experienced leaders mentor employees.", correct: false },
+                    { text: "C) Skill workshops are effective.", correct: false },
+                    { text: "D) Networking opportunities are optional.", correct: false }
                 ],
-                explanation: "The main idea is the job fair’s purpose, while the other options are details."
+                explanation: "The central idea is the program’s focus on career growth, while other options are details."
             },
             {
                 type: "example",
-                title: "Example 5: Supporting Details in Context",
+                title: "Example 5: Central Idea in Workplace Contexts",
                 content: `
-                    <h2>Example 5: Supporting Details in Context</h2>
-                    <p>Passage: 'Effective communication improves teamwork. Clear instructions, active listening, and feedback are key components.'</p>
-                    <p>Question: What are the supporting details?</p>
-                    <p>Step 1: Main idea: Communication improves teamwork.</p>
-                    <p>Step 2: Details: Clear instructions, active listening, feedback.</p>
-                    <p>Supporting Details: Instructions, listening, and feedback enhance communication.</p>
+                    <h2>Example 5: Central Idea in Workplace Contexts</h2>
+                    <p>Passage: 'The company’s diversity training improves workplace inclusion. It teaches cultural sensitivity, addresses biases, and promotes teamwork.'</p>
+                    <p>Question: What is the central idea?</p>
+                    <p>Step 1: Identify the topic: Diversity training.</p>
+                    <p>Step 2: Determine the focus: Improving workplace inclusion.</p>
+                    <p>Central Idea: Diversity training enhances workplace inclusion.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: 'The safety campaign reduces accidents. It includes posters, drills, and equipment checks.' What are the supporting details?",
+                question: "Passage: 'The volunteer program strengthens community ties. It organizes clean-up events, charity drives, and youth mentorship.' What is the central idea?",
                 options: [
-                    { text: "A) Posters, drills, equipment checks", correct: true },
-                    { text: "B) Reduced accidents", correct: false },
-                    { text: "C) Campaign costs", correct: false },
-                    { text: "D) Employee feedback", correct: false }
+                    { text: "A) The volunteer program builds community connections.", correct: true },
+                    { text: "B) Clean-up events are popular.", correct: false },
+                    { text: "C) Charity drives raise funds.", correct: false },
+                    { text: "D) Youth mentorship is required.", correct: false }
                 ],
-                explanation: "The details supporting accident reduction are posters, drills, and checks."
+                explanation: "The central idea is the program’s role in strengthening community ties, with other options as details."
             },
             {
                 type: "example",
-                title: "Example 6: Main Idea in Workplace Texts",
+                title: "Example 6: Avoiding Incorrect Central Ideas",
                 content: `
-                    <h2>Example 6: Main Idea in Workplace Texts</h2>
-                    <p>Passage: 'The company memo urges staff to conserve resources. Employees should turn off lights, reduce printing, and recycle materials.'</p>
-                    <p>Question: What is the main idea?</p>
-                    <p>Step 1: Identify the focus: Resource conservation.</p>
-                    <p>Step 2: Confirm with details: Actions like turning off lights and recycling.</p>
-                    <p>Main Idea: The memo promotes resource conservation.</p>
+                    <h2>Example 6: Avoiding Incorrect Central Ideas</h2>
+                    <p>Passage: 'Urban bike lanes promote sustainable transport. They reduce traffic congestion, lower emissions, and encourage exercise.'</p>
+                    <p>Question: What is the central idea?</p>
+                    <p>Step 1: Identify the topic: Urban bike lanes.</p>
+                    <p>Step 2: Determine the focus: Promoting sustainable transport.</p>
+                    <p>Central Idea: Urban bike lanes support sustainable transportation.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'The wellness program encourages healthy habits. It offers gym access, nutrition classes, and stress workshops.' What is the main idea?",
+                question: "Passage: 'The financial literacy program empowers employees. It teaches budgeting, saving strategies, and debt management.' What is the central idea?",
                 options: [
-                    { text: "A) The program promotes healthy habits.", correct: true },
-                    { text: "B) Gym access is free.", correct: false },
-                    { text: "C) Nutrition classes are popular.", correct: false },
-                    { text: "D) Stress workshops are mandatory.", correct: false }
+                    { text: "A) The program enhances employees’ financial skills.", correct: true },
+                    { text: "B) Budgeting is the main focus.", correct: false },
+                    { text: "C) Saving strategies are effective.", correct: false },
+                    { text: "D) Debt management is mandatory.", correct: false }
                 ],
-                explanation: "The main idea is promoting healthy habits, with other options as details."
+                explanation: "The central idea is empowering employees through financial literacy, while other options are details."
             },
             {
                 type: "example",
-                title: "Example 7: Complex Supporting Details",
+                title: "Example 7: Complex Central Ideas",
                 content: `
-                    <h2>Example 7: Complex Supporting Details</h2>
-                    <p>Passage: 'Urban gardens benefit communities. They provide fresh produce, create green spaces, and foster social bonds.'</p>
-                    <p>Question: What are the supporting details?</p>
-                    <p>Step 1: Main idea: Urban gardens benefit communities.</p>
-                    <p>Step 2: Details: Fresh produce, green spaces, social bonds.</p>
-                    <p>Supporting Details: Gardens supply food, enhance spaces, and build community.</p>
+                    <h2>Example 7: Complex Central Ideas</h2>
+                    <p>Passage: 'Community centers foster social cohesion. They offer recreational programs, host cultural events, and provide spaces for civic engagement.'</p>
+                    <p>Question: What is the central idea?</p>
+                    <p>Step 1: Identify the topic: Community centers.</p>
+                    <p>Step 2: Determine the focus: Fostering social cohesion.</p>
+                    <p>Central Idea: Community centers promote social cohesion.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'The training manual ensures compliance. It covers regulations, procedures, and penalties for violations.' What are the supporting details?",
+                question: "Passage: 'The internship program prepares students for careers. It provides hands-on experience, professional mentoring, and industry workshops.' What is the central idea?",
                 options: [
-                    { text: "A) Regulations, procedures, penalties", correct: true },
-                    { text: "B) Ensured compliance", correct: false },
-                    { text: "C) Manual distribution", correct: false },
-                    { text: "D) Employee satisfaction", correct: false }
+                    { text: "A) The internship program equips students for professional careers.", correct: true },
+                    { text: "B) Hands-on experience is valuable.", correct: false },
+                    { text: "C) Mentoring is the main focus.", correct: false },
+                    { text: "D) Workshops are mandatory.", correct: false }
                 ],
-                explanation: "The details supporting compliance are regulations, procedures, and penalties."
+                explanation: "The central idea is preparing students for careers, with other options as supporting details."
             }
         ]
     }
 };
 
-// Main idea and details question array
-const mainIdeaDetailsQuestions = [
+// Central ideas question array
+const centralIdeasQuestions = [
     {
-        question: "Passage: 'The new policy promotes workplace diversity. It includes hiring initiatives, cultural training, and inclusive events.' What is the main idea?",
+        question: "Passage: 'The public transit initiative improves urban mobility. It expands bus routes, upgrades train systems, and offers discounted fares.' What is the central idea?",
         answers: [
-            { text: "A) The policy promotes workplace diversity.", correct: true },
-            { text: "B) Hiring initiatives are effective.", correct: false },
-            { text: "C) Cultural training is mandatory.", correct: false },
-            { text: "D) Events are inclusive.", correct: false }
+            { text: "A) The transit initiative enhances urban mobility.", correct: true },
+            { text: "B) Bus routes are expanded.", correct: false },
+            { text: "C) Train systems are modern.", correct: false },
+            { text: "D) Discounted fares are popular.", correct: false }
         ],
-        explanation: "The main idea is the policy’s focus on diversity, while the other options are supporting details.",
+        explanation: "The central idea is improving urban mobility through the transit initiative, while other options are supporting details.",
         difficulty: "easy",
         category: "ged-central-ideas"
     }
@@ -432,8 +432,8 @@ function showQuiz() {
 // Get quiz questions based on lesson
 function getQuizQuestions(lessonId) {
     switch (parseInt(lessonId)) {
-        case 1: return mainIdeaDetailsQuestions;
-        default: return mainIdeaDetailsQuestions;
+        case 1: return centralIdeasQuestions;
+        default: return centralIdeasQuestions;
     }
 }
 
