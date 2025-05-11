@@ -215,6 +215,78 @@ const scientificMethodQuestions = [
         explanation: "The passage states the control group serves as a baseline, making A correct.",
         difficulty: "easy",
         category: "ged-scientific-method-and-experimental-design"
+    },
+    {
+        question: "A researcher tests the effect of sunlight on plant growth by placing one group of plants in full sunlight and another in shade. What is the independent variable in this experiment?",
+        answers: [
+            { text: "A) Amount of sunlight", correct: true },
+            { text: "B) Plant growth rate", correct: false },
+            { text: "C) Type of plant", correct: false },
+            { text: "D) Amount of water", correct: false }
+        ],
+        explanation: "The independent variable is the factor manipulated by the researcher, which is the amount of sunlight in this experiment. Plant growth rate is the dependent variable, while plant type and water amount are potential controlled variables. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-scientific-method-and-experimental-design"
+    },
+    {
+        question: "In an experiment, a scientist hypothesizes that fertilizer increases tomato yield. Which step of the scientific method involves testing this hypothesis?",
+        answers: [
+            { text: "A) Forming a conclusion", correct: false },
+            { text: "B) Conducting an experiment", correct: true },
+            { text: "C) Making observations", correct: false },
+            { text: "D) Developing a hypothesis", correct: false }
+        ],
+        explanation: "Testing a hypothesis involves conducting an experiment to collect data and evaluate the hypothesis. Forming a conclusion follows data analysis, observations precede hypothesis development, and developing a hypothesis is the initial step. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-scientific-method-and-experimental-design"
+    },
+    {
+        question: "A student tests how temperature affects bacterial growth, using three petri dishes at 20°C, 30°C, and 40°C. What is the dependent variable in this experiment?",
+        answers: [
+            { text: "A) Temperature", correct: false },
+            { text: "B) Bacterial growth", correct: true },
+            { text: "C) Petri dish size", correct: false },
+            { text: "D) Type of bacteria", correct: false }
+        ],
+        explanation: "The dependent variable is the factor measured in response to the independent variable, which is bacterial growth in this case. Temperature is the independent variable, while petri dish size and bacteria type are controlled variables. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-scientific-method-and-experimental-design"
+    },
+    {
+        question: "A researcher studies the effect of pH on enzyme activity and keeps temperature and enzyme concentration constant. What is the purpose of keeping these factors constant?",
+        answers: [
+            { text: "A) To isolate the effect of pH on enzyme activity", correct: true },
+            { text: "B) To increase enzyme activity", correct: false },
+            { text: "C) To simplify the hypothesis", correct: false },
+            { text: "D) To reduce the need for data analysis", correct: false }
+        ],
+        explanation: "Keeping temperature and enzyme concentration constant isolates the effect of pH, ensuring that changes in enzyme activity are due to pH alone. The other options do not accurately describe the purpose of controlling variables. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-scientific-method-and-experimental-design"
+    },
+    {
+        question: "In an experiment, a scientist observes that plants watered with rainwater grow taller than those watered with tap water. What is the next step in the scientific method?",
+        answers: [
+            { text: "A) Publish the results", correct: false },
+            { text: "B) Form a conclusion", correct: false },
+            { text: "C) Develop a hypothesis", correct: true },
+            { text: "D) Conduct additional experiments", correct: false }
+        ],
+        explanation: "After making observations, the next step in the scientific method is to develop a hypothesis to explain the observation (e.g., rainwater promotes taller plant growth). Conducting experiments follows hypothesis formation, while conclusions and publishing come later. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-scientific-method-and-experimental-design"
+    },
+    {
+        question: "A researcher designs an experiment to test the effect of light color on photosynthesis rate. They use red, blue, and green lights but notice the light intensity varies. How could this affect the experiment?",
+        answers: [
+            { text: "A) It simplifies the data collection", correct: false },
+            { text: "B) It increases the sample size", correct: false },
+            { text: "C) It reduces the need for controls", correct: false },
+            { text: "D) It introduces a confounding variable", correct: true }
+        ],
+        explanation: "Varying light intensity introduces a confounding variable, as it could affect photosynthesis rate alongside light color, making it hard to isolate the effect of color. The other options do not describe the impact of this issue. Thus, option D is correct.",
+        difficulty: "medium",
+        category: "ged-scientific-method-and-experimental-design"
     }
 ];
 
