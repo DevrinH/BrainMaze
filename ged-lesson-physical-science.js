@@ -215,6 +215,78 @@ const physicalScienceQuestions = [
         explanation: "Using Work = Force × Distance: Work = 5 N × 3 m = 15 J, making A correct.",
         difficulty: "easy",
         category: "ged-physical-science"
+    },
+    {
+        question: "What type of energy is stored in a stretched rubber band?",
+        answers: [
+            { text: "A) Elastic potential energy", correct: true },
+            { text: "B) Kinetic energy", correct: false },
+            { text: "C) Thermal energy", correct: false },
+            { text: "D) Chemical energy", correct: false }
+        ],
+        explanation: "A stretched rubber band stores elastic potential energy due to its deformation. Kinetic energy is energy of motion, thermal energy relates to heat, and chemical energy is stored in chemical bonds. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        question: "Which law states that the total momentum of a closed system remains constant if no external forces act on it?",
+        answers: [
+            { text: "A) Newton’s First Law", correct: false },
+            { text: "B) Law of Conservation of Momentum", correct: true },
+            { text: "C) Newton’s Second Law", correct: false },
+            { text: "D) Law of Universal Gravitation", correct: false }
+        ],
+        explanation: "The Law of Conservation of Momentum states that the total momentum in a closed system remains constant without external forces. Newton’s laws describe motion, and the Law of Universal Gravitation addresses gravitational attraction. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        question: "What is the primary source of energy for Earth’s climate system?",
+        answers: [
+            { text: "A) Geothermal energy", correct: false },
+            { text: "B) Solar energy", correct: true },
+            { text: "C) Nuclear energy", correct: false },
+            { text: "D) Tidal energy", correct: false }
+        ],
+        explanation: "Solar energy from the sun drives Earth’s climate system by heating the atmosphere and surface, influencing weather patterns. Geothermal, nuclear, and tidal energy have lesser roles. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        question: "Which property of a wave determines its loudness or intensity?",
+        answers: [
+            { text: "A) Amplitude", correct: true },
+            { text: "B) Frequency", correct: false },
+            { text: "C) Wavelength", correct: false },
+            { text: "D) Speed", correct: false }
+        ],
+        explanation: "Amplitude determines the loudness or intensity of a wave, as it measures the wave’s maximum displacement. Frequency affects pitch, wavelength relates to wave type, and speed depends on the medium. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        question: "What happens to the pressure of a gas if its volume decreases while temperature remains constant?",
+        answers: [
+            { text: "A) Pressure decreases", correct: false },
+            { text: "B) Pressure remains constant", correct: false },
+            { text: "C) Pressure increases", correct: true },
+            { text: "D) Pressure becomes zero", correct: false }
+        ],
+        explanation: "According to Boyle’s Law, if the volume of a gas decreases while temperature remains constant, the pressure increases (inversely proportional). Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        question: "Which type of reaction releases energy by splitting a heavy nucleus into smaller nuclei?",
+        answers: [
+            { text: "A) Chemical reaction", correct: false },
+            { text: "B) Fusion reaction", correct: false },
+            { text: "C) Combustion reaction", correct: false },
+            { text: "D) Fission reaction", correct: true }
+        ],
+        explanation: "A fission reaction releases energy by splitting a heavy nucleus into smaller nuclei, as in nuclear power plants. Fusion combines nuclei, chemical reactions involve electron rearrangements, and combustion involves burning. Thus, option D is correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
     }
 ];
 

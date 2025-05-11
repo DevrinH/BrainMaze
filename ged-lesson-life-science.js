@@ -215,6 +215,78 @@ const lifeScienceQuestions = [
         explanation: "The passage states DNA replicates to ensure each new cell has identical genetic material, making A correct.",
         difficulty: "easy",
         category: "ged-life-science"
+    },
+    {
+        question: "Which process in plants uses sunlight to convert carbon dioxide and water into glucose and oxygen?",
+        answers: [
+            { text: "A) Photosynthesis", correct: true },
+            { text: "B) Respiration", correct: false },
+            { text: "C) Transpiration", correct: false },
+            { text: "D) Fermentation", correct: false }
+        ],
+        explanation: "Photosynthesis is the process in plants that uses sunlight to convert carbon dioxide and water into glucose and oxygen. Respiration breaks down glucose for energy, transpiration involves water loss, and fermentation occurs in low-oxygen conditions. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-life-science"
+    },
+    {
+        question: "What is the primary source of energy for Earth's climate system?",
+        answers: [
+            { text: "A) Geothermal heat", correct: false },
+            { text: "B) Solar radiation", correct: true },
+            { text: "C) Ocean currents", correct: false },
+            { text: "D) Atmospheric pressure", correct: false }
+        ],
+        explanation: "Solar radiation from the sun is the primary source of energy for Earth's climate system, driving weather patterns and temperature changes. Geothermal heat, ocean currents, and atmospheric pressure play roles but are not the primary source. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-life-science"
+    },
+    {
+        question: "Which structure in a cell contains the genetic material and controls cell activities?",
+        answers: [
+            { text: "A) Mitochondrion", correct: false },
+            { text: "B) Nucleus", correct: true },
+            { text: "C) Ribosome", correct: false },
+            { text: "D) Cytoplasm", correct: false }
+        ],
+        explanation: "The nucleus contains the cell's genetic material (DNA) and controls cell activities by regulating gene expression. Mitochondria produce energy, ribosomes synthesize proteins, and cytoplasm is the cell's fluid medium. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-life-science"
+    },
+    {
+        question: "What is the role of decomposers in an ecosystem?",
+        answers: [
+            { text: "A) Break down dead organic matter and recycle nutrients", correct: true },
+            { text: "B) Produce energy through photosynthesis", correct: false },
+            { text: "C) Consume primary producers for energy", correct: false },
+            { text: "D) Regulate population sizes of predators", correct: false }
+        ],
+        explanation: "Decomposers, like fungi and bacteria, break down dead organic matter, recycling nutrients back into the ecosystem. Photosynthesis is done by producers, consumers eat producers, and population regulation is not their role. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-life-science"
+    },
+    {
+        question: "Which process allows organisms to maintain a stable internal environment despite external changes?",
+        answers: [
+            { text: "A) Adaptation", correct: false },
+            { text: "B) Evolution", correct: false },
+            { text: "C) Homeostasis", correct: true },
+            { text: "D) Natural selection", correct: false }
+        ],
+        explanation: "Homeostasis is the process by which organisms maintain a stable internal environment, such as regulating temperature or pH. Adaptation and evolution occur over generations, and natural selection drives evolution. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-life-science"
+    },
+    {
+        question: "What type of symbiotic relationship occurs when one species benefits and the other is neither harmed nor helped?",
+        answers: [
+            { text: "A) Mutualism", correct: false },
+            { text: "B) Parasitism", correct: false },
+            { text: "C) Predation", correct: false },
+            { text: "D) Commensalism", correct: true }
+        ],
+        explanation: "Commensalism is a symbiotic relationship where one species benefits and the other is unaffected. Mutualism benefits both, parasitism harms one, and predation involves one consuming another. Thus, option D is correct.",
+        difficulty: "medium",
+        category: "ged-life-science"
     }
 ];
 
