@@ -215,6 +215,78 @@ const geographyEnvironmentalQuestions = [
         explanation: "The passage states renewable energy decreases greenhouse gas emissions, making A correct.",
         difficulty: "easy",
         category: "ged-geography-environmental-issues"
+    },
+    {
+        question: "What is the primary cause of desertification in arid regions?",
+        answers: [
+            { text: "A) Overgrazing and unsustainable land use", correct: true },
+            { text: "B) Increased rainfall patterns", correct: false },
+            { text: "C) Urban development projects", correct: false },
+            { text: "D) Natural volcanic activity", correct: false }
+        ],
+        explanation: "Desertification in arid regions is primarily caused by overgrazing and unsustainable land use, which degrade soil and vegetation. Increased rainfall would counteract it, urban development is less relevant in arid areas, and volcanic activity is not a primary cause. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-geography-environmental-issues"
+    },
+    {
+        question: "Which geographic feature is most associated with the formation of hurricanes?",
+        answers: [
+            { text: "A) High mountain ranges", correct: false },
+            { text: "B) Warm ocean waters", correct: true },
+            { text: "C) Continental plains", correct: false },
+            { text: "D) Polar ice caps", correct: false }
+        ],
+        explanation: "Hurricanes form over warm ocean waters, which provide the heat and moisture needed for their development. Mountains, plains, and ice caps do not contribute to hurricane formation. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-geography-environmental-issues"
+    },
+    {
+        question: "What is a major environmental consequence of deforestation in tropical rainforests?",
+        answers: [
+            { text: "A) Increased biodiversity", correct: false },
+            { text: "B) Loss of habitat and carbon storage", correct: true },
+            { text: "C) Reduced global temperatures", correct: false },
+            { text: "D) Enhanced soil fertility", correct: false }
+        ],
+        explanation: "Deforestation in tropical rainforests leads to loss of habitat for species and reduced carbon storage, contributing to climate change. It does not increase biodiversity, lower temperatures, or improve soil fertility. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-geography-environmental-issues"
+    },
+    {
+        question: "Which human activity is most responsible for the depletion of the ozone layer?",
+        answers: [
+            { text: "A) Use of chlorofluorocarbons (CFCs) in aerosols and refrigerants", correct: true },
+            { text: "B) Burning of fossil fuels for energy", correct: false },
+            { text: "C) Agricultural irrigation practices", correct: false },
+            { text: "D) Mining for rare earth metals", correct: false }
+        ],
+        explanation: "Chlorofluorocarbons (CFCs) released from aerosols and refrigerants are the primary cause of ozone layer depletion, as they break down ozone molecules. Fossil fuel burning, irrigation, and mining have other environmental impacts but are not primary causes. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-geography-environmental-issues"
+    },
+    {
+        question: "Which region is most vulnerable to rising sea levels due to climate change?",
+        answers: [
+            { text: "A) Inland mountainous regions", correct: false },
+            { text: "B) High-altitude plateaus", correct: false },
+            { text: "C) Low-lying coastal areas and islands", correct: true },
+            { text: "D) Temperate forest zones", correct: false }
+        ],
+        explanation: "Low-lying coastal areas and islands are most vulnerable to rising sea levels, facing flooding and erosion due to climate change. Inland mountains, plateaus, and forests are less directly affected. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-geography-environmental-issues"
+    },
+    {
+        question: "What is the primary source of acid rain, which damages ecosystems and water bodies?",
+        answers: [
+            { text: "A) Natural geothermal emissions", correct: false },
+            { text: "B) Pesticide runoff from agriculture", correct: false },
+            { text: "C) Excessive deforestation", correct: false },
+            { text: "D) Emissions of sulfur dioxide and nitrogen oxides from industrial activities", correct: true }
+        ],
+        explanation: "Acid rain is primarily caused by emissions of sulfur dioxide and nitrogen oxides from industrial activities, which react with water vapor to form acidic precipitation. Geothermal emissions, pesticide runoff, and deforestation have other impacts but are not primary causes. Thus, option D is correct.",
+        difficulty: "medium",
+        category: "ged-geography-environmental-issues"
     }
 ];
 
