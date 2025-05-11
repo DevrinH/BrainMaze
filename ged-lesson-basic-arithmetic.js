@@ -215,6 +215,78 @@ const basicArithmeticQuestions = [
         explanation: "Discount: $120 × 0.10 = $12. Discounted price: $120 - $12 = $108. Tax: $108 × 0.06 = $6.48. Final cost: $108 + $6.48 = $114.48.",
         difficulty: "easy",
         category: "ged-basic-arithmetic"
+    },
+    {
+        question: "A community garden produces 120 pounds of vegetables per month. If the garden distributes the vegetables equally among 8 families, how many pounds does each family receive?",
+        answers: [
+            { text: "A) 15 pounds", correct: true },
+            { text: "B) 12 pounds", correct: false },
+            { text: "C) 16 pounds", correct: false },
+            { text: "D) 14 pounds", correct: false }
+        ],
+        explanation: "To find the pounds per family, divide the total pounds by the number of families: 120 ÷ 8 = 15 pounds. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-basic-arithmetic"
+    },
+    {
+        question: "A workshop requires 3.5 hours to complete one project. If a team works on 4 projects, how many hours will it take in total?",
+        answers: [
+            { text: "A) 12 hours", correct: false },
+            { text: "B) 14 hours", correct: true },
+            { text: "C) 13 hours", correct: false },
+            { text: "D) 15 hours", correct: false }
+        ],
+        explanation: "Multiply the hours per project by the number of projects: 3.5 × 4 = 14 hours. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-basic-arithmetic"
+    },
+    {
+        question: "A recycling program collects 450 cans in a week. If the cans are sorted into bins that hold 75 cans each, how many bins are needed?",
+        answers: [
+            { text: "A) 5 bins", correct: false },
+            { text: "B) 6 bins", correct: true },
+            { text: "C) 7 bins", correct: false},
+            { text: "D) 8 bins", correct: false }
+        ],
+        explanation: "Divide the total cans by the capacity of each bin: 450 ÷ 75 = 6 bins. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-basic-arithmetic"
+    },
+    {
+        question: "A volunteer group paints a community center. Each can of paint covers 250 square feet, and the center has 1,250 square feet of wall space. How many cans of paint are needed?",
+        answers: [
+            { text: "A) 5 cans", correct: true },
+            { text: "B) 4 cans", correct: false },
+            { text: "C) 6 cans", correct: false },
+            { text: "D) 7 cans", correct: false }
+        ],
+        explanation: "Divide the total square feet by the coverage per can: 1,250 ÷ 250 = 5 cans. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-basic-arithmetic"
+    },
+    {
+        question: "A library orders 72 books and distributes them equally across 6 shelves. How many books are placed on each shelf?",
+        answers: [
+            { text: "A) 10 books", correct: false },
+            { text: "B) 11 books", correct: false },
+            { text: "C) 12 books", correct: true },
+            { text: "D) 13 books", correct: false }
+        ],
+        explanation: "Divide the total books by the number of shelves: 72 ÷ 6 = 12 books. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-basic-arithmetic"
+    },
+    {
+        question: "A carpool group travels 180 miles and uses 6 gallons of fuel. What is the average number of miles per gallon?",
+        answers: [
+            { text: "A) 25 miles per gallon", correct: false },
+            { text: "B) 28 miles per gallon", correct: false },
+            { text: "C) 32 miles per gallon", correct: false },
+            { text: "D) 30 miles per gallon", correct: true }
+        ],
+        explanation: "Divide the total miles by the gallons used: 180 ÷ 6 = 30 miles per gallon. Thus, option D is correct.",
+        difficulty: "medium",
+        category: "ged-basic-arithmetic"
     }
 ];
 
