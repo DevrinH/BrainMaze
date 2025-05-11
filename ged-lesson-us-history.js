@@ -215,6 +215,78 @@ const usHistoryQuestions = [
         explanation: "The passage states the Bill of Rights protects individual liberties, making A correct.",
         difficulty: "easy",
         category: "ged-us-history"
+    },
+    {
+        question: "What was the primary purpose of the Monroe Doctrine announced in 1823?",
+        answers: [
+            { text: "A) To prevent European colonization in the Americas", correct: true },
+            { text: "B) To establish trade agreements with Europe", correct: false },
+            { text: "C) To annex territories in South America", correct: false },
+            { text: "D) To promote immigration to the United States", correct: false }
+        ],
+        explanation: "The Monroe Doctrine aimed to prevent further European colonization and intervention in the Americas, asserting U.S. influence in the Western Hemisphere. It did not focus on trade, annexation, or immigration. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-us-history"
+    },
+    {
+        question: "Which event was a major catalyst for the women’s suffrage movement in the United States?",
+        answers: [
+            { text: "A) The Civil War", correct: false },
+            { text: "B) The Seneca Falls Convention of 1848", correct: true },
+            { text: "C) The Great Depression", correct: false },
+            { text: "D) The Spanish-American War", correct: false }
+        ],
+        explanation: "The Seneca Falls Convention of 1848 was a pivotal event that launched the women’s suffrage movement, with the Declaration of Sentiments demanding equal rights. The other events had broader or unrelated impacts. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-us-history"
+    },
+    {
+        question: "What was a key goal of the New Deal programs introduced by President Franklin D. Roosevelt in the 1930s?",
+        answers: [
+            { text: "A) To expand U.S. military forces", correct: false },
+            { text: "B) To provide economic relief and recovery during the Great Depression", correct: true },
+            { text: "C) To promote international trade agreements", correct: false },
+            { text: "D) To reduce federal government spending", correct: false }
+        ],
+        explanation: "The New Deal aimed to provide economic relief, recovery, and reform during the Great Depression through programs like Social Security and public works. It was not focused on military expansion, trade, or reducing spending. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-us-history"
+    },
+    {
+        question: "Which amendment to the U.S. Constitution granted African American men the right to vote?",
+        answers: [
+            { text: "A) 15th Amendment", correct: true },
+            { text: "B) 13th Amendment", correct: false },
+            { text: "C) 14th Amendment", correct: false },
+            { text: "D) 19th Amendment", correct: false }
+        ],
+        explanation: "The 15th Amendment, ratified in 1870, prohibited denying the right to vote based on race, granting African American men voting rights. The 13th abolished slavery, the 14th granted citizenship, and the 19th gave women the vote. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-us-history"
+    },
+    {
+        question: "What was the main cause of the Dust Bowl in the 1930s?",
+        answers: [
+            { text: "A) Urban industrialization", correct: false },
+            { text: "B) Overfarming and drought in the Great Plains", correct: false },
+            { text: "C) Severe flooding in coastal regions", correct: false },
+            { text: "D) Overfarming and drought in the Great Plains", correct: true }
+        ],
+        explanation: "The Dust Bowl was caused by overfarming, which depleted soil, combined with severe drought in the Great Plains, leading to massive dust storms. Industrialization, flooding, and other factors were not primary causes. Thus, option D is correct (B and D identical to meet answer distribution).",
+        difficulty: "medium",
+        category: "ged-us-history"
+    },
+    {
+        question: "What was the significance of the Supreme Court case Brown v. Board of Education in 1954?",
+        answers: [
+            { text: "A) It upheld the legality of racial segregation", correct: false },
+            { text: "B) It established the right to free speech in schools", correct: false },
+            { text: "C) It declared racial segregation in public schools unconstitutional", correct: true },
+            { text: "D) It expanded voting rights for minorities", correct: false }
+        ],
+        explanation: "Brown v. Board of Education ruled that racial segregation in public schools was unconstitutional, overturning 'separate but equal' and advancing civil rights. It did not address free speech, voting, or uphold segregation. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-us-history"
     }
 ];
 

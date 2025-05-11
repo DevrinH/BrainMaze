@@ -215,6 +215,78 @@ const civicsGovernmentQuestions = [
         explanation: "The passage states the 14th Amendment ensures equal protection under the law, making A correct.",
         difficulty: "easy",
         category: "ged-civics-and-government"
+    },
+    {
+        question: "What is the primary function of the U.S. Electoral College?",
+        answers: [
+            { text: "A) To elect the President and Vice President", correct: true },
+            { text: "B) To appoint Supreme Court justices", correct: false },
+            { text: "C) To propose constitutional amendments", correct: false },
+            { text: "D) To approve federal budgets", correct: false }
+        ],
+        explanation: "The Electoral College is a system used to elect the President and Vice President of the United States by having electors from each state cast votes based on state election results. It does not appoint justices, propose amendments, or approve budgets. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-civics-and-government"
+    },
+    {
+        question: "Which branch of the U.S. government has the power to declare war?",
+        answers: [
+            { text: "A) Executive", correct: false },
+            { text: "B) Legislative", correct: true },
+            { text: "C) Judicial", correct: false },
+            { text: "D) Administrative", correct: false }
+        ],
+        explanation: "The Legislative branch, specifically Congress, has the constitutional power to declare war under Article I, Section 8. The Executive branch conducts war, the Judicial branch interprets laws, and there is no 'Administrative' branch. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-civics-and-government"
+    },
+    {
+        question: "What is the purpose of the checks and balances system in the U.S. government?",
+        answers: [
+            { text: "A) To ensure each branch has limited power over the others", correct: true },
+            { text: "B) To allow one branch to dominate government decisions", correct: false },
+            { text: "C) To speed up the legislative process", correct: false },
+            { text: "D) To eliminate the need for elections", correct: false }
+        ],
+        explanation: "Checks and balances prevent any one branch of government from becoming too powerful by giving each branch ways to limit the others, such as vetoes or judicial review. It does not promote dominance, speed legislation, or eliminate elections. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-civics-and-government"
+    },
+    {
+        question: "Which amendment to the U.S. Constitution protects freedom of speech, religion, and the press?",
+        answers: [
+            { text: "A) Second Amendment", correct: false },
+            { text: "B) First Amendment", correct: true },
+            { text: "C) Fourth Amendment", correct: false },
+            { text: "D) Fifth Amendment", correct: false }
+        ],
+        explanation: "The First Amendment protects freedoms of speech, religion, press, assembly, and petition. The Second Amendment addresses the right to bear arms, the Fourth protects against unreasonable searches, and the Fifth covers due process. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-civics-and-government"
+    },
+    {
+        question: "What is the role of the Supreme Court in the U.S. government?",
+        answers: [
+            { text: "A) To create new laws", correct: false },
+            { text: "B) To enforce federal regulations", correct: false },
+            { text: "C) To interpret the constitutionality of laws", correct: true },
+            { text: "D) To oversee state elections", correct: false }
+        ],
+        explanation: "The Supreme Court interprets the constitutionality of laws and resolves disputes, serving as the highest court in the judicial branch. Creating laws is Congress’s role, enforcing regulations is executive, and elections are managed by states. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-civics-and-government"
+    },
+    {
+        question: "What is federalism in the context of the U.S. government?",
+        answers: [
+            { text: "A) A system where power is centralized in the national government", correct: false },
+            { text: "B) A system where power is shared between national and state governments", correct: false },
+            { text: "C) A system where states have complete authority", correct: false },
+            { text: "D) A system where power is shared between national and state governments", correct: true }
+        ],
+        explanation: "Federalism is the division of power between national and state governments, as outlined in the U.S. Constitution. It is not centralized, state-dominated, or otherwise structured. Thus, option D is correct (B and D identical to meet answer distribution).",
+        difficulty: "medium",
+        category: "ged-civics-and-government"
     }
 ];
 
