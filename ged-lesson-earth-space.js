@@ -215,6 +215,78 @@ const earthSpaceQuestions = [
         explanation: "The passage states the troposphere contains most weather phenomena, making A correct.",
         difficulty: "easy",
         category: "ged-earth-space"
+    },
+    {
+        question: "What process is primarily responsible for the formation of sedimentary rocks?",
+        answers: [
+            { text: "A) Compaction and cementation of sediments", correct: true },
+            { text: "B) Cooling and solidification of magma", correct: false },
+            { text: "C) High-pressure transformation of minerals", correct: false },
+            { text: "D) Chemical precipitation from molten rock", correct: false }
+        ],
+        explanation: "Sedimentary rocks form through the compaction and cementation of sediments, such as sand or clay, over time. Cooling and solidification form igneous rocks, high-pressure transformation creates metamorphic rocks, and chemical precipitation is less specific to sedimentary formation. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-earth-space"
+    },
+    {
+        question: "Which layer of Earth’s atmosphere contains the ozone layer that absorbs ultraviolet radiation?",
+        answers: [
+            { text: "A) Troposphere", correct: false },
+            { text: "B) Stratosphere", correct: true },
+            { text: "C) Mesosphere", correct: false },
+            { text: "D) Thermosphere", correct: false }
+        ],
+        explanation: "The stratosphere contains the ozone layer, which absorbs harmful ultraviolet radiation. The troposphere is where weather occurs, the mesosphere burns meteors, and the thermosphere experiences auroras. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-earth-space"
+    },
+    {
+        question: "What is the primary cause of Earth’s tides?",
+        answers: [
+            { text: "A) Earth’s rotation", correct: false },
+            { text: "B) Gravitational pull of the Moon", correct: true },
+            { text: "C) Solar radiation", correct: false },
+            { text: "D) Atmospheric pressure changes", correct: false }
+        ],
+        explanation: "The gravitational pull of the Moon causes Earth’s tides by creating bulges in the oceans. Earth’s rotation affects day length, solar radiation drives climate, and atmospheric pressure influences weather, not tides. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-earth-space"
+    },
+    {
+        question: "Which type of plate boundary is most likely to produce earthquakes and mountain ranges?",
+        answers: [
+            { text: "A) Convergent boundary", correct: true },
+            { text: "B) Divergent boundary", correct: false },
+            { text: "C) Transform boundary", correct: false },
+            { text: "D) Passive boundary", correct: false }
+        ],
+        explanation: "Convergent boundaries, where plates collide, produce earthquakes and mountain ranges due to compression. Divergent boundaries create new crust, transform boundaries cause lateral sliding, and passive boundaries are not a standard term. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-earth-space"
+    },
+    {
+        question: "What is the primary source of energy for Earth’s water cycle?",
+        answers: [
+            { text: "A) Geothermal energy", correct: false },
+            { text: "B) Gravitational energy", correct: false },
+            { text: "C) Solar energy", correct: true },
+            { text: "D) Tidal energy", correct: false }
+        ],
+        explanation: "Solar energy drives the water cycle by causing evaporation and powering atmospheric circulation. Geothermal energy heats Earth’s interior, gravitational energy affects tides, and tidal energy is unrelated to the water cycle. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-earth-space"
+    },
+    {
+        question: "Which process contributes to the greenhouse effect by trapping heat in Earth’s atmosphere?",
+        answers: [
+            { text: "A) Volcanic eruptions", correct: false },
+            { text: "B) Deforestation", correct: false },
+            { text: "C) Ocean currents", correct: false },
+            { text: "D) Absorption of infrared radiation by greenhouse gases", correct: true }
+        ],
+        explanation: "The greenhouse effect occurs when greenhouse gases absorb and trap infrared radiation, warming Earth’s atmosphere. Volcanic eruptions release particles, deforestation reduces carbon sinks, and ocean currents distribute heat but don’t trap it. Thus, option D is correct.",
+        difficulty: "medium",
+        category: "ged-earth-space"
     }
 ];
 
