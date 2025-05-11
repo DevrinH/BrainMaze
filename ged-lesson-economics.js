@@ -215,6 +215,78 @@ const economicsQuestions = [
         explanation: "The passage states choosing more cars reduces truck production, which is the opportunity cost, making A correct.",
         difficulty: "easy",
         category: "ged-economics"
+    },
+    {
+        question: "What is the primary effect of an increase in the supply of a good, assuming demand remains constant?",
+        answers: [
+            { text: "A) The price of the good decreases", correct: true },
+            { text: "B) The price of the good increases", correct: false },
+            { text: "C) The demand for the good increases", correct: false },
+            { text: "D) The quantity demanded decreases", correct: false }
+        ],
+        explanation: "When the supply of a good increases and demand remains constant, the market experiences a surplus, leading to a decrease in the price of the good. Increased supply does not directly affect demand or reduce quantity demanded, and it does not increase price. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-economics"
+    },
+    {
+        question: "What is the main purpose of a tariff imposed on imported goods?",
+        answers: [
+            { text: "A) To reduce government spending", correct: false },
+            { text: "B) To protect domestic industries from foreign competition", correct: true },
+            { text: "C) To decrease the price of imported goods", correct: false },
+            { text: "D) To increase consumer demand for imports", correct: false }
+        ],
+        explanation: "A tariff is a tax on imported goods designed to protect domestic industries by making foreign goods more expensive, encouraging consumers to buy local products. It does not reduce government spending, lower import prices, or increase import demand. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-economics"
+    },
+    {
+        question: "In a market economy, what primarily determines the price of a good or service?",
+        answers: [
+            { text: "A) Government regulations", correct: false },
+            { text: "B) Supply and demand", correct: true },
+            { text: "C) Production costs alone", correct: false },
+            { text: "D) Consumer income levels", correct: false }
+        ],
+        explanation: "In a market economy, the price of a good or service is primarily determined by the interaction of supply and demand. Government regulations, production costs, and consumer income may influence price but are not the primary determinants. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-economics"
+    },
+    {
+        question: "What is an example of a fiscal policy action to stimulate economic growth during a recession?",
+        answers: [
+            { text: "A) Increasing government spending on infrastructure", correct: true },
+            { text: "B) Raising interest rates", correct: false },
+            { text: "C) Reducing the money supply", correct: false },
+            { text: "D) Increasing export tariffs", correct: false }
+        ],
+        explanation: "Fiscal policy to stimulate economic growth during a recession often involves increasing government spending, such as on infrastructure, to boost demand. Raising interest rates and reducing money supply are monetary policies that slow growth, and tariffs hinder trade. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-economics"
+    },
+    {
+        question: "What is the term for the total value of all goods and services produced within a country in a given period?",
+        answers: [
+            { text: "A) Net exports", correct: false },
+            { text: "B) Consumer price index", correct: false },
+            { text: "C) Gross domestic product", correct: true },
+            { text: "D) Trade deficit", correct: false }
+        ],
+        explanation: "Gross domestic product (GDP) measures the total value of all goods and services produced within a country over a specific period. Net exports are part of GDP, the consumer price index measures inflation, and a trade deficit reflects import-export imbalance. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-economics"
+    },
+    {
+        question: "What happens to unemployment rates during an economic boom, assuming other factors remain constant?",
+        answers: [
+            { text: "A) Unemployment rates increase", correct: false },
+            { text: "B) Unemployment rates remain unchanged", correct: false },
+            { text: "C) Unemployment rates fluctuate randomly", correct: false },
+            { text: "D) Unemployment rates decrease", correct: true }
+        ],
+        explanation: "During an economic boom, increased economic activity typically leads to more job opportunities, reducing unemployment rates. Unemployment does not increase, remain unchanged, or fluctuate randomly under these conditions. Thus, option D is correct.",
+        difficulty: "medium",
+        category: "ged-economics"
     }
 ];
 

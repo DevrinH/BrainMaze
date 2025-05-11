@@ -215,6 +215,78 @@ const historicalDocsQuestions = [
         explanation: "The passage states Roosevelt proposed the freedoms to promote human rights, making A correct.",
         difficulty: "easy",
         category: "ged-reading-and-analyzing-historical-docs"
+    },
+    {
+        question: "Excerpt from the Declaration of Independence (1776): 'We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.' What is the main idea of this excerpt?",
+        answers: [
+            { text: "A) All people have inherent rights to life, liberty, and happiness", correct: true },
+            { text: "B) Governments must provide equal wealth to all citizens", correct: false },
+            { text: "C) The Creator determines the laws of government", correct: false },
+            { text: "D) Happiness is the only unalienable right", correct: false }
+        ],
+        explanation: "The main idea of the excerpt is that all people are born with equal, inherent rights, including life, liberty, and the pursuit of happiness. It does not address wealth distribution, divine lawmaking, or limit rights to happiness. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-reading-and-analyzing-historical-docs"
+    },
+    {
+        question: "Excerpt from the Federalist Papers No. 10 (1787): 'The effect of [factions] is to kindle animosity and render the government unstable.' What does the author suggest is a negative impact of factions?",
+        answers: [
+            { text: "A) They promote economic growth", correct: false },
+            { text: "B) They cause conflict and governmental instability", correct: true },
+            { text: "C) They strengthen democratic participation", correct: false },
+            { text: "D) They unify public opinion", correct: false }
+        ],
+        explanation: "The author, James Madison, argues that factions create animosity and destabilize the government, as stated in the excerpt. Factions do not promote growth, strengthen democracy, or unify opinion in this context. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-reading-and-analyzing-historical-docs"
+    },
+    {
+        question: "Excerpt from Abraham Lincoln’s Gettysburg Address (1863): 'It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.' What is Lincoln’s purpose in this statement?",
+        answers: [
+            { text: "A) To criticize the soldiers’ efforts", correct: false },
+            { text: "B) To urge the living to continue the work of the fallen soldiers", correct: true },
+            { text: "C) To announce the end of the Civil War", correct: false },
+            { text: "D) To describe the battle’s outcome", correct: false }
+        ],
+        explanation: "Lincoln’s purpose is to inspire the living to continue the work of preserving the Union and freedom, as advanced by soldiers who died. He does not criticize them, announce the war’s end, or describe the battle. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-reading-and-analyzing-historical-docs"
+    },
+    {
+        question: "Excerpt from the Seneca Falls Declaration (1848): 'We hold these truths to be self-evident: that all men and women are created equal.' How does this statement adapt the Declaration of Independence?",
+        answers: [
+            { text: "A) It includes women in the assertion of equality", correct: true },
+            { text: "B) It removes the concept of unalienable rights", correct: false },
+            { text: "C) It focuses on economic equality", correct: false },
+            { text: "D) It rejects the idea of self-evident truths", correct: false }
+        ],
+        explanation: "The Seneca Falls Declaration adapts the Declaration of Independence by explicitly including women in the claim of equality, extending the original text. It retains unalienable rights, does not focus on economics, and upholds self-evident truths. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-reading-and-analyzing-historical-docs"
+    },
+    {
+        question: "Excerpt from Martin Luther King Jr.’s 'I Have a Dream' speech (1963): 'I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.' What is the central goal expressed in this excerpt?",
+        answers: [
+            { text: "A) To promote economic reforms", correct: false },
+            { text: "B) To advocate for educational improvements", correct: false },
+            { text: "C) To achieve racial equality and end discrimination", correct: true },
+            { text: "D) To support political independence", correct: false }
+        ],
+        explanation: "The central goal is to achieve racial equality, envisioning a society free from racial discrimination. The excerpt does not focus on economic reforms, education, or political independence. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-reading-and-analyzing-historical-docs"
+    },
+    {
+        question: "Excerpt from the Bill of Rights, First Amendment (1791): 'Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof.' What is the primary purpose of this amendment?",
+        answers: [
+            { text: "A) To regulate religious institutions", correct: false },
+            { text: "B) To promote a national religion", correct: false },
+            { text: "C) To ensure freedom of speech", correct: false },
+            { text: "D) To protect freedom of religion", correct: true }
+        ],
+        explanation: "The First Amendment’s clause protects freedom of religion by preventing Congress from establishing a religion or restricting its practice. It does not regulate institutions, promote a religion, or focus solely on speech here. Thus, option D is correct.",
+        difficulty: "medium",
+        category: "ged-reading-and-analyzing-historical-docs"
     }
 ];
 
