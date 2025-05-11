@@ -215,6 +215,78 @@ const centralIdeasQuestions = [
         explanation: "The central idea is improving urban mobility through the transit initiative, while other options are supporting details.",
         difficulty: "easy",
         category: "ged-central-ideas"
+    },
+    {
+        question: "Passage: 'Renewable energy adoption reduces carbon emissions. Solar panels and wind turbines are increasingly installed, and government subsidies support clean energy projects.' What is the central idea?",
+        answers: [
+            { text: "A) Renewable energy adoption lowers carbon emissions.", correct: true },
+            { text: "B) Solar panels are widely used.", correct: false },
+            { text: "C) Wind turbines are efficient.", correct: false },
+            { text: "D) Government subsidies fund projects.", correct: false }
+        ],
+        explanation: "The central idea is the reduction of carbon emissions through renewable energy adoption, while other options are specific details supporting this goal.",
+        difficulty: "medium",
+        category: "ged-central-ideas"
+    },
+    {
+        question: "Passage: 'Community gardens promote social cohesion. They provide fresh produce, encourage neighborly interaction, and offer educational workshops.' What is the central idea?",
+        answers: [
+            { text: "A) Community gardens supply fresh produce.", correct: false },
+            { text: "B) Community gardens foster social cohesion.", correct: true },
+            { text: "C) Neighborly interaction is common.", correct: false },
+            { text: "D) Workshops teach gardening skills.", correct: false }
+        ],
+        explanation: "The central idea is promoting social cohesion through community gardens, with other options being benefits that contribute to this purpose.",
+        difficulty: "medium",
+        category: "ged-central-ideas"
+    },
+    {
+        question: "Passage: 'Telecommuting boosts workplace flexibility. Employees work from home, use digital collaboration tools, and balance personal responsibilities.' What is the central idea?",
+        answers: [
+            { text: "A) Employees use digital tools.", correct: false },
+            { text: "B) Telecommuting enhances workplace flexibility.", correct: true },
+            { text: "C) Remote work saves time.", correct: false },
+            { text: "D) Personal responsibilities are balanced.", correct: false }
+        ],
+        explanation: "The central idea is that telecommuting increases workplace flexibility, while other options are specific aspects of this practice.",
+        difficulty: "medium",
+        category: "ged-central-ideas"
+    },
+    {
+        question: "Passage: 'Urban reforestation mitigates heat islands. Planting trees cools cities, improves air quality, and enhances aesthetics.' What is the central idea?",
+        answers: [
+            { text: "A) Urban reforestation reduces heat islands.", correct: true },
+            { text: "B) Trees improve air quality.", correct: false },
+            { text: "C) Cities are aesthetically enhanced.", correct: false },
+            { text: "D) Tree planting cools urban areas.", correct: false }
+        ],
+        explanation: "The central idea is mitigating heat islands through urban reforestation, with other options as secondary benefits.",
+        difficulty: "medium",
+        category: "ged-central-ideas"
+    },
+    {
+        question: "Passage: 'Financial literacy programs empower individuals. They teach budgeting, debt management, and investment strategies.' What is the central idea?",
+        answers: [
+            { text: "A) Budgeting is a key skill.", correct: false },
+            { text: "B) Debt management is taught.", correct: false },
+            { text: "C) Financial literacy programs empower individuals.", correct: true },
+            { text: "D) Investments are strategic.", correct: false }
+        ],
+        explanation: "The central idea is empowering individuals through financial literacy programs, while other options are components of the curriculum.",
+        difficulty: "medium",
+        category: "ged-central-ideas"
+    },
+    {
+        question: "Passage: 'Recycling initiatives conserve natural resources. They reduce landfill waste, promote material reuse, and encourage sustainable habits.' What is the central idea?",
+        answers: [
+            { text: "A) Landfill waste is reduced.", correct: false },
+            { text: "B) Materials are reused.", correct: false },
+            { text: "C) Sustainable habits are encouraged.", correct: false },
+            { text: "D) Recycling initiatives conserve natural resources.", correct: true }
+        ],
+        explanation: "The central idea is conserving natural resources through recycling initiatives, with other options as outcomes of this effort.",
+        difficulty: "medium",
+        category: "ged-central-ideas"
     }
 ];
 
