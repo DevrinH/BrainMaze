@@ -213,6 +213,78 @@ const dataAnalysisQuestions = [
         explanation: "Increase: 1200 - 1000 = 200. Percentage increase: (200 ÷ 1000) × 100 = 20%.",
         difficulty: "easy",
         category: "ged-data-analysis-interpretation"
+    },
+    {
+        question: "A recycling program tracks weekly plastic bottle collections: Week 1 (300 bottles), Week 2 (350 bottles), Week 3 (400 bottles), Week 4 (320 bottles). What is the mean number of bottles collected per week?",
+        answers: [
+            { text: "A) 342.5 bottles", correct: true },
+            { text: "B) 350 bottles", correct: false },
+            { text: "C) 340 bottles", correct: false },
+            { text: "D) 360 bottles", correct: false }
+        ],
+        explanation: "To find the mean, sum the bottles: 300 + 350 + 400 + 320 = 1370. Divide by the number of weeks: 1370 ÷ 4 = 342.5 bottles. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-data-analysis-interpretation"
+    },
+    {
+        question: "A community garden records tomato yields: Plot 1 (15 kg), Plot 2 (20 kg), Plot 3 (18 kg), Plot 4 (22 kg), Plot 5 (17 kg). What is the median yield?",
+        answers: [
+            { text: "A) 20 kg", correct: false },
+            { text: "B) 18 kg", correct: true },
+            { text: "C) 19 kg", correct: false },
+            { text: "D) 17 kg", correct: false }
+        ],
+        explanation: "Order the yields: 15, 17, 18, 20, 22. The median is the middle value: 18 kg. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-data-analysis-interpretation"
+    },
+    {
+        question: "A carpool group tracks fuel efficiency over 5 trips: Trip 1 (28 mpg), Trip 2 (30 mpg), Trip 3 (25 mpg), Trip 4 (32 mpg), Trip 5 (27 mpg). What is the range of fuel efficiencies?",
+        answers: [
+            { text: "A) 6 mpg", correct: false },
+            { text: "B) 7 mpg", correct: true },
+            { text: "C) 8 mpg", correct: false },
+            { text: "D) 5 mpg", correct: false }
+        ],
+        explanation: "The range is the difference between the highest and lowest values: 32 - 25 = 7 mpg. Thus, option B is correct.",
+        difficulty: "medium",
+        category: "ged-data-analysis-interpretation"
+    },
+    {
+        question: "A library surveys 100 visitors about their reading preferences: Fiction (40%), Nonfiction (30%), Magazines (20%), Other (10%). How many visitors prefer nonfiction?",
+        answers: [
+            { text: "A) 30 visitors", correct: true },
+            { text: "B) 40 visitors", correct: false },
+            { text: "C) 20 visitors", correct: false },
+            { text: "D) 25 visitors", correct: false }
+        ],
+        explanation: "Calculate 30% of 100: (30 ÷ 100) × 100 = 30 visitors. Thus, option A is correct.",
+        difficulty: "medium",
+        category: "ged-data-analysis-interpretation"
+    },
+    {
+        question: "A workshop tracks attendance over 6 sessions: Session 1 (25 people), Session 2 (30 people), Session 3 (28 people), Session 4 (22 people), Session 5 (35 people), Session 6 (20 people). What is the percent decrease in attendance from Session 5 to Session 6?",
+        answers: [
+            { text: "A) 40%", correct: false },
+            { text: "B) 50%", correct: false },
+            { text: "C) 42.86%", correct: true },
+            { text: "D) 30%", correct: false }
+        ],
+        explanation: "Calculate the decrease: 35 - 20 = 15. Find the percent decrease: (15 ÷ 35) × 100 ≈ 42.86%. Thus, option C is correct.",
+        difficulty: "medium",
+        category: "ged-data-analysis-interpretation"
+    },
+    {
+        question: "A volunteer group records hours worked by 4 members: Member 1 (10 hours), Member 2 (15 hours), Member 3 (12 hours), Member 4 (18 hours). What fraction of the total hours did Member 4 contribute?",
+        answers: [
+            { text: "A) 1/3", correct: false },
+            { text: "B) 2/5", correct: false },
+            { text: "C) 1/4", correct: false },
+            { text: "D) 9/55", correct: true }
+        ],
+        explanation: "Sum the hours: 10 + 15 + 12 + 18 = 55. Fraction for Member 4: 18 ÷ 55 = 18/55, which simplifies to 9/55 (since 18 and 55 share no common factors). Thus, option D is correct.",
+        difficulty: "medium",
+        category: "ged-data-analysis-interpretation"
     }
 ];
 
