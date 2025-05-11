@@ -215,6 +215,78 @@ const punctuationUsageQuestions = [
         explanation: "The clause 'scheduled for Monday' is nonessential, requiring commas, making A correct.",
         difficulty: "easy",
         category: "ged-punctuation-usage"
+    },
+    {
+        question: "Which sentence uses commas correctly to set off a nonrestrictive clause?",
+        answers: [
+            { text: "A) The solar panels, which generate clean energy, were installed last month.", correct: true },
+            { text: "B) The solar panels which generate clean energy, were installed last month.", correct: false },
+            { text: "C) The solar panels, which generate clean energy were installed last month.", correct: false },
+            { text: "D)—The solar panels which generate, clean energy were installed last month.", correct: false }
+        ],
+        explanation: "Option A is correct because it uses commas to properly set off the nonrestrictive clause 'which generate clean energy.' Option B has a misplaced comma after 'energy.' Option C is missing a comma after 'energy.' Option D incorrectly uses a dash and a comma within the clause.",
+        difficulty: "medium",
+        category: "ged-punctuation-usage"
+    },
+    {
+        question: "Which sentence correctly uses a semicolon to separate two independent clauses?",
+        answers: [
+            { text: "A) The community center offers workshops; they teach valuable skills.", correct: true },
+            { text: "B) The community center offers workshops, they teach valuable skills.", correct: false },
+            { text: "C) The community center offers workshops; and they teach valuable skills.", correct: false },
+            { text: "D) The community center offers workshops: they teach valuable skills.", correct: false }
+        ],
+        explanation: "Option A is correct because it uses a semicolon to join two independent clauses ('The community center offers workshops' and 'they teach valuable skills'). Option B creates a comma splice. Option C incorrectly includes 'and' after the semicolon. Option D uses a colon, which is incorrect for joining independent clauses here.",
+        difficulty: "medium",
+        category: "ged-punctuation-usage"
+    },
+    {
+        question: "Which sentence uses apostrophes correctly to show possession?",
+        answers: [
+            { text: "A) The volunteers' efforts made the parks' cleanup a success.", correct: false },
+            { text: "B) The volunteers' efforts made the park's cleanup a success.", correct: true },
+            { text: "C) The volunteers efforts made the parks cleanup a success.", correct: false },
+            { text: "D) The volunteer's efforts made the park's cleanup a success.", correct: false }
+        ],
+        explanation: "Option B is correct because 'volunteers'' shows plural possession and 'park's' shows singular possession. Option A incorrectly uses 'parks'' (implying multiple parks). Option C lacks necessary apostrophes. Option D incorrectly uses 'volunteer's' (singular) for a plural subject.",
+        difficulty: "medium",
+        category: "ged-punctuation-usage"
+    },
+    {
+        question: "Which sentence correctly uses parentheses to include additional information?",
+        answers: [
+            { text: "A) The recycling program (launched last year) has reduced waste.", correct: true },
+            { text: "B) The recycling program, launched last year, has reduced waste.", correct: false },
+            { text: "C) The recycling program (launched last year, has reduced waste).", correct: false },
+            { text: "D) The recycling program launched last year (has reduced waste.)", correct: false }
+        ],
+        explanation: "Option A is correct because parentheses are used to enclose the additional information 'launched last year' without disrupting the sentence. Option B incorrectly uses commas for nonessential information better suited for parentheses in this context. Option C has incorrect punctuation inside the parentheses. Option D misplaces the period and disrupts sentence structure.",
+        difficulty: "medium",
+        category: "ged-punctuation-usage"
+    },
+    {
+        question: "Which sentence uses a colon correctly to introduce a list?",
+        answers: [
+            { text: "A) The workshop covers: budgeting, investing, and saving.", correct: false },
+            { text: "B) The workshop covers several topics, budgeting, investing, and saving.", correct: false },
+            { text: "C) The workshop covers several topics: budgeting, investing, and saving.", correct: true },
+            { text: "D) The workshop covers several topics; budgeting, investing, and saving.", correct: false }
+        ],
+        explanation: "Option C is correct because the colon follows a complete sentence ('The workshop covers several topics') and introduces the list. Option A lacks a complete sentence before the colon. Option B uses a comma incorrectly for a list introduction. Option D uses a semicolon, which is incorrect for introducing a list.",
+        difficulty: "medium",
+        category: "ged-punctuation-usage"
+    },
+    {
+        question: "Which sentence uses quotation marks correctly for a direct quote?",
+        answers: [
+            { text: "A) The organizer said, The event starts at noon.", correct: false },
+            { text: "B) The organizer said, 'The event starts at noon.'", correct: true },
+            { text: "C) The organizer said 'The event starts at noon.'", correct: false },
+            { text: "D) The organizer said, 'The event starts at noon'!", correct: false }
+        ],
+        explanation: "Option B is correct because it uses quotation marks to enclose the direct quote and places the period inside the closing quotation mark. Option A lacks quotation marks around the quote. Option C is missing a comma before the quote. Option D incorrectly places an exclamation point outside the quotation marks, altering the quote's punctuation.",
+        difficulty: "medium",
+        category: "ged-punctuation-usage"
     }
 ];
 
