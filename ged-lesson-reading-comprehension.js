@@ -215,6 +215,78 @@ const mainIdeaDetailsQuestions = [
         explanation: "The main idea is the policy’s focus on diversity, while the other options are supporting details.",
         difficulty: "easy",
         category: "ged-reading-comprehension"
+    },
+    {
+        question: "Passage: 'The rise of electric vehicles (EVs) reduces reliance on fossil fuels. EVs use rechargeable batteries, produce zero tailpipe emissions, and are supported by expanding charging networks.' What is the main purpose of the passage?",
+        answers: [
+            { text: "A) To explain how electric vehicles reduce fossil fuel dependence.", correct: true },
+            { text: "B) To describe the technology of rechargeable batteries.", correct: false },
+            { text: "C) To highlight the growth of charging networks.", correct: false },
+            { text: "D) To discuss the environmental impact of tailpipe emissions.", correct: false }
+        ],
+        explanation: "The main purpose is to explain how EVs reduce reliance on fossil fuels, while other options focus on specific details.",
+        difficulty: "medium",
+        category: "ged-reading-comprehension"
+    },
+    {
+        question: "Passage: 'Urban farming transforms vacant lots into productive spaces. It provides local food, reduces transportation costs, and engages communities.' According to the passage, what is one benefit of urban farming?",
+        answers: [
+            { text: "A) It increases transportation costs.", correct: false },
+            { text: "B) It supplies local food.", correct: true },
+            { text: "C) It reduces community engagement.", correct: false },
+            { text: "D) It eliminates vacant lots.", correct: false }
+        ],
+        explanation: "The passage states that urban farming provides local food, making this a clear benefit, while other options misrepresent or exaggerate the passage.",
+        difficulty: "medium",
+        category: "ged-reading-comprehension"
+    },
+    {
+        question: "Passage: 'Citizen science projects involve volunteers in research. Participants collect data, analyze findings, and contribute to discoveries in fields like ecology.' What role do volunteers play in citizen science?",
+        answers: [
+            { text: "A) They fund research projects.", correct: false },
+            { text: "B) They collect and analyze data.", correct: true },
+            { text: "C) They publish scientific papers.", correct: false },
+            { text: "D) They design research experiments.", correct: false }
+        ],
+        explanation: "The passage specifies that volunteers collect data and analyze findings, while other options describe roles not mentioned.",
+        difficulty: "medium",
+        category: "ged-reading-comprehension"
+    },
+    {
+        question: "Passage: 'Historic preservation maintains cultural heritage. Restoring old buildings, archiving artifacts, and educating the public ensure traditions endure.' What is the primary goal of historic preservation according to the passage?",
+        answers: [
+            { text: "A) To maintain cultural heritage.", correct: true },
+            { text: "B) To restore old buildings.", correct: false },
+            { text: "C) To archive artifacts.", correct: false },
+            { text: "D) To educate the public.", correct: false }
+        ],
+        explanation: "The primary goal is maintaining cultural heritage, with other options being methods to achieve this goal.",
+        difficulty: "medium",
+        category: "ged-reading-comprehension"
+    },
+    {
+        question: "Passage: 'Microfinance programs provide small loans to entrepreneurs in developing regions. These loans support business startups, improve livelihoods, and promote economic growth.' According to the passage, what is one outcome of microfinance programs?",
+        answers: [
+            { text: "A) They limit business startups.", correct: false },
+            { text: "B) They restrict economic growth.", correct: false },
+            { text: "C) They improve livelihoods.", correct: true },
+            { text: "D) They reduce loan availability.", correct: false }
+        ],
+        explanation: "The passage lists improving livelihoods as an outcome of microfinance programs, while other options contradict the passage.",
+        difficulty: "medium",
+        category: "ged-reading-comprehension"
+    },
+    {
+        question: "Passage: 'Wildlife corridors connect fragmented habitats. They allow animals to migrate, access resources, and maintain genetic diversity.' What is the main function of wildlife corridors according to the passage?",
+        answers: [
+            { text: "A) To fragment habitats.", correct: false },
+            { text: "B) To limit animal migration.", correct: false },
+            { text: "C) To reduce genetic diversity.", correct: false },
+            { text: "D) To connect fragmented habitats.", correct: true }
+        ],
+        explanation: "The main function of wildlife corridors is to connect fragmented habitats, as stated in the passage, while other options misstate their purpose.",
+        difficulty: "medium",
+        category: "ged-reading-comprehension"
     }
 ];
 

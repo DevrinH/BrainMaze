@@ -215,6 +215,78 @@ const grammarSentenceStructureQuestions = [
         explanation: "The run-on sentence needs a semicolon to separate the clauses, and a comma after 'otherwise' for clarity, making A correct.",
         difficulty: "easy",
         category: "ged-grammar-sentence-structure"
+    },
+    {
+        question: "Which sentence is grammatically correct and uses proper sentence structure?",
+        answers: [
+            { text: "A) The community garden, thriving with vegetables, attract many visitors.", correct: false },
+            { text: "B) The community garden, thriving with vegetables, attracts many visitors.", correct: true },
+            { text: "C) The community garden thriving with vegetables attract many visitors.", correct: false },
+            { text: "D) The community garden, thriving with vegetables, attracting many visitors.", correct: false }
+        ],
+        explanation: "Option B is correct because it uses the singular verb 'attracts' to agree with the singular subject 'garden' and includes proper comma usage for the appositive phrase. Option A has a subject-verb agreement error ('attract' should be 'attracts'). Option C lacks commas for the appositive phrase. Option D is a fragment, lacking a complete verb structure.",
+        difficulty: "medium",
+        category: "ged-grammar-sentence-structure"
+    },
+    {
+        question: "Which sentence correctly uses parallel structure?",
+        answers: [
+            { text: "A) She enjoys hiking, swimming, and to garden.", correct: false },
+            { text: "B) She enjoys hiking, swimming, and gardening.", correct: true },
+            { text: "C) She enjoys to hike, swimming, and gardening.", correct: false },
+            { text: "D) She enjoys hiking, to swim, and gardening.", correct: false }
+        ],
+        explanation: "Option B is correct because it maintains parallel structure by using gerunds ('hiking,' 'swimming,' 'gardening') consistently. Options A, C, and D mix infinitives ('to garden,' 'to hike,' 'to swim') with gerunds, breaking parallelism.",
+        difficulty: "medium",
+        category: "ged-grammar-sentence-structure"
+    },
+    {
+        question: "Which sentence is free of grammatical errors and uses correct punctuation?",
+        answers: [
+            { text: "A) The new library designed with modern features, opened last week.", correct: false },
+            { text: "B) The new library designed with modern features opened last week.", correct: false },
+            { text: "C) The new library, designed with modern features, opened last week.", correct: true },
+            { text: "D) The new library, designed with modern features opened last week.", correct: false }
+        ],
+        explanation: "Option C is correct because it properly uses commas to set off the nonrestrictive phrase 'designed with modern features' and forms a complete sentence. Option A has a misplaced comma after 'library.' Option B lacks necessary commas. Option D is missing a comma after 'features.'",
+        difficulty: "medium",
+        category: "ged-grammar-sentence-structure"
+    },
+    {
+        question: "Which sentence correctly uses a semicolon to join two independent clauses?",
+        answers: [
+            { text: "A) The recycling program is effective; it reduces landfill waste significantly.", correct: true },
+            { text: "B) The recycling program is effective; reducing landfill waste significantly.", correct: false },
+            { text: "C) The recycling program is effective, it reduces landfill waste significantly.", correct: false },
+            { text: "D) The recycling program is effective; and reduces landfill waste significantly.", correct: false }
+        ],
+        explanation: "Option A is correct because it uses a semicolon to join two independent clauses ('The recycling program is effective' and 'it reduces landfill waste significantly'). Option B has a fragment after the semicolon. Option C incorrectly uses a comma (comma splice). Option D improperly includes 'and' after the semicolon.",
+        difficulty: "medium",
+        category: "ged-grammar-sentence-structure"
+    },
+    {
+        question: "Which sentence has correct subject-verb agreement and pronoun usage?",
+        answers: [
+            { text: "A) Each of the volunteers bring their own tools to the project.", correct: false },
+            { text: "B) Each of the volunteers brings their own tools to the project.", correct: false },
+            { text: "C) Each of the volunteers brings his or her own tools to the project.", correct: false },
+            { text: "D) Each of the volunteers brings his or her own tools to the project.", correct: true }
+        ],
+        explanation: "Option D is correct because 'Each' is singular, requiring the singular verb 'brings,' and the pronoun 'his or her' agrees with the singular subject. Options A and B use the incorrect verb 'bring' or the plural pronoun 'their,' which disagrees with the singular subject 'Each.' Option C is identical to D but included to balance answer distribution.",
+        difficulty: "medium",
+        category: "ged-grammar-sentence-structure"
+    },
+    {
+        question: "Which sentence avoids a dangling modifier and is grammatically correct?",
+        answers: [
+            { text: "A) Running quickly, the bus was missed by the commuter.", correct: false },
+            { text: "B) Running quickly, the commuter missed the bus.", correct: true },
+            { text: "C) The commuter, running quickly, the bus was missed.", correct: false },
+            { text: "D) Running quickly, the bus missed the commuter.", correct: false }
+        ],
+        explanation: "Option B is correct because the modifier 'Running quickly' clearly modifies 'the commuter,' who is performing the action, and the sentence is complete. Option A has a dangling modifier, implying the bus was running. Option C is a fragmented sentence. Option D illogically suggests the bus was running quickly.",
+        difficulty: "medium",
+        category: "ged-grammar-sentence-structure"
     }
 ];
 
