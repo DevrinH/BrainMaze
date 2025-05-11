@@ -216,6 +216,78 @@ const inferenceAuthorsPurposeQuestions = [
         explanation: "The praise and invitation suggest the town values the library and aims to engage residents, making A the correct answer.",
         difficulty: "easy",
         category: "ged-inference-and-authors-purpose"
+    },
+    {
+        question: "Passage: 'Green roofs, covered with plants, reduce urban heat and improve air quality. Cities are adopting them to combat climate change.' What can be inferred about the author's purpose?",
+        answers: [
+            { text: "A) To advocate for green roofs as a climate change solution.", correct: true },
+            { text: "B) To describe the types of plants used on green roofs.", correct: false },
+            { text: "C) To criticize urban heat management.", correct: false },
+            { text: "D) To explain air quality regulations.", correct: false }
+        ],
+        explanation: "The author's purpose is to promote green roofs as a solution to climate change, inferred from the positive tone and focus on benefits, while other options are not supported by the passage.",
+        difficulty: "medium",
+        category: "ged-inference-and-authors-purpose"
+    },
+    {
+        question: "Passage: 'Remote learning platforms offer flexibility but require self-discipline. Students must manage time effectively to succeed.' What can be inferred about the challenges of remote learning?",
+        answers: [
+            { text: "A) It is less flexible than in-person learning.", correct: false },
+            { text: "B) It demands strong time management skills.", correct: true },
+            { text: "C) It is unsuitable for most students.", correct: false },
+            { text: "D) It eliminates the need for self-discipline.", correct: false }
+        ],
+        explanation: "The passage implies that remote learning requires self-discipline and time management, making B the correct inference, while other options contradict or exaggerate the passage.",
+        difficulty: "medium",
+        category: "ged-inference-and-authors-purpose"
+    },
+    {
+        question: "Passage: 'Public libraries provide free access to knowledge. They offer books, digital resources, and community programs, leveling the educational playing field.' What is the author's purpose in this passage?",
+        answers: [
+            { text: "A) To argue that libraries are outdated.", correct: false },
+            { text: "B) To highlight the role of libraries in equalizing education.", correct: true },
+            { text: "C) To list the types of books in libraries.", correct: false },
+            { text: "D) To promote digital resources over books.", correct: false }
+        ],
+        explanation: "The author's purpose is to emphasize libraries' role in providing equal educational access, inferred from the focus on free resources and community impact, while other options misalign with the passage.",
+        difficulty: "medium",
+        category: "ged-inference-and-authors-purpose"
+    },
+    {
+        question: "Passage: 'Invasive species disrupt ecosystems by outcompeting native plants and animals. Controlling their spread is critical to preserving biodiversity.' What can be inferred about the impact of invasive species?",
+        answers: [
+            { text: "A) They threaten biodiversity by outcompeting native species.", correct: true },
+            { text: "B) They enhance ecosystem stability.", correct: false },
+            { text: "C) They have minimal impact on native plants.", correct: false },
+            { text: "D) They are easily controlled.", correct: false }
+        ],
+        explanation: "The passage suggests invasive species harm biodiversity by outcompeting native species, making A the correct inference, while other options contradict the passage.",
+        difficulty: "medium",
+        category: "ged-inference-and-authors-purpose"
+    },
+    {
+        question: "Passage: 'Volunteering builds stronger communities. It fosters empathy, encourages collaboration, and addresses local needs.' Why does the author emphasize volunteering?",
+        answers: [
+            { text: "A) To discourage individual efforts.", correct: false },
+            { text: "B) To promote volunteering as a way to strengthen communities.", correct: false },
+            { text: "C) To show how volunteering benefits communities.", correct: true },
+            { text: "D) To explain the challenges of collaboration.", correct: false }
+        ],
+        explanation: "The author's purpose is to illustrate the benefits of volunteering for community strength, inferred from the positive outcomes listed, while other options misinterpret the intent.",
+        difficulty: "medium",
+        category: "ged-inference-and-authors-purpose"
+    },
+    {
+        question: "Passage: 'Carpooling reduces traffic congestion and lowers carbon emissions. It also saves money on fuel and parking.' What can be inferred about the author's view on carpooling?",
+        answers: [
+            { text: "A) The author is neutral about carpooling.", correct: false },
+            { text: "B) The author views carpooling as costly.", correct: false },
+            { text: "C) The author sees carpooling as impractical.", correct: false },
+            { text: "D) The author supports carpooling for its benefits.", correct: true }
+        ],
+        explanation: "The author's positive description of carpooling’s benefits implies support for it, making D the correct inference, while other options conflict with the passage’s tone.",
+        difficulty: "medium",
+        category: "ged-inference-and-authors-purpose"
     }
 ];
 
