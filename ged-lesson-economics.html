@@ -25,25 +25,28 @@
 <body>
     <header>
         <div class="header-container">
-            <a href="https://www.brainjelli.com/user-profile.html">
-                <img src="BrainJelli-header.png" class="logo" alt="BrainJelli Logo">
-            </a>
+            <a href="https://www.brainjelli.com/user-profile.html"> <img src="BrainJelli-header.png" class="logo"></a>
             <div class="button-group">
-                <button class="theme-toggle"><span class="toggle-icon"></span></button>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-icon">☀️</span>
+                </button>
                 <button class="login-button">Login</button>
             </div>
         </div>
     </header>
 
-    <h1>Economics</h1>
-    <div id="progress-container">
-        <div id="progress-bar"></div>
-    </div>
+
+    <section class="lesson-section">
+        <h1>Economics</h1>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
         
-    <button id="start-lesson" class="btn">Start Lesson</button>
-    
-    <div id="lesson-content"></div>
-    <div id="final-score" class="hide"></div>
+        <button id="start-lesson" class="btn">Start Lesson</button>
+        
+        <div id="lesson-content"></div>
+        <div id="final-score" class="hide"></div>
+    </section>
 
     <script src="ged-lesson-economics.js" type="module"></script>
 </body>
