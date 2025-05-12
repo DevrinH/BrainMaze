@@ -409,7 +409,7 @@ function showItem() {
 
 // Extract passage from content
 function extractPassage(content) {
-    const passageMatch = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
+    const passageMatch = content.match(/Sentence:.*?['"].*?['"]/i) || content.match(/<p>Sentence:.*?<\/p>/i);
     return passageMatch ? passageMatch[0] : "";
 }
 
