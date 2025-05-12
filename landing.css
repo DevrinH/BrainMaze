@@ -2142,3 +2142,106 @@ footer h3 {
   min-height: 400px !important;
   max-height: 500px !important;
 }
+
+
+/* Historical Documents section: Two-column layout for desktop */
+.historical-docs-section .question-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* Passage styling (left column) */
+.historical-docs-section .passage-text {
+  width: 48%;
+  background-color: var(--background-color);
+  padding: 15px;
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.5;
+  max-height: 1400px;
+  overflow-y: auto;
+}
+
+/* Question and answers (right column) */
+.historical-docs-section .right-column {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.historical-docs-section .question-text {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.historical-docs-section .answer-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.historical-docs-section .btn {
+  background-color: var(--btn-bg);
+  color: var(--text-color);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, var(--btn-shadow) 0 -3px 0 inset;
+}
+
+.historical-docs-section .btn.correct {
+  background-color: #28a745;
+  color: white;
+}
+
+.historical-docs-section .btn.incorrect {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Mobile layout for Historical Documents section */
+@media (max-width: 768px) {
+  .historical-docs-section .question-row {
+      flex-direction: column !important; /* Force column layout */
+      align-items: center;
+      padding: 15px;
+  }
+
+  .historical-docs-section .passage-text {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 20px;
+      padding: 10px;
+      max-height: 400px; /* Match test sections for readability */
+      font-size: 0.95rem; /* Slightly smaller font for mobile */
+  }
+
+  .historical-docs-section .right-column {
+      width: 100%;
+      max-width: 100%;
+  }
+
+  .historical-docs-section .question-text {
+      font-size: 1.1rem; /* Match test sections */
+      margin-bottom: 15px;
+  }
+
+  .historical-docs-section .answer-choices {
+      gap: 10px;
+  }
+
+  .historical-docs-section .btn {
+      padding: 12px 15px; /* Match test sections for tap targets */
+      font-size: 0.95rem; /* Match test sections */
+      min-height: 50px; /* Ensure buttons are tappable */
+  }
+}
