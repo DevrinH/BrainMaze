@@ -409,8 +409,12 @@ function showItem() {
 
 // Extract passage from content
 function extractPassage(content) {
-    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
 }
 
 // Handle answer selection
