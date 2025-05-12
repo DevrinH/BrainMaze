@@ -217,75 +217,75 @@ const economicsQuestions = [
         category: "ged-economics"
     },
     {
-        question: "What is the primary effect of an increase in the supply of a good, assuming demand remains constant?",
+        question: "Passage: Inflation occurs when the general price level of goods and services rises, reducing purchasing power. High inflation can erode savings and increase living costs. What is a consequence of high inflation?",
         answers: [
-            { text: "A) The price of the good decreases", correct: true },
-            { text: "B) The price of the good increases", correct: false },
-            { text: "C) The demand for the good increases", correct: false },
-            { text: "D) The quantity demanded decreases", correct: false }
+            { text: "A) Reduced purchasing power", correct: true },
+            { text: "B) Increased savings value", correct: false },
+            { text: "C) Lower living costs", correct: false },
+            { text: "D) Stable prices", correct: false }
         ],
-        explanation: "When the supply of a good increases and demand remains constant, the market experiences a surplus, leading to a decrease in the price of the good. Increased supply does not directly affect demand or reduce quantity demanded, and it does not increase price. Thus, option A is correct.",
-        difficulty: "medium",
+        explanation: "The passage states high inflation reduces purchasing power, making A correct.",
+        difficulty: "easy",
         category: "ged-economics"
     },
     {
-        question: "What is the main purpose of a tariff imposed on imported goods?",
+        question: "Passage: Unemployment measures the percentage of the labor force without jobs but actively seeking work. Cyclical unemployment rises during economic downturns due to reduced demand. What causes cyclical unemployment to increase?",
         answers: [
-            { text: "A) To reduce government spending", correct: false },
-            { text: "B) To protect domestic industries from foreign competition", correct: true },
-            { text: "C) To decrease the price of imported goods", correct: false },
-            { text: "D) To increase consumer demand for imports", correct: false }
+            { text: "A) Increased labor force participation", correct: false },
+            { text: "B) Economic downturns", correct: true },
+            { text: "C) Higher wages", correct: false },
+            { text: "D) Technological advances", correct: false }
         ],
-        explanation: "A tariff is a tax on imported goods designed to protect domestic industries by making foreign goods more expensive, encouraging consumers to buy local products. It does not reduce government spending, lower import prices, or increase import demand. Thus, option B is correct.",
-        difficulty: "medium",
+        explanation: "The passage states cyclical unemployment rises during economic downturns, making B correct.",
+        difficulty: "easy",
         category: "ged-economics"
     },
     {
-        question: "In a market economy, what primarily determines the price of a good or service?",
+        question: "Passage: Tariffs are taxes imposed on imported goods, often used to protect domestic industries. They can raise prices for consumers by increasing the cost of imports. What is one effect of tariffs?",
         answers: [
-            { text: "A) Government regulations", correct: false },
-            { text: "B) Supply and demand", correct: true },
-            { text: "C) Production costs alone", correct: false },
-            { text: "D) Consumer income levels", correct: false }
+            { text: "A) Lower import prices", correct: false },
+            { text: "B) Higher consumer prices", correct: true },
+            { text: "C) Reduced domestic production", correct: false },
+            { text: "D) Decreased government revenue", correct: false }
         ],
-        explanation: "In a market economy, the price of a good or service is primarily determined by the interaction of supply and demand. Government regulations, production costs, and consumer income may influence price but are not the primary determinants. Thus, option B is correct.",
-        difficulty: "medium",
+        explanation: "The passage states tariffs raise prices for consumers, making B correct.",
+        difficulty: "easy",
         category: "ged-economics"
     },
     {
-        question: "What is an example of a fiscal policy action to stimulate economic growth during a recession?",
+        question: "Passage: Economic indicators, like the Consumer Price Index (CPI), track changes in price levels to measure inflation. A rising CPI indicates increasing prices. What does a rising CPI measure?",
         answers: [
-            { text: "A) Increasing government spending on infrastructure", correct: true },
-            { text: "B) Raising interest rates", correct: false },
-            { text: "C) Reducing the money supply", correct: false },
-            { text: "D) Increasing export tariffs", correct: false }
+            { text: "A) Unemployment rate", correct: false },
+            { text: "B) Economic growth", correct: false },
+            { text: "C) Inflation", correct: true },
+            { text: "D) Trade balance", correct: false }
         ],
-        explanation: "Fiscal policy to stimulate economic growth during a recession often involves increasing government spending, such as on infrastructure, to boost demand. Raising interest rates and reducing money supply are monetary policies that slow growth, and tariffs hinder trade. Thus, option A is correct.",
-        difficulty: "medium",
+        explanation: "The passage states a rising CPI indicates increasing prices, measuring inflation, making C correct.",
+        difficulty: "easy",
         category: "ged-economics"
     },
     {
-        question: "What is the term for the total value of all goods and services produced within a country in a given period?",
+        question: "Passage: Consumer behavior influences markets through spending patterns. During economic booms, consumers spend more, driving demand. What drives demand during economic booms?",
         answers: [
-            { text: "A) Net exports", correct: false },
-            { text: "B) Consumer price index", correct: false },
-            { text: "C) Gross domestic product", correct: true },
-            { text: "D) Trade deficit", correct: false }
+            { text: "A) Reduced consumer confidence", correct: false },
+            { text: "B) Higher interest rates", correct: false },
+            { text: "C) Lower wages", correct: false },
+            { text: "D) Increased consumer spending", correct: true }
         ],
-        explanation: "Gross domestic product (GDP) measures the total value of all goods and services produced within a country over a specific period. Net exports are part of GDP, the consumer price index measures inflation, and a trade deficit reflects import-export imbalance. Thus, option C is correct.",
-        difficulty: "medium",
+        explanation: "The passage states consumers spend more during economic booms, driving demand, making D correct.",
+        difficulty: "easy",
         category: "ged-economics"
     },
     {
-        question: "What happens to unemployment rates during an economic boom, assuming other factors remain constant?",
+        question: "Passage: Labor markets reflect the supply and demand for workers. In a tight labor market, low unemployment leads to higher wages as firms compete for workers. What causes higher wages in a tight labor market?",
         answers: [
-            { text: "A) Unemployment rates increase", correct: false },
-            { text: "B) Unemployment rates remain unchanged", correct: false },
-            { text: "C) Unemployment rates fluctuate randomly", correct: false },
-            { text: "D) Unemployment rates decrease", correct: true }
+            { text: "A) High unemployment", correct: false },
+            { text: "B) Low demand for workers", correct: false },
+            { text: "C) Increased labor supply", correct: false },
+            { text: "D) Firms competing for workers", correct: true }
         ],
-        explanation: "During an economic boom, increased economic activity typically leads to more job opportunities, reducing unemployment rates. Unemployment does not increase, remain unchanged, or fluctuate randomly under these conditions. Thus, option D is correct.",
-        difficulty: "medium",
+        explanation: "The passage states firms compete for workers in a tight labor market, leading to higher wages, making D correct.",
+        difficulty: "easy",
         category: "ged-economics"
     }
 ];
@@ -409,12 +409,8 @@ function showItem() {
 
 // Extract passage from content
 function extractPassage(content) {
-    const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
-    if (passageMatchWithTags) {
-        return passageMatchWithTags[0];
-    }
-    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
-    return passageMatchPlain ? passageMatchPlain[0] : "";
+    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
+    return passageMatch ? passageMatch[0] : "";
 }
 
 // Handle answer selection
@@ -459,6 +455,129 @@ function nextItem() {
     if (currentItemIndex < lessons[currentLesson].content.length) {
         showItem();
     } else if (!showingQuizTransition) {
+        showQuizTransition();
+    }
+}
+
+// Show quiz transition screen
+function showQuizTransition() {
+    console.log("Showing quiz transition for lesson:", currentLesson);
+    showingQuizTransition = true;
+    const lessonContent = document.getElementById('lesson-content');
+    if (lessonContent) {
+        lessonContent.innerHTML = `
+            <div class="transition-box">
+                <div class="centered-content">
+                    <h2>Lesson Complete!</h2>
+                    <p>Now it's time for the quiz.</p>
+                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                </div>
+            </div>
+        `;
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        if (startQuizBtn) {
+            startQuizBtn.addEventListener('click', () => {
+                showingQuizTransition = false;
+                showQuiz();
+            }, { once: true });
+        } else {
+            console.error("Start quiz button not found in transition!");
+        }
+        progressSteps = lessons[currentLesson].content.length;
+        updateProgressBar(progressSteps);
+    } else {
+        console.error("Lesson content element not found for quiz transition!");
+    }
+}
+
+// Start quiz
+function showQuiz() {
+    console.log("Starting quiz for lesson:", currentLesson);
+    isQuizPhase = true;
+    currentQuestionIndex = 0;
+    let quizQuestions = getQuizQuestions(currentLesson);
+    progressSteps = lessons[currentLesson].content.length + 1;
+    updateProgressBar(progressSteps);
+    showNextQuizQuestion(quizQuestions);
+}
+
+// Get quiz questions based on lesson
+function getQuizQuestions(lessonId) {
+    switch (parseInt(lessonId)) {
+        case 1: return economicsQuestions;
+        default: return economicsQuestions;
+    }
+}
+
+// Show next quiz question
+function showNextQuizQuestion(quizQuestions) {
+    console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
+    if (currentQuestionIndex < quizQuestions.length) {
+        const question = quizQuestions[currentQuestionIndex];
+        const lessonContent = document.getElementById('lesson-content');
+        const passage = extractPassage(question.question);
+        lessonContent.innerHTML = `
+            <div class="question-row">
+                <div class="passage-text">${passage}</div>
+                <div class="right-column">
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="answer-choices" id="answer-buttons"></div>
+                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                </div>
+            </div>
+        `;
+        const answerButtons = document.getElementById('answer-buttons');
+        question.answers.forEach((answer, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            button.dataset.correct = answer.correct;
+            button.addEventListener("click", () => selectAnswer(button, question));
+            answerButtons.appendChild(button);
+        });
+        progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
+        updateProgressBar(progressSteps);
+    } else {
+        console.log("Quiz complete, showing final score");
+        showFinalScore();
+    }
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
+}
+
+// Save lesson completion
+function saveLessonCompletion() {
+    const completionData = {
+        exam: "GED",
+        type: "lesson",
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    console.log("Saved lesson completion:", completionData);
+}
+
+// Show final score
+function showFinalScore() {
+    console.log("Running showFinalScore for lesson:", currentLesson);
+    let totalCorrect = categoryStats["ged-economics"].correct;
+    let totalAttempted = totalCorrect + categoryStats["ged-economics"].incorrect;
+
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
+    logFinalScore(totalCorrect, totalAttempted);
+    saveScore(currentLesson, score);
+
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = `
+        <div class="score-box">
+            <div class="centered-content">
+                <ceeding to quiz transition");
         showQuizTransition();
     }
 }
