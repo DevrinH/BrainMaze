@@ -216,7 +216,7 @@ const economicsQuestions = [
         difficulty: "easy",
         category: "ged-economics"
     },
-    {
+        {
         question: "Passage: Inflation occurs when the general price level of goods and services rises, reducing purchasing power. High inflation can erode savings and increase living costs. What is a consequence of high inflation?",
         answers: [
             { text: "A) Reduced purchasing power", correct: true },
@@ -288,6 +288,7 @@ const economicsQuestions = [
         difficulty: "easy",
         category: "ged-economics"
     }
+   
 ];
 
 // Variables
@@ -409,8 +410,12 @@ function showItem() {
 
 // Extract passage from content
 function extractPassage(content) {
-    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
 }
 
 // Handle answer selection
@@ -455,129 +460,6 @@ function nextItem() {
     if (currentItemIndex < lessons[currentLesson].content.length) {
         showItem();
     } else if (!showingQuizTransition) {
-        showQuizTransition();
-    }
-}
-
-// Show quiz transition screen
-function showQuizTransition() {
-    console.log("Showing quiz transition for lesson:", currentLesson);
-    showingQuizTransition = true;
-    const lessonContent = document.getElementById('lesson-content');
-    if (lessonContent) {
-        lessonContent.innerHTML = `
-            <div class="transition-box">
-                <div class="centered-content">
-                    <h2>Lesson Complete!</h2>
-                    <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
-                </div>
-            </div>
-        `;
-        const startQuizBtn = document.getElementById('start-quiz-btn');
-        if (startQuizBtn) {
-            startQuizBtn.addEventListener('click', () => {
-                showingQuizTransition = false;
-                showQuiz();
-            }, { once: true });
-        } else {
-            console.error("Start quiz button not found in transition!");
-        }
-        progressSteps = lessons[currentLesson].content.length;
-        updateProgressBar(progressSteps);
-    } else {
-        console.error("Lesson content element not found for quiz transition!");
-    }
-}
-
-// Start quiz
-function showQuiz() {
-    console.log("Starting quiz for lesson:", currentLesson);
-    isQuizPhase = true;
-    currentQuestionIndex = 0;
-    let quizQuestions = getQuizQuestions(currentLesson);
-    progressSteps = lessons[currentLesson].content.length + 1;
-    updateProgressBar(progressSteps);
-    showNextQuizQuestion(quizQuestions);
-}
-
-// Get quiz questions based on lesson
-function getQuizQuestions(lessonId) {
-    switch (parseInt(lessonId)) {
-        case 1: return economicsQuestions;
-        default: return economicsQuestions;
-    }
-}
-
-// Show next quiz question
-function showNextQuizQuestion(quizQuestions) {
-    console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
-    if (currentQuestionIndex < quizQuestions.length) {
-        const question = quizQuestions[currentQuestionIndex];
-        const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
-        lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
-                <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
-                    <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
-                </div>
-            </div>
-        `;
-        const answerButtons = document.getElementById('answer-buttons');
-        question.answers.forEach((answer, index) => {
-            const button = document.createElement("button");
-            button.innerHTML = answer.text;
-            button.classList.add("btn");
-            button.dataset.correct = answer.correct;
-            button.addEventListener("click", () => selectAnswer(button, question));
-            answerButtons.appendChild(button);
-        });
-        progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
-        updateProgressBar(progressSteps);
-    } else {
-        console.log("Quiz complete, showing final score");
-        showFinalScore();
-    }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
-}
-
-// Save lesson completion
-function saveLessonCompletion() {
-    const completionData = {
-        exam: "GED",
-        type: "lesson",
-        timestamp: new Date().toISOString()
-    };
-    localStorage.setItem("lastActivity", JSON.stringify(completionData));
-    console.log("Saved lesson completion:", completionData);
-}
-
-// Show final score
-function showFinalScore() {
-    console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = categoryStats["ged-economics"].correct;
-    let totalAttempted = totalCorrect + categoryStats["ged-economics"].incorrect;
-
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    logFinalScore(totalCorrect, totalAttempted);
-    saveScore(currentLesson, score);
-
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <div class="score-box">
-            <div class="centered-content">
-                <ceeding to quiz transition");
         showQuizTransition();
     }
 }
