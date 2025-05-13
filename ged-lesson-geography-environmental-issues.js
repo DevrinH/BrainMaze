@@ -217,74 +217,74 @@ const geographyEnvironmentalQuestions = [
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "What is the primary cause of desertification in arid regions?",
+        question: "Passage: Volcanic eruptions, driven by tectonic plate movements, release ash and gases that can temporarily cool the planet by blocking sunlight. What is a climatic effect of volcanic eruptions?",
         answers: [
-            { text: "A) Overgrazing and unsustainable land use", correct: true },
-            { text: "B) Increased rainfall patterns", correct: false },
-            { text: "C) Urban development projects", correct: false },
-            { text: "D) Natural volcanic activity", correct: false }
+            { text: "A) Temporary global cooling", correct: true },
+            { text: "B) Permanent temperature increase", correct: false },
+            { text: "C) Increased sea level rise", correct: false },
+            { text: "D) Reduced atmospheric carbon", correct: false }
         ],
-        explanation: "Desertification in arid regions is primarily caused by overgrazing and unsustainable land use, which degrade soil and vegetation. Increased rainfall would counteract it, urban development is less relevant in arid areas, and volcanic activity is not a primary cause. Thus, option A is correct.",
+        explanation: "The passage explains that volcanic eruptions release ash and gases that block sunlight, causing temporary cooling. They do not cause permanent warming, sea level rise, or carbon reduction, making A correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "Which geographic feature is most associated with the formation of hurricanes?",
+        question: "Passage: Urban sprawl, the expansion of cities into surrounding areas, often leads to habitat loss as natural landscapes are converted to urban use. What is a primary environmental impact of urban sprawl?",
         answers: [
-            { text: "A) High mountain ranges", correct: false },
-            { text: "B) Warm ocean waters", correct: true },
-            { text: "C) Continental plains", correct: false },
-            { text: "D) Polar ice caps", correct: false }
+            { text: "A) Increased agricultural output", correct: false },
+            { text: "B) Loss of natural habitats", correct: true },
+            { text: "C) Reduced urban population density", correct: false },
+            { text: "D) Enhanced water conservation", correct: false }
         ],
-        explanation: "Hurricanes form over warm ocean waters, which provide the heat and moisture needed for their development. Mountains, plains, and ice caps do not contribute to hurricane formation. Thus, option B is correct.",
+        explanation: "The passage states urban sprawl converts natural landscapes, leading to habitat loss. It does not increase agriculture, reduce density, or conserve water, making B correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "What is a major environmental consequence of deforestation in tropical rainforests?",
+        question: "Passage: The Paris Agreement (2015) is an international treaty aimed at limiting global warming by reducing greenhouse gas emissions through commitments from participating countries. What is the primary goal of the Paris Agreement?",
         answers: [
-            { text: "A) Increased biodiversity", correct: false },
-            { text: "B) Loss of habitat and carbon storage", correct: true },
-            { text: "C) Reduced global temperatures", correct: false },
-            { text: "D) Enhanced soil fertility", correct: false }
+            { text: "A) To promote industrial growth", correct: false },
+            { text: "B) To limit global warming", correct: true },
+            { text: "C) To regulate international trade", correct: false },
+            { text: "D) To expand urban areas", correct: false }
         ],
-        explanation: "Deforestation in tropical rainforests leads to loss of habitat for species and reduced carbon storage, contributing to climate change. It does not increase biodiversity, lower temperatures, or improve soil fertility. Thus, option B is correct.",
+        explanation: "The passage highlights the Paris Agreement’s aim to limit global warming through emission reductions. It does not focus on industry, trade, or urban expansion, making B correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "Which human activity is most responsible for the depletion of the ozone layer?",
+        question: "Passage: Coastal regions often have high population densities due to access to marine resources and trade routes, but they are vulnerable to climate change impacts like sea level rise. Why are coastal populations particularly at risk from climate change?",
         answers: [
-            { text: "A) Use of chlorofluorocarbons (CFCs) in aerosols and refrigerants", correct: true },
-            { text: "B) Burning of fossil fuels for energy", correct: false },
-            { text: "C) Agricultural irrigation practices", correct: false },
-            { text: "D) Mining for rare earth metals", correct: false }
+            { text: "A) Due to their reliance on agriculture", correct: false },
+            { text: "B) Due to their inland location", correct: false },
+            { text: "C) Due to vulnerability to sea level rise", correct: true },
+            { text: "D) Due to limited trade opportunities", correct: false }
         ],
-        explanation: "Chlorofluorocarbons (CFCs) released from aerosols and refrigerants are the primary cause of ozone layer depletion, as they break down ozone molecules. Fossil fuel burning, irrigation, and mining have other environmental impacts but are not primary causes. Thus, option A is correct.",
+        explanation: "The passage notes coastal regions’ vulnerability to sea level rise, a climate change impact. They are not primarily agricultural, inland, or limited in trade, making C correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "Which region is most vulnerable to rising sea levels due to climate change?",
+        question: "Passage: Overexploitation of groundwater for irrigation can lead to aquifer depletion, reducing water availability for future use and causing land subsidence. What is a consequence of overexploiting groundwater?",
         answers: [
-            { text: "A) Inland mountainous regions", correct: false },
-            { text: "B) High-altitude plateaus", correct: false },
-            { text: "C) Low-lying coastal areas and islands", correct: true },
-            { text: "D) Temperate forest zones", correct: false }
+            { text: "A) Increased forest cover", correct: false },
+            { text: "B) Enhanced soil fertility", correct: false },
+            { text: "C) Improved water quality", correct: false },
+            { text: "D) Aquifer depletion", correct: true }
         ],
-        explanation: "Low-lying coastal areas and islands are most vulnerable to rising sea levels, facing flooding and erosion due to climate change. Inland mountains, plateaus, and forests are less directly affected. Thus, option C is correct.",
+        explanation: "The passage states overexploitation of groundwater causes aquifer depletion. It does not increase forests, fertility, or water quality, making D correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "What is the primary source of acid rain, which damages ecosystems and water bodies?",
+        question: "Passage: Deforestation in the Amazon rainforest releases stored carbon, contributing to global warming, and disrupts indigenous communities’ livelihoods. How does Amazon deforestation contribute to climate change?",
         answers: [
-            { text: "A) Natural geothermal emissions", correct: false },
-            { text: "B) Pesticide runoff from agriculture", correct: false },
-            { text: "C) Excessive deforestation", correct: false },
-            { text: "D) Emissions of sulfur dioxide and nitrogen oxides from industrial activities", correct: true }
+            { text: "A) By reducing greenhouse gas emissions", correct: false },
+            { text: "B) By increasing oxygen production", correct: false },
+            { text: "C) By improving air quality", correct: false },
+            { text: "D) By releasing stored carbon", correct: true }
         ],
-        explanation: "Acid rain is primarily caused by emissions of sulfur dioxide and nitrogen oxides from industrial activities, which react with water vapor to form acidic precipitation. Geothermal emissions, pesticide runoff, and deforestation have other impacts but are not primary causes. Thus, option D is correct.",
+        explanation: "The passage explains that deforestation releases stored carbon, contributing to global warming. It does not reduce emissions, increase oxygen, or improve air quality, making D correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     }
