@@ -189,7 +189,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'Deforestation disrupts ecosystems by removing animal habitats and altering water cycles.' What is one impact of deforestation?",
+                question: "What is one impact of deforestation?",
+                Passage: "Deforestation disrupts ecosystems by removing animal habitats and altering water cycles." ,
                 options: [
                     { text: "A) Habitat removal", correct: true },
                     { text: "B) Increased oxygen production", correct: false },
