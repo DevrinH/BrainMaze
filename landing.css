@@ -2355,10 +2355,8 @@ footer h3 {
 
 
 .btn next-btn{
-
   align-items: center;
-  margin: auto;
-  margin-top: 15px;
+  margin: 15px auto;
   appearance: none;
   background-image: radial-gradient(100% 100% at 100% 0, #c58aec 0, #c238e8 100%);
   border: 0;
@@ -2369,13 +2367,13 @@ footer h3 {
   cursor: pointer;
   display: block;
   font-family: "Montserrat-SemiBold", sans-serif;
-  height: 48px;
+  font-size: 21px;
+  height: 60px;
   justify-content: center;
-  line-height: 1;
+  line-height: 1.2;
   list-style: none;
-  overflow: hidden;
-  padding-left: 14px;
-  padding-right: 14px;
+  overflow: visible;
+  padding: 0 18px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -2384,10 +2382,8 @@ footer h3 {
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  will-change: box-shadow, transform;
-  font-size: 18px;
-
-
-
+  width: auto;
+  min-width: 115px;
+  max-width: 322px;
 
 }
