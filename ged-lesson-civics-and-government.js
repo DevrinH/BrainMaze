@@ -217,74 +217,74 @@ const civicsGovernmentQuestions = [
         category: "ged-civics-and-government"
     },
     {
-        question: "What is the primary function of the U.S. Electoral College?",
+        question: "Passage: The U.S. Constitution assigns the power to declare war to Congress, reflecting the legislative branch’s role in major national decisions. Why does Congress have the authority to declare war?",
         answers: [
-            { text: "A) To elect the President and Vice President", correct: true },
-            { text: "B) To appoint Supreme Court justices", correct: false },
-            { text: "C) To propose constitutional amendments", correct: false },
-            { text: "D) To approve federal budgets", correct: false }
+            { text: "A) To balance power with the executive branch", correct: true },
+            { text: "B) To oversee judicial appointments", correct: false },
+            { text: "C) To regulate state militias", correct: false },
+            { text: "D) To control foreign trade", correct: false }
         ],
-        explanation: "The Electoral College is a system used to elect the President and Vice President of the United States by having electors from each state cast votes based on state election results. It does not appoint justices, propose amendments, or approve budgets. Thus, option A is correct.",
+        explanation: "The passage notes Congress’s war declaration power, which balances the executive’s military authority, aligning with checks and balances. It’s not about judicial appointments, militias, or trade, making A correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "Which branch of the U.S. government has the power to declare war?",
+        question: "Passage: Civic participation, such as voting in elections, allows citizens to influence government policies and leadership. How does voting impact the government?",
         answers: [
-            { text: "A) Executive", correct: false },
-            { text: "B) Legislative", correct: true },
-            { text: "C) Judicial", correct: false },
-            { text: "D) Administrative", correct: false }
+            { text: "A) It funds public services", correct: false },
+            { text: "B) It shapes policies and leadership", correct: true },
+            { text: "C) It appoints judges", correct: false },
+            { text: "D) It regulates commerce", correct: false }
         ],
-        explanation: "The Legislative branch, specifically Congress, has the constitutional power to declare war under Article I, Section 8. The Executive branch conducts war, the Judicial branch interprets laws, and there is no 'Administrative' branch. Thus, option B is correct.",
+        explanation: "The passage states voting influences government policies and leadership, reflecting civic responsibility. It doesn’t fund services, appoint judges, or regulate commerce, making B correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "What is the purpose of the checks and balances system in the U.S. government?",
+        question: "Passage: Federalism in the U.S. allocates powers to both national and state governments, with the federal government regulating foreign policy while states manage education standards. What is a key feature of federalism?",
         answers: [
-            { text: "A) To ensure each branch has limited power over the others", correct: true },
-            { text: "B) To allow one branch to dominate government decisions", correct: false },
-            { text: "C) To speed up the legislative process", correct: false },
-            { text: "D) To eliminate the need for elections", correct: false }
+            { text: "A) A single centralized government", correct: false },
+            { text: "B) Division of powers between national and state governments", correct: true },
+            { text: "C) States controlling all federal laws", correct: false },
+            { text: "D) Elimination of state governments", correct: false }
         ],
-        explanation: "Checks and balances prevent any one branch of government from becoming too powerful by giving each branch ways to limit the others, such as vetoes or judicial review. It does not promote dominance, speed legislation, or eliminate elections. Thus, option A is correct.",
+        explanation: "The passage describes federalism as allocating powers between national and state governments, such as foreign policy and education. It’s not centralized, state-dominated, or eliminative, making B correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "Which amendment to the U.S. Constitution protects freedom of speech, religion, and the press?",
+        question: "Passage: The Bill of Rights includes the Second Amendment, which protects the right to bear arms, often debated in the context of public safety and individual freedom. What right does the Second Amendment protect?",
         answers: [
-            { text: "A) Second Amendment", correct: false },
-            { text: "B) First Amendment", correct: true },
-            { text: "C) Fourth Amendment", correct: false },
-            { text: "D) Fifth Amendment", correct: false }
+            { text: "A) Freedom of religion", correct: false },
+            { text: "B) Freedom of speech", correct: false },
+            { text: "C) Right to bear arms", correct: true },
+            { text: "D) Right to a fair trial", correct: false }
         ],
-        explanation: "The First Amendment protects freedoms of speech, religion, press, assembly, and petition. The Second Amendment addresses the right to bear arms, the Fourth protects against unreasonable searches, and the Fifth covers due process. Thus, option B is correct.",
+        explanation: "The passage specifies the Second Amendment protects the right to bear arms, not religion, speech, or trials, making C correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "What is the role of the Supreme Court in the U.S. government?",
+        question: "Passage: The Electoral College system requires electors to vote for the president based on their state’s popular vote, but in some cases, electors can vote independently, known as 'faithless electors.' What is a characteristic of the Electoral College?",
         answers: [
-            { text: "A) To create new laws", correct: false },
-            { text: "B) To enforce federal regulations", correct: false },
-            { text: "C) To interpret the constitutionality of laws", correct: true },
-            { text: "D) To oversee state elections", correct: false }
+            { text: "A) Direct election by popular vote", correct: false },
+            { text: "B) Equal votes for all states", correct: false },
+            { text: "C) Appointment by the president", correct: false },
+            { text: "D) Potential for faithless electors", correct: true }
         ],
-        explanation: "The Supreme Court interprets the constitutionality of laws and resolves disputes, serving as the highest court in the judicial branch. Creating laws is Congress’s role, enforcing regulations is executive, and elections are managed by states. Thus, option C is correct.",
+        explanation: "The passage notes the possibility of faithless electors in the Electoral College, a unique feature. It’s not a direct election, equal per state, or appointed by the president, making D correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "What is federalism in the context of the U.S. government?",
+        question: "Passage: The Supreme Court can strike down laws that violate the Constitution, a power known as judicial review, established in Marbury v. Madison (1803). What is the significance of judicial review?",
         answers: [
-            { text: "A) A system where power is centralized in the national government", correct: false },
-            { text: "B) A system where power is shared between national and state governments", correct: false },
-            { text: "C) A system where states have complete authority", correct: false },
-            { text: "D) A system where power is shared between national and state governments", correct: true }
+            { text: "A) It allows Congress to override vetoes", correct: false },
+            { text: "B) It permits states to nullify federal laws", correct: false },
+            { text: "C) It ensures the president appoints judges", correct: false },
+            { text: "D) It enables the Supreme Court to check unconstitutional laws", correct: true }
         ],
-        explanation: "Federalism is the division of power between national and state governments, as outlined in the U.S. Constitution. It is not centralized, state-dominated, or otherwise structured. Thus, option D is correct (B and D identical to meet answer distribution).",
+        explanation: "The passage explains judicial review as the Supreme Court’s power to strike down unconstitutional laws, a key check. It’s not about vetoes, state nullification, or appointments, making D correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     }

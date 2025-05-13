@@ -217,74 +217,74 @@ const usHistoryQuestions = [
         category: "ged-us-history"
     },
     {
-        question: "What was the primary purpose of the Monroe Doctrine announced in 1823?",
+        question: "Passage: During the American Revolution, the Battle of Saratoga (1777) was a turning point, convincing France to ally with the American colonies against Britain. Why was the Battle of Saratoga significant?",
         answers: [
-            { text: "A) To prevent European colonization in the Americas", correct: true },
-            { text: "B) To establish trade agreements with Europe", correct: false },
-            { text: "C) To annex territories in South America", correct: false },
-            { text: "D) To promote immigration to the United States", correct: false }
+            { text: "A) It secured French support for the American cause", correct: true },
+            { text: "B) It ended the war with a British surrender", correct: false },
+            { text: "C) It established the U.S. Constitution", correct: false },
+            { text: "D) It abolished colonial taxation", correct: false }
         ],
-        explanation: "The Monroe Doctrine aimed to prevent further European colonization and intervention in the Americas, asserting U.S. influence in the Western Hemisphere. It did not focus on trade, annexation, or immigration. Thus, option A is correct.",
+        explanation: "The passage states the Battle of Saratoga convinced France to ally with the colonies, a key turning point. It did not end the war, establish the Constitution, or abolish taxes, making A correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "Which event was a major catalyst for the women’s suffrage movement in the United States?",
+        question: "Passage: The Reconstruction era (1865–1877) followed the Civil War, aiming to rebuild the South and integrate freed slaves into society, but faced resistance from Southern states. What was a major challenge of Reconstruction?",
         answers: [
-            { text: "A) The Civil War", correct: false },
-            { text: "B) The Seneca Falls Convention of 1848", correct: true },
-            { text: "C) The Great Depression", correct: false },
-            { text: "D) The Spanish-American War", correct: false }
+            { text: "A) Rapid industrial growth", correct: false },
+            { text: "B) Southern resistance to integration", correct: true },
+            { text: "C) Expansion of women’s suffrage", correct: false },
+            { text: "D) Decline in agricultural production", correct: false }
         ],
-        explanation: "The Seneca Falls Convention of 1848 was a pivotal event that launched the women’s suffrage movement, with the Declaration of Sentiments demanding equal rights. The other events had broader or unrelated impacts. Thus, option B is correct.",
+        explanation: "The passage highlights Southern resistance to integrating freed slaves as a Reconstruction challenge. It was not about industry, suffrage, or agriculture, making B correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "What was a key goal of the New Deal programs introduced by President Franklin D. Roosevelt in the 1930s?",
+        question: "Passage: The Progressive Era (1890s–1920s) addressed social and economic issues from industrialization, with reforms like child labor laws and antitrust measures to curb monopolies. What was a key reform of the Progressive Era?",
         answers: [
-            { text: "A) To expand U.S. military forces", correct: false },
-            { text: "B) To provide economic relief and recovery during the Great Depression", correct: true },
-            { text: "C) To promote international trade agreements", correct: false },
-            { text: "D) To reduce federal government spending", correct: false }
+            { text: "A) Expansion of slavery", correct: false },
+            { text: "B) Antitrust measures against monopolies", correct: true },
+            { text: "C) Reduction of federal power", correct: false },
+            { text: "D) Promotion of urbanization", correct: false }
         ],
-        explanation: "The New Deal aimed to provide economic relief, recovery, and reform during the Great Depression through programs like Social Security and public works. It was not focused on military expansion, trade, or reducing spending. Thus, option B is correct.",
+        explanation: "The passage notes antitrust measures as a Progressive Era reform to address industrialization’s issues. It was not about slavery, federal power reduction, or urbanization, making B correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "Which amendment to the U.S. Constitution granted African American men the right to vote?",
+        question: "Passage: The Montgomery Bus Boycott (1955–1956), sparked by Rosa Parks’s arrest, was a pivotal event in the Civil Rights Movement, leading to desegregation of public buses. What was the impact of the Montgomery Bus Boycott?",
         answers: [
-            { text: "A) 15th Amendment", correct: true },
-            { text: "B) 13th Amendment", correct: false },
-            { text: "C) 14th Amendment", correct: false },
-            { text: "D) 19th Amendment", correct: false }
+            { text: "A) It increased segregation laws", correct: false },
+            { text: "B) It expanded voting rights", correct: false },
+            { text: "C) It led to bus desegregation", correct: true },
+            { text: "D) It reformed labor unions", correct: false }
         ],
-        explanation: "The 15th Amendment, ratified in 1870, prohibited denying the right to vote based on race, granting African American men voting rights. The 13th abolished slavery, the 14th granted citizenship, and the 19th gave women the vote. Thus, option A is correct.",
+        explanation: "The passage states the boycott led to the desegregation of public buses, a Civil Rights victory. It did not increase segregation, expand voting, or reform unions, making C correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "What was the main cause of the Dust Bowl in the 1930s?",
+        question: "Passage: The Great Depression led to widespread bank failures, prompting the creation of the Federal Deposit Insurance Corporation (FDIC) in 1933 to protect bank deposits. What was the purpose of the FDIC?",
         answers: [
-            { text: "A) Urban industrialization", correct: false },
-            { text: "B) Overfarming and drought in the Great Plains", correct: false },
-            { text: "C) Severe flooding in coastal regions", correct: false },
-            { text: "D) Overfarming and drought in the Great Plains", correct: true }
+            { text: "A) To regulate international trade", correct: false },
+            { text: "B) To fund public works projects", correct: false },
+            { text: "C) To promote stock market growth", correct: false },
+            { text: "D) To protect bank deposits", correct: true }
         ],
-        explanation: "The Dust Bowl was caused by overfarming, which depleted soil, combined with severe drought in the Great Plains, leading to massive dust storms. Industrialization, flooding, and other factors were not primary causes. Thus, option D is correct (B and D identical to meet answer distribution).",
+        explanation: "The passage explains the FDIC was created to protect bank deposits during the Great Depression. It was not about trade, public works, or stocks, making D correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "What was the significance of the Supreme Court case Brown v. Board of Education in 1954?",
+        question: "Passage: The 13th Amendment, ratified in 1865, abolished slavery in the United States, marking a significant outcome of the Civil War. What did the 13th Amendment achieve?",
         answers: [
-            { text: "A) It upheld the legality of racial segregation", correct: false },
-            { text: "B) It established the right to free speech in schools", correct: false },
-            { text: "C) It declared racial segregation in public schools unconstitutional", correct: true },
-            { text: "D) It expanded voting rights for minorities", correct: false }
+            { text: "A) Granted women’s suffrage", correct: false },
+            { text: "B) Established equal protection", correct: false },
+            { text: "C) Ended prohibition", correct: false },
+            { text: "D) Abolished slavery", correct: true }
         ],
-        explanation: "Brown v. Board of Education ruled that racial segregation in public schools was unconstitutional, overturning 'separate but equal' and advancing civil rights. It did not address free speech, voting, or uphold segregation. Thus, option C is correct.",
+        explanation: "The passage states the 13th Amendment abolished slavery, a key Civil War outcome. It did not address suffrage, equal protection, or prohibition, making D correct.",
         difficulty: "medium",
         category: "ged-us-history"
     }
