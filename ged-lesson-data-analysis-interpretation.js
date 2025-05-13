@@ -203,7 +203,7 @@ const lessons = {
 // Data analysis and interpretation question array
 const dataAnalysisQuestions = [
     {
-        question: "Problem: A line graph shows monthly website visits: January: 1000, February: 1200, March: 1100. What is the percentage increase in visits from January to February?",
+        question: "Passage: A line graph shows monthly website visits: January: 1000, February: 1200, March: 1100. What is the percentage increase in visits from January to February?",
         answers: [
             { text: "A) 20%", correct: true },
             { text: "B) 10%", correct: false },
@@ -215,74 +215,74 @@ const dataAnalysisQuestions = [
         category: "ged-data-analysis-interpretation"
     },
     {
-        question: "A recycling program tracks weekly plastic bottle collections: Week 1 (300 bottles), Week 2 (350 bottles), Week 3 (400 bottles), Week 4 (320 bottles). What is the mean number of bottles collected per week?",
+        question: "Passage: A table tracks weekly volunteer hours: Week 1: 12 hours, Week 2: 15 hours, Week 3: 10 hours, Week 4: 18 hours. What is the average number of volunteer hours per week?",
         answers: [
-            { text: "A) 342.5 bottles", correct: true },
-            { text: "B) 350 bottles", correct: false },
-            { text: "C) 340 bottles", correct: false },
-            { text: "D) 360 bottles", correct: false }
+            { text: "A) 13.75 hours", correct: true },
+            { text: "B) 14 hours", correct: false },
+            { text: "C) 13 hours", correct: false },
+            { text: "D) 15 hours", correct: false }
         ],
-        explanation: "To find the mean, sum the bottles: 300 + 350 + 400 + 320 = 1370. Divide by the number of weeks: 1370 ÷ 4 = 342.5 bottles. Thus, option A is correct.",
+        explanation: "Sum the hours: 12 + 15 + 10 + 18 = 55. Divide by weeks: 55 ÷ 4 = 13.75 hours. Thus, option A is correct.",
         difficulty: "medium",
         category: "ged-data-analysis-interpretation"
     },
     {
-        question: "A community garden records tomato yields: Plot 1 (15 kg), Plot 2 (20 kg), Plot 3 (18 kg), Plot 4 (22 kg), Plot 5 (17 kg). What is the median yield?",
+        question: "Passage: A bar graph shows monthly recycling rates: April: 60 kg, May: 75 kg, June: 50 kg. What is the percentage decrease from May to June?",
         answers: [
-            { text: "A) 20 kg", correct: false },
-            { text: "B) 18 kg", correct: true },
-            { text: "C) 19 kg", correct: false },
-            { text: "D) 17 kg", correct: false }
+            { text: "A) 25%", correct: false },
+            { text: "B) 33.33%", correct: true },
+            { text: "C) 30%", correct: false },
+            { text: "D) 40%", correct: false }
         ],
-        explanation: "Order the yields: 15, 17, 18, 20, 22. The median is the middle value: 18 kg. Thus, option B is correct.",
+        explanation: "Decrease: 75 - 50 = 25 kg. Percentage decrease: (25 ÷ 75) × 100 ≈ 33.33%. Thus, option B is correct.",
         difficulty: "medium",
         category: "ged-data-analysis-interpretation"
     },
     {
-        question: "A carpool group tracks fuel efficiency over 5 trips: Trip 1 (28 mpg), Trip 2 (30 mpg), Trip 3 (25 mpg), Trip 4 (32 mpg), Trip 5 (27 mpg). What is the range of fuel efficiencies?",
+        question: "Passage: A dataset lists daily temperatures (°F): 68, 72, 65, 70, 74. What is the median temperature?",
         answers: [
-            { text: "A) 6 mpg", correct: false },
-            { text: "B) 7 mpg", correct: true },
-            { text: "C) 8 mpg", correct: false },
-            { text: "D) 5 mpg", correct: false }
+            { text: "A) 68°F", correct: false },
+            { text: "B) 70°F", correct: true },
+            { text: "C) 72°F", correct: false },
+            { text: "D) 65°F", correct: false }
         ],
-        explanation: "The range is the difference between the highest and lowest values: 32 - 25 = 7 mpg. Thus, option B is correct.",
+        explanation: "Order the temperatures: 65, 68, 70, 72, 74. The median is the middle value: 70°F. Thus, option B is correct.",
         difficulty: "medium",
         category: "ged-data-analysis-interpretation"
     },
     {
-        question: "A library surveys 100 visitors about their reading preferences: Fiction (40%), Nonfiction (30%), Magazines (20%), Other (10%). How many visitors prefer nonfiction?",
+        question: "Passage: A pie chart shows a school’s budget: Teachers: 45%, Facilities: 25%, Supplies: 20%, Other: 10%. If the total budget is $80,000, how much is allocated to facilities?",
         answers: [
-            { text: "A) 30 visitors", correct: true },
-            { text: "B) 40 visitors", correct: false },
-            { text: "C) 20 visitors", correct: false },
-            { text: "D) 25 visitors", correct: false }
+            { text: "A) $16,000", correct: false },
+            { text: "B) $18,000", correct: false },
+            { text: "C) $20,000", correct: true },
+            { text: "D) $22,000", correct: false }
         ],
-        explanation: "Calculate 30% of 100: (30 ÷ 100) × 100 = 30 visitors. Thus, option A is correct.",
+        explanation: "Facilities: 25% of $80,000 = 0.25 × $80,000 = $20,000. Thus, option C is correct.",
         difficulty: "medium",
         category: "ged-data-analysis-interpretation"
     },
     {
-        question: "A workshop tracks attendance over 6 sessions: Session 1 (25 people), Session 2 (30 people), Session 3 (28 people), Session 4 (22 people), Session 5 (35 people), Session 6 (20 people). What is the percent decrease in attendance from Session 5 to Session 6?",
+        question: "Passage: A line graph shows a plant’s height: Day 1: 10 cm, Day 2: 12 cm, Day 3: 15 cm, Day 4: 14 cm. What is the total growth from Day 1 to Day 4?",
         answers: [
-            { text: "A) 40%", correct: false },
-            { text: "B) 50%", correct: false },
-            { text: "C) 42.86%", correct: true },
-            { text: "D) 30%", correct: false }
+            { text: "A) 2 cm", correct: false },
+            { text: "B) 3 cm", correct: false },
+            { text: "C) 5 cm", correct: false },
+            { text: "D) 4 cm", correct: true }
         ],
-        explanation: "Calculate the decrease: 35 - 20 = 15. Find the percent decrease: (15 ÷ 35) × 100 ≈ 42.86%. Thus, option C is correct.",
+        explanation: "Total growth: 14 cm - 10 cm = 4 cm. Thus, option D is correct.",
         difficulty: "medium",
         category: "ged-data-analysis-interpretation"
     },
     {
-        question: "A volunteer group records hours worked by 4 members: Member 1 (10 hours), Member 2 (15 hours), Member 3 (12 hours), Member 4 (18 hours). What fraction of the total hours did Member 4 contribute?",
+        question: "Passage: A table shows energy consumption for appliances: Fridge (200 kWh), AC (300 kWh), Heater (250 kWh), TV (150 kWh). Which appliance consumes the most energy?",
         answers: [
-            { text: "A) 1/3", correct: false },
-            { text: "B) 2/5", correct: false },
-            { text: "C) 1/4", correct: false },
-            { text: "D) 9/55", correct: true }
+            { text: "A) Fridge", correct: false },
+            { text: "B) AC", correct: true },
+            { text: "C) Heater", correct: false },
+            { text: "D) TV", correct: false }
         ],
-        explanation: "Sum the hours: 10 + 15 + 12 + 18 = 55. Fraction for Member 4: 18 ÷ 55 = 18/55, which simplifies to 9/55 (since 18 and 55 share no common factors). Thus, option D is correct.",
+        explanation: "Compare: Fridge (200 kWh), AC (300 kWh), Heater (250 kWh), TV (150 kWh). AC has the highest consumption at 300 kWh. Thus, option B is correct.",
         difficulty: "medium",
         category: "ged-data-analysis-interpretation"
     }
