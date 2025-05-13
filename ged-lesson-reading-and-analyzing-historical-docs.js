@@ -64,7 +64,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: The Seneca Falls Declaration (1848) demanded women’s rights, including suffrage, during a time of limited gender equality. What was the historical context?",
+                question: "Passage: 'The Seneca Falls Declaration (1848) demanded women’s rights, including suffrage, during a time of limited gender equality.' What was the historical context?",
                 options: [
                     { text: "A) Fight for women’s rights", correct: true },
                     { text: "B) Civil War debates", correct: false },
