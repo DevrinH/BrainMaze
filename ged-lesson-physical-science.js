@@ -205,7 +205,7 @@ const lessons = {
 // Physical science question array
 const physicalScienceQuestions = [
     {
-        question: "Passage: Work is done when a force moves an object over a distance (Work = Force × Distance). If a 5 N force moves an object 3 meters, what is the work done?",
+        question: "Passage: 'Work is done when a force moves an object over a distance (Work = Force × Distance).' If a 5 N force moves an object 3 meters, what is the work done?",
         answers: [
             { text: "A) 15 J", correct: true },
             { text: "B) 10 J", correct: false },
