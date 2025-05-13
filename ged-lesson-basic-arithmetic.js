@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Problem: A worker earns $320 in one week and $280 the next. They spend $150 on expenses. What is their net earnings?",
+                passage: "In 2023, a worker in Millville earned $320 in one week and $280 in the next, but spent $150 on work-related expenses. The worker needed to calculate their net earnings to budget for personal expenses, found by adding the earnings and subtracting the expenses.",
+                question: "What are the worker’s net earnings?",
                 options: [
                     { text: "A) $450", correct: true },
                     { text: "B) $600", correct: false },
@@ -64,7 +65,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Problem: A factory produces 25 widgets per hour, with each widget requiring 4 screws. How many screws are needed in 8 hours?",
+                passage: "In 2024, a factory in Greenvale produced 25 widgets per hour, with each widget requiring 4 screws for assembly. The manager needed to calculate the total number of screws needed for an 8-hour shift to ensure sufficient inventory, determined by multiplying the widgets produced by screws per widget and hours worked.",
+                question: "How many screws are needed in 8 hours?",
                 options: [
                     { text: "A) 800", correct: true },
                     { text: "B) 200", correct: false },
@@ -88,7 +90,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Problem: A total of $900 is split equally among 6 employees. How much does each employee receive?",
+                passage: "In 2023, a community center in Clearwater allocated a $900 budget equally among 6 employees for professional development. The administrator needed to determine how much each employee would receive to plan training sessions, calculated by dividing the total budget by the number of employees.",
+                question: "How much does each employee receive?",
                 options: [
                     { text: "A) $150", correct: true },
                     { text: "B) $180", correct: false },
@@ -113,7 +116,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Problem: A task is 3/4 complete after 9 hours. How many hours are needed to finish the entire task?",
+                passage: "In 2024, a construction project in Millville was 3/4 complete after 9 hours of work. The project manager needed to calculate the total hours required to finish the entire project to schedule the remaining work, determined by finding the time for 1/4 of the project and scaling to the whole.",
+                question: "How many hours are needed to finish the entire task?",
                 options: [
                     { text: "A) 12 hours", correct: true },
                     { text: "B) 15 hours", correct: false },
@@ -138,7 +142,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Problem: A product costs $24.50, with a 5% sales tax. What is the total cost?",
+                passage: "In 2024, a store in Greenvale sold a product for $24.50, with a 5% sales tax applied to the purchase. The customer needed to calculate the total cost, including tax, to ensure they had sufficient funds, found by multiplying the price by the tax rate and adding it to the original cost.",
+                question: "What is the total cost?",
                 options: [
                     { text: "A) $25.73", correct: true },
                     { text: "B) $26.00", correct: false },
@@ -163,7 +168,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Problem: A $75 jacket has a 15% discount. What is the sale price?",
+                passage: "During a 2024 sale in Clearwater, a clothing store offered a 15% discount on a $75 jacket. A shopper needed to calculate the sale price to budget their purchase, determined by finding the discount amount and subtracting it from the original price.",
+                question: "What is the sale price?",
                 options: [
                     { text: "A) $63.75", correct: true },
                     { text: "B) $60.00", correct: false },
@@ -189,7 +195,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Problem: An employee earns $12 per hour for 25 hours and spends 1/5 of their earnings on expenses. How much money remains?",
+                passage: "In 2024, an employee in Millville earned $12 per hour for 25 hours and spent 1/5 of their earnings on work-related expenses. The employee needed to calculate the remaining money for personal use, found by calculating total earnings, determining the expense amount, and subtracting it from the earnings.",
+                question: "How much money remains?",
                 options: [
                     { text: "A) $240", correct: true },
                     { text: "B) $250", correct: false },
@@ -205,7 +212,8 @@ const lessons = {
 // Basic arithmetic question array
 const basicArithmeticQuestions = [
     {
-        question: "Problem: A store sells a $120 item with a 10% discount and adds a 6% sales tax on the discounted price. What is the final cost?",
+        passage: "In 2023, a small store in Millville sold an item for $120 during a promotion that offered a 10% discount. After applying the discount, a 6% sales tax was added to the discounted price. The cashier needed to calculate the final cost for the customer, including both the discount and tax, to process the payment accurately.",
+        question: "What is the final cost?",
         answers: [
             { text: "A) $114.48", correct: true },
             { text: "B) $120.00", correct: false },
@@ -217,7 +225,8 @@ const basicArithmeticQuestions = [
         category: "ged-basic-arithmetic"
     },
     {
-        question: "A community garden produces 120 pounds of vegetables per month. If the garden distributes the vegetables equally among 8 families, how many pounds does each family receive?",
+        passage: "In 2024, a community garden in Greenvale produced 120 pounds of vegetables per month to distribute among local families. To ensure fair distribution, the garden coordinator needed to calculate how many pounds each of the 8 participating families would receive, determined by dividing the total weight by the number of families.",
+        question: "How many pounds does each family receive?",
         answers: [
             { text: "A) 15 pounds", correct: true },
             { text: "B) 12 pounds", correct: false },
@@ -229,7 +238,8 @@ const basicArithmeticQuestions = [
         category: "ged-basic-arithmetic"
     },
     {
-        question: "A workshop requires 3.5 hours to complete one project. If a team works on 4 projects, how many hours will it take in total?",
+        passage: "In 2023, a workshop in Clearwater required 3.5 hours to complete a single project. For a community event, the team was tasked with completing 4 projects. The organizer needed to calculate the total hours required to schedule the work, found by multiplying the hours per project by the number of projects.",
+        question: "How many hours will it take in total?",
         answers: [
             { text: "A) 12 hours", correct: false },
             { text: "B) 14 hours", correct: true },
@@ -241,11 +251,12 @@ const basicArithmeticQuestions = [
         category: "ged-basic-arithmetic"
     },
     {
-        question: "A recycling program collects 450 cans in a week. If the cans are sorted into bins that hold 75 cans each, how many bins are needed?",
+        passage: "In 2024, a recycling program in Millville collected 450 aluminum cans during a weekly drive. The cans were sorted into bins, each holding 75 cans. The program manager needed to determine how many bins were required to store all the cans, calculated by dividing the total number of cans by the capacity of each bin.",
+        question: "How many bins are needed?",
         answers: [
             { text: "A) 5 bins", correct: false },
             { text: "B) 6 bins", correct: true },
-            { text: "C) 7 bins", correct: false},
+            { text: "C) 7 bins", correct: false },
             { text: "D) 8 bins", correct: false }
         ],
         explanation: "Divide the total cans by the capacity of each bin: 450 ÷ 75 = 6 bins. Thus, option B is correct.",
@@ -253,7 +264,8 @@ const basicArithmeticQuestions = [
         category: "ged-basic-arithmetic"
     },
     {
-        question: "A volunteer group paints a community center. Each can of paint covers 250 square feet, and the center has 1,250 square feet of wall space. How many cans of paint are needed?",
+        passage: "In 2023, a volunteer group in Greenvale painted a community center. Each can of paint covered 250 square feet, and the center had 1,250 square feet of wall space. The group leader needed to calculate how many cans of paint were required to cover all the walls, determined by dividing the total area by the coverage per can.",
+        question: "How many cans of paint are needed?",
         answers: [
             { text: "A) 5 cans", correct: true },
             { text: "B) 4 cans", correct: false },
@@ -265,7 +277,8 @@ const basicArithmeticQuestions = [
         category: "ged-basic-arithmetic"
     },
     {
-        question: "A library orders 72 books and distributes them equally across 6 shelves. How many books are placed on each shelf?",
+        passage: "In 2024, a library in Clearwater ordered 72 books for a new reading program. To organize the collection, the librarian distributed the books equally across 6 shelves. The librarian needed to calculate how many books would be placed on each shelf, found by dividing the total number of books by the number of shelves.",
+        question: "How many books are placed on each shelf?",
         answers: [
             { text: "A) 10 books", correct: false },
             { text: "B) 11 books", correct: false },
@@ -277,7 +290,8 @@ const basicArithmeticQuestions = [
         category: "ged-basic-arithmetic"
     },
     {
-        question: "A carpool group travels 180 miles and uses 6 gallons of fuel. What is the average number of miles per gallon?",
+        passage: "In 2023, a carpool group in Millville traveled 180 miles using 6 gallons of fuel for a regional trip. The group leader needed to calculate the average fuel efficiency, measured in miles per gallon, to plan future trips, determined by dividing the total miles by the gallons used.",
+        question: "What is the average number of miles per gallon?",
         answers: [
             { text: "A) 25 miles per gallon", correct: false },
             { text: "B) 28 miles per gallon", correct: false },
@@ -378,12 +392,11 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row math-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
                         <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                     </div>
@@ -407,10 +420,14 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples)
 function extractPassage(content) {
-    const passageMatch = content.match(/Problem:.*?['"].*?['"]/i) || content.match(/<p>Problem:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Problem:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/Problem:.*?(\.(?=\s*What|\s*How|\s*Calculate)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
 }
 
 // Handle answer selection
@@ -515,12 +532,11 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row math-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
                     <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
