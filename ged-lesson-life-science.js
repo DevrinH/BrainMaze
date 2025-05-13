@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: Mitochondria, found in both plant and animal cells, are organelles that produce energy through cellular respiration. What is the primary function of mitochondria?",
+                passage: "Mitochondria, found in both plant and animal cells, are organelles that produce energy through cellular respiration. This process converts nutrients into ATP, the cell’s energy currency, enabling functions like growth and movement. Mitochondria have their own DNA and are thought to have originated from ancient bacteria.",
+                question: "What is the primary function of mitochondria?",
                 options: [
                     { text: "A) Produce energy", correct: true },
                     { text: "B) Store nutrients", correct: false },
@@ -64,7 +65,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: In a pond ecosystem, algae are producers, fish are consumers, and bacteria are decomposers. What is the role of producers?",
+                passage: "In a pond ecosystem, algae are producers, fish are consumers, and bacteria are decomposers. Algae use sunlight to produce energy through photosynthesis, forming the base of the food chain. Fish consume algae or other organisms, while bacteria recycle nutrients from dead matter, supporting ecosystem balance.",
+                question: "What is the role of producers?",
                 options: [
                     { text: "A) Create energy through photosynthesis", correct: true },
                     { text: "B) Consume other organisms", correct: false },
@@ -89,7 +91,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: In pea plants, round seeds (R) are dominant over wrinkled seeds (r). A plant with genotype Rr has what seed shape?",
+                passage: "In pea plants, round seeds (R) are dominant over wrinkled seeds (r). A plant with genotype Rr inherits one dominant and one recessive allele. The dominant allele determines the seed shape, reflecting how genes control traits in organisms.",
+                question: "A plant with genotype Rr has what seed shape?",
                 options: [
                     { text: "A) Round", correct: true },
                     { text: "B) Wrinkled", correct: false },
@@ -114,7 +117,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: The circulatory system transports nutrients and oxygen via blood vessels. The heart pumps blood to all body parts. What is the heart’s primary function?",
+                passage: "The circulatory system transports nutrients and oxygen via blood vessels. The heart pumps blood to all body parts, ensuring cells receive essential resources. This process supports vital functions like tissue repair and immune response.",
+                question: "What is the heart’s primary function?",
                 options: [
                     { text: "A) Pump blood", correct: true },
                     { text: "B) Produce oxygen", correct: false },
@@ -139,7 +143,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: Birds with stronger beaks can access more food sources, increasing their survival in harsh environments. Why do stronger beaks aid survival?",
+                passage: "Birds with stronger beaks can access more food sources, increasing their survival in harsh environments. Natural selection favors traits that enhance survival, allowing better-adapted birds to reproduce and pass on these traits.",
+                question: "Why do stronger beaks aid survival?",
                 options: [
                     { text: "A) They allow access to more food", correct: true },
                     { text: "B) They attract mates", correct: false },
@@ -164,7 +169,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: During photosynthesis, plants convert sunlight energy into chemical energy, producing glucose and releasing oxygen. What is one product of photosynthesis?",
+                passage: "During photosynthesis, plants convert sunlight energy into chemical energy, producing glucose and releasing oxygen. This process, occurring in chloroplasts, supports plant growth and provides oxygen for animals.",
+                question: "What is one product of photosynthesis?",
                 options: [
                     { text: "A) Oxygen", correct: true },
                     { text: "B) Nitrogen", correct: false },
@@ -189,7 +195,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: In a marine food chain, phytoplankton are producers, zooplankton are primary consumers, and small fish are secondary consumers. What is the role of zooplankton?",
+                passage: "In a marine food chain, phytoplankton are producers, zooplankton are primary consumers, and small fish are secondary consumers. Phytoplankton produce energy via photosynthesis, supporting the food chain, while zooplankton consume them to transfer energy upward.",
+                question: "What is the role of zooplankton?",
                 options: [
                     { text: "A) Primary consumers", correct: true },
                     { text: "B) Producers", correct: false },
@@ -205,86 +212,93 @@ const lessons = {
 // Life science question array
 const lifeScienceQuestions = [
     {
-        question: "Passage: DNA contains genetic instructions. During cell division, DNA replicates to ensure each new cell has identical genetic material. What is the purpose of DNA replication?",
+        passage: "DNA contains genetic instructions that guide cell function and development. During cell division, DNA replicates to ensure each new cell receives an identical copy of the genetic material. This process is critical for growth, repair, and reproduction in organisms, maintaining genetic continuity across generations.",
+        question: "What is the purpose of DNA replication?",
         answers: [
             { text: "A) Ensure identical genetic material in new cells", correct: true },
             { text: "B) Produce energy for cells", correct: false },
             { text: "C) Break down nutrients", correct: false },
             { text: "D) Protect cells from damage", correct: false }
         ],
-        explanation: "The passage states DNA replicates to ensure each new cell has identical genetic material, making A correct.",
+        explanation: "The passage states DNA replicates to ensure each new cell has identical genetic material, making A correct. Energy production occurs in mitochondria, nutrient breakdown in lysosomes, and protection is not DNA’s role.",
         difficulty: "easy",
         category: "ged-life-science"
     },
     {
-        question: "Which process in plants uses sunlight to convert carbon dioxide and water into glucose and oxygen?",
+        passage: "In 2023, a coastal ecosystem faced challenges due to rising sea temperatures. Coral reefs, which support diverse marine life, rely on symbiotic algae called zooxanthellae for energy via photosynthesis. These algae live within coral tissues, producing glucose from sunlight, carbon dioxide, and water. Warmer waters cause corals to expel zooxanthellae, leading to coral bleaching and ecosystem decline. Scientists observed that corals with heat-tolerant algae survived better. The loss of corals affects fish populations, which depend on reefs for food and shelter, disrupting the food chain. Restoration efforts focus on breeding heat-tolerant corals.",
+        question: "What is the primary role of zooxanthellae in coral reefs?",
         answers: [
-            { text: "A) Photosynthesis", correct: true },
-            { text: "B) Respiration", correct: false },
-            { text: "C) Transpiration", correct: false },
-            { text: "D) Fermentation", correct: false }
+            { text: "A) Produce energy through photosynthesis", correct: true },
+            { text: "B) Protect corals from predators", correct: false },
+            { text: "C) Regulate water temperature", correct: false },
+            { text: "D) Break down dead coral", correct: false }
         ],
-        explanation: "Photosynthesis is the process in plants that uses sunlight to convert carbon dioxide and water into glucose and oxygen. Respiration breaks down glucose for energy, transpiration involves water loss, and fermentation occurs in low-oxygen conditions. Thus, option A is correct.",
+        explanation: "The passage states zooxanthellae produce glucose via photosynthesis, providing energy to corals. They do not protect from predators, regulate temperature, or decompose coral, making A correct.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        question: "What is the primary source of energy for Earth's climate system?",
+        passage: "A 2024 study examined how climate change affects forest ecosystems. Trees, as producers, use photosynthesis to convert sunlight, carbon dioxide, and water into glucose, supporting herbivores like deer. Rising temperatures and drought reduce tree growth, limiting food for herbivores. This impacts predators, such as wolves, which rely on herbivores. Decomposers, like fungi, recycle nutrients from dead trees, but drought slows decomposition. Researchers found that forests with diverse tree species were more resilient to climate stress. Conservation efforts aim to plant mixed-species forests to maintain ecosystem stability.",
+        question: "How does drought primarily affect herbivores in this ecosystem?",
         answers: [
-            { text: "A) Geothermal heat", correct: false },
-            { text: "B) Solar radiation", correct: true },
-            { text: "C) Ocean currents", correct: false },
-            { text: "D) Atmospheric pressure", correct: false }
+            { text: "A) Increases their reproduction rates", correct: false },
+            { text: "B) Decreases food availability for consumers", correct: true },
+            { text: "C) Enhances decomposer activity", correct: false },
+            { text: "D) Stabilizes consumer populations", correct: false }
         ],
-        explanation: "Solar radiation from the sun is the primary source of energy for Earth's climate system, driving weather patterns and temperature changes. Geothermal heat, ocean currents, and atmospheric pressure play roles but are not the primary source. Thus, option B is correct.",
+        explanation: "The passage notes drought limits tree growth, reducing food for herbivores like deer. It doesn’t increase reproduction, enhance decomposers, or stabilize consumers, making B correct.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        question: "Which structure in a cell contains the genetic material and controls cell activities?",
+        passage: "In a 2023 genetic study, scientists explored coat color in rabbits. The gene for dark fur (D) is dominant over light fur (d). Rabbits with at least one D allele have dark fur, while those with two d alleles have light fur. This trait helps rabbits survive in different environments; dark fur provides camouflage in forests, while light fur suits snowy regions. A rabbit population in a forest showed 60% dark-furred individuals. Researchers noted that natural selection favors traits matching the environment.",
+        question: "What coat color would a rabbit with genotype Dd have?",
         answers: [
-            { text: "A) Mitochondrion", correct: false },
-            { text: "B) Nucleus", correct: true },
-            { text: "C) Ribosome", correct: false },
-            { text: "D) Cytoplasm", correct: false }
+            { text: "A) Light", correct: false },
+            { text: "B) Dark", correct: true },
+            { text: "C) Mixed", correct: false },
+            { text: "D) Gray", correct: false }
         ],
-        explanation: "The nucleus contains the cell's genetic material (DNA) and controls cell activities by regulating gene expression. Mitochondria produce energy, ribosomes synthesize proteins, and cytoplasm is the cell's fluid medium. Thus, option B is correct.",
+        explanation: "The passage states the dominant allele (D) results in dark fur, so Dd produces dark fur. Light fur requires dd, and mixed or gray are not mentioned, making B correct.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        question: "What is the role of decomposers in an ecosystem?",
+        passage: "The digestive system breaks down food into nutrients for the body. The small intestine, a key organ, absorbs most nutrients into the bloodstream, enabling energy production and tissue repair. Enzymes in the small intestine break down carbohydrates, proteins, and fats. In a 2024 study, nutrient absorption was linked to overall health, influenced by environmental factors like diet quality.",
+        question: "What is the primary function of the small intestine?",
         answers: [
-            { text: "A) Break down dead organic matter and recycle nutrients", correct: true },
-            { text: "B) Produce energy through photosynthesis", correct: false },
-            { text: "C) Consume primary producers for energy", correct: false },
-            { text: "D) Regulate population sizes of predators", correct: false }
+            { text: "A) Store food", correct: false },
+            { text: "B) Absorb nutrients", correct: true },
+            { text: "C) Produce digestive enzymes", correct: false },
+            { text: "D) Eliminate waste", correct: false }
         ],
-        explanation: "Decomposers, like fungi and bacteria, break down dead organic matter, recycling nutrients back into the ecosystem. Photosynthesis is done by producers, consumers eat producers, and population regulation is not their role. Thus, option A is correct.",
+        explanation: "The passage states the small intestine absorbs nutrients into the bloodstream. Storage occurs in the stomach, enzyme production is secondary, and waste elimination is the colon’s role, making B correct.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        question: "Which process allows organisms to maintain a stable internal environment despite external changes?",
+        passage: "In 2023, a savanna ecosystem was studied for evolutionary adaptations. Cheetahs, with their high-speed running ability, are adapted to chase prey like antelopes. This trait, developed through natural selection, allows cheetahs to catch fast-moving prey in open landscapes. However, habitat loss from climate-driven droughts reduces prey availability, threatening cheetah survival. Conservationists propose protected corridors to maintain prey populations. These corridors also help plants, which rely on animals for seed dispersal, supporting the food chain.",
+        question: "Why does high-speed running benefit cheetahs?",
         answers: [
-            { text: "A) Adaptation", correct: false },
-            { text: "B) Evolution", correct: false },
-            { text: "C) Homeostasis", correct: true },
-            { text: "D) Natural selection", correct: false }
+            { text: "A) Enhances camouflage", correct: false },
+            { text: "B) Improves digestion", correct: false },
+            { text: "C) Allows catching fast-moving prey", correct: true },
+            { text: "D) Increases water storage", correct: false }
         ],
-        explanation: "Homeostasis is the process by which organisms maintain a stable internal environment, such as regulating temperature or pH. Adaptation and evolution occur over generations, and natural selection drives evolution. Thus, option C is correct.",
+        explanation: "The passage states high-speed running allows cheetahs to catch fast-moving prey, aiding survival. It doesn’t enhance camouflage, improve digestion, or store water, making C correct.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        question: "What type of symbiotic relationship occurs when one species benefits and the other is neither harmed nor helped?",
+        passage: "Earth’s carbon cycle regulates carbon dioxide levels, impacting life. Plants absorb CO₂ during photosynthesis, producing glucose and oxygen, while animals release CO₂ through respiration. Human activities, like burning fossil fuels, increase atmospheric CO₂, affecting climate and ecosystems. In a 2024 study, reforestation reduced CO₂ levels, supporting forest food chains by enhancing plant growth.",
+        question: "What role do animals play in the carbon cycle?",
         answers: [
-            { text: "A) Mutualism", correct: false },
-            { text: "B) Parasitism", correct: false },
-            { text: "C) Predation", correct: false },
-            { text: "D) Commensalism", correct: true }
+            { text: "A) Absorb CO₂ from the atmosphere", correct: false },
+            { text: "B) Store carbon in soil", correct: false },
+            { text: "C) Produce glucose", correct: false },
+            { text: "D) Release CO₂ through respiration", correct: true }
         ],
-        explanation: "Commensalism is a symbiotic relationship where one species benefits and the other is unaffected. Mutualism benefits both, parasitism harms one, and predation involves one consuming another. Thus, option D is correct.",
+        explanation: "The passage states animals release CO₂ through respiration, contributing to the carbon cycle. Plants absorb CO₂ and produce glucose, and soil storage involves other processes, making D correct.",
         difficulty: "medium",
         category: "ged-life-science"
     }
@@ -378,12 +392,11 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
                 <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
                         <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                     </div>
@@ -407,7 +420,7 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
@@ -519,12 +532,11 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row science-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
                     <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
@@ -547,105 +559,4 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
-}
-
-// Save lesson completion
-function saveLessonCompletion() {
-    const completionData = {
-        exam: "GED",
-        type: "lesson",
-        timestamp: new Date().toISOString()
-    };
-    localStorage.setItem("lastActivity", JSON.stringify(completionData));
-    console.log("Saved lesson completion:", completionData);
-}
-
-// Show final score
-function showFinalScore() {
-    console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = categoryStats["ged-life-science"].correct;
-    let totalAttempted = totalCorrect + categoryStats["ged-life-science"].incorrect;
-
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    logFinalScore(totalCorrect, totalAttempted);
-    saveScore(currentLesson, score);
-
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <div class="score-box">
-            <div class="centered-content">
-                <h2>Final Score</h2>
-                <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-                <p>Your score: ${percentage}%</p>
-                <button id="continue-button" class="btn continue-btn">Continue</button>
-            </div>
-        </div>
-    `;
-    const finalScoreElement = document.getElementById('final-score');
-    if (finalScoreElement) finalScoreElement.classList.add('hide'); // Hide if exists
-    document.getElementById('continue-button').addEventListener('click', () => {
-        saveLessonCompletion();
-        window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    }, { once: true });
-
-    recordTestResults();
-}
-
-// Record test results
-function recordTestResults() {
-    console.log("Recording results. Current categoryStats:", categoryStats);
-    let storedResults = localStorage.getItem("gedTestResults");
-    let results = storedResults ? JSON.parse(storedResults) : {};
-    for (let category in categoryStats) {
-        if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
-        results[category].correct += categoryStats[category].correct || 0;
-        results[category].incorrect += categoryStats[category].incorrect || 0;
-    }
-    localStorage.setItem("gedTestResults", JSON.stringify(results));
-    console.log("Final stored gedTestResults:", results);
-    for (let category in categoryStats) {
-        categoryStats[category].correct = 0;
-        categoryStats[category].incorrect = 0;
-    }
-}
-
-// Log final score
-function logFinalScore(totalCorrect, totalAttempted) {
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    localStorage.setItem("finalScore", JSON.stringify({
-        correct: totalCorrect,
-        attempted: totalAttempted,
-        percentage: percentage,
-        lesson: currentLesson
-    }));
-    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
-}
-
-// Save score
-function saveScore(lessonId, score) {
-    localStorage.setItem(`ged-life-science-lessonScore-${lessonId}`, score);
-    console.log(`Saved ged-life-science-lessonScore-${lessonId}: ${score}`);
-}
-
-// Get score
-function getScore(lessonId) {
-    return localStorage.getItem(`ged-life-science-lessonScore-${lessonId}`) || "Not completed yet";
-}
-
-// Show score on page load
-function showScore() {
-    const scoreDisplay = document.getElementById('score-display');
-    if (scoreDisplay) {
-        const score = getScore(currentLesson);
-        scoreDisplay.innerHTML = `Previous Score for Lesson ${currentLesson}: ${score}`;
-    } else {
-        console.log("Score display element not found, skipping showScore");
-    }
-}
+// Next
