@@ -217,74 +217,74 @@ const earthSpaceQuestions = [
         category: "ged-earth-space"
     },
     {
-        question: "What process is primarily responsible for the formation of sedimentary rocks?",
+        question: "Passage: Igneous rocks, such as basalt, form when magma cools and solidifies, either on Earth’s surface or below it. What process forms igneous rocks?",
         answers: [
-            { text: "A) Compaction and cementation of sediments", correct: true },
-            { text: "B) Cooling and solidification of magma", correct: false },
-            { text: "C) High-pressure transformation of minerals", correct: false },
-            { text: "D) Chemical precipitation from molten rock", correct: false }
+            { text: "A) Cooling and solidification of magma", correct: true },
+            { text: "B) Compression of sediments", correct: false },
+            { text: "C) Heat and pressure alteration", correct: false },
+            { text: "D) Evaporation of minerals", correct: false }
         ],
-        explanation: "Sedimentary rocks form through the compaction and cementation of sediments, such as sand or clay, over time. Cooling and solidification form igneous rocks, high-pressure transformation creates metamorphic rocks, and chemical precipitation is less specific to sedimentary formation. Thus, option A is correct.",
+        explanation: "The passage states igneous rocks form from cooling and solidifying magma. Compression forms sedimentary rocks, heat and pressure form metamorphic rocks, and evaporation is unrelated, making A correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "Which layer of Earth’s atmosphere contains the ozone layer that absorbs ultraviolet radiation?",
+        question: "Passage: Transform plate boundaries occur where tectonic plates slide past each other, often causing earthquakes due to friction. What is a common result of transform plate boundaries?",
         answers: [
-            { text: "A) Troposphere", correct: false },
-            { text: "B) Stratosphere", correct: true },
-            { text: "C) Mesosphere", correct: false },
-            { text: "D) Thermosphere", correct: false }
+            { text: "A) Mountain formation", correct: false },
+            { text: "B) Earthquakes", correct: true },
+            { text: "C) Rift valley creation", correct: false },
+            { text: "D) Volcanic eruptions", correct: false }
         ],
-        explanation: "The stratosphere contains the ozone layer, which absorbs harmful ultraviolet radiation. The troposphere is where weather occurs, the mesosphere burns meteors, and the thermosphere experiences auroras. Thus, option B is correct.",
+        explanation: "The passage notes transform boundaries cause earthquakes due to sliding friction. Mountains and volcanoes are linked to convergent boundaries, and rift valleys to divergent boundaries, making B correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "What is the primary cause of Earth’s tides?",
+        question: "Passage: The water cycle includes precipitation, where water falls as rain or snow, replenishing Earth’s surface water. What role does precipitation play in the water cycle?",
         answers: [
-            { text: "A) Earth’s rotation", correct: false },
-            { text: "B) Gravitational pull of the Moon", correct: true },
-            { text: "C) Solar radiation", correct: false },
-            { text: "D) Atmospheric pressure changes", correct: false }
+            { text: "A) Converts vapor to liquid", correct: false },
+            { text: "B) Replenishes surface water", correct: true },
+            { text: "C) Heats the atmosphere", correct: false },
+            { text: "D) Forms groundwater vapor", correct: false }
         ],
-        explanation: "The gravitational pull of the Moon causes Earth’s tides by creating bulges in the oceans. Earth’s rotation affects day length, solar radiation drives climate, and atmospheric pressure influences weather, not tides. Thus, option B is correct.",
+        explanation: "The passage states precipitation replenishes surface water. Condensation converts vapor to liquid, precipitation doesn’t heat the atmosphere, and groundwater isn’t vapor, making B correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "Which type of plate boundary is most likely to produce earthquakes and mountain ranges?",
+        question: "Passage: Earth’s inner core, a solid ball of iron and nickel, is under immense pressure, contributing to the planet’s magnetic field through its interaction with the liquid outer core. What is the inner core primarily composed of?",
         answers: [
-            { text: "A) Convergent boundary", correct: true },
-            { text: "B) Divergent boundary", correct: false },
-            { text: "C) Transform boundary", correct: false },
-            { text: "D) Passive boundary", correct: false }
+            { text: "A) Liquid magma", correct: false },
+            { text: "B) Sedimentary rock", correct: false },
+            { text: "C) Iron and nickel", correct: true },
+            { text: "D) Gaseous elements", correct: false }
         ],
-        explanation: "Convergent boundaries, where plates collide, produce earthquakes and mountain ranges due to compression. Divergent boundaries create new crust, transform boundaries cause lateral sliding, and passive boundaries are not a standard term. Thus, option A is correct.",
+        explanation: "The passage states the inner core is a solid ball of iron and nickel. It’s not liquid magma, sedimentary rock, or gas, making C correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "What is the primary source of energy for Earth’s water cycle?",
+        question: "Passage: The solar system’s gas giants, like Jupiter, have strong gravitational fields that allow them to retain thick atmospheres and numerous moons. Why do gas giants have many moons?",
         answers: [
-            { text: "A) Geothermal energy", correct: false },
-            { text: "B) Gravitational energy", correct: false },
-            { text: "C) Solar energy", correct: true },
-            { text: "D) Tidal energy", correct: false }
+            { text: "A) Due to their proximity to the Sun", correct: false },
+            { text: "B) Due to their rocky composition", correct: false },
+            { text: "C) Due to their weak magnetic fields", correct: false },
+            { text: "D) Due to their strong gravitational fields", correct: true }
         ],
-        explanation: "Solar energy drives the water cycle by causing evaporation and powering atmospheric circulation. Geothermal energy heats Earth’s interior, gravitational energy affects tides, and tidal energy is unrelated to the water cycle. Thus, option C is correct.",
+        explanation: "The passage attributes gas giants’ numerous moons to strong gravitational fields. They are far from the Sun, gaseous not rocky, and have strong magnetic fields, making D correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "Which process contributes to the greenhouse effect by trapping heat in Earth’s atmosphere?",
+        question: "Passage: Doppler shifts in galaxy light provide evidence for universe expansion. Blue shift indicates objects moving closer, while redshift shows movement away. What does a blue shift in a galaxy’s light suggest?",
         answers: [
-            { text: "A) Volcanic eruptions", correct: false },
-            { text: "B) Deforestation", correct: false },
-            { text: "C) Ocean currents", correct: false },
-            { text: "D) Absorption of infrared radiation by greenhouse gases", correct: true }
+            { text: "A) The galaxy is moving away", correct: false },
+            { text: "B) The galaxy is stationary", correct: false },
+            { text: "C) The galaxy is moving closer", correct: true },
+            { text: "D) The galaxy is contracting", correct: false }
         ],
-        explanation: "The greenhouse effect occurs when greenhouse gases absorb and trap infrared radiation, warming Earth’s atmosphere. Volcanic eruptions release particles, deforestation reduces carbon sinks, and ocean currents distribute heat but don’t trap it. Thus, option D is correct.",
+        explanation: "The passage states blue shift indicates objects moving closer, unlike redshift for moving away. It doesn’t suggest stationary or contracting galaxies, making C correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     }
