@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Sentence: 'The report includes data charts and graphs.' Is the comma usage correct?",
+                passage: "In 2023, a company in Millville issued a report outlining its training program. The report stated: 'The training includes data charts and graphs.' The editor needed to verify if the comma usage in the sentence was correct to ensure clarity in the published document.",
+                question: "Is the comma usage correct in the sentence 'The report includes data charts and graphs.'?",
                 options: [
                     { text: "A) Incorrect, needs a comma after 'charts'.", correct: true },
                     { text: "B) Correct, no commas needed.", correct: false },
@@ -64,7 +65,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Sentence: 'The project is behind schedule, the team needs more time.' How should this be corrected?",
+                passage: "In 2024, a project manager in Greenvale sent an email to the team, stating: 'The project is behind schedule, the team needs more time.' The manager needed to correct the punctuation to maintain professionalism and clarity in the communication.",
+                question: "How should the sentence 'The project is behind schedule, the team needs more time.' be corrected?",
                 options: [
                     { text: "A) The project is behind schedule; the team needs more time.", correct: true },
                     { text: "B) The project is behind schedule, the team needs more time.", correct: false },
@@ -75,7 +77,7 @@ const lessons = {
             },
             {
                 type: "example",
-                title: "Example 3: Using Colons for Lists",
+                title: "Example 3: Colons for Lists",
                 content: `
                     <h2>Example 3: Using Colons for Lists</h2>
                     <p>Sentence: 'The training requires the following, laptops, notebooks, and pens.'</p>
@@ -89,7 +91,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Sentence: 'The job posting lists these skills, communication, teamwork, and problem-solving.' How should this be corrected?",
+                passage: "In 2023, a job posting in Clearwater outlined required skills for a position, stating: 'The job posting lists these skills, communication, teamwork, and problem-solving.' The hiring manager needed to correct the punctuation to ensure the posting was clear and professional for applicants.",
+                question: "How should the sentence 'The job posting lists these skills, communication, teamwork, and problem-solving.' be corrected?",
                 options: [
                     { text: "A) The job posting lists these skills: communication, teamwork, and problem-solving.", correct: true },
                     { text: "B) The job posting lists these skills, communication, teamwork, and problem-solving.", correct: false },
@@ -114,7 +117,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Sentence: 'The teams performance was impressive.' Which is the correct apostrophe usage?",
+                passage: "In 2024, a company in Millville published a performance review stating: 'The teams performance was impressive.' The human resources department needed to correct the apostrophe usage to ensure the document accurately reflected possession for the singular team.",
+                question: "Which is the correct apostrophe usage for the sentence 'The teams performance was impressive.'?",
                 options: [
                     { text: "A) The team’s performance was impressive.", correct: true },
                     { text: "B) The teams’ performance was impressive.", correct: false },
@@ -139,7 +143,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Sentence: 'The employee asked, When is the deadline.' How should this be corrected?",
+                passage: "In 2023, an employee in Greenvale asked a question during a meeting, recorded as: 'The employee asked, When is the deadline.' The meeting notes needed correction to ensure proper quotation mark usage for the direct question asked by the employee.",
+                question: "How should the sentence 'The employee asked, When is the deadline.' be corrected?",
                 options: [
                     { text: "A) The employee asked, 'When is the deadline?'", correct: true },
                     { text: "B) The employee asked, 'When is the deadline.'", correct: false },
@@ -164,7 +169,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Sentence: 'The project, which was launched last month, is on track.' Is the comma usage correct?",
+                passage: "In 2024, a project report in Clearwater included the sentence: 'The project, which was launched last month, is on track.' The editor needed to verify if the comma usage was correct for the clause providing additional information about the project’s timeline.",
+                question: "Is the comma usage correct in the sentence 'The project, which was launched last month, is on track.'?",
                 options: [
                     { text: "A) Correct, commas surround a nonessential clause.", correct: true },
                     { text: "B) Incorrect, no commas needed.", correct: false },
@@ -189,7 +195,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Sentence: 'The managers memo warns, Budget cuts are coming employees must prepare.' How should this be corrected?",
+                passage: "In 2023, a manager in Millville issued a memo stating: 'The managers memo warns, Budget cuts are coming employees must prepare.' The communications team needed to correct the punctuation, including apostrophes and quotation marks, to ensure the memo was professional and clear.",
+                question: "How should the sentence 'The managers memo warns, Budget cuts are coming employees must prepare.' be corrected?",
                 options: [
                     { text: "A) The manager’s memo warns, 'Budget cuts are coming; employees must prepare.'", correct: true },
                     { text: "B) The managers’ memo warns, 'Budget cuts are coming employees must prepare.'", correct: false },
@@ -205,7 +212,8 @@ const lessons = {
 // Punctuation usage question array
 const punctuationUsageQuestions = [
     {
-        question: "Sentence: 'The training session, scheduled for Monday, includes safety and teamwork.' Is the comma usage correct?",
+        passage: "In 2024, a training manual in Millville included the sentence: 'The training session, scheduled for Monday, includes safety and teamwork.' The editor needed to verify if the comma usage was correct for the clause providing scheduling information, ensuring clarity for trainees.",
+        question: "Is the comma usage correct in the sentence 'The training session, scheduled for Monday, includes safety and teamwork.'?",
         answers: [
             { text: "A) Correct, commas surround a nonessential clause.", correct: true },
             { text: "B) Incorrect, no commas needed.", correct: false },
@@ -217,18 +225,20 @@ const punctuationUsageQuestions = [
         category: "ged-punctuation-usage"
     },
     {
+        passage: "In 2023, a company newsletter in Greenvale published a sentence about its sustainability efforts: 'The solar panels which generate clean energy were installed last month.' The editor needed to ensure the punctuation correctly set off the clause describing the panels’ function for clarity.",
         question: "Which sentence uses commas correctly to set off a nonrestrictive clause?",
         answers: [
             { text: "A) The solar panels, which generate clean energy, were installed last month.", correct: true },
             { text: "B) The solar panels which generate clean energy, were installed last month.", correct: false },
             { text: "C) The solar panels, which generate clean energy were installed last month.", correct: false },
-            { text: "D)—The solar panels which generate, clean energy were installed last month.", correct: false }
+            { text: "D) The solar panels which generate, clean energy were installed last month.", correct: false }
         ],
-        explanation: "Option A is correct because it uses commas to properly set off the nonrestrictive clause 'which generate clean energy.' Option B has a misplaced comma after 'energy.' Option C is missing a comma after 'energy.' Option D incorrectly uses a dash and a comma within the clause.",
+        explanation: "Option A is correct because it uses commas to properly set off the nonrestrictive clause 'which generate clean energy.' Option B has a misplaced comma after 'energy.' Option C is missing a comma after 'energy.' Option D incorrectly uses a comma within the clause.",
         difficulty: "medium",
         category: "ged-punctuation-usage"
     },
     {
+        passage: "In 2024, a community center in Clearwater issued a flyer stating: 'The community center offers workshops, they teach valuable skills.' The coordinator needed to correct the punctuation to properly join the two independent clauses and maintain a professional tone in the flyer.",
         question: "Which sentence correctly uses a semicolon to separate two independent clauses?",
         answers: [
             { text: "A) The community center offers workshops; they teach valuable skills.", correct: true },
@@ -241,6 +251,7 @@ const punctuationUsageQuestions = [
         category: "ged-punctuation-usage"
     },
     {
+        passage: "In 2023, a volunteer organization in Millville published a report stating: 'The volunteers efforts made the parks cleanup a success.' The editor needed to correct the apostrophe usage to accurately reflect possession for the plural group of volunteers and the singular park involved.",
         question: "Which sentence uses apostrophes correctly to show possession?",
         answers: [
             { text: "A) The volunteers' efforts made the parks' cleanup a success.", correct: false },
@@ -253,30 +264,33 @@ const punctuationUsageQuestions = [
         category: "ged-punctuation-usage"
     },
     {
+        passage: "In 2024, a recycling initiative in Greenvale included a brochure stating: 'The recycling program launched last year has reduced waste.' The editor needed to use parentheses to clarify the additional information about the program’s launch without altering the sentence’s main focus on waste reduction.",
         question: "Which sentence correctly uses parentheses to include additional information?",
         answers: [
             { text: "A) The recycling program (launched last year) has reduced waste.", correct: true },
             { text: "B) The recycling program, launched last year, has reduced waste.", correct: false },
             { text: "C) The recycling program (launched last year, has reduced waste).", correct: false },
-            { text: "D) The recycling program launched last year (has reduced waste.)", correct: false }
+            { text: "D) The recycling program launched last year (has reduced waste).", correct: false }
         ],
-        explanation: "Option A is correct because parentheses are used to enclose the additional information 'launched last year' without disrupting the sentence. Option B incorrectly uses commas for nonessential information better suited for parentheses in this context. Option C has incorrect punctuation inside the parentheses. Option D misplaces the period and disrupts sentence structure.",
+        explanation: "Option A is correct because parentheses enclose the additional information 'launched last year' without disrupting the sentence. Option B incorrectly uses commas for information better suited for parentheses. Option C has incorrect punctuation inside the parentheses. Option D misplaces the period and disrupts sentence structure.",
         difficulty: "medium",
         category: "ged-punctuation-usage"
     },
     {
+        passage: "In 2023, a financial workshop in Millville included a handout stating: 'The workshop covers several topics, budgeting, investing, and saving.' The facilitator needed to correct the punctuation to properly introduce the list of topics, ensuring the handout was clear for participants.",
         question: "Which sentence uses a colon correctly to introduce a list?",
         answers: [
             { text: "A) The workshop covers: budgeting, investing, and saving.", correct: false },
-            { text: "B) The workshop covers several topics, budgeting, investing, and saving.", correct: false },
-            { text: "C) The workshop covers several topics: budgeting, investing, and saving.", correct: true },
+            { text: "B) The workshop covers several topics: budgeting, investing, and saving.", correct: true },
+            { text: "C) The workshop covers several topics, budgeting, investing, and saving.", correct: false },
             { text: "D) The workshop covers several topics; budgeting, investing, and saving.", correct: false }
         ],
-        explanation: "Option C is correct because the colon follows a complete sentence ('The workshop covers several topics') and introduces the list. Option A lacks a complete sentence before the colon. Option B uses a comma incorrectly for a list introduction. Option D uses a semicolon, which is incorrect for introducing a list.",
+        explanation: "Option B is correct because the colon follows a complete sentence ('The workshop covers several topics') and introduces the list. Option A lacks a complete sentence before the colon. Option C uses a comma incorrectly for a list introduction. Option D uses a semicolon, which is incorrect for introducing a list.",
         difficulty: "medium",
         category: "ged-punctuation-usage"
     },
     {
+        passage: "In 2024, an event organizer in Clearwater announced in a memo: 'The organizer said, The event starts at noon.' The communications team needed to correct the quotation mark usage to accurately reflect the direct quote and maintain professionalism in the announcement.",
         question: "Which sentence uses quotation marks correctly for a direct quote?",
         answers: [
             { text: "A) The organizer said, The event starts at noon.", correct: false },
@@ -378,12 +392,11 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row english-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
                         <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                     </div>
@@ -407,10 +420,14 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
-    const passageMatch = content.match(/Sentence:.*?['"].*?['"]/i) || content.match(/<p>Sentence:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Sentence:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/Sentence:.*?(\.(?=\s*Is|\s*Which|\s*How)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
 }
 
 // Handle answer selection
@@ -515,12 +532,11 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row english-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
                     <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
