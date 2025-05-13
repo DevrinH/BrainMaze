@@ -164,7 +164,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: Fertile river valleys attract large populations due to agricultural opportunities. Why do river valleys have large populations?",
+                question: "Passage: 'Fertile river valleys attract large populations due to agricultural opportunities.' Why do river valleys have large populations?",
                 options: [
                     { text: "A) Agricultural opportunities", correct: true },
                     { text: "B) Sparse resources", correct: false },
@@ -189,7 +189,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: Deforestation disrupts ecosystems by removing animal habitats and altering water cycles. What is one impact of deforestation?",
+                question: "Passage: 'Deforestation disrupts ecosystems by removing animal habitats and altering water cycles.' What is one impact of deforestation?",
                 options: [
                     { text: "A) Habitat removal", correct: true },
                     { text: "B) Increased oxygen production", correct: false },
