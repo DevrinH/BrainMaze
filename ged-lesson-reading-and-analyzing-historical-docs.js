@@ -217,75 +217,75 @@ const historicalDocsQuestions = [
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Excerpt from the Declaration of Independence (1776): 'We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.' What is the main idea of this excerpt?",
+        question: "Passage: In the Preamble to the U.S. Constitution (1787), it states, 'We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution.' What is the main idea of this passage?",
         answers: [
-            { text: "A) All people have inherent rights to life, liberty, and happiness", correct: true },
-            { text: "B) Governments must provide equal wealth to all citizens", correct: false },
-            { text: "C) The Creator determines the laws of government", correct: false },
-            { text: "D) Happiness is the only unalienable right", correct: false }
+            { text: "A) To establish a government that promotes justice and liberty", correct: true },
+            { text: "B) To declare independence from foreign powers", correct: false },
+            { text: "C) To limit the rights of citizens", correct: false },
+            { text: "D) To prioritize military defense over welfare", correct: false }
         ],
-        explanation: "The main idea of the excerpt is that all people are born with equal, inherent rights, including life, liberty, and the pursuit of happiness. It does not address wealth distribution, divine lawmaking, or limit rights to happiness. Thus, option A is correct.",
-        difficulty: "medium",
+        explanation: "The passage outlines the purpose of the Constitution, which is to create a government that promotes justice, liberty, and welfare, among other goals. It does not focus on independence, limiting rights, or prioritizing defense, making A correct.",
+        difficulty: "easy",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Excerpt from the Federalist Papers No. 10 (1787): 'The effect of [factions] is to kindle animosity and render the government unstable.' What does the author suggest is a negative impact of factions?",
+        question: "Passage: In a 1850 letter, Frederick Douglass wrote, 'The arm of the slaveholder is strengthened by the silence of the North,' urging Northerners to oppose slavery actively. What was Douglass’s purpose in this statement?",
         answers: [
-            { text: "A) They promote economic growth", correct: false },
-            { text: "B) They cause conflict and governmental instability", correct: true },
-            { text: "C) They strengthen democratic participation", correct: false },
-            { text: "D) They unify public opinion", correct: false }
+            { text: "A) To praise Northern silence", correct: false },
+            { text: "B) To encourage Northern opposition to slavery", correct: true },
+            { text: "C) To defend slaveholders’ rights", correct: false },
+            { text: "D) To describe Southern agriculture", correct: false }
         ],
-        explanation: "The author, James Madison, argues that factions create animosity and destabilize the government, as stated in the excerpt. Factions do not promote growth, strengthen democracy, or unify opinion in this context. Thus, option B is correct.",
-        difficulty: "medium",
+        explanation: "Douglass’s purpose is to urge Northerners to actively oppose slavery, as the passage criticizes their silence. It does not praise silence, defend slaveholders, or describe agriculture, making B correct.",
+        difficulty: "easy",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Excerpt from Abraham Lincoln’s Gettysburg Address (1863): 'It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced.' What is Lincoln’s purpose in this statement?",
+        question: "Passage: During the 1830s, Andrew Jackson’s Indian Removal Act policy was supported by editorials claiming, 'Westward expansion is essential for American prosperity, and Native tribes must relocate.' What bias does this editorial reflect?",
         answers: [
-            { text: "A) To criticize the soldiers’ efforts", correct: false },
-            { text: "B) To urge the living to continue the work of the fallen soldiers", correct: true },
-            { text: "C) To announce the end of the Civil War", correct: false },
-            { text: "D) To describe the battle’s outcome", correct: false }
+            { text: "A) Pro-Native American rights", correct: false },
+            { text: "B) Pro-Westward expansion", correct: true },
+            { text: "C) Neutral on expansion", correct: false },
+            { text: "D) Anti-American prosperity", correct: false }
         ],
-        explanation: "Lincoln’s purpose is to inspire the living to continue the work of preserving the Union and freedom, as advanced by soldiers who died. He does not criticize them, announce the war’s end, or describe the battle. Thus, option B is correct.",
-        difficulty: "medium",
+        explanation: "The editorial supports westward expansion by justifying Native relocation for American prosperity, reflecting a pro-expansion bias. It is not pro-Native, neutral, or anti-prosperity, making B correct.",
+        difficulty: "easy",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Excerpt from the Seneca Falls Declaration (1848): 'We hold these truths to be self-evident: that all men and women are created equal.' How does this statement adapt the Declaration of Independence?",
+        question: "Passage: In the 14th Amendment (1868), it states, 'No State shall make or enforce any law which shall abridge the privileges or immunities of citizens of the United States; nor shall any State deprive any person of life, liberty, or property, without due process of law.' What historical context led to this amendment?",
         answers: [
-            { text: "A) It includes women in the assertion of equality", correct: true },
-            { text: "B) It removes the concept of unalienable rights", correct: false },
-            { text: "C) It focuses on economic equality", correct: false },
-            { text: "D) It rejects the idea of self-evident truths", correct: false }
+            { text: "A) The need to establish a national currency", correct: false },
+            { text: "B) The expansion of voting rights for women", correct: false },
+            { text: "C) The need to protect freed slaves’ rights after the Civil War", correct: true },
+            { text: "D) The demand for industrial regulations", correct: false }
         ],
-        explanation: "The Seneca Falls Declaration adapts the Declaration of Independence by explicitly including women in the claim of equality, extending the original text. It retains unalienable rights, does not focus on economics, and upholds self-evident truths. Thus, option A is correct.",
-        difficulty: "medium",
+        explanation: "The 14th Amendment was enacted post-Civil War to protect the rights of freed slaves, ensuring equal protection and due process. It was not about currency, women’s voting, or industrial regulations, making C correct.",
+        difficulty: "easy",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Excerpt from Martin Luther King Jr.’s 'I Have a Dream' speech (1963): 'I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.' What is the central goal expressed in this excerpt?",
+        question: "Passage: In a 1916 speech, Woodrow Wilson argued, 'The world must be made safe for democracy,' promoting U.S. involvement in World War I to protect democratic ideals. What detail supports Wilson’s purpose?",
         answers: [
-            { text: "A) To promote economic reforms", correct: false },
-            { text: "B) To advocate for educational improvements", correct: false },
-            { text: "C) To achieve racial equality and end discrimination", correct: true },
-            { text: "D) To support political independence", correct: false }
+            { text: "A) Describing military strategies", correct: false },
+            { text: "B) Criticizing democratic governments", correct: false },
+            { text: "C) Discussing economic benefits of war", correct: false },
+            { text: "D) Promoting U.S. involvement to protect democracy", correct: true }
         ],
-        explanation: "The central goal is to achieve racial equality, envisioning a society free from racial discrimination. The excerpt does not focus on economic reforms, education, or political independence. Thus, option C is correct.",
-        difficulty: "medium",
+        explanation: "Wilson’s purpose is supported by the detail that U.S. involvement aims to protect democratic ideals, as stated in the passage. It does not focus on military strategies, criticism, or economics, making D correct.",
+        difficulty: "easy",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Excerpt from the Bill of Rights, First Amendment (1791): 'Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof.' What is the primary purpose of this amendment?",
+        question: "Passage: The Articles of Confederation (1781) created a loose alliance of states with a weak central government, while the U.S. Constitution (1787) established a stronger federal system. What is a key difference between these documents?",
         answers: [
-            { text: "A) To regulate religious institutions", correct: false },
-            { text: "B) To promote a national religion", correct: false },
-            { text: "C) To ensure freedom of speech", correct: false },
-            { text: "D) To protect freedom of religion", correct: true }
+            { text: "A) The Articles promoted individual rights, while the Constitution limited them", correct: false },
+            { text: "B) The Articles created a strong federal government, while the Constitution weakened it", correct: false },
+            { text: "C) The Articles had a strong central government, while the Constitution had a loose alliance", correct: false },
+            { text: "D) The Articles had a weak central government, while the Constitution strengthened it", correct: true }
         ],
-        explanation: "The First Amendment’s clause protects freedom of religion by preventing Congress from establishing a religion or restricting its practice. It does not regulate institutions, promote a religion, or focus solely on speech here. Thus, option D is correct.",
-        difficulty: "medium",
+        explanation: "The Articles established a weak central government, while the Constitution created a stronger federal system, as described. The other options misrepresent their focuses, making D correct.",
+        difficulty: "easy",
         category: "ged-reading-and-analyzing-historical-docs"
     }
 ];
