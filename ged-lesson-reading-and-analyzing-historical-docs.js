@@ -354,7 +354,16 @@ function startLesson() {
     }
 }
 
-// Show lesson item
+// Extract passage from content
+function extractPassage(content) {
+    // Match "Passage:" followed by any characters until a question mark, period, or end of string
+    const passageMatch = content.match(/Passage:.*?(?=\?\s|$|\.\s)/i);
+    const extracted = passageMatch ? passageMatch[0] : "";
+    console.log("Extracted passage:", extracted); // Debug log
+    return extracted;
+}
+
+// Show lesson item (only the question rendering part is shown for brevity)
 function showItem() {
     console.log("Showing item for lesson:", currentLesson, "index:", currentItemIndex);
     const lessonContent = document.getElementById('lesson-content');
@@ -379,11 +388,13 @@ function showItem() {
             }
         } else if (item.type === "question") {
             const passage = extractPassage(item.question);
+            // Ensure passage is removed from question text to avoid duplication
+            const questionText = item.question.replace(passage, '').trim();
             lessonContent.innerHTML = `
                 <div class="question-row">
                     <div class="passage-text">${passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${questionText}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
                         <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                     </div>
@@ -405,12 +416,6 @@ function showItem() {
         console.log("No more lesson content, proceeding to quiz transition");
         showQuizTransition();
     }
-}
-
-// Extract passage from content
-function extractPassage(content) {
-    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
 }
 
 // Handle answer selection
