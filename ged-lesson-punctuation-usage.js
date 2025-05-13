@@ -433,7 +433,7 @@ function extractPassage(content) {
 // Handle answer selection
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
-    const nextButton = document.getElementById('next-button'); // Updated ID
+    const submitButton = document.getElementById('submit-answer');
     const rightColumn = document.querySelector('.right-column');
 
     answerButtons.forEach(btn => {
@@ -455,8 +455,8 @@ function selectAnswer(selectedBtn, item) {
         rightColumn.appendChild(explanationDiv);
     }
 
-    nextButton.style.display = 'inline-block';
-    nextButton.addEventListener('click', () => {
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', () => {
         if (!isQuizPhase) {
             nextItem();
         } else {
