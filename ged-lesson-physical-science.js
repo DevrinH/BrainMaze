@@ -205,7 +205,8 @@ const lessons = {
 // Physical science question array
 const physicalScienceQuestions = [
     {
-        question: "Passage: Work is done when a force moves an object over a distance (Work = Force × Distance). If a 5 N force moves an object 3 meters, what is the work done?",
+        passage: "Passage: Work is done when a force moves an object over a distance (Work = Force × Distance).",
+        question: "If a 5 N force moves an object 3 meters, what is the work done?",
         answers: [
             { text: "A) 15 J", correct: true },
             { text: "B) 10 J", correct: false },
@@ -217,74 +218,80 @@ const physicalScienceQuestions = [
         category: "ged-physical-science"
     },
     {
-        question: "What type of energy is stored in a stretched rubber band?",
+        passage: "Passage: Newton’s Third Law states that for every action, there is an equal and opposite reaction. When a rocket launches, it expels gas downward, and the rocket moves upward.",
+        question: "What causes the rocket to move upward?",
         answers: [
-            { text: "A) Elastic potential energy", correct: true },
-            { text: "B) Kinetic energy", correct: false },
-            { text: "C) Thermal energy", correct: false },
-            { text: "D) Chemical energy", correct: false }
+            { text: "A) The equal and opposite reaction to gas expulsion", correct: true },
+            { text: "B) The rocket’s weight", correct: false },
+            { text: "C) The increase in air pressure", correct: false },
+            { text: "D) The decrease in fuel mass", correct: false }
         ],
-        explanation: "A stretched rubber band stores elastic potential energy due to its deformation. Kinetic energy is energy of motion, thermal energy relates to heat, and chemical energy is stored in chemical bonds. Thus, option A is correct.",
+        explanation: "Newton’s Third Law indicates the rocket moves upward due to the equal and opposite reaction to gas expelled downward. Weight, air pressure, and fuel mass are not the primary causes, making A correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "Which law states that the total momentum of a closed system remains constant if no external forces act on it?",
+        passage: "Passage: In chemical reactions, a catalyst increases the reaction rate without being consumed. For example, enzymes catalyze reactions in living organisms.",
+        question: "What is the role of a catalyst in a chemical reaction?",
         answers: [
-            { text: "A) Newton’s First Law", correct: false },
-            { text: "B) Law of Conservation of Momentum", correct: true },
-            { text: "C) Newton’s Second Law", correct: false },
-            { text: "D) Law of Universal Gravitation", correct: false }
+            { text: "A) It is consumed to produce products", correct: false },
+            { text: "B) It speeds up the reaction without being consumed", correct: true },
+            { text: "C) It changes the reaction’s products", correct: false },
+            { text: "D) It slows down the reaction", correct: false }
         ],
-        explanation: "The Law of Conservation of Momentum states that the total momentum in a closed system remains constant without external forces. Newton’s laws describe motion, and the Law of Universal Gravitation addresses gravitational attraction. Thus, option B is correct.",
+        explanation: "The passage states a catalyst increases the reaction rate without being consumed, as with enzymes. It doesn’t get consumed, alter products, or slow reactions, making B correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "What is the primary source of energy for Earth’s climate system?",
+        passage: "Passage: Kinetic energy is the energy of motion, calculated as KE = ½ mv², where m is mass and v is velocity.",
+        question: "If a 2 kg object moves at 3 m/s, what is its kinetic energy?",
         answers: [
-            { text: "A) Geothermal energy", correct: false },
-            { text: "B) Solar energy", correct: true },
-            { text: "C) Nuclear energy", correct: false },
-            { text: "D) Tidal energy", correct: false }
+            { text: "A) 6 J", correct: false },
+            { text: "B) 9 J", correct: true },
+            { text: "C) 12 J", correct: false },
+            { text: "D) 18 J", correct: false }
         ],
-        explanation: "Solar energy from the sun drives Earth’s climate system by heating the atmosphere and surface, influencing weather patterns. Geothermal, nuclear, and tidal energy have lesser roles. Thus, option B is correct.",
+        explanation: "Using KE = ½ mv²: KE = ½ × 2 kg × (3 m/s)² = ½ × 2 × 9 = 9 J, making B correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "Which property of a wave determines its loudness or intensity?",
+        passage: "Passage: Gases have no fixed shape or volume, as their particles move freely and are widely spaced compared to solids and liquids.",
+        question: "Why do gases lack a fixed shape?",
         answers: [
-            { text: "A) Amplitude", correct: true },
-            { text: "B) Frequency", correct: false },
-            { text: "C) Wavelength", correct: false },
-            { text: "D) Speed", correct: false }
+            { text: "A) Their particles are tightly packed", correct: false },
+            { text: "B) Their particles have fixed positions", correct: false },
+            { text: "C) Their particles move freely", correct: true },
+            { text: "D) Their particles are dense", correct: false }
         ],
-        explanation: "Amplitude determines the loudness or intensity of a wave, as it measures the wave’s maximum displacement. Frequency affects pitch, wavelength relates to wave type, and speed depends on the medium. Thus, option A is correct.",
+        explanation: "The passage states gases lack fixed shape because their particles move freely. They are not tightly packed, fixed, or dense, making C correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "What happens to the pressure of a gas if its volume decreases while temperature remains constant?",
+        passage: "Passage: According to the conservation of mass, the mass of reactants equals the mass of products in a chemical reaction. In a closed system, no mass is lost or gained.",
+        question: "If 20 g of reactants are used in a closed system reaction, what is the mass of the products?",
         answers: [
-            { text: "A) Pressure decreases", correct: false },
-            { text: "B) Pressure remains constant", correct: false },
-            { text: "C) Pressure increases", correct: true },
-            { text: "D) Pressure becomes zero", correct: false }
+            { text: "A) 10 g", correct: false },
+            { text: "B) 15 g", correct: false },
+            { text: "C) 25 g", correct: false },
+            { text: "D) 20 g", correct: true }
         ],
-        explanation: "According to Boyle’s Law, if the volume of a gas decreases while temperature remains constant, the pressure increases (inversely proportional). Thus, option C is correct.",
+        explanation: "The passage states that in a closed system, the mass of products equals the reactants’ mass due to conservation of mass. Thus, 20 g of reactants produce 20 g of products, making D correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "Which type of reaction releases energy by splitting a heavy nucleus into smaller nuclei?",
+        passage: "Passage: Acceleration is the rate of change of velocity, calculated as a = Δv ÷ t, where Δv is the change in velocity and t is time.",
+        question: "If a car’s velocity changes from 10 m/s to 30 m/s in 5 seconds, what is its acceleration?",
         answers: [
-            { text: "A) Chemical reaction", correct: false },
-            { text: "B) Fusion reaction", correct: false },
-            { text: "C) Combustion reaction", correct: false },
-            { text: "D) Fission reaction", correct: true }
+            { text: "A) 2 m/s²", correct: false },
+            { text: "B) 3 m/s²", correct: false },
+            { text: "C) 4 m/s²", correct: true },
+            { text: "D) 6 m/s²", correct: false }
         ],
-        explanation: "A fission reaction releases energy by splitting a heavy nucleus into smaller nuclei, as in nuclear power plants. Fusion combines nuclei, chemical reactions involve electron rearrangements, and combustion involves burning. Thus, option D is correct.",
+        explanation: "Using a = Δv ÷ t: Δv = 30 m/s - 10 m/s = 20 m/s; a = 20 m/s ÷ 5 s = 4 m/s², making C correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     }
