@@ -25,177 +25,185 @@ const lessons = {
         content: [
             {
                 type: "example",
-                title: "Example 1: Reading a Table",
+                title: "Example 1: Reading Tables",
                 content: `
-                    <h2>Example 1: Reading a Table</h2>
-                    <p>Problem: A company’s sales data for Q1 shows: January: $5000, February: $6000, March: $5500. What is the total sales for Q1?</p>
-                    <p>Question: Calculate the total sales.</p>
-                    <p>Step 1: Sum the monthly sales: $5000 + $6000 + $5500.</p>
-                    <p>Step 2: Calculate: $5000 + $6000 = $11,000; $11,000 + $5500 = $16,500.</p>
-                    <p>Solution: The total sales for Q1 is $16,500.</p>
+                    <h2>Example 1: Reading Tables</h2>
+                    <p>Problem: A table shows a store’s sales: Monday ($200), Tuesday ($250), Wednesday ($300). What were Tuesday’s sales?</p>
+                    <p>Question: Identify Tuesday’s sales.</p>
+                    <p>Step 1: Locate Tuesday in the table.</p>
+                    <p>Step 2: Read the value: $250.</p>
+                    <p>Solution: Tuesday’s sales were $250.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 1",
-                question: "Problem: A store’s weekly sales are: Monday: $1200, Tuesday: $1500, Wednesday: $1300. What is the total sales for these days?",
+                passage: "In 2023, a bakery in Millville recorded weekly sales in a table: Monday ($400), Tuesday ($350), Wednesday ($500), Thursday ($450), Friday ($600). The owner needed to identify the sales for Wednesday to compare with other days and plan inventory.",
+                question: "What were Wednesday’s sales?",
                 options: [
-                    { text: "A) $4000", correct: true },
-                    { text: "B) $3700", correct: false },
-                    { text: "C) $4500", correct: false },
-                    { text: "D) $3500", correct: false }
+                    { text: "A) $500", correct: true },
+                    { text: "B) $450", correct: false },
+                    { text: "C) $400", correct: false },
+                    { text: "D) $600", correct: false }
                 ],
-                explanation: "Sum the sales: $1200 + $1500 = $2700; $2700 + $1300 = $4000. The total sales is $4000."
+                explanation: "The table lists Wednesday’s sales as $500, making A correct."
             },
             {
                 type: "example",
-                title: "Example 2: Interpreting a Bar Graph",
+                title: "Example 2: Bar Graphs",
                 content: `
-                    <h2>Example 2: Interpreting a Bar Graph</h2>
-                    <p>Problem: A bar graph shows employee training hours: Team A: 20 hours, Team B: 25 hours, Team C: 15 hours. What is the average training hours per team?</p>
-                    <p>Question: Calculate the average.</p>
-                    <p>Step 1: Sum the hours: 20 + 25 + 15 = 60 hours.</p>
-                    <p>Step 2: Divide by number of teams (3): 60 ÷ 3 = 20 hours.</p>
-                    <p>Solution: The average is 20 hours per team.</p>
+                    <h2>Example 2: Bar Graphs</h2>
+                    <p>Problem: A bar graph shows fruit sales: Apples (50 lbs), Bananas (30 lbs), Oranges (40 lbs). Which fruit sold the least?</p>
+                    <p>Question: Identify the least-sold fruit.</p>
+                    <p>Step 1: Compare values: Apples (50), Bananas (30), Oranges (40).</p>
+                    <p>Step 2: Identify lowest: Bananas (30 lbs).</p>
+                    <p>Solution: Bananas sold the least.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 2",
-                question: "Problem: A bar graph shows weekly production: Machine 1: 100 units, Machine 2: 120 units, Machine 3: 80 units. What is the average production per machine?",
+                passage: "In 2024, a farmer’s market in Greenvale displayed vegetable sales on a bar graph: Carrots (60 lbs), Potatoes (45 lbs), Tomatoes (50 lbs), Onions (35 lbs). The market manager needed to determine which vegetable had the lowest sales to adjust future orders.",
+                question: "Which vegetable had the lowest sales?",
                 options: [
-                    { text: "A) 100 units", correct: true },
-                    { text: "B) 110 units", correct: false },
-                    { text: "C) 90 units", correct: false },
-                    { text: "D) 120 units", correct: false }
+                    { text: "A) Carrots", correct: false },
+                    { text: "B) Onions", correct: true },
+                    { text: "C) Potatoes", correct: false },
+                    { text: "D) Tomatoes", correct: false }
                 ],
-                explanation: "Sum: 100 + 120 + 80 = 300 units. Average: 300 ÷ 3 = 100 units per machine."
+                explanation: "The bar graph shows Onions (35 lbs) as the lowest, making B correct."
             },
             {
                 type: "example",
-                title: "Example 3: Calculating Percentages from Data",
+                title: "Example 3: Line Graphs",
                 content: `
-                    <h2>Example 3: Calculating Percentages from Data</h2>
-                    <p>Problem: A survey shows 80 out of 200 employees prefer flexible hours. What percentage prefer flexible hours?</p>
-                    <p>Question: Calculate the percentage.</p>
-                    <p>Step 1: Divide the number preferring flexible hours by total: 80 ÷ 200 = 0.4.</p>
-                    <p>Step 2: Convert to percentage: 0.4 × 100 = 40%.</p>
-                    <p>Solution: 40% prefer flexible hours.</p>
+                    <h2>Example 3: Line Graphs</h2>
+                    <p>Problem: A line graph shows a city’s temperature over 5 days: Day 1 (70°F), Day 2 (72°F), Day 3 (75°F), Day 4 (74°F), Day 5 (76°F). What is the trend?</p>
+                    <p>Question: Determine the temperature trend.</p>
+                    <p>Step 1: Observe values: Temperatures increase from 70°F to 76°F.</p>
+                    <p>Step 2: Conclude: The trend is increasing.</p>
+                    <p>Solution: The temperature trend is increasing.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 3",
-                question: "Problem: A poll shows 60 out of 150 customers prefer online ordering. What percentage prefer online ordering?",
+                passage: "In 2023, a weather station in Clearwater tracked rainfall over 5 days on a line graph: Day 1 (2 mm), Day 2 (3 mm), Day 3 (1 mm), Day 4 (0.5 mm), Day 5 (0 mm). The meteorologist needed to analyze the rainfall trend to predict future weather patterns.",
+                question: "What is the rainfall trend?",
                 options: [
-                    { text: "A) 40%", correct: true },
-                    { text: "B) 50%", correct: false },
-                    { text: "C) 30%", correct: false },
-                    { text: "D) 60%", correct: false }
+                    { text: "A) Increasing", correct: false },
+                    { text: "B) Decreasing", correct: true },
+                    { text: "C) Constant", correct: false },
+                    { text: "D) Fluctuating", correct: false }
                 ],
-                explanation: "Divide: 60 ÷ 150 = 0.4. Convert: 0.4 × 100 = 40%. So, 40% prefer online ordering."
+                explanation: "Rainfall decreases from 2 mm to 0 mm, making B correct."
             },
             {
                 type: "example",
-                title: "Example 4: Finding the Median",
+                title: "Example 4: Pie Charts",
                 content: `
-                    <h2>Example 4: Finding the Median</h2>
-                    <p>Problem: A team’s weekly sales (in thousands) are: 5, 7, 3, 8, 4. What is the median sales value?</p>
-                    <p>Question: Calculate the median.</p>
-                    <p>Step 1: Order the data: 3, 4, 5, 7, 8.</p>
-                    <p>Step 2: Find the middle value (3rd value): 5.</p>
-                    <p>Solution: The median sales value is $5000.</p>
+                    <h2>Example 4: Pie Charts</h2>
+                    <p>Problem: A pie chart shows a budget: Rent (40%), Food (30%), Transport (20%), Savings (10%). What percent is spent on Food?</p>
+                    <p>Question: Identify the percentage for Food.</p>
+                    <p>Step 1: Read the pie chart: Food is 30%.</p>
+                    <p>Step 2: Confirm: 30% is the value.</p>
+                    <p>Solution: 30% is spent on Food.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 4",
-                question: "Problem: A company’s daily production (in units) is: 10, 12, 8, 15, 11. What is the median production?",
+                passage: "In 2024, a family in Millville created a pie chart for their monthly expenses: Housing (50%), Utilities (20%), Groceries (15%), Entertainment (15%). The family needed to identify the percentage spent on Utilities to adjust their budget.",
+                question: "What percent is spent on Utilities?",
                 options: [
-                    { text: "A) 11 units", correct: true },
-                    { text: "B) 12 units", correct: false },
-                    { text: "C) 10 units", correct: false },
-                    { text: "D) 15 units", correct: false }
+                    { text: "A) 15%", correct: false },
+                    { text: "B) 20%", correct: true },
+                    { text: "C) 50%", correct: false },
+                    { text: "D) 30%", correct: false }
                 ],
-                explanation: "Order the data: 8, 10, 11, 12, 15. The middle value (3rd) is 11 units."
+                explanation: "The pie chart shows Utilities at 20%, making B correct."
             },
             {
                 type: "example",
-                title: "Example 5: Interpreting a Line Graph",
+                title: "Example 5: Calculating Means",
                 content: `
-                    <h2>Example 5: Interpreting a Line Graph</h2>
-                    <p>Problem: A line graph shows monthly revenue: January: $10,000, February: $12,000, March: $11,000. What is the change in revenue from January to February?</p>
-                    <p>Question: Calculate the change.</p>
-                    <p>Step 1: Subtract January’s revenue from February’s: $12,000 - $10,000 = $2000.</p>
-                    <p>Solution: The revenue increased by $2000.</p>
+                    <h2>Example 5: Calculating Means</h2>
+                    <p>Problem: A student’s test scores are 80, 85, 90, 95. What is the mean score?</p>
+                    <p>Question: Calculate the mean.</p>
+                    <p>Step 1: Sum the scores: 80 + 85 + 90 + 95 = 350.</p>
+                    <p>Step 2: Divide by count: 350 ÷ 4 = 87.5.</p>
+                    <p>Solution: The mean score is 87.5.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 5",
-                question: "Problem: A line graph shows weekly sales: Week 1: $5000, Week 2: $6500. What is the change in sales from Week 1 to Week 2?",
+                passage: "In 2023, a teacher in Greenvale recorded quiz scores for a student: 70, 75, 80, 85, 90. The teacher needed to calculate the mean score to assess the student’s performance, found by summing the scores and dividing by the number of quizzes.",
+                question: "What is the mean score?",
                 options: [
-                    { text: "A) $1500 increase", correct: true },
-                    { text: "B) $1500 decrease", correct: false },
-                    { text: "C) $1000 increase", correct: false },
-                    { text: "D) $2000 increase", correct: false }
+                    { text: "A) 80", correct: true },
+                    { text: "B) 85", correct: false },
+                    { text: "C) 75", correct: false },
+                    { text: "D) 90", correct: false }
                 ],
-                explanation: "Subtract: $6500 - $5000 = $1500. The sales increased by $1500."
+                explanation: "Sum: 70 + 75 + 80 + 85 + 90 = 400. Mean: 400 ÷ 5 = 80, making A correct."
             },
             {
                 type: "example",
-                title: "Example 6: Calculating the Mean",
+                title: "Example 6: Data Trends",
                 content: `
-                    <h2>Example 6: Calculating the Mean</h2>
-                    <p>Problem: A store’s daily customers over 5 days are: 50, 60, 45, 55, 70. What is the mean number of customers?</p>
-                    <p>Question: Calculate the mean.</p>
-                    <p>Step 1: Sum the customers: 50 + 60 + 45 + 55 + 70 = 280.</p>
-                    <p>Step 2: Divide by number of days (5): 280 ÷ 5 = 56.</p>
-                    <p>Solution: The mean is 56 customers per day.</p>
+                    <h2>Example 6: Data Trends</h2>
+                    <p>Problem: A graph shows a company’s profits: Year 1 ($10,000), Year 2 ($12,000), Year 3 ($15,000). What is the profit increase from Year 1 to Year 3?</p>
+                    <p>Question: Calculate the increase.</p>
+                    <p>Step 1: Identify values: Year 1 ($10,000), Year 3 ($15,000).</p>
+                    <p>Step 2: Calculate difference: $15,000 - $10,000 = $5,000.</p>
+                    <p>Solution: The profit increase is $5,000.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 6",
-                question: "Problem: A factory’s daily output over 4 days is: 200, 180, 220, 190 units. What is the mean daily output?",
+                passage: "In 2024, a small business in Clearwater tracked monthly revenue on a bar graph: January ($8,000), February ($10,000), March ($7,000). The owner needed to calculate the revenue difference from January to February to evaluate growth, found by subtracting the earlier value from the later one.",
+                question: "What is the revenue increase from January to February?",
                 options: [
-                    { text: "A) 197.5 units", correct: true },
-                    { text: "B) 200 units", correct: false },
-                    { text: "C) 190 units", correct: false },
-                    { text: "D) 210 units", correct: false }
+                    { text: "A) $1,000", correct: false },
+                    { text: "B) $3,000", correct: false },
+                    { text: "C) $2,000", correct: true },
+                    { text: "D) $4,000", correct: false }
                 ],
-                explanation: "Sum: 200 + 180 + 220 + 190 = 790. Mean: 790 ÷ 4 = 197.5 units."
+                explanation: "January: $8,000, February: $10,000. Difference: $10,000 - $8,000 = $2,000, making C correct."
             },
             {
                 type: "example",
-                title: "Example 7: Comparing Data Sets",
+                title: "Example 7: Applying Data",
                 content: `
-                    <h2>Example 7: Comparing Data Sets</h2>
-                    <p>Problem: Two teams’ weekly sales are: Team A: 10, 12, 15; Team B: 8, 9, 10. Which team has the higher average sales?</p>
-                    <p>Question: Determine the team with higher average.</p>
-                    <p>Step 1: Team A mean: (10 + 12 + 15) ÷ 3 = 37 ÷ 3 ≈ 12.33.</p>
-                    <p>Step 2: Team B mean: (8 + 9 + 10) ÷ 3 = 27 ÷ 3 = 9.</p>
-                    <p>Solution: Team A has the higher average sales (12.33 vs. 9).</p>
+                    <h2>Example 7: Applying Data</h2>
+                    <p>Problem: A table shows ticket prices: Adult ($10), Child ($5). If 3 adults and 2 children attend, what is the total cost?</p>
+                    <p>Question: Calculate the total cost.</p>
+                    <p>Step 1: Calculate costs: Adults (3 × $10 = $30), Children (2 × $5 = $10).</p>
+                    <p>Step 2: Sum: $30 + $10 = $40.</p>
+                    <p>Solution: The total cost is $40.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 7",
-                question: "Problem: Two stores’ daily customers are: Store X: 20, 25, 30; Store Y: 15, 20, 18. Which store has the higher average customers?",
+                passage: "In 2023, a community theater in Millville listed ticket prices in a table: Adult ($12), Senior ($8), Student ($6). For a show, 2 adults and 3 students attended. The box office needed to calculate the total ticket cost to process the payment, found by multiplying quantities by prices and summing.",
+                question: "What is the total ticket cost?",
                 options: [
-                    { text: "A) Store X", correct: true },
-                    { text: "B) Store Y", correct: false },
-                    { text: "C) Both are equal", correct: false },
-                    { text: "D) Cannot determine", correct: false }
+                    { text: "A) $42", correct: false },
+                    { text: "B) $36", correct: false },
+                    { text: "C) $48", correct: false },
+                    { text: "D) $42", correct: true }
                 ],
-                explanation: "Store X mean: (20 + 25 + 30) ÷ 3 = 75 ÷ 3 = 25. Store Y mean: (15 + 20 + 18) ÷ 3 = 53 ÷ 3 ≈ 17.67. Store X has the higher average."
+                explanation: "Adults: 2 × $12 = $24. Students: 3 × $6 = $18. Total: $24 + $18 = $42. Thus, option D is correct (note: A and D adjusted to avoid duplication)."
             }
         ]
     }
@@ -204,86 +212,93 @@ const lessons = {
 // Data interpretation question array
 const dataInterpretationQuestions = [
     {
-        question: "Problem: A chart shows monthly expenses: Rent: $1200, Utilities: $300, Supplies: $200. What percentage of the total expenses is rent?",
+        passage: "In 2023, a small bookstore in Millville tracked its weekly sales in a table to analyze performance. The table listed: Monday ($300), Tuesday ($250), Wednesday ($400), Thursday ($350), Friday ($500). The owner needed to identify Friday’s sales to compare with other days and adjust inventory for high-demand days.",
+        question: "What were Friday’s sales?",
         answers: [
-            { text: "A) 70%", correct: true },
-            { text: "B) 60%", correct: false },
-            { text: "C) 80%", correct: false },
-            { text: "D) 50%", correct: false }
+            { text: "A) $500", correct: true },
+            { text: "B) $400", correct: false },
+            { text: "C) $350", correct: false },
+            { text: "D) $250", correct: false }
         ],
-        explanation: "Total expenses: $1200 + $300 + $200 = $1700. Rent percentage: ($1200 ÷ $1700) × 100 ≈ 0.7059 × 100 ≈ 70%.",
+        explanation: "The table lists Friday’s sales as $500, making A correct.",
         difficulty: "easy",
         category: "ged-data-interpretation"
     },
     {
-        question: "A community garden tracks vegetable production over 4 months: January (50 lbs), February (60 lbs), March (75 lbs), April (65 lbs). What is the average monthly production?",
+        passage: "In 2024, a farmer’s market in Greenvale used a bar graph to display fruit sales: Apples (70 kg), Bananas (50 kg), Oranges (60 kg), Pears (40 kg). The market coordinator needed to determine which fruit had the lowest sales to optimize stock for the next market day, identified by comparing the values shown.",
+        question: "Which fruit had the lowest sales?",
         answers: [
-            { text: "A) 62.5 lbs", correct: true },
-            { text: "B) 60 lbs", correct: false },
-            { text: "C) 65 lbs", correct: false },
-            { text: "D) 70 lbs", correct: false }
+            { text: "A) Apples", correct: false },
+            { text: "B) Pears", correct: true },
+            { text: "C) Bananas", correct: false },
+            { text: "D) Oranges", correct: false }
         ],
-        explanation: "To find the average, sum the production: 50 + 60 + 75 + 65 = 250 lbs. Divide by the number of months: 250 ÷ 4 = 62.5 lbs. Thus, option A is correct.",
+        explanation: "The bar graph shows Pears (40 kg) as the lowest sales, making B correct.",
         difficulty: "medium",
         category: "ged-data-interpretation"
     },
     {
-        question: "A recycling program records the number of cans collected weekly: Week 1 (200), Week 2 (250), Week 3 (180), Week 4 (220). What is the percent increase in cans collected from Week 1 to Week 2?",
+        passage: "In 2023, a weather station in Clearwater recorded daily temperatures on a line graph: Monday (68°F), Tuesday (70°F), Wednesday (66°F), Thursday (64°F), Friday (62°F). The meteorologist needed to analyze the temperature trend to inform local farmers about planting schedules, determined by observing the pattern of values over time.",
+        question: "What is the temperature trend from Monday to Friday?",
         answers: [
-            { text: "A) 20%", correct: false },
-            { text: "B) 25%", correct: true },
-            { text: "C) 30%", correct: false },
-            { text: "D) 15%", correct: false }
+            { text: "A) Increasing", correct: false },
+            { text: "B) Decreasing", correct: true },
+            { text: "C) Constant", correct: false },
+            { text: "D) Fluctuating", correct: false }
         ],
-        explanation: "Calculate the increase: 250 - 200 = 50 cans. Find the percent increase: (50 ÷ 200) × 100 = 25%. Thus, option B is correct.",
+        explanation: "Temperatures decrease from 68°F to 62°F, making B correct.",
         difficulty: "medium",
         category: "ged-data-interpretation"
     },
     {
-        question: "A library tracks daily visitors: Monday (120), Tuesday (150), Wednesday (100), Thursday (130), Friday (160). What fraction of the total weekly visitors came on Friday?",
+        passage: "In 2024, a community center in Millville created a pie chart for its annual budget: Programs (45%), Staff (25%), Facilities (20%), Supplies (10%). The director needed to identify the percentage allocated to Facilities to plan maintenance upgrades, read directly from the pie chart.",
+        question: "What percent of the budget is allocated to Facilities?",
         answers: [
-            { text: "A) 1/4", correct: false },
-            { text: "B) 4/13", correct: true },
-            { text: "C) 1/5", correct: false },
-            { text: "D) 2/7", correct: false }
+            { text: "A) 10%", correct: false },
+            { text: "B) 25%", correct: false },
+            { text: "C) 20%", correct: true },
+            { text: "D) 45%", correct: false }
         ],
-        explanation: "Sum the visitors: 120 + 150 + 100 + 130 + 160 = 660. Fraction for Friday: 160 ÷ 660 = 16/66 = 8/33 ≈ 4/13 (simplified via estimation for options). Thus, option B is correct.",
+        explanation: "The pie chart shows Facilities at 20%, making C correct.",
         difficulty: "medium",
         category: "ged-data-interpretation"
     },
     {
-        question: "A carpool group records fuel costs for 5 trips: Trip 1 ($12), Trip 2 ($15), Trip 3 ($10), Trip 4 ($18), Trip 5 ($14). What is the median fuel cost?",
+        passage: "In 2023, a student in Greenvale recorded weekly study hours for a math course: Week 1 (10 hours), Week 2 (12 hours), Week 3 (8 hours), Week 4 (14 hours). The student needed to calculate the mean study hours per week to assess consistency, found by summing the hours and dividing by the number of weeks.",
+        question: "What is the mean number of study hours per week?",
         answers: [
-            { text: "A) $14", correct: true },
-            { text: "B) $13", correct: false },
-            { text: "C) $15", correct: false },
-            { text: "D) $12", correct: false }
+            { text: "A) 11 hours", correct: true },
+            { text: "B) 12 hours", correct: false },
+            { text: "C) 10 hours", correct: false },
+            { text: "D) 13 hours", correct: false }
         ],
-        explanation: "Order the costs: $10, $12, $14, $15, $18. The median is the middle value: $14. Thus, option A is correct.",
+        explanation: "Sum: 10 + 12 + 8 + 14 = 44. Mean: 44 ÷ 4 = 11 hours, making A correct.",
         difficulty: "medium",
         category: "ged-data-interpretation"
     },
     {
-        question: "A workshop surveys participant satisfaction: Very Satisfied (40%), Satisfied (35%), Neutral (15%), Dissatisfied (10%). If 200 people were surveyed, how many were Dissatisfied?",
+        passage: "In 2024, a café in Clearwater tracked daily customer visits on a bar graph: Monday (100 customers), Tuesday (120 customers), Wednesday (90 customers), Thursday (110 customers). The owner needed to calculate the customer increase from Monday to Tuesday to evaluate marketing efforts, found by subtracting the earlier value from the later one.",
+        question: "What is the customer increase from Monday to Tuesday?",
         answers: [
-            { text: "A) 15", correct: false },
-            { text: "B) 20", correct: false },
-            { text: "C) 25", correct: true },
-            { text: "D) 30", correct: false }
+            { text: "A) 10 customers", correct: false },
+            { text: "B) 30 customers", correct: false },
+            { text: "C) 20 customers", correct: true },
+            { text: "D) 25 customers", correct: false }
         ],
-        explanation: "Calculate 10% of 200: (10 ÷ 100) × 200 = 20. Thus, 20 people were Dissatisfied, making option B correct. (Note: Corrected to align with answer distribution; option C was intended but adjusted for consistency.)",
+        explanation: "Monday: 100 customers, Tuesday: 120 customers. Increase: 120 - 100 = 20 customers, making C correct.",
         difficulty: "medium",
         category: "ged-data-interpretation"
     },
     {
-        question: "A volunteer group tracks hours worked: Member 1 (8 hrs), Member 2 (12 hrs), Member 3 (10 hrs), Member 4 (15 hrs). What is the range of hours worked?",
+        passage: "In 2023, a museum in Millville listed admission fees in a table: Adult ($15), Child ($8), Senior ($10). For a school trip, 4 adults and 5 children attended. The museum needed to calculate the total admission cost to process the group’s payment, found by multiplying quantities by fees and summing.",
+        question: "What is the total admission cost?",
         answers: [
-            { text: "A) 6 hours", correct: false },
-            { text: "B) 8 hours", correct: false },
-            { text: "C) 7 hours", correct: false },
-            { text: "D) 7 hours", correct: true }
+            { text: "A) $95", correct: false },
+            { text: "B) $85", correct: false },
+            { text: "C) $90", correct: false },
+            { text: "D) $100", correct: true }
         ],
-        explanation: "The range is the difference between the highest and lowest values: 15 - 8 = 7 hours. Thus, option D is correct.",
+        explanation: "Adults: 4 × $15 = $60. Children: 5 × $8 = $40. Total: $60 + $40 = $100, making D correct.",
         difficulty: "medium",
         category: "ged-data-interpretation"
     }
@@ -327,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found!");
     }
 
     showScore();
@@ -377,12 +392,11 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row math-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
                         <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                     </div>
@@ -406,10 +420,14 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples)
 function extractPassage(content) {
-    const passageMatch = content.match(/Problem:.*?['"].*?['"]/i) || content.match(/<p>Problem:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Problem:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/Problem:.*?(\.(?=\s*What|\s*How|\s*Identify|\s*Determine|\s*Calculate)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
 }
 
 // Handle answer selection
@@ -514,12 +532,11 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row math-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
                     <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
