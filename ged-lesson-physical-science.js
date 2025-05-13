@@ -205,8 +205,7 @@ const lessons = {
 // Physical science question array
 const physicalScienceQuestions = [
     {
-        passage: "Passage: Work is done when a force moves an object over a distance (Work = Force × Distance).",
-        question: "If a 5 N force moves an object 3 meters, what is the work done?",
+        question: "Passage: Work is done when a force moves an object over a distance (Work = Force × Distance). If a 5 N force moves an object 3 meters, what is the work done?",
         answers: [
             { text: "A) 15 J", correct: true },
             { text: "B) 10 J", correct: false },
@@ -218,158 +217,74 @@ const physicalScienceQuestions = [
         category: "ged-physical-science"
     },
     {
-        passage: "Passage: Newton’s Third Law states that for every action, there is an equal and opposite reaction. When a rocket launches, it expels gas downward, and the rocket moves upward.",
-        question: "What causes the rocket to move upward?",
+        question: "Passage: Newton’s Third Law states that for every action, there is an equal and opposite reaction. When a rocket launches, the action is the expulsion of gas downward, and the reaction is the rocket moving upward. What is the reaction force in a rocket launch?",
         answers: [
-            { text: "A) The equal and opposite reaction to gas expulsion", correct: true },
-            { text: "B) The rocket’s weight", correct: false },
-            { text: "C) The increase in air pressure", correct: false },
-            { text: "D) The decrease in fuel mass", correct: false }
+            { text: "A) Rocket moving upward", correct: true },
+            { text: "B) Gas expelled downward", correct: false },
+            { text: "C) Gravitational pull", correct: false },
+            { text: "D) Air resistance", correct: false }
         ],
-        explanation: "Newton’s Third Law indicates the rocket moves upward due to the equal and opposite reaction to gas expelled downward. Weight, air pressure, and fuel mass are not the primary causes, making A correct.",
+        explanation: "The passage states the reaction to gas expulsion downward is the rocket moving upward. Gas expulsion is the action, and gravity or air resistance are external forces, making A correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        passage: "Passage: In chemical reactions, a catalyst increases the reaction rate without being consumed. For example, enzymes catalyze reactions in living organisms.",
-        question: "What is the role of a catalyst in a chemical reaction?",
+        question: "Passage: In a chemical reaction, sodium (Na) and chlorine (Cl₂) combine to form sodium chloride (NaCl). The total mass of reactants equals the mass of products. Why does the mass remain constant?",
         answers: [
-            { text: "A) It is consumed to produce products", correct: false },
-            { text: "B) It speeds up the reaction without being consumed", correct: true },
-            { text: "C) It changes the reaction’s products", correct: false },
-            { text: "D) It slows down the reaction", correct: false }
+            { text: "A) Mass is created", correct: false },
+            { text: "B) Law of conservation of mass", correct: true },
+            { text: "C) Mass is destroyed", correct: false },
+            { text: "D) Energy is transformed", correct: false }
         ],
-        explanation: "The passage states a catalyst increases the reaction rate without being consumed, as with enzymes. It doesn’t get consumed, alter products, or slow reactions, making B correct.",
+        explanation: "The passage implies the law of conservation of mass ensures mass equality in reactions. Mass is neither created nor destroyed, and energy transformation is irrelevant, making B correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        passage: "Passage: Kinetic energy is the energy of motion, calculated as KE = ½ mv², where m is mass and v is velocity.",
-        question: "If a 2 kg object moves at 3 m/s, what is its kinetic energy?",
+        question: "Passage: The speed of an object is calculated as distance divided by time. A cyclist travels 24 kilometers in 2 hours. What is the cyclist’s speed?",
         answers: [
-            { text: "A) 6 J", correct: false },
-            { text: "B) 9 J", correct: true },
-            { text: "C) 12 J", correct: false },
-            { text: "D) 18 J", correct: false }
+            { text: "A) 10 km/h", correct: false },
+            { text: "B) 12 km/h", correct: true },
+            { text: "C) 14 km/h", correct: false },
+            { text: "D) 8 km/h", correct: false }
         ],
-        explanation: "Using KE = ½ mv²: KE = ½ × 2 kg × (3 m/s)² = ½ × 2 × 9 = 9 J, making B correct.",
+        explanation: "Using Speed = Distance ÷ Time: Speed = 24 km ÷ 2 hours = 12 km/h, making B correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        passage: "Passage: Gases have no fixed shape or volume, as their particles move freely and are widely spaced compared to solids and liquids.",
-        question: "Why do gases lack a fixed shape?",
+        question: "Passage: Gases have no fixed shape or volume, expanding to fill their container due to widely spaced particles. Why do gases expand to fill a container?",
         answers: [
-            { text: "A) Their particles are tightly packed", correct: false },
-            { text: "B) Their particles have fixed positions", correct: false },
-            { text: "C) Their particles move freely", correct: true },
-            { text: "D) Their particles are dense", correct: false }
+            { text: "A) Tightly packed particles", correct: false },
+            { text: "B) Fixed particle bonds", correct: false },
+            { text: "C) Widely spaced particles", correct: true },
+            { text: "D) High particle density", correct: false }
         ],
-        explanation: "The passage states gases lack fixed shape because their particles move freely. They are not tightly packed, fixed, or dense, making C correct.",
+        explanation: "The passage attributes gas expansion to widely spaced particles, allowing them to spread out. Gases lack tight packing, fixed bonds, or high density, making C correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        passage: "Passage: According to the conservation of mass, the mass of reactants equals the mass of products in a chemical reaction. In a closed system, no mass is lost or gained.",
-        question: "If 20 g of reactants are used in a closed system reaction, what is the mass of the products?",
+        question: "Passage: Energy conservation means energy transforms between forms. In a hydroelectric dam, water’s potential energy transforms into kinetic energy, then into electrical energy. What is the final energy form in a hydroelectric dam?",
         answers: [
-            { text: "A) 10 g", correct: false },
-            { text: "B) 15 g", correct: false },
-            { text: "C) 25 g", correct: false },
-            { text: "D) 20 g", correct: true }
+            { text: "A) Potential energy", correct: false },
+            { text: "B) Kinetic energy", correct: false },
+            { text: "C) Thermal energy", correct: false },
+            { text: "D) Electrical energy", correct: true }
         ],
-        explanation: "The passage states that in a closed system, the mass of products equals the reactants’ mass due to conservation of mass. Thus, 20 g of reactants produce 20 g of products, making D correct.",
+        explanation: "The passage states water’s energy transforms into electrical energy in a dam. Potential and kinetic are intermediate forms, and thermal is not mentioned, making D correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        passage: "Passage: Acceleration is the rate of change of velocity, calculated as a = Δv ÷ t, where Δv is the change in velocity and t is time.",
-        question: "If a car’s velocity changes from 10 m/s to 30 m/s in 5 seconds, what is its acceleration?",
+        question: "Passage: Wave frequency determines the pitch of sound or the color of light. Higher frequency sound waves produce higher-pitched sounds. What does higher frequency affect in sound waves?",
         answers: [
-            { text: "A) 2 m/s²", correct: false },
-            { text: "B) 3 m/s²", correct: false },
-            { text: "C) 4 m/s²", correct: true },
-            { text: "D) 6 m/s²", correct: false }
+            { text: "A) Loudness", correct: false },
+            { text: "B) Speed", correct: false },
+            { text: "C) Wavelength", correct: false },
+            { text: "D) Pitch", correct: true }
         ],
-        explanation: "Using a = Δv ÷ t: Δv = 30 m/s - 10 m/s = 20 m/s; a = 20 m/s ÷ 5 s = 4 m/s², making C correct.",
-        difficulty: "medium",
-        category: "ged-physical-science"
-    },
-    {
-        passage: "Passage: Newton’s First Law states that an object at rest stays at rest, and an object in motion stays in motion with constant velocity, unless acted upon by an external force.",
-        question: "Why does a hockey puck slide across ice with nearly constant velocity?",
-        answers: [
-            { text: "A) No significant external force acts on it", correct: true },
-            { text: "B) A constant force pushes it", correct: false },
-            { text: "C) Its mass increases", correct: false },
-            { text: "D) Its velocity decreases", correct: false }
-        ],
-        explanation: "Newton’s First Law states an object in motion maintains constant velocity unless acted upon by an external force. On ice, friction is minimal, so no significant force alters the puck’s motion, making A correct.",
-        difficulty: "medium",
-        category: "ged-physical-science"
-    },
-    {
-        passage: "Passage: In a chemical reaction, the activation energy is the minimum energy required to start the reaction, often lowered by catalysts.",
-        question: "What effect does a catalyst have on the activation energy of a chemical reaction?",
-        answers: [
-            { text: "A) It increases the activation energy", correct: false },
-            { text: "B) It lowers the activation energy", correct: true },
-            { text: "C) It eliminates the activation energy", correct: false },
-            { text: "D) It has no effect on the activation energy", correct: false }
-        ],
-        explanation: "The passage states catalysts lower the activation energy, speeding up the reaction. They don’t increase, eliminate, or leave it unchanged, making B correct.",
-        difficulty: "medium",
-        category: "ged-physical-science"
-    },
-    {
-        passage: "Passage: Potential energy is stored energy based on position, calculated as PE = mgh, where m is mass, g is gravitational acceleration (9.8 m/s²), and h is height.",
-        question: "What is the potential energy of a 4 kg object at a height of 5 meters?",
-        answers: [
-            { text: "A) 98 J", correct: false },
-            { text: "B) 196 J", correct: true },
-            { text: "C) 245 J", correct: false },
-            { text: "D) 392 J", correct: false }
-        ],
-        explanation: "Using PE = mgh: PE = 4 kg × 9.8 m/s² × 5 m = 196 J, making B correct.",
-        difficulty: "medium",
-        category: "ged-physical-science"
-    },
-    {
-        passage: "Passage: The frequency of a wave determines its pitch for sound or color for light, with higher frequencies producing higher pitches or bluer light.",
-        question: "What does a higher frequency wave produce in sound?",
-        answers: [
-            { text: "A) Louder sound", correct: false },
-            { text: "B) Lower pitch", correct: false },
-            { text: "C) Higher pitch", correct: true },
-            { text: "D) Slower speed", correct: false }
-        ],
-        explanation: "The passage states higher frequencies produce higher pitches in sound. Amplitude affects loudness, frequency doesn’t lower pitch or change speed, making C correct.",
-        difficulty: "medium",
-        category: "ged-physical-science"
-    },
-    {
-        passage: "Passage: Solids have a fixed shape and volume because their particles vibrate in fixed positions, unlike liquids or gases.",
-        question: "Why do solids maintain a fixed volume?",
-        answers: [
-            { text: "A) Their particles are widely spaced", correct: false },
-            { text: "B) Their particles move freely", correct: false },
-            { text: "C) Their particles are loosely packed", correct: false },
-            { text: "D) Their particles vibrate in fixed positions", correct: true }
-        ],
-        explanation: "The passage states solids maintain fixed shape and volume because particles vibrate in fixed positions, unlike liquids or gases, making D correct.",
-        difficulty: "medium",
-        category: "ged-physical-science"
-    },
-    {
-        passage: "Passage: Newton’s Second Law states that acceleration is inversely proportional to mass (a = F/m), meaning a larger mass requires more force to achieve the same acceleration.",
-        question: "If a 15 kg object experiences a 45 N force, what is its acceleration?",
-        answers: [
-            { text: "A) 2 m/s²", correct: false },
-            { text: "B) 3 m/s²", correct: true },
-            { text: "C) 4 m/s²", correct: false },
-            { text: "D) 5 m/s²", correct: false }
-        ],
-        explanation: "Using a = F/m: a = 45 N ÷ 15 kg = 3 m/s², making B correct.",
+        explanation: "The passage states higher frequency sound waves produce higher pitch. Loudness depends on amplitude, speed on the medium, and wavelength is inversely related, making D correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     }
