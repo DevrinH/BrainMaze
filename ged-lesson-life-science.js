@@ -393,7 +393,7 @@ function showItem() {
             }
         } else if (item.type === "question") {
             lessonContent.innerHTML = `
-                <div class="question-row">
+                <div class="question-row science-section">
                     <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
                         <div class="question-text">${item.title}: ${item.question}</div>
@@ -559,4 +559,105 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
-// Next
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
+}
+
+// Save lesson completion
+function saveLessonCompletion() {
+    const completionData = {
+        exam: "GED",
+        type: "lesson",
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    console.log("Saved lesson completion:", completionData);
+}
+
+// Show final score
+function showFinalScore() {
+    console.log("Running showFinalScore for lesson:", currentLesson);
+    let totalCorrect = categoryStats["ged-life-science"].correct;
+    let totalAttempted = totalCorrect + categoryStats["ged-life-science"].incorrect;
+
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
+    logFinalScore(totalCorrect, totalAttempted);
+    saveScore(currentLesson, score);
+
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = `
+        <div class="score-box">
+            <div class="centered-content">
+                <h2>Final Score</h2>
+                <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+                <p>Your score: ${percentage}%</p>
+                <button id="continue-button" class="btn continue-btn">Continue</button>
+            </div>
+        </div>
+    `;
+    const finalScoreElement = document.getElementById('final-score');
+    if (finalScoreElement) finalScoreElement.classList.add('hide'); // Hide if exists
+    document.getElementById('continue-button').addEventListener('click', () => {
+        saveLessonCompletion();
+        window.location.href = 'https://www.brainjelli.com/user-profile.html';
+    }, { once: true });
+
+    recordTestResults();
+}
+
+// Record test results
+function recordTestResults() {
+    console.log("Recording results. Current categoryStats:", categoryStats);
+    let storedResults = localStorage.getItem("gedTestResults");
+    let results = storedResults ? JSON.parse(storedResults) : {};
+    for (let category in categoryStats) {
+        if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
+        results[category].correct += categoryStats[category].correct || 0;
+        results[category].incorrect += categoryStats[category].incorrect || 0;
+    }
+    localStorage.setItem("gedTestResults", JSON.stringify(results));
+    console.log("Final stored gedTestResults:", results);
+    for (let category in categoryStats) {
+        categoryStats[category].correct = 0;
+        categoryStats[category].incorrect = 0;
+    }
+}
+
+// Log final score
+function logFinalScore(totalCorrect, totalAttempted) {
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    localStorage.setItem("finalScore", JSON.stringify({
+        correct: totalCorrect,
+        attempted: totalAttempted,
+        percentage: percentage,
+        lesson: currentLesson
+    }));
+    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
+}
+
+// Save score
+function saveScore(lessonId, score) {
+    localStorage.setItem(`ged-life-science-lessonScore-${lessonId}`, score);
+    console.log(`Saved ged-life-science-lessonScore-${lessonId}: ${score}`);
+}
+
+// Get score
+function getScore(lessonId) {
+    return localStorage.getItem(`ged-life-science-lessonScore-${lessonId}`) || "Not completed yet";
+}
+
+// Show score on page load
+function showScore() {
+    const scoreDisplay = document.getElementById('score-display');
+    if (scoreDisplay) {
+        const score = getScore(currentLesson);
+        scoreDisplay.innerHTML = `Previous Score for Lesson ${currentLesson}: ${score}`;
+    } else {
+        console.log("Score display element not found, skipping showScore");
+    }
+}
