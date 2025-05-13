@@ -398,7 +398,7 @@ function showItem() {
                     <div class="right-column">
                         <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -487,7 +487,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="btn-next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -538,7 +538,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <div class="right-column">
                     <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
