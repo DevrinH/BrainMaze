@@ -217,74 +217,74 @@ const scientificMethodQuestions = [
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "A researcher tests the effect of sunlight on plant growth by placing one group of plants in full sunlight and another in shade. What is the independent variable in this experiment?",
+        question: "Passage: A scientist hypothesizes that increased humidity improves seed germination rates. The experiment compares germination in high and low humidity environments. Why is this hypothesis testable?",
         answers: [
-            { text: "A) Amount of sunlight", correct: true },
-            { text: "B) Plant growth rate", correct: false },
-            { text: "C) Type of plant", correct: false },
-            { text: "D) Amount of water", correct: false }
+            { text: "A) It links measurable variables like humidity and germination rate", correct: true },
+            { text: "B) It avoids specifying variables", correct: false },
+            { text: "C) It is based on unmeasurable outcomes", correct: false },
+            { text: "D) It requires no experimental setup", correct: false }
         ],
-        explanation: "The independent variable is the factor manipulated by the researcher, which is the amount of sunlight in this experiment. Plant growth rate is the dependent variable, while plant type and water amount are potential controlled variables. Thus, option A is correct.",
+        explanation: "The hypothesis links humidity (manipulable) and germination rate (measurable), making it testable. It does not avoid variables, rely on unmeasurable outcomes, or require no setup, making A correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "In an experiment, a scientist hypothesizes that fertilizer increases tomato yield. Which step of the scientific method involves testing this hypothesis?",
+        question: "Passage: To test if a new fertilizer enhances corn yield, a scientist measures yield in fertilized and unfertilized fields, controlling for soil type and water. What is the dependent variable in this experiment?",
         answers: [
-            { text: "A) Forming a conclusion", correct: false },
-            { text: "B) Conducting an experiment", correct: true },
-            { text: "C) Making observations", correct: false },
-            { text: "D) Developing a hypothesis", correct: false }
+            { text: "A) Fertilizer amount", correct: false },
+            { text: "B) Corn yield", correct: true },
+            { text: "C) Soil type", correct: false },
+            { text: "D) Water amount", correct: false }
         ],
-        explanation: "Testing a hypothesis involves conducting an experiment to collect data and evaluate the hypothesis. Forming a conclusion follows data analysis, observations precede hypothesis development, and developing a hypothesis is the initial step. Thus, option B is correct.",
+        explanation: "The dependent variable is the outcome measured, which is corn yield in response to fertilizer. Soil type and water are controlled, and fertilizer is the independent variable, making B correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "A student tests how temperature affects bacterial growth, using three petri dishes at 20°C, 30°C, and 40°C. What is the dependent variable in this experiment?",
+        question: "Passage: An experiment tests how exercise frequency affects blood oxygen levels, with groups exercising 0, 3, or 5 days a week. The researcher ensures all groups have similar diets. Why is diet controlled?",
         answers: [
-            { text: "A) Temperature", correct: false },
-            { text: "B) Bacterial growth", correct: true },
-            { text: "C) Petri dish size", correct: false },
-            { text: "D) Type of bacteria", correct: false }
+            { text: "A) To increase blood oxygen levels", correct: false },
+            { text: "B) To isolate the effect of exercise frequency", correct: true },
+            { text: "C) To vary the independent variable", correct: false },
+            { text: "D) To measure diet’s effect", correct: false }
         ],
-        explanation: "The dependent variable is the factor measured in response to the independent variable, which is bacterial growth in this case. Temperature is the independent variable, while petri dish size and bacteria type are controlled variables. Thus, option B is correct.",
+        explanation: "Controlling diet isolates the effect of exercise frequency on blood oxygen levels, preventing diet from influencing results. It’s not to increase oxygen, vary exercise, or measure diet, making B correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "A researcher studies the effect of pH on enzyme activity and keeps temperature and enzyme concentration constant. What is the purpose of keeping these factors constant?",
+        question: "Passage: A study on noise levels and concentration records participants’ focus scores under quiet, moderate, and loud conditions, with noise levels checked every 10 minutes. Why check noise levels frequently?",
         answers: [
-            { text: "A) To isolate the effect of pH on enzyme activity", correct: true },
-            { text: "B) To increase enzyme activity", correct: false },
-            { text: "C) To simplify the hypothesis", correct: false },
-            { text: "D) To reduce the need for data analysis", correct: false }
+            { text: "A) To vary noise as the independent variable", correct: false },
+            { text: "B) To measure concentration", correct: false },
+            { text: "C) To ensure consistent noise conditions", correct: true },
+            { text: "D) To change focus scores", correct: false }
         ],
-        explanation: "Keeping temperature and enzyme concentration constant isolates the effect of pH, ensuring that changes in enzyme activity are due to pH alone. The other options do not accurately describe the purpose of controlling variables. Thus, option A is correct.",
+        explanation: "Frequent checks ensure noise levels remain consistent as the independent variable, preventing unintended variations. It’s not to vary noise, measure concentration, or change scores, making C correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "In an experiment, a scientist observes that plants watered with rainwater grow taller than those watered with tap water. What is the next step in the scientific method?",
+        question: "Passage: An experiment tests if sugar intake affects reaction time. The sugar group has a mean reaction time of 0.4 seconds, compared to 0.6 seconds for the no-sugar group. What conclusion can be drawn from this data?",
         answers: [
-            { text: "A) Publish the results", correct: false },
-            { text: "B) Form a conclusion", correct: false },
-            { text: "C) Develop a hypothesis", correct: true },
-            { text: "D) Conduct additional experiments", correct: false }
+            { text: "A) Sugar intake has no effect on reaction time", correct: false },
+            { text: "B) Sugar intake slows reaction time", correct: false },
+            { text: "C) Sugar intake improves reaction time", correct: true },
+            { text: "D) Reaction time is unrelated to diet", correct: false }
         ],
-        explanation: "After making observations, the next step in the scientific method is to develop a hypothesis to explain the observation (e.g., rainwater promotes taller plant growth). Conducting experiments follows hypothesis formation, while conclusions and publishing come later. Thus, option C is correct.",
+        explanation: "The sugar group’s faster reaction time (0.4 vs. 0.6 seconds) suggests sugar improves reaction time. The data does not indicate no effect, slower reaction, or diet irrelevance, making C correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "A researcher designs an experiment to test the effect of light color on photosynthesis rate. They use red, blue, and green lights but notice the light intensity varies. How could this affect the experiment?",
+        question: "Passage: A study on the effect of sleep duration on memory performance is repeated across multiple groups, yielding similar results. What does this replication achieve?",
         answers: [
-            { text: "A) It simplifies the data collection", correct: false },
-            { text: "B) It increases the sample size", correct: false },
-            { text: "C) It reduces the need for controls", correct: false },
-            { text: "D) It introduces a confounding variable", correct: true }
+            { text: "A) It changes the independent variable", correct: false },
+            { text: "B) It reduces the sample size", correct: false },
+            { text: "C) It simplifies data collection", correct: false },
+            { text: "D) It increases result reliability", correct: true }
         ],
-        explanation: "Varying light intensity introduces a confounding variable, as it could affect photosynthesis rate alongside light color, making it hard to isolate the effect of color. The other options do not describe the impact of this issue. Thus, option D is correct.",
+        explanation: "Replication with consistent results increases the reliability of the findings, ensuring they are not due to chance. It does not change variables, reduce sample size, or simplify data, making D correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     }
