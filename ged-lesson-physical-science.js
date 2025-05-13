@@ -294,6 +294,84 @@ const physicalScienceQuestions = [
         explanation: "Using a = Δv ÷ t: Δv = 30 m/s - 10 m/s = 20 m/s; a = 20 m/s ÷ 5 s = 4 m/s², making C correct.",
         difficulty: "medium",
         category: "ged-physical-science"
+    },
+    {
+        passage: "Passage: Newton’s First Law states that an object at rest stays at rest, and an object in motion stays in motion with constant velocity, unless acted upon by an external force.",
+        question: "Why does a hockey puck slide across ice with nearly constant velocity?",
+        answers: [
+            { text: "A) No significant external force acts on it", correct: true },
+            { text: "B) A constant force pushes it", correct: false },
+            { text: "C) Its mass increases", correct: false },
+            { text: "D) Its velocity decreases", correct: false }
+        ],
+        explanation: "Newton’s First Law states an object in motion maintains constant velocity unless acted upon by an external force. On ice, friction is minimal, so no significant force alters the puck’s motion, making A correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        passage: "Passage: In a chemical reaction, the activation energy is the minimum energy required to start the reaction, often lowered by catalysts.",
+        question: "What effect does a catalyst have on the activation energy of a chemical reaction?",
+        answers: [
+            { text: "A) It increases the activation energy", correct: false },
+            { text: "B) It lowers the activation energy", correct: true },
+            { text: "C) It eliminates the activation energy", correct: false },
+            { text: "D) It has no effect on the activation energy", correct: false }
+        ],
+        explanation: "The passage states catalysts lower the activation energy, speeding up the reaction. They don’t increase, eliminate, or leave it unchanged, making B correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        passage: "Passage: Potential energy is stored energy based on position, calculated as PE = mgh, where m is mass, g is gravitational acceleration (9.8 m/s²), and h is height.",
+        question: "What is the potential energy of a 4 kg object at a height of 5 meters?",
+        answers: [
+            { text: "A) 98 J", correct: false },
+            { text: "B) 196 J", correct: true },
+            { text: "C) 245 J", correct: false },
+            { text: "D) 392 J", correct: false }
+        ],
+        explanation: "Using PE = mgh: PE = 4 kg × 9.8 m/s² × 5 m = 196 J, making B correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        passage: "Passage: The frequency of a wave determines its pitch for sound or color for light, with higher frequencies producing higher pitches or bluer light.",
+        question: "What does a higher frequency wave produce in sound?",
+        answers: [
+            { text: "A) Louder sound", correct: false },
+            { text: "B) Lower pitch", correct: false },
+            { text: "C) Higher pitch", correct: true },
+            { text: "D) Slower speed", correct: false }
+        ],
+        explanation: "The passage states higher frequencies produce higher pitches in sound. Amplitude affects loudness, frequency doesn’t lower pitch or change speed, making C correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        passage: "Passage: Solids have a fixed shape and volume because their particles vibrate in fixed positions, unlike liquids or gases.",
+        question: "Why do solids maintain a fixed volume?",
+        answers: [
+            { text: "A) Their particles are widely spaced", correct: false },
+            { text: "B) Their particles move freely", correct: false },
+            { text: "C) Their particles are loosely packed", correct: false },
+            { text: "D) Their particles vibrate in fixed positions", correct: true }
+        ],
+        explanation: "The passage states solids maintain fixed shape and volume because particles vibrate in fixed positions, unlike liquids or gases, making D correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
+    },
+    {
+        passage: "Passage: Newton’s Second Law states that acceleration is inversely proportional to mass (a = F/m), meaning a larger mass requires more force to achieve the same acceleration.",
+        question: "If a 15 kg object experiences a 45 N force, what is its acceleration?",
+        answers: [
+            { text: "A) 2 m/s²", correct: false },
+            { text: "B) 3 m/s²", correct: true },
+            { text: "C) 4 m/s²", correct: false },
+            { text: "D) 5 m/s²", correct: false }
+        ],
+        explanation: "Using a = F/m: a = 45 N ÷ 15 kg = 3 m/s², making B correct.",
+        difficulty: "medium",
+        category: "ged-physical-science"
     }
 ];
 
