@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: Physical geography includes landforms like volcanoes, formed by tectonic activity. What forms volcanoes?",
+                passage: "In 2023, a geological survey in Millville examined the region’s volcanic landscape. Physical geography studies landforms like volcanoes, which are formed by tectonic activity as molten rock erupts from beneath the Earth’s crust, shaping dramatic natural features.",
+                question: "What forms volcanoes?",
                 options: [
                     { text: "A) Tectonic activity", correct: true },
                     { text: "B) Ocean currents", correct: false },
@@ -64,14 +65,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: Human geography studies population distribution. Migration to urban areas can strain infrastructure. What can urban migration cause?",
+                passage: "In 2024, Greenvale’s population grew rapidly as people migrated to urban centers, a focus of human geography. This migration to cities often strains infrastructure, such as transportation and water systems, due to increased demand from growing populations.",
+                question: "What can urban migration cause?",
                 options: [
-                    { text: "A) Strained infrastructure", correct: true },
-                    { text: "B) Reduced population", correct: false },
+                    { text: "A) Reduced population", correct: false },
+                    { text: "B) Strained infrastructure", correct: true },
                     { text: "C) Decreased resource use", correct: false },
                     { text: "D) More rural development", correct: false }
                 ],
-                explanation: "The passage states urban migration can strain infrastructure, making A correct."
+                explanation: "The passage states urban migration can strain infrastructure, making B correct."
             },
             {
                 type: "example",
@@ -89,14 +91,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: Climate change leads to sea level rise due to melting ice caps, primarily from carbon dioxide emissions. What contributes to sea level rise?",
+                passage: "In 2023, Clearwater’s environmental researchers studied climate change impacts. Rising sea levels, driven by melting ice caps due to carbon dioxide emissions from fossil fuel combustion, threaten coastal communities, highlighting the urgent need for emission reductions.",
+                question: "What contributes to sea level rise?",
                 options: [
-                    { text: "A) Melting ice caps", correct: true },
-                    { text: "B) Increased rainfall", correct: false },
+                    { text: "A) Increased rainfall", correct: false },
+                    { text: "B) Melting ice caps", correct: true },
                     { text: "C) Soil erosion", correct: false },
                     { text: "D) Urban expansion", correct: false }
                 ],
-                explanation: "The passage states melting ice caps cause sea level rise, making A correct."
+                explanation: "The passage states melting ice caps cause sea level rise, making B correct."
             },
             {
                 type: "example",
@@ -114,14 +117,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: Sustainable resource management prevents deforestation, which destroys habitats. What does deforestation cause?",
+                passage: "In 2024, Millville’s forestry department emphasized sustainable resource management to combat deforestation. The clearing of forests for agriculture destroys habitats, disrupting ecosystems and endangering wildlife, which underscores the need for conservation policies.",
+                question: "What does deforestation cause?",
                 options: [
-                    { text: "A) Habitat destruction", correct: true },
-                    { text: "B) Increased fish stocks", correct: false },
+                    { text: "A) Increased fish stocks", correct: false },
+                    { text: "B) Habitat destruction", correct: true },
                     { text: "C) Reduced urbanization", correct: false },
                     { text: "D) Lower emissions", correct: false }
                 ],
-                explanation: "The passage states deforestation destroys habitats, making A correct."
+                explanation: "The passage states deforestation destroys habitats, making B correct."
             },
             {
                 type: "example",
@@ -139,14 +143,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: The Endangered Species Act protects biodiversity by preserving habitats. What does the Endangered Species Act aim to protect?",
+                passage: "In 2023, Greenvale implemented policies inspired by the Endangered Species Act to protect local wildlife. This act focuses on preserving biodiversity by safeguarding habitats, ensuring the survival of threatened species and maintaining ecological balance.",
+                question: "What does the Endangered Species Act aim to protect?",
                 options: [
-                    { text: "A) Biodiversity", correct: true },
-                    { text: "B) Industrial output", correct: false },
-                    { text: "C) Urban development", correct: false },
+                    { text: "A) Industrial output", correct: false },
+                    { text: "B) Urban development", correct: false },
+                    { text: "C) Biodiversity", correct: true },
                     { text: "D) Fossil fuel use", correct: false }
                 ],
-                explanation: "The passage states the Endangered Species Act protects biodiversity, making A correct."
+                explanation: "The passage states the Endangered Species Act protects biodiversity, making C correct."
             },
             {
                 type: "example",
@@ -164,14 +169,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'Fertile river valleys attract large populations due to agricultural opportunities.' Why do river valleys have large populations?",
+                passage: "In 2024, Clearwater’s demographic study revealed dense populations in fertile river valleys. These areas attract large populations due to agricultural opportunities, as rich soils and water access support farming, fostering economic and social development.",
+                question: "Why do river valleys have large populations?",
                 options: [
-                    { text: "A) Agricultural opportunities", correct: true },
-                    { text: "B) Sparse resources", correct: false },
-                    { text: "C) Harsh climates", correct: false },
+                    { text: "A) Sparse resources", correct: false },
+                    { text: "B) Harsh climates", correct: false },
+                    { text: "C) Agricultural opportunities", correct: true },
                     { text: "D) Limited trade", correct: false }
                 ],
-                explanation: "The passage states river valleys attract populations due to agricultural opportunities, making A correct."
+                explanation: "The passage states river valleys attract populations due to agricultural opportunities, making C correct."
             },
             {
                 type: "example",
@@ -189,14 +195,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'Deforestation disrupts ecosystems by removing animal habitats and altering water cycles.' What is one impact of deforestation?",
+                passage: "In 2023, Millville’s environmentalists raised concerns about deforestation in nearby forests. The clearing of trees for agriculture disrupts ecosystems by removing animal habitats, altering water cycles, and contributing to biodiversity loss, threatening long-term ecological stability.",
+                question: "What is one impact of deforestation?",
                 options: [
-                    { text: "A) Habitat removal", correct: true },
-                    { text: "B) Increased oxygen production", correct: false },
-                    { text: "C) Reduced carbon emissions", correct: false },
-                    { text: "D) Enhanced water cycles", correct: false }
+                    { text: "A) Increased oxygen production", correct: false },
+                    { text: "B) Reduced carbon emissions", correct: false },
+                    { text: "C) Enhanced water cycles", correct: false },
+                    { text: "D) Habitat removal", correct: true }
                 ],
-                explanation: "The passage states deforestation removes animal habitats, making A correct."
+                explanation: "The passage states deforestation removes animal habitats, making D correct."
             }
         ]
     }
@@ -205,7 +212,8 @@ const lessons = {
 // Geography and environmental issues question array
 const geographyEnvironmentalQuestions = [
     {
-        question: "Passage: Renewable energy sources, like solar and wind, reduce reliance on fossil fuels, decreasing greenhouse gas emissions. What is a benefit of renewable energy?",
+        passage: "In 2023, Millville invested heavily in solar and wind farms to power its growing urban areas. Renewable energy sources, such as solar and wind, reduce reliance on fossil fuels, significantly decreasing greenhouse gas emissions and supporting sustainable development.",
+        question: "What is a benefit of renewable energy?",
         answers: [
             { text: "A) Decreased emissions", correct: true },
             { text: "B) Increased deforestation", correct: false },
@@ -217,74 +225,80 @@ const geographyEnvironmentalQuestions = [
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "Passage: Volcanic eruptions, driven by tectonic plate movements, release ash and gases that can temporarily cool the planet by blocking sunlight. What is a climatic effect of volcanic eruptions?",
+        passage: "In 2024, a volcanic eruption in Greenvale released massive ash clouds, studied by local geographers. Volcanic eruptions, driven by tectonic plate movements, emit ash and gases that can temporarily cool the planet by blocking sunlight, impacting global climate patterns.",
+        question: "What is a climatic effect of volcanic eruptions?",
         answers: [
-            { text: "A) Temporary global cooling", correct: true },
-            { text: "B) Permanent temperature increase", correct: false },
+            { text: "A) Permanent temperature increase", correct: false },
+            { text: "B) Temporary global cooling", correct: true },
             { text: "C) Increased sea level rise", correct: false },
             { text: "D) Reduced atmospheric carbon", correct: false }
         ],
-        explanation: "The passage explains that volcanic eruptions release ash and gases that block sunlight, causing temporary cooling. They do not cause permanent warming, sea level rise, or carbon reduction, making A correct.",
+        explanation: "The passage explains volcanic eruptions cause temporary cooling by blocking sunlight, making B correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "Passage: Urban sprawl, the expansion of cities into surrounding areas, often leads to habitat loss as natural landscapes are converted to urban use. What is a primary environmental impact of urban sprawl?",
+        passage: "In 2023, Clearwater’s rapid urban expansion into surrounding forests alarmed environmentalists. Urban sprawl, the spread of cities into natural areas, often leads to habitat loss as forests and wetlands are converted for housing and infrastructure, threatening local wildlife.",
+        question: "What is a primary environmental impact of urban sprawl?",
         answers: [
             { text: "A) Increased agricultural output", correct: false },
-            { text: "B) Loss of natural habitats", correct: true },
-            { text: "C) Reduced urban population density", correct: false },
+            { text: "B) Reduced urban population density", correct: false },
+            { text: "C) Loss of natural habitats", correct: true },
             { text: "D) Enhanced water conservation", correct: false }
         ],
-        explanation: "The passage states urban sprawl converts natural landscapes, leading to habitat loss. It does not increase agriculture, reduce density, or conserve water, making B correct.",
+        explanation: "The passage states urban sprawl leads to habitat loss, making C correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "Passage: The Paris Agreement (2015) is an international treaty aimed at limiting global warming by reducing greenhouse gas emissions through commitments from participating countries. What is the primary goal of the Paris Agreement?",
+        passage: "In 2024, Millville joined global efforts under the Paris Agreement, a 2015 treaty uniting countries to combat climate change. The agreement focuses on limiting global warming by reducing greenhouse gas emissions through coordinated international commitments and policies.",
+        question: "What is the primary goal of the Paris Agreement?",
         answers: [
-            { text: "A) To promote industrial growth", correct: false },
-            { text: "B) To limit global warming", correct: true },
-            { text: "C) To regulate international trade", correct: false },
-            { text: "D) To expand urban areas", correct: false }
+            { text: "A) Promote industrial growth", correct: false },
+            { text: "B) Regulate international trade", correct: false },
+            { text: "C) Limit global warming", correct: true },
+            { text: "D) Expand urban areas", correct: false }
         ],
-        explanation: "The passage highlights the Paris Agreement’s aim to limit global warming through emission reductions. It does not focus on industry, trade, or urban expansion, making B correct.",
+        explanation: "The passage highlights the Paris Agreement’s aim to limit global warming, making C correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "Passage: Coastal regions often have high population densities due to access to marine resources and trade routes, but they are vulnerable to climate change impacts like sea level rise. Why are coastal populations particularly at risk from climate change?",
+        passage: "In 2023, Greenvale’s coastal communities faced growing risks from climate change. Coastal regions, densely populated due to marine resources and trade routes, are vulnerable to sea level rise, which threatens infrastructure and livelihoods in low-lying areas.",
+        question: "Why are coastal populations particularly at risk from climate change?",
         answers: [
-            { text: "A) Due to their reliance on agriculture", correct: false },
-            { text: "B) Due to their inland location", correct: false },
-            { text: "C) Due to vulnerability to sea level rise", correct: true },
-            { text: "D) Due to limited trade opportunities", correct: false }
+            { text: "A) Reliance on agriculture", correct: false },
+            { text: "B) Vulnerability to sea level rise", correct: true },
+            { text: "C) Inland location", correct: false },
+            { text: "D) Limited trade opportunities", correct: false }
         ],
-        explanation: "The passage notes coastal regions’ vulnerability to sea level rise, a climate change impact. They are not primarily agricultural, inland, or limited in trade, making C correct.",
+        explanation: "The passage notes coastal vulnerability to sea level rise, making B correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "Passage: Overexploitation of groundwater for irrigation can lead to aquifer depletion, reducing water availability for future use and causing land subsidence. What is a consequence of overexploiting groundwater?",
+        passage: "In 2024, Clearwater’s farmers overused groundwater for irrigation, raising concerns about sustainability. Overexploitation of groundwater depletes aquifers, reducing future water availability and causing land subsidence, which damages infrastructure and agricultural productivity.",
+        question: "What is a consequence of overexploiting groundwater?",
         answers: [
             { text: "A) Increased forest cover", correct: false },
-            { text: "B) Enhanced soil fertility", correct: false },
-            { text: "C) Improved water quality", correct: false },
-            { text: "D) Aquifer depletion", correct: true }
+            { text: "B) Aquifer depletion", correct: true },
+            { text: "C) Enhanced soil fertility", correct: false },
+            { text: "D) Improved water quality", correct: false }
         ],
-        explanation: "The passage states overexploitation of groundwater causes aquifer depletion. It does not increase forests, fertility, or water quality, making D correct.",
+        explanation: "The passage states overexploitation causes aquifer depletion, making B correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     },
     {
-        question: "Passage: Deforestation in the Amazon rainforest releases stored carbon, contributing to global warming, and disrupts indigenous communities’ livelihoods. How does Amazon deforestation contribute to climate change?",
+        passage: "In 2023, Millville’s conservationists campaigned against deforestation in the Amazon rainforest. Deforestation releases stored carbon, contributing to global warming, and disrupts indigenous communities’ livelihoods by destroying ecosystems critical to their survival and cultural practices.",
+        question: "How does Amazon deforestation contribute to climate change?",
         answers: [
-            { text: "A) By reducing greenhouse gas emissions", correct: false },
-            { text: "B) By increasing oxygen production", correct: false },
-            { text: "C) By improving air quality", correct: false },
-            { text: "D) By releasing stored carbon", correct: true }
+            { text: "A) Reducing greenhouse gas emissions", correct: false },
+            { text: "B) Releasing stored carbon", correct: true },
+            { text: "C) Increasing oxygen production", correct: false },
+            { text: "D) Improving air quality", correct: false }
         ],
-        explanation: "The passage explains that deforestation releases stored carbon, contributing to global warming. It does not reduce emissions, increase oxygen, or improve air quality, making D correct.",
+        explanation: "The passage explains deforestation releases stored carbon, contributing to global warming, making B correct.",
         difficulty: "medium",
         category: "ged-geography-environmental-issues"
     }
@@ -328,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found!");
     }
 
     showScore();
@@ -378,14 +392,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row social-studies-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -407,14 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -474,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -519,14 +540,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row social-studies-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -545,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
