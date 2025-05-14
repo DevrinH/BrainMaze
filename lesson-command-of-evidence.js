@@ -1039,6 +1039,17 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
+// Save lesson completion
+function saveLessonCompletion() {
+    const completionData = {
+        exam: "SAT",
+        type: "lesson",
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    console.log("Saved lesson completion:", completionData);
+}
+
 function nextQuizItem() {
     currentQuestionIndex++;
     console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
