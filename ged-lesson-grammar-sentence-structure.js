@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Sentence: 'The committee (decide/decides) on the budget each year.' Which verb is correct?",
+                passage: "In 2023, a company in Millville published an annual report stating: 'The committee (decide/decides) on the budget each year.' The editor needed to select the correct verb to ensure subject-verb agreement in the report, maintaining professionalism for stakeholders.",
+                question: "Which verb is correct in the sentence 'The committee (decide/decides) on the budget each year.'?",
                 options: [
                     { text: "A) decides", correct: true },
                     { text: "B) decide", correct: false },
@@ -64,7 +65,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Sentence: 'Although the training session was informative.' Is this a complete sentence or a fragment?",
+                passage: "In 2024, a training manual in Greenvale included the sentence: 'Although the training session was informative.' The editor needed to determine if this was a complete sentence or a fragment to ensure the manual’s clarity for employees learning new procedures.",
+                question: "Is the sentence 'Although the training session was informative.' a complete sentence or a fragment?",
                 options: [
                     { text: "A) Fragment", correct: true },
                     { text: "B) Complete sentence", correct: false },
@@ -89,14 +91,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Sentence: 'The project is urgent we need to finish by Friday.' How should this run-on be corrected?",
+                passage: "In 2023, a project manager in Clearwater sent an email stating: 'The project is urgent we need to finish by Friday.' The manager needed to correct the run-on sentence to maintain clarity and professionalism in the communication to the team.",
+                question: "How should the run-on sentence 'The project is urgent we need to finish by Friday.' be corrected?",
                 options: [
                     { text: "A) The project is urgent. We need to finish by Friday.", correct: true },
                     { text: "B) The project is urgent we need to finish by Friday.", correct: false },
                     { text: "C) The project is urgent, we need to finish by Friday.", correct: false },
                     { text: "D) The project is urgent and we need to finish by Friday.", correct: true }
                 ],
-                explanation: "The run-on can be fixed with a period (A) or a  (D), both separating the clauses correctly."
+                explanation: "The run-on can be fixed with a period (A) or a conjunction (D), both separating the clauses correctly."
             },
             {
                 type: "example",
@@ -114,7 +117,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Sentence: 'Every student should bring their own supplies.' Which pronoun is correct?",
+                passage: "In 2024, a company policy in Millville stated: 'Every student should bring their own supplies.' The human resources team needed to correct the pronoun usage to ensure agreement with the singular antecedent for clarity in the policy document.",
+                question: "Which pronoun is correct in the sentence 'Every student should bring their own supplies.'?",
                 options: [
                     { text: "A) his or her", correct: true },
                     { text: "B) their", correct: false },
@@ -139,7 +143,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Sentence: 'The report which was due last week is incomplete.' Is the comma usage correct?",
+                passage: "In 2023, a project report in Greenvale included the sentence: 'The report which was due last week is incomplete.' The editor needed to verify if the comma usage was correct for the clause providing additional information about the report’s status.",
+                question: "Is the comma usage correct in the sentence 'The report which was due last week is incomplete.'?",
                 options: [
                     { text: "A) Incorrect, needs commas around 'which was due last week'.", correct: true },
                     { text: "B) Correct, no commas needed.", correct: false },
@@ -164,7 +169,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Sentence: 'The company launched a new product and is planning a campaign.' Is the verb tense consistent?",
+                passage: "In 2024, a company newsletter in Clearwater stated: 'The company launched a new product and is planning a campaign.' The editor needed to confirm if the verb tenses were consistent to ensure the newsletter accurately described ongoing activities.",
+                question: "Is the verb tense consistent in the sentence 'The company launched a new product and is planning a campaign.'?",
                 options: [
                     { text: "A) Consistent, both are present tense.", correct: true },
                     { text: "B) Inconsistent, 'launched' is past tense.", correct: false },
@@ -189,7 +195,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Sentence: 'The training is mandatory all employees must attend or risk losing benefits.' How should this be corrected?",
+                passage: "In 2023, a company memo in Millville stated: 'The training is mandatory all employees must attend or risk losing benefits.' The communications team needed to correct the sentence structure to ensure clarity and professionalism in the memo to employees.",
+                question: "How should the sentence 'The training is mandatory all employees must attend or risk losing benefits.' be corrected?",
                 options: [
                     { text: "A) The training is mandatory; all employees must attend, or they risk losing benefits.", correct: true },
                     { text: "B) The training is mandatory all employees must attend or risk losing benefits.", correct: false },
@@ -205,7 +212,8 @@ const lessons = {
 // Grammar and sentence structure question array
 const grammarSentenceStructureQuestions = [
     {
-        question: "Sentence: 'The manager requires reports to be submitted on time otherwise delays affect the schedule.' How should this run-on sentence be corrected?",
+        passage: "In 2024, a project coordinator in Millville sent an email to the team, stating: 'The manager requires reports to be submitted on time otherwise delays affect the schedule.' The coordinator needed to correct the run-on sentence to ensure clear communication and maintain a professional tone.",
+        question: "How should the run-on sentence 'The manager requires reports to be submitted on time otherwise delays affect the schedule.' be corrected?",
         answers: [
             { text: "A) The manager requires reports to be submitted on time; otherwise, delays affect the schedule.", correct: true },
             { text: "B) The manager requires reports to be submitted on time otherwise delays affect the schedule.", correct: false },
@@ -217,6 +225,7 @@ const grammarSentenceStructureQuestions = [
         category: "ged-grammar-sentence-structure"
     },
     {
+        passage: "In 2023, a community newsletter in Greenvale described a local initiative: 'The community garden, thriving with vegetables, attract many visitors.' The editor needed to ensure the sentence was grammatically correct and properly structured to engage readers effectively.",
         question: "Which sentence is grammatically correct and uses proper sentence structure?",
         answers: [
             { text: "A) The community garden, thriving with vegetables, attract many visitors.", correct: false },
@@ -229,18 +238,20 @@ const grammarSentenceStructureQuestions = [
         category: "ged-grammar-sentence-structure"
     },
     {
+        passage: "In 2024, a volunteer coordinator in Clearwater wrote a recruitment flyer stating: 'Volunteers can participate by hiking, swimming, or to garden.' The coordinator needed to revise the sentence to ensure parallel structure, making the flyer clear and appealing to potential volunteers.",
         question: "Which sentence correctly uses parallel structure?",
         answers: [
-            { text: "A) She enjoys hiking, swimming, and to garden.", correct: false },
-            { text: "B) She enjoys hiking, swimming, and gardening.", correct: true },
-            { text: "C) She enjoys to hike, swimming, and gardening.", correct: false },
-            { text: "D) She enjoys hiking, to swim, and gardening.", correct: false }
+            { text: "A) Volunteers can participate by hiking, swimming, and to garden.", correct: false },
+            { text: "B) Volunteers can participate by hiking, swimming, and gardening.", correct: true },
+            { text: "C) Volunteers can participate by to hike, swimming, and gardening.", correct: false },
+            { text: "D) Volunteers can participate by hiking, to swim, and gardening.", correct: false }
         ],
         explanation: "Option B is correct because it maintains parallel structure by using gerunds ('hiking,' 'swimming,' 'gardening') consistently. Options A, C, and D mix infinitives ('to garden,' 'to hike,' 'to swim') with gerunds, breaking parallelism.",
         difficulty: "medium",
         category: "ged-grammar-sentence-structure"
     },
     {
+        passage: "In 2023, a library opening announcement in Millville included the sentence: 'The new library designed with modern features, opened last week.' The communications team needed to ensure the sentence was free of grammatical errors and used correct punctuation to reflect the library’s professional image.",
         question: "Which sentence is free of grammatical errors and uses correct punctuation?",
         answers: [
             { text: "A) The new library designed with modern features, opened last week.", correct: false },
@@ -253,6 +264,7 @@ const grammarSentenceStructureQuestions = [
         category: "ged-grammar-sentence-structure"
     },
     {
+        passage: "In 2024, a recycling program in Greenvale published a report stating: 'The recycling program is effective it reduces landfill waste significantly.' The editor needed to correct the sentence structure to properly join the independent clauses, ensuring clarity in the report for community stakeholders.",
         question: "Which sentence correctly uses a semicolon to join two independent clauses?",
         answers: [
             { text: "A) The recycling program is effective; it reduces landfill waste significantly.", correct: true },
@@ -265,18 +277,20 @@ const grammarSentenceStructureQuestions = [
         category: "ged-grammar-sentence-structure"
     },
     {
+        passage: "In 2023, a volunteer handbook in Millville stated: 'Each of the volunteers bring their own tools to the project.' The editor needed to ensure the sentence had correct subject-verb agreement and pronoun usage to guide volunteers clearly and professionally.",
         question: "Which sentence has correct subject-verb agreement and pronoun usage?",
         answers: [
             { text: "A) Each of the volunteers bring their own tools to the project.", correct: false },
             { text: "B) Each of the volunteers brings their own tools to the project.", correct: false },
-            { text: "C) Each of the volunteers brings his or her own tools to the project.", correct: false },
-            { text: "D) Each of the volunteers brings his or her own tools to the project.", correct: true }
+            { text: "C) Each of the volunteers brings his or her own tools to the project.", correct: true },
+            { text: "D) Each of the volunteers bring his or her own tools to the project.", correct: false }
         ],
-        explanation: "Option D is correct because 'Each' is singular, requiring the singular verb 'brings,' and the pronoun 'his or her' agrees with the singular subject. Options A and B use the incorrect verb 'bring' or the plural pronoun 'their,' which disagrees with the singular subject 'Each.' Option C is identical to D but included to balance answer distribution.",
+        explanation: "Option C is correct because 'Each' is singular, requiring the singular verb 'brings,' and the pronoun 'his or her' agrees with the singular subject. Options A and B use the incorrect verb 'bring' or the plural pronoun 'their,' which disagrees with the singular subject 'Each.' Option D uses the incorrect verb 'bring.'",
         difficulty: "medium",
         category: "ged-grammar-sentence-structure"
     },
     {
+        passage: "In 2024, a commuter newsletter in Clearwater included the sentence: 'Running quickly, the bus was missed by the commuter.' The editor needed to revise the sentence to avoid a dangling modifier and ensure grammatical correctness for clear communication to readers.",
         question: "Which sentence avoids a dangling modifier and is grammatically correct?",
         answers: [
             { text: "A) Running quickly, the bus was missed by the commuter.", correct: false },
@@ -378,12 +392,11 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row english-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
                         <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                     </div>
@@ -407,10 +420,14 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
-    const passageMatch = content.match(/Sentence:.*?['"].*?['"]/i) || content.match(/<p>Sentence:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Sentence:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/Sentence:.*?(\.(?=\s*Which|\s*Is|\s*How)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
 }
 
 // Handle answer selection
@@ -515,12 +532,11 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row english-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
                     <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
