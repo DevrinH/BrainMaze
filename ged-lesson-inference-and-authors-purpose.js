@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: 'The employee handbook emphasizes punctuality, stating that tardiness disrupts team schedules. It lists penalties for repeated lateness.' What can be inferred?",
+                passage: "In 2023, a company in Millville updated its employee handbook, which stated: 'Punctuality is a priority, as tardiness disrupts team schedules. Repeated lateness will result in penalties.' The handbook’s focus on these rules needed careful review to understand the company’s values and expectations for employees.",
+                question: "What can be inferred from the passage?",
                 options: [
                     { text: "A) The company values timely work.", correct: true },
                     { text: "B) Employees are often late.", correct: false },
@@ -64,7 +65,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'Our company’s safety manual details emergency procedures to ensure employee safety. Follow these steps to evacuate during a fire.' What is the author’s purpose?",
+                passage: "In 2024, a company in Greenvale distributed a safety manual to its employees, which included the following: 'Our safety manual details emergency procedures to ensure employee safety. Follow these steps to evacuate during a fire.' The manual was designed to guide employees in critical situations.",
+                question: "What is the author’s purpose?",
                 options: [
                     { text: "A) To inform employees about safety procedures.", correct: true },
                     { text: "B) To persuade employees to leave the company.", correct: false },
@@ -89,7 +91,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: 'The new software training is a waste of time. Employees already know the basics, and the sessions are repetitive.' What can be inferred about the author’s view?",
+                passage: "In 2023, an internal memo at a Clearwater company expressed frustration: 'The new software training is a waste of time. Employees already know the basics, and the sessions are repetitive.' The memo’s tone needed analysis to understand the sender’s perspective on the training program.",
+                question: "What can be inferred about the author’s view?",
                 options: [
                     { text: "A) The author disapproves of the training.", correct: true },
                     { text: "B) The author supports the training.", correct: false },
@@ -114,7 +117,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: 'Our employee newsletter celebrates recent achievements, including record sales and team awards. Share your success stories with us!' What is the author’s purpose?",
+                passage: "In 2024, a company in Millville published an employee newsletter stating: 'Our newsletter celebrates recent achievements, including record sales and team awards. Share your success stories with us!' The newsletter aimed to foster a positive workplace culture through its content and tone.",
+                question: "What is the author’s purpose?",
                 options: [
                     { text: "A) To motivate employees by celebrating achievements.", correct: true },
                     { text: "B) To inform about sales data.", correct: false },
@@ -139,7 +143,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: 'The community center stayed open late for the annual festival. Volunteers decorated the halls and welcomed guests.' What can be inferred?",
+                passage: "In 2023, a community center in Greenvale issued a report about its annual festival, noting: 'The community center stayed open late for the annual festival. Volunteers decorated the halls and welcomed guests.' The report’s details needed analysis to understand the center’s priorities and volunteer efforts.",
+                question: "What can be inferred from the passage?",
                 options: [
                     { text: "A) The community center valued the festival.", correct: true },
                     { text: "B) Volunteers were paid for their work.", correct: false },
@@ -164,7 +169,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'Join our wellness program today! It offers free gym access, nutrition tips, and stress relief workshops to improve your health.' What is the author’s purpose?",
+                passage: "In 2024, a company in Clearwater launched a wellness program and distributed a flyer stating: 'Join our wellness program today! It offers free gym access, nutrition tips, and stress relief workshops to improve your health.' The flyer’s enthusiastic tone was intended to engage employees effectively.",
+                question: "What is the author’s purpose?",
                 options: [
                     { text: "A) To persuade employees to join the wellness program.", correct: true },
                     { text: "B) To inform about gym facilities.", correct: false },
@@ -190,7 +196,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'The company memo warns of budget cuts, noting reduced hours for some staff. It asks employees to suggest cost-saving ideas.' What can be inferred, and what is the author’s purpose?",
+                passage: "In 2023, a company memo in Millville addressed financial concerns, stating: 'Due to budget cuts, reduced hours for some staff are necessary. Employees are encouraged to suggest cost-saving ideas.' The memo’s tone and content needed analysis to understand the company’s situation and the memo’s intent.",
+                question: "What can be inferred, and what is the author’s purpose?",
                 options: [
                     { text: "A) Inference: The company faces financial challenges; Purpose: To seek employee input.", correct: true },
                     { text: "B) Inference: Employees are overworked; Purpose: To inform about hours.", correct: false },
@@ -206,7 +213,8 @@ const lessons = {
 // Inference and author's purpose question array
 const inferenceAuthorsPurposeQuestions = [
     {
-        question: "Passage: 'The town’s newsletter praises the new library, describing its modern facilities and community programs. It invites residents to a grand opening.' What can be inferred, and what is the author’s purpose?",
+        passage: "In 2024, a town newsletter in Millville announced: 'The new library boasts modern facilities and vibrant community programs. Its opening marks a milestone in our commitment to education. Residents are invited to a grand opening celebration next week.' The newsletter’s enthusiastic tone aimed to engage the community and highlight the library’s significance.",
+        question: "What can be inferred, and what is the author’s purpose?",
         answers: [
             { text: "A) Inference: The town values the library; Purpose: To encourage community participation.", correct: true },
             { text: "B) Inference: The library is outdated; Purpose: To inform about facilities.", correct: false },
@@ -218,7 +226,8 @@ const inferenceAuthorsPurposeQuestions = [
         category: "ged-inference-and-authors-purpose"
     },
     {
-        question: "Passage: 'Green roofs, covered with plants, reduce urban heat and improve air quality. Cities are adopting them to combat climate change.' What can be inferred about the author's purpose?",
+        passage: "In 2023, an environmental report in Greenvale stated: 'Green roofs, covered with plants, reduce urban heat and improve air quality. Cities worldwide are adopting them to combat climate change, with measurable benefits in sustainability.' The report’s focus on positive outcomes needed analysis to understand its intent.",
+        question: "What can be inferred about the author's purpose?",
         answers: [
             { text: "A) To advocate for green roofs as a climate change solution.", correct: true },
             { text: "B) To describe the types of plants used on green roofs.", correct: false },
@@ -230,7 +239,8 @@ const inferenceAuthorsPurposeQuestions = [
         category: "ged-inference-and-authors-purpose"
     },
     {
-        question: "Passage: 'Remote learning platforms offer flexibility but require self-discipline. Students must manage time effectively to succeed.' What can be inferred about the challenges of remote learning?",
+        passage: "In 2024, an educational article in Clearwater discussed: 'Remote learning platforms offer flexibility but require self-discipline. Students must manage time effectively to succeed, balancing studies with other responsibilities.' The article’s insights needed analysis to understand the challenges highlighted.",
+        question: "What can be inferred about the challenges of remote learning?",
         answers: [
             { text: "A) It is less flexible than in-person learning.", correct: false },
             { text: "B) It demands strong time management skills.", correct: true },
@@ -242,7 +252,8 @@ const inferenceAuthorsPurposeQuestions = [
         category: "ged-inference-and-authors-purpose"
     },
     {
-        question: "Passage: 'Public libraries provide free access to knowledge. They offer books, digital resources, and community programs, leveling the educational playing field.' What is the author's purpose in this passage?",
+        passage: "In 2023, a community flyer in Millville promoted: 'Public libraries provide free access to knowledge. They offer books, digital resources, and community programs, leveling the educational playing field for all residents.' The flyer’s emphasis on accessibility needed analysis to determine its intent.",
+        question: "What is the author's purpose in this passage?",
         answers: [
             { text: "A) To argue that libraries are outdated.", correct: false },
             { text: "B) To highlight the role of libraries in equalizing education.", correct: true },
@@ -254,7 +265,8 @@ const inferenceAuthorsPurposeQuestions = [
         category: "ged-inference-and-authors-purpose"
     },
     {
-        question: "Passage: 'Invasive species disrupt ecosystems by outcompeting native plants and animals. Controlling their spread is critical to preserving biodiversity.' What can be inferred about the impact of invasive species?",
+        passage: "In 2024, a conservation report in Greenvale noted: 'Invasive species disrupt ecosystems by outcompeting native plants and animals. Controlling their spread is critical to preserving biodiversity, as evidenced by recent restoration projects.' The report’s urgency needed analysis to understand its implications.",
+        question: "What can be inferred about the impact of invasive species?",
         answers: [
             { text: "A) They threaten biodiversity by outcompeting native species.", correct: true },
             { text: "B) They enhance ecosystem stability.", correct: false },
@@ -266,7 +278,8 @@ const inferenceAuthorsPurposeQuestions = [
         category: "ged-inference-and-authors-purpose"
     },
     {
-        question: "Passage: 'Volunteering builds stronger communities. It fosters empathy, encourages collaboration, and addresses local needs.' Why does the author emphasize volunteering?",
+        passage: "In 2023, a community newsletter in Clearwater stated: 'Volunteering builds stronger communities. It fosters empathy, encourages collaboration, and addresses local needs through collective action.' The newsletter’s positive tone needed analysis to understand its intent for community engagement.",
+        question: "Why does the author emphasize volunteering?",
         answers: [
             { text: "A) To discourage individual efforts.", correct: false },
             { text: "B) To promote volunteering as a way to strengthen communities.", correct: false },
@@ -278,7 +291,8 @@ const inferenceAuthorsPurposeQuestions = [
         category: "ged-inference-and-authors-purpose"
     },
     {
-        question: "Passage: 'Carpooling reduces traffic congestion and lowers carbon emissions. It also saves money on fuel and parking.' What can be inferred about the author's view on carpooling?",
+        passage: "In 2024, a transportation initiative in Millville published a flyer stating: 'Carpooling reduces traffic congestion and lowers carbon emissions. It also saves money on fuel and parking, making daily commutes more affordable.' The flyer’s focus on benefits needed analysis to understand the author’s perspective.",
+        question: "What can be inferred about the author's view on carpooling?",
         answers: [
             { text: "A) The author is neutral about carpooling.", correct: false },
             { text: "B) The author views carpooling as costly.", correct: false },
@@ -379,14 +393,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row reading-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -408,10 +421,14 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
-    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Why)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
 }
 
 // Handle answer selection
@@ -471,7 +488,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -516,14 +533,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row reading-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
