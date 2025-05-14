@@ -1,3 +1,4 @@
+
 // Ensure scores display on page load by calling showScore
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
@@ -68,10 +69,10 @@ const lessons = {
                 passage: "In 2024, a factory in Greenvale produced 25 widgets per hour, with each widget requiring 4 screws for assembly. The manager needed to calculate the total number of screws needed for an 8-hour shift to ensure sufficient inventory, determined by multiplying the widgets produced by screws per widget and hours worked.",
                 question: "How many screws are needed in 8 hours?",
                 options: [
-                    { text: "A) 800", correct: true },
-                    { text: "B) 200", correct: false },
-                    { text: "C) 100", correct: false },
-                    { text: "D) 400", correct: false }
+                    { text: "A) $800", correct: true },
+                    { text: "B) $200", correct: false },
+                    { text: "C) $100", correct: false },
+                    { text: "D) $400", correct: false }
                 ],
                 explanation: "Widgets per hour: 25. Screws per widget: 4. Screws per hour: 25 × 4 = 100. For 8 hours: 100 × 8 = 800 screws."
             },
@@ -212,7 +213,7 @@ const lessons = {
 // Basic arithmetic question array
 const basicArithmeticQuestions = [
     {
-        passage: "In 2023, a small store in Millville sold an item for $120 during a promotion that offered a 10% discount. After applying the discount, a 6% sales tax was added to the discounted price. The cashier needed to calculate the final cost for the customer, including both the discount and tax, to process the payment accurately.",
+        passage: "In 2023, a small store in Millville sold an item for $120 during a promotion that offered a 10% discount. After applying the discount, a 6% sales tax was added to the discounted price. The cashier needed to calculate the final cost for the customer, including both the discount and tax, to process the payment accurately. This involved determining the discount amount, subtracting it from the original price, and then adding the tax to the discounted price.",
         question: "What is the final cost?",
         answers: [
             { text: "A) $114.48", correct: true },
@@ -225,80 +226,80 @@ const basicArithmeticQuestions = [
         category: "ged-basic-arithmetic"
     },
     {
-        passage: "In 2024, a community garden in Greenvale produced 120 pounds of vegetables per month to distribute among local families. To ensure fair distribution, the garden coordinator needed to calculate how many pounds each of the 8 participating families would receive, determined by dividing the total weight by the number of families.",
+        passage: "In 2024, a community garden in Greenvale produced 120 pounds of vegetables per month to distribute among local families. To ensure fair distribution, the garden coordinator needed to calculate how many pounds each of the 8 participating families would receive. This was determined by dividing the total weight of the vegetables by the number of families, ensuring each family received an equal share for their household needs.",
         question: "How many pounds does each family receive?",
         answers: [
-            { text: "A) 15 pounds", correct: true },
-            { text: "B) 12 pounds", correct: false },
+            { text: "A) 12 pounds", correct: false },
+            { text: "B) 15 pounds", correct: true },
             { text: "C) 16 pounds", correct: false },
             { text: "D) 14 pounds", correct: false }
         ],
-        explanation: "To find the pounds per family, divide the total pounds by the number of families: 120 ÷ 8 = 15 pounds. Thus, option A is correct.",
+        explanation: "Divide the total pounds by the number of families: 120 ÷ 8 = 15 pounds. Thus, option B is correct.",
         difficulty: "medium",
         category: "ged-basic-arithmetic"
     },
     {
-        passage: "In 2023, a workshop in Clearwater required 3.5 hours to complete a single project. For a community event, the team was tasked with completing 4 projects. The organizer needed to calculate the total hours required to schedule the work, found by multiplying the hours per project by the number of projects.",
+        passage: "In 2023, a workshop in Clearwater required 3.5 hours to complete a single project. For a community event, the team was tasked with completing 4 projects. The organizer needed to calculate the total hours required to schedule the work. This was found by multiplying the hours per project by the number of projects, ensuring the event timeline was properly planned.",
         question: "How many hours will it take in total?",
         answers: [
             { text: "A) 12 hours", correct: false },
-            { text: "B) 14 hours", correct: true },
-            { text: "C) 13 hours", correct: false },
+            { text: "B) 13 hours", correct: false },
+            { text: "C) 14 hours", correct: true },
             { text: "D) 15 hours", correct: false }
         ],
-        explanation: "Multiply the hours per project by the number of projects: 3.5 × 4 = 14 hours. Thus, option B is correct.",
+        explanation: "Multiply the hours per project by the number of projects: 3.5 × 4 = 14 hours. Thus, option C is correct.",
         difficulty: "medium",
         category: "ged-basic-arithmetic"
     },
     {
-        passage: "In 2024, a recycling program in Millville collected 450 aluminum cans during a weekly drive. The cans were sorted into bins, each holding 75 cans. The program manager needed to determine how many bins were required to store all the cans, calculated by dividing the total number of cans by the capacity of each bin.",
+        passage: "In 2024, a recycling program in Millville collected 450 aluminum cans during a weekly drive. The cans were sorted into bins, each holding 75 cans. The program manager needed to determine how many bins were required to store all the cans. This was calculated by dividing the total number of cans by the capacity of each bin to ensure proper storage organization.",
         question: "How many bins are needed?",
         answers: [
             { text: "A) 5 bins", correct: false },
-            { text: "B) 6 bins", correct: true },
-            { text: "C) 7 bins", correct: false },
+            { text: "B) 7 bins", correct: false },
+            { text: "C) 6 bins", correct: true },
             { text: "D) 8 bins", correct: false }
         ],
-        explanation: "Divide the total cans by the capacity of each bin: 450 ÷ 75 = 6 bins. Thus, option B is correct.",
+        explanation: "Divide the total cans by the capacity of each bin: 450 ÷ 75 = 6 bins. Thus, option C is correct.",
         difficulty: "medium",
         category: "ged-basic-arithmetic"
     },
     {
-        passage: "In 2023, a volunteer group in Greenvale painted a community center. Each can of paint covered 250 square feet, and the center had 1,250 square feet of wall space. The group leader needed to calculate how many cans of paint were required to cover all the walls, determined by dividing the total area by the coverage per can.",
+        passage: "In 2023, a volunteer group in Greenvale painted a community center. Each can of paint covered 250 square feet, and the center had 1,250 square feet of wall space. The group leader needed to calculate how many cans of paint were required to cover all the walls. This was determined by dividing the total area by the coverage per can to ensure sufficient supplies were purchased.",
         question: "How many cans of paint are needed?",
         answers: [
-            { text: "A) 5 cans", correct: true },
-            { text: "B) 4 cans", correct: false },
+            { text: "A) 4 cans", correct: false },
+            { text: "B) 5 cans", correct: true },
             { text: "C) 6 cans", correct: false },
             { text: "D) 7 cans", correct: false }
         ],
-        explanation: "Divide the total square feet by the coverage per can: 1,250 ÷ 250 = 5 cans. Thus, option A is correct.",
+        explanation: "Divide the total square feet by the coverage per can: 1,250 ÷ 250 = 5 cans. Thus, option B is correct.",
         difficulty: "medium",
         category: "ged-basic-arithmetic"
     },
     {
-        passage: "In 2024, a library in Clearwater ordered 72 books for a new reading program. To organize the collection, the librarian distributed the books equally across 6 shelves. The librarian needed to calculate how many books would be placed on each shelf, found by dividing the total number of books by the number of shelves.",
+        passage: "In 2024, a library in Clearwater ordered 72 books for a new reading program. To organize the collection, the librarian distributed the books equally across 6 shelves. The librarian needed to calculate how many books would be placed on each shelf. This was found by dividing the total number of books by the number of shelves to ensure an even distribution.",
         question: "How many books are placed on each shelf?",
         answers: [
             { text: "A) 10 books", correct: false },
             { text: "B) 11 books", correct: false },
-            { text: "C) 12 books", correct: true },
-            { text: "D) 13 books", correct: false }
+            { text: "C) 13 books", correct: false },
+            { text: "D) 12 books", correct: true }
         ],
-        explanation: "Divide the total books by the number of shelves: 72 ÷ 6 = 12 books. Thus, option C is correct.",
+        explanation: "Divide the total books by the number of shelves: 72 ÷ 6 = 12 books. Thus, option D is correct.",
         difficulty: "medium",
         category: "ged-basic-arithmetic"
     },
     {
-        passage: "In 2023, a carpool group in Millville traveled 180 miles using 6 gallons of fuel for a regional trip. The group leader needed to calculate the average fuel efficiency, measured in miles per gallon, to plan future trips, determined by dividing the total miles by the gallons used.",
+        passage: "In 2023, a carpool group in Millville traveled 180 miles using 6 gallons of fuel for a regional trip. The group leader needed to calculate the average fuel efficiency, measured in miles per gallon, to plan future trips. This was determined by dividing the total miles by the gallons used to assess the vehicle’s performance.",
         question: "What is the average number of miles per gallon?",
         answers: [
             { text: "A) 25 miles per gallon", correct: false },
             { text: "B) 28 miles per gallon", correct: false },
-            { text: "C) 32 miles per gallon", correct: false },
-            { text: "D) 30 miles per gallon", correct: true }
+            { text: "C) 30 miles per gallon", correct: true },
+            { text: "D) 32 miles per gallon", correct: false }
         ],
-        explanation: "Divide the total miles by the gallons used: 180 ÷ 6 = 30 miles per gallon. Thus, option D is correct.",
+        explanation: "Divide the total miles by the gallons used: 180 ÷ 6 = 30 miles per gallon. Thus, option C is correct.",
         difficulty: "medium",
         category: "ged-basic-arithmetic"
     }
@@ -398,7 +399,7 @@ function showItem() {
                     <div class="right-column">
                         <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -420,14 +421,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content (simplified for examples)
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Problem:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Problem:.*?(\.(?=\s*What|\s*How|\s*Calculate)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -487,7 +496,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -538,7 +547,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <div class="right-column">
                     <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -557,14 +566,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
