@@ -391,16 +391,16 @@ function showItem() {
             } else {
                 console.error("Next button not found in example!");
             }
-        } else if (item.type === "question") {
+        }else if (item.type === "question") {
             lessonContent.innerHTML = `
-                <div class="question-row english-section">
-                    <div class="passage-text">${item.passage}</div>
-                    <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question}</div>
-                        <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
-                    </div>
-                </div>
+            <div class="question-row english-section">
+            <div class="passage-text">${item.passage}</div>
+            <div class="right-column">
+            <div class="question-text">${item.title}: ${item.question}</div>
+            <div class="answer-choices" id="answer-buttons"></div>
+            <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
+            </div>
+            </div>
             `;
             const answerButtons = document.getElementById('answer-buttons');
             item.options.forEach((option, index) => {
