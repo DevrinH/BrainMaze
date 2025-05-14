@@ -487,7 +487,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
