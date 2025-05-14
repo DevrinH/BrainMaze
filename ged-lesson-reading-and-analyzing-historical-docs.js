@@ -39,14 +39,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: The Gettysburg Address (1863) by Abraham Lincoln emphasizes preserving the Union and equality, stating government should be 'of the people, by the people, for the people.' What is the main idea?",
+                passage: "In 1863, during the Civil War, Abraham Lincoln delivered the Gettysburg Address, emphasizing the preservation of the Union and the principle of equality. He stated that government should be 'of the people, by the people, for the people,' underscoring democratic ideals amidst national division.",
+                question: "What is the main idea of the Gettysburg Address according to the passage?",
                 options: [
                     { text: "A) Preserving the Union and equality", correct: true },
                     { text: "B) Ending all wars", correct: false },
                     { text: "C) Expanding territories", correct: false },
                     { text: "D) Limiting government power", correct: false }
                 ],
-                explanation: "The passage highlights Lincoln’s focus on Union and equality, making A correct."
+                explanation: "The passage highlights Lincoln’s focus on preserving the Union and equality, making A correct."
             },
             {
                 type: "example",
@@ -64,14 +65,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'The Seneca Falls Declaration (1848) demanded women’s rights, including suffrage, during a time of limited gender equality.' What was the historical context?",
+                passage: "In 1848, the Seneca Falls Convention in New York produced the Declaration of Sentiments, demanding women’s rights, including suffrage. Written during an era of limited gender equality, it challenged societal norms and sparked the women’s rights movement.",
+                question: "What was the historical context of the Seneca Falls Declaration?",
                 options: [
-                    { text: "A) Fight for women’s rights", correct: true },
-                    { text: "B) Civil War debates", correct: false },
+                    { text: "A) Civil War debates", correct: false },
+                    { text: "B) Fight for women’s rights", correct: true },
                     { text: "C) Industrial expansion", correct: false },
                     { text: "D) Colonial independence", correct: false }
                 ],
-                explanation: "The passage describes the demand for women’s rights, making A correct."
+                explanation: "The passage describes the demand for women’s rights in an era of gender inequality, making B correct."
             },
             {
                 type: "example",
@@ -89,14 +91,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: Thomas Paine’s 'Common Sense' (1776) argued for American independence from Britain to inspire colonists. What was Paine’s purpose?",
+                passage: "In 1776, Thomas Paine published 'Common Sense,' a pamphlet that passionately argued for American independence from British rule. Written to galvanize colonists, it criticized monarchy and rallied support for a free and self-governing nation.",
+                question: "What was Thomas Paine’s purpose in 'Common Sense'?",
                 options: [
-                    { text: "A) Inspire independence", correct: true },
-                    { text: "B) Defend British rule", correct: false },
+                    { text: "A) Defend British rule", correct: false },
+                    { text: "B) Inspire independence", correct: true },
                     { text: "C) Promote trade", correct: false },
                     { text: "D) Establish laws", correct: false }
                 ],
-                explanation: "The passage states Paine argued for independence to inspire colonists, making A correct."
+                explanation: "The passage states Paine argued for independence to rally colonists, making B correct."
             },
             {
                 type: "example",
@@ -114,14 +117,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: A 1920s anti-immigration pamphlet argues, 'Immigrants threaten American jobs and culture.' What bias does this reflect?",
+                passage: "In the 1920s, a pamphlet distributed in New York argued, 'Immigrants threaten American jobs and culture, overburdening our cities and diluting our values.' This rhetoric fueled restrictive immigration laws, reflecting the author’s negative stance on immigration.",
+                question: "What bias does the pamphlet reflect?",
                 options: [
-                    { text: "A) Anti-immigration", correct: true },
-                    { text: "B) Pro-immigration", correct: false },
-                    { text: "C) Neutral", correct: false },
+                    { text: "A) Pro-immigration", correct: false },
+                    { text: "B) Neutral", correct: false },
+                    { text: "C) Anti-immigration", correct: true },
                     { text: "D) Economic neutrality", correct: false }
                 ],
-                explanation: "The passage’s negative view of immigrants reflects anti-immigration bias, making A correct."
+                explanation: "The passage’s negative portrayal of immigrants reflects anti-immigration bias, making C correct."
             },
             {
                 type: "example",
@@ -139,14 +143,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: Susan B. Anthony’s 1873 speech claims, 'Women should vote because they are equal citizens.' What is the main argument?",
+                passage: "In 1873, Susan B. Anthony delivered a speech after her arrest for voting, asserting, 'Women should vote because they are equal citizens under the Constitution.' Her argument connected women’s suffrage to constitutional equality, rallying support for the cause.",
+                question: "What is Susan B. Anthony’s main argument in the speech?",
                 options: [
-                    { text: "A) Women should vote due to equality", correct: true },
-                    { text: "B) Women should not vote", correct: false },
+                    { text: "A) Women should not vote", correct: false },
+                    { text: "B) Women should vote due to equality", correct: true },
                     { text: "C) Voting is unimportant", correct: false },
                     { text: "D) Men are unequal", correct: false }
                 ],
-                explanation: "The passage states women should vote because of equality, making A correct."
+                explanation: "The passage states Anthony argued for women’s voting rights based on equality, making B correct."
             },
             {
                 type: "example",
@@ -164,14 +169,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: The Monroe Doctrine (1823) warned European powers against colonizing the Americas, aiming to protect U.S. interests. What detail supports its purpose?",
+                passage: "In 1823, President James Monroe issued the Monroe Doctrine, warning European powers against further colonization in the Americas. This policy aimed to protect U.S. interests by asserting regional dominance and preventing foreign interference in the Western Hemisphere.",
+                question: "What detail supports the Monroe Doctrine’s purpose?",
                 options: [
-                    { text: "A) Warning European powers", correct: true },
-                    { text: "B) Promoting colonization", correct: false },
+                    { text: "A) Promoting colonization", correct: false },
+                    { text: "B) Warning European powers", correct: true },
                     { text: "C) Expanding trade", correct: false },
                     { text: "D) Limiting U.S. influence", correct: false }
                 ],
-                explanation: "The passage states the Doctrine warned European powers to protect U.S. interests, making A correct."
+                explanation: "The passage states the Doctrine warned European powers to protect U.S. interests, making B correct."
             },
             {
                 type: "example",
@@ -189,14 +195,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: The Bill of Rights (1791) protects individual liberties, while the Constitution (1788) establishes government structure. How do they differ?",
+                passage: "In 1788, the U.S. Constitution established a federal government with balanced powers, while the Bill of Rights, added in 1791, focused on protecting individual liberties such as freedom of speech and religion to address concerns about government overreach.",
+                question: "How do the Constitution and Bill of Rights differ?",
                 options: [
-                    { text: "A) Bill of Rights protects liberties, Constitution sets structure", correct: true },
+                    { text: "A) Constitution protects liberties, Bill of Rights sets structure", correct: false },
                     { text: "B) Both protect liberties", correct: false },
-                    { text: "C) Both set government structure", correct: false },
-                    { text: "D) Bill of Rights sets structure, Constitution protects liberties", correct: false }
+                    { text: "C) Constitution sets structure, Bill of Rights protects liberties", correct: true },
+                    { text: "D) Both set government structure", correct: false }
                 ],
-                explanation: "The passage states the Bill of Rights protects liberties and the Constitution establishes structure, making A correct."
+                explanation: "The passage states the Constitution establishes government structure and the Bill of Rights protects liberties, making C correct."
             }
         ]
     }
@@ -205,87 +212,94 @@ const lessons = {
 // Reading and analyzing historical documents question array
 const historicalDocsQuestions = [
     {
-        question: "Passage: In a 1941 speech, Franklin Roosevelt proposed 'Four Freedoms'—speech, worship, want, and fear—to promote global human rights. What was Roosevelt’s purpose?",
+        passage: "In January 1941, with World War II escalating, President Franklin D. Roosevelt delivered a speech outlining 'Four Freedoms'—freedom of speech, worship, want, and fear. He proposed these as universal human rights to inspire global support for democracy and counter totalitarian regimes.",
+        question: "What was Roosevelt’s purpose in proposing the 'Four Freedoms'?",
         answers: [
             { text: "A) Promote global human rights", correct: true },
             { text: "B) Declare war", correct: false },
             { text: "C) Limit freedoms", correct: false },
             { text: "D) Restrict trade", correct: false }
         ],
-        explanation: "The passage states Roosevelt proposed the freedoms to promote human rights, making A correct.",
+        explanation: "The passage states Roosevelt proposed the freedoms to promote human rights globally, making A correct.",
         difficulty: "easy",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Passage: In the Preamble to the U.S. Constitution (1787), it states, 'We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution.' What is the main idea of this passage?",
+        passage: "In 1787, delegates in Philadelphia crafted the Preamble to the U.S. Constitution, stating, 'We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution.' This introduced a framework for a unified government.",
+        question: "What is the main idea of the Preamble according to the passage?",
         answers: [
-            { text: "A) To establish a government that promotes justice and liberty", correct: true },
-            { text: "B) To declare independence from foreign powers", correct: false },
-            { text: "C) To limit the rights of citizens", correct: false },
-            { text: "D) To prioritize military defense over welfare", correct: false }
+            { text: "A) Declare independence from foreign powers", correct: false },
+            { text: "B) Establish a government that promotes justice and liberty", correct: true },
+            { text: "C) Limit the rights of citizens", correct: false },
+            { text: "D) Prioritize military defense over welfare", correct: false }
         ],
-        explanation: "The passage outlines the purpose of the Constitution, which is to create a government that promotes justice, liberty, and welfare, among other goals. It does not focus on independence, limiting rights, or prioritizing defense, making A correct.",
-        difficulty: "easy",
+        explanation: "The passage outlines the Preamble’s purpose to create a government promoting justice, liberty, and welfare, making B correct.",
+        difficulty: "medium",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Passage: In a 1850 letter, Frederick Douglass wrote, 'The arm of the slaveholder is strengthened by the silence of the North,' urging Northerners to oppose slavery actively. What was Douglass’s purpose in this statement?",
+        passage: "In 1850, Frederick Douglass, a former slave and abolitionist, wrote in a letter, 'The arm of the slaveholder is strengthened by the silence of the North,' urging Northerners to actively oppose slavery. This was written during a time of intense national debate over slavery’s expansion.",
+        question: "What was Douglass’s purpose in this statement?",
         answers: [
-            { text: "A) To praise Northern silence", correct: false },
-            { text: "B) To encourage Northern opposition to slavery", correct: true },
-            { text: "C) To defend slaveholders’ rights", correct: false },
-            { text: "D) To describe Southern agriculture", correct: false }
+            { text: "A) Praise Northern silence", correct: false },
+            { text: "B) Defend slaveholders’ rights", correct: false },
+            { text: "C) Encourage Northern opposition to slavery", correct: true },
+            { text: "D) Describe Southern agriculture", correct: false }
         ],
-        explanation: "Douglass’s purpose is to urge Northerners to actively oppose slavery, as the passage criticizes their silence. It does not praise silence, defend slaveholders, or describe agriculture, making B correct.",
-        difficulty: "easy",
+        explanation: "The passage states Douglass urged Northerners to oppose slavery, criticizing their silence, making C correct.",
+        difficulty: "medium",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Passage: During the 1830s, Andrew Jackson’s Indian Removal Act policy was supported by editorials claiming, 'Westward expansion is essential for American prosperity, and Native tribes must relocate.' What bias does this editorial reflect?",
+        passage: "In the 1830s, editorials supporting President Andrew Jackson’s Indian Removal Act claimed, 'Westward expansion is essential for American prosperity, and Native tribes must relocate to ensure national progress.' These writings influenced the passage of policies like the Trail of Tears.",
+        question: "What bias does the editorial reflect?",
         answers: [
             { text: "A) Pro-Native American rights", correct: false },
             { text: "B) Pro-Westward expansion", correct: true },
             { text: "C) Neutral on expansion", correct: false },
             { text: "D) Anti-American prosperity", correct: false }
         ],
-        explanation: "The editorial supports westward expansion by justifying Native relocation for American prosperity, reflecting a pro-expansion bias. It is not pro-Native, neutral, or anti-prosperity, making B correct.",
-        difficulty: "easy",
+        explanation: "The editorial justifies Native relocation for American prosperity, reflecting a pro-westward expansion bias, making B correct.",
+        difficulty: "medium",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Passage: In the 14th Amendment (1868), it states, 'No State shall make or enforce any law which shall abridge the privileges or immunities of citizens of the United States; nor shall any State deprive any person of life, liberty, or property, without due process of law.' What historical context led to this amendment?",
+        passage: "Following the Civil War, the 14th Amendment (1868) was ratified, stating, 'No State shall make or enforce any law which shall abridge the privileges or immunities of citizens of the United States; nor shall any State deprive any person of life, liberty, or property, without due process of law.' This addressed the rights of newly freed slaves.",
+        question: "What historical context led to the 14th Amendment?",
         answers: [
-            { text: "A) The need to establish a national currency", correct: false },
-            { text: "B) The expansion of voting rights for women", correct: false },
-            { text: "C) The need to protect freed slaves’ rights after the Civil War", correct: true },
-            { text: "D) The demand for industrial regulations", correct: false }
+            { text: "A) Expansion of voting rights for women", correct: false },
+            { text: "B) Protection of freed slaves’ rights after the Civil War", correct: true },
+            { text: "C) Establishment of a national currency", correct: false },
+            { text: "D) Demand for industrial regulations", correct: false }
         ],
-        explanation: "The 14th Amendment was enacted post-Civil War to protect the rights of freed slaves, ensuring equal protection and due process. It was not about currency, women’s voting, or industrial regulations, making C correct.",
-        difficulty: "easy",
+        explanation: "The passage notes the amendment addressed freed slaves’ rights post-Civil War, making B correct.",
+        difficulty: "medium",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Passage: In a 1916 speech, Woodrow Wilson argued, 'The world must be made safe for democracy,' promoting U.S. involvement in World War I to protect democratic ideals. What detail supports Wilson’s purpose?",
+        passage: "In 1916, as World War I raged in Europe, President Woodrow Wilson delivered a speech arguing, 'The world must be made safe for democracy.' He promoted U.S. involvement to protect democratic ideals, rallying support for entering the war to counter authoritarian threats.",
+        question: "What detail supports Wilson’s purpose in the speech?",
         answers: [
-            { text: "A) Describing military strategies", correct: false },
-            { text: "B) Criticizing democratic governments", correct: false },
-            { text: "C) Discussing economic benefits of war", correct: false },
-            { text: "D) Promoting U.S. involvement to protect democracy", correct: true }
+            { text: "A) Promoting U.S. involvement to protect democracy", correct: true },
+            { text: "B) Describing military strategies", correct: false },
+            { text: "C) Criticizing democratic governments", correct: false },
+            { text: "D) Discussing economic benefits of war", correct: false }
         ],
-        explanation: "Wilson’s purpose is supported by the detail that U.S. involvement aims to protect democratic ideals, as stated in the passage. It does not focus on military strategies, criticism, or economics, making D correct.",
-        difficulty: "easy",
+        explanation: "The passage states Wilson promoted U.S. involvement to protect democratic ideals, making A correct.",
+        difficulty: "medium",
         category: "ged-reading-and-analyzing-historical-docs"
     },
     {
-        question: "Passage: The Articles of Confederation (1781) created a loose alliance of states with a weak central government, while the U.S. Constitution (1787) established a stronger federal system. What is a key difference between these documents?",
+        passage: "The Articles of Confederation (1781) created a loose alliance of states with a weak central government, prioritizing state sovereignty. In contrast, the U.S. Constitution (1787) established a stronger federal system with balanced powers to unify the nation effectively.",
+        question: "What is a key difference between the Articles of Confederation and the Constitution?",
         answers: [
-            { text: "A) The Articles promoted individual rights, while the Constitution limited them", correct: false },
-            { text: "B) The Articles created a strong federal government, while the Constitution weakened it", correct: false },
-            { text: "C) The Articles had a strong central government, while the Constitution had a loose alliance", correct: false },
-            { text: "D) The Articles had a weak central government, while the Constitution strengthened it", correct: true }
+            { text: "A) Articles promoted individual rights, Constitution limited them", correct: false },
+            { text: "B) Articles had a strong central government, Constitution weakened it", correct: false },
+            { text: "C) Articles had a weak central government, Constitution strengthened it", correct: true },
+            { text: "D) Both established a strong federal government", correct: false }
         ],
-        explanation: "The Articles established a weak central government, while the Constitution created a stronger federal system, as described. The other options misrepresent their focuses, making D correct.",
-        difficulty: "easy",
+        explanation: "The passage describes the Articles’ weak central government and the Constitution’s stronger federal system, making C correct.",
+        difficulty: "medium",
         category: "ged-reading-and-analyzing-historical-docs"
     }
 ];
@@ -378,14 +392,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row social-studies-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -407,10 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
-    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -470,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -515,14 +540,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row social-studies-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -541,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
