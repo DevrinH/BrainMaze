@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: The American Revolution began with conflicts like the Boston Tea Party, protesting British taxes. What was a primary cause of the revolution?",
+                passage: "In the 1770s, tensions between American colonists and British authorities escalated in cities like Boston. The American Revolution began with conflicts such as the Boston Tea Party in 1773, where colonists protested British taxes on goods like tea, seeking greater autonomy.",
+                question: "What was a primary cause of the revolution?",
                 options: [
                     { text: "A) British taxation", correct: true },
                     { text: "B) French alliances", correct: false },
@@ -64,14 +65,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: The Constitution’s checks and balances ensure no single branch gains too much power. What is the purpose of checks and balances?",
+                passage: "In 1787, delegates in Philadelphia drafted the U.S. Constitution, creating a federal system with checks and balances. This system ensured no single branch—legislative, executive, or judicial—could gain excessive power, safeguarding the new republic from tyranny.",
+                question: "What is the purpose of checks and balances?",
                 options: [
-                    { text: "A) Prevent power concentration", correct: true },
-                    { text: "B) Speed up legislation", correct: false },
+                    { text: "A) Speed up legislation", correct: false },
+                    { text: "B) Prevent power concentration", correct: true },
                     { text: "C) Limit voting rights", correct: false },
                     { text: "D) Increase taxes", correct: false }
                 ],
-                explanation: "The passage states checks and balances prevent excessive power, making A correct."
+                explanation: "The passage states checks and balances prevent excessive power, making B correct."
             },
             {
                 type: "example",
@@ -89,14 +91,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: The Civil War was sparked by tensions over slavery, with the Confederacy defending states’ rights to maintain it. What was a key issue of the war?",
+                passage: "By 1861, tensions between Northern and Southern states reached a breaking point, sparking the Civil War. The Confederacy defended states’ rights to maintain slavery, while the Union sought to preserve the nation and limit slavery’s expansion, making it a central issue of the conflict.",
+                question: "What was a key issue of the war?",
                 options: [
-                    { text: "A) Slavery", correct: true },
-                    { text: "B) Trade tariffs", correct: false },
-                    { text: "C) Immigration", correct: false },
+                    { text: "A) Trade tariffs", correct: false },
+                    { text: "B) Immigration", correct: false },
+                    { text: "C) Slavery", correct: true },
                     { text: "D) Foreign alliances", correct: false }
                 ],
-                explanation: "The passage identifies slavery as a key issue, making A correct."
+                explanation: "The passage identifies slavery as a key issue, making C correct."
             },
             {
                 type: "example",
@@ -114,14 +117,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: Industrialization led to urban growth and new technologies but also labor challenges, like low wages. What was a challenge of industrialization?",
+                passage: "In the late 1800s, the U.S. underwent rapid industrialization, particularly in cities like Chicago and New York. While factories and innovations like the steam engine boosted production, workers faced challenges such as low wages and unsafe conditions, prompting labor movements to demand reforms.",
+                question: "What was a challenge of industrialization?",
                 options: [
-                    { text: "A) Low wages", correct: true },
-                    { text: "B) Reduced production", correct: false },
+                    { text: "A) Reduced production", correct: false },
+                    { text: "B) Low wages", correct: true },
                     { text: "C) Fewer factories", correct: false },
                     { text: "D) Rural expansion", correct: false }
                 ],
-                explanation: "The passage mentions low wages as a labor challenge, making A correct."
+                explanation: "The passage mentions low wages as a labor challenge, making B correct."
             },
             {
                 type: "example",
@@ -139,14 +143,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: The Civil Rights Movement sought equal rights for African Americans, culminating in laws like the Voting Rights Act of 1965. What was a goal of the movement?",
+                passage: "In the 1950s and 1960s, the Civil Rights Movement gained momentum across the U.S., particularly in Southern states. Activists, led by figures like Martin Luther King Jr., sought equal rights for African Americans, resulting in landmark legislation like the Voting Rights Act of 1965 to address systemic discrimination.",
+                question: "What was a goal of the movement?",
                 options: [
-                    { text: "A) Equal rights", correct: true },
-                    { text: "B) Economic expansion", correct: false },
-                    { text: "C) Military reform", correct: false },
+                    { text: "A) Economic expansion", correct: false },
+                    { text: "B) Military reform", correct: false },
+                    { text: "C) Equal rights", correct: true },
                     { text: "D) Foreign policy change", correct: false }
                 ],
-                explanation: "The passage highlights equal rights as a goal, making A correct."
+                explanation: "The passage highlights equal rights as a goal, making C correct."
             },
             {
                 type: "example",
@@ -164,14 +169,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: The New Deal included public works projects to reduce unemployment during the Great Depression. What was a goal of these projects?",
+                passage: "Following the 1929 stock market crash, the Great Depression devastated the U.S. economy, leading to mass unemployment. President Franklin Roosevelt introduced the New Deal, which included public works projects to create jobs and stimulate economic recovery during the 1930s.",
+                question: "What was a goal of these New Deal projects?",
                 options: [
-                    { text: "A) Reduce unemployment", correct: true },
-                    { text: "B) Increase taxes", correct: false },
+                    { text: "A) Increase taxes", correct: false },
+                    { text: "B) Reduce unemployment", correct: true },
                     { text: "C) Expand trade", correct: false },
                     { text: "D) Limit immigration", correct: false }
                 ],
-                explanation: "The passage states public works projects aimed to reduce unemployment, making A correct."
+                explanation: "The passage states public works projects aimed to reduce unemployment, making B correct."
             },
             {
                 type: "example",
@@ -189,14 +195,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: The 19th Amendment was a victory for women’s suffrage, ensuring women could participate in elections. What right did it grant?",
+                passage: "In 1920, after decades of activism by leaders like Susan B. Anthony, the women’s suffrage movement achieved a major victory with the ratification of the 19th Amendment. This amendment expanded democratic participation by allowing women to engage in the electoral process nationwide.",
+                question: "What right did the 19th Amendment grant?",
                 options: [
-                    { text: "A) Voting", correct: true },
-                    { text: "B) Property ownership", correct: false },
-                    { text: "C) Education access", correct: false },
-                    { text: "D) Employment equality", correct: false }
+                    { text: "A) Property ownership", correct: false },
+                    { text: "B) Education access", correct: false },
+                    { text: "C) Employment equality", correct: false },
+                    { text: "D) Voting", correct: true }
                 ],
-                explanation: "The passage states the 19th Amendment granted voting rights, making A correct."
+                explanation: "The passage states the 19th Amendment granted voting rights, making D correct."
             }
         ]
     }
@@ -205,7 +212,8 @@ const lessons = {
 // U.S. history question array
 const usHistoryQuestions = [
     {
-        question: "Passage: The Bill of Rights, added to the Constitution in 1791, protects individual liberties, such as freedom of speech and religion. What is the purpose of the Bill of Rights?",
+        passage: "In 1791, the newly formed United States faced debates over individual freedoms versus government authority. The Bill of Rights, comprising the first ten amendments to the Constitution, was ratified to protect liberties such as freedom of speech, religion, and the press, ensuring citizens’ rights against federal overreach.",
+        question: "What is the purpose of the Bill of Rights?",
         answers: [
             { text: "A) Protect individual liberties", correct: true },
             { text: "B) Establish trade policies", correct: false },
@@ -217,74 +225,80 @@ const usHistoryQuestions = [
         category: "ged-us-history"
     },
     {
-        question: "Passage: During the American Revolution, the Battle of Saratoga (1777) was a turning point, convincing France to ally with the American colonies against Britain. Why was the Battle of Saratoga significant?",
+        passage: "In 1777, during the American Revolution, the Battle of Saratoga proved to be a critical moment for the American colonies. The colonial victory convinced France to form an alliance with the Americans, providing military and financial support that bolstered their fight against British forces.",
+        question: "Why was the Battle of Saratoga significant?",
         answers: [
-            { text: "A) It secured French support for the American cause", correct: true },
-            { text: "B) It ended the war with a British surrender", correct: false },
+            { text: "A) It ended the war with a British surrender", correct: false },
+            { text: "B) It secured French support for the American cause", correct: true },
             { text: "C) It established the U.S. Constitution", correct: false },
             { text: "D) It abolished colonial taxation", correct: false }
         ],
-        explanation: "The passage states the Battle of Saratoga convinced France to ally with the colonies, a key turning point. It did not end the war, establish the Constitution, or abolish taxes, making A correct.",
+        explanation: "The passage states the Battle of Saratoga convinced France to ally with the colonies, making B correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "Passage: The Reconstruction era (1865–1877) followed the Civil War, aiming to rebuild the South and integrate freed slaves into society, but faced resistance from Southern states. What was a major challenge of Reconstruction?",
+        passage: "After the Civil War ended in 1865, the Reconstruction era (1865–1877) sought to rebuild the South and integrate millions of freed slaves into American society. However, Southern states resisted these efforts, enacting discriminatory laws like Black Codes to limit African American rights and maintain racial hierarchies.",
+        question: "What was a major challenge of Reconstruction?",
         answers: [
             { text: "A) Rapid industrial growth", correct: false },
-            { text: "B) Southern resistance to integration", correct: true },
-            { text: "C) Expansion of women’s suffrage", correct: false },
+            { text: "B) Expansion of women’s suffrage", correct: false },
+            { text: "C) Southern resistance to integration", correct: true },
             { text: "D) Decline in agricultural production", correct: false }
         ],
-        explanation: "The passage highlights Southern resistance to integrating freed slaves as a Reconstruction challenge. It was not about industry, suffrage, or agriculture, making B correct.",
+        explanation: "The passage highlights Southern resistance as a Reconstruction challenge, making C correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "Passage: The Progressive Era (1890s–1920s) addressed social and economic issues from industrialization, with reforms like child labor laws and antitrust measures to curb monopolies. What was a key reform of the Progressive Era?",
+        passage: "In the late 19th and early 20th centuries, the Progressive Era addressed social and economic issues stemming from rapid industrialization. Reformers pushed for changes, including child labor laws and antitrust measures to break up monopolies, aiming to improve working conditions and promote fair competition.",
+        question: "What was a key reform of the Progressive Era?",
         answers: [
             { text: "A) Expansion of slavery", correct: false },
-            { text: "B) Antitrust measures against monopolies", correct: true },
-            { text: "C) Reduction of federal power", correct: false },
+            { text: "B) Reduction of federal power", correct: false },
+            { text: "C) Antitrust measures against monopolies", correct: true },
             { text: "D) Promotion of urbanization", correct: false }
         ],
-        explanation: "The passage notes antitrust measures as a Progressive Era reform to address industrialization’s issues. It was not about slavery, federal power reduction, or urbanization, making B correct.",
+        explanation: "The passage notes antitrust measures as a Progressive Era reform, making C correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "Passage: The Montgomery Bus Boycott (1955–1956), sparked by Rosa Parks’s arrest, was a pivotal event in the Civil Rights Movement, leading to desegregation of public buses. What was the impact of the Montgomery Bus Boycott?",
+        passage: "In 1955, Rosa Parks’s arrest for refusing to give up her bus seat in Montgomery, Alabama, sparked the Montgomery Bus Boycott, a defining moment in the Civil Rights Movement. The boycott, led by activists, pressured the city to desegregate public buses, advancing the fight against racial discrimination.",
+        question: "What was the impact of the Montgomery Bus Boycott?",
         answers: [
             { text: "A) It increased segregation laws", correct: false },
-            { text: "B) It expanded voting rights", correct: false },
-            { text: "C) It led to bus desegregation", correct: true },
+            { text: "B) It led to bus desegregation", correct: true },
+            { text: "C) It expanded voting rights", correct: false },
             { text: "D) It reformed labor unions", correct: false }
         ],
-        explanation: "The passage states the boycott led to the desegregation of public buses, a Civil Rights victory. It did not increase segregation, expand voting, or reform unions, making C correct.",
+        explanation: "The passage states the boycott led to bus desegregation, making B correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "Passage: The Great Depression led to widespread bank failures, prompting the creation of the Federal Deposit Insurance Corporation (FDIC) in 1933 to protect bank deposits. What was the purpose of the FDIC?",
+        passage: "The Great Depression, beginning with the 1929 stock market crash, caused widespread bank failures across the United States. In response, Congress established the Federal Deposit Insurance Corporation (FDIC) in 1933 to restore public confidence by insuring bank deposits against future losses.",
+        question: "What was the purpose of the FDIC?",
         answers: [
             { text: "A) To regulate international trade", correct: false },
-            { text: "B) To fund public works projects", correct: false },
-            { text: "C) To promote stock market growth", correct: false },
-            { text: "D) To protect bank deposits", correct: true }
+            { text: "B) To protect bank deposits", correct: true },
+            { text: "C) To fund public works projects", correct: false },
+            { text: "D) To promote stock market growth", correct: false }
         ],
-        explanation: "The passage explains the FDIC was created to protect bank deposits during the Great Depression. It was not about trade, public works, or stocks, making D correct.",
+        explanation: "The passage explains the FDIC was created to protect bank deposits, making B correct.",
         difficulty: "medium",
         category: "ged-us-history"
     },
     {
-        question: "Passage: The 13th Amendment, ratified in 1865, abolished slavery in the United States, marking a significant outcome of the Civil War. What did the 13th Amendment achieve?",
+        passage: "Following the Union’s victory in the Civil War, the 13th Amendment was ratified in 1865, fundamentally altering the social fabric of the United States. By abolishing slavery, it addressed one of the war’s central issues, marking a significant step toward equality for African Americans.",
+        question: "What did the 13th Amendment achieve?",
         answers: [
             { text: "A) Granted women’s suffrage", correct: false },
             { text: "B) Established equal protection", correct: false },
             { text: "C) Ended prohibition", correct: false },
             { text: "D) Abolished slavery", correct: true }
         ],
-        explanation: "The passage states the 13th Amendment abolished slavery, a key Civil War outcome. It did not address suffrage, equal protection, or prohibition, making D correct.",
+        explanation: "The passage states the 13th Amendment abolished slavery, making D correct.",
         difficulty: "medium",
         category: "ged-us-history"
     }
@@ -378,14 +392,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row social-studies-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -407,14 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -474,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -519,14 +540,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row social-studies-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -545,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
