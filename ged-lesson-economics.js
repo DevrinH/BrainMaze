@@ -39,14 +39,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: In a market, if the supply of a good decreases while demand stays constant, prices increase. What happens to prices if supply decreases and demand is unchanged?",
+                passage: "In 2023, a popular smartphone model saw a surge in consumer demand in Millville due to new features, but production remained limited. In a market economy, supply and demand dictate pricing, so when demand increases while supply stays constant, prices typically rise.",
+                question: "What happens to prices if demand increases and supply is unchanged?",
                 options: [
                     { text: "A) Prices increase", correct: true },
                     { text: "B) Prices decrease", correct: false },
                     { text: "C) Prices stay the same", correct: false },
                     { text: "D) Prices fluctuate randomly", correct: false }
                 ],
-                explanation: "The passage states that decreasing supply with constant demand increases prices, making A correct."
+                explanation: "The passage states that increasing demand with constant supply increases prices, making A correct."
             },
             {
                 type: "example",
@@ -64,14 +65,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: In perfect competition, many firms compete, keeping prices low. Why do prices tend to be low in perfect competition?",
+                passage: "In Greenvale’s coffee market in 2024, numerous cafes offered similar products, creating a competitive environment. In perfect competition, many firms vie for customers, which keeps prices low as businesses strive to attract buyers with affordable offerings.",
+                question: "Why do prices tend to be low in perfect competition?",
                 options: [
-                    { text: "A) High competition", correct: true },
-                    { text: "B) Single firm control", correct: false },
+                    { text: "A) Single firm control", correct: false },
+                    { text: "B) High competition", correct: true },
                     { text: "C) Government regulation", correct: false },
                     { text: "D) Low demand", correct: false }
                 ],
-                explanation: "The passage states many firms compete in perfect competition, keeping prices low, making A correct."
+                explanation: "The passage states many firms compete in perfect competition, keeping prices low, making B correct."
             },
             {
                 type: "example",
@@ -89,14 +91,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: In a command economy, the government controls production and prices, unlike a market economy. Who controls production in a command economy?",
+                passage: "In 2023, Clearwater’s economy was analyzed to understand its structure. In a command economy, unlike a market economy, the government centrally controls production and prices, directing resources to meet state priorities rather than individual consumer preferences.",
+                question: "Who controls production in a command economy?",
                 options: [
-                    { text: "A) Government", correct: true },
-                    { text: "B) Individuals", correct: false },
+                    { text: "A) Individuals", correct: false },
+                    { text: "B) Government", correct: true },
                     { text: "C) Corporations", correct: false },
                     { text: "D) Consumers", correct: false }
                 ],
-                explanation: "The passage states the government controls production in a command economy, making A correct."
+                explanation: "The passage states the government controls production in a command economy, making B correct."
             },
             {
                 type: "example",
@@ -114,14 +117,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: Fiscal policy uses taxation to manage economic conditions. Reducing taxes can increase consumer spending. What can reducing taxes achieve?",
+                passage: "In 2024, Millville’s government implemented fiscal policy to counter an economic slowdown. By reducing taxes, policymakers aimed to increase consumer spending, as fiscal policy uses taxation adjustments to stimulate economic activity and encourage growth during challenging times.",
+                question: "What can reducing taxes achieve?",
                 options: [
-                    { text: "A) Increase consumer spending", correct: true },
-                    { text: "B) Decrease government revenue", correct: false },
+                    { text: "A) Decrease government revenue", correct: false },
+                    { text: "B) Increase consumer spending", correct: true },
                     { text: "C) Raise interest rates", correct: false },
                     { text: "D) Limit exports", correct: false }
                 ],
-                explanation: "The passage states reducing taxes increases consumer spending, making A correct."
+                explanation: "The passage states reducing taxes increases consumer spending, making B correct."
             },
             {
                 type: "example",
@@ -139,14 +143,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: The Federal Reserve raises interest rates to slow inflation. What is the purpose of raising interest rates?",
+                passage: "In 2023, the Federal Reserve in Greenvale adjusted monetary policy to address rising prices. By raising interest rates, the central bank aimed to slow inflation, as higher rates reduce borrowing and spending, helping stabilize the economy.",
+                question: "What is the purpose of raising interest rates?",
                 options: [
-                    { text: "A) Slow inflation", correct: true },
-                    { text: "B) Increase borrowing", correct: false },
+                    { text: "A) Increase borrowing", correct: false },
+                    { text: "B) Slow inflation", correct: true },
                     { text: "C) Boost exports", correct: false },
                     { text: "D) Reduce taxes", correct: false }
                 ],
-                explanation: "The passage states raising interest rates slows inflation, making A correct."
+                explanation: "The passage states raising interest rates slows inflation, making B correct."
             },
             {
                 type: "example",
@@ -164,14 +169,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: A trade surplus happens when a country exports more than it imports, boosting its economy. What is a trade surplus?",
+                passage: "In 2024, Clearwater’s trade data showed a favorable balance due to strong manufacturing exports. A trade surplus occurs when a country exports more than it imports, boosting economic growth by increasing revenue from foreign markets.",
+                question: "What is a trade surplus?",
                 options: [
-                    { text: "A) Exports exceed imports", correct: true },
-                    { text: "B) Imports exceed exports", correct: false },
-                    { text: "C) Equal imports and exports", correct: false },
+                    { text: "A) Imports exceed exports", correct: false },
+                    { text: "B) Equal imports and exports", correct: false },
+                    { text: "C) Exports exceed imports", correct: true },
                     { text: "D) No trade activity", correct: false }
                 ],
-                explanation: "The passage states a trade surplus is when exports exceed imports, making A correct."
+                explanation: "The passage states a trade surplus is when exports exceed imports, making C correct."
             },
             {
                 type: "example",
@@ -189,14 +195,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: GDP tracks the value of goods and services. A declining GDP suggests an economic downturn. What does a declining GDP indicate?",
+                passage: "In 2023, Millville’s economic analysts noted a decline in the value of goods and services produced domestically. A declining GDP suggests an economic downturn, signaling reduced economic activity and potential challenges for businesses and workers.",
+                question: "What does a declining GDP indicate?",
                 options: [
-                    { text: "A) Economic downturn", correct: true },
-                    { text: "B) Economic growth", correct: false },
-                    { text: "C) Stable economy", correct: false },
-                    { text: "D) Increased exports", correct: false }
+                    { text: "A) Economic growth", correct: false },
+                    { text: "B) Stable economy", correct: false },
+                    { text: "C) Increased exports", correct: false },
+                    { text: "D) Economic downturn", correct: true }
                 ],
-                explanation: "The passage states a declining GDP suggests an economic downturn, making A correct."
+                explanation: "The passage states a declining GDP suggests an economic downturn, making D correct."
             }
         ]
     }
@@ -205,7 +212,8 @@ const lessons = {
 // Economics question array
 const economicsQuestions = [
     {
-        question: "Passage: Opportunity cost is the value of the next best alternative forgone when making a decision. Choosing to produce more cars may reduce truck production. What is the opportunity cost of producing more cars?",
+        passage: "In 2023, a Millville factory faced a decision to allocate resources to produce more cars, which meant reducing truck production. Opportunity cost represents the value of the next best alternative forgone, such as the lost truck output in this scenario.",
+        question: "What is the opportunity cost of producing more cars?",
         answers: [
             { text: "A) Reduced truck production", correct: true },
             { text: "B) Increased car production", correct: false },
@@ -216,79 +224,84 @@ const economicsQuestions = [
         difficulty: "easy",
         category: "ged-economics"
     },
-        {
-        question: "Passage: Inflation occurs when the general price level of goods and services rises, reducing purchasing power. High inflation can erode savings and increase living costs. What is a consequence of high inflation?",
+    {
+        passage: "In 2024, Greenvale consumers noticed rising prices for everyday goods like groceries and fuel. Inflation, the general increase in price levels, reduces purchasing power, eroding savings and increasing living costs as money buys less over time.",
+        question: "What is a consequence of high inflation?",
         answers: [
-            { text: "A) Reduced purchasing power", correct: true },
-            { text: "B) Increased savings value", correct: false },
+            { text: "A) Increased savings value", correct: false },
+            { text: "B) Reduced purchasing power", correct: true },
             { text: "C) Lower living costs", correct: false },
             { text: "D) Stable prices", correct: false }
         ],
-        explanation: "The passage states high inflation reduces purchasing power, making A correct.",
-        difficulty: "easy",
+        explanation: "The passage states high inflation reduces purchasing power, making B correct.",
+        difficulty: "medium",
         category: "ged-economics"
     },
     {
-        question: "Passage: Unemployment measures the percentage of the labor force without jobs but actively seeking work. Cyclical unemployment rises during economic downturns due to reduced demand. What causes cyclical unemployment to increase?",
+        passage: "During an economic downturn in Clearwater in 2023, many workers lost jobs as businesses cut back. Cyclical unemployment, which rises during recessions due to reduced demand, reflects the percentage of the labor force actively seeking work but unemployed.",
+        question: "What causes cyclical unemployment to increase?",
         answers: [
-            { text: "A) Increased labor force participation", correct: false },
-            { text: "B) Economic downturns", correct: true },
-            { text: "C) Higher wages", correct: false },
+            { text: "A) Economic downturns", correct: true },
+            { text: "B) Higher wages", correct: false },
+            { text: "C) Increased labor force participation", correct: false },
             { text: "D) Technological advances", correct: false }
         ],
-        explanation: "The passage states cyclical unemployment rises during economic downturns, making B correct.",
-        difficulty: "easy",
+        explanation: "The passage states cyclical unemployment rises during economic downturns, making A correct.",
+        difficulty: "medium",
         category: "ged-economics"
     },
     {
-        question: "Passage: Tariffs are taxes imposed on imported goods, often used to protect domestic industries. They can raise prices for consumers by increasing the cost of imports. What is one effect of tariffs?",
+        passage: "In 2024, Millville’s government imposed tariffs on imported electronics to protect local manufacturers. Tariffs, taxes on imports, raise the cost of foreign goods, often leading to higher consumer prices as domestic alternatives may also increase in price.",
+        question: "What is one effect of tariffs?",
         answers: [
             { text: "A) Lower import prices", correct: false },
-            { text: "B) Higher consumer prices", correct: true },
-            { text: "C) Reduced domestic production", correct: false },
+            { text: "B) Reduced domestic production", correct: false },
+            { text: "C) Higher consumer prices", correct: true },
             { text: "D) Decreased government revenue", correct: false }
         ],
-        explanation: "The passage states tariffs raise prices for consumers, making B correct.",
-        difficulty: "easy",
+        explanation: "The passage states tariffs raise consumer prices, making C correct.",
+        difficulty: "medium",
         category: "ged-economics"
     },
     {
-        question: "Passage: Economic indicators, like the Consumer Price Index (CPI), track changes in price levels to measure inflation. A rising CPI indicates increasing prices. What does a rising CPI measure?",
+        passage: "In 2023, Greenvale’s economists used the Consumer Price Index (CPI) to monitor price changes for a basket of goods and services. A rising CPI indicates increasing prices, serving as a key measure of inflation affecting household budgets.",
+        question: "What does a rising CPI measure?",
         answers: [
             { text: "A) Unemployment rate", correct: false },
-            { text: "B) Economic growth", correct: false },
-            { text: "C) Inflation", correct: true },
+            { text: "B) Inflation", correct: true },
+            { text: "C) Economic growth", correct: false },
             { text: "D) Trade balance", correct: false }
         ],
-        explanation: "The passage states a rising CPI indicates increasing prices, measuring inflation, making C correct.",
-        difficulty: "easy",
+        explanation: "The passage states a rising CPI measures inflation, making B correct.",
+        difficulty: "medium",
         category: "ged-economics"
     },
     {
-        question: "Passage: Consumer behavior influences markets through spending patterns. During economic booms, consumers spend more, driving demand. What drives demand during economic booms?",
+        passage: "During an economic boom in Clearwater in 2024, local businesses reported higher sales as residents spent more freely. Consumer behavior, particularly increased spending during prosperous times, drives demand, fueling market growth and economic expansion.",
+        question: "What drives demand during economic booms?",
         answers: [
             { text: "A) Reduced consumer confidence", correct: false },
             { text: "B) Higher interest rates", correct: false },
-            { text: "C) Lower wages", correct: false },
-            { text: "D) Increased consumer spending", correct: true }
+            { text: "C) Increased consumer spending", correct: true },
+            { text: "D) Lower wages", correct: false }
         ],
-        explanation: "The passage states consumers spend more during economic booms, driving demand, making D correct.",
-        difficulty: "easy",
+        explanation: "The passage states increased consumer spending drives demand during economic booms, making C correct.",
+        difficulty: "medium",
         category: "ged-economics"
     },
     {
-        question: "Passage: Labor markets reflect the supply and demand for workers. In a tight labor market, low unemployment leads to higher wages as firms compete for workers. What causes higher wages in a tight labor market?",
+        passage: "In 2024, Millville’s labor market was tight, with low unemployment rates. In such conditions, firms compete for workers, leading to higher wages as businesses offer better pay to attract and retain employees, reflecting supply and demand dynamics.",
+        question: "What causes higher wages in a tight labor market?",
         answers: [
             { text: "A) High unemployment", correct: false },
             { text: "B) Low demand for workers", correct: false },
             { text: "C) Increased labor supply", correct: false },
             { text: "D) Firms competing for workers", correct: true }
         ],
-        explanation: "The passage states firms compete for workers in a tight labor market, leading to higher wages, making D correct.",
-        difficulty: "easy",
+        explanation: "The passage states firms competing for workers in a tight labor market leads to higher wages, making D correct.",
+        difficulty: "medium",
         category: "ged-economics"
     }
-   
 ];
 
 // Variables
@@ -329,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found!");
     }
 
     showScore();
@@ -379,14 +392,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row social-studies-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -408,14 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -475,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -520,14 +540,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row social-studies-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -546,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
