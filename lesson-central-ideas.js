@@ -1,26 +1,23 @@
-// DOMContentLoaded listener
+// Ensure scores display on page load by calling showScore
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || '1'; // Ensure string
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId; // Keep as string to match lessons object keys
-
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
-        console.log("Start lesson button found:", startLessonButton);
-        startLessonButton.addEventListener('click', () => {
-            console.log("Start Lesson button clicked!");
-            startLesson();
-        });
+        startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found in DOM!");
+        console.error("Start lesson button not found.");
     }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = urlParams.get('lesson') || 1;
+    console.log(`Loading lesson ${lessonId}`);
+    currentLesson = lessonId;
 
     showScore();
 });
+
 // Define all lessons
 const lessons = {
     1: {
@@ -42,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: 'Urban gardens promote sustainability by reducing food transport costs.' What is the central idea?",
+                passage: "In 2023, a community report in Millville highlighted: 'Urban gardens promote sustainability by reducing food transport costs and supporting local ecosystems.' The report aimed to inform residents about initiatives enhancing environmental responsibility.",
+                question: "What is the central idea?",
                 options: [
                     { text: "A) Urban gardens promote sustainability", correct: true },
                     { text: "B) Food transport costs are high", correct: false },
@@ -67,12 +65,13 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'Technology has changed communication. Emails and texts are now common.' What is the central idea?",
+                passage: "In 2024, a workplace wellness program in Greenvale distributed a guide stating: 'Technology has transformed communication. Emails and text messages enable instant collaboration across teams.' The guide emphasized the role of digital tools in enhancing productivity.",
+                question: "What is the central idea?",
                 options: [
-                    { text: "A) Technology has changed communication", correct: true },
-                    { text: "B) Emails are common", correct: false },
-                    { text: "C) Texts are popular", correct: false },
-                    { text: "D) Communication is modern", correct: false }
+                    { text: "A) Technology has transformed communication", correct: true },
+                    { text: "B) Emails enable collaboration", correct: false },
+                    { text: "C) Text messages are instant", correct: false },
+                    { text: "D) Communication is digital", correct: false }
                 ],
                 explanation: "The central idea is the broad impact of technology on communication; specific examples are details."
             },
@@ -92,8 +91,9 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: 'Public transit reduces traffic. Buses and trains carry many passengers daily.' What is the central idea?",
-                options: [
+                passage: "In 2023, a city planner’s report in Clearwater noted: 'Public transit reduces traffic congestion. Buses and trains transport thousands of passengers daily, easing road pressure.' The report aimed to justify investments in transit infrastructure.",
+                question: "What is the central idea?",
+                answers: [
                     { text: "A) Public transit reduces traffic", correct: true },
                     { text: "B) Buses carry passengers", correct: false },
                     { text: "C) Trains run daily", correct: false },
@@ -117,7 +117,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: 'Healthy diets prevent disease. Fruits and vegetables lower heart risks.' What is the central idea?",
+                passage: "In 2024, a health campaign in Millville distributed a pamphlet stating: 'Healthy diets prevent chronic diseases. Consuming fruits and vegetables lowers the risk of heart conditions.' The campaign sought to educate residents on nutrition’s role in long-term health.",
+                question: "What is the central idea?",
                 options: [
                     { text: "A) Healthy diets prevent disease", correct: true },
                     { text: "B) Fruits are healthy", correct: false },
@@ -142,7 +143,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: 'Forests store carbon. Trees absorb CO2 every year.' What is the central idea?",
+                passage: "In 2023, an environmental journal in Greenvale published: 'Forests play a vital role in carbon storage. Trees absorb significant amounts of CO2 annually, helping mitigate climate change.' The article underscored the importance of forest conservation for global ecosystems.",
+                question: "What is the central idea?",
                 options: [
                     { text: "A) Forests store carbon", correct: true },
                     { text: "B) Trees absorb CO2", correct: false },
@@ -167,7 +169,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'Libraries support learning. They offer books and free internet.' What is the central idea?",
+                passage: "In 2024, a community center in Clearwater issued a brochure stating: 'Libraries foster lifelong learning. They provide access to books, digital resources, and educational programs for all ages.' The brochure aimed to promote the library’s role in community development.",
+                question: "What is the central idea?",
                 options: [
                     { text: "A) Libraries support learning", correct: true },
                     { text: "B) Books are available", correct: false },
@@ -192,7 +195,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'Art inspires creativity. Museums and classes spark ideas.' What is the central idea?",
+                passage: "In 2023, an arts council in Millville released a statement: 'Art inspires creativity in communities. Local museums and art classes spark innovative ideas among residents.' The statement aimed to advocate for increased arts funding to enhance cultural engagement.",
+                question: "What is the central idea?",
                 options: [
                     { text: "A) Art inspires creativity", correct: true },
                     { text: "B) Museums have art", correct: false },
@@ -222,7 +226,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: 'Recycling reduces waste and saves resources like water and trees.' Summarize it.",
+                passage: "In 2023, a recycling initiative in Greenvale published a guide stating: 'Recycling reduces waste and saves resources like water and trees.' The guide aimed to educate residents on environmental conservation practices.",
+                question: "Summarize the passage.",
                 options: [
                     { text: "A) Recycling reduces waste and conserves resources", correct: true },
                     { text: "B) Water is saved by recycling", correct: false },
@@ -247,7 +252,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'The new law, passed in June, improved safety by limiting speeds.' Summarize it.",
+                passage: "In 2024, a city council in Clearwater announced: 'The new law, passed in June, improved safety by limiting speeds.' The announcement highlighted the council’s commitment to public safety through legislative measures.",
+                question: "Summarize the passage.",
                 options: [
                     { text: "A) New law improved safety", correct: true },
                     { text: "B) Law passed in June", correct: false },
@@ -272,7 +278,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: 'The park, built in 2015, attracts tourists with its trails and views.' Summarize it.",
+                passage: "In 2023, a tourism board in Millville reported: 'The park, built in 2015, attracts tourists with its trails and scenic views.' The report aimed to promote tourism by showcasing the park’s appeal to visitors.",
+                question: "Summarize the passage.",
                 options: [
                     { text: "A) The park draws visitors with its features", correct: true },
                     { text: "B) The park was built in 2015", correct: false },
@@ -297,7 +304,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: 'Exercise boosts mood. It releases endorphins and reduces stress.' Summarize it.",
+                passage: "In 2024, a health journal in Greenvale published: 'Exercise boosts mood. It releases endorphins and reduces stress, enhancing emotional well-being.' The journal sought to inform readers about the psychological benefits of physical activity.",
+                question: "Summarize the passage.",
                 options: [
                     { text: "A) Exercise improves mood", correct: true },
                     { text: "B) Endorphins are released", correct: false },
@@ -322,7 +330,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: 'Solar panels save money. They reduce bills and last decades.' Summarize it.",
+                passage: "In 2023, an energy company in Clearwater distributed a flyer stating: 'Solar panels save money. They reduce electricity bills and have a long lifespan.' The flyer aimed to encourage residents to adopt renewable energy solutions.",
+                question: "Summarize the passage.",
                 options: [
                     { text: "A) Solar panels cut costs", correct: true },
                     { text: "B) Bills are reduced", correct: false },
@@ -347,7 +356,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'Books enrich minds. They offer knowledge and spark imagination.' Summarize it.",
+                passage: "In 2024, a library association in Millville published a report stating: 'Books enrich minds. They offer knowledge and spark imagination, fostering intellectual growth.' The report aimed to advocate for increased library funding to support education.",
+                question: "Summarize the passage.",
                 options: [
                     { text: "A) Books enhance thinking", correct: true },
                     { text: "B) Knowledge is offered", correct: false },
@@ -372,7 +382,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'Art classes boost skills. They teach techniques and inspire projects.' Summarize it.",
+                passage: "In 2023, an arts education program in Greenvale distributed a brochure stating: 'Art classes boost skills. They teach techniques and inspire creative projects, enhancing students’ abilities.' The brochure aimed to promote arts education for youth development.",
+                question: "Summarize the passage.",
                 options: [
                     { text: "A) Art classes improve abilities", correct: true },
                     { text: "B) Techniques are taught", correct: false },
@@ -402,7 +413,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: 'The team won 10 games due to strong defense.' What is a key detail?",
+                passage: "In 2023, a sports league in Millville reported: 'The team won 10 games due to strong defense.' The report highlighted the team’s success to boost community support.",
+                question: "What is a key detail?",
                 options: [
                     { text: "A) Strong defense", correct: true },
                     { text: "B) 10 games", correct: false },
@@ -427,7 +439,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'The storm caused $5 billion in damage, mostly to coastal homes.' What is a key detail?",
+                passage: "In 2024, a weather agency in Greenvale reported: 'The storm caused $5 billion in damage, mostly to coastal homes.' The report aimed to secure funding for disaster recovery.",
+                question: "What is a key detail?",
                 options: [
                     { text: "A) $5 billion in damage", correct: true },
                     { text: "B) Coastal homes", correct: false },
@@ -452,7 +465,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: 'The app gained 2 million users due to its easy interface.' What is a key detail?",
+                passage: "In 2023, a tech company in Clearwater announced: 'The app gained 2 million users due to its easy interface.' The announcement aimed to attract investors by showcasing the app’s popularity.",
+                question: "What is a key detail?",
                 options: [
                     { text: "A) Easy interface", correct: true },
                     { text: "B) 2 million users", correct: false },
@@ -477,7 +491,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: 'The campaign raised $1 million through online ads.' What is a key detail?",
+                passage: "In 2024, a fundraising campaign in Millville reported: 'The campaign raised $1 million through online ads.' The report aimed to demonstrate the campaign’s success to donors.",
+                question: "What is a key detail?",
                 options: [
                     { text: "A) Online ads", correct: true },
                     { text: "B) $1 million", correct: false },
@@ -502,7 +517,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: 'The bridge cut travel time by 15 minutes with its new design.' What is a key detail?",
+                passage: "In 2023, a transportation department in Greenvale reported: 'The bridge cut travel time by 15 minutes with its new design.' The report aimed to justify further infrastructure investments.",
+                question: "What is a key detail?",
                 options: [
                     { text: "A) New design", correct: true },
                     { text: "B) 15 minutes", correct: false },
@@ -527,7 +543,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'The program cut dropout rates by 20% with tutoring.' What is a key detail?",
+                passage: "In 2024, an education board in Clearwater reported: 'The program cut dropout rates by 20% with tutoring.' The report aimed to secure funding for expanded educational support.",
+                question: "What is a key detail?",
                 options: [
                     { text: "A) Tutoring", correct: true },
                     { text: "B) 20%", correct: false },
@@ -552,7 +569,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'The sale raised $500,000 with celebrity endorsements.' What is a key detail?",
+                passage: "In 2023, a charity event in Millville reported: 'The sale raised $500,000 with celebrity endorsements.' The report aimed to highlight the event’s success to attract future sponsors.",
+                question: "What is a key detail?",
                 options: [
                     { text: "A) Celebrity endorsements", correct: true },
                     { text: "B) $500,000", correct: false },
@@ -582,7 +600,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: 'Education boosts earnings. Graduates earn 20% more.' What is the supporting evidence?",
+                passage: "In 2024, a university in Greenvale published a study stating: 'Education boosts earnings. Graduates earn 20% more than non-graduates.' The study aimed to encourage higher education enrollment.",
+                question: "What is the supporting evidence?",
                 options: [
                     { text: "A) Graduates earn 20% more", correct: true },
                     { text: "B) Education is important", correct: false },
@@ -607,7 +626,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'The law reduced crime. Arrests dropped by 25%.' What evidence supports it?",
+                passage: "In 2023, a city council in Clearwater reported: 'The law reduced crime. Arrests dropped by 25% in the first year.' The report aimed to justify the law’s continuation.",
+                question: "What evidence supports it?",
                 options: [
                     { text: "A) Arrests dropped by 25%", correct: true },
                     { text: "B) Law was passed", correct: false },
@@ -632,7 +652,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: 'Meditation aids sleep. Research shows it lowers stress.' What is the supporting evidence?",
+                passage: "In 2024, a wellness center in Millville published: 'Meditation aids sleep. Research shows it lowers stress, promoting better rest.' The center aimed to promote mindfulness practices.",
+                question: "What is the supporting evidence?",
                 options: [
                     { text: "A) Research shows it lowers stress", correct: true },
                     { text: "B) Meditation is popular", correct: false },
@@ -657,7 +678,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: 'Training improves performance. Scores rose by 30%.' What is the supporting evidence?",
+                passage: "In 2023, a corporate training program in Greenvale reported: 'Training improves performance. Employee scores rose by 30% after sessions.' The report aimed to secure funding for expanded training.",
+                question: "What is the supporting evidence?",
                 options: [
                     { text: "A) Scores rose by 30%", correct: true },
                     { text: "B) Training happened", correct: false },
@@ -682,7 +704,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: 'The app saves time. Users finish tasks 20% faster.' What is the supporting evidence?",
+                passage: "In 2024, a tech startup in Clearwater reported: 'The app saves time. Users finish tasks 20% faster than before.' The report aimed to attract investors by showcasing efficiency gains.",
+                question: "What is the supporting evidence?",
                 options: [
                     { text: "A) Users finish tasks 20% faster", correct: true },
                     { text: "B) App is used", correct: false },
@@ -707,7 +730,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'The course aids learning. Students scored 15% higher on tests.' What is the supporting evidence?",
+                passage: "In 2023, an education institute in Millville reported: 'The course aids learning. Students scored 15% higher on tests after completing it.' The institute aimed to promote its courses to prospective students.",
+                question: "What is the supporting evidence?",
                 options: [
                     { text: "A) Students scored 15% higher on tests", correct: true },
                     { text: "B) Course was taken", correct: false },
@@ -732,7 +756,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'Reading boosts focus. Studies show longer attention spans.' What is the supporting evidence?",
+                passage: "In 2024, a health magazine in Greenvale published: 'Reading boosts focus. Studies show readers have longer attention spans.' The magazine aimed to encourage reading for cognitive benefits.",
+                question: "What is the supporting evidence?",
                 options: [
                     { text: "A) Studies show longer attention spans", correct: true },
                     { text: "B) Reading is common", correct: false },
@@ -762,7 +787,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: 'Reading improves vocabulary through exposure to new words.' Paraphrase it.",
+                passage: "In 2023, a literacy campaign in Clearwater published: 'Reading improves vocabulary through exposure to new words.' The campaign aimed to promote reading among youth.",
+                question: "Paraphrase the passage.",
                 options: [
                     { text: "A) Reading enhances vocabulary by introducing new terms", correct: true },
                     { text: "B) Vocabulary grows with reading", correct: false },
@@ -787,7 +813,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'The policy increased jobs by attracting businesses.' Restate it.",
+                passage: "In 2024, an economic development board in Millville reported: 'The policy increased jobs by attracting businesses.' The report aimed to highlight economic growth strategies.",
+                question: "Restate the passage.",
                 options: [
                     { text: "A) The policy boosted employment by drawing companies", correct: true },
                     { text: "B) Jobs grew with the policy", correct: false },
@@ -812,7 +839,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: 'The film won awards for its stunning visuals.' Paraphrase it.",
+                passage: "In 2023, a film festival in Greenvale announced: 'The film won awards for its stunning visuals.' The announcement aimed to attract audiences to the festival.",
+                question: "Paraphrase the passage.",
                 options: [
                     { text: "A) The movie earned prizes for its impressive graphics", correct: true },
                     { text: "B) The film had stunning actors", correct: false },
@@ -837,7 +865,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: 'Exercise lifts spirits by releasing endorphins.' Paraphrase it.",
+                passage: "In 2024, a fitness center in Clearwater published: 'Exercise lifts spirits by releasing endorphins.' The center aimed to promote physical activity for mental health.",
+                question: "Paraphrase the passage.",
                 options: [
                     { text: "A) Working out cheers people up by producing endorphins", correct: true },
                     { text: "B) Spirits are lifted", correct: false },
@@ -862,7 +891,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: 'Sleep aids memory by strengthening brain connections.' Paraphrase it.",
+                passage: "In 2023, a neuroscience study in Millville stated: 'Sleep aids memory by strengthening brain connections.' The study aimed to highlight sleep’s cognitive benefits.",
+                question: "Paraphrase the passage.",
                 options: [
                     { text: "A) Rest improves recall by enhancing neural links", correct: true },
                     { text: "B) Memory needs sleep", correct: false },
@@ -887,7 +917,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'Music boosts focus by calming the mind.' Paraphrase it.",
+                passage: "In 2024, a wellness campaign in Greenvale published: 'Music boosts focus by calming the mind.' The campaign aimed to promote music for productivity.",
+                question: "Paraphrase the passage.",
                 options: [
                     { text: "A) Tunes enhance concentration by soothing thoughts", correct: true },
                     { text: "B) Focus needs music", correct: false },
@@ -912,7 +943,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'The sale raised $1 million through ads.' Paraphrase it.",
+                passage: "In 2023, a charity auction in Clearwater reported: 'The sale raised $1 million through ads.' The report aimed to showcase fundraising success to donors.",
+                question: "Paraphrase the passage.",
                 options: [
                     { text: "A) The event collected $1 million via advertising", correct: true },
                     { text: "B) Ads raised money", correct: false },
@@ -925,10 +957,11 @@ const lessons = {
     }
 };
 
-// Central Ideas and Detail question arrays
+// Central Ideas question array
 const centralIdeaQuestions = [
     {
-        question: "Passage: 'Public transit reduces traffic. Buses and trains carry many passengers daily.' What is the central idea?",
+        passage: "In 2024, a city planner’s report in Clearwater noted: 'Public transit reduces traffic congestion. Buses and trains transport thousands of passengers daily, easing road pressure.' The report aimed to justify investments in transit infrastructure to improve urban mobility.",
+        question: "What is the central idea?",
         answers: [
             { text: "A) Public transit reduces traffic", correct: true },
             { text: "B) Buses carry passengers", correct: false },
@@ -937,78 +970,91 @@ const centralIdeaQuestions = [
         ],
         explanation: "The main focus is transit reducing traffic; other options are details.",
         difficulty: "easy",
-        category: "central-ideas"
-    }
-];
-
-const summarizingQuestions = [
+        category: "ged-central-ideas"
+    },
     {
-        question: "Passage: 'The park, built in 2015, attracts tourists with its trails and views.' Summarize it.",
+        passage: "In 2023, a health campaign in Millville distributed a pamphlet stating: 'Regular exercise enhances physical and mental health. It reduces stress, improves heart function, and boosts mood.' The campaign sought to encourage residents to adopt active lifestyles for overall well-being.",
+        question: "What is the central idea?",
         answers: [
-            { text: "A) The park draws visitors with its features", correct: true },
-            { text: "B) The park was built in 2015", correct: false },
-            { text: "C) Trails are popular", correct: false },
-            { text: "D) Views are scenic", correct: false }
+            { text: "A) Exercise improves health", correct: true },
+            { text: "B) Stress is reduced by exercise", correct: false },
+            { text: "C) Heart function improves", correct: false },
+            { text: "D) Mood needs boosting", correct: false }
         ],
-        explanation: "The summary captures the essence without specific details like the year.",
+        explanation: "The central idea is exercise’s health benefits; specifics like stress reduction are details.",
         difficulty: "medium",
-        category: "central-ideas"
-    }
-];
-
-const keyDetailsQuestions = [
+        category: "ged-central-ideas"
+    },
     {
-        question: "Passage: 'The app gained 2 million users due to its easy interface.' What is a key detail?",
+        passage: "In 2024, an educational journal in Greenvale published: 'Technology revolutionizes education. Online platforms and digital tools enable personalized learning and global access to resources.' The journal aimed to highlight technology’s role in transforming modern education systems.",
+        question: "What is the central idea?",
         answers: [
-            { text: "A) Easy interface", correct: true },
-            { text: "B) 2 million users", correct: false },
-            { text: "C) App name", correct: false },
-            { text: "D) Release date", correct: false }
+            { text: "A) Technology revolutionizes education", correct: true },
+            { text: "B) Online platforms enable learning", correct: false },
+            { text: "C) Digital tools are global", correct: false },
+            { text: "D) Education needs technology", correct: false }
         ],
-        explanation: "The interface explains the user gain, making it a key detail.",
-        difficulty: "easy",
-        category: "central-ideas"
-    }
-];
-
-const supportingEvidenceQuestions = [
-    {
-        question: "Passage: 'Meditation aids sleep. Research shows it lowers stress.' What is the supporting evidence?",
-        answers: [
-            { text: "A) Research shows it lowers stress", correct: true },
-            { text: "B) Meditation is popular", correct: false },
-            { text: "C) Sleep is important", correct: false },
-            { text: "D) Stress is common", correct: false }
-        ],
-        explanation: "The research on stress reduction supports the sleep benefit claim.",
+        explanation: "The central idea is technology’s transformative impact on education; platforms and tools are examples.",
         difficulty: "medium",
-        category: "central-ideas"
-    }
-];
-
-const paraphrasingQuestions = [
+        category: "ged-central-ideas"
+    },
     {
-        question: "Passage: 'The film won awards for its stunning visuals.' Paraphrase it.",
+        passage: "In 2023, a community newsletter in Clearwater reported: 'Volunteer programs strengthen community bonds. They organize cleanups, food drives, and youth mentorship, fostering unity.' The newsletter aimed to promote volunteerism to enhance local engagement.",
+        question: "What is the central idea?",
         answers: [
-            { text: "A) The movie earned prizes for its impressive graphics", correct: true },
-            { text: "B) The film had stunning actors", correct: false },
-            { text: "C) Awards were given in 2020", correct: false },
-            { text: "D) Visuals were colorful", correct: false }
+            { text: "A) Volunteer programs strengthen community bonds", correct: true },
+            { text: "B) Cleanups are organized", correct: false },
+            { text: "C) Food drives foster unity", correct: false },
+            { text: "D) Communities need volunteers", correct: false }
         ],
-        explanation: "The paraphrase restates the awards and visuals in new words.",
+        explanation: "The central idea is volunteer programs’ role in community bonding; specific activities are details.",
         difficulty: "medium",
-        category: "central-ideas"
+        category: "ged-central-ideas"
+    },
+    {
+        passage: "In 2024, an environmental agency in Millville stated: 'Wetlands protect against flooding. They absorb excess water and reduce storm damage in coastal areas.' The agency aimed to advocate for wetland preservation to mitigate natural disasters.",
+        question: "What is the central idea?",
+        answers: [
+            { text: "A) Wetlands protect against flooding", correct: true },
+            { text: "B) Excess water is absorbed", correct: false },
+            { text: "C) Storms damage coasts", correct: false },
+            { text: "D) Flooding is a problem", correct: false }
+        ],
+        explanation: "The central idea is wetlands’ role in flood protection; water absorption is a detail.",
+        difficulty: "medium",
+        category: "ged-central-ideas"
+    },
+    {
+        passage: "In 2023, a workplace policy guide in Greenvale noted: 'Flexible work arrangements increase productivity. Employees save time on commutes and balance personal tasks.' The guide aimed to promote flexible policies to improve workplace efficiency.",
+        question: "What is the central idea?",
+        answers: [
+            { text: "A) Flexible work arrangements increase productivity", correct: true },
+            { text: "B) Commutes save time", correct: false },
+            { text: "C) Employees balance tasks", correct: false },
+            { text: "D) Productivity needs improvement", correct: false }
+        ],
+        explanation: "The central idea is flexible work’s productivity benefits; commuting and task balance are details.",
+        difficulty: "medium",
+        category: "ged-central-ideas"
+    },
+    {
+        passage: "In 2024, an arts festival in Clearwater published: 'Cultural events enrich communities. Festivals and exhibitions celebrate diversity and spark creativity.' The publication aimed to encourage participation in cultural activities for community development.",
+        question: "What is the central idea?",
+        answers: [
+            { text: "A) Cultural events enrich communities", correct: true },
+            { text: "B) Festivals celebrate diversity", correct: false },
+            { text: "C) Exhibitions spark creativity", correct: false },
+            { text: "D) Communities need culture", correct: false }
+        ],
+        explanation: "The central idea is cultural events’ community enrichment; festivals and exhibitions are examples.",
+        difficulty: "medium",
+        category: "ged-central-ideas"
     }
 ];
-
-// lesson-central-ideas-and-detail.js
-
-// Variables
-// lesson-central-ideas-and-detail.js
 
 // Variables
 let categoryStats = {
-    "central-ideas-and-detail": { correct: 0, incorrect: 0 }
+    "ged-central-ideas": { correct: 0, incorrect: 0 }
 };
 let currentItemIndex = 0;
 let currentLesson = "1"; // Default as string to match lessons object keys
@@ -1018,6 +1064,7 @@ let isQuizPhase = false;
 let showingQuizTransition = false; // Flag for quiz transition
 let currentQuestionIndex = 0;
 
+// Progress bar update function
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
@@ -1037,8 +1084,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const lessonId = urlParams.get('lesson') || '1'; // Ensure string
     console.log(`Loading lesson ${lessonId}`);
     currentLesson = lessonId;
-    showScore();
-    updateProgressBar(0);
 
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
@@ -1047,8 +1092,12 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.error("Start lesson button not found.");
     }
+
+    showScore();
+    updateProgressBar(0);
 });
 
+// Start lesson
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
@@ -1067,6 +1116,7 @@ function startLesson() {
     }
 }
 
+// Show lesson item
 function showItem() {
     console.log("Showing item for lesson:", currentLesson, "index:", currentItemIndex);
     const lessonContent = document.getElementById('lesson-content');
@@ -1090,14 +1140,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row reading-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -1119,11 +1168,25 @@ function showItem() {
     }
 }
 
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
-    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Why)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
 }
 
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
+}
+
+// Handle answer selection
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
@@ -1138,10 +1201,10 @@ function selectAnswer(selectedBtn, item) {
 
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
-        categoryStats["central-ideas-and-detail"].correct++;
+        categoryStats["ged-central-ideas"].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats["central-ideas-and-detail"].incorrect++;
+        categoryStats["ged-central-ideas"].incorrect++;
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
@@ -1158,6 +1221,7 @@ function selectAnswer(selectedBtn, item) {
     }, { once: true });
 }
 
+// Next lesson item
 function nextItem() {
     currentItemIndex++;
     console.log("nextItem called, currentItemIndex:", currentItemIndex);
@@ -1168,6 +1232,7 @@ function nextItem() {
     }
 }
 
+// Show quiz transition screen
 function showQuizTransition() {
     console.log("Showing quiz transition for lesson:", currentLesson);
     showingQuizTransition = true;
@@ -1178,7 +1243,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -1198,6 +1263,7 @@ function showQuizTransition() {
     }
 }
 
+// Start quiz
 function showQuiz() {
     console.log("Starting quiz for lesson:", currentLesson);
     isQuizPhase = true;
@@ -1208,6 +1274,7 @@ function showQuiz() {
     showNextQuizQuestion(quizQuestions);
 }
 
+// Get quiz questions based on lesson
 function getQuizQuestions(lessonId) {
     switch (parseInt(lessonId)) {
         case 1: return centralIdeaQuestions;
@@ -1219,17 +1286,17 @@ function getQuizQuestions(lessonId) {
     }
 }
 
+// Show next quiz question
 function showNextQuizQuestion(quizQuestions) {
     console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row reading-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
                     <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
@@ -1252,17 +1319,22 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
+// Save lesson completion
+function saveLessonCompletion() {
+    const completionData = {
+        exam: "GED",
+        type: "lesson",
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    console.log("Saved lesson completion:", completionData);
 }
 
+// Show final score
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = categoryStats["central-ideas-and-detail"].correct;
-    let totalAttempted = totalCorrect + categoryStats["central-ideas-and-detail"].incorrect;
+    let totalCorrect = categoryStats["ged-central-ideas"].correct;
+    let totalAttempted = totalCorrect + categoryStats["ged-central-ideas"].incorrect;
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
@@ -1283,29 +1355,32 @@ function showFinalScore() {
     const finalScoreElement = document.getElementById('final-score');
     if (finalScoreElement) finalScoreElement.classList.add('hide'); // Hide if exists
     document.getElementById('continue-button').addEventListener('click', () => {
+        saveLessonCompletion();
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     }, { once: true });
 
     recordTestResults();
 }
 
+// Record test results
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
-    let storedResults = localStorage.getItem("testResults");
+    let storedResults = localStorage.getItem("gedTestResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
     for (let category in categoryStats) {
         if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
-    localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
+    localStorage.setItem("gedTestResults", JSON.stringify(results));
+    console.log("Final stored gedTestResults:", results);
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
 }
 
+// Log final score
 function logFinalScore(totalCorrect, totalAttempted) {
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     localStorage.setItem("finalScore", JSON.stringify({
@@ -1317,15 +1392,18 @@ function logFinalScore(totalCorrect, totalAttempted) {
     console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
 }
 
+// Save score
 function saveScore(lessonId, score) {
-    localStorage.setItem(`central-ideas-lessonScore-${lessonId}`, score);
-    console.log(`Saved central-ideas-lessonScore-${lessonId}: ${score}`);
+    localStorage.setItem(`ged-central-ideas-lessonScore-${lessonId}`, score);
+    console.log(`Saved ged-central-ideas-lessonScore-${lessonId}: ${score}`);
 }
 
+// Get score
 function getScore(lessonId) {
-    return localStorage.getItem(`central-ideas-lessonScore-${lessonId}`) || "Not completed yet";
+    return localStorage.getItem(`ged-central-ideas-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
+// Show score on page load
 function showScore() {
     const scoreDisplay = document.getElementById('score-display');
     if (scoreDisplay) {
@@ -1335,4 +1413,3 @@ function showScore() {
         console.log("Score display element not found, skipping showScore");
     }
 }
-
