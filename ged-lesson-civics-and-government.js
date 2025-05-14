@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: The legislative branch, Congress, makes laws, while the executive enforces them, and the judicial interprets them. What is the role of Congress?",
+                passage: "The U.S. government operates through three distinct branches, as outlined in the Constitution. The legislative branch, Congress, is responsible for creating laws, while the executive enforces them, and the judicial interprets their constitutionality, ensuring a balanced system of governance.",
+                question: "What is the role of Congress?",
                 options: [
                     { text: "A) Make laws", correct: true },
                     { text: "B) Enforce laws", correct: false },
@@ -64,14 +65,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: The Constitution establishes the framework for U.S. governance, including checks and balances. What is one function of the Constitution?",
+                passage: "Ratified in 1788, the U.S. Constitution serves as the foundation for American governance, establishing the framework for the federal government’s operations. It includes checks and balances to distribute power and incorporates amendments like the Bill of Rights to safeguard individual freedoms.",
+                question: "What is one function of the Constitution?",
                 options: [
-                    { text: "A) Establish government framework", correct: true },
-                    { text: "B) Regulate trade", correct: false },
+                    { text: "A) Regulate trade", correct: false },
+                    { text: "B) Establish government framework", correct: true },
                     { text: "C) Conduct elections", correct: false },
                     { text: "D) Fund schools", correct: false }
                 ],
-                explanation: "The passage states the Constitution establishes the framework for governance, making A correct."
+                explanation: "The passage states the Constitution establishes the framework for governance, making B correct."
             },
             {
                 type: "example",
@@ -89,14 +91,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: Civic duties, like jury service, ensure the justice system functions. What is one civic duty mentioned?",
+                passage: "U.S. citizens contribute to democracy through civic duties that sustain the justice system and public services. Jury service, for instance, ensures fair trials by involving citizens in the legal process, strengthening the judicial branch’s role in upholding the rule of law.",
+                question: "What is one civic duty mentioned?",
                 options: [
-                    { text: "A) Jury service", correct: true },
-                    { text: "B) Running for office", correct: false },
+                    { text: "A) Running for office", correct: false },
+                    { text: "B) Jury service", correct: true },
                     { text: "C) Writing laws", correct: false },
                     { text: "D) Teaching history", correct: false }
                 ],
-                explanation: "The passage mentions jury service as a civic duty, making A correct."
+                explanation: "The passage mentions jury service as a civic duty, making B correct."
             },
             {
                 type: "example",
@@ -114,20 +117,21 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: Under federalism, the federal government regulates interstate commerce, while states control local policies like public schools. What do states control?",
+                passage: "Federalism in the U.S. creates a dual system of governance, balancing power between national and state authorities. The federal government oversees interstate commerce and national defense, while states have authority over local policies, such as setting standards for public education systems.",
+                question: "What do states control under federalism?",
                 options: [
-                    { text: "A) Public schools", correct: true },
-                    { text: "B) Interstate commerce", correct: false },
-                    { text: "C) National defense", correct: false },
+                    { text: "A) Interstate commerce", correct: false },
+                    { text: "B) National defense", correct: false },
+                    { text: "C) Public schools", correct: true },
                     { text: "D) Foreign policy", correct: false }
                 ],
-                explanation: "The passage states states control local policies like public schools, making A correct."
+                explanation: "The passage states states control local policies like public schools, making C correct."
             },
             {
                 type: "example",
                 title: "Example 5: Bill of Rights",
                 content: `
-                    <h2>Example 5: Bill of Rights</h2>
+                    <h2>Example 5: Bill of Rights healthier plants.</h2>
                     <p>Passage: The Bill of Rights, the first ten amendments to the Constitution, protects freedoms like speech, religion, and the press, ensuring individual liberties.</p>
                     <p>Question: What does the Bill of Rights protect?</p>
                     <p>Step 1: Identify protections: Freedoms like speech, religion, and press.</p>
@@ -139,14 +143,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: The First Amendment in the Bill of Rights guarantees freedom of assembly and petition. What does the First Amendment protect?",
+                passage: "The Bill of Rights, ratified in 1791, safeguards essential freedoms for U.S. citizens. The First Amendment, in particular, guarantees the right to assemble and petition the government, enabling citizens to express collective grievances and influence policy.",
+                question: "What does the First Amendment protect?",
                 options: [
-                    { text: "A) Freedom of assembly", correct: true },
-                    { text: "B) Right to bear arms", correct: false },
+                    { text: "A) Right to bear arms", correct: false },
+                    { text: "B) Freedom of assembly", correct: true },
                     { text: "C) Trial by jury", correct: false },
-                    { text: "D) Search and seizure", correct: false }
+                    { text: "D) Search and seizure protections", correct: false }
                 ],
-                explanation: "The passage states the First Amendment protects freedom of assembly, making A correct."
+                explanation: "The passage states the First Amendment protects freedom of assembly, making B correct."
             },
             {
                 type: "example",
@@ -164,14 +169,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: The Electoral College determines the U.S. president, with electors allocated by state population. What determines the number of electors per state?",
-                options: [
-                    { text: "A) State population", correct: true },
-                    { text: "B) State land area", correct: false },
-                    { text: "C) State tax revenue", correct: false },
+                passage: "The Electoral College, established by the Constitution, determines the U.S. president through a system of electors. Each state’s number of electors is based on its population, reflected in congressional representation, ensuring larger states have greater influence in the electoral process.",
+                question: "What determines the number of electors per state?",
+                answers: [
+                    { text: "A) State land area", correct: false },
+                    { text: "B) State tax revenue", correct: false },
+                    { text: "C) State population", correct: true },
                     { text: "D) State founding date", correct: false }
                 ],
-                explanation: "The passage states electors are allocated by state population, making A correct."
+                explanation: "The passage states electors are based on state population, making C correct."
             },
             {
                 type: "example",
@@ -189,14 +195,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: The judicial branch can check the other branches by declaring laws unconstitutional. What power does the judicial branch have?",
-                options: [
-                    { text: "A) Declare laws unconstitutional", correct: true },
-                    { text: "B) Pass new laws", correct: false },
-                    { text: "C) Veto legislation", correct: false },
-                    { text: "D) Appoint governors", correct: false }
+                passage: "The U.S. government’s checks and balances system maintains equilibrium among its branches. The judicial branch, through the Supreme Court, exercises judicial review, a power solidified in the 1803 case Marbury v. Madison, allowing it to invalidate laws that violate the Constitution.",
+                question: "What is the significance of judicial review?",
+                answers: [
+                    { text: "A) It allows Congress to override vetoes", correct: false },
+                    { text: "B) It enables the Supreme Court to check unconstitutional laws", correct: true },
+                    { text: "C) It permits states to nullify federal laws", correct: false },
+                    { text: "D) It ensures the president appoints judges", correct: false }
                 ],
-                explanation: "The passage states the judicial branch can declare laws unconstitutional, making A correct."
+                explanation: "The passage explains judicial review as the Supreme Court’s power to check unconstitutional laws, making B correct."
             }
         ]
     }
@@ -205,7 +212,8 @@ const lessons = {
 // Civics and government question array
 const civicsGovernmentQuestions = [
     {
-        question: "Passage: The 14th Amendment, ratified in 1868, grants citizenship to all persons born in the U.S. and ensures equal protection under the law. What does the 14th Amendment guarantee?",
+        passage: "In 1868, the 14th Amendment was ratified to address citizenship and civil rights issues following the Civil War. It granted citizenship to all persons born in the U.S. and guaranteed equal protection under the law, significantly shaping modern legal interpretations of civil liberties.",
+        question: "What does the 14th Amendment guarantee?",
         answers: [
             { text: "A) Equal protection", correct: true },
             { text: "B) Freedom of speech", correct: false },
@@ -217,74 +225,80 @@ const civicsGovernmentQuestions = [
         category: "ged-civics-and-government"
     },
     {
-        question: "Passage: The U.S. Constitution assigns the power to declare war to Congress, reflecting the legislative branch’s role in major national decisions. Why does Congress have the authority to declare war?",
+        passage: "The U.S. Constitution delineates specific powers to maintain a balanced government. In Article I, it assigns Congress the authority to declare war, ensuring that major national decisions involve legislative deliberation, distinct from the executive’s role in conducting military operations.",
+        question: "Why does Congress have the authority to declare war?",
         answers: [
-            { text: "A) To balance power with the executive branch", correct: true },
-            { text: "B) To oversee judicial appointments", correct: false },
+            { text: "A) To oversee judicial appointments", correct: false },
+            { text: "B) To balance power with the executive branch", correct: true },
             { text: "C) To regulate state militias", correct: false },
             { text: "D) To control foreign trade", correct: false }
         ],
-        explanation: "The passage notes Congress’s war declaration power, which balances the executive’s military authority, aligning with checks and balances. It’s not about judicial appointments, militias, or trade, making A correct.",
+        explanation: "The passage notes Congress’s war declaration power balances the executive’s military authority, making B correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "Passage: Civic participation, such as voting in elections, allows citizens to influence government policies and leadership. How does voting impact the government?",
+        passage: "Civic participation is a cornerstone of U.S. democracy, enabling citizens to influence government decisions. Voting in elections allows individuals to shape policies and choose leaders, fostering a responsive government that reflects the will of the people.",
+        question: "How does voting impact the government?",
         answers: [
             { text: "A) It funds public services", correct: false },
-            { text: "B) It shapes policies and leadership", correct: true },
-            { text: "C) It appoints judges", correct: false },
+            { text: "B) It appoints judges", correct: false },
+            { text: "C) It shapes policies and leadership", correct: true },
             { text: "D) It regulates commerce", correct: false }
         ],
-        explanation: "The passage states voting influences government policies and leadership, reflecting civic responsibility. It doesn’t fund services, appoint judges, or regulate commerce, making B correct.",
+        explanation: "The passage states voting influences policies and leadership, making C correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "Passage: Federalism in the U.S. allocates powers to both national and state governments, with the federal government regulating foreign policy while states manage education standards. What is a key feature of federalism?",
+        passage: "Federalism in the U.S. creates a system where power is shared between national and state governments. The federal government handles issues like foreign policy and interstate commerce, while states manage local concerns, such as education standards, ensuring both levels address distinct needs.",
+        question: "What is a key feature of federalism?",
         answers: [
             { text: "A) A single centralized government", correct: false },
-            { text: "B) Division of powers between national and state governments", correct: true },
-            { text: "C) States controlling all federal laws", correct: false },
+            { text: "B) States controlling all federal laws", correct: false },
+            { text: "C) Division of powers between national and state governments", correct: true },
             { text: "D) Elimination of state governments", correct: false }
         ],
-        explanation: "The passage describes federalism as allocating powers between national and state governments, such as foreign policy and education. It’s not centralized, state-dominated, or eliminative, making B correct.",
+        explanation: "The passage describes federalism as dividing powers between national and state governments, making C correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "Passage: The Bill of Rights includes the Second Amendment, which protects the right to bear arms, often debated in the context of public safety and individual freedom. What right does the Second Amendment protect?",
+        passage: "The Bill of Rights, enacted in 1791, protects fundamental liberties through its amendments. The Second Amendment, often debated in discussions of public safety and individual rights, ensures citizens’ right to bear arms, reflecting the era’s emphasis on personal security.",
+        question: "What right does the Second Amendment protect?",
         answers: [
             { text: "A) Freedom of religion", correct: false },
-            { text: "B) Freedom of speech", correct: false },
-            { text: "C) Right to bear arms", correct: true },
+            { text: "B) Right to bear arms", correct: true },
+            { text: "C) Freedom of speech", correct: false },
             { text: "D) Right to a fair trial", correct: false }
         ],
-        explanation: "The passage specifies the Second Amendment protects the right to bear arms, not religion, speech, or trials, making C correct.",
+        explanation: "The passage specifies the Second Amendment protects the right to bear arms, making B correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "Passage: The Electoral College system requires electors to vote for the president based on their state’s popular vote, but in some cases, electors can vote independently, known as 'faithless electors.' What is a characteristic of the Electoral College?",
+        passage: "The Electoral College, a unique feature of U.S. presidential elections, allocates electors based on state population. While electors typically vote according to their state’s popular vote, rare instances of ‘faithless electors’ voting independently highlight the system’s complexity and flexibility.",
+        question: "What is a characteristic of the Electoral College?",
         answers: [
             { text: "A) Direct election by popular vote", correct: false },
-            { text: "B) Equal votes for all states", correct: false },
-            { text: "C) Appointment by the president", correct: false },
-            { text: "D) Potential for faithless electors", correct: true }
+            { text: "B) Potential for faithless electors", correct: true },
+            { text: "C) Equal votes for all states", correct: false },
+            { text: "D) Appointment by the president", correct: false }
         ],
-        explanation: "The passage notes the possibility of faithless electors in the Electoral College, a unique feature. It’s not a direct election, equal per state, or appointed by the president, making D correct.",
+        explanation: "The passage notes the possibility of faithless electors, making B correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     },
     {
-        question: "Passage: The Supreme Court can strike down laws that violate the Constitution, a power known as judicial review, established in Marbury v. Madison (1803). What is the significance of judicial review?",
+        passage: "In 1803, the Supreme Court’s decision in Marbury v. Madison established judicial review, empowering the Court to strike down laws that violate the Constitution. This power ensures the judiciary can check the legislative and executive branches, preserving constitutional integrity.",
+        question: "What is the significance of judicial review?",
         answers: [
-            { text: "A) It allows Congress to override vetoes", correct: false },
-            { text: "B) It permits states to nullify federal laws", correct: false },
+            { text: "A) It permits states to nullify federal laws", correct: false },
+            { text: "B) It allows Congress to override vetoes", correct: false },
             { text: "C) It ensures the president appoints judges", correct: false },
             { text: "D) It enables the Supreme Court to check unconstitutional laws", correct: true }
         ],
-        explanation: "The passage explains judicial review as the Supreme Court’s power to strike down unconstitutional laws, a key check. It’s not about vetoes, state nullification, or appointments, making D correct.",
+        explanation: "The passage explains judicial review as the Court’s power to check unconstitutional laws, making D correct.",
         difficulty: "medium",
         category: "ged-civics-and-government"
     }
@@ -328,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found!");
     }
 
     showScore();
@@ -378,14 +392,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row social-studies-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -407,14 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -474,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -519,14 +540,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row social-studies-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -545,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
