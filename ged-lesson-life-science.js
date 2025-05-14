@@ -39,7 +39,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                passage: "Mitochondria, found in both plant and animal cells, are organelles that produce energy through cellular respiration. This process converts nutrients into ATP, the cell’s energy currency, enabling functions like growth and movement. Mitochondria have their own DNA and are thought to have originated from ancient bacteria.",
+                passage: "In 2023, a biology lab in Millville studied mitochondria, organelles found in both plant and animal cells. Mitochondria produce energy through cellular respiration, converting nutrients into ATP, the cell’s energy currency. This process supports functions like growth and movement. Mitochondria have their own DNA, suggesting an ancient bacterial origin.",
                 question: "What is the primary function of mitochondria?",
                 options: [
                     { text: "A) Produce energy", correct: true },
@@ -65,15 +65,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                passage: "In a pond ecosystem, algae are producers, fish are consumers, and bacteria are decomposers. Algae use sunlight to produce energy through photosynthesis, forming the base of the food chain. Fish consume algae or other organisms, while bacteria recycle nutrients from dead matter, supporting ecosystem balance.",
-                question: "What is the role of producers?",
+                passage: "In 2024, a pond ecosystem study in Greenvale highlighted the roles of algae, fish, and bacteria. Algae, as producers, use sunlight for photosynthesis, forming the food chain’s base. Fish, as consumers, eat algae or other organisms, while bacteria, as decomposers, recycle nutrients from dead matter, maintaining ecosystem balance.",
+                question: "What is the role of producers in the pond ecosystem?",
                 options: [
-                    { text: "A) Create energy through photosynthesis", correct: true },
-                    { text: "B) Consume other organisms", correct: false },
+                    { text: "A) Consume other organisms", correct: false },
+                    { text: "B) Create energy through photosynthesis", correct: true },
                     { text: "C) Break down waste", correct: false },
                     { text: "D) Regulate water temperature", correct: false }
                 ],
-                explanation: "Producers, like algae, create energy via photosynthesis, as implied by their role in the ecosystem."
+                explanation: "Producers, like algae, create energy via photosynthesis, as stated in the passage."
             },
             {
                 type: "example",
@@ -91,11 +91,11 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                passage: "In pea plants, round seeds (R) are dominant over wrinkled seeds (r). A plant with genotype Rr inherits one dominant and one recessive allele. The dominant allele determines the seed shape, reflecting how genes control traits in organisms.",
-                question: "A plant with genotype Rr has what seed shape?",
+                passage: "In 2023, a genetic study in Clearwater examined pea plants, where round seeds (R) are dominant over wrinkled seeds (r). A plant with genotype Rr inherits one dominant and one recessive allele. The dominant allele determines the seed shape, reflecting how genes control traits in organisms.",
+                question: "What seed shape does a plant with genotype Rr have?",
                 options: [
-                    { text: "A) Round", correct: true },
-                    { text: "B) Wrinkled", correct: false },
+                    { text: "A) Wrinkled", correct: false },
+                    { text: "B) Round", correct: true },
                     { text: "C) Mixed", correct: false },
                     { text: "D) Oval", correct: false }
                 ],
@@ -117,15 +117,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                passage: "The circulatory system transports nutrients and oxygen via blood vessels. The heart pumps blood to all body parts, ensuring cells receive essential resources. This process supports vital functions like tissue repair and immune response.",
+                passage: "In 2024, a health study in Millville explored the circulatory system, which transports nutrients and oxygen via blood vessels. The heart pumps blood to all body parts, ensuring cells receive resources for tissue repair and immune response. This process is vital for maintaining bodily functions.",
                 question: "What is the heart’s primary function?",
                 options: [
-                    { text: "A) Pump blood", correct: true },
-                    { text: "B) Produce oxygen", correct: false },
+                    { text: "A) Produce oxygen", correct: false },
+                    { text: "B) Pump blood", correct: true },
                     { text: "C) Filter waste", correct: false },
                     { text: "D) Store nutrients", correct: false }
                 ],
-                explanation: "The passage states the heart pumps blood, making A the correct answer."
+                explanation: "The passage states the heart pumps blood, making B correct."
             },
             {
                 type: "example",
@@ -143,15 +143,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                passage: "Birds with stronger beaks can access more food sources, increasing their survival in harsh environments. Natural selection favors traits that enhance survival, allowing better-adapted birds to reproduce and pass on these traits.",
-                question: "Why do stronger beaks aid survival?",
+                passage: "In 2023, a savanna study in Greenvale examined evolutionary adaptations. Birds with stronger beaks access more food sources, increasing survival in harsh environments. Natural selection favors these traits, allowing better-adapted birds to reproduce and pass on advantageous traits to their offspring.",
+                question: "Why do stronger beaks aid bird survival?",
                 options: [
-                    { text: "A) They allow access to more food", correct: true },
-                    { text: "B) They attract mates", correct: false },
-                    { text: "C) They improve flight", correct: false },
-                    { text: "D) They reduce disease", correct: false }
+                    { text: "A) Attract mates", correct: false },
+                    { text: "B) Access more food", correct: true },
+                    { text: "C) Improve flight", correct: false },
+                    { text: "D) Reduce disease", correct: false }
                 ],
-                explanation: "Stronger beaks provide more food access, enhancing survival, as stated in the passage."
+                explanation: "Stronger beaks allow more food access, enhancing survival, as stated."
             },
             {
                 type: "example",
@@ -169,15 +169,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                passage: "During photosynthesis, plants convert sunlight energy into chemical energy, producing glucose and releasing oxygen. This process, occurring in chloroplasts, supports plant growth and provides oxygen for animals.",
+                passage: "In 2024, a botanical study in Clearwater examined photosynthesis, where plants convert sunlight into chemical energy, producing glucose and releasing oxygen. Occurring in chloroplasts, this process supports plant growth and provides oxygen for animals, sustaining life across ecosystems.",
                 question: "What is one product of photosynthesis?",
                 options: [
-                    { text: "A) Oxygen", correct: true },
-                    { text: "B) Nitrogen", correct: false },
-                    { text: "C) Carbon dioxide", correct: false },
+                    { text: "A) Nitrogen", correct: false },
+                    { text: "B) Carbon dioxide", correct: false },
+                    { text: "C) Oxygen", correct: true },
                     { text: "D) Water", correct: false }
                 ],
-                explanation: "The passage specifies oxygen as a product of photosynthesis, making A correct."
+                explanation: "The passage specifies oxygen as a product of photosynthesis."
             },
             {
                 type: "example",
@@ -195,13 +195,13 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                passage: "In a marine food chain, phytoplankton are producers, zooplankton are primary consumers, and small fish are secondary consumers. Phytoplankton produce energy via photosynthesis, supporting the food chain, while zooplankton consume them to transfer energy upward.",
-                question: "What is the role of zooplankton?",
+                passage: "In 2023, a marine biology study in Millville analyzed a food chain where phytoplankton are producers, zooplankton are primary consumers, and small fish are secondary consumers. Phytoplankton produce energy via photosynthesis, while zooplankton consume them, transferring energy to higher levels like fish.",
+                question: "What is the role of zooplankton in the food chain?",
                 options: [
-                    { text: "A) Primary consumers", correct: true },
-                    { text: "B) Producers", correct: false },
-                    { text: "C) Secondary consumers", correct: false },
-                    { text: "D) Decomposers", correct: false }
+                    { text: "A) Producers", correct: false },
+                    { text: "B) Secondary consumers", correct: false },
+                    { text: "C) Decomposers", correct: false },
+                    { text: "D) Primary consumers", correct: true }
                 ],
                 explanation: "Zooplankton eat phytoplankton (producers), making them primary consumers."
             }
@@ -212,7 +212,7 @@ const lessons = {
 // Life science question array
 const lifeScienceQuestions = [
     {
-        passage: "DNA contains genetic instructions that guide cell function and development. During cell division, DNA replicates to ensure each new cell receives an identical copy of the genetic material. This process is critical for growth, repair, and reproduction in organisms, maintaining genetic continuity across generations.",
+        passage: "In 2023, a genetic study in Millville revealed that DNA contains instructions guiding cell function and development. During cell division, DNA replicates to ensure each new cell receives an identical genetic copy. This process is critical for growth, repair, and reproduction, maintaining genetic continuity across generations in all living organisms.",
         question: "What is the purpose of DNA replication?",
         answers: [
             { text: "A) Ensure identical genetic material in new cells", correct: true },
@@ -225,80 +225,80 @@ const lifeScienceQuestions = [
         category: "ged-life-science"
     },
     {
-        passage: "In 2023, a coastal ecosystem faced challenges due to rising sea temperatures. Coral reefs, which support diverse marine life, rely on symbiotic algae called zooxanthellae for energy via photosynthesis. These algae live within coral tissues, producing glucose from sunlight, carbon dioxide, and water. Warmer waters cause corals to expel zooxanthellae, leading to coral bleaching and ecosystem decline. Scientists observed that corals with heat-tolerant algae survived better. The loss of corals affects fish populations, which depend on reefs for food and shelter, disrupting the food chain. Restoration efforts focus on breeding heat-tolerant corals.",
+        passage: "In 2023, researchers in Greenvale studied a coastal ecosystem impacted by rising sea temperatures. Coral reefs rely on symbiotic algae called zooxanthellae, which live in coral tissues and produce glucose via photosynthesis using sunlight, carbon dioxide, and water. Warmer waters cause corals to expel zooxanthellae, leading to bleaching and ecosystem decline. Corals with heat-tolerant algae showed better survival rates, supporting fish populations dependent on reefs for food and shelter.",
         question: "What is the primary role of zooxanthellae in coral reefs?",
         answers: [
-            { text: "A) Produce energy through photosynthesis", correct: true },
-            { text: "B) Protect corals from predators", correct: false },
+            { text: "A) Protect corals from predators", correct: false },
+            { text: "B) Produce energy through photosynthesis", correct: true },
             { text: "C) Regulate water temperature", correct: false },
             { text: "D) Break down dead coral", correct: false }
         ],
-        explanation: "The passage states zooxanthellae produce glucose via photosynthesis, providing energy to corals. They do not protect from predators, regulate temperature, or decompose coral, making A correct.",
+        explanation: "Zooxanthellae produce glucose via photosynthesis, providing energy to corals, making B correct.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        passage: "A 2024 study examined how climate change affects forest ecosystems. Trees, as producers, use photosynthesis to convert sunlight, carbon dioxide, and water into glucose, supporting herbivores like deer. Rising temperatures and drought reduce tree growth, limiting food for herbivores. This impacts predators, such as wolves, which rely on herbivores. Decomposers, like fungi, recycle nutrients from dead trees, but drought slows decomposition. Researchers found that forests with diverse tree species were more resilient to climate stress. Conservation efforts aim to plant mixed-species forests to maintain ecosystem stability.",
+        passage: "In 2024, a study in Clearwater examined climate change effects on forest ecosystems. Trees, as producers, use photosynthesis to convert sunlight, carbon dioxide, and water into glucose, supporting herbivores like deer. Drought reduces tree growth, limiting food for herbivores, which impacts predators like wolves. Decomposers, such as fungi, recycle nutrients, but drought slows this process. Diverse forests showed greater resilience to climate stress.",
         question: "How does drought primarily affect herbivores in this ecosystem?",
         answers: [
-            { text: "A) Increases their reproduction rates", correct: false },
-            { text: "B) Decreases food availability for consumers", correct: true },
-            { text: "C) Enhances decomposer activity", correct: false },
-            { text: "D) Stabilizes consumer populations", correct: false }
+            { text: "A) Increases reproduction rates", correct: false },
+            { text: "B) Enhances decomposer activity", correct: false },
+            { text: "C) Decreases food availability", correct: true },
+            { text: "D) Stabilizes populations", correct: false }
         ],
-        explanation: "The passage notes drought limits tree growth, reducing food for herbivores like deer. It doesn’t increase reproduction, enhance decomposers, or stabilize consumers, making B correct.",
+        explanation: "Drought limits tree growth, reducing food for herbivores, making C correct.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        passage: "In a 2023 genetic study, scientists explored coat color in rabbits. The gene for dark fur (D) is dominant over light fur (d). Rabbits with at least one D allele have dark fur, while those with two d alleles have light fur. This trait helps rabbits survive in different environments; dark fur provides camouflage in forests, while light fur suits snowy regions. A rabbit population in a forest showed 60% dark-furred individuals. Researchers noted that natural selection favors traits matching the environment.",
+        passage: "In 2023, a genetic study in Millville explored coat color in rabbits. The gene for dark fur (D) is dominant over light fur (d). Rabbits with at least one D allele have dark fur, while dd rabbits have light fur. Dark fur aids camouflage in forests, while light fur suits snowy regions, influencing survival through natural selection. A forest population showed 60% dark-furred rabbits.",
         question: "What coat color would a rabbit with genotype Dd have?",
         answers: [
             { text: "A) Light", correct: false },
-            { text: "B) Dark", correct: true },
-            { text: "C) Mixed", correct: false },
-            { text: "D) Gray", correct: false }
+            { text: "B) Mixed", correct: false },
+            { text: "C) Gray", correct: false },
+            { text: "D) Dark", correct: true }
         ],
-        explanation: "The passage states the dominant allele (D) results in dark fur, so Dd produces dark fur. Light fur requires dd, and mixed or gray are not mentioned, making B correct.",
+        explanation: "The dominant allele (D) results in dark fur for Dd rabbits, making D correct.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        passage: "The digestive system breaks down food into nutrients for the body. The small intestine, a key organ, absorbs most nutrients into the bloodstream, enabling energy production and tissue repair. Enzymes in the small intestine break down carbohydrates, proteins, and fats. In a 2024 study, nutrient absorption was linked to overall health, influenced by environmental factors like diet quality.",
+        passage: "In 2024, a health study in Millville investigated the digestive system, which breaks down food into nutrients. The small intestine absorbs most nutrients into the bloodstream, supporting energy production and tissue repair. Enzymes in the small intestine degrade carbohydrates, proteins, and fats. Nutrient absorption was linked to health, influenced by diet quality and environmental factors.",
         question: "What is the primary function of the small intestine?",
         answers: [
             { text: "A) Store food", correct: false },
-            { text: "B) Absorb nutrients", correct: true },
-            { text: "C) Produce digestive enzymes", correct: false },
+            { text: "B) Produce enzymes", correct: false },
+            { text: "C) Absorb nutrients", correct: true },
             { text: "D) Eliminate waste", correct: false }
         ],
-        explanation: "The passage states the small intestine absorbs nutrients into the bloodstream. Storage occurs in the stomach, enzyme production is secondary, and waste elimination is the colon’s role, making B correct.",
+        explanation: "The small intestine absorbs nutrients, making C correct. Storage is the stomach’s role, enzyme production is secondary, and waste elimination occurs in the colon.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        passage: "In 2023, a savanna ecosystem was studied for evolutionary adaptations. Cheetahs, with their high-speed running ability, are adapted to chase prey like antelopes. This trait, developed through natural selection, allows cheetahs to catch fast-moving prey in open landscapes. However, habitat loss from climate-driven droughts reduces prey availability, threatening cheetah survival. Conservationists propose protected corridors to maintain prey populations. These corridors also help plants, which rely on animals for seed dispersal, supporting the food chain.",
+        passage: "In 2023, a savanna study in Greenvale examined cheetah adaptations. Cheetahs’ high-speed running, developed through natural selection, allows them to chase fast-moving prey like antelopes in open landscapes. Drought-induced habitat loss reduces prey, threatening cheetah survival. Conservationists propose corridors to maintain prey populations, also aiding plants via seed dispersal by animals.",
         question: "Why does high-speed running benefit cheetahs?",
         answers: [
             { text: "A) Enhances camouflage", correct: false },
-            { text: "B) Improves digestion", correct: false },
-            { text: "C) Allows catching fast-moving prey", correct: true },
+            { text: "B) Allows catching fast-moving prey", correct: true },
+            { text: "C) Improves digestion", correct: false },
             { text: "D) Increases water storage", correct: false }
         ],
-        explanation: "The passage states high-speed running allows cheetahs to catch fast-moving prey, aiding survival. It doesn’t enhance camouflage, improve digestion, or store water, making C correct.",
+        explanation: "High-speed running enables cheetahs to catch prey, making B correct.",
         difficulty: "medium",
         category: "ged-life-science"
     },
     {
-        passage: "Earth’s carbon cycle regulates carbon dioxide levels, impacting life. Plants absorb CO₂ during photosynthesis, producing glucose and oxygen, while animals release CO₂ through respiration. Human activities, like burning fossil fuels, increase atmospheric CO₂, affecting climate and ecosystems. In a 2024 study, reforestation reduced CO₂ levels, supporting forest food chains by enhancing plant growth.",
+        passage: "In 2024, a study in Clearwater explored Earth’s carbon cycle, which regulates CO₂ levels. Plants absorb CO₂ during photosynthesis, producing glucose and oxygen, while animals release CO₂ through respiration. Fossil fuel burning increases atmospheric CO₂, affecting climate and ecosystems. Reforestation efforts reduced CO₂, enhancing plant growth and supporting forest food chains.",
         question: "What role do animals play in the carbon cycle?",
         answers: [
-            { text: "A) Absorb CO₂ from the atmosphere", correct: false },
+            { text: "A) Absorb CO₂", correct: false },
             { text: "B) Store carbon in soil", correct: false },
             { text: "C) Produce glucose", correct: false },
             { text: "D) Release CO₂ through respiration", correct: true }
         ],
-        explanation: "The passage states animals release CO₂ through respiration, contributing to the carbon cycle. Plants absorb CO₂ and produce glucose, and soil storage involves other processes, making D correct.",
+        explanation: "Animals release CO₂ through respiration, making D correct. Plants absorb CO₂ and produce glucose, and soil carbon storage involves other processes.",
         difficulty: "medium",
         category: "ged-life-science"
     }
@@ -342,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found!");
     }
 
     showScore();
@@ -398,7 +398,7 @@ function showItem() {
                     <div class="right-column">
                         <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -420,14 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content (simplified for examples)
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -487,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -538,7 +546,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <div class="right-column">
                     <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -557,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
