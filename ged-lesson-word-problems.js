@@ -65,7 +65,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                passage: "A local café in Greenvale uses a signature drink mix requiring 3 parts water to 5 parts juice. To prepare a large batch for a 2024 event, the barista used 9 parts water. The café needed to determine how much juice to add to maintain the same flavor ratio, calculated by scaling the given ratio.",
+                passage: "In 2024, a local café in Greenvale used a signature drink mix requiring 3 parts water to 5 parts juice. To prepare a large batch for a community event, the barista used 9 parts water. The café needed to determine how much juice to add to maintain the same flavor ratio, calculated by scaling the given ratio appropriately.",
                 question: "How much juice is needed?",
                 options: [
                     { text: "A) 15 parts", correct: true },
@@ -91,11 +91,11 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                passage: "In 2023, a manufacturing plant used 3 machines to produce 120 units in 8 hours. To meet a new order for 120 units, the plant added a fourth machine. The manager needed to calculate how many hours the 4 machines would take, assuming the work rate is inversely proportional to the number of machines.",
+                passage: "In 2023, a manufacturing plant in Clearwater used 3 machines to produce 120 units in 8 hours. To meet a new order for 120 units, the plant added a fourth machine. The manager needed to calculate how many hours the 4 machines would take, assuming the work rate is inversely proportional to the number of machines.",
                 question: "How many hours will 4 machines need to produce 120 units?",
                 options: [
-                    { text: "A) 6 hours", correct: true },
-                    { text: "B) 8 hours", correct: false },
+                    { text: "A) 8 hours", correct: false },
+                    { text: "B) 6 hours", correct: true },
                     { text: "C) 5 hours", correct: false },
                     { text: "D) 7 hours", correct: false }
                 ],
@@ -117,11 +117,11 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                passage: "During a 2024 spring sale, a clothing store in Clearwater offered a 30% discount on a $120 jacket. The store aimed to attract customers by lowering prices, and shoppers needed to calculate the sale price to budget their purchases. The sale price is found by subtracting the discount from the original price.",
+                passage: "During a 2024 spring sale, a clothing store in Clearwater offered a 30% discount on a $120 jacket to attract customers. Shoppers needed to calculate the sale price to budget their purchases. The sale price is found by determining the discount amount and subtracting it from the original price.",
                 question: "What is the sale price of the jacket?",
                 options: [
-                    { text: "A) $84", correct: true },
-                    { text: "B) $90", correct: false },
+                    { text: "A) $90", correct: false },
+                    { text: "B) $84", correct: true },
                     { text: "C) $80", correct: false },
                     { text: "D) $96", correct: false }
                 ],
@@ -143,12 +143,12 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                passage: "In 2024, a repair service in Millville charged a $40 base fee plus $20 per hour for labor. A customer received a bill for $100 after a repair job. To understand the labor time, the customer needed to calculate how many hours were worked, using the total cost and the service’s pricing structure.",
+                passage: "In 2024, a repair service in Millville charged a $40 base fee plus $20 per hour for labor. A customer received a bill for $100 after a repair job. The customer needed to calculate how many hours were worked to verify the bill, using the total cost and the service’s pricing structure.",
                 question: "How many hours were worked?",
                 options: [
-                    { text: "A) 3 hours", correct: true },
-                    { text: "B) 4 hours", correct: false },
-                    { text: "C) 2 hours", correct: false },
+                    { text: "A) 4 hours", correct: false },
+                    { text: "B) 2 hours", correct: false },
+                    { text: "C) 3 hours", correct: true },
                     { text: "D) 5 hours", correct: false }
                 ],
                 explanation: "Equation: 40 + 20h = 100. Solve: 20h = 100 - 40 = 60, h = 60 ÷ 20 = 3 hours."
@@ -169,12 +169,12 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                passage: "In 2023, two trains departed from a central station in opposite directions for a regional test run. One train traveled at 50 mph, and the other at 30 mph. Engineers needed to determine how far apart the trains would be after 3 hours to plan safe scheduling, calculated by summing the distances each train traveled.",
+                passage: "In 2023, two trains departed from a central station in opposite directions for a regional test run. One train traveled at 50 mph, and the other at 30 mph. Engineers needed to determine how far apart the trains would be after 3 hours to ensure safe scheduling, calculated by summing the distances each train traveled.",
                 question: "How far apart are the trains after 3 hours?",
                 options: [
-                    { text: "A) 240 miles", correct: true },
-                    { text: "B) 200 miles", correct: false },
-                    { text: "C) 180 miles", correct: false },
+                    { text: "A) 200 miles", correct: false },
+                    { text: "B) 180 miles", correct: false },
+                    { text: "C) 240 miles", correct: true },
                     { text: "D) 270 miles", correct: false }
                 ],
                 explanation: "Train 1: 50 × 3 = 150 miles. Train 2: 30 × 3 = 90 miles. Total: 150 + 90 = 240 miles."
@@ -196,13 +196,13 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                passage: "In 2024, a chemical lab prepared a 12-liter solution that was 25% salt for an experiment. To adjust the concentration to 15% salt for a new test, technicians needed to add water. The amount of water required is calculated by keeping the salt quantity constant while increasing the total volume to achieve the desired percentage.",
+                passage: "In 2024, a chemical lab in Millville prepared a 12-liter solution that was 25% salt for an experiment. To adjust the concentration to 15% salt for a new test, technicians needed to add water. The amount of water required is calculated by keeping the salt quantity constant while increasing the total volume to achieve the desired percentage.",
                 question: "How much water must be added to make the solution 15% salt?",
                 options: [
-                    { text: "A) 8 liters", correct: true },
-                    { text: "B) 6 liters", correct: false },
-                    { text: "C) 10 liters", correct: false },
-                    { text: "D) 12 liters", correct: false }
+                    { text: "A) 6 liters", correct: false },
+                    { text: "B) 10 liters", correct: false },
+                    { text: "C) 12 liters", correct: false },
+                    { text: "D) 8 liters", correct: true }
                 ],
                 explanation: "Salt: 25% of 12 = 0.25 × 12 = 3 liters. Equation: 3 ÷ (12 + x) = 0.15. Solve: 3 = 0.15(12 + x), 3 = 1.8 + 0.15x, 1.2 = 0.15x, x = 1.2 ÷ 0.15 = 8 liters."
             }
@@ -213,7 +213,7 @@ const lessons = {
 // Word problems question array
 const wordProblemsQuestions = [
     {
-        passage: "In 2023, a small boutique in Millville offered a deal where 2 shirts were sold for $30 to attract customers. For a school event, a teacher needed to buy 5 shirts and wanted to calculate the total cost, assuming the same rate per shirt applied. The cost is determined by finding the price per shirt and scaling it for the required quantity.",
+        passage: "In 2023, a small boutique in Millville offered a deal where 2 shirts were sold for $30 to attract customers. For a school event, a teacher needed to buy 5 shirts and wanted to calculate the total cost, assuming the same rate per shirt applied. This involved finding the price per shirt from the deal and scaling it for the required quantity to ensure accurate budgeting for the event.",
         question: "How much would 5 shirts cost at the same rate?",
         answers: [
             { text: "A) $75", correct: true },
@@ -226,33 +226,33 @@ const wordProblemsQuestions = [
         category: "ged-word-problems"
     },
     {
-        passage: "In 2024, a community garden in Greenvale sold vegetable baskets for $15 each to fund new equipment. After selling 20 baskets, they earned enough to cover a $100 equipment cost, with some money left over for future projects. The garden manager needed to calculate the remaining funds to plan additional purchases, found by subtracting the equipment cost from the total revenue.",
+        passage: "In 2024, a community garden in Greenvale sold vegetable baskets for $15 each to fund new equipment. After selling 20 baskets, they earned enough to cover a $100 equipment cost, with some money left over for future projects. The garden manager needed to calculate the remaining funds to plan additional purchases, determined by subtracting the equipment cost from the total revenue generated by the basket sales.",
         question: "How much money is left over?",
         answers: [
-            { text: "A) $200", correct: true },
-            { text: "B) $150", correct: false },
+            { text: "A) $150", correct: false },
+            { text: "B) $200", correct: true },
             { text: "C) $250", correct: false },
             { text: "D) $100", correct: false }
         ],
-        explanation: "Calculate total revenue: 20 × $15 = $300. Subtract the equipment cost: $300 - $100 = $200. Thus, $200 is left over, making option A correct.",
+        explanation: "Total revenue: 20 × $15 = $300. Subtract equipment cost: $300 - $100 = $200.",
         difficulty: "medium",
         category: "ged-word-problems"
     },
     {
-        passage: "In 2023, a recycling program in Clearwater collected 120 aluminum cans and 80 plastic bottles during a community cleanup. Each can was worth $0.05, and each bottle was worth $0.10. The program coordinator needed to calculate the total value of the collected items to report earnings, determined by multiplying quantities by their respective values and summing the results.",
+        passage: "In 2023, a recycling program in Clearwater collected 120 aluminum cans and 80 plastic bottles during a community cleanup. Each can was worth $0.05, and each bottle was worth $0.10. The program coordinator needed to calculate the total value of the collected items to report earnings, determined by multiplying quantities by their respective values and summing the results for the cleanup effort.",
         question: "What is the total value of the collected items?",
         answers: [
-            { text: "A) $14.00", correct: true },
-            { text: "B) $16.00", correct: false },
-            { text: "C) $12.00", correct: false },
+            { text: "A) $16.00", correct: false },
+            { text: "B) $12.00", correct: false },
+            { text: "C) $14.00", correct: true },
             { text: "D) $18.00", correct: false }
         ],
-        explanation: "Value of cans: 120 × $0.05 = $6.00. Value of bottles: 80 × $0.10 = $8.00. Total: $6.00 + $8.00 = $14.00. Thus, option A is correct (adjusted from original B to maintain distribution).",
+        explanation: "Cans: 120 × $0.05 = $6.00. Bottles: 80 × $0.10 = $8.00. Total: $6.00 + $8.00 = $14.00.",
         difficulty: "medium",
         category: "ged-word-problems"
     },
     {
-        passage: "A workshop in Millville required 2 hours for setup and 3 hours per session in 2024. For a community event, the total time for setup and 4 sessions was 14 hours. The organizer needed to determine the hours spent on sessions to evaluate scheduling efficiency, calculated by subtracting setup time from the total time.",
+        passage: "In 2024, a workshop in Millville required 2 hours for setup and 3 hours per session for a community event. The total time for setup and 4 sessions was 14 hours. The organizer needed to determine the hours spent on sessions to evaluate scheduling efficiency, calculated by subtracting the setup time from the total time to isolate the session duration.",
         question: "How many hours are spent on sessions?",
         answers: [
             { text: "A) 10 hours", correct: false },
@@ -260,20 +260,20 @@ const wordProblemsQuestions = [
             { text: "C) 8 hours", correct: false },
             { text: "D) 14 hours", correct: false }
         ],
-        explanation: "Total time is 14 hours, with 2 hours for setup. Time for sessions: 14 - 2 = 12 hours. Alternatively, 4 sessions × 3 hours = 12 hours. Thus, option B is correct.",
+        explanation: "Total time: 14 hours. Setup: 2 hours. Sessions: 14 - 2 = 12 hours. Alternatively, 4 sessions × 3 hours = 12 hours.",
         difficulty: "medium",
         category: "ged-word-problems"
     },
     {
-        passage: "In 2023, a carpool group in Greenvale traveled 240 miles using 8 gallons of fuel for a regional trip. Planning a 360-mile trip in 2024, they needed to calculate the fuel required, assuming the same fuel efficiency. The fuel needed is found by determining the miles per gallon and dividing the total distance by this rate.",
+        passage: "In 2023, a carpool group in Greenvale traveled 240 miles using 8 gallons of fuel for a regional trip. Planning a 360-mile trip in 2024, they needed to calculate the fuel required, assuming the same fuel efficiency. The fuel needed is found by determining the miles per gallon from the previous trip and dividing the new trip’s distance by this rate.",
         question: "How many gallons of fuel will they need?",
         answers: [
-            { text: "A) 12 gallons", correct: true },
-            { text: "B) 10 gallons", correct: false },
-            { text: "C) 14 gallons", correct: false },
+            { text: "A) 10 gallons", correct: false },
+            { text: "B) 14 gallons", correct: false },
+            { text: "C) 12 gallons", correct: true },
             { text: "D) 9 gallons", correct: false }
         ],
-        explanation: "Calculate miles per gallon: 240 ÷ 8 = 30 miles per gallon. For 360 miles, divide: 360 ÷ 30 = 12 gallons. Thus, option A is correct.",
+        explanation: "Miles per gallon: 240 ÷ 8 = 30. Fuel for 360 miles: 360 ÷ 30 = 12 gallons.",
         difficulty: "medium",
         category: "ged-word-problems"
     },
@@ -286,12 +286,12 @@ const wordProblemsQuestions = [
             { text: "C) 22 paperbacks", correct: true },
             { text: "D) 18 paperbacks", correct: false }
         ],
-        explanation: "Cost of hardcovers: 10 × $12 = $120. Remaining budget: $300 - $120 = $180. Number of paperbacks: $180 ÷ $8 = 22.5, so 22 paperbacks (whole number). Thus, option C is correct.",
+        explanation: "Hardcovers: 10 × $12 = $120. Remaining budget: $300 - $120 = $180. Paperbacks: $180 ÷ $8 = 22.5, so 22 (whole number).",
         difficulty: "medium",
         category: "ged-word-problems"
     },
     {
-        passage: "In 2023, a volunteer group in Millville planted trees at a rate of 5 trees per hour to restore a park. They had 35 trees to plant and had already planted 15. The group leader needed to calculate how many hours it would take to finish planting, determined by dividing the remaining trees by the planting rate.",
+        passage: "In 2023, a volunteer group in Millville planted trees at a rate of 5 trees per hour to restore a park. They had 35 trees to plant and had already planted 15. The group leader needed to calculate how many hours it would take to finish planting the remaining trees, determined by dividing the remaining trees by the planting rate to plan the schedule.",
         question: "How many hours will it take to finish planting?",
         answers: [
             { text: "A) 3 hours", correct: false },
@@ -299,7 +299,7 @@ const wordProblemsQuestions = [
             { text: "C) 6 hours", correct: false },
             { text: "D) 4 hours", correct: true }
         ],
-        explanation: "Trees remaining: 35 - 15 = 20. Hours needed: 20 ÷ 5 = 4 hours. Thus, option D is correct.",
+        explanation: "Remaining trees: 35 - 15 = 20. Hours: 20 ÷ 5 = 4 hours.",
         difficulty: "medium",
         category: "ged-word-problems"
     }
@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function() {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found!");
     }
 
     showScore();
@@ -399,7 +399,7 @@ function showItem() {
                     <div class="right-column">
                         <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -421,14 +421,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content (simplified for examples)
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Problem:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Problem:.*?(\.(?=\s*What|\s*How|\s*Calculate)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -488,7 +496,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -539,7 +547,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <div class="right-column">
                     <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -558,14 +566,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
