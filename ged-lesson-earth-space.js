@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: Sedimentary rocks form when sediments, like sand or mud, are compressed over time. How do sedimentary rocks form?",
+                passage: "In 2023, a geological survey in Millville studied the rock cycle, focusing on sedimentary rocks. These rocks form when sediments, such as sand or mud, are compressed over time, often in layers found in riverbeds or ocean floors. This process is distinct from the formation of igneous or metamorphic rocks.",
+                question: "How do sedimentary rocks form?",
                 options: [
                     { text: "A) Compression of sediments", correct: true },
                     { text: "B) Cooling of magma", correct: false },
@@ -64,7 +65,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: Tectonic plate collisions can cause earthquakes and form mountains. What is one result of plate collisions?",
+                passage: "In 2024, a seismic study in Greenvale monitored tectonic plate collisions, which occur when plates push against each other. These collisions can cause earthquakes and form mountains, shaping Earth’s surface over millions of years. The study aimed to improve earthquake prediction models.",
+                question: "What is one result of plate collisions?",
                 options: [
                     { text: "A) Earthquakes", correct: true },
                     { text: "B) Rift valleys", correct: false },
@@ -89,7 +91,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: High-pressure systems in the atmosphere lead to stable, clear weather conditions. What weather is typical of high-pressure systems?",
+                passage: "In 2023, a meteorological study in Clearwater analyzed high-pressure systems, which dominate the atmosphere during stable weather. These systems lead to clear skies and calm conditions, unlike low-pressure systems that bring storms. The study helped improve local weather forecasting accuracy.",
+                question: "What weather is typical of high-pressure systems?",
                 options: [
                     { text: "A) Clear skies", correct: true },
                     { text: "B) Heavy rain", correct: false },
@@ -114,7 +117,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: Moons orbit planets due to gravitational attraction, similar to planets orbiting the Sun. Why do moons orbit planets?",
+                passage: "In 2024, an astronomy project in Millville studied the orbits of moons around planets. Moons orbit planets due to gravitational attraction, similar to planets orbiting the Sun. This force maintains stable orbits, critical for understanding satellite placement and planetary dynamics.",
+                question: "Why do moons orbit planets?",
                 options: [
                     { text: "A) Gravitational attraction", correct: true },
                     { text: "B) Magnetic fields", correct: false },
@@ -139,14 +143,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: The outer core, a liquid layer of molten iron, generates Earth’s magnetic field through its movement. What generates Earth’s magnetic field?",
+                passage: "In 2023, a geophysical study in Greenvale investigated Earth’s outer core, a liquid layer of molten iron and nickel. Its movement generates Earth’s magnetic field, protecting the planet from solar radiation. This process is distinct from mantle or crustal dynamics.",
+                question: "What generates Earth’s magnetic field?",
                 options: [
-                    { text: "A) Outer core movement", correct: true },
-                    { text: "B) Mantle convection", correct: false },
+                    { text: "A) Mantle convection", correct: false },
+                    { text: "B) Outer core movement", correct: true },
                     { text: "C) Crustal shifts", correct: false },
                     { text: "D) Inner core rotation", correct: false }
                 ],
-                explanation: "The passage states the outer core’s movement generates the magnetic field, making A correct."
+                explanation: "The passage states the outer core’s movement generates the magnetic field, making B correct."
             },
             {
                 type: "example",
@@ -164,14 +169,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: In the water cycle, condensation forms clouds from water vapor, leading to precipitation like rain. What does condensation produce?",
+                passage: "In 2024, a hydrology study in Clearwater explored the water cycle, focusing on condensation. Condensation forms clouds from water vapor, leading to precipitation like rain or snow, which replenishes Earth’s water sources. This process is critical for maintaining global water distribution.",
+                question: "What does condensation produce in the water cycle?",
                 options: [
-                    { text: "A) Clouds", correct: true },
-                    { text: "B) Vapor", correct: false },
-                    { text: "C) Ice", correct: false },
+                    { text: "A) Vapor", correct: false },
+                    { text: "B) Ice", correct: false },
+                    { text: "C) Clouds", correct: true },
                     { text: "D) Rivers", correct: false }
                 ],
-                explanation: "The passage states condensation forms clouds, making A correct."
+                explanation: "The passage states condensation forms clouds, making C correct."
             },
             {
                 type: "example",
@@ -189,14 +195,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: The Big Bang theory suggests the universe began expanding from a single point. Evidence includes the redshift of galaxy light. What does redshift support?",
+                passage: "In 2023, an astronomical observatory in Millville studied the Big Bang theory, which posits the universe began expanding from a single point. Redshift in galaxy light, where light shifts to longer wavelengths, provides evidence for this expansion, observed across distant galaxies.",
+                question: "What does redshift support?",
                 options: [
-                    { text: "A) Universe expansion", correct: true },
-                    { text: "B) Galaxy formation", correct: false },
-                    { text: "C) Star contraction", correct: false },
-                    { text: "D) Black hole creation", correct: false }
+                    { text: "A) Galaxy formation", correct: false },
+                    { text: "B) Star contraction", correct: false },
+                    { text: "C) Black hole creation", correct: false },
+                    { text: "D) Universe expansion", correct: true }
                 ],
-                explanation: "The passage links redshift to universe expansion, making A correct."
+                explanation: "The passage links redshift to universe expansion, making D correct."
             }
         ]
     }
@@ -205,7 +212,8 @@ const lessons = {
 // Earth and space science question array
 const earthSpaceQuestions = [
     {
-        question: "Passage: Earth’s atmosphere is layered. The troposphere, closest to the surface, contains most weather phenomena, while the stratosphere holds the ozone layer. Where do most weather phenomena occur?",
+        passage: "In 2023, a meteorological study in Millville examined Earth’s atmosphere, which is divided into layers. The troposphere, closest to the surface, contains most weather phenomena, such as storms and clouds, while the stratosphere holds the ozone layer, protecting life from UV radiation. Understanding these layers improves weather forecasting and climate models.",
+        question: "Where do most weather phenomena occur?",
         answers: [
             { text: "A) Troposphere", correct: true },
             { text: "B) Stratosphere", correct: false },
@@ -217,74 +225,80 @@ const earthSpaceQuestions = [
         category: "ged-earth-space"
     },
     {
-        question: "Passage: Igneous rocks, such as basalt, form when magma cools and solidifies, either on Earth’s surface or below it. What process forms igneous rocks?",
+        passage: "In 2024, a geological survey in Greenvale studied igneous rocks, such as basalt, which form when magma cools and solidifies, either on Earth’s surface as lava or below it. This process, observed in volcanic regions, distinguishes igneous rocks from other types and informs studies of Earth’s crust formation.",
+        question: "What process forms igneous rocks?",
         answers: [
             { text: "A) Cooling and solidification of magma", correct: true },
             { text: "B) Compression of sediments", correct: false },
             { text: "C) Heat and pressure alteration", correct: false },
             { text: "D) Evaporation of minerals", correct: false }
         ],
-        explanation: "The passage states igneous rocks form from cooling and solidifying magma. Compression forms sedimentary rocks, heat and pressure form metamorphic rocks, and evaporation is unrelated, making A correct.",
+        explanation: "The passage states igneous rocks form from cooling and solidifying magma, making A correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "Passage: Transform plate boundaries occur where tectonic plates slide past each other, often causing earthquakes due to friction. What is a common result of transform plate boundaries?",
+        passage: "In 2023, a seismic study in Clearwater focused on transform plate boundaries, where tectonic plates slide past each other. The friction from this movement often triggers earthquakes, impacting regions like fault zones. This differs from convergent or divergent boundaries, which have distinct geological effects.",
+        question: "What is a common result of transform plate boundaries?",
         answers: [
             { text: "A) Mountain formation", correct: false },
             { text: "B) Earthquakes", correct: true },
             { text: "C) Rift valley creation", correct: false },
             { text: "D) Volcanic eruptions", correct: false }
         ],
-        explanation: "The passage notes transform boundaries cause earthquakes due to sliding friction. Mountains and volcanoes are linked to convergent boundaries, and rift valleys to divergent boundaries, making B correct.",
+        explanation: "The passage notes transform boundaries cause earthquakes, making B correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "Passage: The water cycle includes precipitation, where water falls as rain or snow, replenishing Earth’s surface water. What role does precipitation play in the water cycle?",
+        passage: "In 2024, a hydrology research project in Millville analyzed the water cycle, emphasizing precipitation. Precipitation, such as rain or snow, replenishes Earth’s surface water, including rivers and lakes, sustaining ecosystems. This process follows condensation and is vital for global water management strategies.",
+        question: "What role does precipitation play in the water cycle?",
         answers: [
             { text: "A) Converts vapor to liquid", correct: false },
             { text: "B) Replenishes surface water", correct: true },
             { text: "C) Heats the atmosphere", correct: false },
             { text: "D) Forms groundwater vapor", correct: false }
         ],
-        explanation: "The passage states precipitation replenishes surface water. Condensation converts vapor to liquid, precipitation doesn’t heat the atmosphere, and groundwater isn’t vapor, making B correct.",
+        explanation: "The passage states precipitation replenishes surface water, making B correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "Passage: Earth’s inner core, a solid ball of iron and nickel, is under immense pressure, contributing to the planet’s magnetic field through its interaction with the liquid outer core. What is the inner core primarily composed of?",
+        passage: "In 2023, a geophysical study in Greenvale explored Earth’s inner core, a solid sphere primarily composed of iron and nickel. Under immense pressure, it interacts with the liquid outer core to contribute to Earth’s magnetic field, shielding the planet from harmful solar radiation.",
+        question: "What is the inner core primarily composed of?",
         answers: [
             { text: "A) Liquid magma", correct: false },
             { text: "B) Sedimentary rock", correct: false },
             { text: "C) Iron and nickel", correct: true },
             { text: "D) Gaseous elements", correct: false }
         ],
-        explanation: "The passage states the inner core is a solid ball of iron and nickel. It’s not liquid magma, sedimentary rock, or gas, making C correct.",
+        explanation: "The passage states the inner core is composed of iron and nickel, making C correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "Passage: The solar system’s gas giants, like Jupiter, have strong gravitational fields that allow them to retain thick atmospheres and numerous moons. Why do gas giants have many moons?",
+        passage: "In 2024, an astronomical study in Clearwater investigated the solar system’s gas giants, like Jupiter. Their strong gravitational fields allow them to retain thick atmospheres and numerous moons, unlike smaller rocky planets. This gravitational strength shapes their extensive satellite systems, critical for planetary exploration.",
+        question: "Why do gas giants have many moons?",
         answers: [
             { text: "A) Due to their proximity to the Sun", correct: false },
             { text: "B) Due to their rocky composition", correct: false },
             { text: "C) Due to their weak magnetic fields", correct: false },
             { text: "D) Due to their strong gravitational fields", correct: true }
         ],
-        explanation: "The passage attributes gas giants’ numerous moons to strong gravitational fields. They are far from the Sun, gaseous not rocky, and have strong magnetic fields, making D correct.",
+        explanation: "The passage attributes numerous moons to strong gravitational fields, making D correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     },
     {
-        question: "Passage: Doppler shifts in galaxy light provide evidence for universe expansion. Blue shift indicates objects moving closer, while redshift shows movement away. What does a blue shift in a galaxy’s light suggest?",
+        passage: "In 2023, an observatory in Millville studied Doppler shifts in galaxy light to support cosmological models. A blue shift, where light shifts to shorter wavelengths, indicates objects moving closer, while redshift shows movement away. These observations provide evidence for the universe’s dynamic behavior.",
+        question: "What does a blue shift in a galaxy’s light suggest?",
         answers: [
             { text: "A) The galaxy is moving away", correct: false },
             { text: "B) The galaxy is stationary", correct: false },
             { text: "C) The galaxy is moving closer", correct: true },
             { text: "D) The galaxy is contracting", correct: false }
         ],
-        explanation: "The passage states blue shift indicates objects moving closer, unlike redshift for moving away. It doesn’t suggest stationary or contracting galaxies, making C correct.",
+        explanation: "The passage states blue shift indicates objects moving closer, making C correct.",
         difficulty: "medium",
         category: "ged-earth-space"
     }
@@ -328,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found!");
     }
 
     showScore();
@@ -378,14 +392,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row science-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -407,14 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -474,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -519,14 +540,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row science-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -545,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
@@ -580,12 +592,12 @@ function showFinalScore() {
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = `
         <div class="score-box">
-        <div class="centered-content">
-            <h2>Final Score</h2>
-            <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-            <p>Your score: ${percentage}%</p>
-            <button id="continue-button" class="btn continue-btn">Continue</button>
-        </div>
+            <div class="centered-content">
+                <h2>Final Score</h2>
+                <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+                <p>Your score: ${percentage}%</p>
+                <button id="continue-button" class="btn continue-btn">Continue</button>
+            </div>
         </div>
     `;
     const finalScoreElement = document.getElementById('final-score');
