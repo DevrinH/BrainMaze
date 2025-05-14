@@ -2152,9 +2152,7 @@ footer h3 {
 }
 
 /* For debugging: Add a border to confirm the element is rendered */
-.passage-text {
-  border: 2px solid red; /* Temporary for debugging */
-}
+
 
 /* Specifically target the score chart */
 #gedScoreChart {
