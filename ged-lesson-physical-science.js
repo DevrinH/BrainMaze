@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: A train travels 300 kilometers in 5 hours. Speed is distance divided by time. What is the train’s speed?",
+                passage: "In 2023, a train in Millville traveled 300 kilometers in 5 hours during a regional test run. Engineers needed to calculate the train’s speed to evaluate performance, using the formula speed equals distance divided by time to ensure efficient scheduling.",
+                question: "What is the train’s speed?",
                 options: [
                     { text: "A) 60 km/h", correct: true },
                     { text: "B) 50 km/h", correct: false },
@@ -64,14 +65,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: A roller coaster at the top of a hill has high potential energy, which transforms into kinetic energy as it descends. What happens to the potential energy during descent?",
+                passage: "In 2024, a physics experiment in Greenvale studied a roller coaster. At the top of a hill, the coaster has high potential energy, which transforms into kinetic energy as it descends, per the law of energy conservation. This transformation powers the coaster’s motion through the track.",
+                question: "What happens to the potential energy during descent?",
                 options: [
-                    { text: "A) Converts to kinetic energy", correct: true },
-                    { text: "B) Increases", correct: false },
+                    { text: "A) Increases", correct: false },
+                    { text: "B) Converts to kinetic energy", correct: true },
                     { text: "C) Remains constant", correct: false },
                     { text: "D) Is destroyed", correct: false }
                 ],
-                explanation: "The passage states potential energy transforms into kinetic energy, making A correct."
+                explanation: "Potential energy transforms into kinetic energy, making B correct."
             },
             {
                 type: "example",
@@ -89,14 +91,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: Liquids have a fixed volume but take the shape of their container because their particles are less tightly packed than in solids. Why do liquids conform to container shapes?",
+                passage: "In 2023, a materials study in Clearwater examined liquids, which have a fixed volume but take the shape of their container due to loosely packed particles. This property allows liquids to flow and adapt, unlike solids with tightly packed particles. The study aimed to improve liquid-based cooling systems.",
+                question: "Why do liquids conform to container shapes?",
                 options: [
-                    { text: "A) Loosely packed particles", correct: true },
-                    { text: "B) Fixed particle arrangement", correct: false },
+                    { text: "A) Fixed particle arrangement", correct: false },
+                    { text: "B) Loosely packed particles", correct: true },
                     { text: "C) High particle density", correct: false },
                     { text: "D) Rigid particle bonds", correct: false }
                 ],
-                explanation: "The passage attributes liquids’ shape adaptability to less tightly packed particles, making A correct."
+                explanation: "Liquids’ shape adaptability is due to loosely packed particles, making B correct."
             },
             {
                 type: "example",
@@ -114,14 +117,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: The reaction of hydrogen (H₂) with oxygen (O₂) forms water (H₂O). What is the product of this reaction?",
+                passage: "In 2024, a chemistry lab in Millville studied the reaction of hydrogen (H₂) with oxygen (O₂) to form water (H₂O). This reaction, used in fuel cells, converts chemical energy into electrical energy, producing a single product critical for clean energy applications.",
+                question: "What is the product of this reaction?",
                 options: [
-                    { text: "A) Water", correct: true },
-                    { text: "B) Carbon dioxide", correct: false },
-                    { text: "C) Nitrogen", correct: false },
+                    { text: "A) Carbon dioxide", correct: false },
+                    { text: "B) Nitrogen", correct: false },
+                    { text: "C) Water", correct: true },
                     { text: "D) Oxygen", correct: false }
                 ],
-                explanation: "The passage specifies water (H₂O) as the product, making A correct."
+                explanation: "The reaction produces water (H₂O), making C correct."
             },
             {
                 type: "example",
@@ -139,14 +143,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: Newton’s Second Law states that force equals mass times acceleration (F = ma). If a 10 kg object accelerates at 2 m/s², what is the force?",
+                passage: "In 2023, a physics class in Greenvale applied Newton’s Second Law, which states force equals mass times acceleration (F = ma). Students calculated the force needed to accelerate a 10 kg cart at 2 m/s² to understand motion dynamics in a hands-on experiment.",
+                question: "What is the force required?",
                 options: [
-                    { text: "A) 20 N", correct: true },
-                    { text: "B) 12 N", correct: false },
-                    { text: "C) 5 N", correct: false },
+                    { text: "A) 12 N", correct: false },
+                    { text: "B) 5 N", correct: false },
+                    { text: "C) 20 N", correct: true },
                     { text: "D) 30 N", correct: false }
                 ],
-                explanation: "Using F = ma: F = 10 kg × 2 m/s² = 20 N, making A correct."
+                explanation: "Using F = ma: F = 10 kg × 2 m/s² = 20 N, making C correct."
             },
             {
                 type: "example",
@@ -164,14 +169,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: Sound waves require a medium, such as air or water, to travel. Why can’t sound waves travel through a vacuum?",
+                passage: "In 2024, a study in Clearwater explored sound waves, which require a medium like air or water to travel, unlike light waves that can move through a vacuum. This property affects how sound is used in communication systems, such as underwater sonar. The study aimed to improve signal clarity in dense media.",
+                question: "Why can’t sound waves travel through a vacuum?",
                 options: [
-                    { text: "A) They are mechanical waves", correct: true },
-                    { text: "B) They are electromagnetic waves", correct: false },
-                    { text: "C) They carry matter", correct: false },
-                    { text: "D) They have low frequency", correct: false }
+                    { text: "A) They are electromagnetic waves", correct: false },
+                    { text: "B) They carry matter", correct: false },
+                    { text: "C) They have low frequency", correct: false },
+                    { text: "D) They are mechanical waves", correct: true }
                 ],
-                explanation: "The passage states sound waves are mechanical and require a medium, making A correct."
+                explanation: "Sound waves are mechanical and require a medium, making D correct."
             },
             {
                 type: "example",
@@ -189,14 +195,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: In a reaction, 50 g of reactants produce 50 g of products, per the law of conservation of mass. Why is the mass of products equal to the mass of reactants?",
+                passage: "In 2023, a chemical engineering experiment in Millville demonstrated that in a reaction, 50 g of reactants produce 50 g of products, per the law of conservation of mass. This principle ensures that the total mass remains constant, critical for designing efficient industrial processes.",
+                question: "Why is the mass of products equal to the mass of reactants?",
                 options: [
-                    { text: "A) Mass is conserved", correct: true },
-                    { text: "B) Mass is created", correct: false },
-                    { text: "C) Mass is destroyed", correct: false },
-                    { text: "D) Mass is transformed", correct: false }
+                    { text: "A) Mass is created", correct: false },
+                    { text: "B) Mass is destroyed", correct: false },
+                    { text: "C) Mass is conserved", correct: true },
+                    { text: "D) Energy is transformed", correct: false }
                 ],
-                explanation: "The passage states the law of conservation of mass ensures mass equality, making A correct."
+                explanation: "The law of conservation of mass ensures mass equality, making C correct."
             }
         ]
     }
@@ -205,7 +212,8 @@ const lessons = {
 // Physical science question array
 const physicalScienceQuestions = [
     {
-        question: "Passage: 'Work is done when a force moves an object over a distance (Work = Force × Distance).' If a 5 N force moves an object 3 meters, what is the work done?",
+        passage: "In 2023, a physics experiment in Millville measured work, defined as force moving an object over a distance (Work = Force × Distance). A student applied a 5 N force to move an object 3 meters. The experiment aimed to calculate the work done to understand energy transfer in mechanical systems.",
+        question: "What is the work done?",
         answers: [
             { text: "A) 15 J", correct: true },
             { text: "B) 10 J", correct: false },
@@ -217,74 +225,80 @@ const physicalScienceQuestions = [
         category: "ged-physical-science"
     },
     {
-        question: "Passage: Newton’s Third Law states that for every action, there is an equal and opposite reaction. When a rocket launches, the action is the expulsion of gas downward, and the reaction is the rocket moving upward. What is the reaction force in a rocket launch?",
+        passage: "In 2024, a rocket launch study in Greenvale applied Newton’s Third Law, which states that for every action, there is an equal and opposite reaction. The action of expelling gas downward propels the rocket upward. This principle was tested to optimize fuel efficiency in space missions, ensuring accurate trajectory calculations.",
+        question: "What is the reaction force in a rocket launch?",
         answers: [
-            { text: "A) Rocket moving upward", correct: true },
-            { text: "B) Gas expelled downward", correct: false },
+            { text: "A) Gas expelled downward", correct: false },
+            { text: "B) Rocket moving upward", correct: true },
             { text: "C) Gravitational pull", correct: false },
             { text: "D) Air resistance", correct: false }
         ],
-        explanation: "The passage states the reaction to gas expulsion downward is the rocket moving upward. Gas expulsion is the action, and gravity or air resistance are external forces, making A correct.",
+        explanation: "The reaction to gas expulsion downward is the rocket moving upward, making B correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "Passage: In a chemical reaction, sodium (Na) and chlorine (Cl₂) combine to form sodium chloride (NaCl). The total mass of reactants equals the mass of products. Why does the mass remain constant?",
+        passage: "In 2023, a chemical plant in Clearwater conducted a reaction where sodium (Na) and chlorine (Cl₂) combined to form sodium chloride (NaCl). The law of conservation of mass ensured that the total mass of reactants equaled the mass of products, a critical principle for maintaining efficiency in industrial chemical processes.",
+        question: "Why does the mass remain constant in this reaction?",
         answers: [
             { text: "A) Mass is created", correct: false },
-            { text: "B) Law of conservation of mass", correct: true },
-            { text: "C) Mass is destroyed", correct: false },
+            { text: "B) Mass is destroyed", correct: false },
+            { text: "C) Law of conservation of mass", correct: true },
             { text: "D) Energy is transformed", correct: false }
         ],
-        explanation: "The passage implies the law of conservation of mass ensures mass equality in reactions. Mass is neither created nor destroyed, and energy transformation is irrelevant, making B correct.",
+        explanation: "The law of conservation of mass ensures mass equality, making C correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "Passage: The speed of an object is calculated as distance divided by time. A cyclist travels 24 kilometers in 2 hours. What is the cyclist’s speed?",
+        passage: "In 2024, a cycling event in Millville tracked a cyclist who traveled 24 kilometers in 2 hours. The event organizers calculated the cyclist’s speed using the formula speed equals distance divided by time to assess performance and plan future races with accurate timing.",
+        question: "What is the cyclist’s speed?",
         answers: [
             { text: "A) 10 km/h", correct: false },
             { text: "B) 12 km/h", correct: true },
             { text: "C) 14 km/h", correct: false },
             { text: "D) 8 km/h", correct: false }
         ],
-        explanation: "Using Speed = Distance ÷ Time: Speed = 24 km ÷ 2 hours = 12 km/h, making B correct.",
+        explanation: "Speed = 24 km ÷ 2 hours = 12 km/h, making B correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "Passage: Gases have no fixed shape or volume, expanding to fill their container due to widely spaced particles. Why do gases expand to fill a container?",
+        passage: "In 2023, a materials science study in Greenvale analyzed gases, which have no fixed shape or volume and expand to fill their container due to widely spaced particles. This property was studied to improve gas storage systems for renewable energy applications, ensuring safe and efficient containment.",
+        question: "Why do gases expand to fill a container?",
         answers: [
             { text: "A) Tightly packed particles", correct: false },
             { text: "B) Fixed particle bonds", correct: false },
             { text: "C) Widely spaced particles", correct: true },
             { text: "D) High particle density", correct: false }
         ],
-        explanation: "The passage attributes gas expansion to widely spaced particles, allowing them to spread out. Gases lack tight packing, fixed bonds, or high density, making C correct.",
+        explanation: "Gas expansion is due to widely spaced particles, making C correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "Passage: Energy conservation means energy transforms between forms. In a hydroelectric dam, water’s potential energy transforms into kinetic energy, then into electrical energy. What is the final energy form in a hydroelectric dam?",
+        passage: "In 2024, an environmental study in Clearwater examined energy conservation in a hydroelectric dam. Water’s potential energy transforms into kinetic energy as it falls, then into electrical energy via turbines. This process supports renewable energy production, reducing reliance on fossil fuels for sustainable power generation.",
+        question: "What is the final energy form in a hydroelectric dam?",
         answers: [
             { text: "A) Potential energy", correct: false },
             { text: "B) Kinetic energy", correct: false },
             { text: "C) Thermal energy", correct: false },
             { text: "D) Electrical energy", correct: true }
         ],
-        explanation: "The passage states water’s energy transforms into electrical energy in a dam. Potential and kinetic are intermediate forms, and thermal is not mentioned, making D correct.",
+        explanation: "The final form is electrical energy, making D correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     },
     {
-        question: "Passage: Wave frequency determines the pitch of sound or the color of light. Higher frequency sound waves produce higher-pitched sounds. What does higher frequency affect in sound waves?",
+        passage: "In 2023, an acoustics study in Millville explored wave frequency, which determines the pitch of sound or the color of light. Higher frequency sound waves produce higher-pitched sounds, a property used to design better audio systems for clear communication in various environments.",
+        question: "What does higher frequency affect in sound waves?",
         answers: [
             { text: "A) Loudness", correct: false },
             { text: "B) Speed", correct: false },
             { text: "C) Wavelength", correct: false },
             { text: "D) Pitch", correct: true }
         ],
-        explanation: "The passage states higher frequency sound waves produce higher pitch. Loudness depends on amplitude, speed on the medium, and wavelength is inversely related, making D correct.",
+        explanation: "Higher frequency produces higher pitch, making D correct.",
         difficulty: "medium",
         category: "ged-physical-science"
     }
@@ -378,14 +392,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row science-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -407,14 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -474,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -519,14 +540,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row science-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -545,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
