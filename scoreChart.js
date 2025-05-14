@@ -143,7 +143,7 @@ function updateScoreChart() {
                         stepSize: 400
                     },
                     min: 100,
-                    max: 1620, // just 10 points above 1600 for buffer — label will still show
+                    max: 1630, // just 10 points above 1600 for buffer — label will still show
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
