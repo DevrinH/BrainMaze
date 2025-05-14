@@ -1070,6 +1070,17 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
+// Save lesson completion
+function saveLessonCompletion() {
+    const completionData = {
+        exam: "SAT",
+        type: "lesson",
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    console.log("Saved lesson completion:", completionData);
+}
+
 // Next quiz item
 function nextQuizItem() {
     currentQuestionIndex++;
