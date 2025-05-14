@@ -39,7 +39,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                passage: "In 2023, a bakery in Millville recorded weekly sales in a table: Monday ($400), Tuesday ($350), Wednesday ($500), Thursday ($450), Friday ($600). The owner needed to identify the sales for Wednesday to compare with other days and plan inventory.",
+                passage: "In 2023, a bakery in Millville recorded weekly sales in a table: Monday ($400), Tuesday ($350), Wednesday ($500), Thursday ($450), Friday ($600). The owner needed to identify the sales for Wednesday to compare with other days and plan inventory accordingly.",
                 question: "What were Wednesday’s sales?",
                 options: [
                     { text: "A) $500", correct: true },
@@ -65,7 +65,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                passage: "In 2024, a farmer’s market in Greenvale displayed vegetable sales on a bar graph: Carrots (60 lbs), Potatoes (45 lbs), Tomatoes (50 lbs), Onions (35 lbs). The market manager needed to determine which vegetable had the lowest sales to adjust future orders.",
+                passage: "In 2024, a farmer’s market in Greenvale displayed vegetable sales on a bar graph: Carrots (60 lbs), Potatoes (45 lbs), Tomatoes (50 lbs), Onions (35 lbs). The market manager needed to determine which vegetable had the lowest sales to adjust future orders and optimize inventory.",
                 question: "Which vegetable had the lowest sales?",
                 options: [
                     { text: "A) Carrots", correct: false },
@@ -91,7 +91,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                passage: "In 2023, a weather station in Clearwater tracked rainfall over 5 days on a line graph: Day 1 (2 mm), Day 2 (3 mm), Day 3 (1 mm), Day 4 (0.5 mm), Day 5 (0 mm). The meteorologist needed to analyze the rainfall trend to predict future weather patterns.",
+                passage: "In 2023, a weather station in Clearwater tracked rainfall over 5 days on a line graph: Day 1 (2 mm), Day 2 (3 mm), Day 3 (1 mm), Day 4 (0.5 mm), Day 5 (0 mm). The meteorologist needed to analyze the rainfall trend to inform local farmers about irrigation planning.",
                 question: "What is the rainfall trend?",
                 options: [
                     { text: "A) Increasing", correct: false },
@@ -117,7 +117,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                passage: "In 2024, a family in Millville created a pie chart for their monthly expenses: Housing (50%), Utilities (20%), Groceries (15%), Entertainment (15%). The family needed to identify the percentage spent on Utilities to adjust their budget.",
+                passage: "In 2024, a family in Millville created a pie chart for their monthly expenses: Housing (50%), Utilities (20%), Groceries (15%), Entertainment (15%). The family needed to identify the percentage spent on Utilities to adjust their budget and reduce energy costs.",
                 question: "What percent is spent on Utilities?",
                 options: [
                     { text: "A) 15%", correct: false },
@@ -143,7 +143,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                passage: "In 2023, a teacher in Greenvale recorded quiz scores for a student: 70, 75, 80, 85, 90. The teacher needed to calculate the mean score to assess the student’s performance, found by summing the scores and dividing by the number of quizzes.",
+                passage: "In 2023, a teacher in Greenvale recorded quiz scores for a student: 70, 75, 80, 85, 90. The teacher needed to calculate the mean score to assess the student’s performance and provide feedback, found by summing the scores and dividing by the number of quizzes.",
                 question: "What is the mean score?",
                 options: [
                     { text: "A) 80", correct: true },
@@ -169,7 +169,7 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                passage: "In 2024, a small business in Clearwater tracked monthly revenue on a bar graph: January ($8,000), February ($10,000), March ($7,000). The owner needed to calculate the revenue difference from January to February to evaluate growth, found by subtracting the earlier value from the later one.",
+                passage: "In 2024, a small business in Clearwater tracked monthly revenue on a bar graph: January ($8,000), February ($10,000), March ($7,000). The owner needed to calculate the revenue difference from January to February to evaluate the impact of a new marketing strategy, found by subtracting the earlier value from the later one.",
                 question: "What is the revenue increase from January to February?",
                 options: [
                     { text: "A) $1,000", correct: false },
@@ -195,15 +195,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                passage: "In 2023, a community theater in Millville listed ticket prices in a table: Adult ($12), Senior ($8), Student ($6). For a show, 2 adults and 3 students attended. The box office needed to calculate the total ticket cost to process the payment, found by multiplying quantities by prices and summing.",
+                passage: "In 2023, a community theater in Millville listed ticket prices in a table: Adult ($12), Senior ($8), Student ($6). For a show, 2 adults and 3 students attended. The box office needed to calculate the total ticket cost to process the payment, found by multiplying quantities by prices and summing the results.",
                 question: "What is the total ticket cost?",
                 options: [
-                    { text: "A) $42", correct: false },
-                    { text: "B) $36", correct: false },
-                    { text: "C) $48", correct: false },
-                    { text: "D) $42", correct: true }
+                    { text: "A) $36", correct: false },
+                    { text: "B) $48", correct: false },
+                    { text: "C) $42", correct: true },
+                    { text: "D) $50", correct: false }
                 ],
-                explanation: "Adults: 2 × $12 = $24. Students: 3 × $6 = $18. Total: $24 + $18 = $42. Thus, option D is correct (note: A and D adjusted to avoid duplication)."
+                explanation: "Adults: 2 × $12 = $24. Students: 3 × $6 = $18. Total: $24 + $18 = $42, making C correct."
             }
         ]
     }
@@ -212,7 +212,7 @@ const lessons = {
 // Data interpretation question array
 const dataInterpretationQuestions = [
     {
-        passage: "In 2023, a small bookstore in Millville tracked its weekly sales in a table to analyze performance. The table listed: Monday ($300), Tuesday ($250), Wednesday ($400), Thursday ($350), Friday ($500). The owner needed to identify Friday’s sales to compare with other days and adjust inventory for high-demand days.",
+        passage: "In 2023, a small bookstore in Millville tracked its weekly sales in a table to analyze performance and plan inventory. The table listed: Monday ($300), Tuesday ($250), Wednesday ($400), Thursday ($350), Friday ($500). The owner needed to identify Friday’s sales to compare with other days and adjust stock levels for high-demand days accordingly.",
         question: "What were Friday’s sales?",
         answers: [
             { text: "A) $500", correct: true },
@@ -225,7 +225,7 @@ const dataInterpretationQuestions = [
         category: "ged-data-interpretation"
     },
     {
-        passage: "In 2024, a farmer’s market in Greenvale used a bar graph to display fruit sales: Apples (70 kg), Bananas (50 kg), Oranges (60 kg), Pears (40 kg). The market coordinator needed to determine which fruit had the lowest sales to optimize stock for the next market day, identified by comparing the values shown.",
+        passage: "In 2024, a farmer’s market in Greenvale used a bar graph to display fruit sales for the week: Apples (70 kg), Bananas (50 kg), Oranges (60 kg), Pears (40 kg). The market coordinator needed to determine which fruit had the lowest sales to optimize stock for the next market day, identified by comparing the quantities shown on the graph.",
         question: "Which fruit had the lowest sales?",
         answers: [
             { text: "A) Apples", correct: false },
@@ -238,7 +238,7 @@ const dataInterpretationQuestions = [
         category: "ged-data-interpretation"
     },
     {
-        passage: "In 2023, a weather station in Clearwater recorded daily temperatures on a line graph: Monday (68°F), Tuesday (70°F), Wednesday (66°F), Thursday (64°F), Friday (62°F). The meteorologist needed to analyze the temperature trend to inform local farmers about planting schedules, determined by observing the pattern of values over time.",
+        passage: "In 2023, a weather station in Clearwater recorded daily temperatures on a line graph to inform local farmers: Monday (68°F), Tuesday (70°F), Wednesday (66°F), Thursday (64°F), Friday (62°F). The meteorologist needed to analyze the temperature trend to advise on planting schedules, determined by observing the pattern of values over the five days.",
         question: "What is the temperature trend from Monday to Friday?",
         answers: [
             { text: "A) Increasing", correct: false },
@@ -251,7 +251,7 @@ const dataInterpretationQuestions = [
         category: "ged-data-interpretation"
     },
     {
-        passage: "In 2024, a community center in Millville created a pie chart for its annual budget: Programs (45%), Staff (25%), Facilities (20%), Supplies (10%). The director needed to identify the percentage allocated to Facilities to plan maintenance upgrades, read directly from the pie chart.",
+        passage: "In 2024, a community center in Millville created a pie chart for its annual budget to guide financial planning: Programs (45%), Staff (25%), Facilities (20%), Supplies (10%). The director needed to identify the percentage allocated to Facilities to plan maintenance upgrades, read directly from the pie chart’s segments.",
         question: "What percent of the budget is allocated to Facilities?",
         answers: [
             { text: "A) 10%", correct: false },
@@ -264,7 +264,7 @@ const dataInterpretationQuestions = [
         category: "ged-data-interpretation"
     },
     {
-        passage: "In 2023, a student in Greenvale recorded weekly study hours for a math course: Week 1 (10 hours), Week 2 (12 hours), Week 3 (8 hours), Week 4 (14 hours). The student needed to calculate the mean study hours per week to assess consistency, found by summing the hours and dividing by the number of weeks.",
+        passage: "In 2023, a student in Greenvale recorded weekly study hours for a math course to assess consistency: Week 1 (10 hours), Week 2 (12 hours), Week 3 (8 hours), Week 4 (14 hours). The student needed to calculate the mean study hours per week to evaluate their study habits, found by summing the hours and dividing by the number of weeks.",
         question: "What is the mean number of study hours per week?",
         answers: [
             { text: "A) 11 hours", correct: true },
@@ -277,7 +277,7 @@ const dataInterpretationQuestions = [
         category: "ged-data-interpretation"
     },
     {
-        passage: "In 2024, a café in Clearwater tracked daily customer visits on a bar graph: Monday (100 customers), Tuesday (120 customers), Wednesday (90 customers), Thursday (110 customers). The owner needed to calculate the customer increase from Monday to Tuesday to evaluate marketing efforts, found by subtracting the earlier value from the later one.",
+        passage: "In 2024, a café in Clearwater tracked daily customer visits on a bar graph to evaluate marketing efforts: Monday (100 customers), Tuesday (120 customers), Wednesday (90 customers), Thursday (110 customers). The owner needed to calculate the customer increase from Monday to Tuesday to measure the success of a new promotion, found by subtracting the earlier value from the later one.",
         question: "What is the customer increase from Monday to Tuesday?",
         answers: [
             { text: "A) 10 customers", correct: false },
@@ -290,7 +290,7 @@ const dataInterpretationQuestions = [
         category: "ged-data-interpretation"
     },
     {
-        passage: "In 2023, a museum in Millville listed admission fees in a table: Adult ($15), Child ($8), Senior ($10). For a school trip, 4 adults and 5 children attended. The museum needed to calculate the total admission cost to process the group’s payment, found by multiplying quantities by fees and summing.",
+        passage: "In 2023, a community theater in Millville listed ticket prices in a table to process group payments: Adult ($15), Child ($8), Senior ($10). For a school trip, 4 adults and 5 children attended. The box office needed to calculate the total admission cost to process the group’s payment, found by multiplying quantities by fees and summing the results.",
         question: "What is the total admission cost?",
         answers: [
             { text: "A) $95", correct: false },
@@ -398,7 +398,7 @@ function showItem() {
                     <div class="right-column">
                         <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -420,14 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content (simplified for examples)
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Problem:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Problem:.*?(\.(?=\s*What|\s*How|\s*Identify|\s*Determine|\s*Calculate)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -487,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -538,7 +546,7 @@ function showNextQuizQuestion(quizQuestions) {
                 <div class="right-column">
                     <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -557,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
