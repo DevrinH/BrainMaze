@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: A scientist hypothesizes: 'Increasing water intake improves memory in students.' Why is this hypothesis testable?",
+                passage: "In 2023, a research team in Millville proposed a hypothesis to study cognitive performance: 'Increasing water intake improves memory in students.' The team planned to measure water consumption and memory test scores to evaluate this claim in a controlled classroom setting.",
+                question: "Why is this hypothesis testable?",
                 options: [
                     { text: "A) It involves measurable variables", correct: true },
                     { text: "B) It is a general statement", correct: false },
@@ -64,14 +65,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: An experiment tests how temperature affects enzyme activity. Temperature is the independent variable, enzyme activity is the dependent variable, and pH is controlled. What is the independent variable?",
+                passage: "In 2024, a laboratory in Greenvale conducted an experiment to test how temperature affects enzyme activity. Temperature was varied as the independent variable, enzyme activity was measured as the dependent variable, and pH was kept constant as a controlled variable to ensure reliable results.",
+                question: "What is the independent variable?",
                 options: [
-                    { text: "A) Temperature", correct: true },
-                    { text: "B) Enzyme activity", correct: false },
+                    { text: "A) Enzyme activity", correct: false },
+                    { text: "B) Temperature", correct: true },
                     { text: "C) pH", correct: false },
                     { text: "D) Time", correct: false }
                 ],
-                explanation: "The passage states temperature is the independent variable, manipulated to observe its effect, making A correct."
+                explanation: "The passage states temperature is the independent variable, manipulated to observe its effect, making B correct."
             },
             {
                 type: "example",
@@ -89,14 +91,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: To test if a new drug lowers blood pressure, two groups receive either the drug or a placebo. Groups are matched for weight and diet. Why match for weight and diet?",
+                passage: "In 2023, a clinical trial in Clearwater tested whether a new drug lowers blood pressure. Two groups received either the drug or a placebo, and were matched for weight and diet to ensure comparable baseline conditions. This setup was critical for accurate results.",
+                question: "Why match the groups for weight and diet?",
                 options: [
-                    { text: "A) To control variables", correct: true },
-                    { text: "B) To increase blood pressure", correct: false },
-                    { text: "C) To vary the drug dose", correct: false },
+                    { text: "A) To increase blood pressure", correct: false },
+                    { text: "B) To vary the drug dose", correct: false },
+                    { text: "C) To control variables", correct: true },
                     { text: "D) To measure weight", correct: false }
                 ],
-                explanation: "Matching weight and diet controls these variables to isolate the drug’s effect, making A correct."
+                explanation: "Matching weight and diet controls these variables to isolate the drug’s effect, making C correct."
             },
             {
                 type: "example",
@@ -114,14 +117,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: To study light intensity’s effect on photosynthesis, a scientist measures oxygen production and checks light intensity hourly. Why check light intensity hourly?",
+                passage: "In 2024, a botanical study in Millville investigated how light intensity affects photosynthesis rates. The researcher measured oxygen production daily and checked light intensity hourly to maintain stable conditions throughout the experiment, ensuring accurate data collection.",
+                question: "Why check light intensity hourly?",
                 options: [
-                    { text: "A) To maintain it as a controlled variable", correct: true },
+                    { text: "A) To vary light intensity", correct: false },
                     { text: "B) To measure oxygen", correct: false },
-                    { text: "C) To vary light intensity", correct: false },
-                    { text: "D) To change photosynthesis rates", correct: false }
+                    { text: "C) To change photosynthesis rates", correct: false },
+                    { text: "D) To maintain it as a controlled variable", correct: true }
                 ],
-                explanation: "Hourly checks ensure light intensity remains consistent, controlling it, making A correct."
+                explanation: "Hourly checks ensure light intensity remains consistent, controlling it, making D correct."
             },
             {
                 type: "example",
@@ -139,14 +143,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: An experiment tests if a fertilizer increases flower size. The fertilized group has a mean flower diameter of 5 cm, compared to 3 cm for the control group. What does the data suggest?",
+                passage: "In 2023, an agricultural experiment in Greenvale tested whether a new fertilizer increases flower size. The fertilized group had a mean flower diameter of 5 cm, compared to 3 cm for the control group. The study aimed to inform farming practices with reliable data.",
+                question: "What does the data suggest?",
                 options: [
-                    { text: "A) Fertilizer increases flower size", correct: true },
-                    { text: "B) Fertilizer decreases flower size", correct: false },
+                    { text: "A) Fertilizer decreases flower size", correct: false },
+                    { text: "B) Fertilizer increases flower size", correct: true },
                     { text: "C) Fertilizer has no effect", correct: false },
                     { text: "D) Flower size is unrelated to fertilizer", correct: false }
                 ],
-                explanation: "Larger mean diameter (5 cm vs. 3 cm) suggests fertilizer increases flower size, making A correct."
+                explanation: "Larger mean diameter (5 cm vs. 3 cm) suggests fertilizer increases flower size, making B correct."
             },
             {
                 type: "example",
@@ -164,14 +169,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: An experiment tests water pH’s effect on fish health. At pH 6, fish show stress; at pH 7, fish are healthy; at pH 8, stress reappears. What conclusion can be drawn?",
+                passage: "In 2024, an environmental study in Clearwater tested water pH’s effect on fish health. At pH 6, fish showed stress; at pH 7, fish were healthy; at pH 8, stress reappeared. The study provided insights for maintaining aquatic ecosystems under varying conditions.",
+                question: "What conclusion can be drawn?",
                 options: [
-                    { text: "A) Fish health is optimal at pH 7", correct: true },
-                    { text: "B) Fish health improves at pH 6", correct: false },
-                    { text: "C) Fish health is best at pH 8", correct: false },
-                    { text: "D) pH has no effect on fish health", correct: false }
+                    { text: "A) Fish health improves at pH 6", correct: false },
+                    { text: "B) pH has no effect on fish health", correct: false },
+                    { text: "C) Fish health is optimal at pH 7", correct: true },
+                    { text: "D) Fish health is best at pH 8", correct: false }
                 ],
-                explanation: "Healthiest fish at pH 7 suggests optimal conditions, making A correct."
+                explanation: "Healthiest fish at pH 7 suggests optimal conditions, making C correct."
             },
             {
                 type: "example",
@@ -189,14 +195,15 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: A study on diet’s effect on cholesterol is repeated with different groups, producing similar results. Why repeat the study?",
+                passage: "In 2023, a health study in Millville examined the effect of diet on cholesterol levels. The study was repeated with different groups, producing similar results each time. This repetition was crucial to validate the findings for broader application in dietary guidelines.",
+                question: "Why repeat the study?",
                 options: [
-                    { text: "A) To confirm reliability", correct: true },
-                    { text: "B) To change the diet", correct: false },
-                    { text: "C) To measure cholesterol differently", correct: false },
-                    { text: "D) To reduce participant numbers", correct: false }
+                    { text: "A) To change the diet", correct: false },
+                    { text: "B) To measure cholesterol differently", correct: false },
+                    { text: "C) To reduce participant numbers", correct: false },
+                    { text: "D) To confirm reliability", correct: true }
                 ],
-                explanation: "Replication confirms consistent results, ensuring reliability, making A correct."
+                explanation: "Replication confirms consistent results, ensuring reliability, making D correct."
             }
         ]
     }
@@ -205,7 +212,8 @@ const lessons = {
 // Scientific method and experimental design question array
 const scientificMethodQuestions = [
     {
-        question: "Passage: In an experiment, the control group receives no treatment to serve as a baseline. In a study on a new vitamin’s effect on energy, the control group receives a placebo. What is the role of the control group?",
+        passage: "In 2023, a research team in Millville designed an experiment to study the effect of a new vitamin supplement on energy levels. The control group received a placebo to serve as a baseline, while the experimental group received the vitamin, ensuring a clear comparison of energy outcomes.",
+        question: "What is the role of the control group?",
         answers: [
             { text: "A) Provide a baseline for comparison", correct: true },
             { text: "B) Receive the treatment", correct: false },
@@ -217,74 +225,80 @@ const scientificMethodQuestions = [
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "Passage: A scientist hypothesizes that increased humidity improves seed germination rates. The experiment compares germination in high and low humidity environments. Why is this hypothesis testable?",
+        passage: "In 2024, a study in Greenvale hypothesized that increased humidity improves seed germination rates. The experiment compared germination in high and low humidity environments, measuring seed sprouting percentages. This setup allowed researchers to test the hypothesis under controlled conditions.",
+        question: "Why is this hypothesis testable?",
         answers: [
-            { text: "A) It links measurable variables like humidity and germination rate", correct: true },
-            { text: "B) It avoids specifying variables", correct: false },
+            { text: "A) It avoids specifying variables", correct: false },
+            { text: "B) It links measurable variables like humidity and germination rate", correct: true },
             { text: "C) It is based on unmeasurable outcomes", correct: false },
             { text: "D) It requires no experimental setup", correct: false }
         ],
-        explanation: "The hypothesis links humidity (manipulable) and germination rate (measurable), making it testable. It does not avoid variables, rely on unmeasurable outcomes, or require no setup, making A correct.",
+        explanation: "The hypothesis links humidity (manipulable) and germination rate (measurable), making it testable, so B is correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "Passage: To test if a new fertilizer enhances corn yield, a scientist measures yield in fertilized and unfertilized fields, controlling for soil type and water. What is the dependent variable in this experiment?",
+        passage: "In 2023, an agricultural study in Clearwater tested whether a new fertilizer enhances corn yield. The scientist measured corn yield in fertilized and unfertilized fields, controlling for soil type and water amount to isolate the fertilizer’s effect on crop production.",
+        question: "What is the dependent variable in this experiment?",
         answers: [
             { text: "A) Fertilizer amount", correct: false },
-            { text: "B) Corn yield", correct: true },
-            { text: "C) Soil type", correct: false },
+            { text: "B) Soil type", correct: false },
+            { text: "C) Corn yield", correct: true },
             { text: "D) Water amount", correct: false }
         ],
-        explanation: "The dependent variable is the outcome measured, which is corn yield in response to fertilizer. Soil type and water are controlled, and fertilizer is the independent variable, making B correct.",
+        explanation: "The dependent variable is the outcome measured, which is corn yield, making C correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "Passage: An experiment tests how exercise frequency affects blood oxygen levels, with groups exercising 0, 3, or 5 days a week. The researcher ensures all groups have similar diets. Why is diet controlled?",
+        passage: "In 2024, a health experiment in Millville tested how exercise frequency affects blood oxygen levels. Groups exercised 0, 3, or 5 days a week, with diets kept similar across groups to ensure the exercise variable was isolated. This control was critical for valid results.",
+        question: "Why is diet controlled?",
         answers: [
             { text: "A) To increase blood oxygen levels", correct: false },
             { text: "B) To isolate the effect of exercise frequency", correct: true },
             { text: "C) To vary the independent variable", correct: false },
             { text: "D) To measure diet’s effect", correct: false }
         ],
-        explanation: "Controlling diet isolates the effect of exercise frequency on blood oxygen levels, preventing diet from influencing results. It’s not to increase oxygen, vary exercise, or measure diet, making B correct.",
+        explanation: "Controlling diet isolates exercise’s effect on oxygen levels, making B correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "Passage: A study on noise levels and concentration records participants’ focus scores under quiet, moderate, and loud conditions, with noise levels checked every 10 minutes. Why check noise levels frequently?",
+        passage: "In 2023, a psychology study in Greenvale examined noise levels’ impact on concentration. Participants’ focus scores were recorded under quiet, moderate, and loud conditions, with noise levels checked every 10 minutes to maintain consistency throughout the testing period.",
+        question: "Why check noise levels frequently?",
         answers: [
             { text: "A) To vary noise as the independent variable", correct: false },
             { text: "B) To measure concentration", correct: false },
             { text: "C) To ensure consistent noise conditions", correct: true },
             { text: "D) To change focus scores", correct: false }
         ],
-        explanation: "Frequent checks ensure noise levels remain consistent as the independent variable, preventing unintended variations. It’s not to vary noise, measure concentration, or change scores, making C correct.",
+        explanation: "Frequent checks ensure noise levels remain consistent, making C correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "Passage: An experiment tests if sugar intake affects reaction time. The sugar group has a mean reaction time of 0.4 seconds, compared to 0.6 seconds for the no-sugar group. What conclusion can be drawn from this data?",
+        passage: "In 2024, a nutritional study in Clearwater tested whether sugar intake affects reaction time. The sugar group had a mean reaction time of 0.4 seconds, compared to 0.6 seconds for the no-sugar group, suggesting a potential link between diet and cognitive performance.",
+        question: "What conclusion can be drawn from this data?",
         answers: [
-            { text: "A) Sugar intake has no effect on reaction time", correct: false },
+            { text: "A) Sugar intake improves reaction time", correct: true },
             { text: "B) Sugar intake slows reaction time", correct: false },
-            { text: "C) Sugar intake improves reaction time", correct: true },
+            { text: "C) Sugar intake has no effect", correct: false },
             { text: "D) Reaction time is unrelated to diet", correct: false }
         ],
-        explanation: "The sugar group’s faster reaction time (0.4 vs. 0.6 seconds) suggests sugar improves reaction time. The data does not indicate no effect, slower reaction, or diet irrelevance, making C correct.",
+        explanation: "Faster reaction time (0.4 vs. 0.6 seconds) suggests sugar improves reaction time, making A correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     },
     {
-        question: "Passage: A study on the effect of sleep duration on memory performance is repeated across multiple groups, yielding similar results. What does this replication achieve?",
+        passage: "In 2023, a medical study in Millville investigated sleep duration’s effect on memory performance. The study was repeated across multiple groups, yielding similar results each time. This repetition strengthened the findings, supporting their use in health recommendations.",
+        question: "What does this replication achieve?",
         answers: [
             { text: "A) It changes the independent variable", correct: false },
             { text: "B) It reduces the sample size", correct: false },
-            { text: "C) It simplifies data collection", correct: false },
-            { text: "D) It increases result reliability", correct: true }
+            { text: "C) It increases result reliability", correct: true },
+            { text: "D) It simplifies data collection", correct: false }
         ],
-        explanation: "Replication with consistent results increases the reliability of the findings, ensuring they are not due to chance. It does not change variables, reduce sample size, or simplify data, making D correct.",
+        explanation: "Replication increases the reliability of the findings, making C correct.",
         difficulty: "medium",
         category: "ged-scientific-method-and-experimental-design"
     }
@@ -328,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function() {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start Lesson Button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found!");
     }
 
     showScore();
@@ -378,14 +392,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row science-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -407,15 +420,24 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
     const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
     if (passageMatchWithTags) {
         return passageMatchWithTags[0];
     }
-    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*Which|\s*Why|\s*How)|$)/is);
+    const passageMatchPlain = content.match(/In.*?(\.(?=\s*The\s|\s*This\s)|$)/is);
     return passageMatchPlain ? passageMatchPlain[0] : "";
 }
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
+}
+
 // Handle answer selection
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
@@ -473,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -518,14 +540,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row science-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -544,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
