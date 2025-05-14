@@ -39,7 +39,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: 'The new recycling program requires employees to sort waste into bins for paper, plastic, and glass.' What is the main idea?",
+                passage: "In 2023, a company in Millville updated its employee handbook, which stated: 'The new recycling program requires employees to sort waste into bins for paper, plastic, and glass.' The handbook aimed to promote environmental responsibility among staff.",
+                question: "What is the main idea?",
                 options: [
                     { text: "A) The recycling program mandates sorting waste.", correct: true },
                     { text: "B) Employees dislike recycling.", correct: false },
@@ -64,7 +65,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'The company’s training program enhances skills. It offers workshops, online courses, and mentorship.' What are the supporting details?",
+                passage: "In 2024, a corporate training program in Greenvale published: 'The company’s training program enhances skills. It offers workshops, online courses, and mentorship.' The program aimed to improve employee competencies for better performance.",
+                question: "What are the supporting details?",
                 options: [
                     { text: "A) Workshops, online courses, mentorship", correct: true },
                     { text: "B) Enhanced skills", correct: false },
@@ -89,7 +91,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: 'The new policy promotes workplace diversity. It includes hiring initiatives, cultural training, and inclusive events.' What is the main idea?",
+                passage: "In 2023, a company in Clearwater issued a policy update stating: 'The new policy promotes workplace diversity. It includes hiring initiatives, cultural training, and inclusive events.' The policy aimed to foster an inclusive work environment.",
+                question: "What is the main idea?",
                 options: [
                     { text: "A) The policy promotes workplace diversity.", correct: true },
                     { text: "B) Hiring initiatives are effective.", correct: false },
@@ -114,7 +117,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: 'The job fair connects employers with talent. It features booths, interviews, and networking sessions.' What is the main idea?",
+                passage: "In 2024, a job fair organizer in Millville published: 'The job fair connects employers with talent. It features booths, interviews, and networking sessions.' The event aimed to facilitate employment opportunities in the region.",
+                question: "What is the main idea?",
                 options: [
                     { text: "A) The job fair links employers and talent.", correct: true },
                     { text: "B) Booths attract talent.", correct: false },
@@ -139,7 +143,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: 'The safety campaign reduces accidents. It includes posters, drills, and equipment checks.' What are the supporting details?",
+                passage: "In 2023, a safety campaign in Greenvale stated: 'The safety campaign reduces accidents. It includes posters, drills, and equipment checks.' The campaign aimed to enhance workplace safety awareness.",
+                question: "What are the supporting details?",
                 options: [
                     { text: "A) Posters, drills, equipment checks", correct: true },
                     { text: "B) Reduced accidents", correct: false },
@@ -164,7 +169,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'The wellness program encourages healthy habits. It offers gym access, nutrition classes, and stress workshops.' What is the main idea?",
+                passage: "In 2024, a wellness program in Clearwater published: 'The wellness program encourages healthy habits. It offers gym access, nutrition classes, and stress workshops.' The program aimed to improve employee health and well-being.",
+                question: "What is the main idea?",
                 options: [
                     { text: "A) The program promotes healthy habits.", correct: true },
                     { text: "B) Gym access is free.", correct: false },
@@ -189,7 +195,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'The training manual ensures compliance. It covers regulations, procedures, and penalties for violations.' What are the supporting details?",
+                passage: "In 2023, a compliance department in Millville issued: 'The training manual ensures compliance. It covers regulations, procedures, and penalties for violations.' The manual aimed to standardize employee adherence to company policies.",
+                question: "What are the supporting details?",
                 options: [
                     { text: "A) Regulations, procedures, penalties", correct: true },
                     { text: "B) Ensured compliance", correct: false },
@@ -205,34 +212,37 @@ const lessons = {
 // Main idea and details question array
 const mainIdeaDetailsQuestions = [
     {
-        question: "Passage: 'The new policy promotes workplace diversity. It includes hiring initiatives, cultural training, and inclusive events.' What is the main idea?",
+        passage: "In 2023, a company in Clearwater issued a policy update stating: 'The new policy promotes workplace diversity. It includes hiring initiatives, cultural training, and inclusive events.' The policy aimed to foster an inclusive work environment through structured programs and activities.",
+        question: "What is the main idea?",
         answers: [
             { text: "A) The policy promotes workplace diversity.", correct: true },
-            { text: "B) Hiring initiatives are effective.", correct: false },
+            { text: "B) Hiring initiatives attract employees.", correct: false },
             { text: "C) Cultural training is mandatory.", correct: false },
-            { text: "D) Events are inclusive.", correct: false }
+            { text: "D) Inclusive events are frequent.", correct: false }
         ],
-        explanation: "The main idea is the policy’s focus on diversity, while the other options are supporting details.",
+        explanation: "The main idea is the policy’s focus on promoting diversity, while the other options are supporting details.",
         difficulty: "easy",
         category: "ged-reading-comprehension"
     },
     {
-        question: "Passage: 'The rise of electric vehicles (EVs) reduces reliance on fossil fuels. EVs use rechargeable batteries, produce zero tailpipe emissions, and are supported by expanding charging networks.' What is the main purpose of the passage?",
+        passage: "In 2024, an environmental agency in Millville published a report stating: 'The rise of electric vehicles (EVs) reduces reliance on fossil fuels. EVs use rechargeable batteries, produce zero tailpipe emissions, and are supported by expanding charging networks.' The report aimed to advocate for sustainable transportation solutions.",
+        question: "What is the main purpose of the passage?",
         answers: [
-            { text: "A) To explain how electric vehicles reduce fossil fuel dependence.", correct: true },
-            { text: "B) To describe the technology of rechargeable batteries.", correct: false },
-            { text: "C) To highlight the growth of charging networks.", correct: false },
-            { text: "D) To discuss the environmental impact of tailpipe emissions.", correct: false }
+            { text: "A) To describe battery technology in EVs.", correct: false },
+            { text: "B) To explain how EVs reduce fossil fuel use.", correct: true },
+            { text: "C) To promote charging network expansion.", correct: false },
+            { text: "D) To discuss emission regulations.", correct: false }
         ],
-        explanation: "The main purpose is to explain how EVs reduce reliance on fossil fuels, while other options focus on specific details.",
+        explanation: "The main purpose is to explain how EVs reduce reliance on fossil fuels, while other options focus on specific details or unrelated topics.",
         difficulty: "medium",
         category: "ged-reading-comprehension"
     },
     {
-        question: "Passage: 'Urban farming transforms vacant lots into productive spaces. It provides local food, reduces transportation costs, and engages communities.' According to the passage, what is one benefit of urban farming?",
+        passage: "In 2023, a community newsletter in Greenvale highlighted: 'Urban farming transforms vacant lots into productive spaces. It provides local food, reduces transportation costs, and engages communities.' The newsletter aimed to promote urban farming as a sustainable community initiative.",
+        question: "According to the passage, what is one benefit of urban farming?",
         answers: [
-            { text: "A) It increases transportation costs.", correct: false },
-            { text: "B) It supplies local food.", correct: true },
+            { text: "A) It provides local food.", correct: true },
+            { text: "B) It increases transportation costs.", correct: false },
             { text: "C) It reduces community engagement.", correct: false },
             { text: "D) It eliminates vacant lots.", correct: false }
         ],
@@ -241,11 +251,12 @@ const mainIdeaDetailsQuestions = [
         category: "ged-reading-comprehension"
     },
     {
-        question: "Passage: 'Citizen science projects involve volunteers in research. Participants collect data, analyze findings, and contribute to discoveries in fields like ecology.' What role do volunteers play in citizen science?",
+        passage: "In 2024, a science outreach program in Clearwater published: 'Citizen science projects involve volunteers in research. Participants collect data, analyze findings, and contribute to discoveries in fields like ecology.' The program aimed to engage the public in scientific research efforts.",
+        question: "What role do volunteers play in citizen science?",
         answers: [
             { text: "A) They fund research projects.", correct: false },
-            { text: "B) They collect and analyze data.", correct: true },
-            { text: "C) They publish scientific papers.", correct: false },
+            { text: "B) They publish scientific papers.", correct: false },
+            { text: "C) They collect and analyze data.", correct: true },
             { text: "D) They design research experiments.", correct: false }
         ],
         explanation: "The passage specifies that volunteers collect data and analyze findings, while other options describe roles not mentioned.",
@@ -253,10 +264,11 @@ const mainIdeaDetailsQuestions = [
         category: "ged-reading-comprehension"
     },
     {
-        question: "Passage: 'Historic preservation maintains cultural heritage. Restoring old buildings, archiving artifacts, and educating the public ensure traditions endure.' What is the primary goal of historic preservation according to the passage?",
+        passage: "In 2023, a heritage society in Millville stated: 'Historic preservation maintains cultural heritage. Restoring old buildings, archiving artifacts, and educating the public ensure traditions endure.' The society aimed to raise awareness about preserving cultural history.",
+        question: "What is the primary goal of historic preservation according to the passage?",
         answers: [
-            { text: "A) To maintain cultural heritage.", correct: true },
-            { text: "B) To restore old buildings.", correct: false },
+            { text: "A) To restore old buildings.", correct: false },
+            { text: "B) To maintain cultural heritage.", correct: true },
             { text: "C) To archive artifacts.", correct: false },
             { text: "D) To educate the public.", correct: false }
         ],
@@ -265,24 +277,26 @@ const mainIdeaDetailsQuestions = [
         category: "ged-reading-comprehension"
     },
     {
-        question: "Passage: 'Microfinance programs provide small loans to entrepreneurs in developing regions. These loans support business startups, improve livelihoods, and promote economic growth.' According to the passage, what is one outcome of microfinance programs?",
+        passage: "In 2024, a development organization in Greenvale reported: 'Microfinance programs provide small loans to entrepreneurs in developing regions. These loans support business startups, improve livelihoods, and promote economic growth.' The report aimed to highlight microfinance’s role in economic development.",
+        question: "According to the passage, what is one outcome of microfinance programs?",
         answers: [
             { text: "A) They limit business startups.", correct: false },
             { text: "B) They restrict economic growth.", correct: false },
-            { text: "C) They improve livelihoods.", correct: true },
-            { text: "D) They reduce loan availability.", correct: false }
+            { text: "C) They reduce loan availability.", correct: false },
+            { text: "D) They improve livelihoods.", correct: true }
         ],
         explanation: "The passage lists improving livelihoods as an outcome of microfinance programs, while other options contradict the passage.",
         difficulty: "medium",
         category: "ged-reading-comprehension"
     },
     {
-        question: "Passage: 'Wildlife corridors connect fragmented habitats. They allow animals to migrate, access resources, and maintain genetic diversity.' What is the main function of wildlife corridors according to the passage?",
+        passage: "In 2023, a conservation group in Clearwater published: 'Wildlife corridors connect fragmented habitats. They allow animals to migrate, access resources, and maintain genetic diversity.' The group aimed to advocate for habitat connectivity to support biodiversity.",
+        question: "What is the main function of wildlife corridors according to the passage?",
         answers: [
-            { text: "A) To fragment habitats.", correct: false },
+            { text: "A) To connect fragmented habitats.", correct: true },
             { text: "B) To limit animal migration.", correct: false },
             { text: "C) To reduce genetic diversity.", correct: false },
-            { text: "D) To connect fragmented habitats.", correct: true }
+            { text: "D) To fragment habitats.", correct: false }
         ],
         explanation: "The main function of wildlife corridors is to connect fragmented habitats, as stated in the passage, while other options misstate their purpose.",
         difficulty: "medium",
@@ -378,14 +392,13 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row reading-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -407,10 +420,22 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (simplified for examples and questions)
 function extractPassage(content) {
-    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
+    const passageMatchWithTags = content.match(/<p>Passage:.*?(?:<\/p>|$)/is);
+    if (passageMatchWithTags) {
+        return passageMatchWithTags[0];
+    }
+    const passageMatchPlain = content.match(/Passage:.*?(\.(?=\s*What|\s*According|\s*Why)|$)/is);
+    return passageMatchPlain ? passageMatchPlain[0] : "";
+}
+
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
 
 // Handle answer selection
@@ -470,7 +495,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -515,14 +540,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row reading-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -541,14 +565,6 @@ function showNextQuizQuestion(quizQuestions) {
         console.log("Quiz complete, showing final score");
         showFinalScore();
     }
-}
-
-// Next quiz item
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 // Save lesson completion
