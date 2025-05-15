@@ -759,7 +759,9 @@ const lessons = {
 };
 
 // Command of Evidence question arrays (unchanged from your code)
+// Command of Evidence question arrays
 const textualEvidenceQuestions = [
+    // Original question
     {
         passage: "In 2023, a wildlife agency in Clearwater reported: 'The species population increased by 30% after protections were enacted.' The protections included habitat restoration and poaching bans to support endangered species.",
         question: "What evidence supports the protections’ success?",
@@ -772,12 +774,98 @@ const textualEvidenceQuestions = [
         explanation: "'Increased by 30%' directly shows a successful outcome.",
         difficulty: "easy",
         category: "command-of-evidence"
+    },
+    // New question 1 (Correct: A)
+    {
+        passage: "In 2024, a public health study in Millville stated: 'The vaccination program decreased flu cases by 35% in one season.' The program included free clinics and awareness campaigns.",
+        question: "What evidence supports the claim that the vaccination program was effective?",
+        answers: [
+            { text: "A) decreased flu cases by 35%", correct: true },
+            { text: "B) free clinics were offered", correct: false },
+            { text: "C) awareness campaigns", correct: false },
+            { text: "D) one season", correct: false }
+        ],
+        explanation: "'Decreased flu cases by 35%' directly quantifies the program’s effectiveness.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 2 (Correct: A)
+    {
+        passage: "In 2023, a technology journal reported: 'The new software reduced processing time by 40% for users.' The software was designed to optimize data analysis tasks.",
+        question: "What evidence supports the claim of improved efficiency?",
+        answers: [
+            { text: "A) reduced processing time by 40%", correct: true },
+            { text: "B) software was designed", correct: false },
+            { text: "C) data analysis tasks", correct: false },
+            { text: "D) users", correct: false }
+        ],
+        explanation: "'Reduced processing time by 40%' provides specific evidence of efficiency.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 3 (Correct: B)
+    {
+        passage: "In 2024, an agricultural report in Greenvale noted: 'Crop yields increased by 25% after implementing sustainable practices.' The practices included organic fertilizers and crop rotation.",
+        question: "Which evidence best supports the claim of successful sustainable practices?",
+        answers: [
+            { text: "A) organic fertilizers", correct: false },
+            { text: "B) increased by 25%", correct: true },
+            { text: "C) crop rotation", correct: false },
+            { text: "D) sustainable practices", correct: false }
+        ],
+        explanation: "'Increased by 25%' directly measures the success of the practices.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 4 (Correct: B)
+    {
+        passage: "In 2023, a community survey in Clearwater stated: 'Participation in local events rose by 15% after new promotions.' The promotions included flyers and social media ads.",
+        question: "What evidence supports the claim that promotions increased participation?",
+        answers: [
+            { text: "A) flyers were distributed", correct: false },
+            { text: "B) participation rose by 15%", correct: true },
+            { text: "C) social media ads", correct: false },
+            { text: "D) local events", correct: false }
+        ],
+        explanation: "'Participation rose by 15%' quantifies the impact of the promotions.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 5 (Correct: C)
+    {
+        passage: "In 2024, an urban planning report in Millville reported: 'Public transport usage grew by 20% after adding new bus routes.' The new routes connected residential areas to downtown.",
+        question: "What evidence supports the claim of improved public transport usage?",
+        answers: [
+            { text: "A) new bus routes", correct: false },
+            { text: "B) residential areas", correct: false },
+            { text: "C) usage grew by 20%", correct: true },
+            { text: "D) downtown connections", correct: false }
+        ],
+        explanation: "'Usage grew by 20%' directly shows increased public transport usage.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 6 (Correct: D)
+    {
+        passage: "In 2023, a fitness study in Greenvale stated: 'The exercise program improved endurance, with participants running 10% farther on average.' The program included weekly training sessions.",
+        question: "What evidence supports the claim of improved endurance?",
+        answers: [
+            { text: "A) weekly training sessions", correct: false },
+            { text: "B) exercise program", correct: false },
+            { text: "C) participants", correct: false },
+            { text: "D) running 10% farther", correct: true }
+        ],
+        explanation: "'Running 10% farther' provides specific evidence of endurance improvement.",
+        difficulty: "medium",
+        category: "command-of-evidence"
     }
 ];
 
 const authorUseOfEvidenceQuestions = [
+    // Original question
     {
-        question: "Passage: 'Research spanning 20 years confirms the theory.' Why does the author include '20 years'?",
+        passage: "In 2023, a scientific journal stated: 'Research spanning 20 years confirms the theory.' The study compiled data from multiple experiments to validate its findings.",
+        question: "Why does the author include '20 years'?",
         answers: [
             { text: "A) To show reliability", correct: true },
             { text: "B) To confuse readers", correct: false },
@@ -787,12 +875,98 @@ const authorUseOfEvidenceQuestions = [
         explanation: "'20 years' adds credibility by showing extensive research.",
         difficulty: "medium",
         category: "command-of-evidence"
+    },
+    // New question 1 (Correct: A)
+    {
+        passage: "In 2024, a business review in Clearwater reported: 'Sales increased by 18%, according to audited financial statements.' The review aimed to highlight corporate growth.",
+        question: "Why does the author mention 'audited financial statements'?",
+        answers: [
+            { text: "A) To enhance the data’s credibility", correct: true },
+            { text: "B) To detail accounting methods", correct: false },
+            { text: "C) To list financial auditors", correct: false },
+            { text: "D) To complicate the claim", correct: false }
+        ],
+        explanation: "'Audited financial statements' adds reliability to the sales increase claim.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 2 (Correct: A)
+    {
+        passage: "In 2023, an environmental report in Millville noted: 'Recycling rates rose by 22%, per city records.' The report emphasized sustainable waste management.",
+        question: "Why does the author include 'per city records'?",
+        answers: [
+            { text: "A) To provide an authoritative source", correct: true },
+            { text: "B) To describe city policies", correct: false },
+            { text: "C) To mention waste types", correct: false },
+            { text: "D) To avoid specific data", correct: false }
+        ],
+        explanation: "'Per city records' strengthens the claim with an official source.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 3 (Correct: B)
+    {
+        passage: "In 2024, a health article in Greenvale stated: 'Dr. Lee, a nutrition expert, endorses the diet’s benefits.' The article discussed dietary impacts on wellness.",
+        question: "Why does the author mention 'Dr. Lee, a nutrition expert'?",
+        answers: [
+            { text: "A) To list the doctor’s credentials", correct: false },
+            { text: "B) To lend authority to the endorsement", correct: true },
+            { text: "C) To promote Dr. Lee’s practice", correct: false },
+            { text: "D) To fill article space", correct: false }
+        ],
+        explanation: "Mentioning Dr. Lee’s expertise adds credibility to the diet’s benefits.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 4 (Correct: B)
+    {
+        passage: "In 2023, an education report in Clearwater stated: 'Test scores improved, backed by teacher testimonials.' The report focused on classroom interventions.",
+        question: "Why does the author use 'teacher testimonials'?",
+        answers: [
+            { text: "A) To replace statistical data", correct: false },
+            { text: "B) To provide relatable evidence", correct: true },
+            { text: "C) To list teacher names", correct: false },
+            { text: "D) To confuse the reader", correct: false }
+        ],
+        explanation: "Teacher testimonials offer personal, relatable support for the score improvement.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 5 (Correct: C)
+    {
+        passage: "In 2024, a technology review in Millville reported: 'The device’s reliability is confirmed by five years of user data.' The review evaluated product performance.",
+        question: "Why does the author include 'five years of user data'?",
+        answers: [
+            { text: "A) To mention the data collection period", correct: false },
+            { text: "B) To list user complaints", correct: false },
+            { text: "C) To strengthen the reliability claim", correct: true },
+            { text: "D) To discuss device features", correct: false }
+        ],
+        explanation: "'Five years of user data' bolsters the claim with long-term evidence.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 6 (Correct: D)
+    {
+        passage: "In 2023, an economic analysis in Greenvale stated: 'The policy boosted jobs, per a 2022 labor survey.' The analysis examined employment trends.",
+        question: "Why does the author cite 'a 2022 labor survey'?",
+        answers: [
+            { text: "A) To describe survey methods", correct: false },
+            { text: "B) To list job types", correct: false },
+            { text: "C) To mention the survey year", correct: false },
+            { text: "D) To add credibility to the job growth claim", correct: true }
+        ],
+        explanation: "Citing the survey enhances the reliability of the job growth claim.",
+        difficulty: "medium",
+        category: "command-of-evidence"
     }
 ];
 
 const dataInterpretationQuestions = [
+    // Original question
     {
-        question: "Graph: Profits rose from $100 to $150 in a year. What does this indicate?",
+        passage: "In 2023, a financial report in Clearwater presented a graph: 'Profits rose from $100 to $150 in a year.' The report analyzed corporate performance.",
+        question: "What does this indicate?",
         answers: [
             { text: "A) Profit growth", correct: true },
             { text: "B) Profit decline", correct: false },
@@ -802,12 +976,98 @@ const dataInterpretationQuestions = [
         explanation: "The increase from $100 to $150 shows profit growth.",
         difficulty: "easy",
         category: "command-of-evidence"
+    },
+    // New question 1 (Correct: A)
+    {
+        passage: "In 2024, a school district in Millville published a table: 'Math scores rose from 65 to 80 over two years.' The table tracked academic progress.",
+        question: "What trend does the table suggest?",
+        answers: [
+            { text: "A) Consistent improvement", correct: true },
+            { text: "B) Score decline", correct: false },
+            { text: "C) No change", correct: false },
+            { text: "D) Erratic scores", correct: false }
+        ],
+        explanation: "The rise from 65 to 80 indicates a consistent improvement trend.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 2 (Correct: A)
+    {
+        passage: "In 2023, an environmental study in Greenvale showed a graph: 'Carbon emissions fell from 1,000 tons to 850 tons in 18 months.' The study evaluated pollution controls.",
+        question: "What does the graph indicate about emissions?",
+        answers: [
+            { text: "A) Emissions reduction", correct: true },
+            { text: "B) Emissions increase", correct: false },
+            { text: "C) Stable emissions", correct: false },
+            { text: "D) Data inconsistency", correct: false }
+        ],
+        explanation: "The drop from 1,000 to 850 tons shows a reduction in emissions.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 3 (Correct: B)
+    {
+        passage: "In 2024, a marketing report in Clearwater presented a table: 'Brand recognition rose from 55% to 70% after a campaign.' The table measured campaign impact.",
+        question: "What claim does the table support?",
+        answers: [
+            { text: "A) Campaign costs increased", correct: false },
+            { text: "B) Improved brand recognition", correct: true },
+            { text: "C) Reduced brand visibility", correct: false },
+            { text: "D) Unchanged recognition", correct: false }
+        ],
+        explanation: "The rise from 55% to 70% supports a claim of improved brand recognition.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 4 (Correct: B)
+    {
+        passage: "In 2023, a transit authority in Millville showed a graph: 'Ridership grew from 10,000 to 12,000 monthly passengers.' The graph assessed transit usage.",
+        question: "What does the graph suggest about ridership?",
+        answers: [
+            { text: "A) Ridership declined", correct: false },
+            { text: "B) Increased ridership", correct: true },
+            { text: "C) No change", correct: false },
+            { text: "D) Inconsistent data", correct: false }
+        ],
+        explanation: "The increase from 10,000 to 12,000 suggests growing ridership.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 5 (Correct: C)
+    {
+        passage: "In 2024, a health survey in Greenvale presented a table: 'Exercise rates rose from 40% to 50% of adults over a year.' The survey tracked lifestyle changes.",
+        question: "What does the table indicate?",
+        answers: [
+            { text: "A) Exercise rates declined", correct: false },
+            { text: "B) No lifestyle changes", correct: false },
+            { text: "C) Increased exercise rates", correct: true },
+            { text: "D) Survey errors", correct: false }
+        ],
+        explanation: "The rise from 40% to 50% indicates increased exercise rates.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 6 (Correct: D)
+    {
+        passage: "In 2023, an economic report in Clearwater showed a graph: 'Unemployment fell from 8% to 6% in two years.' The report analyzed labor market trends.",
+        question: "What trend does the graph support?",
+        answers: [
+            { text: "A) Rising unemployment", correct: false },
+            { text: "B) Stable labor market", correct: false },
+            { text: "C) No trend", correct: false },
+            { text: "D) Decreasing unemployment", correct: true }
+        ],
+        explanation: "The drop from 8% to 6% supports a trend of decreasing unemployment.",
+        difficulty: "medium",
+        category: "command-of-evidence"
     }
 ];
 
 const crossTextEvidenceQuestions = [
+    // Original question
     {
-        question: "Text 1: 'The program saved $1 million.' Text 2: 'Savings were negligible.' Do they agree?",
+        passage: "In 2023, two reports evaluated a program in Millville. Text 1: 'The program saved $1 million.' Text 2: 'Savings were negligible.' The reports assessed financial impacts.",
+        question: "Do the texts agree on the program’s savings?",
         answers: [
             { text: "A) No", correct: true },
             { text: "B) Yes", correct: false },
@@ -815,6 +1075,90 @@ const crossTextEvidenceQuestions = [
             { text: "D) Unclear", correct: false }
         ],
         explanation: "$1 million is significant, contradicting 'negligible.'",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 1 (Correct: A)
+    {
+        passage: "In 2024, two studies in Greenvale assessed a health initiative. Text 1: 'The initiative reduced hospital visits by 15%.' Text 2: 'Hospital visits dropped slightly, by 5%.' The studies evaluated healthcare outcomes.",
+        question: "How do the texts differ on the initiative’s impact?",
+        answers: [
+            { text: "A) Text 1 reports a larger reduction", correct: true },
+            { text: "B) Text 2 reports a larger reduction", correct: false },
+            { text: "C) They report the same reduction", correct: false },
+            { text: "D) They don’t discuss reductions", correct: false }
+        ],
+        explanation: "Text 1’s 15% reduction is greater than Text 2’s 5%, showing a difference in magnitude.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 2 (Correct: A)
+    {
+        passage: "In 2023, two articles in Clearwater reviewed a tech upgrade. Text 1: 'The upgrade improved system speed by 25%.' Text 2: 'System speed increased marginally, by 10%.' The articles analyzed performance.",
+        question: "Do the texts agree on the upgrade’s effect?",
+        answers: [
+            { text: "A) No, they differ in scale", correct: true },
+            { text: "B) Yes, they report similar gains", correct: false },
+            { text: "C) Partially, they both note speed", correct: false },
+            { text: "D) Unclear, data is missing", correct: false }
+        ],
+        explanation: "Text 1’s 25% is significantly higher than Text 2’s 10%, indicating disagreement on scale.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 3 (Correct: B)
+    {
+        passage: "In 2024, two reports in Millville evaluated a training program. Text 1: 'Employee skills improved, per a survey of 200 workers.' Text 2: 'Skills slightly enhanced, based on manager feedback.' The reports assessed training outcomes.",
+        question: "How do the evidence types differ between the texts?",
+        answers: [
+            { text: "A) Both use surveys", correct: false },
+            { text: "B) Survey vs. manager feedback", correct: true },
+            { text: "C) Both use manager feedback", correct: false },
+            { text: "D) No evidence provided", correct: false }
+        ],
+        explanation: "Text 1 uses a survey, while Text 2 relies on manager feedback, showing different evidence types.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 4 (Correct: B)
+    {
+        passage: "In 2023, two studies in Greenvale examined a recycling program. Text 1: 'Recycling increased by 30%, per official data.' Text 2: 'Recycling grew, according to resident reports.' The studies measured environmental impact.",
+        question: "Which text provides more precise evidence?",
+        answers: [
+            { text: "A) Text 2", correct: false },
+            { text: "B) Text 1", correct: true },
+            { text: "C) Both are equally precise", correct: false },
+            { text: "D) Neither is precise", correct: false }
+        ],
+        explanation: "Text 1’s '30%, per official data' is more precise than Text 2’s vague 'grew.'",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 5 (Correct: C)
+    {
+        passage: "In 2024, two analyses in Clearwater reviewed a safety policy. Text 1: 'Accidents decreased by 20% in one year.' Text 2: 'Safety improved over several years.' The analyses evaluated workplace safety.",
+        question: "How does the time context affect the interpretation?",
+        answers: [
+            { text: "A) Text 2 shows a quicker change", correct: false },
+            { text: "B) Both show the same timeframe", correct: false },
+            { text: "C) Text 1 suggests a faster change", correct: true },
+            { text: "D) Timeframe is irrelevant", correct: false }
+        ],
+        explanation: "Text 1’s one-year decrease is faster than Text 2’s several-year improvement.",
+        difficulty: "medium",
+        category: "command-of-evidence"
+    },
+    // New question 6 (Correct: D)
+    {
+        passage: "In 2023, two reports in Millville assessed an education reform. Text 1: 'Student attendance rose by 10%.' Text 2: 'More students attended classes regularly.' The reports focused on school engagement.",
+        question: "Do the texts align on the reform’s impact?",
+        answers: [
+            { text: "A) No, they contradict", correct: false },
+            { text: "B) Partially, they differ in detail", correct: false },
+            { text: "C) Unclear, data is vague", correct: false },
+            { text: "D) Yes, both show increased attendance", correct: true }
+        ],
+        explanation: "Both texts indicate increased attendance, with Text 1 quantifying it at 10%.",
         difficulty: "medium",
         category: "command-of-evidence"
     }
