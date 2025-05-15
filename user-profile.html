@@ -2373,91 +2373,86 @@
         const textColor = currentTheme === "light" ? "black" : "rgb(220, 220, 220)";
         const dataLabelColor = "white"; // Always white for visibility on colored bars
         console.log(`ACT Last Score Bar Chart: Theme: ${currentTheme}, Tick color: ${textColor}, Data label color: ${dataLabelColor}`);
-        
 
         // Create the new ACT Last Score Single Bar Chart
         window.actLastScoreBarChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-        labels: [""], // One single horizontal bar
-        datasets: [
-            {
-                label: "English",
-                data: [lastEnglish],
-                backgroundColor: "rgb(255, 99, 132)",
-                stack: "total"
-            },
-            {
-                label: "Math",
-                data: [lastMath],
-                backgroundColor: "rgb(0, 222, 230)",
-                stack: "total"
-            },
-            {
-                label: "Reading",
-                data: [lastReading],
-                backgroundColor: "rgb(205, 120, 255)",
-                stack: "total"
-            },
-            {
-                label: "Science",
-                data: [lastScience],
-                backgroundColor: "rgb(75, 192, 192)",
-                stack: "total"
-            },
-            {
-                label: "Missed",
-                data: [unfilledScore],
-                backgroundColor: "#d3d3d3",
-                stack: "total"
-            }
-        ]
-    },
-    options: {
-        indexAxis: "y", // Horizontal bar
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            x: {
-                stacked: true,
-                max: 144,
-                ticks: {
-                    stepSize: 18, // Show every 18 or 36 (optional)
-                    callback: function(value) {
-                        if (value % 36 === 0) return value; // Only show ticks at 36, 72, 108, 144
-                        return "";
+            type: "bar",
+            data: {
+                labels: [""], // Single bar
+                datasets: [
+                    {
+                        label: "English",
+                        data: [lastEnglish],
+                        backgroundColor: "rgb(255, 99, 132)", // Red
+                        stack: "total"
                     },
-                    color: textColor,
-                    font: { size: 14, weight: "bold" }
+                    {
+                        label: "Math",
+                        data: [lastMath],
+                        backgroundColor: "rgb(0, 222, 230)", // Cyan
+                        stack: "total"
+                    },
+                    {
+                        label: "Reading",
+                        data: [lastReading],
+                        backgroundColor: "rgb(205, 120, 255)", // Pink
+                        stack: "total"
+                    },
+                    {
+                        label: "Science",
+                        data: [lastScience],
+                        backgroundColor: "rgb(75, 192, 192)", // Teal
+                        stack: "total"
+                    },
+                    {
+                        label: "Missed",
+                        data: [unfilledScore],
+                        backgroundColor: "#d3d3d3", // Gray
+                        stack: "total"
+                    }
+                ]
+            },
+            options: {
+                indexAxis: "y", // Horizontal bar
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        max: maxScore,
+                        ticks: {
+                            stepSize: 36, // Increments of 36 for ACT total scores (36, 72, 108, 144)
+                            color: textColor,
+                            font: { size: 14, weight: "bold" }
+                        },
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        display: false,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    }
                 },
-                grid: {
-                    display: false,
-                    drawBorder: false,
-                    drawOnChartArea: false
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true },
+                    datalabels: {
+                        anchor: "center",
+                        align: "center",
+                        color: dataLabelColor,
+                        font: { size: 18, weight: "bold" },
+                        formatter: (value) => (value >= 1 ? value : "") // Show only non-zero values
+                    }
                 }
             },
-            y: {
-                stacked: true,
-                display: false,
-                grid: {
-                    display: false,
-                    drawBorder: false,
-                    drawOnChartArea: false
-                }
-            }
-        },
-        plugins: {
-            legend: { display: true },
-            tooltip: { enabled: true },
-            datalabels: {
-                anchor: "center",
-                align: "center",
-                color: dataLabelColor,
-                font: { size: 18, weight: "bold" },
-                formatter: (value) => (value >= 1 ? value : "")
-            }
-        }
-    },
             plugins: [ChartDataLabels]
         });
     };
