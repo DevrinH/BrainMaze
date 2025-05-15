@@ -2641,7 +2641,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const satCategories = [
         "command-of-evidence",
-        "central-ideas-and-detail",
+        "central-ideas",
         "inferences",
         "words-in-context",
         "text-structure-and-purpose",
@@ -2975,7 +2975,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Define categories in global scope so resetProgress can access them
     window.satCategories = [
         "command-of-evidence",
-        "central-ideas-and-detail",
+        "central-ideas",
         "inferences",
         "words-in-context",
         "text-structure-and-purpose",
@@ -3249,11 +3249,11 @@ function resetProgress() {
 
 
         for (let i = 1; i <= 5; i++) {
-          const scoreElement = document.getElementById(`central-ideas-and-detail-score-summary-${i}`);
+          const scoreElement = document.getElementById(`central-ideas-score-summary-${i}`);
         if (scoreElement) {
-        const score = getScore(i, "central-ideas-and-detail");
+        const score = getScore(i, "central-ideas");
         scoreElement.textContent = `Last Score: ${score}`;
-        console.log(`Updated central-ideas-and-detail-score-summary-${i} with: ${score}`);
+        console.log(`Updated central-ideas-score-summary-${i} with: ${score}`);
              } else {
                  console.warn(`Central Ideas and Detail score summary element for lesson ${i} not found`);
             }
