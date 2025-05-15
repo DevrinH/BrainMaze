@@ -1,9 +1,20 @@
-// Consolidated DOMContentLoaded listener
+// Variables (moved to top to prevent ReferenceError)
+let currentItemIndex = 0;
+let currentQuestionIndex = 0;
+let currentLesson = "1";
+let progressSteps = 0;
+let totalSteps = 0;
+let isQuizPhase = false;
+let showingQuizTransition = false;
+let categoryStats = {
+    "command-of-evidence": { correct: 0, incorrect: 0 }
+};
+
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
     const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || 1;
+    const lessonId = urlParams.get('lesson') || '1';
     console.log(`Loading lesson ${lessonId}`);
     currentLesson = lessonId;
 
@@ -16,8 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     showScore();
-    updateProgressBar(0); // Initialize progress bar
+    updateProgressBar(0);
 });
+
 
 // Define all lessons (unchanged from your code)
 const lessons = {
@@ -807,18 +819,6 @@ const crossTextEvidenceQuestions = [
         category: "command-of-evidence"
     }
 ];
-
-// lesson-command-of-evidence.js
-// Variables
-let categoryStats = {
-    "command-of-evidence": { correct: 0, incorrect: 0 }
-};
-let currentQuestionIndex = 0;
-let currentLesson = "1";
-let progressSteps = 0;
-let totalSteps = 0;
-let isQuizPhase = false;
-let showingQuizTransition = false;
 
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
