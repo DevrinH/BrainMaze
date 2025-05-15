@@ -1081,8 +1081,6 @@ function showFinalScore() {
     `;
     finalScoreElement.classList.add('hide'); // Keep it hidden since we’re using lesson-content
     document.getElementById('continue-button').addEventListener('click', () => {
-        console.log("Continue button clicked, redirecting to user profile with SAT lesson context");
-        saveLessonCompletion(); // Ensure completion is saved before redirect
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     }, { once: true });
 
