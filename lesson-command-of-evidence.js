@@ -29,18 +29,19 @@ const lessons = {
                 title: "Example: Identifying Textual Evidence",
                 content: `
                     <h2>Example: Identifying Textual Evidence</h2>
-                    <p>Passage: 'The new policy reduced emissions by 20% in its first year.'</p>
                     <p>Question: What evidence supports the claim that the policy was effective?</p>
                     <p>Step 1: Identify the claim: The policy was effective.</p>
                     <p>Step 2: Find supporting evidence: 'reduced emissions by 20% in its first year.'</p>
                     <p>The evidence is the specific reduction percentage.</p>
                     <button id="next-item">Next</button>
-                `
+                `,
+                passage: "In 2023, a government report stated: 'The new policy reduced emissions by 20% in its first year.' The policy aimed to improve environmental outcomes through regulatory measures."
             },
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: 'The forest grew denser after the conservation effort began.' What evidence supports the conservation effort’s success?",
+                passage: "In 2024, a conservation report in Greenvale stated: 'The forest grew denser after the conservation effort began.' The effort included protected zones and reforestation programs to restore ecosystems.",
+                question: "What evidence supports the conservation effort’s success?",
                 options: [
                     { text: "A) grew denser", correct: true },
                     { text: "B) conservation effort began", correct: false },
@@ -54,23 +55,19 @@ const lessons = {
                 title: "Example: Evaluating Evidence Relevance",
                 content: `
                     <h2>Example: Evaluating Evidence Relevance</h2>
-                   
-                    <p>Passage: 'Students who attended the program scored higher on tests. The program ran for 10 weeks.'</p>
-                    
                     <p>Question: Which evidence best supports improved academic performance?</p>
-                   
                     <p>Step 1: Focus on the claim: Improved academic performance.</p>
-                   
                     <p>Step 2: Evaluate: 'scored higher on tests' directly supports it; 'ran for 10 weeks' does not.</p>
-                   
                     <p>The evidence is 'scored higher on tests.'</p>
                     <button id="next-item">Next</button>
-                `
+                `,
+                passage: "In 2023, an educational study reported: 'Students who attended the program scored higher on tests. The program ran for 10 weeks.' The study aimed to assess program effectiveness."
             },
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: 'The law lowered crime rates significantly. It was passed in 2015.' What supports the claim of reduced crime?",
+                passage: "In 2024, a city council in Millville published: 'The law lowered crime rates significantly. It was passed in 2015.' The law introduced stricter penalties and community policing.",
+                question: "What supports the claim of reduced crime?",
                 options: [
                     { text: "A) lowered crime rates", correct: true },
                     { text: "B) passed in 2015", correct: false },
@@ -84,17 +81,18 @@ const lessons = {
                 title: "Example: Matching Evidence to Claims",
                 content: `
                     <h2>Example: Matching Evidence to Claims</h2>
-                    <p>Passage: 'The diet improved health outcomes, with participants losing an average of 10 pounds.'</p>
                     <p>Question: What evidence supports better health?</p>
                     <p>Step 1: Identify the claim: Better health outcomes.</p>
                     <p>Step 2: Find evidence: 'losing an average of 10 pounds' supports health improvement.</p>
                     <button id="next-item">Next</button>
-                `
+                `,
+                passage: "In 2023, a health journal reported: 'The diet improved health outcomes, with participants losing an average of 10 pounds.' The study evaluated dietary impacts on wellness."
             },
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: 'The campaign raised awareness, with 80% of people recognizing the brand.' What supports the claim of increased awareness?",
+                passage: "In 2024, a marketing agency in Clearwater stated: 'The campaign raised awareness, with 80% of people recognizing the brand.' The campaign used social media and public events to boost visibility.",
+                question: "What supports the claim of increased awareness?",
                 options: [
                     { text: "A) 80% of people recognizing the brand", correct: true },
                     { text: "B) campaign raised awareness", correct: false },
@@ -108,18 +106,19 @@ const lessons = {
                 title: "Example: Specific Evidence",
                 content: `
                     <h2>Example: Specific Evidence</h2>
-                    <p>Passage: 'The app increased user engagement by 40% within three months.'</p>
                     <p>Question: What evidence supports the app’s success?</p>
                     <p>Step 1: Identify the claim: The app was successful.</p>
                     <p>Step 2: Find evidence: 'increased user engagement by 40% within three months.'</p>
                     <p>The evidence is the precise percentage and timeframe.</p>
                     <button id="next-item">Next</button>
-                `
+                `,
+                passage: "In 2023, a tech review stated: 'The app increased user engagement by 40% within three months.' The app introduced new interactive features to retain users."
             },
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: 'The training enhanced skills, as shown by a 25% productivity boost.' What supports the claim of skill enhancement?",
+                passage: "In 2024, a corporate report in Greenvale noted: 'The training enhanced skills, as shown by a 25% productivity boost.' The training focused on technical and leadership skills.",
+                question: "What supports the claim of skill enhancement?",
                 options: [
                     { text: "A) 25% productivity boost", correct: true },
                     { text: "B) training enhanced skills", correct: false },
@@ -133,18 +132,19 @@ const lessons = {
                 title: "Example: Distinguishing Evidence",
                 content: `
                     <h2>Example: Distinguishing Evidence</h2>
-                    <p>Passage: 'The event drew crowds, with 1,000 tickets sold. It was held on Saturday.'</p>
                     <p>Question: What evidence supports the event’s popularity?</p>
                     <p>Step 1: Identify the claim: The event was popular.</p>
                     <p>Step 2: Evaluate: '1,000 tickets sold' supports it; 'held on Saturday' does not.</p>
                     <p>The evidence is '1,000 tickets sold.'</p>
                     <button id="next-item">Next</button>
-                `
+                `,
+                passage: "In 2023, a festival organizer reported: 'The event drew crowds, with 1,000 tickets sold. It was held on Saturday.' The event featured live music and food stalls."
             },
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: 'The therapy reduced stress, with patients reporting 30% fewer symptoms.' What supports the claim of stress reduction?",
+                passage: "In 2024, a health institute in Millville published: 'The therapy reduced stress, with patients reporting 30% fewer symptoms.' The therapy included mindfulness and counseling sessions.",
+                question: "What supports the claim of stress reduction?",
                 options: [
                     { text: "A) 30% fewer symptoms", correct: true },
                     { text: "B) therapy reduced stress", correct: false },
@@ -158,18 +158,19 @@ const lessons = {
                 title: "Example: Evidence Precision",
                 content: `
                     <h2>Example: Evidence Precision</h2>
-                    <p>Passage: 'The class raised grades, with scores up by 15 points on average.'</p>
                     <p>Question: What evidence supports grade improvement?</p>
                     <p>Step 1: Identify the claim: Grades improved.</p>
                     <p>Step 2: Find evidence: 'scores up by 15 points on average.'</p>
                     <p>The evidence is the specific score increase.</p>
                     <button id="next-item">Next</button>
-                `
+                `,
+                passage: "In 2023, a school district reported: 'The class raised grades, with scores up by 15 points on average.' The class implemented new teaching methods."
             },
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: 'The policy sped up recovery, with 90% of businesses reopening within a year.' What supports the claim of faster recovery?",
+                passage: "In 2024, an economic review in Clearwater stated: 'The policy sped up recovery, with 90% of businesses reopening within a year.' The policy provided financial aid and tax relief.",
+                question: "What supports the claim of faster recovery?",
                 options: [
                     { text: "A) 90% of businesses reopening", correct: true },
                     { text: "B) policy sped up recovery", correct: false },
@@ -183,18 +184,19 @@ const lessons = {
                 title: "Example: Evidence Sufficiency",
                 content: `
                     <h2>Example: Evidence Sufficiency</h2>
-                    <p>Passage: 'The project succeeded, finishing under budget by $5,000 and on time.'</p>
                     <p>Question: What evidence supports project success?</p>
                     <p>Step 1: Identify the claim: The project succeeded.</p>
                     <p>Step 2: Find evidence: 'finishing under budget by $5,000 and on time.'</p>
                     <p>The evidence is specific and sufficient.</p>
                     <button id="next-item">Next</button>
-                `
+                `,
+                passage: "In 2023, a project manager reported: 'The project succeeded, finishing under budget by $5,000 and on time.' The project streamlined operations."
             },
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: 'The book improved literacy, with reading scores rising by 20%.' What supports the claim of literacy improvement?",
+                passage: "In 2024, an education board in Greenvale noted: 'The book improved literacy, with reading scores rising by 20%.' The book was part of a reading initiative.",
+                question: "What supports the claim of literacy improvement?",
                 options: [
                     { text: "A) reading scores rising by 20%", correct: true },
                     { text: "B) book improved literacy", correct: false },
@@ -747,7 +749,8 @@ const lessons = {
 // Command of Evidence question arrays (unchanged from your code)
 const textualEvidenceQuestions = [
     {
-        question: "Passage: 'The species population increased by 30% after protections were enacted.' What evidence supports the protections’ success?",
+        passage: "In 2023, a wildlife agency in Clearwater reported: 'The species population increased by 30% after protections were enacted.' The protections included habitat restoration and poaching bans to support endangered species.",
+        question: "What evidence supports the protections’ success?",
         answers: [
             { text: "A) increased by 30%", correct: true },
             { text: "B) protections were enacted", correct: false },
@@ -806,17 +809,16 @@ const crossTextEvidenceQuestions = [
 ];
 
 // lesson-command-of-evidence.js
+// Variables
 let categoryStats = {
     "command-of-evidence": { correct: 0, incorrect: 0 }
 };
-
 let currentQuestionIndex = 0;
-let currentLesson = 1;
-let currentItemIndex = 0;
+let currentLesson = "1";
 let progressSteps = 0;
-let totalSteps = 0; // Set dynamically in startLesson
+let totalSteps = 0;
 let isQuizPhase = false;
-let showingQuizTransition = false; // New flag for quiz transition
+let showingQuizTransition = false;
 
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
@@ -835,88 +837,75 @@ function startLesson() {
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
         startLessonButton.style.display = 'none';
-        console.log("Start Lesson button hidden with style.display = 'none'");
         currentItemIndex = 0;
         isQuizPhase = false;
+        showingQuizTransition = false;
         totalSteps = lessons[currentLesson].content.length + getQuizQuestions(currentLesson).length;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
-        showItem();
         progressSteps = 1;
         updateProgressBar(progressSteps);
+        showItem();
     } else {
         console.error("Start lesson button not found!");
     }
 }
 
 function showItem() {
-    console.log("Showing item for lesson:", currentLesson, "at index:", currentItemIndex);
+    console.log("Showing item for lesson:", currentLesson, "index:", currentItemIndex);
     const lessonContent = document.getElementById('lesson-content');
-    const currentLessonData = lessons[currentLesson];
-    if (!lessonContent || !currentLessonData || !currentLessonData.content) {
-        console.error("Lesson content or data missing!");
-        return;
-    }
-
-    const item = currentLessonData.content[currentItemIndex];
-    if (!item) {
-        console.log("No more items, proceeding to quiz transition");
-        showQuizTransition();
-        return;
-    }
-
-    if (item.type === "example") {
-        lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${extractPassage(item.content)}</div>
-                <div class="right-column">
-                    <div class="question-text">${item.content.replace(extractPassage(item.content), '')}</div>
+    if (lessonContent && lessons[currentLesson] && lessons[currentLesson].content[currentItemIndex]) {
+        const item = lessons[currentLesson].content[currentItemIndex];
+        lessonContent.innerHTML = '';
+        if (item.type === "example") {
+            lessonContent.innerHTML = `
+                <div class="question-row reading-section">
+                    <div class="passage-text">${item.passage}</div>
+                    <div class="right-column">
+                        <div class="question-text">${item.content}</div>
+                    </div>
                 </div>
-            </div>
-        `;
-        const nextButton = document.getElementById('next-item');
-        if (nextButton) {
-            nextButton.classList.add('btn', 'next-btn');
-            nextButton.addEventListener('click', nextItem, { once: true });
-            console.log("Next button event listener added");
-        } else {
-            console.error("Next item button not found!");
+            `;
+            const nextButton = document.getElementById('next-item');
+            if (nextButton) {
+                nextButton.classList.add('btn', 'next-btn');
+                nextButton.addEventListener('click', nextItem, { once: true });
+            } else {
+                console.error("Next button not found in example!");
+            }
+        } else if (item.type === "question") {
+            lessonContent.innerHTML = `
+                <div class="question-row reading-section">
+                    <div class="passage-text">${item.passage}</div>
+                    <div class="right-column">
+                        <div class="question-text">${item.title}: ${item.question}</div>
+                        <div class="answer-choices" id="answer-buttons"></div>
+                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
+                    </div>
+                </div>
+            `;
+            const answerButtons = document.getElementById('answer-buttons');
+            item.options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.innerHTML = option.text;
+                button.classList.add("btn");
+                button.dataset.correct = option.correct;
+                button.addEventListener("click", () => selectAnswer(button, item));
+                answerButtons.appendChild(button);
+            });
         }
-    } else if (item.type === "question") {
-        const passage = extractPassage(item.question);
-        lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
-                <div class="right-column">
-                    <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
-                    <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
-                </div>
-            </div>
-        `;
-        const answerButtons = document.getElementById('answer-buttons');
-        item.options.forEach((option, index) => {
-            const button = document.createElement("button");
-            button.innerHTML = option.text;
-            button.classList.add("btn");
-            button.dataset.correct = option.correct;
-            button.addEventListener("click", () => selectAnswer(button, item));
-            answerButtons.appendChild(button);
-        });
+        progressSteps = currentItemIndex + 1;
+        updateProgressBar(progressSteps);
+    } else {
+        console.log("No more lesson content, proceeding to quiz transition");
+        showQuizTransition();
     }
-    progressSteps = currentItemIndex + 1;
-    updateProgressBar(progressSteps);
-}
-
-function extractPassage(content) {
-    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
-    return passageMatch ? passageMatch[0] : "";
 }
 
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
-    const lessonContent = document.getElementById('lesson-content');
-    
+    const rightColumn = document.querySelector('.right-column');
+
     answerButtons.forEach(btn => {
         btn.disabled = true;
         if (btn.dataset.correct === "true") {
@@ -933,7 +922,7 @@ function selectAnswer(selectedBtn, item) {
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
-        lessonContent.querySelector('.right-column').appendChild(explanationDiv);
+        rightColumn.appendChild(explanationDiv);
     }
 
     submitButton.style.display = 'inline-block';
@@ -966,7 +955,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
+                    <button id="start-quiz-btn" class="next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -1011,14 +1000,13 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row reading-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -1034,12 +1022,11 @@ function showNextQuizQuestion(quizQuestions) {
         progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
         updateProgressBar(progressSteps);
     } else {
-        console.log("All quiz questions answered, showing final score");
+        console.log("Quiz complete, showing final score");
         showFinalScore();
     }
 }
 
-// Save lesson completion
 function saveLessonCompletion() {
     const completionData = {
         exam: "SAT",
@@ -1048,13 +1035,6 @@ function saveLessonCompletion() {
     };
     localStorage.setItem("lastActivity", JSON.stringify(completionData));
     console.log("Saved lesson completion:", completionData);
-}
-
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
 
 function showFinalScore() {
@@ -1068,7 +1048,6 @@ function showFinalScore() {
     saveScore(currentLesson, score);
 
     const lessonContent = document.getElementById('lesson-content');
-    const finalScoreElement = document.getElementById('final-score');
     lessonContent.innerHTML = `
         <div class="score-box">
             <div class="centered-content">
@@ -1079,10 +1058,10 @@ function showFinalScore() {
             </div>
         </div>
     `;
-    finalScoreElement.classList.add('hide'); // Keep it hidden since we’re using lesson-content
+    const finalScoreElement = document.getElementById('final-score');
+    if (finalScoreElement) finalScoreElement.classList.add('hide');
     document.getElementById('continue-button').addEventListener('click', () => {
-        console.log("Continue button clicked, redirecting to user profile with SAT lesson context");
-        saveLessonCompletion(); // Ensure completion is saved before redirect
+        saveLessonCompletion();
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     }, { once: true });
 
@@ -1091,15 +1070,15 @@ function showFinalScore() {
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
-    let storedResults = localStorage.getItem("testResults");
+    let storedResults = localStorage.getItem("satTestResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
     for (let category in categoryStats) {
         if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
-    localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
+    localStorage.setItem("satTestResults", JSON.stringify(results));
+    console.log("Final stored satTestResults:", results);
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
@@ -1122,6 +1101,23 @@ function saveScore(lessonId, score) {
     console.log(`Saved command-of-evidence-lessonScore-${lessonId}: ${score}`);
 }
 
+function getScore(lessonId) {
+    return localStorage.getItem(`command-of-evidence-lessonScore-${lessonId}`) || "Not completed yet";
+}
+
 function showScore() {
-    console.log("showScore called (placeholder)");
+    const scoreDisplay = document.getElementById('score-display');
+    if (scoreDisplay) {
+        const score = getScore(currentLesson);
+        scoreDisplay.innerHTML = `Previous Score for Lesson ${currentLesson}: ${score}`;
+    } else {
+        console.log("Score display element not found, skipping showScore");
+    }
+}
+
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
 }
