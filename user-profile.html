@@ -2421,10 +2421,13 @@
                         stacked: true,
                         max: maxScore,
                         ticks: {
-                            stepSize: 36, // Increments of 36 for ACT total scores (36, 72, 108, 144)
-                            color: textColor,
-                            font: { size: 14, weight: "bold" }
+                        stepSize: 36,
+                        color: textColor,
+                        font: { size: 14, weight: "bold" },
+                        callback: function () {
+                            return "36"; // Always display "36" at each tick
                         },
+                        },  
                         grid: {
                             display: false,
                             drawBorder: false,
