@@ -57,15 +57,15 @@ function updateScoreChart() {
 
     Chart.register(ChartDataLabels);
 
-    function createFadingGradient(ctx) {
-        let gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.clientHeight);
+    // Create gradient as a function to be used dynamically
+    function createFadingGradient(ctx, chartArea) {
+        // Use chartArea to ensure dimensions are correct
+        let gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
         gradient.addColorStop(0, "rgba(0, 0, 255, 0.8)");
         gradient.addColorStop(0.4, "rgba(0, 0, 255, 0.5)");
         gradient.addColorStop(0.8, "rgba(0, 0, 255, 0)");
         return gradient;
     }
-
-    let totalGradient = createFadingGradient(ctx);
 
     const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
     const textColor = currentTheme === "dark" ? "white" : "black";
@@ -79,7 +79,15 @@ function updateScoreChart() {
                     label: "Total Score",
                     data: selectedTotalScores,
                     borderColor: "rgb(89, 0, 255)",
-                    backgroundColor: totalGradient,
+                    backgroundColor: (context) => {
+                        const chart = context.chart;
+                        const { ctx, chartArea } = chart;
+                        if (!chartArea) {
+                            // Return a fallback color if chartArea isn't available yet
+                            return "rgba(0, 0, 255, 0.5)";
+                        }
+                        return createFadingGradient(ctx, chartArea);
+                    },
                     fill: true,
                     borderWidth: 2.5,
                     tension: 0.4
@@ -111,7 +119,7 @@ function updateScoreChart() {
                 padding: {
                     left: 40,
                     right: 40,
-                    top: 40, // Increased to ensure 1600 label is visible
+                    top: 40,
                     bottom: 20
                 }
             },
@@ -143,7 +151,7 @@ function updateScoreChart() {
                         stepSize: 400
                     },
                     min: 100,
-                    max: 1630, // just 10 points above 1600 for buffer — label will still show
+                    max: 1630,
                     grid: {
                         drawTicks: true,
                         tickLength: 8,
@@ -153,11 +161,6 @@ function updateScoreChart() {
                         drawBorder: false
                     }
                 }
-                
-                
-                
-                
-                
             },
             plugins: {
                 legend: {
@@ -194,7 +197,11 @@ function updateScoreChart() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", updateScoreChart);
+// Ensure the chart updates after the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+    // Add a slight delay to ensure canvas dimensions are set
+    setTimeout(updateScoreChart, 100);
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const toggleButton = document.querySelector(".theme-toggle");
