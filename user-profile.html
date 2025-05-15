@@ -3188,22 +3188,23 @@ function resetProgress() {
     if (confirm("Are you sure you want to reset your progress for this exam? This action cannot be undone.")) {
         // Remove specific exam progress from localStorage
         localStorage.removeItem(storageKey);
-        // Remove historical progress to ensure no stale data
         localStorage.removeItem(`${storageKey.replace('Progress', '')}HistoricalProgress`);
+        console.log(`Cleared localStorage keys: ${storageKey}, ${storageKey.replace('Progress', '')}HistoricalProgress`);
 
         // Remove test-specific storage items
         if (activeExam === "line-chart-act") {
             localStorage.removeItem("actScoreHistory");
             localStorage.removeItem("actTestResults");
-            // Clear ACT category-specific storage
             progressPrefix.forEach(category => {
                 localStorage.removeItem(`${category}Progress`);
             });
+            console.log("Cleared ACT-specific localStorage keys");
         } else if (activeExam === "line-chart-sat") {
             localStorage.removeItem("satTestResults");
             localStorage.removeItem("scoreHistory");
             localStorage.removeItem("readingScore");
             localStorage.removeItem("mathScore");
+            console.log("Cleared SAT-specific localStorage keys: satTestResults, scoreHistory, readingScore, mathScore");
         } else if (activeExam === "line-chart-ged") {
             localStorage.removeItem("gedTestResults");
             localStorage.removeItem("rlaScore");
@@ -3211,6 +3212,7 @@ function resetProgress() {
             localStorage.removeItem("scienceScore");
             localStorage.removeItem("socialStudiesScore");
             localStorage.removeItem("gedScoreHistory");
+            console.log("Cleared GED-specific localStorage keys");
         }
 
         // Reset progress bars and text for the active exam
@@ -3219,11 +3221,13 @@ function resetProgress() {
             const text = document.getElementById(`${prefix}-text`);
             if (bar) {
                 bar.style.width = "0%";
+                console.log(`Reset progress bar: ${prefix}-bar to 0%`);
             } else {
                 console.warn(`Progress bar not found: ${prefix}-bar`);
             }
             if (text) {
                 text.innerHTML = `0% <span class="arrow" style="color:#4e5163;">→</span>`;
+                console.log(`Reset progress text: ${prefix}-text to 0%`);
             } else {
                 console.warn(`Progress text not found: ${prefix}-text`);
             }
@@ -3233,17 +3237,34 @@ function resetProgress() {
         let barChart;
         if (activeExam === "line-chart-sat" && window.lastScoreBarChart) {
             barChart = window.lastScoreBarChart;
+            console.log("SAT bar chart (lastScoreBarChart) found for reset");
         } else if (activeExam === "line-chart-act" && window.actLastScoreBarChart) {
             barChart = window.actLastScoreBarChart;
+            console.log("ACT bar chart (actLastScoreBarChart) found for reset");
         } else if (activeExam === "line-chart-ged" && window.gedLastScoreBarChart) {
             barChart = window.gedLastScoreBarChart;
+            console.log("GED bar chart (gedLastScoreBarChart) found for reset");
+        } else {
+            console.warn(`No bar chart found for active exam: ${activeExam}`);
         }
 
         if (barChart) {
             barChart.data.datasets.forEach(dataset => {
                 dataset.data = Array(dataset.data.length).fill(0);
             });
+            barChart.data.labels = ["No Data"];
             barChart.update();
+            console.log(`Reset bar chart for ${activeExam}: datasets cleared, labels set to 'No Data'`);
+        }
+
+        // Reset the line chart for SAT
+        if (activeExam === "line-chart-sat" && window.scoreChart) {
+            window.scoreChart.data.datasets.forEach(dataset => {
+                dataset.data = Array(dataset.data.length).fill(0);
+            });
+            window.scoreChart.data.labels = ["No Data"];
+            window.scoreChart.update();
+            console.log("SAT line chart (scoreChart) reset: datasets cleared, labels set to 'No Data'");
         }
 
         // Reset the line chart for ACT
@@ -3253,6 +3274,7 @@ function resetProgress() {
             });
             window.actScoreChart.data.labels = ["No Data"];
             window.actScoreChart.update();
+            console.log("ACT line chart (actScoreChart) reset: datasets cleared, labels set to 'No Data'");
         }
 
         // Reset the line chart for GED
@@ -3262,10 +3284,11 @@ function resetProgress() {
             });
             window.gedScoreChart.data.labels = ["No Data"];
             window.gedScoreChart.update();
-            console.log("GED line chart reset: datasets cleared, labels set to 'No Data'");
+            console.log("GED line chart (gedScoreChart) reset: datasets cleared, labels set to 'No Data'");
         }
 
         alert("Progress for this exam has been reset!");
+        console.log(`Progress reset completed for exam: ${activeExam}`);
     }
 }
     function showTests() {
