@@ -1726,20 +1726,32 @@ recordTestResults();
 }
 
 function recordTestResults() {
-console.log("Recording results. Current categoryStats:", categoryStats);
-let storedResults = localStorage.getItem("satTestResults");
-let results = storedResults ? JSON.parse(storedResults) : {};
-for (let category in categoryStats) {
-    if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
-    results[category].correct += categoryStats[category].correct || 0;
-    results[category].incorrect += categoryStats[category].incorrect || 0;
-}
-localStorage.setItem("satTestResults", JSON.stringify(results));
-console.log("Final stored satTestResults:", results);
-for (let category in categoryStats) {
-    categoryStats[category].correct = 0;
-    categoryStats[category].incorrect = 0;
-}
+    console.log("Recording results. Current categoryStats:", JSON.stringify(categoryStats));
+    let storedResults = localStorage.getItem("satTestResults");
+    let results = storedResults ? JSON.parse(storedResults) : {};
+    
+    // Ensure results object is initialized for central-ideas
+    if (!results["central-ideas"]) {
+        results["central-ideas"] = { correct: 0, incorrect: 0 };
+        console.log("Initialized satTestResults for central-ideas");
+    }
+    
+    // Update results with current stats
+    results["central-ideas"].correct += categoryStats["central-ideas"].correct || 0;
+    results["central-ideas"].incorrect += categoryStats["central-ideas"].incorrect || 0;
+    
+    // Save to localStorage with error handling
+    try {
+        localStorage.setItem("satTestResults", JSON.stringify(results));
+        console.log("Stored satTestResults:", JSON.stringify(results));
+    } catch (e) {
+        console.error("Failed to save satTestResults:", e);
+    }
+    
+    // Reset categoryStats
+    categoryStats["central-ideas"].correct = 0;
+    categoryStats["central-ideas"].incorrect = 0;
+    console.log("Reset categoryStats:", JSON.stringify(categoryStats));
 }
 
 function logFinalScore(totalCorrect, totalAttempted) {
