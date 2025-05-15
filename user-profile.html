@@ -1582,11 +1582,15 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            // Clear outdated SAT progress data
-    localStorage.removeItem("satHistoricalProgress");
-    localStorage.removeItem("satProgress");
-    localStorage.removeItem("satTestResults");
-    console.log("Cleared satHistoricalProgress, satProgress, and satTestResults for clean state");
+// One-time reset of SAT progress data
+if (!localStorage.getItem("satProgressReset")) {
+        localStorage.removeItem("satHistoricalProgress");
+        localStorage.removeItem("satProgress");
+        localStorage.removeItem("satTestResults");
+        console.log("Cleared satHistoricalProgress, satProgress, and satTestResults for clean state");
+        localStorage.setItem("satProgressReset", "true");
+        alert("Your SAT progress has been reset due to a system update. Please complete lessons to rebuild your progress.");
+    }
 
  
             // Select Containers
