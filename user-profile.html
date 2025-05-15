@@ -3369,7 +3369,32 @@ for (let i = 1; i <= 5; i++) {
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Existing code...
+        // Migrate satHistoricalProgress
+    let satHistoricalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
+    if (satHistoricalProgress["central-ideas-and-detail"]) {
+        satHistoricalProgress["central-ideas"] = satHistoricalProgress["central-ideas-and-detail"];
+        delete satHistoricalProgress["central-ideas-and-detail"];
+        localStorage.setItem("satHistoricalProgress", JSON.stringify(satHistoricalProgress));
+        console.log("Migrated satHistoricalProgress: central-ideas-and-detail to central-ideas");
+    }
+
+    // Migrate satProgress
+    let satProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+    if (satProgress["central-ideas-and-detail"]) {
+        satProgress["central-ideas"] = satProgress["central-ideas-and-detail"];
+        delete satProgress["central-ideas-and-detail"];
+        localStorage.setItem("satProgress", JSON.stringify(satProgress));
+        console.log("Migrated satProgress: central-ideas-and-detail to central-ideas");
+    }
+
+    // Migrate satTestResults
+    let satTestResults = JSON.parse(localStorage.getItem("satTestResults")) || {};
+    if (satTestResults["central-ideas-and-detail"]) {
+        satTestResults["central-ideas"] = satTestResults["central-ideas-and-detail"];
+        delete satTestResults["central-ideas-and-detail"];
+        localStorage.setItem("satTestResults", JSON.stringify(satTestResults));
+        console.log("Migrated satTestResults: central-ideas-and-detail to central-ideas");
+    }
    
         // Check last activity and show the corresponding exam
         function showLastExam() {
