@@ -2417,11 +2417,3 @@ footer h3 {
 
 }
 
- /* Ensure the chart container has a defined size */
- .chart-container {
-  width: 700px; /* Adjust based on your layout */
-  height: 400px; /* Adjust to match the desired height after theme switch */
-  margin: 0 auto;
-  position: relative;
-}
-
