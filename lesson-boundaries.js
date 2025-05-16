@@ -1422,7 +1422,8 @@ function nextQuizItem() {
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
     let totalCorrect = categoryStats["boundaries"].correct;
-    let lettotalAttempted = totalCorrect + categoryStats["boundaries"].incorrect;
+    let totalAttempted = totalCorrect + categoryStats["boundaries"].incorrect;
+
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
