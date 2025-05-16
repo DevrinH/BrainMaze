@@ -2297,6 +2297,10 @@ function renderMath() {
         MathJax.typesetPromise().catch(err => console.error("MathJax rendering error:", err));
     } else {
         console.warn("MathJax not loaded, equations may not render.");
+        // Fallback: Ensure raw text is readable
+        document.querySelectorAll('.math-section, .example-text, .question-text, .explanation').forEach(el => {
+            el.innerHTML = el.innerHTML.replace(/\\\(.*?\\\)/g, match => `<span class="math-fallback">${match.slice(2, -2)}</span>`);
+        });
     }
 }
 
@@ -2316,10 +2320,14 @@ function updateProgressBar(step) {
 // Start lesson
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
-    const startLessonButton = document.getElementById('start-lesson');
+    const startLessonButton = document.getElementById('start-lesson') || document.getElementById('start-math-lesson');
     const appContainer = document.querySelector('.mathapp');
-    if (startLessonButton && appContainer) {
-        startLessonButton.style.display = 'none';
+    if (appContainer) {
+        if (startLessonButton) {
+            startLessonButton.style.display = 'none';
+        } else {
+            console.warn("Start lesson button not found, proceeding automatically.");
+        }
         appContainer.style.display = 'block';
         console.log("Math app container displayed");
         currentItemIndex = 0;
@@ -2331,7 +2339,7 @@ function startLesson() {
         updateProgressBar(progressSteps);
         showItem();
     } else {
-        console.error("Start lesson button or math app container not found!");
+        console.error("Math app container not found!");
     }
 }
 
@@ -2552,7 +2560,7 @@ function showFinalScore() {
                 <h2>Final Score</h2>
                 <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
                 <p>Your score: ${percentage}%</p>
-                <button id="continue-button" class="btn continue-btn">Continue</button>
+                <button id="continue-button"..btn continue-btn">Continue</button>
             </div>
         </div>
     `;
@@ -2638,12 +2646,20 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(`Loading lesson ${lessonId}`);
     currentLesson = lessonId;
 
-    const startLessonButton = document.getElementById('start-lesson');
+    // Attempt to find start button with either ID
+    const startLessonButton = document.getElementById('start-lesson') || document.getElementById('start-math-lesson');
     if (startLessonButton) {
         startLessonButton.addEventListener('click', startLesson);
         console.log("Start lesson button event listener added.");
     } else {
-        console.error("Start lesson button not found.");
+        console.error("Start lesson button not found, attempting auto-start.");
+        // Auto-start lesson if button is missing
+        const appContainer = document.querySelector('.mathapp');
+        if (appContainer) {
+            startLesson();
+        } else {
+            console.error("Math app container not found, cannot auto-start.");
+        }
     }
 
     showScore();
