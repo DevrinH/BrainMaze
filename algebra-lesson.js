@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = urlParams.get('lesson') || '1';
+    console.log(`Loading lesson ${lessonId}`);
+    currentLesson = lessonId;
+
+    const startLessonButton = document.getElementById('start-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start Lesson Button event listener added.");
+    } else {
+        console.error("Start lesson button not found.");
+    }
+
+    showScore();
+    updateProgressBar(0);
+});
+
 const lessons = {
     1: {
         title: "Solving Linear Equations",
