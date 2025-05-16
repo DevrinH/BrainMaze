@@ -90,7 +90,8 @@ function updateScoreChart() {
                     },
                     fill: true,
                     borderWidth: 2.5,
-                    tension: 0.4
+                    tension: 0.4,
+                    order: 1 // Lower order: drawn first (below other datasets)
                 },
                 {
                     label: "Reading & Writing",
@@ -99,7 +100,8 @@ function updateScoreChart() {
                     backgroundColor: "rgb(205, 120, 255)",
                     fill: false,
                     borderWidth: 2.5,
-                    tension: 0.4
+                    tension: 0.4,
+                    order: 2 // Higher order: drawn on top
                 },
                 {
                     label: "Math",
@@ -108,7 +110,8 @@ function updateScoreChart() {
                     backgroundColor: "rgb(0, 222, 230)",
                     fill: false,
                     borderWidth: 2.5,
-                    tension: 0.4
+                    tension: 0.4,
+                    order: 2 // Higher order: drawn on top
                 }
             ]
         },
