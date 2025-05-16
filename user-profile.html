@@ -2862,6 +2862,29 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
+        // Aggregate Algebra lesson scores into satProgress["algebra"]
+        if (!satProgress["algebra"]) satProgress["algebra"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 8; i++) { // Algebra has 8 lessons
+            const lessonScore = localStorage.getItem(`algebra-lessonScore-${i}`);
+            if (lessonScore) {
+                // Parse lesson score (format: "correct/total (percentage%)")
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["algebra"].correct += correct;
+                    satProgress["algebra"].incorrect += incorrect;
+                    console.log(`Aggregated algebra-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for algebra-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for algebra-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating algebra lessons, satProgress['algebra']:", satProgress["algebra"]);
+
         // Update progress with test results
         Object.keys(parsedSatResults).forEach(category => {
             if (window.satCategories.includes(category)) {

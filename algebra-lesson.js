@@ -2553,15 +2553,15 @@ const lessons = {
     
     function recordTestResults() {
         console.log("Recording results. Current categoryStats:", categoryStats);
-        let storedResults = localStorage.getItem("testResults");
+        let storedResults = localStorage.getItem("satTestResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
         for (let category in categoryStats) {
             if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
             results[category].correct += categoryStats[category].correct || 0;
             results[category].incorrect += categoryStats[category].incorrect || 0;
         }
-        localStorage.setItem("testResults", JSON.stringify(results));
-        console.log("Final stored testResults:", results);
+        localStorage.setItem("satTestResults", JSON.stringify(results));
+        console.log("Final stored satTestResults:", results);
         for (let category in categoryStats) {
             categoryStats[category].correct = 0;
             categoryStats[category].incorrect = 0;
