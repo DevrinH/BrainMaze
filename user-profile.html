@@ -1563,7 +1563,7 @@
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Problem Solving Lesson 7: Two-Way Tables and Conditional Probability</p>
-                    <p id="problem-solving-data-score-summary-7"></p>
+                    <p id="problem-solving-and-data-score-summary-7"></p>
                 </div>
             </div>
             <div class="seccontainer">
@@ -1572,7 +1572,7 @@
                 </div>
                 <div class="satdesc">
                     <p class="pbungee">Problem Solving Lesson 8: Experimental Design and Statistical Validity</p>
-                    <p id="problem-solving-data-score-summary-8"></p>
+                    <p id="problem-solving-and-data-score-summary-8"></p>
                 </div>
             </div>
         </div>
@@ -1604,7 +1604,7 @@
             const rhetoricalSynthesisContainer = document.getElementById("lessons-container-rhetorical-synthesis");
             const boundariesContainer = document.getElementById("lessons-container-boundaries");
             const advancedMathContainer = document.getElementById("lessons-container-advanced-math");
-            const problemSolvingDataContainer = document.getElementById("lessons-container-problem-solving-data");
+            const problemSolvingDataContainer = document.getElementById("lessons-container-problem-solving-and-data");
 
 
 
@@ -1894,10 +1894,10 @@
             <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
             <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">→</span></div>
         </div>
-        <div class="progress-item" data-category="problem-solving">
+        <div class="progress-item" data-category="problem-solving-and-data">
             <div class="progress-label">Problem Solving and Data Analysis</div>
-            <div class="progress-bar"><div class="progress-fill" id="problem-solving-bar"></div></div>
-            <div class="progress-percentage" id="problem-solving-text">0% <span class="arrow">→</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="problem-solving-and-data-bar"></div></div>
+            <div class="progress-percentage" id="problem-solving-and-data-text">0% <span class="arrow">→</span></div>
         </div>
         <div class="progress-item" data-category="geometry">
             <div class="progress-label">Geometry and Trigonometry</div>
@@ -2746,6 +2746,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(`updateProgress called from: ${source}`);
 
+    // Category mapping for SAT to handle mismatches
+    const satCategoryMap = {
+        "problem-solving-data": "problem-solving-and-data",
+        "geometry": "geometry-and-trigonometry" // Adjust for any other mismatches
+    };
+
     // Process ACT progress
     let actTestResults = localStorage.getItem("actTestResults");
     let parsedActResults = actTestResults ? JSON.parse(actTestResults) : {};
@@ -2864,10 +2870,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Aggregate Algebra lesson scores into satProgress["algebra"]
         if (!satProgress["algebra"]) satProgress["algebra"] = { correct: 0, incorrect: 0 };
-        for (let i = 1; i <= 8; i++) { // Algebra has 8 lessons
+        for (let i = 1; i <= 8; i++) {
             const lessonScore = localStorage.getItem(`algebra-lessonScore-${i}`);
             if (lessonScore) {
-                // Parse lesson score (format: "correct/total (percentage%)")
                 const match = lessonScore.match(/^(\d+)\/(\d+)/);
                 if (match) {
                     const correct = parseInt(match[1], 10);
@@ -2885,12 +2890,277 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         console.log("After aggregating algebra lessons, satProgress['algebra']:", satProgress["algebra"]);
 
+        // Aggregate Advanced Math lesson scores into satProgress["advanced-math"]
+        if (!satProgress["advanced-math"]) satProgress["advanced-math"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 8; i++) {
+            const lessonScore = localStorage.getItem(`advanced-math-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["advanced-math"].correct += correct;
+                    satProgress["advanced-math"].incorrect += incorrect;
+                    console.log(`Aggregated advanced-math-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for advanced-math-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for advanced-math-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating advanced-math lessons, satProgress['advanced-math']:", satProgress["advanced-math"]);
+
+        // Aggregate Problem Solving and Data Analysis lesson scores into satProgress["problem-solving-and-data"]
+        if (!satProgress["problem-solving-and-data"]) satProgress["problem-solving-and-data"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 8; i++) {
+            const lessonScore = localStorage.getItem(`problem-solving-and-data-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["problem-solving-and-data"].correct += correct;
+                    satProgress["problem-solving-and-data"].incorrect += incorrect;
+                    console.log(`Aggregated problem-solving-and-data-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for problem-solving-and-data-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for problem-solving-and-data-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating problem-solving-and-data lessons, satProgress['problem-solving-and-data']:", satProgress["problem-solving-and-data"]);
+
+        // Aggregate Geometry lesson scores into satProgress["geometry-and-trigonometry"]
+        if (!satProgress["geometry-and-trigonometry"]) satProgress["geometry-and-trigonometry"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 8; i++) {
+            const lessonScore = localStorage.getItem(`geometry-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["geometry-and-trigonometry"].correct += correct;
+                    satProgress["geometry-and-trigonometry"].incorrect += incorrect;
+                    console.log(`Aggregated geometry-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for geometry-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for geometry-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating geometry lessons, satProgress['geometry-and-trigonometry']:", satProgress["geometry-and-trigonometry"]);
+
+        // Aggregate Command of Evidence lesson scores into satProgress["command-of-evidence"]
+        if (!satProgress["command-of-evidence"]) satProgress["command-of-evidence"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 4; i++) {
+            const lessonScore = localStorage.getItem(`command-of-evidence-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["command-of-evidence"].correct += correct;
+                    satProgress["command-of-evidence"].incorrect += incorrect;
+                    console.log(`Aggregated command-of-evidence-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for command-of-evidence-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for command-of-evidence-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating command-of-evidence lessons, satProgress['command-of-evidence']:", satProgress["command-of-evidence"]);
+
+        // Aggregate Central Ideas and Detail lesson scores into satProgress["central-ideas"]
+        if (!satProgress["central-ideas"]) satProgress["central-ideas"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 5; i++) {
+            const lessonScore = localStorage.getItem(`central-ideas-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["central-ideas"].correct += correct;
+                    satProgress["central-ideas"].incorrect += incorrect;
+                    console.log(`Aggregated central-ideas-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for central-ideas-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for central-ideas-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating central-ideas lessons, satProgress['central-ideas']:", satProgress["central-ideas"]);
+
+        // Aggregate Inferences lesson scores into satProgress["inferences"]
+        if (!satProgress["inferences"]) satProgress["inferences"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 6; i++) {
+            const lessonScore = localStorage.getItem(`inferences-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["inferences"].correct += correct;
+                    satProgress["inferences"].incorrect += incorrect;
+                    console.log(`Aggregated inferences-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for inferences-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for inferences-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating inferences lessons, satProgress['inferences']:", satProgress["inferences"]);
+
+        // Aggregate Words in Context lesson scores into satProgress["words-in-context"]
+        if (!satProgress["words-in-context"]) satProgress["words-in-context"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 4; i++) {
+            const lessonScore = localStorage.getItem(`words-in-context-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["words-in-context"].correct += correct;
+                    satProgress["words-in-context"].incorrect += incorrect;
+                    console.log(`Aggregated words-in-context-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for words-in-context-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for words-in-context-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating words-in-context lessons, satProgress['words-in-context']:", satProgress["words-in-context"]);
+
+        // Aggregate Text Structure and Purpose lesson scores into satProgress["text-structure-and-purpose"]
+        if (!satProgress["text-structure-and-purpose"]) satProgress["text-structure-and-purpose"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 4; i++) {
+            const lessonScore = localStorage.getItem(`text-structure-and-purpose-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["text-structure-and-purpose"].correct += correct;
+                    satProgress["text-structure-and-purpose"].incorrect += incorrect;
+                    console.log(`Aggregated text-structure-and-purpose-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for text-structure-and-purpose-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for text-structure-and-purpose-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating text-structure-and-purpose lessons, satProgress['text-structure-and-purpose']:", satProgress["text-structure-and-purpose"]);
+
+        // Aggregate Cross-Text Connections lesson scores into satProgress["cross-text-connections"]
+        if (!satProgress["cross-text-connections"]) satProgress["cross-text-connections"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 4; i++) {
+            const lessonScore = localStorage.getItem(`cross-text-connections-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["cross-text-connections"].correct += correct;
+                    satProgress["cross-text-connections"].incorrect += incorrect;
+                    console.log(`Aggregated cross-text-connections-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for cross-text-connections-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for cross-text-connections-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating cross-text-connections lessons, satProgress['cross-text-connections']:", satProgress["cross-text-connections"]);
+
+        // Aggregate Transitions lesson scores into satProgress["transitions"]
+        if (!satProgress["transitions"]) satProgress["transitions"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 4; i++) {
+            const lessonScore = localStorage.getItem(`transitions-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["transitions"].correct += correct;
+                    satProgress["transitions"].incorrect += incorrect;
+                    console.log(`Aggregated transitions-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for transitions-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for transitions-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating transitions lessons, satProgress['transitions']:", satProgress["transitions"]);
+
+        // Aggregate Rhetorical Synthesis lesson scores into satProgress["rhetorical-synthesis"]
+        if (!satProgress["rhetorical-synthesis"]) satProgress["rhetorical-synthesis"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 5; i++) {
+            const lessonScore = localStorage.getItem(`rhetorical-synthesis-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["rhetorical-synthesis"].correct += correct;
+                    satProgress["rhetorical-synthesis"].incorrect += incorrect;
+                    console.log(`Aggregated rhetorical-synthesis-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for rhetorical-synthesis-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for rhetorical-synthesis-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating rhetorical-synthesis lessons, satProgress['rhetorical-synthesis']:", satProgress["rhetorical-synthesis"]);
+
+        // Aggregate Boundaries lesson scores into satProgress["boundaries"]
+        if (!satProgress["boundaries"]) satProgress["boundaries"] = { correct: 0, incorrect: 0 };
+        for (let i = 1; i <= 4; i++) {
+            const lessonScore = localStorage.getItem(`boundaries-lessonScore-${i}`);
+            if (lessonScore) {
+                const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                if (match) {
+                    const correct = parseInt(match[1], 10);
+                    const total = parseInt(match[2], 10);
+                    const incorrect = total - correct;
+                    satProgress["boundaries"].correct += correct;
+                    satProgress["boundaries"].incorrect += incorrect;
+                    console.log(`Aggregated boundaries-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                } else {
+                    console.warn(`Invalid format for boundaries-lessonScore-${i}: ${lessonScore}`);
+                }
+            } else {
+                console.log(`No score found for boundaries-lessonScore-${i}`);
+            }
+        }
+        console.log("After aggregating boundaries lessons, satProgress['boundaries']:", satProgress["boundaries"]);
+
         // Update progress with test results
         Object.keys(parsedSatResults).forEach(category => {
-            if (window.satCategories.includes(category)) {
-                satProgress[category].correct += Number(parsedSatResults[category]?.correct || 0);
-                satProgress[category].incorrect += Number(parsedSatResults[category]?.incorrect || 0);
-                console.log(`Category: ${category}, Updated SAT progress - Correct: ${satProgress[category].correct}, Incorrect: ${satProgress[category].incorrect}`);
+            const mappedCategory = satCategoryMap[category] || category;
+            if (window.satCategories.includes(mappedCategory)) {
+                satProgress[mappedCategory].correct += Number(parsedSatResults[category]?.correct || 0);
+                satProgress[mappedCategory].incorrect += Number(parsedSatResults[category]?.incorrect || 0);
+                console.log(`Category: ${mappedCategory}, Updated SAT progress - Correct: ${satProgress[mappedCategory].correct}, Incorrect: ${satProgress[mappedCategory].incorrect}`);
             } else {
                 console.warn(`Unknown SAT category in satTestResults: ${category}`);
             }
@@ -3491,9 +3761,9 @@ for (let i = 1; i <= 5; i++) {
         for (let i = 1; i <= 8; i++) {
     const scoreElement = document.getElementById(`problem-solving-data-score-summary-${i}`);
     if (scoreElement) {
-        const score = getScore(i, "problem-solving-data");
+        const score = getScore(i, "problem-solving-and-data");
         scoreElement.textContent = `Last Score: ${score}`;
-        console.log(`Updated problem-solving-data-score-summary-${i} with: ${score}`);
+        console.log(`Updated problem-solving-and-data-score-summary-${i} with: ${score}`);
     } else {
         console.warn(`Problem Solving and Data Analysis score summary element for lesson ${i} not found`);
     }
