@@ -367,6 +367,9 @@ function showContent() {
     }
 }
 
+// ... (previous code remains unchanged until selectAnswer)
+
+// Ensure selectAnswer uses the updated category name
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
@@ -395,6 +398,7 @@ function selectAnswer(selectedBtn, item) {
     submitButton.addEventListener('click', nextContent, { once: true });
 }
 
+// Remove the duplicate selectQuizAnswer and keep only the updated version
 function selectQuizAnswer(selectedBtn, question, quizQuestions) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
@@ -425,6 +429,8 @@ function selectQuizAnswer(selectedBtn, question, quizQuestions) {
         showNextQuizQuestion(quizQuestions);
     }, { once: true });
 }
+
+// ... (rest of the script remains unchanged)
 
 function nextContent() {
     currentContentIndex++;
