@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     showScore();
 });
 
+// Define all lessons
 const lessons = {
     1: {
         title: "Nonlinear Equations and Functions",
@@ -2117,6 +2118,38 @@ const absolutePiecewiseQuestions = [
         category: "advanced-math"
     }
 ];
+// lesson-advanced-math.js
+
+let categoryStats = {
+    "advanced-math": { correct: 0, incorrect: 0 }
+};
+
+let currentLesson = 1;
+let currentItemIndex = 0;
+let currentQuestionIndex = 0;
+let isQuizPhase = false;
+let progressSteps = 0;
+let totalSteps = 0;
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    currentLesson = parseInt(urlParams.get('lesson')) || 1;
+    console.log(`Loading lesson ${currentLesson}`);
+
+    const startLessonButton = document.getElementById('start-math-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start Lesson Button event listener added.");
+    } else {
+        console.error("Start lesson button not found.");
+    }
+
+    updateProgressBar(0);
+});
 
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
@@ -2137,10 +2170,10 @@ function startLesson() {
     if (startLessonButton && appContainer) {
         startLessonButton.style.display = 'none';
         appContainer.style.display = 'block';
-        console.log("Math app container displayed");
         currentItemIndex = 0;
         isQuizPhase = false;
-        totalSteps = lessons[currentLesson].content.length + getQuizQuestions(currentLesson).length;
+        const quizQuestions = getQuizQuestions(currentLesson);
+        totalSteps = lessons[currentLesson].content.length + quizQuestions.length;
         console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
         showItem();
         progressSteps = 1;
@@ -2151,103 +2184,60 @@ function startLesson() {
 }
 
 function showItem() {
-    console.log("Showing item for lesson:", currentLesson, "at index:", currentItemIndex);
+    console.log("Showing item for lesson:", currentLesson, "index:", currentItemIndex, "isQuizPhase:", isQuizPhase);
     const lessonContent = document.getElementById('lesson-content');
-    const currentLessonData = lessons[currentLesson];
-    if (!lessonContent || !currentLessonData || !currentLessonData.content) {
-        console.error("Lesson content or data missing!");
-        return;
-    }
-
-    const item = currentLessonData.content[currentItemIndex];
-    if (!item) {
-        console.log("No more items, proceeding to quiz transition");
-        showQuizTransition();
-        return;
-    }
-
-    lessonContent.innerHTML = '';
-
-    if (item.type === "example") {
-        lessonContent.innerHTML = `
-            <div id="math-container">
-                ${item.content}
-            </div>
-        `;
-        const nextButton = document.getElementById('next-item');
-        if (nextButton) {
-            nextButton.addEventListener('click', nextItem, { once: true });
-            console.log("Next button styled and listener added");
-        } else {
-            console.error("Next item button not found in example!");
-        }
-    } else if (item.type === "question") {
-        lessonContent.innerHTML = `
-            <div id="math-container">
+    if (lessonContent && lessons[currentLesson] && lessons[currentLesson].content[currentItemIndex]) {
+        const item = lessons[currentLesson].content[currentItemIndex];
+        if (item.type === "example") {
+            lessonContent.innerHTML = item.content;
+            const nextBtn = document.getElementById('next-item');
+            if (nextBtn) {
+                nextBtn.addEventListener('click', nextItem);
+            } else {
+                console.error("Next button not found in example!");
+            }
+        } else if (item.type === "question") {
+            lessonContent.innerHTML = `
                 <h2>${item.title}</h2>
                 <p>${item.question}</p>
-                <div class="answer-choices" id="answer-buttons"></div>
-                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
-            </div>
-        `;
-        const answerButtons = document.getElementById('answer-buttons');
-        item.options.forEach((option, index) => {
-            const button = document.createElement("button");
-            button.innerHTML = option.text;
-            button.classList.add("btn");
-            button.dataset.correct = option.correct;
-            button.addEventListener("click", () => selectAnswer(button, item));
-            answerButtons.appendChild(button);
-        });
-    }
-    progressSteps = currentItemIndex + 1;
-    updateProgressBar(progressSteps);
-}
-
-function selectAnswer(selectedBtn, item) {
-    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
-    const submitButton = document.getElementById('submit-answer');
-    const mathContainer = document.getElementById('math-container');
-
-    answerButtons.forEach(btn => {
-        btn.disabled = true;
-        if (btn.dataset.correct === "true") {
-            btn.classList.add("correct");
+                <div id="answer-buttons">
+                    ${item.options.map((option, index) => `
+                        <button class="answer-btn btn" data-correct="${option.correct}">${option.text}</button>
+                    `).join('')}
+                </div>
+                <p id="explanation" class="explanation" style="display: none;"></p>
+                <div class="button-container">
+                    <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
+                </div>
+            `;
+            const answerButtons = document.querySelectorAll('.answer-btn');
+            answerButtons.forEach(btn => btn.addEventListener('click', () => selectAnswer(btn, item)));
         }
-    });
-
-    if (selectedBtn.dataset.correct === "true") {
-        selectedBtn.classList.add("correct");
-        categoryStats["advanced-math"].correct++;
+        progressSteps = currentItemIndex + 1;
+        updateProgressBar(progressSteps);
     } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats["advanced-math"].incorrect++;
-        const explanationDiv = document.createElement("div");
-        explanationDiv.classList.add("explanation");
-        explanationDiv.innerHTML = item.explanation;
-        mathContainer.appendChild(explanationDiv);
+        console.log("Lesson content complete, transitioning to quiz");
+        showQuiz();
     }
-
-    submitButton.style.display = 'inline-block';
-    submitButton.addEventListener('click', () => {
-        if (!isQuizPhase) {
-            nextItem();
-        } else {
-            nextQuizItem();
-        }
-    }, { once: true });
 }
 
+// Add a flag to track if we're showing the quiz transition
+let showingQuizTransition = false;
+
+// Modify nextItem to show the transition screen when lesson content ends
 function nextItem() {
-    currentItemIndex++;
     console.log("nextItem called, currentItemIndex:", currentItemIndex);
+    currentItemIndex++;
     if (currentItemIndex < lessons[currentLesson].content.length) {
         showItem();
     } else if (!showingQuizTransition) {
+        // Show the quiz transition screen instead of jumping straight to quiz
         showQuizTransition();
     }
+    // If showingQuizTransition is true, the Next button on the transition screen will handle moving to showQuiz
 }
 
+// New function to display the quiz transition screen
 function showQuizTransition() {
     console.log("Showing quiz transition for lesson:", currentLesson);
     showingQuizTransition = true;
@@ -2263,25 +2253,46 @@ function showQuizTransition() {
         const startQuizBtn = document.getElementById('start-quiz-btn');
         if (startQuizBtn) {
             startQuizBtn.addEventListener('click', () => {
-                showingQuizTransition = false;
-                showQuiz();
+                showingQuizTransition = false; // Reset flag
+                showQuiz(); // Proceed to quiz
             }, { once: true });
         } else {
             console.error("Start quiz button not found in transition!");
         }
-        progressSteps = lessons[currentLesson].content.length;
+        progressSteps = lessons[currentLesson].content.length; // Set progress to end of lesson content
         updateProgressBar(progressSteps);
     } else {
         console.error("Lesson content element not found for quiz transition!");
     }
 }
 
+function selectAnswer(button, question) {
+    const isCorrect = button.getAttribute('data-correct') === "true";
+    const explanationDiv = document.getElementById('explanation');
+    const submitButton = document.getElementById('submit-answer');
+    const answerButtons = document.querySelectorAll('.answer-btn'); // Corrected selector
+
+    answerButtons.forEach(btn => btn.disabled = true);
+    if (isCorrect) {
+        button.classList.add('correct');
+        categoryStats["advanced-math"].correct++;
+    } else {
+        button.classList.add('incorrect');
+        explanationDiv.style.display = 'block';
+        explanationDiv.textContent = question.explanation;
+        categoryStats["advanced-math"].incorrect++;
+    }
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', nextItem, { once: true });
+}
+
+// Update showQuiz to adjust progress correctly after transition
 function showQuiz() {
     console.log("Starting quiz for lesson:", currentLesson);
     isQuizPhase = true;
     currentQuestionIndex = 0;
-    let quizQuestions = getQuizQuestions(currentLesson);
-    progressSteps = lessons[currentLesson].content.length + 1;
+    const quizQuestions = getQuizQuestions(currentLesson);
+    progressSteps = lessons[currentLesson].content.length + 1; // Start quiz progress
     updateProgressBar(progressSteps);
     showNextQuizQuestion(quizQuestions);
 }
@@ -2301,85 +2312,85 @@ function getQuizQuestions(lessonId) {
 }
 
 function showNextQuizQuestion(quizQuestions) {
-    console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
+    console.log("Showing quiz question:", currentQuestionIndex, "of", quizQuestions.length);
+    const lessonContent = document.getElementById('lesson-content');
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
-        const lessonContent = document.getElementById('lesson-content');
         lessonContent.innerHTML = `
-            <div id="math-container">
-                <h2>Question ${currentQuestionIndex + 1}</h2>
-                <p>${question.question}</p>
-                <div class="answer-choices" id="answer-buttons"></div>
+            <h2>Quiz Question ${currentQuestionIndex + 1}</h2>
+            <p>${question.question}</p>
+            <div id="answer-buttons">
+                ${question.answers.map((answer, index) => `
+                    <button class="answer-btn btn" data-correct="${answer.correct}">${answer.text}</button>
+                `).join('')}
+            </div>
+            <p id="explanation" class="explanation" style="display: none;"></p>
+            <div class="button-container">
                 <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
             </div>
         `;
-        const answerButtons = document.getElementById('answer-buttons');
-        question.answers.forEach((answer, index) => {
-            const button = document.createElement("button");
-            button.innerHTML = answer.text;
-            button.classList.add("btn");
-            button.dataset.correct = answer.correct;
-            button.addEventListener("click", () => selectAnswer(button, question));
-            answerButtons.appendChild(button);
-        });
+        const answerButtons = document.querySelectorAll('.answer-btn');
+        answerButtons.forEach(btn => btn.addEventListener('click', () => selectQuizAnswer(btn, question, quizQuestions)));
         progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
         updateProgressBar(progressSteps);
     } else {
-        console.log("All quiz questions answered, showing final score");
         showFinalScore();
     }
 }
 
+function selectQuizAnswer(button, question, quizQuestions) {
+    const isCorrect = button.getAttribute('data-correct') === "true";
+    const explanationDiv = document.getElementById('explanation');
+    const submitButton = document.getElementById('submit-answer');
+    const answerButtons = document.querySelectorAll('.answer-btn'); // Corrected selector
+
+    answerButtons.forEach(btn => btn.disabled = true);
+    if (isCorrect) {
+        button.classList.add('correct');
+        categoryStats[question.category].correct++;
+    } else {
+        button.classList.add('incorrect');
+        explanationDiv.style.display = 'block';
+        explanationDiv.textContent = question.explanation;
+        categoryStats[question.category].incorrect++;
+    }
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', () => nextQuizItem(quizQuestions), { once: true });
+}
+
 function nextQuizItem(quizQuestions) {
     currentQuestionIndex++;
+    progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
+    updateProgressBar(progressSteps);
     console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestionsLocal = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestionsLocal);
+    showNextQuizQuestion(quizQuestions);
 }
 
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = 0;
-    let totalAttempted = 0;
-
-    for (let category in categoryStats) {
-        totalCorrect += categoryStats[category].correct;
-        totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
-    }
-
-    logFinalScore(totalCorrect, totalAttempted);
+    let totalCorrect = categoryStats["advanced-math"].correct;
+    let totalAttempted = totalCorrect + categoryStats["advanced-math"].incorrect;
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    console.log("Saving score:", score);
     saveScore(currentLesson, score);
 
     const finalScoreElement = document.getElementById('final-score');
     const lessonContent = document.getElementById('lesson-content');
     lessonContent.innerHTML = '';
-    finalScoreElement.classList.remove('hide');
+    finalScoreElement.style.display = 'block';
     finalScoreElement.innerHTML = `
         <h2>Final Score</h2>
         <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
         <p>Your score: ${percentage}%</p>
         <button id="continue-button" class="continue-btn">Continue</button>
     `;
+
     document.getElementById('continue-button').addEventListener('click', () => {
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    }, { once: true });
+    });
 
     recordTestResults();
-}
-
-function logFinalScore(totalCorrect, totalAttempted) {
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    localStorage.setItem("finalScore", JSON.stringify({
-        correct: totalCorrect,
-        attempted: totalAttempted,
-        percentage: percentage,
-        lesson: currentLesson
-    }));
-    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
 }
 
 function saveScore(lessonId, score) {
@@ -2396,25 +2407,19 @@ function showScore() {
     if (scoreDisplay) {
         const score = getScore(currentLesson);
         scoreDisplay.innerHTML = `Previous Score for Lesson ${currentLesson}: ${score}`;
-        console.log(`Displayed score for lesson ${currentLesson}: ${score}`);
-    } else {
-        console.error("Score display element not found!");
     }
 }
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
-    let storedResults = localStorage.getItem("satTestResults");
+    let storedResults = localStorage.getItem("testResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
     for (let category in categoryStats) {
         if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
-    localStorage.setItem("satTestResults", JSON.stringify(results));
-    console.log("Final stored satTestResults:", results);
-    for (let category in categoryStats) {
-        categoryStats[category].correct = 0;
-        categoryStats[category].incorrect = 0;
-    }
+    localStorage.setItem("testResults", JSON.stringify(results));
+    console.log("Final stored testResults:", results);
+    categoryStats["advanced-math"] = { correct: 0, incorrect: 0 };
 }
