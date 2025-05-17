@@ -177,92 +177,92 @@ const lessons = {
 // Problem Solving and Data Analysis question arrays
 // Problem Solving and Data Analysis question arrays
 const ratioQuestions = [
-    { question: "A mix is 2 parts A to 3 parts B. Ratio of A to total?", answers: [{ text: "A) 2:5", correct: true }, { text: "B) 2:3", correct: false }, { text: "C) 3:5", correct: false }, { text: "D) 1:2", correct: false }], explanation: "Total = 2 + 3 = 5, ratio = 2/5.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Ratio of 4 boys to 6 girls. Boys to total?", answers: [{ text: "A) 4:10", correct: true }, { text: "B) 4:6", correct: false }, { text: "C) 6:10", correct: false }, { text: "D) 2:3", correct: false }], explanation: "Total = 10, 4/10 = 2/5, or 4:10.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "3 cups water, 7 cups flour. Water to flour?", answers: [{ text: "A) 3:7", correct: true }, { text: "B) 7:3", correct: false }, { text: "C) 3:10", correct: false }, { text: "D) 10:7", correct: false }], explanation: "Direct ratio = 3:7.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "A $40 item is 80% off. Sale price?", answers: [{ text: "A) $8", correct: true }, { text: "B) $32", correct: false }, { text: "C) $10", correct: false }, { text: "D) $4", correct: false }], explanation: "Discount = 0.8 × 40 = 32, 40 - 32 = 8.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "5 red, 5 blue marbles. P(red)?", answers: [{ text: "A) 1/2", correct: true }, { text: "B) 1/5", correct: false }, { text: "C) 5/1", correct: false }, { text: "D) 2/5", correct: false }], explanation: "Total = 10, P = 5/10 = 1/2.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "If 2x = 3y, what’s x:y?", answers: [{ text: "A) 3:2", correct: true }, { text: "B) 2:3", correct: false }, { text: "C) 1:1", correct: false }, { text: "D) 3:1", correct: false }], explanation: "x/y = 3/2, so x:y = 3:2.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "A price rises 20% to $60. Original price?", answers: [{ text: "A) $50", correct: true }, { text: "B) $48", correct: false }, { text: "C) $72", correct: false }, { text: "D) $40", correct: false }], explanation: "1.2x = 60, x = 60 / 1.2 = 50.", difficulty: "hard", category: "problem-solving-data" }
+    { question: "A mix is 2 parts A to 3 parts B. Ratio of A to total?", answers: [{ text: "A) 2:5", correct: true }, { text: "B) 2:3", correct: false }, { text: "C) 3:5", correct: false }, { text: "D) 1:2", correct: false }], explanation: "Total = 2 + 3 = 5, ratio = 2/5.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Ratio of 4 boys to 6 girls. Boys to total?", answers: [{ text: "A) 4:10", correct: true }, { text: "B) 4:6", correct: false }, { text: "C) 6:10", correct: false }, { text: "D) 2:3", correct: false }], explanation: "Total = 10, 4/10 = 2/5, or 4:10.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "3 cups water, 7 cups flour. Water to flour?", answers: [{ text: "A) 3:7", correct: true }, { text: "B) 7:3", correct: false }, { text: "C) 3:10", correct: false }, { text: "D) 10:7", correct: false }], explanation: "Direct ratio = 3:7.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "A $40 item is 80% off. Sale price?", answers: [{ text: "A) $8", correct: true }, { text: "B) $32", correct: false }, { text: "C) $10", correct: false }, { text: "D) $4", correct: false }], explanation: "Discount = 0.8 × 40 = 32, 40 - 32 = 8.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "5 red, 5 blue marbles. P(red)?", answers: [{ text: "A) 1/2", correct: true }, { text: "B) 1/5", correct: false }, { text: "C) 5/1", correct: false }, { text: "D) 2/5", correct: false }], explanation: "Total = 10, P = 5/10 = 1/2.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "If 2x = 3y, what’s x:y?", answers: [{ text: "A) 3:2", correct: true }, { text: "B) 2:3", correct: false }, { text: "C) 1:1", correct: false }, { text: "D) 3:1", correct: false }], explanation: "x/y = 3/2, so x:y = 3:2.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "A price rises 20% to $60. Original price?", answers: [{ text: "A) $50", correct: true }, { text: "B) $48", correct: false }, { text: "C) $72", correct: false }, { text: "D) $40", correct: false }], explanation: "1.2x = 60, x = 60 / 1.2 = 50.", difficulty: "hard", category: "problem-solving-and-data" }
 ];
 
 const unitRateQuestions = [
-    { question: "Convert 5 km to meters (1 km = 1000 m).", answers: [{ text: "A) 5000 m", correct: true }, { text: "B) 500 m", correct: false }, { text: "C) 50 m", correct: false }, { text: "D) 5 m", correct: false }], explanation: "5 × 1000 = 5000 m.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "3 hours to seconds (1 hr = 3600 s).", answers: [{ text: "A) 10800 s", correct: true }, { text: "B) 3600 s", correct: false }, { text: "C) 1800 s", correct: false }, { text: "D) 7200 s", correct: false }], explanation: "3 × 3600 = 10800 s.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "240 miles in 4 hours. Speed?", answers: [{ text: "A) 60 mph", correct: true }, { text: "B) 40 mph", correct: false }, { text: "C) 80 mph", correct: false }, { text: "D) 120 mph", correct: false }], explanation: "240 / 4 = 60 mph.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "15 gal in 3 min. Rate in gal/min?", answers: [{ text: "A) 5 gal/min", correct: true }, { text: "B) 3 gal/min", correct: false }, { text: "C) 15 gal/min", correct: false }, { text: "D) 45 gal/min", correct: false }], explanation: "15 / 3 = 5 gal/min.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "50 km/h to m/s (1 km = 1000 m, 1 h = 3600 s).", answers: [{ text: "A) 13.89 m/s", correct: true }, { text: "B) 50 m/s", correct: false }, { text: "C) 180 m/s", correct: false }, { text: "D) 5 m/s", correct: false }], explanation: "50 × 1000 / 3600 = 13.89 m/s.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "A job pays $120 for 8 hours. Hourly rate?", answers: [{ text: "A) $15/hr", correct: true }, { text: "B) $12/hr", correct: false }, { text: "C) $10/hr", correct: false }, { text: "D) $20/hr", correct: false }], explanation: "120 / 8 = 15 $/hr.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Car uses 12 gal for 300 mi. Mi/gal?", answers: [{ text: "A) 25 mi/gal", correct: true }, { text: "B) 12 mi/gal", correct: false }, { text: "C) 30 mi/gal", correct: false }, { text: "D) 20 mi/gal", correct: false }], explanation: "300 / 12 = 25 mi/gal.", difficulty: "hard", category: "problem-solving-data" }
+    { question: "Convert 5 km to meters (1 km = 1000 m).", answers: [{ text: "A) 5000 m", correct: true }, { text: "B) 500 m", correct: false }, { text: "C) 50 m", correct: false }, { text: "D) 5 m", correct: false }], explanation: "5 × 1000 = 5000 m.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "3 hours to seconds (1 hr = 3600 s).", answers: [{ text: "A) 10800 s", correct: true }, { text: "B) 3600 s", correct: false }, { text: "C) 1800 s", correct: false }, { text: "D) 7200 s", correct: false }], explanation: "3 × 3600 = 10800 s.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "240 miles in 4 hours. Speed?", answers: [{ text: "A) 60 mph", correct: true }, { text: "B) 40 mph", correct: false }, { text: "C) 80 mph", correct: false }, { text: "D) 120 mph", correct: false }], explanation: "240 / 4 = 60 mph.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "15 gal in 3 min. Rate in gal/min?", answers: [{ text: "A) 5 gal/min", correct: true }, { text: "B) 3 gal/min", correct: false }, { text: "C) 15 gal/min", correct: false }, { text: "D) 45 gal/min", correct: false }], explanation: "15 / 3 = 5 gal/min.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "50 km/h to m/s (1 km = 1000 m, 1 h = 3600 s).", answers: [{ text: "A) 13.89 m/s", correct: true }, { text: "B) 50 m/s", correct: false }, { text: "C) 180 m/s", correct: false }, { text: "D) 5 m/s", correct: false }], explanation: "50 × 1000 / 3600 = 13.89 m/s.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "A job pays $120 for 8 hours. Hourly rate?", answers: [{ text: "A) $15/hr", correct: true }, { text: "B) $12/hr", correct: false }, { text: "C) $10/hr", correct: false }, { text: "D) $20/hr", correct: false }], explanation: "120 / 8 = 15 $/hr.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Car uses 12 gal for 300 mi. Mi/gal?", answers: [{ text: "A) 25 mi/gal", correct: true }, { text: "B) 12 mi/gal", correct: false }, { text: "C) 30 mi/gal", correct: false }, { text: "D) 20 mi/gal", correct: false }], explanation: "300 / 12 = 25 mi/gal.", difficulty: "hard", category: "problem-solving-and-data" }
 ];
 
 const growthQuestions = [
-    { question: "Population doubles every year. Start = 200. After 2 years?", answers: [{ text: "A) 800", correct: true }, { text: "B) 400", correct: false }, { text: "C) 600", correct: false }, { text: "D) 200", correct: false }], explanation: "200 × 2² = 200 × 4 = 800.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Value drops $200/year. Start = $1000. After 3 years?", answers: [{ text: "A) $400", correct: true }, { text: "B) $600", correct: false }, { text: "C) $800", correct: false }, { text: "D) $200", correct: false }], explanation: "1000 - 200 × 3 = 400.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Grows 5 cm/day. Start = 10 cm. Day 4?", answers: [{ text: "A) 30 cm", correct: true }, { text: "B) 25 cm", correct: false }, { text: "C) 35 cm", correct: false }, { text: "D) 20 cm", correct: false }], explanation: "10 + 5 × 4 = 30 cm.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Triples every hour. Start = 10. After 2 hours?", answers: [{ text: "A) 90", correct: true }, { text: "B) 30", correct: false }, { text: "C) 60", correct: false }, { text: "D) 270", correct: false }], explanation: "10 × 3² = 10 × 9 = 90.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Decays 10%/year. Start = 100. After 1 year?", answers: [{ text: "A) 90", correct: true }, { text: "B) 80", correct: false }, { text: "C) 100", correct: false }, { text: "D) 85", correct: false }], explanation: "100 × (1 - 0.1) = 90.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Linear: y = 5 + 3t, t = 3?", answers: [{ text: "A) 14", correct: true }, { text: "B) 15", correct: false }, { text: "C) 12", correct: false }, { text: "D) 18", correct: false }], explanation: "5 + 3 × 3 = 14.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Exp: y = 2 × 4^t, t = 2?", answers: [{ text: "A) 32", correct: true }, { text: "B) 16", correct: false }, { text: "C) 64", correct: false }, { text: "D) 8", correct: false }], explanation: "2 × 4² = 2 × 16 = 32.", difficulty: "hard", category: "problem-solving-data" }
+    { question: "Population doubles every year. Start = 200. After 2 years?", answers: [{ text: "A) 800", correct: true }, { text: "B) 400", correct: false }, { text: "C) 600", correct: false }, { text: "D) 200", correct: false }], explanation: "200 × 2² = 200 × 4 = 800.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Value drops $200/year. Start = $1000. After 3 years?", answers: [{ text: "A) $400", correct: true }, { text: "B) $600", correct: false }, { text: "C) $800", correct: false }, { text: "D) $200", correct: false }], explanation: "1000 - 200 × 3 = 400.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Grows 5 cm/day. Start = 10 cm. Day 4?", answers: [{ text: "A) 30 cm", correct: true }, { text: "B) 25 cm", correct: false }, { text: "C) 35 cm", correct: false }, { text: "D) 20 cm", correct: false }], explanation: "10 + 5 × 4 = 30 cm.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Triples every hour. Start = 10. After 2 hours?", answers: [{ text: "A) 90", correct: true }, { text: "B) 30", correct: false }, { text: "C) 60", correct: false }, { text: "D) 270", correct: false }], explanation: "10 × 3² = 10 × 9 = 90.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Decays 10%/year. Start = 100. After 1 year?", answers: [{ text: "A) 90", correct: true }, { text: "B) 80", correct: false }, { text: "C) 100", correct: false }, { text: "D) 85", correct: false }], explanation: "100 × (1 - 0.1) = 90.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Linear: y = 5 + 3t, t = 3?", answers: [{ text: "A) 14", correct: true }, { text: "B) 15", correct: false }, { text: "C) 12", correct: false }, { text: "D) 18", correct: false }], explanation: "5 + 3 × 3 = 14.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Exp: y = 2 × 4^t, t = 2?", answers: [{ text: "A) 32", correct: true }, { text: "B) 16", correct: false }, { text: "C) 64", correct: false }, { text: "D) 8", correct: false }], explanation: "2 × 4² = 2 × 16 = 32.", difficulty: "hard", category: "problem-solving-and-data" }
 ];
 
 const dataInterpretationQuestions = [
-    { question: "Table: X = 8, Y = 12. Percent X?", answers: [{ text: "A) 40%", correct: true }, { text: "B) 60%", correct: false }, { text: "C) 50%", correct: false }, { text: "D) 20%", correct: false }], explanation: "Total = 20, (8 ÷ 20) × 100 = 40%.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Graph: Jan = 10, Feb = 15. Percent increase?", answers: [{ text: "A) 50%", correct: true }, { text: "B) 25%", correct: false }, { text: "C) 75%", correct: false }, { text: "D) 15%", correct: false }], explanation: "(15 - 10) / 10 × 100 = 50%.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Pie: A = 25%, total = 200. How many A?", answers: [{ text: "A) 50", correct: true }, { text: "B) 25", correct: false }, { text: "C) 75", correct: false }, { text: "D) 100", correct: false }], explanation: "0.25 × 200 = 50.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Table: M = 30, F = 20. Percent M?", answers: [{ text: "A) 60%", correct: true }, { text: "B) 40%", correct: false }, { text: "C) 50%", correct: false }, { text: "D) 70%", correct: false }], explanation: "Total = 50, 30 / 50 × 100 = 60%.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Graph: Q1 = 40, Q2 = 48. Percent change?", answers: [{ text: "A) 20%", correct: true }, { text: "B) 15%", correct: false }, { text: "C) 25%", correct: false }, { text: "D) 10%", correct: false }], explanation: "(48 - 40) / 40 × 100 = 20%.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Pie: B = 40%, C = 60%, total = 150. Diff B to C?", answers: [{ text: "A) 30", correct: true }, { text: "B) 60", correct: false }, { text: "C) 90", correct: false }, { text: "D) 15", correct: false }], explanation: "B = 0.4 × 150 = 60, C = 90, 90 - 60 = 30.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Bar: Day 1 = 100, Day 2 = 85. Percent decrease?", answers: [{ text: "A) 15%", correct: true }, { text: "B) 20%", correct: false }, { text: "C) 10%", correct: false }, { text: "D) 25%", correct: false }], explanation: "(100 - 85) / 100 × 100 = 15%.", difficulty: "hard", category: "problem-solving-data" }
+    { question: "Table: X = 8, Y = 12. Percent X?", answers: [{ text: "A) 40%", correct: true }, { text: "B) 60%", correct: false }, { text: "C) 50%", correct: false }, { text: "D) 20%", correct: false }], explanation: "Total = 20, (8 ÷ 20) × 100 = 40%.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Graph: Jan = 10, Feb = 15. Percent increase?", answers: [{ text: "A) 50%", correct: true }, { text: "B) 25%", correct: false }, { text: "C) 75%", correct: false }, { text: "D) 15%", correct: false }], explanation: "(15 - 10) / 10 × 100 = 50%.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Pie: A = 25%, total = 200. How many A?", answers: [{ text: "A) 50", correct: true }, { text: "B) 25", correct: false }, { text: "C) 75", correct: false }, { text: "D) 100", correct: false }], explanation: "0.25 × 200 = 50.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Table: M = 30, F = 20. Percent M?", answers: [{ text: "A) 60%", correct: true }, { text: "B) 40%", correct: false }, { text: "C) 50%", correct: false }, { text: "D) 70%", correct: false }], explanation: "Total = 50, 30 / 50 × 100 = 60%.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Graph: Q1 = 40, Q2 = 48. Percent change?", answers: [{ text: "A) 20%", correct: true }, { text: "B) 15%", correct: false }, { text: "C) 25%", correct: false }, { text: "D) 10%", correct: false }], explanation: "(48 - 40) / 40 × 100 = 20%.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Pie: B = 40%, C = 60%, total = 150. Diff B to C?", answers: [{ text: "A) 30", correct: true }, { text: "B) 60", correct: false }, { text: "C) 90", correct: false }, { text: "D) 15", correct: false }], explanation: "B = 0.4 × 150 = 60, C = 90, 90 - 60 = 30.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Bar: Day 1 = 100, Day 2 = 85. Percent decrease?", answers: [{ text: "A) 15%", correct: true }, { text: "B) 20%", correct: false }, { text: "C) 10%", correct: false }, { text: "D) 25%", correct: false }], explanation: "(100 - 85) / 100 × 100 = 15%.", difficulty: "hard", category: "problem-solving-and-data" }
 ];
 
 const statisticsQuestions = [
-    { question: "Data: 4, 6, 8. What’s the mean?", answers: [{ text: "A) 6", correct: true }, { text: "B) 4", correct: false }, { text: "C) 8", correct: false }, { text: "D) 5", correct: false }], explanation: "(4 + 6 + 8) ÷ 3 = 18 ÷ 3 = 6.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Data: 3, 5, 7. Median?", answers: [{ text: "A) 5", correct: true }, { text: "B) 3", correct: false }, { text: "C) 7", correct: false }, { text: "D) 6", correct: false }], explanation: "Middle value = 5.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Data: 2, 9, 4. Range?", answers: [{ text: "A) 7", correct: true }, { text: "B) 9", correct: false }, { text: "C) 4", correct: false }, { text: "D) 2", correct: false }], explanation: "9 - 2 = 7.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Data: 10, 10, 10. SD?", answers: [{ text: "A) 0", correct: true }, { text: "B) 10", correct: false }, { text: "C) 5", correct: false }, { text: "D) 1", correct: false }], explanation: "All same, SD = 0.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Data: 1, 3, 5, 7. Mean?", answers: [{ text: "A) 4", correct: true }, { text: "B) 5", correct: false }, { text: "C) 3", correct: false }, { text: "D) 6", correct: false }], explanation: "(1 + 3 + 5 + 7) / 4 = 16 / 4 = 4.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Data: 2, 4, 6, 8. Median?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 6", correct: false }, { text: "D) 3", correct: false }], explanation: "(4 + 6) / 2 = 5.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Data: 5, 10, 15, 20. Range?", answers: [{ text: "A) 15", correct: true }, { text: "B) 20", correct: false }, { text: "C) 10", correct: false }, { text: "D) 5", correct: false }], explanation: "20 - 5 = 15.", difficulty: "hard", category: "problem-solving-data" }
+    { question: "Data: 4, 6, 8. What’s the mean?", answers: [{ text: "A) 6", correct: true }, { text: "B) 4", correct: false }, { text: "C) 8", correct: false }, { text: "D) 5", correct: false }], explanation: "(4 + 6 + 8) ÷ 3 = 18 ÷ 3 = 6.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Data: 3, 5, 7. Median?", answers: [{ text: "A) 5", correct: true }, { text: "B) 3", correct: false }, { text: "C) 7", correct: false }, { text: "D) 6", correct: false }], explanation: "Middle value = 5.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Data: 2, 9, 4. Range?", answers: [{ text: "A) 7", correct: true }, { text: "B) 9", correct: false }, { text: "C) 4", correct: false }, { text: "D) 2", correct: false }], explanation: "9 - 2 = 7.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Data: 10, 10, 10. SD?", answers: [{ text: "A) 0", correct: true }, { text: "B) 10", correct: false }, { text: "C) 5", correct: false }, { text: "D) 1", correct: false }], explanation: "All same, SD = 0.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Data: 1, 3, 5, 7. Mean?", answers: [{ text: "A) 4", correct: true }, { text: "B) 5", correct: false }, { text: "C) 3", correct: false }, { text: "D) 6", correct: false }], explanation: "(1 + 3 + 5 + 7) / 4 = 16 / 4 = 4.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Data: 2, 4, 6, 8. Median?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 6", correct: false }, { text: "D) 3", correct: false }], explanation: "(4 + 6) / 2 = 5.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Data: 5, 10, 15, 20. Range?", answers: [{ text: "A) 15", correct: true }, { text: "B) 20", correct: false }, { text: "C) 10", correct: false }, { text: "D) 5", correct: false }], explanation: "20 - 5 = 15.", difficulty: "hard", category: "problem-solving-and-data" }
 ];
 
 const probabilityQuestions = [
-    { question: "Bag: 4 red, 6 blue. P(blue)?", answers: [{ text: "A) 3/5", correct: true }, { text: "B) 2/5", correct: false }, { text: "C) 4/10", correct: false }, { text: "D) 1/2", correct: false }], explanation: "Total = 10, P = 6/10 = 3/5.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Die roll. P(even)?", answers: [{ text: "A) 1/2", correct: true }, { text: "B) 1/3", correct: false }, { text: "C) 2/3", correct: false }, { text: "D) 1/6", correct: false }], explanation: "Even: 2, 4, 6, P = 3/6 = 1/2.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Coin flip twice. P(both heads)?", answers: [{ text: "A) 1/4", correct: true }, { text: "B) 1/2", correct: false }, { text: "C) 3/4", correct: false }, { text: "D) 1/3", correct: false }], explanation: "HH, HT, TH, TT, P = 1/4.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "3 red, 2 green. P(not red)?", answers: [{ text: "A) 2/5", correct: true }, { text: "B) 3/5", correct: false }, { text: "C) 1/5", correct: false }, { text: "D) 4/5", correct: false }], explanation: "Total = 5, not red = 2, P = 2/5.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Win $5 (0.6), lose $2 (0.4). EV?", answers: [{ text: "A) $2.20", correct: true }, { text: "B) $3", correct: false }, { text: "C) $1.80", correct: false }, { text: "D) $2", correct: false }], explanation: "(5 × 0.6) + (-2 × 0.4) = 3 - 0.8 = 2.20.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "2 dice. P(sum = 7)?", answers: [{ text: "A) 1/6", correct: true }, { text: "B) 1/12", correct: false }, { text: "C) 1/4", correct: false }, { text: "D) 1/3", correct: false }], explanation: "6/36 = 1/6.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "P(A) = 0.3, P(B) = 0.4, independent. P(A and B)?", answers: [{ text: "A) 0.12", correct: true }, { text: "B) 0.7", correct: false }, { text: "C) 0.1", correct: false }, { text: "D) 0.5", correct: false }], explanation: "0.3 × 0.4 = 0.12.", difficulty: "hard", category: "problem-solving-data" }
+    { question: "Bag: 4 red, 6 blue. P(blue)?", answers: [{ text: "A) 3/5", correct: true }, { text: "B) 2/5", correct: false }, { text: "C) 4/10", correct: false }, { text: "D) 1/2", correct: false }], explanation: "Total = 10, P = 6/10 = 3/5.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Die roll. P(even)?", answers: [{ text: "A) 1/2", correct: true }, { text: "B) 1/3", correct: false }, { text: "C) 2/3", correct: false }, { text: "D) 1/6", correct: false }], explanation: "Even: 2, 4, 6, P = 3/6 = 1/2.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Coin flip twice. P(both heads)?", answers: [{ text: "A) 1/4", correct: true }, { text: "B) 1/2", correct: false }, { text: "C) 3/4", correct: false }, { text: "D) 1/3", correct: false }], explanation: "HH, HT, TH, TT, P = 1/4.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "3 red, 2 green. P(not red)?", answers: [{ text: "A) 2/5", correct: true }, { text: "B) 3/5", correct: false }, { text: "C) 1/5", correct: false }, { text: "D) 4/5", correct: false }], explanation: "Total = 5, not red = 2, P = 2/5.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Win $5 (0.6), lose $2 (0.4). EV?", answers: [{ text: "A) $2.20", correct: true }, { text: "B) $3", correct: false }, { text: "C) $1.80", correct: false }, { text: "D) $2", correct: false }], explanation: "(5 × 0.6) + (-2 × 0.4) = 3 - 0.8 = 2.20.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "2 dice. P(sum = 7)?", answers: [{ text: "A) 1/6", correct: true }, { text: "B) 1/12", correct: false }, { text: "C) 1/4", correct: false }, { text: "D) 1/3", correct: false }], explanation: "6/36 = 1/6.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "P(A) = 0.3, P(B) = 0.4, independent. P(A and B)?", answers: [{ text: "A) 0.12", correct: true }, { text: "B) 0.7", correct: false }, { text: "C) 0.1", correct: false }, { text: "D) 0.5", correct: false }], explanation: "0.3 × 0.4 = 0.12.", difficulty: "hard", category: "problem-solving-and-data" }
 ];
 
 const twoWayTableQuestions = [
-    { question: "Table: A (M: 5, F: 10), B (M: 15, F: 20). P(A | M)?", answers: [{ text: "A) 1/4", correct: true }, { text: "B) 1/2", correct: false }, { text: "C) 3/4", correct: false }, { text: "D) 1/3", correct: false }], explanation: "Men = 20, A Men = 5, P = 5/20 = 1/4.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Table: X (Y: 8, N: 2), Z (Y: 4, N: 6). P(Y)?", answers: [{ text: "A) 3/5", correct: true }, { text: "B) 2/5", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 4/5", correct: false }], explanation: "Total = 20, Y = 12, P = 12/20 = 3/5.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "Same table. P(X | Y)?", answers: [{ text: "A) 2/3", correct: true }, { text: "B) 1/3", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 3/4", correct: false }], explanation: "Y = 12, X Y = 8, P = 8/12 = 2/3.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Table: P (M: 10, F: 5), Q (M: 20, F: 15). P(M | P)?", answers: [{ text: "A) 2/3", correct: true }, { text: "B) 1/3", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 3/4", correct: false }], explanation: "P = 15, M P = 10, P = 10/15 = 2/3.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Same table. P(Q)?", answers: [{ text: "A) 7/12", correct: true }, { text: "B) 5/12", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 2/3", correct: false }], explanation: "Total = 50, Q = 35, P = 35/50 = 7/10.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Table: A (Y: 6, N: 4), B (Y: 3, N: 7). P(N | B)?", answers: [{ text: "A) 7/10", correct: true }, { text: "B) 3/10", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 4/10", correct: false }], explanation: "B = 10, N B = 7, P = 7/10.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Same table. P(A | N)?", answers: [{ text: "A) 4/11", correct: true }, { text: "B) 7/11", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 6/11", correct: false }], explanation: "N = 11, A N = 4, P = 4/11.", difficulty: "hard", category: "problem-solving-data" }
+    { question: "Table: A (M: 5, F: 10), B (M: 15, F: 20). P(A | M)?", answers: [{ text: "A) 1/4", correct: true }, { text: "B) 1/2", correct: false }, { text: "C) 3/4", correct: false }, { text: "D) 1/3", correct: false }], explanation: "Men = 20, A Men = 5, P = 5/20 = 1/4.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Table: X (Y: 8, N: 2), Z (Y: 4, N: 6). P(Y)?", answers: [{ text: "A) 3/5", correct: true }, { text: "B) 2/5", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 4/5", correct: false }], explanation: "Total = 20, Y = 12, P = 12/20 = 3/5.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "Same table. P(X | Y)?", answers: [{ text: "A) 2/3", correct: true }, { text: "B) 1/3", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 3/4", correct: false }], explanation: "Y = 12, X Y = 8, P = 8/12 = 2/3.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Table: P (M: 10, F: 5), Q (M: 20, F: 15). P(M | P)?", answers: [{ text: "A) 2/3", correct: true }, { text: "B) 1/3", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 3/4", correct: false }], explanation: "P = 15, M P = 10, P = 10/15 = 2/3.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Same table. P(Q)?", answers: [{ text: "A) 7/12", correct: true }, { text: "B) 5/12", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 2/3", correct: false }], explanation: "Total = 50, Q = 35, P = 35/50 = 7/10.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Table: A (Y: 6, N: 4), B (Y: 3, N: 7). P(N | B)?", answers: [{ text: "A) 7/10", correct: true }, { text: "B) 3/10", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 4/10", correct: false }], explanation: "B = 10, N B = 7, P = 7/10.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Same table. P(A | N)?", answers: [{ text: "A) 4/11", correct: true }, { text: "B) 7/11", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) 6/11", correct: false }], explanation: "N = 11, A N = 4, P = 4/11.", difficulty: "hard", category: "problem-solving-and-data" }
 ];
 
 const experimentalDesignQuestions = [
-    { question: "Survey at a mall about shopping. Bias?", answers: [{ text: "A) Overestimates shopping", correct: true }, { text: "B) Underestimates shopping", correct: false }, { text: "C) No bias", correct: false }, { text: "D) Random error", correct: false }], explanation: "Mall-goers likely shop more.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Poll at school about homework. Bias?", answers: [{ text: "A) Overestimates homework", correct: true }, { text: "B) Underestimates homework", correct: false }, { text: "C) No bias", correct: false }, { text: "D) Random error", correct: false }], explanation: "Students likely do more homework.", difficulty: "easy", category: "problem-solving-data" },
-    { question: "More coffee, more productivity. Causation?", answers: [{ text: "A) No, correlation", correct: true }, { text: "B) Yes, causation", correct: false }, { text: "C) No data", correct: false }, { text: "D) Reverse causation", correct: false }], explanation: "Could be due to work demands.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Randomized drug trial. Why randomize?", answers: [{ text: "A) Reduces bias", correct: true }, { text: "B) Increases sample size", correct: false }, { text: "C) Speeds up results", correct: false }, { text: "D) Simplifies analysis", correct: false }], explanation: "Balances groups.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Survey on weekends. Bias?", answers: [{ text: "A) Overestimates free time", correct: true }, { text: "B) Underestimates free time", correct: false }, { text: "C) No bias", correct: false }, { text: "D) Random error", correct: false }], explanation: "Weekends skew free time higher.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "More rain, more umbrellas. Causation?", answers: [{ text: "A) Yes, causation", correct: true }, { text: "B) No, correlation", correct: false }, { text: "C) No data", correct: false }, { text: "D) Reverse causation", correct: false }], explanation: "Rain causes umbrella use.", difficulty: "medium", category: "problem-solving-data" },
-    { question: "Small sample size issue?", answers: [{ text: "A) Less reliable", correct: true }, { text: "B) More accurate", correct: false }, { text: "C) Faster results", correct: false }, { text: "D) No issue", correct: false }], explanation: "Small samples increase variability.", difficulty: "hard", category: "problem-solving-data" }
+    { question: "Survey at a mall about shopping. Bias?", answers: [{ text: "A) Overestimates shopping", correct: true }, { text: "B) Underestimates shopping", correct: false }, { text: "C) No bias", correct: false }, { text: "D) Random error", correct: false }], explanation: "Mall-goers likely shop more.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Poll at school about homework. Bias?", answers: [{ text: "A) Overestimates homework", correct: true }, { text: "B) Underestimates homework", correct: false }, { text: "C) No bias", correct: false }, { text: "D) Random error", correct: false }], explanation: "Students likely do more homework.", difficulty: "easy", category: "problem-solving-and-data" },
+    { question: "More coffee, more productivity. Causation?", answers: [{ text: "A) No, correlation", correct: true }, { text: "B) Yes, causation", correct: false }, { text: "C) No data", correct: false }, { text: "D) Reverse causation", correct: false }], explanation: "Could be due to work demands.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Randomized drug trial. Why randomize?", answers: [{ text: "A) Reduces bias", correct: true }, { text: "B) Increases sample size", correct: false }, { text: "C) Speeds up results", correct: false }, { text: "D) Simplifies analysis", correct: false }], explanation: "Balances groups.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Survey on weekends. Bias?", answers: [{ text: "A) Overestimates free time", correct: true }, { text: "B) Underestimates free time", correct: false }, { text: "C) No bias", correct: false }, { text: "D) Random error", correct: false }], explanation: "Weekends skew free time higher.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "More rain, more umbrellas. Causation?", answers: [{ text: "A) Yes, causation", correct: true }, { text: "B) No, correlation", correct: false }, { text: "C) No data", correct: false }, { text: "D) Reverse causation", correct: false }], explanation: "Rain causes umbrella use.", difficulty: "medium", category: "problem-solving-and-data" },
+    { question: "Small sample size issue?", answers: [{ text: "A) Less reliable", correct: true }, { text: "B) More accurate", correct: false }, { text: "C) Faster results", correct: false }, { text: "D) No issue", correct: false }], explanation: "Small samples increase variability.", difficulty: "hard", category: "problem-solving-and-data" }
 ];
-// lesson-problem-solving-data.js
+// lesson-problem-solving-and-data.js
 
-// lesson-problem-solving-data.js
+// lesson-problem-solving-and-data.js
 
-// lesson-problem-solving-data.js
+// lesson-problem-solving-and-data.js
 
 let categoryStats = {
-    "problem-solving-data": { correct: 0, incorrect: 0 }
+    "problem-solving-and-data": { correct: 0, incorrect: 0 }
 };
 
 let currentContentIndex = 0;
@@ -381,10 +381,10 @@ function selectAnswer(selectedBtn, item) {
 
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
-        categoryStats["problem-solving-data"].correct++;
+        categoryStats["problem-solving-and-data"].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats["problem-solving-data"].incorrect++;
+        categoryStats["problem-solving-and-data"].incorrect++;
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
@@ -393,6 +393,37 @@ function selectAnswer(selectedBtn, item) {
 
     submitButton.style.display = 'inline-block';
     submitButton.addEventListener('click', nextContent, { once: true });
+}
+
+function selectQuizAnswer(selectedBtn, question, quizQuestions) {
+    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
+    const submitButton = document.getElementById('submit-answer');
+    const mathContainer = document.getElementById('math-container');
+
+    answerButtons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.correct === "true") {
+            btn.classList.add("correct");
+        }
+    });
+
+    if (selectedBtn.dataset.correct === "true") {
+        selectedBtn.classList.add("correct");
+        categoryStats["problem-solving-and-data"].correct++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats["problem-solving-and-data"].incorrect++;
+        const explanationDiv = document.createElement("div");
+        explanationDiv.classList.add("explanation");
+        explanationDiv.innerHTML = question.explanation;
+        mathContainer.appendChild(explanationDiv);
+    }
+
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', () => {
+        currentContentIndex++;
+        showNextQuizQuestion(quizQuestions);
+    }, { once: true });
 }
 
 function nextContent() {
@@ -567,28 +598,31 @@ function showFinalScore() {
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
-    let storedResults = localStorage.getItem("testResults");
+    let storedResults = localStorage.getItem("satTestResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
     for (let category in categoryStats) {
         if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
-    localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
+    localStorage.setItem("satTestResults", JSON.stringify(results));
+    console.log("Stored satTestResults:", JSON.stringify(results));
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
 }
-
 function saveScore(lessonId, score) {
-    localStorage.setItem(`problem-solving-data-lessonScore-${lessonId}`, score);
-    console.log(`Saved problem-solving-data-lessonScore-${lessonId}: ${score}`);
+    localStorage.setItem(`problem-solving-and-data-lessonScore-${lessonId}`, score);
+    console.log(`Saved problem-solving-and-data-lessonScore-${lessonId}: ${score}`);
 }
 
 function getScore(lessonId) {
-    return localStorage.getItem(`problem-solving-data-lessonScore-${lessonId}`) || "Not completed yet";
+    return localStorage.getItem(`problem-solving-and-data-lessonScore-${lessonId}`) || "Not completed yet";
+}
+
+function getScore(lessonId) {
+    return localStorage.getItem(`problem-solving-and-data-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
 function showScore() {
