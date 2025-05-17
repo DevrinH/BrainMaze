@@ -1802,7 +1802,7 @@ function showScore() {
         scoreDisplay.innerHTML = `Previous Score for Lesson ${currentLesson}: ${score}`;
         console.log(`Displayed score for lesson ${currentLesson}: ${score}`);
     } else {
-        console.error("Score display element not found!");
+        console.warn("Score display element not found; skipping score display.");
     }
 }
 
