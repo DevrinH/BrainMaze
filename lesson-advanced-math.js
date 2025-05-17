@@ -2110,6 +2110,93 @@ const absolutePiecewiseQuestions = [
     }
 ];
 
+const trigFunctionQuestions = [
+    {
+        question: "Solve: tan(x) = 1 (0 ≤ x < 2π)",
+        answers: [
+            { text: "A) π/4, 5π/4", correct: true },
+            { text: "B) π/4, 3π/4", correct: false },
+            { text: "C) π/2, 3π/2", correct: false },
+            { text: "D) 0, π", correct: false }
+        ],
+        explanation: "tan(x) = 1 at x = π/4 and x = 5π/4 in the interval [0, 2π).",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        question: "Simplify: cos²(x) - sin²(x) using a double-angle identity.",
+        answers: [
+            { text: "A) cos(2x)", correct: true },
+            { text: "B) sin(2x)", correct: false },
+            { text: "C) tan(2x)", correct: false },
+            { text: "D) 1", correct: false }
+        ],
+        explanation: "cos²(x) - sin²(x) = cos(2x) by the double-angle identity.",
+        difficulty: "medium",
+        category: "advanced-math"
+    },
+    {
+        question: "If sin(x) = 1/√2 in Q1, find sin(2x).",
+        answers: [
+            { text: "A) 1", correct: true },
+            { text: "B) 1/√2", correct: false },
+            { text: "C) 0", correct: false },
+            { text: "D) 1/2", correct: false }
+        ],
+        explanation: "sin(x) = 1/√2, cos(x) = 1/√2 in Q1, sin(2x) = 2sin(x)cos(x) = 2(1/√2)(1/√2) = 1.",
+        difficulty: "medium",
+        category: "advanced-math"
+    },
+    {
+        question: "Solve: sin(x) = 0 (0 ≤ x < 2π)",
+        answers: [
+            { text: "A) 0, π", correct: true },
+            { text: "B) π/2, 3π/2", correct: false },
+            { text: "C) π/4, 5π/4", correct: false },
+            { text: "D) π/6, 5π/6", correct: false }
+        ],
+        explanation: "sin(x) = 0 at x = 0, π, and 2π, but 2π is not included in [0, 2π), so x = 0, π.",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        question: "If cot(x) = 3/4 in Q1, find csc(x).",
+        answers: [
+            { text: "A) 5/4", correct: true },
+            { text: "B) 4/3", correct: false },
+            { text: "C) 5/3", correct: false },
+            { text: "D) 3/5", correct: false }
+        ],
+        explanation: "cot(x) = 3/4, hypotenuse = √(3² + 4²) = 5, sin(x) = 4/5, csc(x) = 1/sin(x) = 5/4.",
+        difficulty: "medium",
+        category: "advanced-math"
+    },
+    {
+        question: "Simplify: tan²(x) + 1",
+        answers: [
+            { text: "A) sec²(x)", correct: true },
+            { text: "B) csc²(x)", correct: false },
+            { text: "C) cot²(x)", correct: false },
+            { text: "D) sin²(x)", correct: false }
+        ],
+        explanation: "tan²(x) + 1 = sec²(x) by the Pythagorean identity.",
+        difficulty: "easy",
+        category: "advanced-math"
+    },
+    {
+        question: "Solve: cos(x) = √3/2 (0 ≤ x < 2π)",
+        answers: [
+            { text: "A) π/6, 11π/6", correct: true },
+            { text: "B) π/3, 5π/3", correct: false },
+            { text: "C) π/4, 7π/4", correct: false },
+            { text: "D) π/2, 3π/2", correct: false }
+        ],
+        explanation: "cos(x) = √3/2 at x = π/6 and x = 11π/6 in [0, 2π).",
+        difficulty: "medium",
+        category: "advanced-math"
+    }
+];
+
 // Ensure scores display on page load and set up lesson
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
