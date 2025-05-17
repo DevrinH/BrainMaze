@@ -596,8 +596,10 @@ function showScore() {
     if (scoreDisplay) {
         const score = getScore(currentLesson);
         scoreDisplay.innerHTML = `Previous Score for Lesson ${currentLesson}: ${score}`;
+        console.log(`Displayed score for lesson ${currentLesson}: ${score}`);
+    } else {
+        console.warn("Score display element not found; skipping score display.");
     }
 }
-
 // Define lessons and quiz question arrays here (already provided in your code)
 // ... (lessons, ratioQuestions, unitRateQuestions, etc.)
