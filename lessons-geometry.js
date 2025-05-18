@@ -547,6 +547,9 @@ function showFinalScore() {
         <button id="continue-button" class="continue-btn">Continue</button>
     `;
     document.getElementById('continue-button').addEventListener('click', () => {
+        // Set lastActivity to ensure SAT lessons toggle is shown
+        localStorage.setItem("lastActivity", JSON.stringify({ exam: "SAT", type: "lesson" }));
+        console.log("Set lastActivity to SAT lesson before redirect");
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     }, { once: true });
 
