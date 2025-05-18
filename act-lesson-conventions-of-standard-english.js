@@ -1,22 +1,6 @@
-let currentItemIndex = 0;
-let currentQuestionIndex = 0;
-let currentLesson = "1";
-let progressSteps = 0;
-let totalSteps = 0;
-let isQuizPhase = false;
-let showingQuizTransition = false;
-let categoryStats = {
-    "conventions-of-standard-english": { correct: 0, incorrect: 0 }
-};
-
-// DOMContentLoaded event listener (identical to SAT code)
+// Ensure scores display on page load by calling showScore
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = urlParams.get('lesson') || '1';
-    console.log(`Loading lesson ${lessonId}`);
-    currentLesson = lessonId;
 
     const startLessonButton = document.getElementById('start-lesson');
     if (startLessonButton) {
@@ -26,8 +10,12 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Start lesson button not found.");
     }
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = urlParams.get('lesson') || 1;
+    console.log(`Loading lesson ${lessonId}`);
+    currentLesson = lessonId;
+
     showScore();
-    updateProgressBar(0);
 });
 
 // Define all lessons
@@ -302,25 +290,19 @@ const englishQuestions = [
     }
 ];
 
-// Update getQuizQuestions to use Conventions questions
-function getQuizQuestions(lessonId) {
-    switch (parseInt(lessonId)) {
-        case 1: return conventionsQuestions;
-        default: return conventionsQuestions;
-    }
-}
+// Variables
+let categoryStats = {
+    "act-conventions-of-standard-english": { correct: 0, incorrect: 0 }
+};
+let currentItemIndex = 0;
+let currentLesson = "1"; // Default as string to match lessons object keys
+let progressSteps = 0;
+let totalSteps = 0; // Set dynamically in startLesson
+let isQuizPhase = false;
+let showingQuizTransition = false; // Flag for quiz transition
+let currentQuestionIndex = 0;
 
-// Update saveScore and getScore to use conventions category
-function saveScore(lessonId, score) {
-    localStorage.setItem(`conventions-of-standard-english-lessonScore-${lessonId}`, score);
-    console.log(`Saved conventions-of-standard-english-lessonScore-${lessonId}: ${score}`);
-}
-
-function getScore(lessonId) {
-    return localStorage.getItem(`conventions-of-standard-english-lessonScore-${lessonId}`) || "Not completed yet";
-}
-
-
+// Progress bar update function
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
     if (progressBar) {
@@ -333,6 +315,7 @@ function updateProgressBar(step) {
     }
 }
 
+// Start lesson
 function startLesson() {
     console.log("startLesson called for lesson:", currentLesson);
     const startLessonButton = document.getElementById('start-lesson');
@@ -351,18 +334,19 @@ function startLesson() {
     }
 }
 
+// Show lesson item
 function showItem() {
     console.log("Showing item for lesson:", currentLesson, "index:", currentItemIndex);
     const lessonContent = document.getElementById('lesson-content');
-    if (lessonContent && lessons[currentLesson] && lessons[currentLesson].content[currentItemIndex]) {
+    if (lessonContent && lessons && lessons[currentLesson] && lessons[currentLesson].content[currentItemIndex]) {
         const item = lessons[currentLesson].content[currentItemIndex];
         lessonContent.innerHTML = '';
         if (item.type === "example") {
             lessonContent.innerHTML = `
-                <div class="question-row reading-section">
-                    <div class="passage-text">${item.passage}</div>
+                <div class="question-row">
+                    <div class="passage-text">${extractPassage(item.content)}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.content}</div>
+                        <div class="question-text">${item.content.replace(extractPassage(item.content), '')}</div>
                     </div>
                 </div>
             `;
@@ -374,13 +358,14 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
+            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row reading-section">
-                    <div class="passage-text">${item.passage}</div>
+                <div class="question-row">
+                    <div class="passage-text">${passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question}</div>
+                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
-                        <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
+                        <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                     </div>
                 </div>
             `;
@@ -402,6 +387,13 @@ function showItem() {
     }
 }
 
+// Extract passage from content
+function extractPassage(content) {
+    const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
+    return passageMatch ? passageMatch[0] : "";
+}
+
+// Handle answer selection
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
@@ -416,10 +408,10 @@ function selectAnswer(selectedBtn, item) {
 
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
-        categoryStats["command-of-evidence"].correct++;
+        categoryStats["act-conventions-of-standard-english"].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats["command-of-evidence"].incorrect++;
+        categoryStats["act-conventions-of-standard-english"].incorrect++;
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
@@ -436,6 +428,7 @@ function selectAnswer(selectedBtn, item) {
     }, { once: true });
 }
 
+// Next lesson item
 function nextItem() {
     currentItemIndex++;
     console.log("nextItem called, currentItemIndex:", currentItemIndex);
@@ -446,6 +439,7 @@ function nextItem() {
     }
 }
 
+// Show quiz transition screen
 function showQuizTransition() {
     console.log("Showing quiz transition for lesson:", currentLesson);
     showingQuizTransition = true;
@@ -456,7 +450,7 @@ function showQuizTransition() {
                 <div class="centered-content">
                     <h2>Lesson Complete!</h2>
                     <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="next-btn">Next</button>
+                    <button id="start-quiz-btn" class="btn next-btn">Next</button>
                 </div>
             </div>
         `;
@@ -476,6 +470,7 @@ function showQuizTransition() {
     }
 }
 
+// Start quiz
 function showQuiz() {
     console.log("Starting quiz for lesson:", currentLesson);
     isQuizPhase = true;
@@ -486,28 +481,28 @@ function showQuiz() {
     showNextQuizQuestion(quizQuestions);
 }
 
+// Get quiz questions based on lesson
 function getQuizQuestions(lessonId) {
     switch (parseInt(lessonId)) {
-        case 1: return textualEvidenceQuestions;
-        case 2: return authorUseOfEvidenceQuestions;
-        case 3: return dataInterpretationQuestions;
-        case 4: return crossTextEvidenceQuestions;
-        default: return textualEvidenceQuestions;
+        case 1: return englishQuestions;
+        default: return englishQuestions;
     }
 }
 
+// Show next quiz question
 function showNextQuizQuestion(quizQuestions) {
     console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
+        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row reading-section">
-                <div class="passage-text">${question.passage}</div>
+            <div class="question-row">
+                <div class="passage-text">${passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="next-btn" style="display: none;">Next</button>
+                    <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
             </div>
         `;
@@ -528,20 +523,38 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
+// Next quiz item
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
+}
+
+// Save lesson completion
 function saveLessonCompletion() {
     const completionData = {
-        exam: "SAT",
+        exam: "ACT",
         type: "lesson",
+        lessonId: currentLesson,
+        category: "act-conventions-of-standard-english",
+        title: lessons[currentLesson].title,
         timestamp: new Date().toISOString()
     };
-    localStorage.setItem("lastActivity", JSON.stringify(completionData));
+    // Store in a completions array for tracking multiple lessons
+    let completions = JSON.parse(localStorage.getItem("lessonCompletions") || "[]");
+    completions = completions.filter(comp => !(comp.exam === "ACT" && comp.lessonId === currentLesson)); // Remove duplicates
+    completions.push(completionData);
+    localStorage.setItem("lessonCompletions", JSON.stringify(completions));
+    localStorage.setItem("lastActivity", JSON.stringify(completionData)); // Keep for backward compatibility
     console.log("Saved lesson completion:", completionData);
 }
 
+// Show final score
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = categoryStats["command-of-evidence"].correct;
-    let totalAttempted = totalCorrect + categoryStats["command-of-evidence"].incorrect;
+    let totalCorrect = categoryStats["act-conventions-of-standard-english"].correct;
+    let totalAttempted = totalCorrect + categoryStats["act-conventions-of-standard-english"].incorrect;
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
@@ -561,31 +574,39 @@ function showFinalScore() {
     `;
     const finalScoreElement = document.getElementById('final-score');
     if (finalScoreElement) finalScoreElement.classList.add('hide');
+
+    // Debug storage
+    console.log("Stored lessonCompletions:", localStorage.getItem("lessonCompletions"));
+    console.log("Stored actTestResults:", localStorage.getItem("actTestResults"));
+    console.log("Stored lastActivity:", localStorage.getItem("lastActivity"));
+
     document.getElementById('continue-button').addEventListener('click', () => {
         saveLessonCompletion();
+        console.log("Redirecting to user profile after saving completion");
         window.location.href = 'https://www.brainjelli.com/user-profile.html';
     }, { once: true });
 
     recordTestResults();
 }
-
+// Record test results
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
-    let storedResults = localStorage.getItem("satTestResults");
+    let storedResults = localStorage.getItem("actTestResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
     for (let category in categoryStats) {
         if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
         results[category].correct += categoryStats[category].correct || 0;
         results[category].incorrect += categoryStats[category].incorrect || 0;
     }
-    localStorage.setItem("satTestResults", JSON.stringify(results));
-    console.log("Final stored satTestResults:", results);
+    localStorage.setItem("actTestResults", JSON.stringify(results));
+    console.log("Final stored actTestResults:", results);
     for (let category in categoryStats) {
         categoryStats[category].correct = 0;
         categoryStats[category].incorrect = 0;
     }
 }
 
+// Log final score
 function logFinalScore(totalCorrect, totalAttempted) {
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     localStorage.setItem("finalScore", JSON.stringify({
@@ -597,15 +618,18 @@ function logFinalScore(totalCorrect, totalAttempted) {
     console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
 }
 
+// Save score
 function saveScore(lessonId, score) {
-    localStorage.setItem(`command-of-evidence-lessonScore-${lessonId}`, score);
-    console.log(`Saved command-of-evidence-lessonScore-${lessonId}: ${score}`);
+    localStorage.setItem(`act-conventions-of-standard-english-lessonScore-${lessonId}`, score);
+    console.log(`Saved act-conventions-of-standard-english-lessonScore-${lessonId}: ${score}`);
 }
 
+// Get score
 function getScore(lessonId) {
-    return localStorage.getItem(`command-of-evidence-lessonScore-${lessonId}`) || "Not completed yet";
+    return localStorage.getItem(`act-conventions-of-standard-english-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
+// Show score on page load
 function showScore() {
     const scoreDisplay = document.getElementById('score-display');
     if (scoreDisplay) {
@@ -614,11 +638,4 @@ function showScore() {
     } else {
         console.log("Score display element not found, skipping showScore");
     }
-}
-
-function nextQuizItem() {
-    currentQuestionIndex++;
-    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
-    showNextQuizQuestion(quizQuestions);
 }
