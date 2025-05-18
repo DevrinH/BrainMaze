@@ -257,10 +257,7 @@ const experimentalDesignQuestions = [
 ];
 // lesson-problem-solving-and-data.js
 
-// lesson-problem-solving-and-data.js
-
-// lesson-problem-solving-and-data.js
-
+// Define global variables
 let categoryStats = {
     "problem-solving-and-data": { correct: 0, incorrect: 0 }
 };
@@ -271,6 +268,10 @@ let progressSteps = 0;
 let totalSteps = 0; // Will be set dynamically in startLesson
 let isQuizPhase = false; // New flag to track quiz phase
 let showingQuizTransition = false; // New flag for quiz transition
+
+
+
+// ... (unitRateQuestions, growthQuestions, dataInterpretationQuestions, statisticsQuestions, probabilityQuestions, twoWayTableQuestions, experimentalDesignQuestions remain unchanged)
 
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
@@ -367,9 +368,6 @@ function showContent() {
     }
 }
 
-// ... (previous code remains unchanged until selectAnswer)
-
-// Ensure selectAnswer uses the updated category name
 function selectAnswer(selectedBtn, item) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
@@ -398,7 +396,6 @@ function selectAnswer(selectedBtn, item) {
     submitButton.addEventListener('click', nextContent, { once: true });
 }
 
-// Remove the duplicate selectQuizAnswer and keep only the updated version
 function selectQuizAnswer(selectedBtn, question, quizQuestions) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
@@ -430,8 +427,6 @@ function selectQuizAnswer(selectedBtn, question, quizQuestions) {
     }, { once: true });
 }
 
-// ... (rest of the script remains unchanged)
-
 function nextContent() {
     currentContentIndex++;
     console.log("nextContent called, currentContentIndex:", currentContentIndex);
@@ -440,7 +435,6 @@ function nextContent() {
     } else if (!showingQuizTransition) {
         showQuizTransition();
     }
-    // If showingQuizTransition is true, the Next button on transition will call showQuiz
 }
 
 function showQuizTransition() {
@@ -525,37 +519,6 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
-function selectQuizAnswer(selectedBtn, question, quizQuestions) {
-    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
-    const submitButton = document.getElementById('submit-answer');
-    const mathContainer = document.getElementById('math-container');
-
-    answerButtons.forEach(btn => {
-        btn.disabled = true;
-        if (btn.dataset.correct === "true") {
-            btn.classList.add("correct");
-        }
-    });
-
-    if (selectedBtn.dataset.correct === "true") {
-        selectedBtn.classList.add("correct");
-        categoryStats[question.category].correct++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-        categoryStats[question.category].incorrect++;
-        const explanationDiv = document.createElement("div");
-        explanationDiv.classList.add("explanation");
-        explanationDiv.innerHTML = question.explanation;
-        mathContainer.appendChild(explanationDiv);
-    }
-
-    submitButton.style.display = 'inline-block';
-    submitButton.addEventListener('click', () => {
-        currentContentIndex++;
-        showNextQuizQuestion(quizQuestions);
-    }, { once: true });
-}
-
 function logFinalScore(totalCorrect, totalAttempted) {
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     localStorage.setItem("finalScore", JSON.stringify({
@@ -618,13 +581,10 @@ function recordTestResults() {
         categoryStats[category].incorrect = 0;
     }
 }
+
 function saveScore(lessonId, score) {
     localStorage.setItem(`problem-solving-and-data-lessonScore-${lessonId}`, score);
     console.log(`Saved problem-solving-and-data-lessonScore-${lessonId}: ${score}`);
-}
-
-function getScore(lessonId) {
-    return localStorage.getItem(`problem-solving-and-data-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
 function getScore(lessonId) {
@@ -641,5 +601,3 @@ function showScore() {
         console.warn("Score display element not found; skipping score display.");
     }
 }
-// Define lessons and quiz question arrays here (already provided in your code)
-// ... (lessons, ratioQuestions, unitRateQuestions, etc.)
