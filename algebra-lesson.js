@@ -2519,19 +2519,11 @@ const lessons = {
     
     function showFinalScore() {
         console.log("Running showFinalScore for lesson:", currentLesson);
-        let totalCorrect = 0;
-        let totalAttempted = 0;
-    
-        for (let category in categoryStats) {
-            totalCorrect += categoryStats[category].correct;
-            totalAttempted += categoryStats[category].correct + categoryStats[category].incorrect;
-        }
-    
-        logFinalScore(totalCorrect, totalAttempted);
+        let totalCorrect = categoryStats["algebra"].correct;
+        let totalAttempted = totalCorrect + categoryStats["algebra"].incorrect;
     
         const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
         const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-        console.log("Saving score:", score);
         saveScore(currentLesson, score);
     
         const finalScoreElement = document.getElementById('final-score');
@@ -2545,6 +2537,9 @@ const lessons = {
             <button id="continue-button" class="continue-btn">Continue</button>
         `;
         document.getElementById('continue-button').addEventListener('click', () => {
+            // Set lastActivity to ensure SAT lessons toggle is shown
+            localStorage.setItem("lastActivity", JSON.stringify({ exam: "SAT", type: "lesson" }));
+            console.log("Set lastActivity to SAT lesson before redirect");
             window.location.href = 'https://www.brainjelli.com/user-profile.html';
         }, { once: true });
     
