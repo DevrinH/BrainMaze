@@ -25,177 +25,184 @@ const lessons = {
             {
                 type: "example",
                 title: "Example 1: Word Choice (Precision)",
+                passage: "A recent study described the scientist’s discovery as a major breakthrough because it transformed the field of biology.",
                 content: `
                     <h2>Example 1: Word Choice (Precision)</h2>
-                    <p>Passage: The scientist’s discovery was (good/amazing) because it changed the field.</p>
-                    <p>Question: Which word is more precise?</p>
-                    <p>Step 1: Evaluate context: The discovery changed the field, suggesting a significant impact.</p>
-                    <p>Step 2: Apply rule: Choose words that convey specific meaning. "Amazing" suggests awe-inspiring impact, while "good" is vague.</p>
-                    <p>Solution: The correct word is "amazing." The scientist’s discovery was amazing because it changed the field.</p>
+                    <p>Question: In the passage, which word could replace "major" to be more precise?</p>
+                    <p>Step 1: Evaluate context: The discovery "transformed the field," suggesting significant impact.</p>
+                    <p>Step 2: Apply rule: Choose precise words. "Groundbreaking" conveys a specific, transformative impact, while "major" is vague.</p>
+                    <p>Solution: Replace "major" with "groundbreaking." The discovery was groundbreaking.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: The chef created a (nice/delicious) dish for the guests. Which word is more precise?",
+                passage: "The chef’s new dish was described as very good by critics, delighting guests at the event.",
+                question: "Which word could replace 'very good' to be more precise?",
                 options: [
                     { text: "A) delicious", correct: true },
                     { text: "B) nice", correct: false },
                     { text: "C) great", correct: false },
                     { text: "D) fine", correct: false }
                 ],
-                explanation: "The word 'delicious' specifically describes the dish’s taste, making A correct."
+                explanation: "'Delicious' specifically describes the dish’s taste, making A correct."
             },
             {
                 type: "example",
                 title: "Example 2: Tone Consistency",
+                passage: "The academic journal’s analysis was rigorous, but its conclusion was described as totally off-base.",
                 content: `
                     <h2>Example 2: Tone Consistency</h2>
-                    <p>Passage: The report thoroughly analyzes the data but then it (totally messes up/goes awry) in the conclusion.</p>
-                    <p>Question: Which phrase matches the formal tone?</p>
-                    <p>Step 1: Identify tone: The report is formal ("thoroughly analyzes").</p>
-                    <p>Step 2: Apply rule: Maintain consistent tone. "Goes awry" is formal, while "totally messes up" is informal.</p>
-                    <p>Solution: The correct phrase is "goes awry." The report thoroughly analyzes the data but then it goes awry in the conclusion.</p>
+                    <p>Question: Which phrase in the passage matches the formal tone of 'rigorous'?</p>
+                    <p>Step 1: Identify tone: 'Rigorous' suggests a formal, scholarly style.</p>
+                    <p>Step 2: Apply rule: Maintain consistent tone. 'Erroneous' is formal, while 'totally off-base' is informal.</p>
+                    <p>Solution: Replace 'totally off-base' with 'erroneous.' The conclusion was erroneous.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: The lecture was insightful, but the speaker (blew it/faltered) during the Q&A. Which word matches the formal tone?",
+                passage: "The lecture was insightful, but the speaker’s delivery was said to be a total flop by attendees.",
+                question: "Which word maintains the formal tone of 'insightful'?",
                 options: [
                     { text: "A) faltered", correct: true },
-                    { text: "B) blew it", correct: false },
+                    { text: "B) total flop", correct: false },
                     { text: "C) messed up", correct: false },
-                    { text: "D) flopped", correct: false }
+                    { text: "D) bombed", correct: false }
                 ],
-                explanation: "The word 'faltered' maintains the formal tone of 'insightful,' making A correct."
+                explanation: "'Faltered' matches the formal tone of 'insightful,' making A correct."
             },
             {
                 type: "example",
                 title: "Example 3: Transitions",
+                passage: "The experiment failed to produce results. The team learned valuable lessons that informed future research.",
                 content: `
                     <h2>Example 3: Transitions</h2>
-                    <p>Passage: The experiment failed. (However/And) the team learned valuable lessons.</p>
-                    <p>Question: Which transition is appropriate?</p>
+                    <p>Question: Which transition best connects the two sentences in the passage?</p>
                     <p>Step 1: Analyze relationship: The second sentence contrasts the failure with a positive outcome.</p>
-                    <p>Step 2: Apply rule: Use contrast transitions (e.g., "however") for opposing ideas.</p>
-                    <p>Solution: The correct transition is "however." The experiment failed. However, the team learned valuable lessons.</p>
+                    <p>Step 2: Apply rule: Use contrast transitions like 'however' for opposing ideas.</p>
+                    <p>Solution: Add 'However,' after the first sentence: The experiment failed. However, the team learned valuable lessons.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: The project was behind schedule. (Thus/Still) the team met the deadline. Which transition is appropriate?",
+                passage: "The project fell behind schedule. The team still met the final deadline.",
+                question: "Which transition best connects the sentences?",
                 options: [
-                    { text: "A) Still", correct: true },
+                    { text: "A) Nevertheless", correct: true },
                     { text: "B) Thus", correct: false },
                     { text: "C) And", correct: false },
                     { text: "D) So", correct: false }
                 ],
-                explanation: "The second sentence contrasts the delay with success, so 'still' is correct, making A the answer."
+                explanation: "'Nevertheless' highlights the contrast between delay and success, making A correct."
             },
             {
                 type: "example",
                 title: "Example 4: Conciseness",
+                passage: "The meeting was planned to occur at 3 p.m. in the afternoon at the conference center.",
                 content: `
                     <h2>Example 4: Conciseness</h2>
-                    <p>Passage: The meeting was scheduled to take place at 2 p.m. in the afternoon.</p>
-                    <p>Question: How can this sentence be made more concise?</p>
-                    <p>Step 1: Identify redundancy: "2 p.m." already implies "in the afternoon."</p>
-                    <p>Step 2: Apply rule: Remove redundant phrases to make sentences concise.</p>
-                    <p>Solution: The concise version is: The meeting was scheduled for 2 p.m.</p>
+                    <p>Question: How can the sentence be made more concise?</p>
+                    <p>Step 1: Identify redundancy: '3 p.m.' implies 'in the afternoon,' and 'at the conference center' may be unnecessary.</p>
+                    <p>Step 2: Apply rule: Remove redundant phrases.</p>
+                    <p>Solution: The meeting was planned for 3 p.m.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: She returned back to her hometown last summer. How can this sentence be made more concise?",
+                passage: "She returned back to her hometown in the month of July last year.",
+                question: "How can the sentence be made more concise?",
                 options: [
-                    { text: "A) She returned to her hometown last summer.", correct: true },
-                    { text: "B) She went back to her hometown last summer.", correct: false },
-                    { text: "C) She returned back home last summer.", correct: false },
-                    { text: "D) She returned to her hometown.", correct: false }
+                    { text: "A) She returned to her hometown in July.", correct: true },
+                    { text: "B) She went back to her hometown last year.", correct: false },
+                    { text: "C) She returned back home in July.", correct: false },
+                    { text: "D) She returned to her hometown last year.", correct: false }
                 ],
-                explanation: "The word 'back' is redundant with 'returned,' so A is the most concise and correct."
+                explanation: "'Back' and 'in the month of' are redundant; A is the most concise."
             },
             {
                 type: "example",
                 title: "Example 5: Word Choice (Context)",
+                passage: "The politician’s decision to ignore scientific evidence was considered unwise by analysts.",
                 content: `
                     <h2>Example 5: Word Choice (Context)</h2>
-                    <p>Passage: The politician’s decision to ignore the evidence was (unwise/stubborn).</p>
-                    <p>Question: Which word best fits the context?</p>
-                    <p>Step 1: Analyze context: Ignoring evidence suggests a refusal to consider facts.</p>
-                    <p>Step 2: Apply rule: Choose the word that matches the behavior. "Stubborn" implies refusal, while "unwise" is broader.</p>
-                    <p>Solution: The correct word is "stubborn." The politician’s decision to ignore the evidence was stubborn.</p>
+                    <p>Question: Which word better fits the context to replace 'unwise'?</p>
+                    <p>Step 1: Analyze context: Ignoring evidence suggests deliberate refusal.</p>
+                    <p>Step 2: Apply rule: Choose a word matching the behavior. 'Obstinate' implies stubborn refusal, while 'unwise' is broader.</p>
+                    <p>Solution: Replace 'unwise' with 'obstinate.' The decision was obstinate.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: The athlete’s effort to continue despite injury was (brave/risky). Which word best fits the context?",
+                passage: "The athlete continued competing despite a serious injury, an effort called risky by coaches.",
+                question: "Which word best replaces 'risky' in this context?",
                 options: [
-                    { text: "A) brave", correct: true },
-                    { text: "B) risky", correct: false },
+                    { text: "A) courageous", correct: true },
+                    { text: "B) reckless", correct: false },
                     { text: "C) foolish", correct: false },
                     { text: "D) bold", correct: false }
                 ],
-                explanation: "Continuing despite injury suggests courage, so 'brave' is the best fit, making A correct."
+                explanation: "Continuing despite injury suggests bravery; 'courageous' fits best, making A correct."
             },
             {
                 type: "example",
                 title: "Example 6: Style Consistency",
+                passage: "The novel’s prose was described as elegant and refined, but its dialogue was super chill.",
                 content: `
                     <h2>Example 6: Style Consistency</h2>
-                    <p>Passage: The novel’s prose is elegant and sophisticated, but the dialogue is (super casual/relaxed).</p>
-                    <p>Question: Which phrase maintains the style?</p>
-                    <p>Step 1: Identify style: The prose is described as "elegant and sophisticated."</p>
-                    <p>Step 2: Apply rule: Dialogue should match the novel’s refined style. "Relaxed" is neutral, while "super casual" is informal.</p>
-                    <p>Solution: The correct phrase is "relaxed." The novel’s prose is elegant and sophisticated, but the dialogue is relaxed.</p>
+                    <p>Question: Which phrase maintains the style of 'elegant and refined'?</p>
+                    <p>Step 1: Identify style: 'Elegant and refined' suggests a formal tone.</p>
+                    <p>Step 2: Apply rule: Match the style. 'Conversational' is neutral, while 'super chill' is informal.</p>
+                    <p>Solution: Replace 'super chill' with 'conversational.' The dialogue was conversational.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: The article’s analysis is rigorous, but its conclusion is (kinda weak/somewhat tentative). Which phrase matches the style?",
+                passage: "The article’s analysis was meticulous, but its conclusion was described as kinda shaky.",
+                question: "Which phrase matches the style of 'meticulous'?",
                 options: [
-                    { text: "A) somewhat tentative", correct: true },
-                    { text: "B) kinda weak", correct: false },
+                    { text: "A) somewhat uncertain", correct: true },
+                    { text: "B) kinda shaky", correct: false },
                     { text: "C) totally off", correct: false },
-                    { text: "D) pretty vague", correct: false }
+                    { text: "D) pretty weak", correct: false }
                 ],
-                explanation: "The rigorous analysis requires a formal style, so 'somewhat tentative' fits best, making A correct."
+                explanation: "'Somewhat uncertain' maintains the formal style of 'meticulous,' making A correct."
             },
             {
                 type: "example",
                 title: "Example 7: Avoiding Redundancy",
+                passage: "The project was entirely completed and fully finished by the deadline.",
                 content: `
                     <h2>Example 7: Avoiding Redundancy</h2>
-                    <p>Passage: The plan was completely finished and entirely done.</p>
-                    <p>Question: How can this sentence be improved?</p>
-                    <p>Step 1: Identify redundancy: "Completely finished" and "entirely done" repeat the same idea.</p>
-                    <p>Step 2: Apply rule: Use one clear term to avoid redundancy.</p>
-                    <p>Solution: The improved sentence is: The plan was finished.</p>
+                    <p>Question: How can the sentence be improved?</p>
+                    <p>Step 1: Identify redundancy: 'Entirely completed' and 'fully finished' repeat the same idea.</p>
+                    <p>Step 2: Apply rule: Use one clear term.</p>
+                    <p>Solution: The project was completed by the deadline.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: The event was absolutely essential and totally necessary. How can this sentence be improved?",
+                passage: "The event was absolutely critical and completely necessary for success.",
+                question: "How can the sentence be improved?",
                 options: [
-                    { text: "A) The event was essential.", correct: true },
+                    { text: "A) The event was critical for success.", correct: true },
                     { text: "B) The event was absolutely necessary.", correct: false },
-                    { text: "C) The event was totally essential.", correct: false },
-                    { text: "D) The event was necessary and essential.", correct: false }
+                    { text: "C) The event was completely critical.", correct: false },
+                    { text: "D) The event was necessary and critical.", correct: false }
                 ],
-                explanation: "The phrases 'absolutely essential' and 'totally necessary' are redundant, so 'essential' alone is best, making A correct."
+                explanation: "'Absolutely critical' and 'completely necessary' are redundant; 'critical' alone is sufficient, making A correct."
             }
         ]
     }
@@ -204,86 +211,93 @@ const lessons = {
 // ACT English question array
 const englishQuestions = [
     {
-        question: "Passage: The author’s argument was (compelling/okay) due to strong evidence. Which word is more precise?",
+        passage: "A critic described the author’s argument as okay because it was supported by strong evidence.",
+        question: "Which word could replace 'okay' to be more precise?",
         answers: [
-            { text: "A) compelling", correct: true },
-            { text: "B) okay", correct: false },
-            { text: "C) nice", correct: false },
-            { text: "D) good", correct: false }
+            { text: "A) persuasive", correct: true },
+            { text: "B) nice", correct: false },
+            { text: "C) good", correct: false },
+            { text: "D) fine", correct: false }
         ],
-        explanation: "The word 'compelling' conveys strong persuasion, fitting the context of strong evidence, making A correct.",
+        explanation: "'Persuasive' conveys the strength of the argument’s evidence, making A correct.",
         difficulty: "easy",
         category: "act-knowledge-of-language"
     },
     {
-        question: "Passage: The presentation was detailed, but the speaker (bombed/stumbled) in delivery. Which word matches the formal tone?",
+        passage: "The presentation was thorough, but the speaker’s closing remarks were said to have totally bombed.",
+        question: "Which word maintains the formal tone of 'thorough'?",
         answers: [
             { text: "A) stumbled", correct: true },
-            { text: "B) bombed", correct: false },
+            { text: "B) totally bombed", correct: false },
             { text: "C) flopped", correct: false },
             { text: "D) crashed", correct: false }
         ],
-        explanation: "The formal tone of 'detailed' is maintained by 'stumbled,' making A correct.",
+        explanation: "'Stumbled' matches the formal tone of 'thorough,' making A correct.",
         difficulty: "medium",
         category: "act-knowledge-of-language"
     },
     {
-        question: "Passage: The team lost the game. (Nevertheless/Also) they showed great spirit. Which transition is appropriate?",
+        passage: "The team missed the deadline. They delivered a high-quality product.",
+        question: "Which transition best connects the sentences?",
         answers: [
-            { text: "A) Nevertheless", correct: true },
+            { text: "A) Yet", correct: true },
             { text: "B) Also", correct: false },
             { text: "C) And", correct: false },
             { text: "D) So", correct: false }
         ],
-        explanation: "The contrast between losing and showing spirit requires 'nevertheless,' making A correct.",
+        explanation: "'Yet' contrasts the missed deadline with the positive outcome, making A correct.",
         difficulty: "medium",
         category: "act-knowledge-of-language"
     },
     {
-        question: "Passage: The company will expand its operations in the near future soon. How can this sentence be made more concise?",
+        passage: "The company plans to expand its operations in the near future very soon.",
+        question: "How can the sentence be made more concise?",
         answers: [
-            { text: "A) The company will expand its operations soon.", correct: true },
+            { text: "A) The company plans to expand soon.", correct: true },
             { text: "B) The company will expand in the future.", correct: false },
-            { text: "C) The company will expand operations soon.", correct: false },
+            { text: "C) The company plans to expand very soon.", correct: false },
             { text: "D) The company will expand its operations.", correct: false }
         ],
-        explanation: "The phrase 'in the near future soon' is redundant; 'soon' is concise and sufficient, making A correct.",
+        explanation: "'In the near future very soon' is redundant; 'soon' is concise, making A correct.",
         difficulty: "easy",
         category: "act-knowledge-of-language"
     },
     {
-        question: "Passage: The researcher’s refusal to revise was (careless/stubborn). Which word best fits the context?",
+        passage: "The manager’s refusal to adapt to new technology was called careless by the team.",
+        question: "Which word best replaces 'careless' in this context?",
         answers: [
-            { text: "A) stubborn", correct: true },
-            { text: "B) careless", correct: false },
+            { text: "A) inflexible", correct: true },
+            { text: "B) negligent", correct: false },
             { text: "C) unwise", correct: false },
             { text: "D) reckless", correct: false }
         ],
-        explanation: "Refusing to revise suggests inflexibility, so 'stubborn' is the best fit, making A correct.",
+        explanation: "Refusing to adapt suggests rigidity; 'inflexible' fits best, making A correct.",
         difficulty: "medium",
         category: "act-knowledge-of-language"
     },
     {
-        question: "Passage: The essay’s tone is academic, but its examples are (way too chill/slightly informal). Which phrase matches the style?",
+        passage: "The essay’s tone was scholarly, but its examples were described as way too casual.",
+        question: "Which phrase matches the style of 'scholarly'?",
         answers: [
             { text: "A) slightly informal", correct: true },
-            { text: "B) way too chill", correct: false },
+            { text: "B) way too casual", correct: false },
             { text: "C) super relaxed", correct: false },
-            { text: "D) totally casual", correct: false }
+            { text: "D) totally laid-back", correct: false }
         ],
-        explanation: "The academic tone requires a formal style, so 'slightly informal' fits best, making A correct.",
+        explanation: "'Slightly informal' aligns with the formal 'scholarly' tone, making A correct.",
         difficulty: "medium",
         category: "act-knowledge-of-language"
     },
     {
-        question: "Passage: The task was fully completed and entirely done. How can this sentence be improved?",
+        passage: "The task was fully completed and entirely finished by the team.",
+        question: "How can the sentence be improved?",
         answers: [
             { text: "A) The task was completed.", correct: true },
-            { text: "B) The task was fully done.", correct: false },
+            { text: "B) The task was fully finished.", correct: false },
             { text: "C) The task was entirely completed.", correct: false },
             { text: "D) The task was done and completed.", correct: false }
         ],
-        explanation: "The phrases 'fully completed' and 'entirely done' are redundant; 'completed' alone is sufficient, making A correct.",
+        explanation: "'Fully completed' and 'entirely finished' are redundant; 'completed' is sufficient, making A correct.",
         difficulty: "easy",
         category: "act-knowledge-of-language"
     }
@@ -342,10 +356,10 @@ function showItem() {
         lessonContent.innerHTML = '';
         if (item.type === "example") {
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${extractPassage(item.content)}</div>
+                <div class="question-row reading-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.content.replace(extractPassage(item.content), '')}</div>
+                        <div class="question-text">${item.content}</div>
                     </div>
                 </div>
             `;
@@ -357,12 +371,11 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row reading-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
                         <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                     </div>
@@ -386,7 +399,7 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (for compatibility, though not used)
 function extractPassage(content) {
     const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
     return passageMatch ? passageMatch[0] : "";
@@ -494,12 +507,11 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row reading-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
                     <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
