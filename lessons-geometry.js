@@ -98,7 +98,7 @@ const lessons = {
         ]
     },
     5: {
-        title: "Coordinate Geometry",
+        title: "Coordinate geometry-and-trigonometry",
         content: [
             { type: "example", content: "<h2>Example 1: Distance</h2><p>Find the distance between (2, 3) and (5, 7).</p><p>d = √((5 - 2)² + (7 - 3)²) = √(9 + 16) = 5.</p><p>Answer: 5</p>" },
             { type: "question", title: "Question 1", question: "What is the distance between (0, 0) and (3, 4)?", options: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 3", correct: false }, { text: "D) 6", correct: false }], explanation: "d = √(3² + 4²) = √25 = 5." },
@@ -117,7 +117,7 @@ const lessons = {
         ]
     },
     6: {
-        title: "3D Geometry (Solids)",
+        title: "3D geometry-and-trigonometry (Solids)",
         content: [
             { type: "example", content: "<h2>Example 1: Cube Volume</h2><p>A cube has a side length of 4. Find its volume.</p><p>V = 4³ = 64.</p><p>Answer: 64</p>" },
             { type: "question", title: "Question 1", question: "What is the volume of a sphere with radius 3?", options: [{ text: "A) 36π", correct: true }, { text: "B) 27π", correct: false }, { text: "C) 9π", correct: false }, { text: "D) 108π", correct: false }], explanation: "V = (4/3)π(3)³ = 36π." },
@@ -175,97 +175,99 @@ const lessons = {
     }
 };
 
-// Geometry question arrays
-// Geometry question arrays
+// geometry-and-trigonometry question arrays
+// geometry-and-trigonometry question arrays
 const linesAnglesQuestions = [
     { question: "Two angles are supplementary, and one is 75°. What is the other angle?", 
         answers: [{ text: "A) 105°", correct: true }, { text: "B) 115°", correct: false }, { text: "C) 95°", correct: false }, { text: "D) 85°", correct: false }], 
         explanation: "Supplementary angles sum to 180°. 180° - 75° = 105°.", 
-        difficulty: "easy", category: "geometry" },
+        difficulty: "easy", category: "geometry-and-trigonometry" },
     { question: "Two angles are complementary, and one is 40°. What is the other angle?", 
-        answers: [{ text: "A) 50°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 40°", correct: false }, { text: "D) 30°", correct: false }], explanation: "Complementary angles sum to 90°. 90° - 40° = 50°.", difficulty: "easy", category: "geometry" },
-    { question: "If two parallel lines are cut by a transversal and a corresponding angle is 80°, what is another corresponding angle?", answers: [{ text: "A) 80°", correct: true }, { text: "B) 100°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 110°", correct: false }], explanation: "Corresponding angles are equal. Thus, it’s 80°.", difficulty: "easy", category: "geometry" },
-    { question: "Vertical angles are formed by two intersecting lines. If one is 65°, what is the other?", answers: [{ text: "A) 65°", correct: true }, { text: "B) 115°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 25°", correct: false }], explanation: "Vertical angles are equal. Thus, it’s 65°.", difficulty: "medium", category: "geometry" },
-    { question: "If two parallel lines are cut by a transversal and an alternate interior angle is 120°, what is the other?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Alternate interior angles are equal. Thus, it’s 120°.", difficulty: "medium", category: "geometry" },
-    { question: "An angle is 3 times its supplement. What is the angle?", answers: [{ text: "A) 135°", correct: true }, { text: "B) 45°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 60°", correct: false }], explanation: "Let angle = x, supplement = 180° - x. Then, x = 3(180° - x), x = 540° - 3x, 4x = 540°, x = 135°.", difficulty: "hard", category: "geometry" },
-    { question: "If a transversal crosses parallel lines and a same-side interior angle is 130°, what is the other?", answers: [{ text: "A) 50°", correct: true }, { text: "B) 130°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Same-side interior angles sum to 180°. 180° - 130° = 50°.", difficulty: "medium", category: "geometry" }
+        answers: [{ text: "A) 50°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 40°", correct: false }, { text: "D) 30°", correct: false }], explanation: "Complementary angles sum to 90°. 90° - 40° = 50°.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "If two parallel lines are cut by a transversal and a corresponding angle is 80°, what is another corresponding angle?", answers: [{ text: "A) 80°", correct: true }, { text: "B) 100°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 110°", correct: false }], explanation: "Corresponding angles are equal. Thus, it’s 80°.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "Vertical angles are formed by two intersecting lines. If one is 65°, what is the other?", answers: [{ text: "A) 65°", correct: true }, { text: "B) 115°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 25°", correct: false }], explanation: "Vertical angles are equal. Thus, it’s 65°.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "If two parallel lines are cut by a transversal and an alternate interior angle is 120°, what is the other?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Alternate interior angles are equal. Thus, it’s 120°.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "An angle is 3 times its supplement. What is the angle?", answers: [{ text: "A) 135°", correct: true }, { text: "B) 45°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 60°", correct: false }], explanation: "Let angle = x, supplement = 180° - x. Then, x = 3(180° - x), x = 540° - 3x, 4x = 540°, x = 135°.", difficulty: "hard", category: "geometry-and-trigonometry" },
+    { question: "If a transversal crosses parallel lines and a same-side interior angle is 130°, what is the other?", answers: [{ text: "A) 50°", correct: true }, { text: "B) 130°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Same-side interior angles sum to 180°. 180° - 130° = 50°.", difficulty: "medium", category: "geometry-and-trigonometry" }
 ];
 
 const trianglesQuestions = [
-    { question: "In a triangle, two angles are 30° and 70°. What is the third angle?", answers: [{ text: "A) 80°", correct: true }, { text: "B) 90°", correct: false }, { text: "C) 70°", correct: false }, { text: "D) 60°", correct: false }], explanation: "180° - (30° + 70°) = 80°.", difficulty: "easy", category: "geometry" },
-    { question: "In a right triangle, one leg is 5 and the hypotenuse is 13. What is the other leg?", answers: [{ text: "A) 12", correct: true }, { text: "B) 10", correct: false }, { text: "C) 8", correct: false }, { text: "D) 6", correct: false }], explanation: "5² + b² = 13² → 25 + b² = 169 → b² = 144 → b = 12.", difficulty: "medium", category: "geometry" },
-    { question: "An isosceles triangle has a base angle of 70°. What is the vertex angle?", answers: [{ text: "A) 40°", correct: true }, { text: "B) 70°", correct: false }, { text: "C) 110°", correct: false }, { text: "D) 50°", correct: false }], explanation: "Base angles are equal, so 180° - (70° + 70°) = 40°.", difficulty: "easy", category: "geometry" },
-    { question: "In a triangle, angles are in the ratio 1:2:3. What is the largest angle?", answers: [{ text: "A) 90°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 120°", correct: false }, { text: "D) 45°", correct: false }], explanation: "1x + 2x + 3x = 180°, 6x = 180°, x = 30°, largest = 3x = 90°.", difficulty: "medium", category: "geometry" },
-    { question: "A triangle has sides 7, 8, and 10. Is it a right triangle?", answers: [{ text: "A) No", correct: true }, { text: "B) Yes", correct: false }, { text: "C) Maybe", correct: false }, { text: "D) Not enough info", correct: false }], explanation: "7² + 8² = 49 + 64 = 113 ≠ 100 = 10².", difficulty: "medium", category: "geometry" },
-    { question: "In an equilateral triangle, what is each angle?", answers: [{ text: "A) 60°", correct: true }, { text: "B) 90°", correct: false }, { text: "C) 45°", correct: false }, { text: "D) 120°", correct: false }], explanation: "All angles are equal, 180° ÷ 3 = 60°.", difficulty: "easy", category: "geometry" },
-    { question: "A right triangle has legs 9 and 12. What is the hypotenuse?", answers: [{ text: "A) 15", correct: true }, { text: "B) 13", correct: false }, { text: "C) 10", correct: false }, { text: "D) 18", correct: false }], explanation: "9² + 12² = 81 + 144 = 225 → √225 = 15.", difficulty: "hard", category: "geometry" }
+    { question: "In a triangle, two angles are 30° and 70°. What is the third angle?", answers: [{ text: "A) 80°", correct: true }, { text: "B) 90°", correct: false }, { text: "C) 70°", correct: false }, { text: "D) 60°", correct: false }], explanation: "180° - (30° + 70°) = 80°.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "In a right triangle, one leg is 5 and the hypotenuse is 13. What is the other leg?", answers: [{ text: "A) 12", correct: true }, { text: "B) 10", correct: false }, { text: "C) 8", correct: false }, { text: "D) 6", correct: false }], explanation: "5² + b² = 13² → 25 + b² = 169 → b² = 144 → b = 12.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "An isosceles triangle has a base angle of 70°. What is the vertex angle?", answers: [{ text: "A) 40°", correct: true }, { text: "B) 70°", correct: false }, { text: "C) 110°", correct: false }, { text: "D) 50°", correct: false }], explanation: "Base angles are equal, so 180° - (70° + 70°) = 40°.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "In a triangle, angles are in the ratio 1:2:3. What is the largest angle?", answers: [{ text: "A) 90°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 120°", correct: false }, { text: "D) 45°", correct: false }], explanation: "1x + 2x + 3x = 180°, 6x = 180°, x = 30°, largest = 3x = 90°.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "A triangle has sides 7, 8, and 10. Is it a right triangle?", answers: [{ text: "A) No", correct: true }, { text: "B) Yes", correct: false }, { text: "C) Maybe", correct: false }, { text: "D) Not enough info", correct: false }], explanation: "7² + 8² = 49 + 64 = 113 ≠ 100 = 10².", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "In an equilateral triangle, what is each angle?", answers: [{ text: "A) 60°", correct: true }, { text: "B) 90°", correct: false }, { text: "C) 45°", correct: false }, { text: "D) 120°", correct: false }], explanation: "All angles are equal, 180° ÷ 3 = 60°.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "A right triangle has legs 9 and 12. What is the hypotenuse?", answers: [{ text: "A) 15", correct: true }, { text: "B) 13", correct: false }, { text: "C) 10", correct: false }, { text: "D) 18", correct: false }], explanation: "9² + 12² = 81 + 144 = 225 → √225 = 15.", difficulty: "hard", category: "geometry-and-trigonometry" }
 ];
 
 const quadrilateralsPolygonsQuestions = [
-    { question: "What is the sum of interior angles in an octagon?", answers: [{ text: "A) 1080°", correct: true }, { text: "B) 900°", correct: false }, { text: "C) 720°", correct: false }, { text: "D) 1260°", correct: false }], explanation: "(8 - 2) × 180° = 6 × 180° = 1080°.", difficulty: "medium", category: "geometry" },
-    { question: "A rectangle has sides 9 and 12. What is its diagonal?", answers: [{ text: "A) 15", correct: true }, { text: "B) 13", correct: false }, { text: "C) 10", correct: false }, { text: "D) 18", correct: false }], explanation: "d² = 9² + 12² = 81 + 144 = 225 → d = 15.", difficulty: "medium", category: "geometry" },
-    { question: "In a parallelogram, one angle is 80°. What is an adjacent angle?", answers: [{ text: "A) 100°", correct: true }, { text: "B) 80°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 110°", correct: false }], explanation: "Adjacent angles are supplementary: 180° - 80° = 100°.", difficulty: "easy", category: "geometry" },
-    { question: "What is the sum of interior angles in a quadrilateral?", answers: [{ text: "A) 360°", correct: true }, { text: "B) 180°", correct: false }, { text: "C) 540°", correct: false }, { text: "D) 720°", correct: false }], explanation: "(4 - 2) × 180° = 360°.", difficulty: "easy", category: "geometry" },
-    { question: "A square has a side of 6. What is its diagonal?", answers: [{ text: "A) 6√2", correct: true }, { text: "B) 6", correct: false }, { text: "C) 12", correct: false }, { text: "D) 9", correct: false }], explanation: "d² = 6² + 6² = 72 → d = √72 = 6√2.", difficulty: "medium", category: "geometry" },
-    { question: "In a regular hexagon, what is each interior angle?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 90°", correct: false }, { text: "C) 135°", correct: false }, { text: "D) 108°", correct: false }], explanation: "(6 - 2) × 180° = 720°, 720° ÷ 6 = 120°.", difficulty: "medium", category: "geometry" },
-    { question: "A rhombus has a diagonal of 10 and a side of 13. What is the other diagonal?", answers: [{ text: "A) 24", correct: true }, { text: "B) 12", correct: false }, { text: "C) 15", correct: false }, { text: "D) 20", correct: false }], explanation: "Half diagonals form right triangle with side: 5² + b² = 13² → 25 + b² = 169 → b = 12, full diagonal = 24.", difficulty: "hard", category: "geometry" }
+    { question: "What is the sum of interior angles in an octagon?", answers: [{ text: "A) 1080°", correct: true }, { text: "B) 900°", correct: false }, { text: "C) 720°", correct: false }, { text: "D) 1260°", correct: false }], explanation: "(8 - 2) × 180° = 6 × 180° = 1080°.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "A rectangle has sides 9 and 12. What is its diagonal?", answers: [{ text: "A) 15", correct: true }, { text: "B) 13", correct: false }, { text: "C) 10", correct: false }, { text: "D) 18", correct: false }], explanation: "d² = 9² + 12² = 81 + 144 = 225 → d = 15.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "In a parallelogram, one angle is 80°. What is an adjacent angle?", answers: [{ text: "A) 100°", correct: true }, { text: "B) 80°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 110°", correct: false }], explanation: "Adjacent angles are supplementary: 180° - 80° = 100°.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "What is the sum of interior angles in a quadrilateral?", answers: [{ text: "A) 360°", correct: true }, { text: "B) 180°", correct: false }, { text: "C) 540°", correct: false }, { text: "D) 720°", correct: false }], explanation: "(4 - 2) × 180° = 360°.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "A square has a side of 6. What is its diagonal?", answers: [{ text: "A) 6√2", correct: true }, { text: "B) 6", correct: false }, { text: "C) 12", correct: false }, { text: "D) 9", correct: false }], explanation: "d² = 6² + 6² = 72 → d = √72 = 6√2.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "In a regular hexagon, what is each interior angle?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 90°", correct: false }, { text: "C) 135°", correct: false }, { text: "D) 108°", correct: false }], explanation: "(6 - 2) × 180° = 720°, 720° ÷ 6 = 120°.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "A rhombus has a diagonal of 10 and a side of 13. What is the other diagonal?", answers: [{ text: "A) 24", correct: true }, { text: "B) 12", correct: false }, { text: "C) 15", correct: false }, { text: "D) 20", correct: false }], explanation: "Half diagonals form right triangle with side: 5² + b² = 13² → 25 + b² = 169 → b = 12, full diagonal = 24.", difficulty: "hard", category: "geometry-and-trigonometry" }
 ];
 
 const circlesQuestions = [
-    { question: "A circle has a radius of 5. What is its area?", answers: [{ text: "A) 25π", correct: true }, { text: "B) 20π", correct: false }, { text: "C) 15π", correct: false }, { text: "D) 10π", correct: false }], explanation: "A = π(5)² = 25π.", difficulty: "easy", category: "geometry" },
-    { question: "A circle has a diameter of 12. What is its circumference?", answers: [{ text: "A) 12π", correct: true }, { text: "B) 6π", correct: false }, { text: "C) 24π", correct: false }, { text: "D) 36π", correct: false }], explanation: "C = πd = 12π.", difficulty: "easy", category: "geometry" },
-    { question: "A circle has a radius of 3. What is its circumference?", answers: [{ text: "A) 6π", correct: true }, { text: "B) 9π", correct: false }, { text: "C) 3π", correct: false }, { text: "D) 12π", correct: false }], explanation: "C = 2π(3) = 6π.", difficulty: "easy", category: "geometry" },
-    { question: "A circle’s area is 16π. What is its radius?", answers: [{ text: "A) 4", correct: true }, { text: "B) 8", correct: false }, { text: "C) 2", correct: false }, { text: "D) 16", correct: false }], explanation: "πr² = 16π → r² = 16 → r = 4.", difficulty: "medium", category: "geometry" },
-    { question: "A circle has a radius of 10 and a central angle of 90°. What is the arc length?", answers: [{ text: "A) 5π", correct: true }, { text: "B) 10π", correct: false }, { text: "C) 2.5π", correct: false }, { text: "D) 20π", correct: false }], explanation: "L = (90/360) × 2π(10) = (1/4) × 20π = 5π.", difficulty: "medium", category: "geometry" },
-    { question: "A sector has a radius of 6 and an area of 12π. What is the central angle?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Area = (θ/360) × π(6)² = 12π → (θ/360) × 36π = 12π → θ = 120°.", difficulty: "hard", category: "geometry" },
-    { question: "A circle’s circumference is 8π. What is its area?", answers: [{ text: "A) 16π", correct: true }, { text: "B) 8π", correct: false }, { text: "C) 4π", correct: false }, { text: "D) 64π", correct: false }], explanation: "C = 2πr = 8π → r = 4, A = π(4)² = 16π.", difficulty: "medium", category: "geometry" }
+    { question: "A circle has a radius of 5. What is its area?", answers: [{ text: "A) 25π", correct: true }, { text: "B) 20π", correct: false }, { text: "C) 15π", correct: false }, { text: "D) 10π", correct: false }], explanation: "A = π(5)² = 25π.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "A circle has a diameter of 12. What is its circumference?", answers: [{ text: "A) 12π", correct: true }, { text: "B) 6π", correct: false }, { text: "C) 24π", correct: false }, { text: "D) 36π", correct: false }], explanation: "C = πd = 12π.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "A circle has a radius of 3. What is its circumference?", answers: [{ text: "A) 6π", correct: true }, { text: "B) 9π", correct: false }, { text: "C) 3π", correct: false }, { text: "D) 12π", correct: false }], explanation: "C = 2π(3) = 6π.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "A circle’s area is 16π. What is its radius?", answers: [{ text: "A) 4", correct: true }, { text: "B) 8", correct: false }, { text: "C) 2", correct: false }, { text: "D) 16", correct: false }], explanation: "πr² = 16π → r² = 16 → r = 4.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "A circle has a radius of 10 and a central angle of 90°. What is the arc length?", answers: [{ text: "A) 5π", correct: true }, { text: "B) 10π", correct: false }, { text: "C) 2.5π", correct: false }, { text: "D) 20π", correct: false }], explanation: "L = (90/360) × 2π(10) = (1/4) × 20π = 5π.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "A sector has a radius of 6 and an area of 12π. What is the central angle?", answers: [{ text: "A) 120°", correct: true }, { text: "B) 60°", correct: false }, { text: "C) 90°", correct: false }, { text: "D) 180°", correct: false }], explanation: "Area = (θ/360) × π(6)² = 12π → (θ/360) × 36π = 12π → θ = 120°.", difficulty: "hard", category: "geometry-and-trigonometry" },
+    { question: "A circle’s circumference is 8π. What is its area?", answers: [{ text: "A) 16π", correct: true }, { text: "B) 8π", correct: false }, { text: "C) 4π", correct: false }, { text: "D) 64π", correct: false }], explanation: "C = 2πr = 8π → r = 4, A = π(4)² = 16π.", difficulty: "medium", category: "geometry-and-trigonometry" }
 ];
 
-const coordinateGeometryQuestions = [
-    { question: "What is the distance between (1, 2) and (4, 6)?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 3", correct: false }, { text: "D) 6", correct: false }], explanation: "d = √((4 - 1)² + (6 - 2)²) = √(3² + 4²) = √25 = 5.", difficulty: "medium", category: "geometry" },
-    { question: "What is the midpoint of (2, 3) and (6, 7)?", answers: [{ text: "A) (4, 5)", correct: true }, { text: "B) (2, 5)", correct: false }, { text: "C) (6, 3)", correct: false }, { text: "D) (3, 4)", correct: false }], explanation: "M = ((2 + 6)/2, (3 + 7)/2) = (4, 5).", difficulty: "easy", category: "geometry" },
-    { question: "What is the slope of the line through (1, 1) and (3, 5)?", answers: [{ text: "A) 2", correct: true }, { text: "B) 1", correct: false }, { text: "C) 3", correct: false }, { text: "D) 0", correct: false }], explanation: "m = (5 - 1) / (3 - 1) = 4 / 2 = 2.", difficulty: "easy", category: "geometry" },
-    { question: "What is the distance between (-2, 3) and (1, -1)?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 6", correct: false }, { text: "D) 3", correct: false }], explanation: "d = √((1 - (-2))² + (-1 - 3)²) = √(3² + (-4)²) = √25 = 5.", difficulty: "medium", category: "geometry" },
-    { question: "A line has slope 3 and passes through (1, 2). What is the y-coordinate at x = 3?", answers: [{ text: "A) 8", correct: true }, { text: "B) 6", correct: false }, { text: "C) 5", correct: false }, { text: "D) 10", correct: false }], explanation: "y - 2 = 3(x - 1) → y = 3x - 1, at x = 3: y = 9 - 1 = 8.", difficulty: "medium", category: "geometry" },
-    { question: "What is the slope of a line perpendicular to y = 2x + 1?", answers: [{ text: "A) -1/2", correct: true }, { text: "B) 2", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) -2", correct: false }], explanation: "Slope = 2, perpendicular slope = -1/2.", difficulty: "medium", category: "geometry" },
-    { question: "What is the midpoint of (-4, -2) and (2, 6)?", answers: [{ text: "A) (-1, 2)", correct: true }, { text: "B) (0, 0)", correct: false }, { text: "C) (-2, 4)", correct: false }, { text: "D) (1, 3)", correct: false }], explanation: "M = ((-4 + 2)/2, (-2 + 6)/2) = (-1, 2).", difficulty: "hard", category: "geometry" }
+const coordinategeometryQuestions = [
+    { question: "What is the distance between (1, 2) and (4, 6)?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 3", correct: false }, { text: "D) 6", correct: false }], explanation: "d = √((4 - 1)² + (6 - 2)²) = √(3² + 4²) = √25 = 5.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "What is the midpoint of (2, 3) and (6, 7)?", answers: [{ text: "A) (4, 5)", correct: true }, { text: "B) (2, 5)", correct: false }, { text: "C) (6, 3)", correct: false }, { text: "D) (3, 4)", correct: false }], explanation: "M = ((2 + 6)/2, (3 + 7)/2) = (4, 5).", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "What is the slope of the line through (1, 1) and (3, 5)?", answers: [{ text: "A) 2", correct: true }, { text: "B) 1", correct: false }, { text: "C) 3", correct: false }, { text: "D) 0", correct: false }], explanation: "m = (5 - 1) / (3 - 1) = 4 / 2 = 2.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "What is the distance between (-2, 3) and (1, -1)?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 6", correct: false }, { text: "D) 3", correct: false }], explanation: "d = √((1 - (-2))² + (-1 - 3)²) = √(3² + (-4)²) = √25 = 5.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "A line has slope 3 and passes through (1, 2). What is the y-coordinate at x = 3?", answers: [{ text: "A) 8", correct: true }, { text: "B) 6", correct: false }, { text: "C) 5", correct: false }, { text: "D) 10", correct: false }], explanation: "y - 2 = 3(x - 1) → y = 3x - 1, at x = 3: y = 9 - 1 = 8.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "What is the slope of a line perpendicular to y = 2x + 1?", answers: [{ text: "A) -1/2", correct: true }, { text: "B) 2", correct: false }, { text: "C) 1/2", correct: false }, { text: "D) -2", correct: false }], explanation: "Slope = 2, perpendicular slope = -1/2.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "What is the midpoint of (-4, -2) and (2, 6)?", answers: [{ text: "A) (-1, 2)", correct: true }, { text: "B) (0, 0)", correct: false }, { text: "C) (-2, 4)", correct: false }, { text: "D) (1, 3)", correct: false }], explanation: "M = ((-4 + 2)/2, (-2 + 6)/2) = (-1, 2).", difficulty: "hard", category: "geometry-and-trigonometry" }
 ];
 
-const threeDGeometryQuestions = [
-    { question: "What is the volume of a cube with side length 5?", answers: [{ text: "A) 125", correct: true }, { text: "B) 100", correct: false }, { text: "C) 150", correct: false }, { text: "D) 75", correct: false }], explanation: "V = 5³ = 125.", difficulty: "easy", category: "geometry" },
-    { question: "A cylinder has radius 3 and height 4. What is its volume?", answers: [{ text: "A) 36π", correct: true }, { text: "B) 12π", correct: false }, { text: "C) 48π", correct: false }, { text: "D) 24π", correct: false }], explanation: "V = π(3)²(4) = 36π.", difficulty: "easy", category: "geometry" },
-    { question: "A sphere has radius 2. What is its volume?", answers: [{ text: "A) (32/3)π", correct: true }, { text: "B) 8π", correct: false }, { text: "C) 16π", correct: false }, { text: "D) 4π", correct: false }], explanation: "V = (4/3)π(2)³ = (4/3)π(8) = (32/3)π.", difficulty: "medium", category: "geometry" },
-    { question: "A rectangular prism has dimensions 3, 4, 5. What is its surface area?", answers: [{ text: "A) 94", correct: true }, { text: "B) 60", correct: false }, { text: "C) 120", correct: false }, { text: "D) 80", correct: false }], explanation: "SA = 2(3×4 + 3×5 + 4×5) = 2(12 + 15 + 20) = 94.", difficulty: "medium", category: "geometry" },
-    { question: "A cone has radius 3 and height 8. What is its volume?", answers: [{ text: "A) 24π", correct: true }, { text: "B) 72π", correct: false }, { text: "C) 12π", correct: false }, { text: "D) 36π", correct: false }], explanation: "V = (1/3)π(3)²(8) = 24π.", difficulty: "medium", category: "geometry" },
-    { question: "A cylinder has a volume of 100π and height 4. What is its radius?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 6", correct: false }, { text: "D) 10", correct: false }], explanation: "πr²(4) = 100π → r² = 25 → r = 5.", difficulty: "hard", category: "geometry" },
-    { question: "A cube has a volume of 27. What is its surface area?", answers: [{ text: "A) 54", correct: true }, { text: "B) 36", correct: false }, { text: "C) 18", correct: false }, { text: "D) 72", correct: false }], explanation: "V = s³ = 27 → s = 3, SA = 6s² = 6(9) = 54.", difficulty: "medium", category: "geometry" }
+const threeDgeometryQuestions = [
+    { question: "What is the volume of a cube with side length 5?", answers: [{ text: "A) 125", correct: true }, { text: "B) 100", correct: false }, { text: "C) 150", correct: false }, { text: "D) 75", correct: false }], explanation: "V = 5³ = 125.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "A cylinder has radius 3 and height 4. What is its volume?", answers: [{ text: "A) 36π", correct: true }, { text: "B) 12π", correct: false }, { text: "C) 48π", correct: false }, { text: "D) 24π", correct: false }], explanation: "V = π(3)²(4) = 36π.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "A sphere has radius 2. What is its volume?", answers: [{ text: "A) (32/3)π", correct: true }, { text: "B) 8π", correct: false }, { text: "C) 16π", correct: false }, { text: "D) 4π", correct: false }], explanation: "V = (4/3)π(2)³ = (4/3)π(8) = (32/3)π.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "A rectangular prism has dimensions 3, 4, 5. What is its surface area?", answers: [{ text: "A) 94", correct: true }, { text: "B) 60", correct: false }, { text: "C) 120", correct: false }, { text: "D) 80", correct: false }], explanation: "SA = 2(3×4 + 3×5 + 4×5) = 2(12 + 15 + 20) = 94.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "A cone has radius 3 and height 8. What is its volume?", answers: [{ text: "A) 24π", correct: true }, { text: "B) 72π", correct: false }, { text: "C) 12π", correct: false }, { text: "D) 36π", correct: false }], explanation: "V = (1/3)π(3)²(8) = 24π.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "A cylinder has a volume of 100π and height 4. What is its radius?", answers: [{ text: "A) 5", correct: true }, { text: "B) 4", correct: false }, { text: "C) 6", correct: false }, { text: "D) 10", correct: false }], explanation: "πr²(4) = 100π → r² = 25 → r = 5.", difficulty: "hard", category: "geometry-and-trigonometry" },
+    { question: "A cube has a volume of 27. What is its surface area?", answers: [{ text: "A) 54", correct: true }, { text: "B) 36", correct: false }, { text: "C) 18", correct: false }, { text: "D) 72", correct: false }], explanation: "V = s³ = 27 → s = 3, SA = 6s² = 6(9) = 54.", difficulty: "medium", category: "geometry-and-trigonometry" }
 ];
 
 const transformationsQuestions = [
-    { question: "Reflect (3, 2) over the x-axis. What are the new coordinates?", answers: [{ text: "A) (3, -2)", correct: true }, { text: "B) (-3, 2)", correct: false }, { text: "C) (2, 3)", correct: false }, { text: "D) (-3, -2)", correct: false }], explanation: "Over x-axis: (x, y) → (x, -y). So, (3, 2) → (3, -2).", difficulty: "easy", category: "geometry" },
-    { question: "Translate (2, 4) by (-1, 3). What are the new coordinates?", answers: [{ text: "A) (1, 7)", correct: true }, { text: "B) (3, 1)", correct: false }, { text: "C) (2, 7)", correct: false }, { text: "D) (1, 4)", correct: false }], explanation: "(2 - 1, 4 + 3) = (1, 7).", difficulty: "easy", category: "geometry" },
-    { question: "Rotate (1, 0) 90° counterclockwise around the origin. What are the new coordinates?", answers: [{ text: "A) (0, 1)", correct: true }, { text: "B) (-1, 0)", correct: false }, { text: "C) (0, -1)", correct: false }, { text: "D) (1, 0)", correct: false }], explanation: "90° CCW: (x, y) → (-y, x). So, (1, 0) → (0, 1).", difficulty: "medium", category: "geometry" },
-    { question: "Reflect (-2, 3) over the y-axis. What are the new coordinates?", answers: [{ text: "A) (2, 3)", correct: true }, { text: "B) (-2, -3)", correct: false }, { text: "C) (2, -3)", correct: false }, { text: "D) (-3, 2)", correct: false }], explanation: "Over y-axis: (x, y) → (-x, y). So, (-2, 3) → (2, 3).", difficulty: "easy", category: "geometry" },
-    { question: "Rotate (0, 2) 180° around the origin. What are the new coordinates?", answers: [{ text: "A) (0, -2)", correct: true }, { text: "B) (2, 0)", correct: false }, { text: "C) (-2, 0)", correct: false }, { text: "D) (0, 2)", correct: false }], explanation: "180°: (x, y) → (-x, -y). So, (0, 2) → (0, -2).", difficulty: "medium", category: "geometry" },
-    { question: "Translate (5, -1) by (2, -3). What are the new coordinates?", answers: [{ text: "A) (7, -4)", correct: true }, { text: "B) (3, 2)", correct: false }, { text: "C) (7, -1)", correct: false }, { text: "D) (5, -4)", correct: false }], explanation: "(5 + 2, -1 - 3) = (7, -4).", difficulty: "medium", category: "geometry" },
-    { question: "Rotate (2, 2) 270° counterclockwise around the origin. What are the new coordinates?", answers: [{ text: "A) (-2, 2)", correct: true }, { text: "B) (2, -2)", correct: false }, { text: "C) (-2, -2)", correct: false }, { text: "D) (2, 2)", correct: false }], explanation: "270° CCW: (x, y) → (y, -x). So, (2, 2) → (-2, 2).", difficulty: "hard", category: "geometry" }
+    { question: "Reflect (3, 2) over the x-axis. What are the new coordinates?", answers: [{ text: "A) (3, -2)", correct: true }, { text: "B) (-3, 2)", correct: false }, { text: "C) (2, 3)", correct: false }, { text: "D) (-3, -2)", correct: false }], explanation: "Over x-axis: (x, y) → (x, -y). So, (3, 2) → (3, -2).", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "Translate (2, 4) by (-1, 3). What are the new coordinates?", answers: [{ text: "A) (1, 7)", correct: true }, { text: "B) (3, 1)", correct: false }, { text: "C) (2, 7)", correct: false }, { text: "D) (1, 4)", correct: false }], explanation: "(2 - 1, 4 + 3) = (1, 7).", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "Rotate (1, 0) 90° counterclockwise around the origin. What are the new coordinates?", answers: [{ text: "A) (0, 1)", correct: true }, { text: "B) (-1, 0)", correct: false }, { text: "C) (0, -1)", correct: false }, { text: "D) (1, 0)", correct: false }], explanation: "90° CCW: (x, y) → (-y, x). So, (1, 0) → (0, 1).", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "Reflect (-2, 3) over the y-axis. What are the new coordinates?", answers: [{ text: "A) (2, 3)", correct: true }, { text: "B) (-2, -3)", correct: false }, { text: "C) (2, -3)", correct: false }, { text: "D) (-3, 2)", correct: false }], explanation: "Over y-axis: (x, y) → (-x, y). So, (-2, 3) → (2, 3).", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "Rotate (0, 2) 180° around the origin. What are the new coordinates?", answers: [{ text: "A) (0, -2)", correct: true }, { text: "B) (2, 0)", correct: false }, { text: "C) (-2, 0)", correct: false }, { text: "D) (0, 2)", correct: false }], explanation: "180°: (x, y) → (-x, -y). So, (0, 2) → (0, -2).", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "Translate (5, -1) by (2, -3). What are the new coordinates?", answers: [{ text: "A) (7, -4)", correct: true }, { text: "B) (3, 2)", correct: false }, { text: "C) (7, -1)", correct: false }, { text: "D) (5, -4)", correct: false }], explanation: "(5 + 2, -1 - 3) = (7, -4).", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "Rotate (2, 2) 270° counterclockwise around the origin. What are the new coordinates?", answers: [{ text: "A) (-2, 2)", correct: true }, { text: "B) (2, -2)", correct: false }, { text: "C) (-2, -2)", correct: false }, { text: "D) (2, 2)", correct: false }], explanation: "270° CCW: (x, y) → (y, -x). So, (2, 2) → (-2, 2).", difficulty: "hard", category: "geometry-and-trigonometry" }
 ];
 
 const trigonometryQuestions = [
-    { question: "In a right triangle, the opposite side is 8 and the hypotenuse is 17. What is sin(θ)?", answers: [{ text: "A) 8/17", correct: true }, { text: "B) 17/8", correct: false }, { text: "C) 15/17", correct: false }, { text: "D) 8/15", correct: false }], explanation: "sin(θ) = opposite / hypotenuse = 8 / 17.", difficulty: "medium", category: "geometry" },
-    { question: "In a right triangle, the adjacent side is 3 and the hypotenuse is 5. What is cos(θ)?", answers: [{ text: "A) 3/5", correct: true }, { text: "B) 5/3", correct: false }, { text: "C) 4/5", correct: false }, { text: "D) 3/4", correct: false }], explanation: "cos(θ) = adjacent / hypotenuse = 3 / 5.", difficulty: "easy", category: "geometry" },
-    { question: "In a right triangle, the opposite side is 6 and the adjacent side is 8. What is tan(θ)?", answers: [{ text: "A) 3/4", correct: true }, { text: "B) 4/3", correct: false }, { text: "C) 6/10", correct: false }, { text: "D) 8/6", correct: false }], explanation: "tan(θ) = opposite / adjacent = 6 / 8 = 3/4.", difficulty: "easy", category: "geometry" },
-    { question: "If sin(θ) = 12/13 and θ is acute, what is cos(θ)?", answers: [{ text: "A) 5/13", correct: true }, { text: "B) 13/12", correct: false }, { text: "C) 12/5", correct: false }, { text: "D) 5/12", correct: false }], explanation: "Hyp = 13, opp = 12, adj = √(13² - 12²) = 5, cos(θ) = 5/13.", difficulty: "medium", category: "geometry" },
-    { question: "In a 3-4-5 triangle, what is tan(θ) for the angle opposite the side of 3?", answers: [{ text: "A) 3/4", correct: true }, { text: "B) 4/3", correct: false }, { text: "C) 3/5", correct: false }, { text: "D) 5/4", correct: false }], explanation: "tan(θ) = opp / adj = 3 / 4.", difficulty: "medium", category: "geometry" },
-    { question: "If cos(θ) = 8/17, what is sin(θ)?", answers: [{ text: "A) 15/17", correct: true }, { text: "B) 17/8", correct: false }, { text: "C) 8/15", correct: false }, { text: "D) 15/8", correct: false }], explanation: "Hyp = 17, adj = 8, opp = √(17² - 8²) = 15, sin(θ) = 15/17.", difficulty: "hard", category: "geometry" },
-    { question: "In a right triangle, tan(θ) = 1. What is θ?", answers: [{ text: "A) 45°", correct: true }, { text: "B) 30°", correct: false }, { text: "C) 60°", correct: false }, { text: "D) 90°", correct: false }], explanation: "tan(θ) = 1 when opp = adj, so θ = 45°.", difficulty: "medium", category: "geometry" }
+    { question: "In a right triangle, the opposite side is 8 and the hypotenuse is 17. What is sin(θ)?", answers: [{ text: "A) 8/17", correct: true }, { text: "B) 17/8", correct: false }, { text: "C) 15/17", correct: false }, { text: "D) 8/15", correct: false }], explanation: "sin(θ) = opposite / hypotenuse = 8 / 17.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "In a right triangle, the adjacent side is 3 and the hypotenuse is 5. What is cos(θ)?", answers: [{ text: "A) 3/5", correct: true }, { text: "B) 5/3", correct: false }, { text: "C) 4/5", correct: false }, { text: "D) 3/4", correct: false }], explanation: "cos(θ) = adjacent / hypotenuse = 3 / 5.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "In a right triangle, the opposite side is 6 and the adjacent side is 8. What is tan(θ)?", answers: [{ text: "A) 3/4", correct: true }, { text: "B) 4/3", correct: false }, { text: "C) 6/10", correct: false }, { text: "D) 8/6", correct: false }], explanation: "tan(θ) = opposite / adjacent = 6 / 8 = 3/4.", difficulty: "easy", category: "geometry-and-trigonometry" },
+    { question: "If sin(θ) = 12/13 and θ is acute, what is cos(θ)?", answers: [{ text: "A) 5/13", correct: true }, { text: "B) 13/12", correct: false }, { text: "C) 12/5", correct: false }, { text: "D) 5/12", correct: false }], explanation: "Hyp = 13, opp = 12, adj = √(13² - 12²) = 5, cos(θ) = 5/13.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "In a 3-4-5 triangle, what is tan(θ) for the angle opposite the side of 3?", answers: [{ text: "A) 3/4", correct: true }, { text: "B) 4/3", correct: false }, { text: "C) 3/5", correct: false }, { text: "D) 5/4", correct: false }], explanation: "tan(θ) = opp / adj = 3 / 4.", difficulty: "medium", category: "geometry-and-trigonometry" },
+    { question: "If cos(θ) = 8/17, what is sin(θ)?", answers: [{ text: "A) 15/17", correct: true }, { text: "B) 17/8", correct: false }, { text: "C) 8/15", correct: false }, { text: "D) 15/8", correct: false }], explanation: "Hyp = 17, adj = 8, opp = √(17² - 8²) = 15, sin(θ) = 15/17.", difficulty: "hard", category: "geometry-and-trigonometry" },
+    { question: "In a right triangle, tan(θ) = 1. What is θ?", answers: [{ text: "A) 45°", correct: true }, { text: "B) 30°", correct: false }, { text: "C) 60°", correct: false }, { text: "D) 90°", correct: false }], explanation: "tan(θ) = 1 when opp = adj, so θ = 45°.", difficulty: "medium", category: "geometry-and-trigonometry" }
 ];
 
+
+// lesson-geometry-and-trigonometry.js
 
 // lesson-geometry.js
 
 let categoryStats = {
-    geometry: { correct: 0, incorrect: 0 }
+    "geometry-and-trigonometry": { correct: 0, incorrect: 0 }
 };
 
 let currentItemIndex = 0; // For lesson content
@@ -275,6 +277,12 @@ let progressSteps = 0;
 let totalSteps = 0; // Set dynamically in startLesson
 let isQuizPhase = false;
 let showingQuizTransition = false; // New flag for quiz transition
+
+// Define lessons and quiz question arrays (already provided)
+// ... (lessons array remains unchanged)
+
+
+// ... (update trianglesQuestions, quadrilateralsPolygonsQuestions, circlesQuestions, coordinateGeometryQuestions, threeDGeometryQuestions, transformationsQuestions, trigonometryQuestions similarly)
 
 function updateProgressBar(step) {
     const progressBar = document.getElementById('progress-bar');
@@ -377,10 +385,10 @@ function selectAnswer(selectedBtn, item) {
 
     if (selectedBtn.dataset.correct === "true") {
         selectedBtn.classList.add("correct");
-        categoryStats.geometry.correct++;
+        categoryStats["geometry-and-trigonometry"].correct++;
     } else {
         selectedBtn.classList.add("incorrect");
-        categoryStats.geometry.incorrect++;
+        categoryStats["geometry-and-trigonometry"].incorrect++;
         const explanationDiv = document.createElement("div");
         explanationDiv.classList.add("explanation");
         explanationDiv.innerHTML = item.explanation;
@@ -388,12 +396,36 @@ function selectAnswer(selectedBtn, item) {
     }
 
     submitButton.style.display = 'inline-block';
-    submitButton.addEventListener('click', () => {
-        if (!isQuizPhase) {
-            nextItem();
-        } else {
-            nextQuizItem();
+    submitButton.addEventListener('click', nextItem, { once: true });
+}
+
+function selectQuizAnswer(selectedBtn, question, quizQuestions) {
+    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
+    const submitButton = document.getElementById('submit-answer');
+    const mathContainer = document.getElementById('math-container');
+
+    answerButtons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.correct === "true") {
+            btn.classList.add("correct");
         }
+    });
+
+    if (selectedBtn.dataset.correct === "true") {
+        selectedBtn.classList.add("correct");
+        categoryStats["geometry-and-trigonometry"].correct++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        categoryStats["geometry-and-trigonometry"].incorrect++;
+        const explanationDiv = document.createElement("div");
+        explanationDiv.classList.add("explanation");
+        explanationDiv.innerHTML = question.explanation;
+        mathContainer.appendChild(explanationDiv);
+    }
+
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', () => {
+        nextQuizItem(quizQuestions);
     }, { once: true });
 }
 
@@ -478,7 +510,7 @@ function showNextQuizQuestion(quizQuestions) {
             button.innerHTML = answer.text;
             button.classList.add("btn");
             button.dataset.correct = answer.correct;
-            button.addEventListener("click", () => selectAnswer(button, question));
+            button.addEventListener("click", () => selectQuizAnswer(button, question, quizQuestions));
             answerButtons.appendChild(button);
         });
         progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
@@ -489,17 +521,16 @@ function showNextQuizQuestion(quizQuestions) {
     }
 }
 
-function nextQuizItem() {
+function nextQuizItem(quizQuestions) {
     currentQuestionIndex++;
     console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-    let quizQuestions = getQuizQuestions(currentLesson);
     showNextQuizQuestion(quizQuestions);
 }
 
 function showFinalScore() {
     console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = categoryStats.geometry.correct;
-    let totalAttempted = totalCorrect + categoryStats.geometry.incorrect;
+    let totalCorrect = categoryStats["geometry-and-trigonometry"].correct;
+    let totalAttempted = totalCorrect + categoryStats["geometry-and-trigonometry"].incorrect;
 
     const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
@@ -524,23 +555,23 @@ function showFinalScore() {
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
-    let storedResults = localStorage.getItem("testResults");
+    let storedResults = localStorage.getItem("satTestResults");
     let results = storedResults ? JSON.parse(storedResults) : {};
-    if (!results.geometry) results.geometry = { correct: 0, incorrect: 0 };
-    results.geometry.correct += categoryStats.geometry.correct || 0;
-    results.geometry.incorrect += categoryStats.geometry.incorrect || 0;
-    localStorage.setItem("testResults", JSON.stringify(results));
-    console.log("Final stored testResults:", results);
-    categoryStats.geometry = { correct: 0, incorrect: 0 };
+    if (!results["geometry-and-trigonometry"]) results["geometry-and-trigonometry"] = { correct: 0, incorrect: 0 };
+    results["geometry-and-trigonometry"].correct += categoryStats["geometry-and-trigonometry"].correct || 0;
+    results["geometry-and-trigonometry"].incorrect += categoryStats["geometry-and-trigonometry"].incorrect || 0;
+    localStorage.setItem("satTestResults", JSON.stringify(results));
+    console.log("Stored satTestResults:", JSON.stringify(results));
+    categoryStats["geometry-and-trigonometry"] = { correct: 0, incorrect: 0 };
 }
 
 function saveScore(lessonId, score) {
-    localStorage.setItem(`geometry-lessonScore-${lessonId}`, score);
-    console.log(`Saved geometry-lessonScore-${lessonId}: ${score}`);
+    localStorage.setItem(`geometry-and-trigonometry-lessonScore-${lessonId}`, score);
+    console.log(`Saved geometry-and-trigonometry-lessonScore-${lessonId}: ${score}`);
 }
 
 function getScore(lessonId) {
-    return localStorage.getItem(`geometry-lessonScore-${lessonId}`) || "Not completed yet";
+    return localStorage.getItem(`geometry-and-trigonometry-lessonScore-${lessonId}`) || "Not completed yet";
 }
 
 function showScore() {
