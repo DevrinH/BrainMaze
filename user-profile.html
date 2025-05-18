@@ -2771,336 +2771,352 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let progressUpdatedByMainScript = false;
 
+    document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOMContentLoaded event fired. Script is running...");
+
     function updateProgress(source = "unknown") {
-    if (progressUpdatedByMainScript) {
-        console.log("Progress already updated by main script, skipping progress-tracker.js update.");
-        return;
-    }
-
-    console.log(`updateProgress called from: ${source}`);
-
-    // Process ACT progress
-    let actTestResults = localStorage.getItem("actTestResults");
-    let parsedActResults = actTestResults ? JSON.parse(actTestResults) : {};
-    console.log("Parsed actTestResults:", parsedActResults);
-
-    let actSection = document.getElementById("act-progress-container");
-    if (actSection && !actSection.classList.contains("hidden")) {
-        let progressItems = actSection.querySelectorAll(".progress-item");
-        console.log("Found ACT progress items:", progressItems.length);
-
-        let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
-        let actProgress = JSON.parse(localStorage.getItem("actProgress")) || {};
-
-        // Initialize progress for all ACT categories
-        actCategories.forEach(category => {
-            if (!actProgress[category]) {
-                actProgress[category] = { correct: 0, incorrect: 0 };
-            }
-            if (!historicalProgress[category]) {
-                historicalProgress[category] = { percentage: 0 };
-            }
-        });
-
-        // Update progress with test results
-        Object.keys(parsedActResults).forEach(category => {
-            if (actCategories.includes(category)) {
-                actProgress[category].correct += Number(parsedActResults[category]?.correct || 0);
-                actProgress[category].incorrect += Number(parsedActResults[category]?.incorrect || 0);
-                console.log(`Category: ${category}, Updated ACT progress - Correct: ${actProgress[category].correct}, Incorrect: ${actProgress[category].incorrect}`);
-            } else {
-                console.warn(`Unknown ACT category in actTestResults: ${category}`);
-            }
-        });
-
-        localStorage.setItem("actProgress", JSON.stringify(actProgress));
-        console.log("Updated actProgress:", actProgress);
-
-        localStorage.removeItem("actTestResults");
-        console.log("Cleared actTestResults from localStorage");
-
-        progressItems.forEach(item => {
-            let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
-            let category = actCategoryMap[displayCategory] || item.dataset.category || `act-${displayCategory}`;
-            if (!actCategories.includes(category)) {
-                console.warn(`ACT category mismatch: ${category}`);
-                return;
-            }
-
-            let progressBarElement = document.getElementById(`${category}-bar`);
-            let progressTextElement = document.getElementById(`${category}-text`);
-            console.log(`Bar element for ${category}:`, progressBarElement);
-            console.log(`Text element for ${category}:`, progressTextElement);
-
-            let categoryData = actProgress[category] || { correct: 0, incorrect: 0 };
-            let total = categoryData.correct + categoryData.incorrect;
-            let percentage = total > 0 ? Math.round((categoryData.correct / total) * 100) : 0;
-
-            if (progressBarElement) {
-                progressBarElement.style.width = `${percentage}%`;
-                progressBarElement.offsetHeight;
-            } else {
-                console.warn(`Progress bar not found for ${category}. Expected ID: ${category}-bar`);
-            }
-
-            if (progressTextElement) {
-                let previousPercentage = historicalProgress[category]?.percentage || 0;
-                console.log(`ACT Category: ${category}, Previous: ${previousPercentage}%, Current: ${percentage}%`);
-
-                let arrow = "→";
-                let increased = percentage > previousPercentage;
-                let decreased = percentage < previousPercentage;
-                if (increased) {
-                    arrow = "↑";
-                } else if (decreased) {
-                    arrow = "↓";
-                }
-
-                let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
-                progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                console.log(`Updated ACT ${category} - Bar: ${percentage}%, Arrow: ${arrow} (${arrowColor})`);
-                historicalProgress[category] = { percentage };
-            } else {
-                console.warn(`Progress text not found for ${category}. Expected ID: ${category}-text`);
-            }
-        });
-
-        localStorage.setItem("actHistoricalProgress", JSON.stringify(historicalProgress));
-        console.log("Updated actHistoricalProgress:", historicalProgress);
-        actSection.style.display = "block";
-    }
-
-    // Process SAT progress
-    let satTestResults = localStorage.getItem("satTestResults");
-    let parsedSatResults = satTestResults ? JSON.parse(satTestResults) : {};
-    console.log("Parsed satTestResults:", JSON.stringify(parsedSatResults));
-
-    let satSection = document.getElementById("sat-progress-container");
-    if (satSection && !satSection.classList.contains("hidden")) {
-        let progressItems = satSection.querySelectorAll(".progress-item");
-        console.log("Found SAT progress items:", progressItems.length);
-
-        let historicalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
-        let satProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
-
-        // Initialize progress for all SAT categories
-        window.satCategories.forEach(category => {
-            if (!satProgress[category]) {
-                satProgress[category] = { correct: 0, incorrect: 0 };
-                console.log(`Initialized satProgress for ${category}`);
-            }
-            if (!historicalProgress[category]) {
-                historicalProgress[category] = { percentage: 0 };
-                console.log(`Initialized historicalProgress for ${category}`);
-            }
-        });
-
-        // Aggregate Algebra lesson scores into satProgress["algebra"]
-        if (!satProgress["algebra"]) satProgress["algebra"] = { correct: 0, incorrect: 0 };
-        for (let i = 1; i <= 8; i++) { // Algebra has 8 lessons
-            const lessonScore = localStorage.getItem(`algebra-lessonScore-${i}`);
-            if (lessonScore) {
-                // Parse lesson score (format: "correct/total (percentage%)")
-                const match = lessonScore.match(/^(\d+)\/(\d+)/);
-                if (match) {
-                    const correct = parseInt(match[1], 10);
-                    const total = parseInt(match[2], 10);
-                    const incorrect = total - correct;
-                    satProgress["algebra"].correct += correct;
-                    satProgress["algebra"].incorrect += incorrect;
-                    console.log(`Aggregated algebra-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
-                } else {
-                    console.warn(`Invalid format for algebra-lessonScore-${i}: ${lessonScore}`);
-                }
-            } else {
-                console.log(`No score found for algebra-lessonScore-${i}`);
-            }
+        if (progressUpdatedByMainScript) {
+            console.log("Progress already updated by main script, skipping update.");
+            return;
         }
-        console.log("After aggregating algebra lessons, satProgress['algebra']:", satProgress["algebra"]);
 
-        // Update progress with test results
-        Object.keys(parsedSatResults).forEach(category => {
-            if (window.satCategories.includes(category)) {
-                satProgress[category].correct += Number(parsedSatResults[category]?.correct || 0);
-                satProgress[category].incorrect += Number(parsedSatResults[category]?.incorrect || 0);
-                console.log(`Category: ${category}, Updated SAT progress - Correct: ${satProgress[category].correct}, Incorrect: ${satProgress[category].incorrect}`);
-            } else {
-                console.warn(`Unknown SAT category in satTestResults: ${category}`);
-            }
-        });
+        console.log(`updateProgress called from: ${source}`);
 
-        localStorage.setItem("satProgress", JSON.stringify(satProgress));
-        localStorage.removeItem("satTestResults");
-        console.log("Updated satProgress:", JSON.stringify(satProgress));
-        console.log("Cleared satTestResults from localStorage");
+        // Process ACT progress
+        let actSection = document.getElementById("act-progress-container");
+        if (actSection && !actSection.classList.contains("hidden")) {
+            let progressItems = actSection.querySelectorAll(".progress-item");
+            console.log("Found ACT progress items:", progressItems.length);
 
-        progressItems.forEach(item => {
-            let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
-            let category = item.dataset.category || displayCategory;
-            if (!window.satCategories.includes(category)) {
-                console.warn(`SAT category mismatch: ${category}`);
-                return;
-            }
+            let actTestResults = localStorage.getItem("actTestResults");
+            let parsedActResults = actTestResults ? JSON.parse(actTestResults) : {};
+            console.log("Parsed actTestResults:", JSON.stringify(parsedActResults));
 
-            let progressBarElement = document.getElementById(`${category}-bar`);
-            let progressTextElement = document.getElementById(`${category}-text`);
-            console.log(`Processing SAT category: ${category}`);
-            console.log(`Bar element:`, progressBarElement ? 'Found' : 'Not found');
-            console.log(`Text element:`, progressTextElement ? 'Found' : 'Not found');
+            let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
+            let actProgress = JSON.parse(localStorage.getItem("actProgress")) || {};
 
-            let categoryData = satProgress[category] || { correct: 0, incorrect: 0 };
-            let total = categoryData.correct + categoryData.incorrect;
-            let percentage = total > 0 ? Math.round((categoryData.correct / total) * 100) : 0;
+            // Initialize progress for all ACT categories
+            actCategories.forEach(category => {
+                if (!actProgress[category]) {
+                    actProgress[category] = { correct: 0, incorrect: 0 };
+                    console.log(`Initialized actProgress for ${category}`);
+                }
+                if (!historicalProgress[category]) {
+                    historicalProgress[category] = { percentage: 0 };
+                    console.log(`Initialized historicalProgress for ${category}`);
+                }
+            });
 
-            if (progressBarElement) {
-                progressBarElement.style.width = `${percentage}%`;
-                progressBarElement.offsetHeight;
-                console.log(`Set ${category}-bar width to ${percentage}%`);
-            } else {
-                console.warn(`Progress bar not found for ${category}. Expected ID: ${category}-bar`);
-            }
+            // Update progress with test results
+            Object.keys(parsedActResults).forEach(category => {
+                if (actCategories.includes(category)) {
+                    actProgress[category].correct += Number(parsedActResults[category]?.correct || 0);
+                    actProgress[category].incorrect += Number(parsedActResults[category]?.incorrect || 0);
+                    console.log(`Category: ${category}, Updated ACT progress - Correct: ${actProgress[category].correct}, Incorrect: ${actProgress[category].incorrect}`);
+                } else {
+                    console.warn(`Unknown ACT category in actTestResults: ${category}`);
+                }
+            });
 
-            if (progressTextElement) {
-                let previousPercentage = historicalProgress[category]?.percentage || 0;
-                console.log(`SAT Category: ${category}, Previous: ${previousPercentage}%, Current: ${percentage}%`);
-
-                let arrow = "→";
-                let increased = percentage > previousPercentage;
-                let decreased = percentage < previousPercentage;
-                if (increased) {
-                    arrow = "↑";
-                } else if (decreased) {
-                    arrow = "↓";
+            progressItems.forEach(item => {
+                let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                let category = actCategoryMap[displayCategory] || item.dataset.category || `act-${displayCategory}`;
+                if (!actCategories.includes(category)) {
+                    console.warn(`ACT category mismatch: ${category}`);
+                    return;
                 }
 
-                let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
-                progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                console.log(`Updated SAT ${category} - Bar: ${percentage}%, Arrow: ${arrow} (${arrowColor})`);
-                historicalProgress[category] = { percentage };
-            } else {
-                console.warn(`Progress text not found for ${category}. Expected ID: ${category}-text`);
-            }
-        });
+                let progressBarElement = document.getElementById(`${category}-bar`);
+                let progressTextElement = document.getElementById(`${category}-text`);
+                console.log(`Processing ACT category: ${category}`);
+                console.log(`Bar element:`, progressBarElement ? 'Found' : 'Not found');
+                console.log(`Text element:`, progressTextElement ? 'Found' : 'Not found');
 
-        localStorage.setItem("satHistoricalProgress", JSON.stringify(historicalProgress));
-        console.log("Updated satHistoricalProgress:", JSON.stringify(historicalProgress));
-        satSection.style.display = "block";
-    }
+                let categoryData = actProgress[category] || { correct: 0, incorrect: 0 };
+                let total = categoryData.correct + categoryData.incorrect;
+                let percentage = total > 0 ? Math.round((categoryData.correct / total) * 100) : 0;
 
-    // Process GED progress
-    let gedTestResults = localStorage.getItem("gedTestResults");
-    let parsedGedResults = gedTestResults ? JSON.parse(gedTestResults) : {};
-    console.log("Parsed gedTestResults:", JSON.stringify(parsedGedResults));
-
-    let gedSection = document.getElementById("ged-progress-container");
-    if (gedSection && !gedSection.classList.contains("hidden")) {
-        let progressItems = gedSection.querySelectorAll(".progress-item");
-        console.log("Found GED progress items:", progressItems.length);
-
-        let historicalProgress = JSON.parse(localStorage.getItem("gedHistoricalProgress")) || {};
-        let gedProgress = JSON.parse(localStorage.getItem("gedProgress")) || {};
-
-        // Initialize progress for all GED categories
-        gedCategories.forEach(category => {
-            if (!gedProgress[category]) {
-                gedProgress[category] = { correct: 0, incorrect: 0 };
-                console.log(`Initialized gedProgress for ${category}`);
-            }
-            if (!historicalProgress[category]) {
-                historicalProgress[category] = { percentage: 0 };
-                console.log(`Initialized historicalProgress for ${category}`);
-            }
-        });
-
-        // Update progress with test results
-        Object.keys(parsedGedResults).forEach(category => {
-            if (gedCategories.includes(category)) {
-                gedProgress[category].correct += Number(parsedGedResults[category]?.correct || 0);
-                gedProgress[category].incorrect += Number(parsedGedResults[category]?.incorrect || 0);
-                console.log(`Category: ${category}, Updated GED progress - Correct: ${gedProgress[category].correct}, Incorrect: ${gedProgress[category].incorrect}`);
-            } else {
-                console.warn(`Unknown GED category in gedTestResults: ${category}`);
-            }
-        });
-
-        localStorage.setItem("gedProgress", JSON.stringify(gedProgress));
-        localStorage.removeItem("gedTestResults");
-        console.log("Updated gedProgress:", JSON.stringify(gedProgress));
-        console.log("Cleared gedTestResults from localStorage");
-
-        progressItems.forEach(item => {
-            let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
-            let category = gedCategoryMap[displayCategory] || item.dataset.category || `ged-${displayCategory}`;
-            if (!gedCategories.includes(category)) {
-                console.warn(`GED category mismatch: ${category}`);
-                return;
-            }
-
-            let progressBarElement = document.getElementById(`${category}-bar`);
-            let progressTextElement = document.getElementById(`${category}-text`);
-            console.log(`Processing GED category: ${category}`);
-            console.log(`Bar element:`, progressBarElement ? 'Found' : 'Not found');
-            console.log(`Text element:`, progressTextElement ? 'Found' : 'Not found');
-
-            let categoryData = gedProgress[category] || { correct: 0, incorrect: 0 };
-            let total = categoryData.correct + categoryData.incorrect;
-            let percentage = total > 0 ? Math.round((categoryData.correct / total) * 100) : 0;
-
-            if (progressBarElement) {
-                progressBarElement.style.width = `${percentage}%`;
-                progressBarElement.offsetHeight;
-                console.log(`Set ${category}-bar width to ${percentage}%`);
-            } else {
-                console.warn(`Progress bar not found for ${category}. Expected ID: ${category}-bar`);
-            }
-
-            if (progressTextElement) {
-                let previousPercentage = historicalProgress[category]?.percentage || 0;
-                console.log(`GED Category: ${category}, Previous: ${previousPercentage}%, Current: ${percentage}%`);
-
-                let arrow = "→";
-                let increased = percentage > previousPercentage;
-                let decreased = percentage < previousPercentage;
-                if (increased) {
-                    arrow = "↑";
-                } else if (decreased) {
-                    arrow = "↓";
+                if (progressBarElement) {
+                    progressBarElement.style.width = `${percentage}%`;
+                    progressBarElement.offsetHeight;
+                    console.log(`Set ${category}-bar width to ${percentage}%`);
+                } else {
+                    console.warn(`Progress bar not found for ${category}. Expected ID: ${category}-bar`);
                 }
 
-                let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
-                progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                console.log(`Updated GED ${category} - Bar: ${percentage}%, Arrow: ${arrow} (${arrowColor})`);
-                historicalProgress[category] = { percentage };
-            } else {
-                console.warn(`Progress text not found for ${category}. Expected ID: ${category}-text`);
+                if (progressTextElement) {
+                    let previousPercentage = historicalProgress[category]?.percentage || 0;
+                    console.log(`ACT Category: ${category}, Previous: ${previousPercentage}%, Current: ${percentage}%`);
+
+                    let arrow = "→";
+                    let increased = percentage > previousPercentage;
+                    let decreased = percentage < previousPercentage;
+                    if (increased) arrow = "↑";
+                    else if (decreased) arrow = "↓";
+
+                    let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
+                    progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                    console.log(`Updated ACT ${category} - Bar: ${percentage}%, Arrow: ${arrow} (${arrowColor})`);
+                    historicalProgress[category] = { percentage };
+                } else {
+                    console.warn(`Progress text not found for ${category}. Expected ID: ${category}-text`);
+                }
+            });
+
+            localStorage.setItem("actProgress", JSON.stringify(actProgress));
+            localStorage.setItem("actHistoricalProgress", JSON.stringify(historicalProgress));
+            console.log("Updated actProgress:", JSON.stringify(actProgress));
+            console.log("Updated actHistoricalProgress:", JSON.stringify(historicalProgress));
+            // Delay clearing actTestResults to ensure persistence
+            setTimeout(() => {
+                localStorage.removeItem("actTestResults");
+                console.log("Cleared actTestResults from localStorage");
+            }, 1000);
+            actSection.style.display = "block";
+        }
+
+        // Process SAT progress
+        let satSection = document.getElementById("sat-progress-container");
+        if (satSection && !satSection.classList.contains("hidden")) {
+            let progressItems = satSection.querySelectorAll(".progress-item");
+            console.log("Found SAT progress items:", progressItems.length);
+
+            let satTestResults = localStorage.getItem("satTestResults");
+            let parsedSatResults = satTestResults ? JSON.parse(satTestResults) : {};
+            console.log("Parsed satTestResults:", JSON.stringify(parsedSatResults));
+
+            let historicalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
+            let satProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+
+            window.satCategories.forEach(category => {
+                if (!satProgress[category]) {
+                    satProgress[category] = { correct: 0, incorrect: 0 };
+                    console.log(`Initialized satProgress for ${category}`);
+                }
+                if (!historicalProgress[category]) {
+                    historicalProgress[category] = { percentage: 0 };
+                    console.log(`Initialized historicalProgress for ${category}`);
+                }
+            });
+
+            // Aggregate Algebra lesson scores
+            if (!satProgress["algebra"]) satProgress["algebra"] = { correct: 0, incorrect: 0 };
+            for (let i = 1; i <= 8; i++) {
+                const lessonScore = localStorage.getItem(`algebra-lessonScore-${i}`);
+                if (lessonScore) {
+                    const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                    if (match) {
+                        const correct = parseInt(match[1], 10);
+                        const total = parseInt(match[2], 10);
+                        const incorrect = total - correct;
+                        satProgress["algebra"].correct += correct;
+                        satProgress["algebra"].incorrect += incorrect;
+                        console.log(`Aggregated algebra-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                    } else {
+                        console.warn(`Invalid format for algebra-lessonScore-${i}: ${lessonScore}`);
+                    }
+                } else {
+                    console.log(`No score found for algebra-lessonScore-${i}`);
+                }
             }
-        });
 
-        localStorage.setItem("gedHistoricalProgress", JSON.stringify(historicalProgress));
-        console.log("Updated gedHistoricalProgress:", JSON.stringify(historicalProgress));
-        gedSection.style.display = "block";
+            // Aggregate Central Ideas lesson scores
+            if (!satProgress["central-ideas"]) satProgress["central-ideas"] = { correct: 0, incorrect: 0 };
+            for (let i = 1; i <= 5; i++) {
+                const lessonScore = localStorage.getItem(`central-ideas-lessonScore-${i}`);
+                if (lessonScore) {
+                    const match = lessonScore.match(/^(\d+)\/(\d+)/);
+                    if (match) {
+                        const correct = parseInt(match[1], 10);
+                        const total = parseInt(match[2], 10);
+                        const incorrect = total - correct;
+                        satProgress["central-ideas"].correct += correct;
+                        satProgress["central-ideas"].incorrect += incorrect;
+                        console.log(`Aggregated central-ideas-lessonScore-${i}: Correct=${correct}, Incorrect=${incorrect}`);
+                    } else {
+                        console.warn(`Invalid format for central-ideas-lessonScore-${i}: ${lessonScore}`);
+                    }
+                } else {
+                    console.log(`No score found for central-ideas-lessonScore-${i}`);
+                }
+            }
+            console.log("After aggregating lessons, satProgress['central-ideas']:", satProgress["central-ideas"]);
+            console.log("After aggregating lessons, satProgress['algebra']:", satProgress["algebra"]);
+
+            Object.keys(parsedSatResults).forEach(category => {
+                if (window.satCategories.includes(category)) {
+                    satProgress[category].correct += Number(parsedSatResults[category]?.correct || 0);
+                    satProgress[category].incorrect += Number(parsedSatResults[category]?.incorrect || 0);
+                    console.log(`Category: ${category}, Updated SAT progress - Correct: ${satProgress[category].correct}, Incorrect: ${satProgress[category].incorrect}`);
+                } else {
+                    console.warn(`Unknown SAT category in satTestResults: ${category}`);
+                }
+            });
+
+            localStorage.setItem("satProgress", JSON.stringify(satProgress));
+            localStorage.removeItem("satTestResults");
+            console.log("Updated satProgress:", JSON.stringify(satProgress));
+            console.log("Cleared satTestResults from localStorage");
+
+            progressItems.forEach(item => {
+                let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                let category = item.dataset.category || displayCategory;
+                if (!window.satCategories.includes(category)) {
+                    console.warn(`SAT category mismatch: ${category}`);
+                    return;
+                }
+
+                let progressBarElement = document.getElementById(`${category}-bar`);
+                let progressTextElement = document.getElementById(`${category}-text`);
+                console.log(`Processing SAT category: ${category}`);
+                console.log(`Bar element:`, progressBarElement ? 'Found' : 'Not found');
+                console.log(`Text element:`, progressTextElement ? 'Found' : 'Not found');
+
+                let categoryData = satProgress[category] || { correct: 0, incorrect: 0 };
+                let total = categoryData.correct + categoryData.incorrect;
+                let percentage = total > 0 ? Math.round((categoryData.correct / total) * 100) : 0;
+
+                if (progressBarElement) {
+                    progressBarElement.style.width = `${percentage}%`;
+                    progressBarElement.offsetHeight;
+                    console.log(`Set ${category}-bar width to ${percentage}%`);
+                } else {
+                    console.warn(`Progress bar not found for ${category}. Expected ID: ${category}-bar`);
+                }
+
+                if (progressTextElement) {
+                    let previousPercentage = historicalProgress[category]?.percentage || 0;
+                    console.log(`SAT Category: ${category}, Previous: ${previousPercentage}%, Current: ${percentage}%`);
+
+                    let arrow = "→";
+                    let increased = percentage > previousPercentage;
+                    let decreased = percentage < previousPercentage;
+                    if (increased) arrow = "↑";
+                    else if (decreased) arrow = "↓";
+
+                    let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
+                    progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                    console.log(`Updated SAT ${category} - Bar: ${percentage}%, Arrow: ${arrow} (${arrowColor})`);
+                    historicalProgress[category] = { percentage };
+                } else {
+                    console.warn(`Progress text not found for ${category}. Expected ID: ${category}-text`);
+                }
+            });
+
+            localStorage.setItem("satHistoricalProgress", JSON.stringify(historicalProgress));
+            console.log("Updated satHistoricalProgress:", JSON.stringify(historicalProgress));
+            satSection.style.display = "block";
+        }
+
+        // Process GED progress
+        let gedSection = document.getElementById("ged-progress-container");
+        if (gedSection && !gedSection.classList.contains("hidden")) {
+            let progressItems = gedSection.querySelectorAll(".progress-item");
+            console.log("Found GED progress items:", progressItems.length);
+
+            let gedTestResults = localStorage.getItem("gedTestResults");
+            let parsedGedResults = gedTestResults ? JSON.parse(gedTestResults) : {};
+            console.log("Parsed gedTestResults:", JSON.stringify(parsedGedResults));
+
+            let historicalProgress = JSON.parse(localStorage.getItem("gedHistoricalProgress")) || {};
+            let gedProgress = JSON.parse(localStorage.getItem("gedProgress")) || {};
+
+            gedCategories.forEach(category => {
+                if (!gedProgress[category]) {
+                    gedProgress[category] = { correct: 0, incorrect: 0 };
+                    console.log(`Initialized gedProgress for ${category}`);
+                }
+                if (!historicalProgress[category]) {
+                    historicalProgress[category] = { percentage: 0 };
+                    console.log(`Initialized historicalProgress for ${category}`);
+                }
+            });
+
+            Object.keys(parsedGedResults).forEach(category => {
+                if (gedCategories.includes(category)) {
+                    gedProgress[category].correct += Number(parsedGedResults[category]?.correct || 0);
+                    gedProgress[category].incorrect += Number(parsedGedResults[category]?.incorrect || 0);
+                    console.log(`Category: ${category}, Updated GED progress - Correct: ${gedProgress[category].correct}, Incorrect: ${gedProgress[category].incorrect}`);
+                } else {
+                    console.warn(`Unknown GED category in gedTestResults: ${category}`);
+                }
+            });
+
+            localStorage.setItem("gedProgress", JSON.stringify(gedProgress));
+            localStorage.removeItem("gedTestResults");
+            console.log("Updated gedProgress:", JSON.stringify(gedProgress));
+            console.log("Cleared gedTestResults from localStorage");
+
+            progressItems.forEach(item => {
+                let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                let category = gedCategoryMap[displayCategory] || item.dataset.category || `ged-${displayCategory}`;
+                if (!gedCategories.includes(category)) {
+                    console.warn(`GED category mismatch: ${category}`);
+                    return;
+                }
+
+                let progressBarElement = document.getElementById(`${category}-bar`);
+                let progressTextElement = document.getElementById(`${category}-text`);
+                console.log(`Processing GED category: ${category}`);
+                console.log(`Bar element:`, progressBarElement ? 'Found' : 'Not found');
+                console.log(`Text element:`, progressTextElement ? 'Found' : 'Not found');
+
+                let categoryData = gedProgress[category] || { correct: 0, incorrect: 0 };
+                let total = categoryData.correct + categoryData.incorrect;
+                let percentage = total > 0 ? Math.round((categoryData.correct / total) * 100) : 0;
+
+                if (progressBarElement) {
+                    progressBarElement.style.width = `${percentage}%`;
+                    progressBarElement.offsetHeight;
+                    console.log(`Set ${category}-bar width to ${percentage}%`);
+                } else {
+                    console.warn(`Progress bar not found for ${category}. Expected ID: ${category}-bar`);
+                }
+
+                if (progressTextElement) {
+                    let previousPercentage = historicalProgress[category]?.percentage || 0;
+                    console.log(`GED Category: ${category}, Previous: ${previousPercentage}%, Current: ${percentage}%`);
+
+                    let arrow = "→";
+                    let increased = percentage > previousPercentage;
+                    let decreased = percentage < previousPercentage;
+                    if (increased) arrow = "↑";
+                    else if (decreased) arrow = "↓";
+
+                    let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
+                    progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
+                    console.log(`Updated GED ${category} - Bar: ${percentage}%, Arrow: ${arrow} (${arrowColor})`);
+                    historicalProgress[category] = { percentage };
+                } else {
+                    console.warn(`Progress text not found for ${category}. Expected ID: ${category}-text`);
+                }
+            });
+
+            localStorage.setItem("gedHistoricalProgress", JSON.stringify(historicalProgress));
+            console.log("Updated gedHistoricalProgress:", JSON.stringify(historicalProgress));
+            gedSection.style.display = "block";
+        }
     }
-}
 
-    document.addEventListener("DOMContentLoaded", updateProgress);
+    // Ensure updateProgress is called
+    document.addEventListener("DOMContentLoaded", () => updateProgress("DOMContentLoaded"));
+    window.addEventListener("load", () => updateProgress("windowLoad"));
 
     document.querySelectorAll(".button-30").forEach(button => {
         button.addEventListener("click", () => {
-            setTimeout(() => {
-                const actSection = document.querySelector("#act-progress-container");
-                const satSection = document.querySelector("#sat-progress-container");
-                const gedSection = document.querySelector("#ged-progress-container");
-                const isActSectionActive = actSection && !actSection.classList.contains("hidden");
-                const isSatSectionActive = satSection && !satSection.classList.contains("hidden");
-                const isGedSectionActive = gedSection && !gedSection.classList.contains("hidden");
+            const actSection = document.querySelector("#act-progress-container");
+            const satSection = document.querySelector("#sat-progress-container");
+            const gedSection = document.querySelector("#ged-progress-container");
+            const isActSectionActive = actSection && !actSection.classList.contains("hidden");
+            const isSatSectionActive = satSection && !satSection.classList.contains("hidden");
+            const isGedSectionActive = gedSection && !gedSection.classList.contains("hidden");
 
-                if (isActSectionActive || isSatSectionActive || isGedSectionActive) {
-                    updateProgress("tabSwitch");
-                }
-            }, 100); // Increased delay for DOM stability
+            if (isActSectionActive || isSatSectionActive || isGedSectionActive) {
+                updateProgress("tabSwitch");
+            }
         });
     });
-
+});
     window.addEventListener("load", () => {
         console.log("Window loaded, updating progress...");
         updateProgress("windowLoad");
