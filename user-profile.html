@@ -1950,10 +1950,10 @@
             <div class="progress-bar"><div class="progress-fill" id="act-conventions-of-standard-english-bar"></div></div>
             <div class="progress-percentage" id="act-conventions-of-standard-english-text">0% <span class="arrow">→</span></div>
         </div>
-        <div class="progress-item" data-category="knowledge-of-language">
+        <div class="progress-item" data-category="act-knowledge-of-language">
             <div class="progress-label">Knowledge of Language</div>
-            <div class="progress-bar"><div class="progress-fill" id="knowledge-of-language-bar"></div></div>
-            <div class="progress-percentage" id="knowledge-of-language-text">0% <span class="arrow">→</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="act-knowledge-of-language-bar"></div></div>
+            <div class="progress-percentage" id="act-knowledge-of-language-text">0% <span class="arrow">→</span></div>
         </div>
         <div class="progress-item" data-category="act-production-of-writing">
             <div class="progress-label">Production of Writing</div>
@@ -2763,11 +2763,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Category mapping for ACT to handle DOM ID mismatches
     const actCategoryMap = {
-        "knowledge-of-language": "knowledge-of-language",
-        "production-of-writing": "act-production-of-writing",
-        "systems-of-equations": "act-systems-of-equations",
-        "authors-purpose": "act-authors-purpose"
-    };
+    "knowledge-of-language": "act-knowledge-of-language",
+    "production-of-writing": "act-production-of-writing",
+    "systems-of-equations": "act-systems-of-equations",
+    "authors-purpose": "act-authors-purpose"
+};
 
     let progressUpdatedByMainScript = false;
 
