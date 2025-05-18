@@ -396,6 +396,7 @@ function selectAnswer(selectedBtn, item) {
     submitButton.addEventListener('click', nextContent, { once: true });
 }
 
+// Remove the first definition of selectQuizAnswer and keep only the updated one
 function selectQuizAnswer(selectedBtn, question, quizQuestions) {
     const answerButtons = document.querySelectorAll('#answer-buttons .btn');
     const submitButton = document.getElementById('submit-answer');
