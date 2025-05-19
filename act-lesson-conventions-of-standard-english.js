@@ -1,4 +1,3 @@
-// Ensure scores display on page load by calling showScore
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
@@ -26,10 +25,10 @@ const lessons = {
             {
                 type: "example",
                 title: "Example 1: Subject-Verb Agreement",
+                passage: "The team of researchers is presenting their findings tomorrow.",
                 content: `
                     <h2>Example 1: Subject-Verb Agreement</h2>
-                    <p>Passage: The team of researchers (is/are) presenting their findings tomorrow.</p>
-                    <p>Question: Which verb form is correct?</p>
+                    <p>Question: Which verb form is correct in the passage?</p>
                     <p>Step 1: Identify the subject: The team (singular).</p>
                     <p>Step 2: Apply rule: Singular subjects take singular verbs.</p>
                     <p>Solution: The correct form is "is." The team of researchers is presenting their findings tomorrow.</p>
@@ -39,7 +38,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 1",
-                question: "Passage: The group of students (was/were) excited about the field trip. Which verb form is correct?",
+                passage: "The group of students was excited about the field trip.",
+                question: "Which verb form is correct?",
                 options: [
                     { text: "A) was", correct: true },
                     { text: "B) were", correct: false },
@@ -51,10 +51,10 @@ const lessons = {
             {
                 type: "example",
                 title: "Example 2: Pronoun-Antecedent Agreement",
+                passage: "Each student must bring his or her own calculator.",
                 content: `
                     <h2>Example 2: Pronoun-Antecedent Agreement</h2>
-                    <p>Passage: Each student must bring (his or her/their) own calculator.</p>
-                    <p>Question: Which pronoun is correct?</p>
+                    <p>Question: Which pronoun is correct in the passage?</p>
                     <p>Step 1: Identify the antecedent: Each student (singular).</p>
                     <p>Step 2: Apply rule: Singular antecedents require singular pronouns.</p>
                     <p>Solution: The correct pronoun is "his or her." Each student must bring his or her own calculator.</p>
@@ -64,7 +64,8 @@ const lessons = {
             {
                 type: "question",
                 title: "Question 2",
-                question: "Passage: Every athlete should check (his or her/their) equipment before the game. Which pronoun is correct?",
+                passage: "Every athlete should check his or her equipment before the game.",
+                question: "Which pronoun is correct?",
                 options: [
                     { text: "A) his or her", correct: true },
                     { text: "B) their", correct: false },
@@ -76,20 +77,21 @@ const lessons = {
             {
                 type: "example",
                 title: "Example 3: Comma Usage",
+                passage: "Maria wanted to attend the concert, but she had to finish her homework first.",
                 content: `
                     <h2>Example 3: Comma Usage</h2>
-                    <p>Passage: Maria wanted to attend the concert but she had to finish her homework first.</p>
-                    <p>Question: Does this sentence need a comma?</p>
+                    <p>Question: Does the passage need a comma?</p>
                     <p>Step 1: Identify structure: Two independent clauses joined by "but."</p>
                     <p>Step 2: Apply rule: Use a comma before a coordinating conjunction linking independent clauses.</p>
-                    <p>Solution: The sentence needs a comma: Maria wanted to attend the concert, but she had to finish her homework first.</p>
+                    <p>Solution: The sentence is correct with a comma: Maria wanted to attend the concert, but she had to finish her homework first.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 3",
-                question: "Passage: John wanted to join the club but he was too busy. Does this sentence need a comma?",
+                passage: "John wanted to join the club but he was too busy.",
+                question: "Does the passage need a comma?",
                 options: [
                     { text: "A) Yes, before 'but'", correct: true },
                     { text: "B) No, it’s correct as is", correct: false },
@@ -101,20 +103,21 @@ const lessons = {
             {
                 type: "example",
                 title: "Example 4: Sentence Structure",
+                passage: "Running quickly to catch the bus, Sarah left her backpack behind.",
                 content: `
                     <h2>Example 4: Sentence Structure</h2>
-                    <p>Passage: Running quickly to catch the bus, the backpack was left behind by Sarah.</p>
-                    <p>Question: What’s wrong with this sentence?</p>
-                    <p>Step 1: Identify issue: The modifier "Running quickly" should describe Sarah, not the backpack.</p>
+                    <p>Question: Is the sentence structure correct in the passage?</p>
+                    <p>Step 1: Identify issue: The modifier "Running quickly" correctly describes Sarah.</p>
                     <p>Step 2: Apply rule: Place modifiers close to the word they describe.</p>
-                    <p>Solution: Correct sentence: Running quickly to catch the bus, Sarah left her backpack behind.</p>
+                    <p>Solution: The sentence is correct: Running quickly to catch the bus, Sarah left her backpack behind.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 4",
-                question: "Passage: Studying late into the night, the book was left open by Tom. What’s wrong with this sentence?",
+                passage: "Studying late into the night, the book was left open by Tom.",
+                question: "What’s wrong with the passage?",
                 options: [
                     { text: "A) Misplaced modifier", correct: true },
                     { text: "B) Incorrect verb tense", correct: false },
@@ -126,20 +129,21 @@ const lessons = {
             {
                 type: "example",
                 title: "Example 5: Parallel Structure",
+                passage: "She enjoys hiking, swimming, and riding bikes.",
                 content: `
                     <h2>Example 5: Parallel Structure</h2>
-                    <p>Passage: She enjoys hiking, swimming, and to ride bikes.</p>
-                    <p>Question: What’s wrong with this sentence?</p>
-                    <p>Step 1: Identify issue: The list items are not in the same form (gerunds vs. infinitive).</p>
+                    <p>Question: Is the parallel structure correct in the passage?</p>
+                    <p>Step 1: Identify list: Hiking, swimming, and riding (all gerunds).</p>
                     <p>Step 2: Apply rule: Items in a list should have parallel structure.</p>
-                    <p>Solution: Correct sentence: She enjoys hiking, swimming, and riding bikes.</p>
+                    <p>Solution: The sentence is correct: She enjoys hiking, swimming, and riding bikes.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 5",
-                question: "Passage: He likes to read books, watch movies, and painting. What’s wrong with this sentence?",
+                passage: "He likes to read books, watch movies, and painting.",
+                question: "What’s wrong with the passage?",
                 options: [
                     { text: "A) Lack of parallel structure", correct: true },
                     { text: "B) Comma error", correct: false },
@@ -151,20 +155,21 @@ const lessons = {
             {
                 type: "example",
                 title: "Example 6: Apostrophe Usage",
+                passage: "The dog’s toys were scattered across the yard.",
                 content: `
                     <h2>Example 6: Apostrophe Usage</h2>
-                    <p>Passage: The dogs toys were scattered across the yard.</p>
-                    <p>Question: Does this sentence use the apostrophe correctly?</p>
-                    <p>Step 1: Identify possession: The toys belong to the dog(s).</p>
-                    <p>Step 2: Apply rule: Singular possessive is dog’s; plural is dogs’.</p>
-                    <p>Solution: If one dog, it’s "dog’s toys"; if multiple dogs, it’s "dogs’ toys." Context suggests one dog, so "dog’s" is correct.</p>
+                    <p>Question: Is the apostrophe used correctly in the passage?</p>
+                    <p>Step 1: Identify possession: The toys belong to one dog.</p>
+                    <p>Step 2: Apply rule: Singular possessive is dog’s.</p>
+                    <p>Solution: The apostrophe is correct: The dog’s toys were scattered across the yard.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 6",
-                question: "Passage: The cats’ whiskers were twitching. Is the apostrophe correct if referring to one cat?",
+                passage: "The cats’ whiskers were twitching.",
+                question: "Is the apostrophe correct if referring to one cat?",
                 options: [
                     { text: "A) No, it should be cat’s", correct: true },
                     { text: "B) Yes, it’s correct", correct: false },
@@ -176,20 +181,21 @@ const lessons = {
             {
                 type: "example",
                 title: "Example 7: Verb Tense Consistency",
+                passage: "She walked to the store and bought milk.",
                 content: `
                     <h2>Example 7: Verb Tense Consistency</h2>
-                    <p>Passage: She walked to the store and buys milk.</p>
-                    <p>Question: What’s wrong with this sentence?</p>
-                    <p>Step 1: Identify tenses: "walked" (past) and "buys" (present).</p>
-                    <p>Step 2: Apply rule: Maintain consistent verb tense unless a shift is justified.</p>
-                    <p>Solution: Correct sentence: She walked to the store and bought milk.</p>
+                    <p>Question: Is the verb tense consistent in the passage?</p>
+                    <p>Step 1: Identify tenses: "walked" (past) and "bought" (past).</p>
+                    <p>Step 2: Apply rule: Maintain consistent verb tense.</p>
+                    <p>Solution: The sentence is correct: She walked to the store and bought milk.</p>
                     <button id="next-item">Next</button>
                 `
             },
             {
                 type: "question",
                 title: "Question 7",
-                question: "Passage: He runs every morning and lifted weights yesterday. What’s wrong with this sentence?",
+                passage: "He runs every morning and lifted weights yesterday.",
+                question: "What’s wrong with the passage?",
                 options: [
                     { text: "A) Inconsistent verb tense", correct: true },
                     { text: "B) Missing comma", correct: false },
@@ -205,7 +211,8 @@ const lessons = {
 // ACT English question array
 const englishQuestions = [
     {
-        question: "Passage: The committee (has/have) decided to postpone the event. Which verb is correct?",
+        passage: "The committee has decided to postpone the event.",
+        question: "Which verb is correct in the passage?",
         answers: [
             { text: "A) has", correct: true },
             { text: "B) have", correct: false },
@@ -217,7 +224,8 @@ const englishQuestions = [
         category: "act-conventions-of-standard-english"
     },
     {
-        question: "Passage: Neither of the boys (want/wants) to join the choir. Which verb is correct?",
+        passage: "Neither of the boys wants to join the choir.",
+        question: "Which verb is correct in the passage?",
         answers: [
             { text: "A) wants", correct: true },
             { text: "B) want", correct: false },
@@ -229,7 +237,8 @@ const englishQuestions = [
         category: "act-conventions-of-standard-english"
     },
     {
-        question: "Passage: Before leaving, Sarah packed her bags and (locks/locked) the door. Which verb is correct?",
+        passage: "Before leaving, Sarah packed her bags and locked the door.",
+        question: "Which verb is correct in the passage?",
         answers: [
             { text: "A) locked", correct: true },
             { text: "B) locks", correct: false },
@@ -241,7 +250,8 @@ const englishQuestions = [
         category: "act-conventions-of-standard-english"
     },
     {
-        question: "Passage: The book, which was on the shelf, (belong/belongs) to Anna. Which verb is correct?",
+        passage: "The book, which was on the shelf, belongs to Anna.",
+        question: "Which verb is correct in the passage?",
         answers: [
             { text: "A) belongs", correct: true },
             { text: "B) belong", correct: false },
@@ -253,7 +263,8 @@ const englishQuestions = [
         category: "act-conventions-of-standard-english"
     },
     {
-        question: "Passage: To prepare for the exam, she studies, exercises, and (sleep/sleeps) well. Which verb is correct?",
+        passage: "To prepare for the exam, she studies, exercises, and sleeps well.",
+        question: "Which verb is correct in the passage?",
         answers: [
             { text: "A) sleeps", correct: true },
             { text: "B) sleep", correct: false },
@@ -265,7 +276,8 @@ const englishQuestions = [
         category: "act-conventions-of-standard-english"
     },
     {
-        question: "Passage: The childrens toys were scattered. What’s wrong with this sentence?",
+        passage: "The childrens toys were scattered.",
+        question: "What’s wrong with the passage?",
         answers: [
             { text: "A) Apostrophe error", correct: true },
             { text: "B) Verb tense error", correct: false },
@@ -277,7 +289,8 @@ const englishQuestions = [
         category: "act-conventions-of-standard-english"
     },
     {
-        question: "Passage: After winning the race, the trophy was held high by the runner. What’s wrong with this sentence?",
+        passage: "After winning the race, the trophy was held high by the runner.",
+        question: "What’s wrong with the passage?",
         answers: [
             { text: "A) Misplaced modifier", correct: true },
             { text: "B) Subject-verb disagreement", correct: false },
@@ -295,11 +308,11 @@ let categoryStats = {
     "act-conventions-of-standard-english": { correct: 0, incorrect: 0 }
 };
 let currentItemIndex = 0;
-let currentLesson = "1"; // Default as string to match lessons object keys
+let currentLesson = "1";
 let progressSteps = 0;
-let totalSteps = 0; // Set dynamically in startLesson
+let totalSteps = 0;
 let isQuizPhase = false;
-let showingQuizTransition = false; // Flag for quiz transition
+let showingQuizTransition = false;
 let currentQuestionIndex = 0;
 
 // Progress bar update function
@@ -343,10 +356,10 @@ function showItem() {
         lessonContent.innerHTML = '';
         if (item.type === "example") {
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${extractPassage(item.content)}</div>
+                <div class="question-row reading-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.content.replace(extractPassage(item.content), '')}</div>
+                        <div class="question-text">${item.content}</div>
                     </div>
                 </div>
             `;
@@ -358,12 +371,11 @@ function showItem() {
                 console.error("Next button not found in example!");
             }
         } else if (item.type === "question") {
-            const passage = extractPassage(item.question);
             lessonContent.innerHTML = `
-                <div class="question-row">
-                    <div class="passage-text">${passage}</div>
+                <div class="question-row reading-section">
+                    <div class="passage-text">${item.passage}</div>
                     <div class="right-column">
-                        <div class="question-text">${item.title}: ${item.question.replace(passage, '')}</div>
+                        <div class="question-text">${item.title}: ${item.question}</div>
                         <div class="answer-choices" id="answer-buttons"></div>
                         <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                     </div>
@@ -387,7 +399,7 @@ function showItem() {
     }
 }
 
-// Extract passage from content
+// Extract passage from content (for compatibility, though not used)
 function extractPassage(content) {
     const passageMatch = content.match(/Passage:.*?['"].*?['"]/i) || content.match(/<p>Passage:.*?<\/p>/i);
     return passageMatch ? passageMatch[0] : "";
@@ -495,12 +507,11 @@ function showNextQuizQuestion(quizQuestions) {
     if (currentQuestionIndex < quizQuestions.length) {
         const question = quizQuestions[currentQuestionIndex];
         const lessonContent = document.getElementById('lesson-content');
-        const passage = extractPassage(question.question);
         lessonContent.innerHTML = `
-            <div class="question-row">
-                <div class="passage-text">${passage}</div>
+            <div class="question-row reading-section">
+                <div class="passage-text">${question.passage}</div>
                 <div class="right-column">
-                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question.replace(passage, '')}</div>
+                    <div class="question-text">Question ${currentQuestionIndex + 1}: ${question.question}</div>
                     <div class="answer-choices" id="answer-buttons"></div>
                     <button id="submit-answer" class="btn next-btn" style="display: none;">Next</button>
                 </div>
@@ -541,12 +552,11 @@ function saveLessonCompletion() {
         title: lessons[currentLesson].title,
         timestamp: new Date().toISOString()
     };
-    // Store in a completions array for tracking multiple lessons
     let completions = JSON.parse(localStorage.getItem("lessonCompletions") || "[]");
-    completions = completions.filter(comp => !(comp.exam === "ACT" && comp.lessonId === currentLesson)); // Remove duplicates
+    completions = completions.filter(comp => !(comp.exam === "ACT" && comp.lessonId === currentLesson));
     completions.push(completionData);
     localStorage.setItem("lessonCompletions", JSON.stringify(completions));
-    localStorage.setItem("lastActivity", JSON.stringify(completionData)); // Keep for backward compatibility
+    localStorage.setItem("lastActivity", JSON.stringify(completionData));
     console.log("Saved lesson completion:", completionData);
 }
 
@@ -575,7 +585,6 @@ function showFinalScore() {
     const finalScoreElement = document.getElementById('final-score');
     if (finalScoreElement) finalScoreElement.classList.add('hide');
 
-    // Debug storage
     console.log("Stored lessonCompletions:", localStorage.getItem("lessonCompletions"));
     console.log("Stored actTestResults:", localStorage.getItem("actTestResults"));
     console.log("Stored lastActivity:", localStorage.getItem("lastActivity"));
@@ -588,6 +597,7 @@ function showFinalScore() {
 
     recordTestResults();
 }
+
 // Record test results
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);
