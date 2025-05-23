@@ -1,4 +1,7 @@
-
+# Retry deployment after correctly copying SSH key to droplet
+# Retry deployment after setting up SSH key for brainjelli user
+# Retry deployment after ensuring BrainMaze directory exists
+# Retry deployment after re-cloning BrainMaze on droplet
 # Retry deployment after updating SSH_PRIVATE_KEY secret
 # Retry deployment with new key without passphrase
 name: Deploy to DigitalOcean
