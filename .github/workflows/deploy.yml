@@ -26,5 +26,4 @@ jobs:
             git pull origin main || { echo "git pull failed"; exit 1; }
             echo "Reloading Nginx"
             sudo systemctl reload nginx || { echo "Nginx reload failed"; exit 1; }
-            echo "Deployment successful"<new-ip>
-
+            echo "Deployment successful"
