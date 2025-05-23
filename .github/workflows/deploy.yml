@@ -12,11 +12,19 @@ jobs:
       - name: Deploy to Droplet
         uses: appleboy/ssh-action@master
         with:
-          host: 64.227.98.6
+          host: 143.110.224.182
           username: brainjelli
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
           port: 22
           script: |
-            cd ~/BrainMaze
-            git pull origin main
-            sudo systemctl reload nginx
+            set -e
+            echo "Navigating to BrainMaze directory"
+            cd ~/BrainMaze || { echo "Directory ~/BrainMaze not found"; exit 1; }
+            echo "Pulling latest changes"
+            git reset --hard
+            git pull origin main || { echo "git pull failed"; exit 1; }
+            echo "Reloading Nginx"
+            sudo systemctl reload nginx || { echo "Nginx reload failed"; exit 1; }
+            echo "Deployment successful"<new-ip>
+
