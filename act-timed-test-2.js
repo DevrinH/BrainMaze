@@ -2884,8 +2884,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 
                 
-                
-                
                     let englishResponses = [];
                     let mathResponses = [];
                     let readingResponses = [];
@@ -3313,633 +3311,585 @@ document.addEventListener("DOMContentLoaded", () => {
                         });
                     }
                 
-                
-                
-                
-                 function generateExplanation(response) {
+                    function generateExplanation(response) {
                         const questionText = response.question || "";
-                   
-                        // ACT Math Questions
-                        // Medium Difficulty
-                        if (questionText.includes("What is the value of x in the equation 3x + 7 = 22?")) {
-                            return "Solve 3x + 7 = 22 by subtracting 7: 3x = 15. Divide by 3: x = 5. Option B) 5 is correct. A) 4, C) 6, and D) 7 do not satisfy the equation.";
-                        } else if (questionText.includes("If f(x) = x^2 + 3x - 4, what is f(2)?")) {
-                            return "Substitute x = 2 into f(x) = x^2 + 3x - 4: f(2) = 2^2 + 3(2) - 4 = 4 + 6 - 4 = 6. Option C) 6 is correct. A) 8, B) 4, and D) 10 are incorrect calculations.";
-                        } else if (questionText.includes("What is the slope of the line passing through points (1, 2) and (3, 6)?")) {
-                            return "Use the slope formula (y2 - y1)/(x2 - x1): (6 - 2)/(3 - 1) = 4/2 = 2. Option A) 2 is correct. B) 1, C) 3, and D) 4 miscalculate the slope.";
-                        } else if (questionText.includes("Solve the system of equations: y = 2x + 1, y = x + 5.")) {
-                            return "Set 2x + 1 = x + 5. Subtract x: x + 1 = 5. Subtract 1: x = 4. Substitute x = 4 into y = x + 5: y = 9. Option D) x = 4, y = 9 is correct. Others do not satisfy both equations.";
-                        } else if (questionText.includes("What is the area of a triangle with base 8 and height 5?")) {
-                            return "Use the formula Area = (1/2)bh: (1/2)(8)(5) = 20. Option B) 20 is correct. A) 40, C) 16, and D) 24 misapply the formula.";
-                        } else if (questionText.includes("If sin(θ) = 3/5 and θ is in quadrant I, what is cos(θ)?")) {
-                            return "Use sin^2(θ) + cos^2(θ) = 1: (3/5)^2 + cos^2(θ) = 1. So, 9/25 + cos^2(θ) = 1, cos^2(θ) = 16/25, cos(θ) = 4/5 (positive in quadrant I). Option C) 4/5 is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the value of x if 2x^2 - 8 = 0?")) {
-                            return "Solve 2x^2 - 8 = 0: 2x^2 = 8, x^2 = 4, x = ±2. ACT typically asks for the positive root: x = 2. Option D) 2 is correct. A) 4, B) 1, and C) 3 are not solutions.";
-                        } else if (questionText.includes("A rectangle has a perimeter of 20 and a length of 7. What is its width?")) {
-                            return "Perimeter = 2(l + w). Given P = 20, l = 7: 2(7 + w) = 20, 14 + 2w = 20, 2w = 6, w = 3. Option A) 3 is correct. B) 4, C) 5, and D) 6 do not fit.";
-                        } else if (questionText.includes("What is the distance between points (2, 3) and (5, 7)?")) {
-                            return "Use the distance formula √[(x2 - x1)^2 + (y2 - y1)^2]: √[(5-2)^2 + (7-3)^2] = √[9 + 16] = √25 = 5. Option B) 5 is correct. Others are incorrect.";
-                        } else if (questionText.includes("If 3x - 5 = 7, what is the value of 6x - 10?")) {
-                            return "Solve 3x - 5 = 7: 3x = 12, x = 4. Then, 6x - 10 = 6(4) - 10 = 14. Option C) 14 is correct. A) 12, B) 16, and D) 18 miscalculate.";
-                        } else if (questionText.includes("What is the value of tan(30°)?")) {
-                            return "For 30°, tan = sin/cos = (√3/2)/(1/2) = √3/3. Option B) √3/3 is correct. A) √3, C) 1/2, and D) 2/√3 are incorrect.";
-                        } else if (questionText.includes("Solve for x: x^2 - 5x + 6 = 0.")) {
-                            return "Factor x^2 - 5x + 6 = (x-2)(x-3) = 0. Solutions: x = 2, 3. Option D) x = 2, 3 is correct. Others do not solve the equation.";
-                        } else if (questionText.includes("What is the midpoint of the segment connecting (1, 1) and (5, 7)?")) {
-                            return "Midpoint = ((x1 + x2)/2, (y1 + y2)/2): ((1+5)/2, (1+7)/2) = (3, 4). Option A) (3, 4) is correct. Others are incorrect.";
-                        } else if (questionText.includes("If a circle has a radius of 4, what is its circumference?")) {
-                            return "Circumference = 2πr = 2π(4) = 8π. Option C) 8π is correct. A) 4π, B) 16π, and D) 12π miscalculate.";
-                        } else if (questionText.includes("What is the solution to the inequality 2x + 3 > 7?")) {
-                            return "Solve 2x + 3 > 7: 2x > 4, x > 2. Option D) x > 2 is correct. A) x > 3, B) x < 2, and C) x < 3 are incorrect.";
-                        } else if (questionText.includes("If f(x) = 2x + 1, what is f(f(1))?")) {
-                            return "First, f(1) = 2(1) + 1 = 3. Then, f(3) = 2(3) + 1 = 7. Option A) 7 is correct. B) 5, C) 9, and D) 3 are incorrect.";
-                        } else if (questionText.includes("What is the area of a circle with diameter 10?")) {
-                            return "Radius = diameter/2 = 5. Area = πr^2 = π(5)^2 = 25π. Option B) 25π is correct. A) 50π, C) 100π, and D) 10π miscalculate.";
-                        } else if (questionText.includes("Solve for x: 4x - 3 = 2x + 7.")) {
-                            return "Subtract 2x: 2x - 3 = 7. Add 3: 2x = 10, x = 5. Option C) 5 is correct. A) 4, B) 6, and D) 3 do not solve the equation.";
-                        } else if (questionText.includes("What is the value of cos(60°)?")) {
-                            return "For 60°, cos = 1/2. Option D) 1/2 is correct. A) √3/2, B) 1/√2, and C) √2/2 are incorrect.";
-                        } else if (questionText.includes("What is the vertex of the parabola y = x^2 - 4x + 3?")) {
-                            return "Vertex x-coordinate: -b/(2a) = -(-4)/(2(1)) = 2. Substitute x = 2: y = 2^2 - 4(2) + 3 = -1. Vertex: (2, -1). Option B) (2, -1) is correct. Others are incorrect.";
-                        // Hard Difficulty
-                        } else if (questionText.includes("If log₂(x) = 3, what is x?")) {
-                            return "log₂(x) = 3 means 2^3 = x, so x = 8. Option C) 8 is correct. A) 6, B) 9, and D) 4 are not 2^3.";
-                        } else if (questionText.includes("What is the value of i^5, where i is the imaginary unit?")) {
-                            return "i^4 = 1, so i^5 = i^4 * i = 1 * i = i. Option B) i is correct. A) -i, C) 1, and D) -1 are incorrect.";
-                        } else if (questionText.includes("A car travels 60 miles in 1 hour and 20 minutes. What is its average speed in miles per hour?")) {
-                            return "Convert 1 hour 20 minutes to 1.333 hours. Speed = distance/time = 60/1.333 ≈ 45 mph. Option D) 45 is correct. Others miscalculate.";
-                        } else if (questionText.includes("What is the period of the function f(x) = 3sin(2x)?")) {
-                            return "Period of sin(bx) = 2π/b. Here, b = 2, so period = 2π/2 = π. Option A) π is correct. Others are incorrect.";
-                        } else if (questionText.includes("Solve for x: x^3 - 8 = 0.")) {
-                            return "x^3 = 8, so x = 2 (real root). Option B) 2 is correct. A) 4, C) 1, and D) 3 are not solutions.";
-                        } else if (questionText.includes("What is the sum of the roots of the equation x^2 - 5x + 6 = 0?")) {
-                            return "For ax^2 + bx + c = 0, sum of roots = -b/a. Here, a = 1, b = -5: -(-5)/1 = 5. Option C) 5 is correct. Others are incorrect.";
-                        } else if (questionText.includes("If a triangle has sides 5, 12, and 13, what is its area?")) {
-                            return "Recognize 5-12-13 as a right triangle. Area = (1/2)(base)(height) = (1/2)(5)(12) = 30. Option D) 30 is correct. Others miscalculate.";
-                        } else if (questionText.includes("What is the value of f(3) if f(x) = 2^x?")) {
-                            return "f(3) = 2^3 = 8. Option A) 8 is correct. B) 6, C) 9, and D) 12 are incorrect.";
-                        } else if (questionText.includes("Solve for x: 2sin(x) = 1 for 0 ≤ x < 2π.")) {
-                            return "2sin(x) = 1, sin(x) = 1/2. In [0, 2π), sin(x) = 1/2 at x = π/6, 5π/6. Option B) π/6, 5π/6 is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the equation of the circle with center (2, -3) and radius 5?")) {
-                            return "Circle equation: (x-h)^2 + (y-k)^2 = r^2. Center (2, -3), r = 5: (x-2)^2 + (y+3)^2 = 25. Option B) is correct. Others are incorrect.";
-                        } else if (questionText.includes("If f(x) = x^2 + 2x + 1, what is f(x+1)?")) {
-                            return "f(x+1) = (x+1)^2 + 2(x+1) + 1 = x^2 + 2x + 1 + 2x + 2 + 1 = x^2 + 4x + 4. Option C) is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the value of log₃(27)?")) {
-                            return "log₃(27) = log₃(3^3) = 3. Option D) 3 is correct. A) 2, B) 4, and C) 9 are incorrect.";
-                        } else if (questionText.includes("A box contains 3 red and 5 blue marbles. What is the probability of drawing 2 red marbles in a row without replacement?")) {
-                            return "P(first red) = 3/8. P(second red) = 2/7. P(both) = (3/8)(2/7) = 6/56 = 3/28. Option A) 3/28 is correct. Others miscalculate.";
-                        } else if (questionText.includes("What is the amplitude of the function f(x) = 4cos(3x)?")) {
-                            return "Amplitude of acos(bx) = |a|. Here, a = 4, so amplitude = 4. Option B) 4 is correct. Others are incorrect.";
-                        } else if (questionText.includes("Solve for x: x^4 - 5x^2 + 4 = 0.")) {
-                            return "Let u = x^2. Solve u^2 - 5u + 4 = 0: (u-1)(u-4) = 0, u = 1, 4. Thus, x^2 = 1 or 4, x = ±1, ±2. Option C) x = ±1, ±2 is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the area of an equilateral triangle with side length 6?")) {
-                            return "Area = (√3/4)s^2 = (√3/4)(6^2) = (√3/4)(36) = 9√3. Option B) 9√3 is correct. Others miscalculate.";
-                        } else if (questionText.includes("If (2 + 3i)(x + yi) = 8 + i, what is x + y?")) {
-                            return "Expand: (2 + 3i)(x + yi) = (2x - 3y) + (3x + 2y)i = 8 + i. Equate: 2x - 3y = 8, 3x + 2y = 1. Solve: x = 2, y = 1, x + y = 3. Option B) 3 is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the sum of the first 10 terms of the arithmetic sequence with first term 3 and common difference 4?")) {
-                            return "Sum = n/2[2a + (n-1)d]. For n = 10, a = 3, d = 4: 10/2[2(3) + (10-1)(4)] = 5[6 + 36] = 5(42) = 210. Option D) 210 is correct. Others are incorrect.";
-                        } else if (questionText.includes("Solve for x: 2^x = 8.")) {
-                            return "8 = 2^3, so 2^x = 2^3, x = 3. Option A) 3 is correct. B) 2, C) 4, and D) 6 are incorrect.";
-                        } else if (questionText.includes("What is the value of sin(π/3) + cos(π/6)?")) {
-                            return "sin(π/3) = √3/2, cos(π/6) = √3/2. Sum = √3/2 + √3/2 = 2(√3/2) = √3. Option B) √3 is correct. Others are incorrect.";
-                        // Very Hard Difficulty
-                        } else if (questionText.includes("A function is defined as f(x) = x^3 - 3x + 2. What is the sum of the x-coordinates of its critical points?")) {
-                            return "Critical points: f'(x) = 3x^2 - 3 = 0, x^2 = 1, x = ±1. Sum = 1 + (-1) = 0. Option C) 0 is correct. Others are incorrect.";
-                        } else if (questionText.includes("If z = 2 + 3i, what is the modulus of z?")) {
-                            return "Modulus = √(a^2 + b^2) = √(2^2 + 3^2) = √(4 + 9) = √13. Option A) √13 is correct. Others are incorrect.";
-                        } else if (questionText.includes("A ladder 10 feet long leans against a vertical wall. If the bottom of the ladder is 6 feet from the wall, how high up the wall does the ladder reach?")) {
-                            return "Use Pythagorean theorem: 10^2 = 6^2 + h^2, 100 = 36 + h^2, h^2 = 64, h = 8. Option B) 8 is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the value of x if 2^(x+1) = 3^(x-1)?")) {
-                            return "Take logs: (x+1)ln(2) = (x-1)ln(3). Rearrange: x(ln(3) - ln(2)) = ln(3) + ln(2), x = ln(3/2)/(ln(3) - ln(2)). Option C) is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the exact value of cos(75°)?")) {
-                            return "cos(75°) = cos(45°+30°) = cos(45°)cos(30°) - sin(45°)sin(30°) = (√2/2)(√3/2) - (√2/2)(1/2) = (√6 - √2)/4. Option B) is correct. Others are incorrect.";
-                        } else if (questionText.includes("A cone has a radius of 3 and a height of 4. What is its volume?")) {
-                            return "Volume = (1/3)πr^2h = (1/3)π(3^2)(4) = (1/3)π(9)(4) = 12π. Option C) 12π is correct. Others miscalculate.";
-                        } else if (questionText.includes("Solve for x: sin(2x) = cos(x) for 0 ≤ x < 2π.")) {
-                            return "Use sin(2x) = 2sin(x)cos(x). Equation: 2sin(x)cos(x) = cos(x). Factor: cos(x)(2sin(x) - 1) = 0. Solutions: cos(x) = 0 (x = π/2, 3π/2) or sin(x) = 1/2 (x = π/6, 5π/6). Check: x = 3π/2 is invalid. Solutions: π/6, 5π/6, π/2. Option B) is correct.";
-                        } else if (questionText.includes("What is the inverse of the function f(x) = 2x + 3?")) {
-                            return "Solve y = 2x + 3 for x: x = (y-3)/2. Inverse: f⁻¹(x) = (x-3)/2. Option D) is correct. Others are incorrect.";
-                        } else if (questionText.includes("A geometric sequence has first term 2 and common ratio 3. What is the 5th term?")) {
-                            return "nth term = a * r^(n-1). For n = 5, a = 2, r = 3: 2 * 3^(5-1) = 2 * 3^4 = 2 * 81 = 162. Option A) 162 is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the value of ∑(n=1 to 5) n^2?")) {
-                            return "Sum = 1^2 + 2^2 + 3^2 + 4^2 + 5^2 = 1 + 4 + 9 + 16 + 25 = 55. Option B) 55 is correct. Others are incorrect.";
-                        } else if (questionText.includes("If f(x) = x^2 and g(x) = x + 1, what is f(g(x)) - g(f(x))?")) {
-                            return "f(g(x)) = f(x+1) = (x+1)^2 = x^2 + 2x + 1. g(f(x)) = g(x^2) = x^2 + 1. Difference: (x^2 + 2x + 1) - (x^2 + 1) = 2x. Option C) -2x is incorrect; correct answer should be derived, but -2x fits context. Option C) is correct.";
-                        } else if (questionText.includes("A sphere has a volume of 36π. What is its radius?")) {
-                            return "Volume = (4/3)πr^3 = 36π. Solve: (4/3)r^3 = 36, r^3 = 27, r = 3. Option D) 3 is correct. Others are incorrect.";
-                        } else if (questionText.includes("Solve for x: log₂(x) + log₂(x-1) = 1.")) {
-                            return "Combine: log₂(x(x-1)) = 1. So, x(x-1) = 2^1 = 2. Solve x^2 - x - 2 = 0: (x-2)(x+1) = 0, x = 2, -1. Since x > 1, x = 2. Option B) 2 is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the exact value of tan(π/12)?")) {
-                            return "tan(π/12) = tan(15°) = tan(45°-30°) = (tan(45°) - tan(30°))/(1 + tan(45°)tan(30°)) = (1 - √3/3)/(1 + 1*√3/3) = 2 - √3. Option C) is correct. Others are incorrect.";
-                        } else if (questionText.includes("A rectangular prism has a volume of 120, a length of 5, and a width of 4. What is its height?")) {
-                            return "Volume = lwh. Given 120 = 5 * 4 * h, 120 = 20h, h = 6. Option C) 6 is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the discriminant of the quadratic equation x^2 - 4x + 5 = 0?")) {
-                            return "Discriminant = b^2 - 4ac. For a = 1, b = -4, c = 5: (-4)^2 - 4(1)(5) = 16 - 20 = -4. Option A) -4 is correct. Others are incorrect.";
-                        } else if (questionText.includes("If z = 1 + i, what is z^3?")) {
-                            return "z = 1 + i. z^2 = (1 + i)^2 = 1 + 2i + i^2 = 1 + 2i - 1 = 2i. z^3 = z^2 * z = 2i * (1 + i) = 2i + 2i^2 = 2i - 2 = -2 + 2i. Option B) is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the sum of the infinite geometric series 1 + 1/3 + 1/9 + ...?")) {
-                            return "Sum = a/(1-r). For a = 1, r = 1/3: 1/(1 - 1/3) = 1/(2/3) = 3/2. Option C) 3/2 is correct. Others are incorrect.";
-                        } else if (questionText.includes("Solve for x: 3^(2x) = 27.")) {
-                            return "27 = 3^3, so 3^(2x) = 3^3, 2x = 3, x = 3/2. Option B) 3/2 is correct. Others are incorrect.";
-                        } else if (questionText.includes("What is the value of cos^2(π/8) - sin^2(π/8)?")) {
-                            return "Use identity: cos^2(θ) - sin^2(θ) = cos(2θ). For θ = π/8, cos(2*π/8) = cos(π/4) = √2/2. Option B) √2/2 is correct. Others are incorrect.";
-                   
-                   
-                        // Set 2: Editorial Board Passage
-                        } else if (questionText.includes("The editorial board gathered in a cramped office")) {
-                            if (questionText.includes("Which punctuation corrects the sentence 'The plan promised faster commutes but at a steep cost: fares would rise, hitting low-income riders hardest'?")) {
-                                return "Option B) adds a comma before 'but,' correctly joining independent clauses, while the colon introduces the fare increase detail. A) creates a run-on, C) misuses a semicolon, and D) retains the faulty structure.";
-                            } else if (questionText.includes("In the sentence 'Her draft began to take shape, weaving hard numbers with stories of daily commuters—a single mother juggling two jobs, a student racing to class,' which phrase corrects the parallel structure?")) {
-                                return "Option C) uses consistent verb tenses ('juggles,' 'races') for parallelism. A) shifts tense incorrectly, B) mixes forms, and D) keeps the error.";
-                            } else if (questionText.includes("Which word should replace 'synthesizing' in 'Maya tapped her pen, synthesizing ideas' to improve clarity?")) {
-                                return "Option B) 'integrating' clearly conveys blending ideas. A) is too vague, C) implies evaluation, and D) keeps the less precise term.";
-                            } else if (questionText.includes("Which sentence best follows 'The board agreed to refine it tomorrow, but Maya lingered, tweaking a sentence' to emphasize Maya’s dedication?")) {
-                                return "Option C) highlights Maya’s focus on perfecting her work. A) is vague, B) shifts focus, and D) introduces an irrelevant detail.";
-                            } else if (questionText.includes("In the sentence 'Others hesitated, wary of alienating city officials,' which pronoun correctly replaces 'Others' for agreement with the subject?")) {
-                                return "Option B) 'Certain members' specifies the subject clearly. A) is vague, C) implies all, and D) retains the ambiguity.";
-                            } else if (questionText.includes("Which revision to 'The piece wasn’t flawless; it sidestepped some thorny budget details' best improves conciseness?")) {
-                                return "Option B) streamlines the sentence while retaining meaning. A) adds complexity, C) is abrupt, and D) keeps the wordier structure.";
-                            } else if (questionText.includes("Which punctuation corrects the sentence 'The room crackled with debate, voices rising over cold coffee'?")) {
-                                return "Option C) adds 'with' for clarity, linking the clauses. A) misuses a semicolon, B) misuses a colon, and D) lacks connection.";
-                            } else if (questionText.includes("Which transition phrase, inserted before 'Nods circled the table, though Jamal pushed for sharper phrasing,' best clarifies the contrast?")) {
-                                return "Option B) 'Despite this' highlights the contrast between agreement and Jamal’s dissent. A) suggests timing, C) implies example, and D) adds unrelated detail.";
-                            } else if (questionText.includes("Which revision to 'Her colleague, Jamal, argued for a bold stance, urging the board to call for subsidies to offset fare hikes' corrects a subtle verb tense error?")) {
-                                return "Option D) maintains the past tense 'argued,' consistent with the passage. A) shifts to present, B) overcorrects, and C) disrupts structure.";
-                            } else if (questionText.includes("Which phrase in 'It called for compromise—targeted fare relief funded by reallocated taxes' best replaces 'funded by' to enhance precision?")) {
-                                return "Option C) 'financed by' is precise for budgetary context. A) is vague, B) is informal, and D) keeps the less specific phrase.";
-                            } else if (questionText.includes("Which sentence contains a misplaced modifier requiring correction?")) {
-                                return "Option D) is correct; no sentence has a misplaced modifier. A), B), and C) are properly structured.";
-                            } else if (questionText.includes("Which revision to 'The plan promised faster commutes but at a steep cost' best emphasizes the trade-off while maintaining tone?")) {
-                                return "Option A) balances benefits and burdens while matching tone. B) exaggerates, C) shifts tone, and D) lacks emphasis.";
-                            } else if (questionText.includes("In 'The editorial board gathered in a cramped office, papers strewn across the table,' which verb corrects the participle 'strewn' for agreement?")) {
-                                return "Option D) 'strewn' is correct as a past participle. A), B), and C) disrupt the tense or meaning.";
-                            } else if (questionText.includes("Which sentence best introduces the passage to clarify the board’s purpose?")) {
-                                return "Option D) clearly states the drafting goal. A) is redundant, B) shifts focus, and C) emphasizes leadership.";
-                            } else if (questionText.includes("Which sentence contains an error in parallel structure?")) {
-                                return "Option D) is correct; no sentence has a parallelism error. A), B), and C) maintain consistent structure.";
+                    
+                        // English Questions (Passage 1: Astronomy Club)
+                        if (questionText.includes("Which punctuation corrects the sentence 'For months, the club—led by juniors Priya Sharma and Ethan Cole—had charted constellations, tracked meteors, and logged data'")) {
+                            return "Option B retains correct dashes for the appositive and commas for the series. A omits commas, C misplaces a comma, and D disrupts the structure. B is correct.";
+                        } else if (questionText.includes("Which word replaces 'capturing' in 'Their goal was bold: a telescope powerful enough to detect exoplanets, capturing data once reserved for professionals'")) {
+                            return "Option A 'collecting' maintains the participle form and clarity. B shifts tense, C is future, and D disrupts structure. A is correct.";
+                        } else if (questionText.includes("Which pronoun corrects 'The advisor, however, took notes, impressed by the ambition'")) {
+                            return "Option C 'his or her' matches the singular 'advisor.' A is plural, B shifts number, and D keeps the original. C is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'to identify' in 'Priya, an aspiring astrophysicist, wrote code to identify faint star wobbles'")) {
+                            return "Option A 'to detect' clarifies Priya’s goal. B is vague, C shifts meaning, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision best combines 'The demo wasn’t perfect; the lens misaligned slightly'")) {
+                            return "Option B 'as' links clauses smoothly. A is wordy, C shifts logic, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which revision to 'Skeptics whispered—could students really spot distant worlds?'")) {
+                            return "Option B preserves the doubtful tone. A is informal, C shifts tone, and D keeps the original. B is correct.";
+                        } else if (questionText.includes("Which punctuation corrects 'Past attempts had faltered; one telescope wobbled during a test'")) {
+                            return "Option A uses a comma for clarity. B misuses a colon, C is incorrect, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence best follows 'Yet as the telescope locked onto its target, Priya sensed success'")) {
+                            return "Option B reinforces success with continued effort. A is logistical, C is neutral, and D shifts focus. B is correct.";
+                        } else if (questionText.includes("Which revision corrects the verb tense in 'Spectators watched as Ethan adjusts the lens'")) {
+                            return "Option A 'adjusted' matches past tense. B shifts tense, C is incorrect, and D keeps the error. A is correct.";
+                        } else if (questionText.includes("Which revision to 'a stargazing prodigy' enhances specificity")) {
+                            return "Option A 'a skilled astronomer' specifies Ethan’s expertise. B is vague, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains a misplaced modifier")) {
+                            return "Option D is correct; no misplaced modifiers exist. A, B, and C are properly structured. D is correct.";
+                        } else if (questionText.includes("Which transition phrase, inserted before 'The advisor, however, nodded approvingly'")) {
+                            return "Option B 'In contrast' highlights approval vs. skepticism. A suggests timing, C is an example, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'with precision' in 'Ethan demonstrated the telescope’s focus, which locked onto stars with precision'")) {
+                            return "Option A 'with accuracy' sharpens technical focus. B shifts meaning, C is vague, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision to 'Yet their ambition held firm' emphasizes determination")) {
+                            return "Option A 'resolve stood unwavering' intensifies perseverance. B is weaker, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains an error in parallel structure")) {
+                            return "Option D is correct; no parallelism errors exist. A’s series is consistent, B and C are sound. D is correct.";
                         }
-                   
-                        // Set 3: Garden Passage
-                        } else if (questionText.includes("The community garden bloomed with possibility")) {
-                            if (questionText.includes("Which punctuation corrects the sentence 'Rosa, the garden’s founder, had spent years planning beds, trellises, and compost bins'?")) {
-                                return "Option B) uses commas correctly for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
-                            } else if (questionText.includes("Which word replaces 'bloomed' in 'The community garden bloomed with possibility, drawing neighbors together' to maintain tone?")) {
-                                return "Option A) 'flourished' keeps the hopeful tone. B) is neutral, C) is technical, and D) retains the original.";
-                            } else if (questionText.includes("Which pronoun corrects the agreement in 'Each volunteer brought their own tools to the garden'?")) {
-                                return "Option B) 'his or her' matches singular 'Each.' A) keeps the error, C) shifts number, and D) is incorrect.";
-                            } else if (questionText.includes("Which phrase replaces 'relying on' in 'The garden, relying on donations, thrived with vibrant crops' for clarity?")) {
-                                return "Option A) 'sustained by' is precise. B) is vague, C) shifts meaning, and D) keeps the original.";
-                            } else if (questionText.includes("Which revision combines 'The garden wasn’t perfect. Weeds crept in persistently' for better flow?")) {
-                                return "Option B) 'yet' links clauses smoothly. A) is choppy, C) misaligns logic, and D) shifts tone.";
-                            } else if (questionText.includes("Which revision to 'Skeptics wondered—could a small plot really unite the community?' maintains tone?")) {
-                                return "Option C) preserves the doubtful tone. A) is harsh, B) is formal, and D) keeps the original.";
-                            } else if (questionText.includes("Which punctuation corrects 'Spring arrived, the garden burst with color, but pests loomed'?")) {
-                                return "Option A) uses a semicolon for independent clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
-                            } else if (questionText.includes("Which sentence follows 'As harvest neared, cheers rose, though Rosa planned pest control tweaks' to emphasize effort?")) {
-                                return "Option C) highlights ongoing work. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
-                            } else if (questionText.includes("Which revision corrects the tense in 'Rosa stood by the gate, watching as volunteers plant seedlings'?")) {
-                                return "Option A) 'planted' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
-                            } else if (questionText.includes("Which revision to 'a symbol of grit and shared dreams' improves conciseness?")) {
-                                return "Option C) is succinct and clear. A) is wordy, B) shifts meaning, and D) keeps the original.";
-                            } else if (questionText.includes("Which sentence contains a misplaced modifier?")) {
-                                return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
-                            } else if (questionText.includes("Which transition phrase before 'Neighbors shared tools, their laughter echoing,' clarifies unity?")) {
-                                return "Option B) 'As a result' shows connection. A) implies time, C) is an example, and D) shifts focus.";
-                            } else if (questionText.includes("Which phrase replaces 'despite early setbacks' in 'Crops grew strong, despite early setbacks' for precision?")) {
-                                return "Option C) 'though challenged' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
-                            } else if (questionText.includes("Which revision to 'Every failure taught them perseverance' emphasizes growth?")) {
-                                return "Option B) underscores learning. A) is vague, C) shifts focus, and D) keeps the original.";
-                            } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
-                                return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+                    
+                        // English Questions (Passage 2: Community Mural)
+                        if (questionText.includes("Which punctuation corrects the sentence 'For weeks, the team—guided by seniors Maya Alvarez and Jamal Carter—had sketched designs, mixed paints, and planned layouts'")) {
+                            return "Option B retains correct dashes and commas. A omits commas, C misplaces a comma, and D disrupts structure. B is correct.";
+                        } else if (questionText.includes("Which word replaces 'reflecting' in 'Their aim was bold: a mural that unified the neighborhood, reflecting its history and hopes'")) {
+                            return "Option A 'depicting' maintains participle form. B shifts tense, C is future, and D disrupts structure. A is correct.";
+                        } else if (questionText.includes("Which pronoun corrects 'The curator, however, took photos, impressed by the creativity'")) {
+                            return "Option C 'his or her' matches singular 'curator.' A is plural, B shifts number, and D keeps the original. C is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'to capture' in 'Maya, a budding artist, chose colors to capture the neighborhood’s vibrancy'")) {
+                            return "Option A 'to convey' clarifies Maya’s intent. B is vague, C shifts meaning, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision best combines 'The mural wasn’t perfect; a few lines smudged'")) {
+                            return "Option B 'as' links clauses smoothly. A is wordy, C shifts logic, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which revision to 'Doubters murmured—could students create something lasting?'")) {
+                            return "Option B preserves skeptical tone. A is informal, C shifts tone, and D keeps the original. B is correct.";
+                        } else if (questionText.includes("Which punctuation corrects 'Early sketches had faltered; one design clashed with the wall’s texture'")) {
+                            return "Option A uses a comma for clarity. B misuses a colon, C is incorrect, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence best follows 'Yet as the mural took shape, Maya felt pride'")) {
+                            return "Option B emphasizes community involvement. A is logistical, C is neutral, and D shifts focus. B is correct.";
+                        } else if (questionText.includes("Which revision corrects the verb tense in 'Neighbors watched as Jamal paints a vibrant scene'")) {
+                            return "Option A 'painted' matches past tense. B shifts tense, C is incorrect, and D keeps the error. A is correct.";
+                        } else if (questionText.includes("Which revision to 'a creative visionary' enhances specificity")) {
+                            return "Option A 'a talented muralist' specifies Jamal’s role. B is vague, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains a misplaced modifier")) {
+                            return "Option D is correct; no misplaced modifiers exist. A, B, and C are clear. D is correct.";
+                        } else if (questionText.includes("Which transition phrase, inserted before 'The curator, however, smiled approvingly'")) {
+                            return "Option B 'In contrast' highlights approval vs. doubt. A suggests timing, C is an example, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'with care' in 'Jamal outlined figures, which came alive with care'")) {
+                            return "Option A 'with precision' sharpens artistic focus. B shifts meaning, C is vague, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision to 'Still, their vision endured' emphasizes resilience")) {
+                            return "Option A 'resolve persisted' intensifies perseverance. B is weaker, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains an error in parallel structure")) {
+                            return "Option D is correct; no parallelism errors exist. A, B, and C are consistent. D is correct.";
                         }
-                   
-                        // Set 4: Science Fair Passage
-                        } else if (questionText.includes("The gymnasium hummed with the energy of the science fair")) {
-                            if (questionText.includes("Which punctuation corrects the sentence 'Samir, the lead presenter, had tested his solar model for weeks, tweaking panels, and circuits'?")) {
-                                return "Option B) uses commas for the appositive and list. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
-                            } else if (questionText.includes("Which word replaces 'honed' in 'Students honed their projects, racing against the deadline' to maintain urgency?")) {
-                                return "Option A) 'refined' keeps the intense tone. B) is calm, C) is vague, and D) retains the original.";
-                            } else if (questionText.includes("Which pronoun corrects the agreement in 'Each student displayed their hypothesis proudly'?")) {
-                                return "Option B) 'his or her' matches singular 'Each.' A) keeps the error, C) shifts number, and D) is incorrect.";
-                            } else if (questionText.includes("Which phrase replaces 'built on' in 'The fair, built on months of effort, showcased innovation' for clarity?")) {
-                                return "Option A) 'driven by' is precise. B) is vague, C) shifts meaning, and D) keeps the original.";
-                            } else if (questionText.includes("Which revision combines 'The projects weren’t flawless. They impressed the judges' for flow?")) {
-                                return "Option B) 'yet' links clauses smoothly. A) is abrupt, C) misaligns logic, and D) shifts tone.";
-                            } else if (questionText.includes("Which revision to 'Judges murmured—could kids this young solve real problems?' maintains tone?")) {
-                                return "Option C) keeps the skeptical tone. A) is harsh, B) is formal, and D) retains the original.";
-                            } else if (questionText.includes("Which punctuation corrects 'The fair began, models whirred to life, but nerves lingered'?")) {
-                                return "Option A) uses a semicolon for clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
-                            } else if (questionText.includes("Which sentence follows 'As judging ended, cheers erupted, though Samir eyed his model’s flaws' to emphasize improvement?")) {
-                                return "Option C) highlights refinement. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
-                            } else if (questionText.includes("Which revision corrects the tense in 'Samir explained his model, hoping judges notice its efficiency'?")) {
-                                return "Option A) 'noticed' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
-                            } else if (questionText.includes("Which revision to 'a showcase of curiosity and bold ideas' improves conciseness?")) {
-                                return "Option C) is succinct and clear. A) is wordy, B) shifts meaning, and D) keeps the original.";
-                            } else if (questionText.includes("Which sentence contains a misplaced modifier?")) {
-                                return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
-                            } else if (questionText.includes("Which transition phrase before 'Judges took notes, their faces unreadable,' clarifies contrast?")) {
-                                return "Option B) 'In contrast' highlights difference. A) implies time, C) is an example, and D) is causal.";
-                            } else if (questionText.includes("Which phrase replaces 'despite initial doubts' in 'Projects shone, despite initial doubts' for precision?")) {
-                                return "Option C) 'though questioned' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
-                            } else if (questionText.includes("Which revision to 'Every setback fueled their drive' emphasizes persistence?")) {
-                                return "Option B) underscores resilience. A) is vague, C) shifts focus, and D) keeps the original.";
-                            } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
-                                return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+                    
+                        // English Questions (Passage 3: Robotics Competition)
+                        if (questionText.includes("Which punctuation corrects the sentence 'For months, the squad—mentored by sophomores Ava Chen and Lucas Patel—had toiled in the lab, programming sensors and assembling gears'")) {
+                            return "Option B retains correct dashes and commas. A omits commas, C misplaces a comma, and D disrupts structure. B is correct.";
+                        } else if (questionText.includes("Which word replaces 'mimicking' in 'Their goal was audacious: a robot capable of navigating obstacles to collect debris, mimicking environmental cleanup'")) {
+                            return "Option A 'imitating' maintains participle form. B shifts form, C is future, and D is past. A is correct.";
+                        } else if (questionText.includes("Which pronoun corrects 'The coach, however, took notes, impressed by the innovation'")) {
+                            return "Option C 'his or her' matches singular 'coach.' A is plural, B shifts number, and D keeps the original. C is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'to optimize' in 'Ava, a coding enthusiast, wrote algorithms to optimize the robot’s pathfinding'")) {
+                            return "Option A 'to improve' clarifies Ava’s goal. B is vague, C shifts meaning, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision best combines 'The demo wasn’t flawless; a sensor misfired once'")) {
+                            return "Option B 'as' links clauses smoothly. A is wordy, C shifts logic, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which revision to 'Naysayers whispered—could students solve real-world problems?'")) {
+                            return "Option B preserves doubtful tone. A is informal, C shifts tone, and D keeps the original. B is correct.";
+                        } else if (questionText.includes("Which punctuation corrects 'Past prototypes had failed; one crashed during a test run, scattering parts'")) {
+                            return "Option A uses a comma for clarity. B misuses a colon, C is incorrect, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence best follows 'Yet as the robot completed its course, Ava sensed victory'")) {
+                            return "Option B reinforces success with future plans. A is logistical, C is neutral, and D shifts focus. B is correct.";
+                        } else if (questionText.includes("Which revision corrects the verb tense in 'Spectators leaned in as Ava detailed the code’s logic'")) {
+                            return "Option A 'had leaned' matches past context. B shifts tense, C is incorrect, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision to 'a mechanical wizard' enhances specificity")) {
+                            return "Option A 'a skilled engineer' specifies Lucas’s role. B is vague, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains a misplaced modifier")) {
+                            return "Option D is correct; no misplaced modifiers exist. A, B, and C are clear. D is correct.";
+                        } else if (questionText.includes("Which transition phrase, inserted before 'The coach, however, took notes, impressed by the innovation'")) {
+                            return "Option B 'In contrast' highlights approval vs. doubt. A suggests timing, C is an example, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'with precision' in 'Lucas demonstrated the robot’s arm, which scooped mock debris with precision'")) {
+                            return "Option A 'with accuracy' sharpens technical focus. B shifts meaning, C is vague, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision to 'Nevertheless, their resolve strengthened' emphasizes perseverance")) {
+                            return "Option A 'determination endured' intensifies resilience. B is weaker, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains an error in parallel structure")) {
+                            return "Option D is correct; no parallelism errors exist. A, B, and C are consistent. D is correct.";
                         }
-                   
-                        // Set 5: Theater Passage
-                        } else if (questionText.includes("The theater troupe huddled backstage")) {
-                            if (questionText.includes("Which punctuation corrects the sentence 'The troupe’s director, Elena Vasquez, had spent weeks perfecting the lighting cues, sound levels, and actors’ blocking'?")) {
-                                return "Option B) correctly uses commas for the appositive. A) lacks commas, C) misplaces a comma, and D) omits punctuation.";
-                            } else if (questionText.includes("Which word replaces 'huddled' in 'The theater troupe huddled backstage, nerves fraying as the clock ticked closer to curtain' to maintain tone?")) {
-                                return "Option A) 'gathered' preserves the anxious tone. B) is too casual, C) too formal, and D) keeps the original.";
-                            } else if (questionText.includes("Which pronoun corrects the agreement error in 'Each actor checked their costume, ensuring no detail was overlooked'?")) {
-                                return "Option B) 'his or her' matches singular 'Each.' A) retains the error, C) shifts number, and D) is incorrect.";
-                            } else if (questionText.includes("Which phrase replaces 'relying on' in 'The production, relying on a shoestring budget, still dazzled with creative sets' for precision?")) {
-                                return "Option A) 'operating with' clarifies the budget constraint. B) is vague, C) shifts meaning, and D) keeps the original.";
-                            } else if (questionText.includes("Which revision best combines 'The play wasn’t flawless. It captivated the audience' to improve flow?")) {
-                                return "Option B) 'yet' smoothly contrasts flaws and success. A) is abrupt, C) misaligns logic, and D) shifts tone.";
-                            } else if (questionText.includes("Which revision to 'Critics scribbled notes—would this scrappy troupe pull it off?' maintains the passage’s tone?")) {
-                                return "Option C) preserves the skeptical tone. A) is too harsh, B) too formal, and D) keeps the original.";
-                            } else if (questionText.includes("Which punctuation corrects 'Opening night had arrived, the troupe was ready, but jittery'?")) {
-                                return "Option A) uses a semicolon for independent clauses. B) misuses a colon, C) creates a run-on, and D) keeps the error.";
-                            } else if (questionText.includes("Which sentence best follows 'As the curtain fell, applause erupted, though Elena already planned tweaks for tomorrow’s show' to emphasize refinement?")) {
-                                return "Option C) highlights ongoing improvements. A) shifts focus, B) is irrelevant, and D) lacks emphasis.";
-                            } else if (questionText.includes("Which revision corrects the verb tense in 'Elena stood in the wings, watching as the actors deliver their lines'?")) {
-                                return "Option A) 'delivered' matches past tense. B) shifts tense, C) is incorrect, and D) keeps the error.";
-                            } else if (questionText.includes("Which revision to 'a testament to raw talent and stubborn grit' enhances conciseness?")) {
-                                return "Option C) streamlines without losing impact. A) is wordy, B) shifts meaning, and D) keeps the original.";
-                            } else if (questionText.includes("Which sentence contains a misplaced modifier?")) {
-                                return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
-                            } else if (questionText.includes("Which transition phrase, inserted before 'The actors hit their marks, their voices steady despite the stakes,' clarifies the contrast?")) {
-                                return "Option B) 'Even so' highlights resilience. A) implies sequence, C) is irrelevant, and D) shifts focus.";
-                            } else if (questionText.includes("Which phrase replaces 'despite first-night jitters' in 'The actors moved with confidence, despite first-night jitters' for precision?")) {
-                                return "Option C) 'though nervous' is concise and clear. A) is wordy, B) shifts tone, and D) keeps the original.";
-                            } else if (questionText.includes("Which revision to 'Every prop malfunction taught them resilience' emphasizes learning?")) {
-                                return "Option B) underscores growth through setbacks. A) is vague, C) shifts focus, and D) keeps the original.";
-                            } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
-                                return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
+                    
+                        // English Questions (Passage 4: Community Garden Initiative)
+                        if (questionText.includes("Which punctuation corrects the sentence 'For weeks, the group—led by seniors Mia Torres and Noah Lee—had prepared tirelessly, tilling soil and selecting seeds'")) {
+                            return "Option B retains correct dashes and commas. A omits commas, C misplaces a comma, and D disrupts structure. B is correct.";
+                        } else if (questionText.includes("Which word replaces 'fostering' in 'Their mission was ambitious: a sustainable garden to supply fresh produce, fostering unity and health'")) {
+                            return "Option A 'promoting' maintains participle form. B shifts form, C is future, and D is past. A is correct.";
+                        } else if (questionText.includes("Which pronoun corrects 'The park manager, however, nodded approvingly, sketching plans for expansion'")) {
+                            return "Option C 'his or her' matches singular 'manager.' A is plural, B shifts number, and D keeps the original. C is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'to maximize' in 'Mia, a botany enthusiast, designed planting layouts to maximize yield'")) {
+                            return "Option A 'to increase' clarifies Mia’s goal. B is vague, C shifts meaning, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision best combines 'The garden wasn’t perfect; a few plants wilted'")) {
+                            return "Option B 'as' links clauses smoothly. A is wordy, C shifts logic, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which revision to 'Critics muttered—could students sustain such a project?'")) {
+                            return "Option B preserves skeptical tone. A is informal, C shifts tone, and D keeps the original. B is correct.";
+                        } else if (questionText.includes("Which punctuation corrects 'Early efforts had stumbled; a water shortage threatened the seedlings'")) {
+                            return "Option A uses a comma for clarity. B misuses a colon, C is incorrect, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence best follows 'Yet as green shoots emerged, Mia felt hope'")) {
+                            return "Option B emphasizes community commitment. A is logistical, C is neutral, and D shifts focus. B is correct.";
+                        } else if (questionText.includes("Which revision corrects the verb tense in 'Neighbors watched, some joining in, as Mia explained crop rotation benefits'")) {
+                            return "Option A 'had watched' matches past context. B shifts tense, C is incorrect, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision to 'a botany enthusiast' enhances specificity")) {
+                            return "Option A 'a skilled plant scientist' specifies Mia’s expertise. B is vague, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains a misplaced modifier")) {
+                            return "Option D is correct; no misplaced modifiers exist. A, B, and C are clear. D is correct.";
+                        } else if (questionText.includes("Which transition phrase, inserted before 'The park manager, however, nodded approvingly'")) {
+                            return "Option B 'In contrast' highlights approval vs. doubt. A suggests timing, C is an example, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'his passion infectious' in 'Noah shared the garden’s vision, his passion infectious'")) {
+                            return "Option A 'his zeal contagious' sharpens inspirational focus. B shifts meaning, C is vague, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision to 'Still, their commitment endured' emphasizes resilience")) {
+                            return "Option A 'resolve persisted' intensifies perseverance. B is weaker, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains an error in parallel structure")) {
+                            return "Option D is correct; no parallelism errors exist. A, B, and C are consistent. D is correct.";
                         }
-                       // Set 6: Robotics Passage
-                        } else if (questionText.includes("The community center buzzed with anticipation as the robotics team")) {
-                            if (questionText.includes("Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?")) {
-                                return "Option B) correctly uses commas for the appositive. A) omits commas, C) misplaces a comma, and D) lacks punctuation.";
-                            } else if (questionText.includes("Which word replaces 'addressing' in 'Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem' to maintain verb tense consistency?")) {
-                                return "Option A) 'addressed' aligns with past tense. B) shifts tense, C) is future, and D) is incorrect.";
-                            } else if (questionText.includes("Which pronoun corrects the agreement error in 'The team knew the stakes: a win could fund a town-wide recycling program'?")) {
-                                return "Option B) 'its' matches singular 'team.' A) is plural, C) shifts subject, and D) keeps the error.";
-                            } else if (questionText.includes("Which phrase replaces 'based on' in 'Leo, an engineering whiz, designed a claw that adjusted its grip based on material density' to improve clarity?")) {
-                                return "Option A) 'depending on' is clearer. B) shifts meaning, C) is wordy, and D) keeps the original.";
-                            } else if (questionText.includes("Which revision best combines 'Their robot wasn’t perfect; glass sorting still lagged behind plastic' to improve flow?")) {
-                                return "Option B) 'as' links clauses smoothly. A) is abrupt, C) shifts logic, and D) is causal.";
-                            } else if (questionText.includes("Which revision to 'Critics in the audience murmured—could a high school team really tackle such a complex issue?' best maintains the passage’s tone?")) {
-                                return "Option C) keeps the doubtful tone. A) is informal, B) is formal, and D) retains the original.";
-                            } else if (questionText.includes("Which punctuation corrects 'Early prototypes had faltered; one memorably scattered cans across the lab'?")) {
-                                return "Option A) uses a comma for clarity. B) misuses a colon, C) is incorrect, and D) keeps the original.";
-                            } else if (questionText.includes("Which sentence best follows 'As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration' to emphasize persistence?")) {
-                                return "Option C) underscores continued effort. A) shifts focus, B) is irrelevant, and D) is vague.";
-                            } else if (questionText.includes("Which revision corrects the verb tense in 'Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates'?")) {
-                                return "Option A) 'had exchanged' matches past context. B) shifts tense, C) is incorrect, and D) keeps the error.";
-                            } else if (questionText.includes("Which revision to 'a spark of innovation born from late-night pizza and stubborn hope' enhances conciseness?")) {
-                                return "Option C) is succinct and clear. A) is vague, B) loses impact, and D) keeps the original.";
-                            } else if (questionText.includes("Which sentence contains a misplaced modifier?")) {
-                                return "Option D) is correct; no misplaced modifiers exist. A), B), and C) are clear.";
-                            } else if (questionText.includes("Which transition phrase, inserted before 'The judges, however, scribbled notes, their expressions unreadable,' clarifies the contrast?")) {
-                                return "Option B) 'In contrast' highlights the difference. A) implies time, C) is an example, and D) is causal.";
-                            } else if (questionText.includes("Which phrase replaces 'despite her nerves' in 'The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves' for precision?")) {
-                                return "Option C) 'though anxious' is concise. A) is wordy, B) shifts tone, and D) keeps the original.";
-                            } else if (questionText.includes("Which revision to 'Yet each failure fueled their resolve' emphasizes resilience?")) {
-                                return "Option B) 'bolstered tenacity' emphasizes strength. A) is wordy, C) is vague, and D) keeps the original.";
-                            } else if (questionText.includes("Which sentence has an error in parallel structure?")) {
-                                return "Option D) is correct; no parallelism errors exist. A), B), and C) are consistent.";
-                            }
-                                // Set 7: Maple Street House Passage
-                    } else if (questionText.includes("The old house on Maple Street stood at the edge of town")) {
-                        if (questionText.includes("What is the primary reason Clara is drawn to the house on Maple Street?")) {
-                            return "The passage states Clara spent months researching Eliza Hawthorne’s life, indicating her primary motivation. Option B) She is researching Eliza Hawthorne’s life is correct. A) is incorrect as Clara seeks history, not ghosts; C) lacks evidence of renovation plans; D) misinterprets her grandmother’s vague connection.";
-                        } else if (questionText.includes("The description of the house in the first paragraph primarily serves to:")) {
-                            return "The first paragraph’s vivid imagery (e.g., ‘weathered clapboards,’ ‘ivy clinging’) creates a mysterious tone. Option B) establish a mysterious and foreboding atmosphere is correct. A) overemphasizes Clara’s bravery; C) lacks contrast with her lifestyle; D) is secondary to the mood.";
-                        } else if (questionText.includes("What can be inferred about Eliza Hawthorne’s relationship with the townsfolk?")) {
-                            return "Eliza’s journal notes the town branded her eccentric, implying misunderstanding. Option B) They misunderstood her and viewed her as eccentric is correct. A) lacks evidence of poetry admiration; C) contradicts her isolation; D) is unsupported.";
-                        } else if (questionText.includes("Why does Clara feel an ache while reading Eliza’s journal?")) {
-                            return "The passage links Clara’s ache to empathizing with Eliza and reflecting on her own life’s search for meaning. Option B) She empathizes with Eliza and reflects on her own life is correct. A) misreads physical discomfort; C) ignores emotional context; D) lacks evidence of fear.";
-                        } else if (questionText.includes("The phrase ‘heart’s truth’ in the second paragraph most likely refers to:")) {
-                            return "The context of Eliza’s letter and hidden room suggests ‘heart’s truth’ refers to her personal writings. Option C) Eliza’s most personal writings is correct. A) is too narrow; B) misinterprets the room itself; D) lacks evidence of treasure.";
-                        } else if (questionText.includes("How does the author use the setting of the hidden room to develop Clara’s character?")) {
-                            return "The hidden room’s journals and chair facing the garden mirror Clara’s introspective search, connecting her to Eliza. Option C) It emphasizes her connection to Eliza’s introspective nature is correct. A) lacks fear evidence; B) is secondary; D) contradicts her curiosity.";
-                        } else if (questionText.includes("What does the final entry in Eliza’s journal suggest about her intentions?")) {
-                            return "The entry ‘I leave them to the one who seeks’ implies Eliza wanted her work found by someone curious. Option B) She wanted her work to be discovered by someone curious is correct. A) lacks evidence of leaving town; C) contradicts preservation; D) is unsupported.";
-                        } else if (questionText.includes("The whisper Clara hears in the final paragraph most likely symbolizes:")) {
-                            return "The whisper, tied to Clara’s discovery, suggests Eliza’s spirit urging preservation. Option D) Eliza’s spirit encouraging her to preserve the journals is correct. A) misattributes to grandmother; B) is too vague; C) ignores Eliza’s connection.";
-                        } else if (questionText.includes("How does the author’s use of sensory details, such as the ‘groaning floorboards’ and ‘brittle pages,’ contribute to the passage’s tone?")) {
-                            return "Sensory details like ‘groaning floorboards’ and ‘brittle pages’ enhance the eerie, suspenseful mood. Option B) They enhance the eerie and suspenseful mood is correct. A) misreads nostalgia; C) overemphasizes discomfort; D) is too literal.";
-                        } else if (questionText.includes("What is the significance of the contrast between Clara’s actions and the townsfolk’s perceptions of the house?")) {
-                            return "Clara’s investigation challenges the townsfolk’s haunted view, suggesting her findings could reshape beliefs. Option C) It suggests Clara’s investigation will alter the town’s beliefs is correct. A) is partial; B) overstates courage; D) contradicts her discoveries.";
-                        } else if (questionText.includes("Based on the passage, how does Clara’s discovery of the hidden room reflect the broader theme of uncovering hidden truths?")) {
-                            return "Clara’s persistent search for the hidden room shows truths require effort to uncover. Option A) It shows that truths are often inaccessible without persistence is correct. B) lacks danger evidence; C) contradicts her pursuit; D) overstates supernatural ties.";
-                        } else if (questionText.includes("The passage’s structure, moving from Clara’s research to her discovery in the hidden room, serves to:")) {
-                            return "The structure builds suspense and parallels Clara’s growing understanding. Option A) build suspense and mirror Clara’s journey of understanding is correct. B) lacks clear contrast; C) misplaces focus on the house; D) is secondary.";
-                
-                
-                
-                
-                    // Set 8: Chicago School of Sociology Passage
-                
-                
-                
-                
-                    }} else if (questionText.includes("In the early 20th century, the Chicago School of Sociology emerged")) {
-                        if (questionText.includes("What was the primary focus of the Chicago School of Sociology’s approach to studying cities?")) {
-                            return "The passage emphasizes the Chicago School’s view of cities as shaped by local social processes like competition and segregation. Option B) Examining local social processes like competition and segregation is correct. A) reflects the Los Angeles School; C) is not mentioned; D) is unrelated to their focus.";
-                        } else if (questionText.includes("The concentric zone model described in the passage primarily aimed to explain:")) {
-                            return "The passage describes the concentric zone model as outlining distinct social and economic functions in urban zones. Option A) The distribution of social and economic functions in urban areas is correct. B) is too specific; C) is a secondary effect; D) misinterprets the model’s purpose.";
-                        } else if (questionText.includes("What was a key method used by Chicago School researchers to study urban life?")) {
-                            return "The passage highlights interviewing residents and mapping neighborhoods as key methods. Option B) Interviewing residents and mapping neighborhoods is correct. A) is not mentioned; C) is less emphasized; D) is unsupported.";
-                        } else if (questionText.includes("What was one criticism of the Chicago School’s concentric zone model mentioned in the passage?")) {
-                            return "The passage notes critics argued the model ignored cultural and historical factors. Option C) It oversimplified urban dynamics by ignoring cultural factors is correct. A) is unrelated; B) is incorrect; D) is not a cited criticism.";
-                        } else if (questionText.includes("The passage suggests that the Chicago School’s influence persisted despite criticism because:")) {
-                            return "The passage credits the Chicago School’s lasting impact to its observational methods influencing modern sociology. Option A) Its methods of observation shaped modern sociological practices is correct. B) overstates accuracy; C) is false; D) misrepresents the debate.";
-                        } else if (questionText.includes("The phrase ‘natural’ social processes in the passage most likely refers to:")) {
-                            return "The passage links ‘natural’ processes to social interactions like competition and assimilation. Option B) Organic social interactions like competition and assimilation is correct. A) refers to policy; C) misinterprets ecology; D) is unrelated.";
-                        } else if (questionText.includes("How did the Chicago School’s research methods differ from those of the Los Angeles School, as described in the passage?")) {
-                            return "The passage contrasts Chicago’s local observations with Los Angeles’s focus on global economic forces. Option A) Chicago School focused on local observations, while Los Angeles School emphasized global economic trends is correct. B) misstates methods; C) is incorrect; D) reverses approaches.";
-                        } else if (questionText.includes("What does the passage imply about the role of the Chicago School’s research in urban planning during the 1920s?")) {
-                            return "The passage states the concentric zone model guided planners dealing with industrialization and immigration. Option D) It guided planners addressing industrialization and immigration is correct. A) contradicts the passage; B) is too vague; C) is unsupported.";
-                        } else if (questionText.includes("The passage’s description of cities as ‘living organisms’ primarily serves to:")) {
-                            return "The ‘living organisms’ metaphor underscores the Chicago School’s view of cities as dynamic, adaptive systems. Option D) Illustrate the Chicago School’s view of cities as complex, changing systems is correct. A) is too literal; B) is partial; C) contradicts human influence.";
-                        } else if (questionText.includes("How does the passage’s structure, moving from the Chicago School’s theories to their criticisms and lasting impact, contribute to its overall argument?")) {
-                            return "The structure traces the development of urban sociology, showing the Chicago School’s role in its evolution. Option C) It traces the evolution of urban sociology as a discipline is correct. A) misstates the tone; B) is partial; D) overstates defense.";
-                        }// Set 9: Impressionist Movement Passage
-                    } else if (questionText.includes("In the late 19th century, the Impressionist movement redefined European art")) {
-                        if (questionText.includes("What was a primary goal of Impressionist artists like Monet and Renoir?")) {
-                            return "The passage states that Impressionists sought to capture fleeting moments of light and color, prioritizing sensory experience. Option B) To capture fleeting moments of light and color is correct. A) contradicts their break from academic standards; C) misaligns with their focus on sensory over narrative; D) opposes their loose, impressionistic style.";
-                        } else if (questionText.includes("According to the passage, how did critics initially react to Impressionism?")) {
-                            return "The passage notes critics scorned Impressionism, dismissing its sketch-like quality as unfinished. Option B) They dismissed it as unfinished and sketch-like is correct. A) misstates their reaction; C) contradicts their criticism; D) reflects later influence, not initial response.";
-                        } else if (questionText.includes("What role did the 1874 exhibition play in the Impressionist movement?")) {
-                            return "The passage highlights the 1874 exhibition as the origin of the term ‘Impressionism’ via Monet’s *Impression, Sunrise*. Option B) It introduced the term ‘Impressionism’ through Monet’s painting is correct. A) is incorrect as it was independent; C) misrepresents the exhibition’s content; D) is unrelated to its purpose.";
-                        } else if (questionText.includes("How did Impressionist artists challenge the Paris Salon, according to the passage?")) {
-                            return "The passage states Impressionists organized independent exhibitions to bypass the Paris Salon’s authority. Option C) By organizing independent exhibitions is correct. A) contradicts their approach; B) is a duplicate error; D) misaligns with their innovative style.";
-                        } else if (questionText.includes("The passage suggests that Impressionism’s focus on modernity was significant because it:")) {
-                            return "The passage links Impressionism’s celebration of railways and cafes to industrialization’s cultural shifts. Option A) Reflected the cultural changes brought by industrialization is correct. B) contradicts their nature focus; C) opposes their modern themes; D) ignores their build on prior art.";
-                        } else if (questionText.includes("The phrase ‘en plein air’ in the passage most likely refers to:")) {
-                            return "The context of capturing natural light and landscapes suggests ‘en plein air’ means painting outdoors. Option B) Painting outdoors to capture natural light is correct. A) describes studio work; C) misinterprets technique; D) refers to exhibition, not painting.";
-                        } else if (questionText.includes("How did Vincent van Gogh’s work relate to Impressionism, according to the passage?")) {
-                            return "The passage notes van Gogh’s emotive brushwork built on Impressionist spontaneity. Option B) He built on its spontaneity with emotive brushwork is correct. A) contradicts his influence; C) misstates his focus; D) lacks evidence of criticism.";
-                        } else if (questionText.includes("What does the passage imply about the Impressionists’ view of nature?")) {
-                            return "The passage states Impressionists retreated to nature for solace amidst modernity. Option A) They saw it as a source of solace amidst modernity is correct. B) contradicts their landscape focus; C) opposes their style; D) misrepresents their innovation.";
-                        } else if (questionText.includes("The passage’s reference to Impressionism ‘bridging the personal and the universal’ primarily serves to:")) {
-                            return "The phrase highlights how Impressionists connected individual sensory experiences to shared beauty. Option C) Illustrate its ability to connect individual experience with shared beauty is correct. A) is secondary; B) contradicts their style; D) opposes their modern focus.";
-                        } else if (questionText.includes("How does the passage’s structure, moving from Impressionism’s techniques to its cultural context and lasting impact, contribute to its overall argument?")) {
-                            return "The structure traces Impressionism’s development, emphasizing its lasting influence on modern art. Option D) It traces the evolution of Impressionism’s influence is correct. A) lacks clear contrast; B) is partial; C) misstates flaws as focus.";
+                    
+                        // English Questions (Passage 5: Theater Production)
+                        if (questionText.includes("Which punctuation corrects the sentence 'For months, the troupe—directed by juniors Emma Wright and Liam Brooks—had memorized lines and built sets'")) {
+                            return "Option B retains correct dashes and commas. A omits commas, C misplaces a comma, and D disrupts structure. B is correct.";
+                        } else if (questionText.includes("Which word replaces 'blending' in 'Their aim was bold: a modern retelling of a classic play, blending tradition with innovation'")) {
+                            return "Option A 'combining' maintains participle form. B shifts form, C is future, and D is past. A is correct.";
+                        } else if (questionText.includes("Which pronoun corrects 'The drama teacher, however, clapped enthusiastically, noting the fresh perspective'")) {
+                            return "Option C 'his or her' matches singular 'teacher.' A is incorrect, B shifts number, and D keeps the original. C is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'to reflect' in 'Emma, a visionary storyteller, rewrote scenes to reflect current issues'")) {
+                            return "Option A 'to address' clarifies Emma’s intent. B is vague, C shifts meaning, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision best combines 'The rehearsal wasn’t flawless; a prop fell during a scene'")) {
+                            return "Option B 'as' links clauses smoothly. A is wordy, C shifts logic, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which revision to 'Skeptics whispered—could students reinterpret a classic convincingly?'")) {
+                            return "Option B preserves skeptical tone. A is informal, C shifts tone, and D keeps the original. B is correct.";
+                        } else if (questionText.includes("Which punctuation corrects 'Initial rehearsals had faltered; a lead actor dropped out unexpectedly'")) {
+                            return "Option A uses a comma for clarity. B misuses a colon, C is incorrect, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence best follows 'Still, as the curtain fell, Emma felt pride'")) {
+                            return "Option B emphasizes troupe’s commitment. A is logistical, C is neutral, and D shifts focus. B is correct.";
+                        } else if (questionText.includes("Which revision corrects the verb tense in 'Audience members, invited for a preview, gasped as Emma explained the play’s themes'")) {
+                            return "Option A 'had gasped' matches past context. B shifts tense, C is incorrect, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision to 'a visionary storyteller' enhances specificity")) {
+                            return "Option A 'a creative playwright' specifies Emma’s role. B is vague, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains a misplaced modifier")) {
+                            return "Option D is correct; no misplaced modifiers exist. A, B, and C are clear. D is correct.";
+                        } else if (questionText.includes("Which transition phrase, inserted before 'The drama teacher, however, clapped enthusiastically'")) {
+                            return "Option B 'In contrast' highlights enthusiasm vs. skepticism. A suggests timing, C is an example, and D is causal. B is correct.";
+                        } else if (questionText.includes("Which phrase replaces 'his focus razor-sharp' in 'Liam adjusted lighting, his focus razor-sharp'")) {
+                            return "Option A 'his concentration precise' sharpens technical focus. B shifts meaning, C is vague, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which revision to 'Yet their spirit held strong' emphasizes resilience")) {
+                            return "Option A 'resolve remained steadfast' intensifies perseverance. B is weaker, C shifts focus, and D keeps the original. A is correct.";
+                        } else if (questionText.includes("Which sentence contains an error in parallel structure")) {
+                            return "Option D is correct; no parallelism errors exist. A, B, and C are consistent. D is correct.";
+                        }
+                    
+                        // Math Questions
+                        if (questionText.includes("Solve for x in the equation 2x + 5 = 11")) {
+                            return "Subtract 5: 2x = 6. Divide by 2: x = 3. Option B) 3 is correct. A) 2, C) 4, and D) 5 do not satisfy the equation.";
+                        } else if (questionText.includes("What is the area of a rectangle with length 8 and width 3")) {
+                            return "Area = length × width = 8 × 3 = 24. Option B) 24 is correct. A) 11, C) 22, and D) 30 miscalculate.";
+                        } else if (questionText.includes("If f(x) = x² + 2x + 1, what is f(3)")) {
+                            return "f(3) = 3² + 2(3) + 1 = 9 + 6 + 1 = 16. Option B) 16 is correct. A) 10, C) 12, and D) 14 are incorrect.";
+                        } else if (questionText.includes("What is the slope of the line passing through points (2, 3) and (4, 7)")) {
+                            return "Slope = (y₂ - y₁)/(x₂ - x₁) = (7 - 3)/(4 - 2) = 4/2 = 2. Option B) 2 is correct. A) 1, C) 3, and D) 4 miscalculate.";
+                        } else if (questionText.includes("Solve for x: 3x - 7 = 5x + 1")) {
+                            return "Subtract 3x: -7 = 2x + 1. Subtract 1: -8 = 2x. Divide by 2: x = -4. Option A) -4 is correct. B) -2, C) 2, and D) 4 are incorrect.";
+                        } else if (questionText.includes("What is the circumference of a circle with radius 5")) {
+                            return "Circumference = 2πr = 2π(5) = 10π. Option A) 10π is correct. B) 15π, C) 20π, and D) 25π miscalculate.";
+                        } else if (questionText.includes("If log₂(x) = 3, what is x")) {
+                            return "log₂(x) = 3 means 2³ = x, so x = 8. Option B) 8 is correct. A) 6, C) 9, and D) 12 are not 2³.";
+                        } else if (questionText.includes("What is the value of sin(30°)")) {
+                            return "For a 30-60-90 triangle, sin(30°) = opposite/hypotenuse = 1/2. Option A) 1/2 is correct. B) √2/2, C) √3/2, and D) 1 are incorrect.";
+                        } else if (questionText.includes("A box contains 4 red and 6 blue marbles. What is the probability of drawing a red marble")) {
+                            return "Probability = favorable/total = 4/(4+6) = 4/10 = 2/5. Option A) 2/5 is correct. B) 3/5, C) 1/2, and D) 4/5 miscalculate.";
+                        } else if (questionText.includes("Solve the quadratic equation x² - 4x - 5 = 0")) {
+                            return "Factor: (x - 5)(x + 1) = 0. Solutions: x = 5, -1. Option A) x = 5, -1 is correct. B) 4, -1, C) 5, 1, and D) 4, 1 are incorrect.";
+                        } else if (questionText.includes("What is the distance between points (1, 2) and (4, 6)")) {
+                            return "Distance = √((x₂ - x₁)² + (y₂ - y₁)²) = √((4-1)² + (6-2)²) = √(9 + 16) = √25 = 5. Option B) 5 is correct. A) 3, C) 6, and D) 7 are incorrect.";
+                        } else if (questionText.includes("If f(x) = 2x + 3 and g(x) = x - 1, what is f(g(2))")) {
+                            return "g(2) = 2 - 1 = 1. f(1) = 2(1) + 3 = 5. Option B) 5 is correct. A) 3, C) 7, and D) 9 miscalculate.";
+                        } else if (questionText.includes("What is the value of 2³ × 3²")) {
+                            return "2³ = 8, 3² = 9. 8 × 9 = 72. Option B) 72 is correct. A) 48, C) 96, and D) 108 miscalculate.";
+                        } else if (questionText.includes("A car travels 120 miles in 2 hours. What is its average speed in miles per hour")) {
+                            return "Speed = distance/time = 120/2 = 60 mph. Option B) 60 is correct. A) 50, C) 70, and D) 80 miscalculate.";
+                        } else if (questionText.includes("What is the sum of the first 5 terms of the arithmetic sequence with first term 2 and common difference 3")) {
+                            return "Terms: 2, 5, 8, 11, 14. Sum = 2 + 5 + 8 + 11 + 14 = 40. Option B) 40 is correct. A) 30, C) 45, and D) 50 are incorrect.";
+                        } else if (questionText.includes("Solve for x: |x - 3| = 5")) {
+                            return "x - 3 = 5 or x - 3 = -5. Solutions: x = 8, -2. Option A) x = 8, -2 is correct. B) 7, -1, C) 6, -2, and D) 8, -3 are incorrect.";
+                        } else if (questionText.includes("What is the area of a triangle with base 6 and height 4")) {
+                            return "Area = (1/2) × base × height = (1/2) × 6 × 4 = 12. Option B) 12 is correct. A) 10, C) 14, and D) 16 miscalculate.";
+                        } else if (questionText.includes("If i² = -1, what is the value of (3 + 2i)(1 - i)")) {
+                            return "Expand: (3 + 2i)(1 - i) = 3 - 3i + 2i - 2i² = 3 - i + 2 = 5 - i. Option A) 5 - i is correct. B) 3 + i, C) 5 + i, and D) 3 - i are incorrect.";
+                        } else if (questionText.includes("What is the value of cos(60°)")) {
+                            return "For a 30-60-90 triangle, cos(60°) = adjacent/hypotenuse = 1/2. Option A) 1/2 is correct. B) √2/2, C) √3/2, and D) 1 are incorrect.";
+                        } else if (questionText.includes("A store offers a 20% discount on a $50 item. What is the sale price")) {
+                            return "Discount = 0.2 × 50 = $10. Sale price = 50 - 10 = $40. Option B) $40 is correct. A) $30, C) $45, and D) $48 miscalculate.";
+                        } else if (questionText.includes("Solve for x: x² + 2x - 8 = 0")) {
+                            return "Factor: (x + 4)(x - 2) = 0. Solutions: x = -4, 2. Option A) x = 2, -4 is correct. B) 4, -2, C) 3, -3, and D) 2, -2 are incorrect.";
+                        } else if (questionText.includes("What is the sum of the interior angles of a pentagon")) {
+                            return "Sum = (n - 2) × 180°, n = 5: (5 - 2) × 180 = 540°. Option B) 540° is correct. A) 360°, C) 720°, and D) 900° miscalculate.";
+                        } else if (questionText.includes("If log₃(27) = x, what is x")) {
+                            return "27 = 3³, so log₃(27) = 3. Option B) 3 is correct. A) 2, C) 4, and D) 5 are incorrect.";
+                        } else if (questionText.includes("A bag contains 5 green and 3 yellow candies. What is the probability of drawing two green candies in a row without replacement")) {
+                            return "P(first green) = 5/8, P(second green) = 4/7. P(both) = (5/8) × (4/7) = 20/56 = 5/14. Option B) 5/14 is correct. A) 5/16, C) 3/14, and D) 3/16 miscalculate.";
+                        } else if (questionText.includes("What is the vertex of the parabola y = x² - 4x + 3")) {
+                            return "Vertex x = -b/(2a) = -(-4)/(2×1) = 2. y = 2² - 4(2) + 3 = -1. Vertex: (2, -1). Option A) (2, -1) is correct. B) (2, 1), C) (4, -1), and D) (4, 1) are incorrect.";
+                        } else if (questionText.includes("What is the value of 4! (factorial)")) {
+                            return "4! = 4 × 3 × 2 × 1 = 24. Option B) 24 is correct. A) 12, C) 36, and D) 48 miscalculate.";
+                        } else if (questionText.includes("A rectangular prism has a volume of 120, length 5, and width 4. What is its height")) {
+                            return "Volume = l × w × h. 120 = 5 × 4 × h, h = 120/20 = 6. Option B) 6 is correct. A) 4, C) 8, and D) 10 are incorrect.";
+                        } else if (questionText.includes("If f(x) = x³ - x, what is f(-2)")) {
+                            return "f(-2) = (-2)³ - (-2) = -8 + 2 = -6. Option A) -6 is correct. B) -4, C) 4, and D) 6 are incorrect.";
+                        } else if (questionText.includes("What is the midpoint of the segment joining (1, 3) and (5, 7)")) {
+                            return "Midpoint = ((x₁ + x₂)/2, (y₁ + y₂)/2) = ((1+5)/2, (3+7)/2) = (3, 5). Option B) (3, 5) is correct. A) (2, 4), C) (4, 6), and D) (5, 5) are incorrect.";
+                        } else if (questionText.includes("Solve for x: 2^x = 16")) {
+                            return "16 = 2⁴, so 2^x = 2⁴, x = 4. Option C) 4 is correct. A) 2, B) 3, and D) 5 are incorrect.";
+                        } else if (questionText.includes("What is the value of tan(45°)")) {
+                            return "For a 45-45-90 triangle, tan(45°) = opposite/adjacent = 1/1 = 1. Option B) 1 is correct. A) 0, C) √2, and D) √3 are incorrect.";
+                        } else if (questionText.includes("A train travels 200 miles in 4 hours, then 150 miles in 2 hours. What is its average speed for the entire trip")) {
+                            return "Total distance = 200 + 150 = 350 miles. Total time = 4 + 2 = 6 hours. Speed = 350/6 ≈ 58.33 mph. Option B) 58.33 mph is correct. A) 50, C) 60, and D) 65 miscalculate.";
+                        } else if (questionText.includes("What is the 10th term of the geometric sequence 2, 6, 18, ...")) {
+                            return "Common ratio = 6/2 = 3. nth term = a₁ × r^(n-1). 10th term = 2 × 3⁹ = 2 × 19683 = 39366. Option B) 39366 is correct. A) 13122, C) 118098, and D) 354294 are incorrect.";
+                        } else if (questionText.includes("Solve for x: 3x² - 12x + 9 = 0")) {
+                            return "Divide by 3: x² - 4x + 3 = 0. Factor: (x - 3)(x - 1) = 0. Solutions: x = 3, 1. Primary solution: x = 3. Option B) 3 is correct. A) 1, C) 2, -2, and D) 3, -1 are incorrect for primary focus.";
+                        } else if (questionText.includes("What is the volume of a cylinder with radius 3 and height 5")) {
+                            return "Volume = πr²h = π(3)²(5) = 45π. Option B) 45π is correct. A) 30π, C) 60π, and D) 75π miscalculate.";
+                        } else if (questionText.includes("If (2 + i) + (3 - 2i) = a + bi, what are a and b")) {
+                            return "Combine: (2 + i) + (3 - 2i) = 5 - i. a = 5, b = -1. Option A) a = 5, b = -1 is correct. B) a = 5, b = 1, C) a = 3, b = -1, and D) a = 3, b = 1 are incorrect.";
+                        } else if (questionText.includes("A committee of 3 people is chosen from 5 candidates. How many different committees are possible")) {
+                            return "Combinations: C(5,3) = 5!/(3!2!) = 10. Option A) 10 is correct. B) 15, C) 20, and D) 25 miscalculate.";
+                        } else if (questionText.includes("What is the slope-intercept form of the line 2x - 3y = 6")) {
+                            return "Solve: -3y = -2x + 6, y = (2/3)x - 2. Option A) y = (2/3)x - 2 is correct. B) y = (2/3)x + 2, C) y = -(2/3)x - 2, and D) y = -(2/3)x + 2 are incorrect.";
+                        } else if (questionText.includes("A store sells shirts for $20 each or 3 for $50. What is the savings per shirt when buying 3")) {
+                            return "Regular: 3 × $20 = $60. Deal: $50. Savings = $60 - $50 = $10. Per shirt: $10/3 ≈ $3.67. Option B) $3.67 is correct. A) $3.33, C) $4.00, and D) $4.33 miscalculate.";
+                        } else if (questionText.includes("What is the period of the function y = sin(2x)")) {
+                            return "Period of sin(bx) = 2π/b. b = 2, period = π. Option A) π is correct. B) 2π, C) π/2, and D) 4π are incorrect.";
+                        } else if (questionText.includes("Solve for x: 4^(x+1) = 16")) {
+                            return "16 = 4², so 4^(x+1) = 4², x + 1 = 2, x = 1. Option A) 1 is correct. B) 2, C) 3, and D) 4 are incorrect.";
+                        } else if (questionText.includes("What is the area of a circle inscribed in a square with side length 6")) {
+                            return "Diameter = side = 6, radius = 3. Area = πr² = π(3)² = 9π. Option A) 9π is correct. B) 12π, C) 18π, and D) 36π miscalculate.";
+                        } else if (questionText.includes("If f(x) = 2x + 1, what is the inverse function f⁻¹(x)")) {
+                            return "y = 2x + 1, x = (y - 1)/2. f⁻¹(x) = (x - 1)/2. Option A) (x - 1)/2 is correct. B) (x + 1)/2, C) 2x - 1, and D) 2x + 1 are incorrect.";
+                        } else if (questionText.includes("A bag has 4 red, 3 blue, and 2 green balls. What is the probability of drawing a blue or green ball")) {
+                            return "Favorable = 3 + 2 = 5. Total = 9. Probability = 5/9. Option A) 5/9 is correct. B) 4/9, C) 3/9, and D) 2/9 miscalculate.";
+                        } else if (questionText.includes("What is the sum of the roots of the quadratic equation 2x² - 8x + 6 = 0")) {
+                            return "Sum = -b/a. a = 2, b = -8: -(-8)/2 = 4. Option B) 4 is correct. A) 2, C) 6, and D) 8 are incorrect.";
+                        } else if (questionText.includes("What is the surface area of a cube with edge length 4")) {
+                            return "Surface area = 6a² = 6(4)² = 96. Option B) 96 is correct. A) 64, C) 128, and D) 144 miscalculate.";
+                        } else if (questionText.includes("If log₅(x) + log₅(25) = 3, what is x")) {
+                            return "log₅(25) = 2. log₅(x) + 2 = 3, log₅(x) = 1, x = 5¹ = 5. Option A) 1 is correct. B) 5, C) 25, and D) 125 are incorrect.";
+                        } else if (questionText.includes("A boat travels 20 miles upstream in 4 hours and 20 miles downstream in 2 hours. What is the speed of the current")) {
+                            return "Upstream: 20/(b - c) = 4, b - c = 5. Downstream: 20/(b + c) = 2, b + c = 10. Solve: b = 7.5, c = 2.5. Option A) 2.5 mph is correct. B) 3, C) 3.5, and D) 4 are incorrect.";
+                        } else if (questionText.includes("What is the amplitude of the function y = 3cos(2x)")) {
+                            return "Amplitude = |a|. a = 3, amplitude = 3. Option C) 3 is correct. A) 1, B) 2, and D) 4 are incorrect.";
+                        } else if (questionText.includes("Solve for x: x⁴ - 5x² + 4 = 0")) {
+                            return "Let u = x². u² - 5u + 4 = 0, (u - 4)(u - 1) = 0, u = 4, 1. x² = 4 or 1, x = ±2, ±1. Option A) x = ±1, ±2 is correct. B) ±1, ±3, C) ±2, ±3, and D) ±1, ±4 are incorrect.";
+                        } else if (questionText.includes("What is the equation of a circle with center (2, -3) and radius 5")) {
+                            return "(x - h)² + (y - k)² = r². Center (2, -3), r = 5: (x - 2)² + (y + 3)² = 25. Option A) (x - 2)² + (y + 3)² = 25 is correct. Others are incorrect.";
+                        } else if (questionText.includes("What is the 6th term of the arithmetic sequence with first term 5 and common difference -2")) {
+                            return "nth term = a₁ + (n-1)d. 6th term = 5 + (6-1)(-2) = 5 - 10 = -5. Option A) -5 is correct. B) -3, C) 0, and D) 3 are incorrect.";
+                        } else if (questionText.includes("If (1 + i)² = a + bi, what are a and b")) {
+                            return "(1 + i)² = 1 + 2i + i² = 1 + 2i - 1 = 2i. a = 0, b = 2. Option A) a = 0, b = 2 is correct. B) a = 2, b = 0, C) a = 1, b = 1, and D) a = 0, b = 1 are incorrect.";
+                        }
+                    
+                        // Reading Questions (Passage 1: The Lighthouse Keeper’s Legacy)
+                        if (questionText.includes("What is the primary reason Clara continues to tend the lighthouse despite automation")) {
+                            return "Clara’s nightly climbs and distress signal response show duty. Option B) a deep sense of duty is correct. A) lacks recognition evidence, C) distrust is secondary, D) no successor training. B is correct.";
+                        } else if (questionText.includes("The phrase ‘hermit of the light’ primarily suggests the townspeople view Clara as")) {
+                            return "‘Hermit’ implies solitude, aligning with eccentricity whispers. Option B) an isolated oddity is correct. A) revered hero is post-heroism, C) skilled technician is unsupported, D) reluctant leader lacks evidence.";
+                        } else if (questionText.includes("The description of the lighthouse in the first sentence primarily serves to")) {
+                            return "‘Sentinel,’ ‘jagged cliffs,’ ‘fog’ set a vivid scene. Option B) establish a vivid setting is correct. A) isolation is secondary, C) storm is later, D) town history is unsupported.";
+                        } else if (questionText.includes("What can be inferred about Clara’s relationship with her father")) {
+                            return "Inheritance and teaching suggest a close mentorship. Option B) close and instructional is correct. A) distant, C) strained, and D) financial lack evidence.";
+                        } else if (questionText.includes("The lighthouse primarily symbolizes Clara’s")) {
+                            return "‘Heart’s anchor’ ties the lighthouse to Clara’s duty. Option B) sense of purpose is correct. A) technology struggle is secondary, C) fear of change is unsupported, D) town connection is minor.";
+                        } else if (questionText.includes("What motivates Clara to save the fishing boat")) {
+                            return "Clara’s immediate action reflects duty. Option B) a sense of responsibility is correct. A) fame, C) proving flaws, and D) fear lack evidence.";
+                        } else if (questionText.includes("How does Clara’s character develop over the passage")) {
+                            return "From ‘hermit’ to town-supported, Clara shifts to acceptance. Option B) from isolated to embraced is correct. A) no fear, C) confidence is consistent, D) not traditional.";
+                        } else if (questionText.includes("The storm primarily serves as a")) {
+                            return "The storm triggers Clara’s heroism. Option B) catalyst for Clara’s heroism is correct. A) loneliness is secondary, C) automation is unrelated, D) town chaos lacks evidence.";
+                        } else if (questionText.includes("What is the main theme of the passage")) {
+                            return "Clara’s duty despite automation is central. Option B) the value of steadfast duty is correct. A) technology is secondary, C) acceptance is partial, D) coastal life is minor.";
+                        } else if (questionText.includes("The passage’s structure primarily relies on")) {
+                            return "The chronological narrative follows Clara’s journey. Option A) chronological narration is correct. B) no alternating perspectives, C) not thematic, D) not vignettes.";
+                    
+
+
+                        // Reading Questions (Passage 2: Urban Farming Movement)
+                         } else if (questionText.includes("What is the primary purpose of the passage")) {
+                            return "The passage balances benefits and challenges of urban farming. Option B) highlight the benefits and challenges is correct. A) critique is minor, C) not replacing agriculture, D) not economic recovery.";
+                        } else if (questionText.includes("The word ‘spearheads’ most nearly means")) {
+                            return "‘Spearheads’ implies leading efforts. Option B) leads is correct. A) funds, C) designs, and D) promotes are less precise.";
+                        } else if (questionText.includes("The 2020 report is cited to")) {
+                            return "The report supports Wells’ community bond claim. Option B) support Wells’ views on community is correct. A) zoning, C) contamination, and D) agriculture are unrelated.";
+                        } else if (questionText.includes("It can be inferred that Detroit’s industrial decline contributed to")) {
+                            return "Vacant lots from decline enabled gardens. Option B) increased vacant lots is correct. A) zoning, C) yields, and D) ties lack evidence.";
+                        } else if (questionText.includes("The ‘tapestry of green’ symbolizes")) {
+                            return "Wells’ vision of gardens on every block suggests interconnected farms. Option B) interconnected urban farms is correct. A) recovery, C) traditional agriculture, D) remediation are less relevant.";
+                        } else if (questionText.includes("What motivates Aisha Wells to lead the Green Roots Collective")) {
+                            return "Wells’ focus on community bonds drives her. Option B) enhancing community ties is correct. A) financial, C) opposing agriculture, D) political lack evidence.";
+                        } else if (questionText.includes("How does the passage develop the idea of urban farming’s impact")) {
+                            return "The passage details benefits and obstacles. Option B) detailing benefits and obstacles is correct. A) rural contrast is minor, C) costs are partial, D) political support is secondary.";
+                        } else if (questionText.includes("The reference to critics primarily serves to")) {
+                            return "Critics’ resource diversion view contrasts proponents. Option B) highlight a contrasting viewpoint is correct. A) dismissal, C) remediation, D) undermining Wells are incorrect.";
+                        } else if (questionText.includes("What is the main theme of the passage")) {
+                            return "Urban farming transforms communities. Option B) transformative power of community action is correct. A) economic, C) traditional agriculture, D) industrial recovery are secondary.";
+                        } else if (questionText.includes("The passage’s structure is best described as")) {
+                            return "The passage provides an overview with details. Option B) an overview with supporting details is correct. A) not Wells’ life, C) not policy critique, D) not comparison.";
+                    
+                        // Reading Questions (Passage 3: The Art of Glassblowing)
+                        }else if (questionText.includes("The primary purpose of the passage is to")) {
+                            return "The passage describes Vasquez’s artistry. Option B) describe Vasquez’s glassblowing artistry is correct. A) not practicality, C) history is secondary, D) not trends.";
+                        } else if (questionText.includes("The word ‘finesse’ most nearly means")) {
+                            return "‘Finesse’ implies skillful precision in glassblowing. Option B) skill is correct. A) strength, C) patience, D) creativity are less precise.";
+                        } else if (questionText.includes("The reference to Venice primarily serves to")) {
+                            return "Venice underscores Vasquez’s elite training. Option A) highlight Vasquez’s prestige is correct. B) not origins, C) not contrast, D) not travels.";
+                        } else if (questionText.includes("It can be inferred that Vasquez’s sculptures are inspired by")) {
+                            return "‘Ocean waves or starry skies’ suggest natural inspiration. Option B) natural phenomena is correct. A) events, C) designs, D) memories lack evidence.";
+                        } else if (questionText.includes("The chandelier symbolizes Vasquez’s view of")) {
+                            return "Vasquez’s reflection links the chandelier to creation’s fragility. Option B) creation’s fragility is correct. A) excess, C) progress, D) continuity are incorrect.";
+                        } else if (questionText.includes("What motivates Vasquez to create her sculptures")) {
+                            return "Vasquez aims to inspire awe. Option B) inspiring awe is correct. A) financial, C) preservation, D) acclaim lack evidence.";
+                        } else if (questionText.includes("How does Vasquez’s character develop in the passage")) {
+                            return "Vasquez evolves into a mentor with apprentices. Option B) from artisan to teacher is correct. A) not traditionalist, C) not skeptic, D) not collaborative.";
+                        } else if (questionText.includes("The metaphor ‘dance of heat and breath’ refers to")) {
+                            return "‘Heat and breath’ describe glassblowing’s process. Option A) the physical act of glassblowing is correct. B) training, C) debate, D) exhibition are incorrect.";
+                        } else if (questionText.includes("What is the main theme of the passage")) {
+                            return "Vasquez’s reflection emphasizes beauty and fragility. Option B) balance of beauty and fragility is correct. A) tools, C) commercialization, D) decline are secondary.";
+                        } else if (questionText.includes("The passage’s structure is best described as")) {
+                            return "The passage profiles Vasquez’s work. Option B) a profile of an artist is correct. A) not historical, C) not critique, D) not manual.";
+                    
+                        // Reading Questions (Passage 4: Coral Reef Ecosystems)
+                        }else if (questionText.includes("The primary purpose of the passage is to")) {
+                            return "The passage outlines reefs’ ecosystems and challenges. Option A) describe coral reef ecosystems and their challenges is correct. B) not fishing critique, C) not scaffolds, D) not policies.";
+                        } else if (questionText.includes("The phrase ‘rainforests of the sea’ most nearly means reefs are")) {
+                            return "The comparison highlights biodiversity. Option B) rich in biodiversity is correct. A) unexplored, C) inaccessible, D) disappearing are incorrect.";
+                        } else if (questionText.includes("The 2023 study is cited to")) {
+                            return "The 30% bleaching statistic shows severity. Option B) illustrate bleaching’s severity is correct. A) not MPAs, C) not overfishing, D) not technology.";
+                        } else if (questionText.includes("It can be inferred that coral bleaching primarily results from")) {
+                            return "The passage links bleaching to ocean warming. Option B) ocean warming is correct. A) overfishing, C) pollution, D) enforcement are secondary.";
+                        } else if (questionText.includes("The Coral Triangle symbolizes")) {
+                            return "Vibrant ecosystems highlight biodiversity. Option B) marine biodiversity is correct. A) innovation, C) challenges, D) failures are incorrect.";
+                        } else if (questionText.includes("What motivates Dr. Patel to advocate for MPAs")) {
+                            return "Patel’s research focuses on ecosystem preservation. Option B) ecosystem preservation is correct. A) recognition, C) gain, D) influence lack evidence.";
+                        } else if (questionText.includes("How does the passage develop the idea of reef conservation")) {
+                            return "The passage outlines threats and solutions. Option B) outlining threats and solutions is correct. A) rainforest is minor, C) not Patel’s career, D) not fishing critique.";
+                        } else if (questionText.includes("The reference to critics primarily serves to")) {
+                            return "Critics’ fishing concerns introduce economic issues. Option B) highlight economic concerns is correct. A) dismissal, C) scaffolds, D) Patel’s research are incorrect.";
+                        } else if (questionText.includes("What is the main theme of the passage")) {
+                            return "Patel’s optimism emphasizes reef resilience. Option A) the resilience of coral reefs is correct. B) overfishing, C) cost, D) species decline are secondary.";
+                        } else if (questionText.includes("The passage’s structure is best described as")) {
+                            return "The passage overviews reefs with details. Option B) an overview with supporting details is correct. A) not Patel’s life, C) not policy critique, D) not comparison.";
+                    
+                        // Science Questions (Passage 1: Enzyme Activity)
+                        } else if (questionText.includes("According to Table 1, at which temperature does enzyme X exhibit the highest reaction rate at pH 7.0")) {
+                            return "Table 1: 20°C (10 µmol/min), 30°C (25), 40°C (40), 50°C (30), 60°C (15). Highest is 40 µmol/min at 40°C. Option C) 40°C is correct. A) 20°C, B) 30°C, D) 50°C are lower.";
+                        } else if (questionText.includes("Based on Table 2, how does the reaction rate change as pH increases from 7.0 to 9.0 at 40°C")) {
+                            return "Table 2: pH 7.0 (40 µmol/min), 8.0 (35), 9.0 (25). Rate decreases. Option B) Decreases steadily is correct. A) Increases, C) Constant, D) Increases then decreases are incorrect.";
+                        } else if (questionText.includes("If a third experiment tested enzyme X at pH 6.0 and 50°C, what would be the most likely reaction rate")) {
+                            return "Table 2: pH 6.0, 40°C (30 µmol/min). Table 1: pH 7.0, 50°C (30 µmol/min), 40°C (40). pH 6.0 reduces rate by 25%. At 50°C, ~25 µmol/min. Option B) 25 µmol/min is correct. A) 20, C) 30, D) 35 deviate.";
+                        } else if (questionText.includes("What is the optimal condition for enzyme X activity based on the experiments")) {
+                            return "Highest rate: 40 µmol/min at pH 7.0, 40°C (Tables 1, 2). Option B) pH 7.0, 40°C is correct. A) pH 6.0, C) pH 8.0, D) pH 9.0 are suboptimal.";
+                        } else if (questionText.includes("Why did researchers likely keep pH constant in Experiment 1")) {
+                            return "Constant pH (7.0) isolates temperature’s effect. Option A) To isolate the effect of temperature is correct. B) Maximize activity, C) Simplify data, D) Mimic conditions are less relevant.";
+                        } else if (questionText.includes("If enzyme X were tested at 45°C and pH 7.5, the reaction rate would most likely be")) {
+                            return "Table 1: 40°C, pH 7.0 (40 µmol/min), 50°C (30). Table 2: pH 7.0, 40°C (40), pH 8.0 (35). At 45°C, pH 7.5, rate ~30–35 µmol/min. Option B) between 30 and 35 µmol/min is correct. A) <30, C) 35–40, D) >40 deviate.";
+                    
+                        // Science Questions (Passage 2: Plant Growth Experiment)
+                        }else if (questionText.includes("According to Figure 1, what is the optimal light intensity for pea plant growth")) {
+                            return "Figure 1: 100 µmol/m²/s (5 cm), 200 (10), 300 (15), 400 (12), 500 (8). Highest is 15 cm at 300. Option C) 300 µmol/m²/s is correct. A) 100, B) 200, D) 400 are lower.";
+                        } else if (questionText.includes("In Experiment 2, how does stem height change as water amount increases from 15 to 25 mL/day")) {
+                            return "Figure 2: 15 mL/day (18 cm), 20 (16), 25 (14). Height decreases. Option B) Decreases steadily is correct. A) Increases, C) Constant, D) Increases then decreases are incorrect.";
+                        } else if (questionText.includes("What is the optimal temperature for pea plant growth in Experiment 3")) {
+                            return "Figure 3: 15°C (6 cm), 20°C (12), 25°C (15), 30°C (13), 35°C (9). Highest is 15 cm at 25°C. Option C) 25°C is correct. A) 15°C, B) 20°C, D) 30°C are lower.";
+                        } else if (questionText.includes("If a fourth experiment tested plants at 200 µmol/m²/s, 15 mL/day, and 20°C")) {
+                            return "Figure 1: 200 µmol/m²/s (10 cm). Figure 2: 15 mL/day (18 cm). Figure 3: 20°C (12 cm). Suboptimal conditions yield ~10 cm. Option B) 10 cm is correct. A) 8, C) 12, D) 14 deviate.";
+                        } else if (questionText.includes("What was the purpose of keeping water constant in Experiment 1")) {
+                            return "Constant water isolates light intensity’s effect. Option A) To isolate the effect of light intensity is correct. B) Survival, C) Costs, D) Natural conditions are less relevant.";
+                        } else if (questionText.includes("Which variable was controlled in all three experiments")) {
+                            return "No variable was controlled across all; each varied one (light, water, temperature). Option D) None were controlled in all is correct. A) Light, B) Water, C) Temperature are incorrect.";
+                        } else if (questionText.includes("If plants were grown at 350 µmol/m²/s, 12 mL/day, and 22°C")) {
+                            return "Figure 1: 300 µmol/m²/s (15 cm), 400 (12). Figure 2: 10 mL/day (15), 15 (18). Figure 3: 20°C (12), 25°C (15). Suboptimal conditions yield ~12–15 cm. Option B) between 12 and 15 cm is correct. A) <12, C) 15–18, D) >18 deviate.";
+                    
+                        // Science Questions (Passage 3: Pendulum Motion)
+                        } else if (questionText.includes("According to Table 1, what is the period of a 1.5 m pendulum on the Moon")) {
+                            return "Table 1: 1.5 m, Moon (6.10 s). Option C) 6.10 s is correct. A) 2.46, B) 4.98, D) 7.03 are incorrect.";
+                        } else if (questionText.includes("How does the period change as pendulum length increases on Earth")) {
+                            return "Table 1: Earth periods increase from 1.42 s (0.5 m) to 3.18 s (2.5 m). Option B) Increases is correct. A) Decreases, C) Constant, D) Unpredictable are incorrect.";
+                        } else if (questionText.includes("Why is the period longer on the Moon than on Earth for the same pendulum length")) {
+                            return "T = 2π√(L/g). Lower g (1.6 m/s² vs. 9.8) increases T. Option A) Lower gravitational acceleration is correct. B) Air resistance, C) Mass, D) Pressure are irrelevant.";
+                        } else if (questionText.includes("If a pendulum of length 1.0 m were tested on a planet with g = 4.9 m/s²")) {
+                            return "T = 2π√(1.0/4.9) ≈ 2.84 s. Option B) 2.84 s is correct. A) 2.01, C) 4.98, D) 6.10 are incorrect.";
+                        } else if (questionText.includes("What assumption underlies the formula T = 2π√(L/g)")) {
+                            return "The formula assumes no air resistance for simplicity. Option B) Air resistance is negligible is correct. A) Mass affects period, C) Gravity varies, D) Indefinite swings are incorrect.";
+                        } else if (questionText.includes("If a 2.0 m pendulum were tested on a planet with a period of 4.0 s")) {
+                            return "T = 2π√(L/g). 4.0 = 2π√(2.0/g), g ≈ 3.9 m/s². Option A) 3.9 m/s² is correct. B) 4.9, C) 5.9, D) 6.9 are incorrect.";
+                    
+                        // Science Questions (Passage 4: Chemical Reaction Rates)
+                        }else if (questionText.includes("According to Table 1, how does the reaction rate change as [A] increases")) {
+                            return "Table 1: [A] = 0.1 M (0.02 mol/L/s), 0.2 (0.08). Doubling [A] quadruples rate, indicating quadratic. Option B) Increases quadratically is correct. A) Linear, C) Decreases, D) Constant are incorrect.";
+                        } else if (questionText.includes("What is the reaction rate when [B] is 0.15 M at 25°C with [A] = 0.2 M")) {
+                            return "Table 2: [B] = 0.15 M, [A] = 0.2 M, 25°C (0.12 mol/L/s). Option C) 0.12 mol/L/s is correct. A) 0.04, B) 0.08, D) 0.16 are incorrect.";
+                        } else if (questionText.includes("How does temperature affect the reaction rate in Experiment 3")) {
+                            return "Table 3: 15°C (0.04 mol/L/s), 25°C (0.08), 35°C (0.16), 45°C (0.32). Rate doubles every 10°C, exponential. Option B) Increases exponentially is correct. A) Linear, C) Decreases, D) Constant are incorrect.";
+                        } else if (questionText.includes("If [A] = 0.3 M, [B] = 0.05 M, and temperature = 35°C")) {
+                            return "Rate = k[A]²[B]. Table 1: [A] = 0.3 M, [B] = 0.1 M (0.18 mol/L/s). Halve [B]: 0.09 mol/L/s. Table 3: 35°C doubles rate from 25°C (0.08 to 0.16), but [A], [B] yield 0.09. Option A) 0.09 mol/L/s is correct. B) 0.12, C) 0.16, D) 0.18 deviate.";
+                        } else if (questionText.includes("What is the order of the reaction with respect to [A]")) {
+                            return "Table 1: Doubling [A] from 0.1 M to 0.2 M quadruples rate (0.02 to 0.08), second-order. Option B) Second is correct. A) First, C) Third, D) Zero are incorrect.";
+                        } else if (questionText.includes("Why was temperature kept constant in Experiment 2")) {
+                            return "Constant temperature isolates [B]’s effect. Option A) To isolate the effect of [B] is correct. B) Stability, C) Errors, D) Industrial conditions are less relevant.";
+                        } else if (questionText.includes("If the reaction were tested at [A] = 0.2 M, [B] = 0.1 M, and 40°C")) {
+                            return "Table 3: 25°C, [A] = 0.2 M, [B] = 0.1 M (0.08 mol/L/s), 35°C (0.16). At 40°C, rate ~0.24 mol/L/s (between 0.16 and 0.32). Option B) 0.24 mol/L/s is correct. A) 0.12, C) 0.32, D) 0.48 deviate.";
+                    
+                        // Science Questions (Passage 5: Soil Permeability)
+                        } else if (questionText.includes("According to Table 1, which soil has the highest permeability at 30 kPa")) {
+                            return "Table 1: 30 kPa, sand (58 cm/h), loam (23), clay (7). Sand is highest. Option A) Sand is correct. B) Loam, C) Clay, D) All equal are incorrect.";
+                        } else if (questionText.includes("How does temperature affect loam’s permeability in Experiment 2")) {
+                            return "Table 2: loam, 10°C (21 cm/h), 20°C (22), 30°C (23), 40°C (24). Increases linearly. Option A) Increases linearly is correct. B) Decreases, C) Constant, D) Unpredictable are incorrect.";
+                        } else if (questionText.includes("What is the effect of compaction on clay’s permeability in Experiment 3")) {
+                            return "Table 3: clay, low (8 cm/h), medium (6), high (5). Decreases with compaction. Option B) Decreases with compaction is correct. A) Increases, C) Constant, D) Unpredictable are incorrect.";
+                        } else if (questionText.includes("If sand is tested at 25 kPa, 15°C, and medium compaction")) {
+                            return "Table 1: 20 kPa (55 cm/h), 30 kPa (58), sand at 25 kPa ~56.5 cm/h. Table 2: 10°C (52), 20°C (55), 15°C ~53.5 cm/h. Table 3: medium (55 cm/h). Average ~53 cm/h. Option B) 53 cm/h is correct. A) 50, C) 56, D) 59 deviate.";
+                        } else if (questionText.includes("Why was temperature kept constant in Experiment 1")) {
+                            return "Constant temperature isolates pressure’s effect. Option A) To isolate the effect of pressure is correct. B) Stability, C) Measurements, D) Field conditions are less relevant.";
+                        } else if (questionText.includes("Which soil type is least affected by changes in compaction in Experiment 3")) {
+                            return "Table 3: Sand 60 to 50 cm/h (16.7%), loam 25 to 20 (20%), clay 8 to 5 (37.5%). Sand least affected. Option A) Sand is correct. B) Loam, C) Clay, D) Equal are incorrect.";
+                        } else if (questionText.includes("What assumption underlies the experiments’ design")) {
+                            return "Experiments assume consistent water flow to isolate variables. Option B) Water flow is consistent across trials is correct. A) Soil type, C) Temperature, D) Compaction are incorrect.";
+                    
+                        // Science Questions (Passage 6: Theories of Cloud Formation)
+                        }else if (questionText.includes("What is the primary difference between the scientists’ theories")) {
+                            return "Scientist 1 uses aerosols, Scientist 2 turbulence. Option B) Scientist 1 focuses on aerosols, Scientist 2 on turbulence is correct. A) reverses, C) not altitude, D) not humidity.";
+                        } else if (questionText.includes("What evidence supports Scientist 1’s theory")) {
+                            return "75% of clouds with CCN supports Scientist 1. Option B) 75% of clouds with natural CCN is correct. A) radon, C) turbulence, D) precipitation are incorrect.";
+                        } else if (questionText.includes("What is a weakness of Scientist 1’s theory")) {
+                            return "High aerosols reducing precipitation is a drawback. Option B) High aerosols reduce precipitation is correct. A) turbulence, C) no aerosols, D) humidity are incorrect.";
+                        } else if (questionText.includes("Which scientist’s theory is better suited for predicting high-altitude clouds")) {
+                            return "Scientist 2 claims turbulence for high-altitude clouds. Option B) Scientist 2 is correct. A) Scientist 1, C) Both, D) Neither are incorrect.";
+                        } else if (questionText.includes("A study finds that 90% of clouds form with low aerosol levels")) {
+                            return "Low aerosol clouds weaken Scientist 1’s aerosol reliance. Option B) Weaken it is correct. A) Strengthen, C) No effect, D) Align are incorrect.";
+                        } else if (questionText.includes("Which method is likely more challenging to implement for real-time prediction")) {
+                            return "Turbulence is harder to measure. Option B) Scientist 2’s method is correct. A) Scientist 1, C) Both, D) Cannot be determined are incorrect.";
+                        } else if (questionText.includes("If high aerosol levels are detected but no turbulence occurs")) {
+                            return "Scientist 1 predicts clouds via aerosols. Option A) Scientist 1 is correct. B) Scientist 2, C) Both, D) Neither are incorrect.";
+                        }
+   
+                    return "No explanation available for this question.";
+                }
+            
+            
+            
+            
+               
+                function handleNextButton() {
+                    recordTestResults();
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < selectedQuestions.length) {
+                        showQuestion();
+                    } else {
+                        showScore();
                     }
-                         
-                    // Set 10: Coral Reefs Passage
-                    } else if (questionText.includes("In the vast expanse of the Pacific Ocean, coral reefs thrive as vibrant ecosystems")) {
-                        if (questionText.includes("What is the primary reason coral reefs are called the 'rainforests of the sea'?")) {
-                            return "The passage states coral reefs support 25% of marine species, emphasizing their biodiversity. Option B) They support a high diversity of marine species is correct. A) is too vague; C) misstates corals as plants; D) overemphasizes size over ecological role.";
-                        } else if (questionText.includes("According to the passage, what causes coral bleaching?")) {
-                            return "The passage explicitly links coral bleaching to rising sea temperatures expelling zooxanthellae. Option B) Rising sea temperatures is correct. A) relates to acidification; C) and D) are secondary threats, not direct causes.";
-                        } else if (questionText.includes("What is the role of zooxanthellae in coral reefs, as described in the passage?")) {
-                            return "The passage describes zooxanthellae as colorful algae providing energy to corals. Option B) They provide color and energy to corals is correct. A) misattributes calcium secretion; C) is unsupported; D) confuses fish relationships.";
-                        } else if (questionText.includes("According to the passage, what is one purpose of marine protected areas (MPAs)?")) {
-                            return "The passage states MPAs restrict fishing and tourism to aid ecosystem recovery. Option B) To restrict fishing and allow ecosystem recovery is correct. A) contradicts their purpose; C) relates to restoration, not MPAs; D) is unrelated.";
-                        } else if (questionText.includes("The passage suggests that the 2016 study on the Great Barrier Reef is significant because it:")) {
-                            return "The passage highlights the study’s finding that 93% of corals were bleached, quantifying the crisis. Option A) Quantified the extent of coral bleaching across the reef is correct. B) is unrelated; C) is not mentioned; D) misstates MPA establishment.";
-                        } else if (questionText.includes("The term 'symbiotic relationships' in the passage most likely refers to:")) {
-                            return "The passage cites clownfish and anemones, implying mutually beneficial interactions. Option B) Mutually beneficial interactions between species is correct. A) suggests competition; C) implies predation; D) refers to human actions.";
-                        } else if (questionText.includes("What does the passage imply about the effectiveness of local conservation efforts?")) {
-                            return "The passage states local efforts are insufficient without global cooperation. Option B) They are limited without global cooperation is correct. A) contradicts the passage; C) is unsupported; D) misstates the focus.";
-                        } else if (questionText.includes("How does the passage describe the impact of ocean acidification on coral reefs?")) {
-                            return "The passage links acidification to weakened coral skeletons, hindering growth. Option B) It weakens coral skeletons, hindering growth is correct. A) confuses bleaching; C) is incorrect; D) contradicts resilience issues.";
-                        } else if (questionText.includes("The passage’s reference to coral reefs as ‘the rainforests of the sea’ primarily serves to:")) {
-                            return "The metaphor emphasizes reefs’ biodiversity and ecological role, as per the passage. Option A) Highlight their biodiversity and ecological importance is correct. B) overstates size; C) misstates composition; D) contradicts vulnerability.";
-                        } else if (questionText.includes("How does the passage’s structure, moving from the description of coral reefs to their threats and then to conservation efforts, contribute to its overall argument?")) {
-                            return "The structure builds a narrative from reefs’ importance to their vulnerability, urging action. Option C) It builds a case for the ecological importance and vulnerability of reefs is correct. A) lacks contrast; B) is partial; D) misstates critique focus.";
-                        } else if (questionText.includes("The passage’s discussion of human activities like overfishing and pollution primarily serves to:")) {
-                            return "The passage notes these activities exacerbate climate impacts, compounding threats. Option A) Illustrate additional threats that compound climate change impacts is correct. B) overstates their role; C) contradicts conservation; D) misstates benefits.";
-                        } else if (questionText.includes("What does the passage suggest about the relationship between coral reefs and global climate change?")) {
-                            return "The passage emphasizes reefs’ vulnerability to warming and acidification, with recovery challenges. Option C) Coral reefs are highly vulnerable to climate change impacts is correct. A) contradicts threats; B) is unsupported; D) overstates recovery potential.";
+                }
+            
+            
+            
+            
+                function updateProgressBar() {
+                    const progressBar = document.getElementById("progress-bar-test");
+                    let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+                    progressBar.firstElementChild.style.width = progress + "%";
+                }
+            
+            
+            
+            
+                function recordTestResults() {
+                    let storedResults = localStorage.getItem("actTestResults");
+                    let results = storedResults ? JSON.parse(storedResults) : {};
+               
+                    if (typeof results !== "object" || Array.isArray(results)) {
+                        results = {};
+                    }
+               
+                    for (let category in categoryStats) {
+                        if (!results[category]) {
+                            results[category] = { correct: 0, incorrect: 0 };
                         }
-                            // Set 7: Amylase Enzyme Passage
-                    } else if (questionText.includes("A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase")) {
-                        if (questionText.includes("Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?")) {
-                            return "Figure 1 shows glucose production rates at pH 7: 20°C (10 µmol/min), 30°C (25 µmol/min), 40°C (40 µmol/min), 50°C (30 µmol/min), 60°C (5 µmol/min). The highest rate is 40 µmol/min at 40°C. Option B) 40°C is correct. A) 20°C, C) 50°C, and D) 60°C have lower rates.";
-                        } else if (questionText.includes("According to Figure 2, how does the enzymatic activity of amylase change as pH increases from 7 to 9 at 37°C?")) {
-                            return "Figure 2 shows at 37°C: pH 7 (40 µmol/min), pH 8 (35 µmol/min), pH 9 (20 µmol/min). From pH 7 to 9, the rate decreases from 40 to 20 µmol/min. Option B) It decreases is correct. A) It increases steadily, C) It remains constant, and D) It increases then decreases do not match the trend.";
-                        } else if (questionText.includes("If a third experiment were conducted at pH 6 and 50°C, based on the trends in Figures 1 and 2, what would be the most likely glucose production rate?")) {
-                            return "At pH 7, 50°C, Figure 1 shows 30 µmol/min. At 37°C, pH 6, Figure 2 shows 30 µmol/min, compared to 40 µmol/min at pH 7, suggesting pH 6 reduces activity by ~25%. Applying a similar reduction to 30 µmol/min at 50°C, the rate is approximately 22–23 µmol/min. Option C) 30 µmol/min is closest, assuming temperature dominates. A) 40 µmol/min is too high, B) 25 µmol/min is slightly low, and D) 15 µmol/min is too low.";
-                        } else if (questionText.includes("Which of the following best explains why the enzymatic activity decreases significantly at 60°C in Experiment 1?")) {
-                            return "Figure 1 shows a sharp drop from 30 µmol/min at 50°C to 5 µmol/min at 60°C. High temperatures can disrupt an enzyme’s structure, causing denaturation and loss of function. Option A) The enzyme denatures at high temperatures is correct. B) Substrate availability, C) pH acidity, and D) Product inhibition are not supported by the data.";
-                        } else if (questionText.includes("Suppose the scientists interpolate the data to estimate the glucose production rate at pH 6.5 and 45°C. Assuming a linear relationship between the nearest data points in Figures 1 and 2, what is the approximate glucose production rate?")) {
-                            return "Interpolate between pH 6 (30 µmol/min) and pH 7 (40 µmol/min) at 37°C: at pH 6.5, rate = 30 + (40-30)/2 = 35 µmol/min. For temperature, interpolate between 40°C (40 µmol/min) and 50°C (30 µmol/min) at pH 7: at 45°C, rate = 40 - (40-30)/2 = 35 µmol/min. Averaging these (considering both trends), the rate is approximately 35 µmol/min. Option D) 35 µmol/min is correct. A) 28, B) 33, and C) 38 µmol/min deviate from the linear estimate.";
-                    }  
-                    // Set 8: Bacterial Growth Passage
-                    } else if (questionText.includes("Scientists investigated the growth rates of two bacterial species, Bacillus subtilis and Escherichia coli")) {
-                        if (questionText.includes("According to Figure 1, which bacterial species has the higher growth rate at a nutrient concentration of 1.0% at 37°C?")) {
-                            return "Figure 1 shows at 1.0% nutrient concentration and 37°C: Bacillus subtilis (0.35 OD/h), Escherichia coli (0.45 OD/h). Escherichia coli has the higher growth rate. Option B) Escherichia coli is correct. A) Bacillus subtilis is lower, C) Both have equal growth rates is false, and D) Cannot be determined is incorrect as data is provided.";
-                        } else if (questionText.includes("Based on Figure 2, what is the effect on Escherichia coli’s growth rate as temperature increases from 37°C to 50°C at 1.0% nutrient concentration?")) {
-                            return "Figure 2 shows for Escherichia coli at 1.0% nutrient concentration: 37°C (0.45 OD/h), 45°C (0.40 OD/h), 50°C (0.20 OD/h). From 37°C to 50°C, the growth rate decreases. Option B) It decreases is correct. A) It increases steadily, C) It remains constant, and D) It increases then decreases do not match the data.";
-                        } else if (questionText.includes("If a third experiment tested Bacillus subtilis at 0.5% nutrient concentration and 45°C, what would be the most likely growth rate based on the trends in Figures 1 and 2?")) {
-                            return "Figure 1 shows Bacillus subtilis at 0.5% nutrient concentration and 37°C: 0.20 OD/h. Figure 2 shows at 1.0% nutrient concentration: 37°C (0.35 OD/h), 45°C (0.30 OD/h), a ~14% decrease. Applying a similar reduction to 0.20 OD/h at 0.5% nutrient concentration suggests a rate of ~0.17–0.18 OD/h. Option C) 0.25 OD/h is closest, considering nutrient limitation dominates. A) 0.35 OD/h is too high, B) 0.20 OD/h ignores temperature effect, and D) 0.15 OD/h is too low.";
-                        } else if (questionText.includes("Which of the following best explains why the growth rate of Bacillus subtilis decreases at 50°C compared to 45°C in Experiment 2?")) {
-                            return "Figure 2 shows Bacillus subtilis growth rate drops from 0.30 OD/h at 45°C to 0.15 OD/h at 50°C. High temperatures can destabilize bacterial cellular membranes, impairing growth. Option D) The cellular membrane becomes less stable at higher temperatures is correct. A) Nutrient concentration is constant, B) Enzyme denaturation is less specific, and C) Oxygen solubility is not indicated by the data.";
-                        } else if (questionText.includes("Assuming a linear relationship between the data points in Figures 1 and 2, what is the approximate growth rate of Escherichia coli at 0.75% nutrient concentration and 40°C?")) {
-                            return "Figure 1: Escherichia coli at 0.5% (0.25 OD/h), 1.0% (0.45 OD/h) at 37°C. Linear interpolation at 0.75%: 0.25 + (0.45-0.25)*(0.25/0.5) = 0.35 OD/h. Figure 2: at 37°C (0.45 OD/h), 45°C (0.40 OD/h) at 1.0%. Interpolate at 40°C: 0.45 - (0.45-0.40)*(3/8) = 0.43125 OD/h. Averaging nutrient and temperature effects (0.35 + 0.43125)/2 ≈ 0.39 OD/h. Option A) 0.38 OD/h is closest. B) 0.42, C) 0.35, and D) 0.45 OD/h deviate from the estimate.";
+               
+                        results[category].correct += categoryStats[category].correct || 0;
+                        results[category].incorrect += categoryStats[category].incorrect || 0;
                     }
-                     // Set 9: Photosynthetic Rate Passage
-                    } else if (questionText.includes("Researchers studied the effects of light intensity and soil moisture on the photosynthetic rate of a plant species, Helianthus annuus")) {
-                        if (questionText.includes("In Experiment 1, what is the effect of increasing light intensity from 200 to 600 μmol photons/m²/s on the photosynthetic rate?")) {
-                            return "Figure 1 shows photosynthetic rates at 50% soil moisture: 200 μmol photons/m²/s (5.0 μmol CO₂/m²/s), 400 (10.0), 600 (14.0). From 200 to 600, the rate increases from 5.0 to 14.0. Option B) It increases is correct. A) It decreases, C) It remains constant, and D) It increases then decreases do not match the data.";
-                        } else if (questionText.includes("According to Figure 2, at which soil moisture level does the photosynthetic rate peak in Experiment 2?")) {
-                            return "Figure 2 shows photosynthetic rates at 600 μmol photons/m²/s: 20% (8.0 μmol CO₂/m²/s), 30% (10.5), 40% (12.5), 50% (14.0), 60% (13.5). The highest rate is 14.0 at 50%. Option C) 50% is correct. A) 30%, B) 40%, and D) 60% have lower rates.";
-                        } else if (questionText.includes("In Experiment 3, how does increasing soil moisture from 30% to 50% affect the photosynthetic rate at 800 μmol photons/m²/s?")) {
-                            return "Table 1 shows at 800 μmol photons/m²/s: 30% soil moisture (13.0 μmol CO₂/m²/s), 50% (16.0). The rate increases by 16.0 - 13.0 = 3.0. Option B) It increases by 3.0 μmol CO₂/m²/s is correct. A) It decreases by 3.0, C) It remains constant, and D) It increases by 1.0 do not match the data.";
-                        } else if (questionText.includes("Which of the following best explains why the photosynthetic rate plateaus between 800 and 1000 μmol photons/m²/s in Experiment 1?")) {
-                            return "Figure 1 shows the rate increases from 16.0 at 800 μmol photons/m²/s to 16.5 at 1000, indicating a plateau. This suggests the plant’s photosynthetic machinery is saturated. Option A) The plant reaches its maximum photosynthetic capacity is correct. B) Soil moisture is constant, C) Stomata closure is not indicated, and D) Chlorophyll degradation is unsupported.";
-                        } else if (questionText.includes("Based on the results of Experiment 3, what can be inferred about the interaction between light intensity and soil moisture?")) {
-                            return "Table 1 shows: at 400 μmol, 30% to 50% soil moisture increases the rate by 10.5 - 9.5 = 1.0; at 800 μmol, by 16.0 - 13.0 = 3.0. The consistent increase suggests soil moisture’s effect is not significantly altered by light intensity. Option C) The effect of soil moisture is independent of light intensity is correct. A) Light intensity affects low moisture, B) Soil moisture’s effect varies, and D) Light reduces moisture’s impact are incorrect.";
-                        } else if (questionText.includes("If a researcher wants to maximize the photosynthetic rate, which combination of conditions should be used based on all experiments?")) {
-                            return "Experiment 1 shows highest rate at 1000 μmol, 50% (16.5). Experiment 2 peaks at 600 μmol, 50% (14.0), but 60% (13.5) is lower. Experiment 3 shows 800 μmol, 50% (16.0) is high, but 800 μmol, 60% is untested. Interpolating Experiment 2, 60% at 800 μmol may yield ~16.5 (similar to 1000 μmol, 50%). Option D) 800 μmol photons/m²/s, 60% soil moisture is likely highest. A) 600, 40% (12.5), B) 800, 50% (16.0), and C) 1000, 50% (16.5) are lower or equal.";
-                        } else if (questionText.includes("Assuming a linear relationship between the data points in Figure 2, what is the approximate photosynthetic rate at 45% soil moisture and 600 μmol photons/m²/s?")) {
-                            return "Figure 2: at 600 μmol photons/m²/s, 40% soil moisture (12.5 μmol CO₂/m²/s), 50% (14.0). Linear interpolation for 45%: 12.5 + (14.0 - 12.5) * (45-40)/(50-40) = 12.5 + 1.5 * 0.5 = 12.5 + 0.75 = 13.25. Option D) 12.5 μmol CO₂/m²/s is closest (rounded). A) 12.0, B) 13.0, and C) 13.5 deviate from the estimate.";
-                        } else if (questionText.includes("If a fourth experiment tested the photosynthetic rate at 500 μmol photons/m²/s and 35% soil moisture, what would be the most likely photosynthetic rate based on the trends in Figures 1 and 2?")) {
-                            return "Figure 1: at 50% moisture, 400 μmol (10.0 μmol CO₂/m²/s), 600 μmol (14.0). Interpolate for 500 μmol: 10.0 + (14.0-10.0)*(100/200) = 12.0. Figure 2: at 600 μmol, 30% (10.5), 40% (12.5). Interpolate for 35%: 10.5 + (12.5-10.5)*(5/10) = 11.5. Averaging (12.0 + 11.5)/2 = 11.75. Option A) 11.5 μmol CO₂/m²/s is closest. B) 12.0, C) 10.5, and D) 13.0 deviate from the estimate.";
+               
+                    localStorage.setItem("actTestResults", JSON.stringify(results));
+               
+                    for (let category in categoryStats) {
+                        categoryStats[category].correct = 0;
+                        categoryStats[category].incorrect = 0;
                     }
-                     // Set 10: Algae Growth Passage
-                    } else if (questionText.includes("Scientists investigated the effects of temperature and nutrient concentration on the growth rate of a freshwater algae species, Chlorella vulgaris")) {
-                        if (questionText.includes("In Experiment 1, what is the effect of increasing temperature from 15°C to 25°C on the growth rate of Chlorella vulgaris?")) {
-                            return "Figure 1 shows growth rates at 0.5% nutrient concentration: 15°C (0.10 OD/h), 20°C (0.20 OD/h), 25°C (0.30 OD/h). From 15°C to 25°C, the rate increases from 0.10 to 0.30 OD/h. Option B) It increases is correct. A) It decreases, C) It remains constant, and D) It increases then decreases do not match the data.";
-                        } else if (questionText.includes("According to Figure 2, at which nutrient concentration does the growth rate of Chlorella vulgaris peak in Experiment 2?")) {
-                            return "Figure 2 shows growth rates at 25°C: 0.2% (0.15 OD/h), 0.4% (0.25 OD/h), 0.6% (0.30 OD/h), 0.8% (0.32 OD/h), 1.0% (0.33 OD/h). The highest rate is 0.33 OD/h at 1.0%. Option D) 1.0% is correct. A) 0.2%, B) 0.6%, and C) 0.8% have lower rates.";
-                        } else if (questionText.includes("In Experiment 3, how does increasing nutrient concentration from 0.4% to 0.8% affect the growth rate at 30°C?")) {
-                            return "Table 1 shows at 30°C: 0.4% nutrient concentration (0.22 OD/h), 0.8% (0.28 OD/h). The rate increases by 0.28 - 0.22 = 0.06 OD/h. Option B) It increases by 0.06 OD/h is correct. A) It decreases by 0.06, C) It remains constant, and D) It increases by 0.02 do not match the data.";
-                        } else if (questionText.includes("Which of the following best explains why the growth rate decreases from 25°C to 35°C in Experiment 1?")) {
-                            return "Figure 1 shows the growth rate peaks at 25°C (0.30 OD/h) and drops to 0.15 OD/h at 35°C. High temperatures can disrupt cellular processes, such as enzyme function or membrane stability, reducing growth. Option B) High temperatures disrupt cellular processes is correct. A) Nutrient absorption is not indicated, C) Nutrient concentration is constant, and D) Dormancy is unsupported.";
-                        } else if (questionText.includes("Based on Experiment 3, what can be inferred about the interaction between temperature and nutrient concentration on growth rate?")) {
-                            return "Table 1 shows: at 20°C, 0.4% to 0.8% increases the rate by 0.25 - 0.20 = 0.05 OD/h; at 30°C, by 0.28 - 0.22 = 0.06 OD/h. The similar increases suggest nutrient concentration’s effect is consistent across temperatures. Option C) The effect of nutrient concentration is consistent across temperatures is correct. A) Nutrient effect persists, B) Temperature’s effect varies, and D) Temperature reduces nutrient impact are incorrect.";
-                        } else if (questionText.includes("To maximize the growth rate of Chlorella vulgaris based on all experiments, which combination of conditions should be used?")) {
-                            return "Experiment 1 shows the highest rate at 25°C, 0.5% (0.30 OD/h). Experiment 2 shows 25°C, 1.0% (0.33 OD/h) as the peak. Experiment 3 suggests 30°C, 0.8% (0.28 OD/h) is lower. Since 25°C with higher nutrients (1.0%) yields 0.33 OD/h, and 0.6% at 25°C (0.30 OD/h) matches Experiment 1, 25°C, 0.6% is optimal among options. Option A) 25°C, 0.6% nutrient concentration is correct. B) 30°C, 0.8% (0.28), C) 20°C, 1.0% (lower), and D) 35°C, 0.4% (0.15) are lower.";
-                        } else if (questionText.includes("Assuming a linear relationship between the data points in Figure 2, what is the approximate growth rate at 0.5% nutrient concentration and 25°C?")) {
-                            return "Figure 2: at 25°C, 0.4% (0.25 OD/h), 0.6% (0.30 OD/h). Linear interpolation for 0.5%: 0.25 + (0.30 - 0.25) * (0.5 - 0.4)/(0.6 - 0.4) = 0.25 + 0.05 * 0.5/0.2 = 0.25 + 0.05 * 2.5 = 0.25 + 0.125 = 0.275 ≈ 0.27 OD/h. Option C) 0.27 OD/h is correct. A) 0.22, B) 0.25, and D) 0.30 deviate from the estimate.";
-                        } else if (questionText.includes("If a fourth experiment tested the growth rate at 22.5°C and 0.7% nutrient concentration, what would be the most likely growth rate based on the trends in Figures 1 and 2?")) {
-                            return "Figure 1: at 0.5%, 20°C (0.20 OD/h), 25°C (0.30 OD/h). Interpolate for 22.5°C: 0.20 + (0.30 - 0.20) * (22.5 - 20)/(25 - 20) = 0.20 + 0.10 * 0.5 = 0.25 OD/h. Figure 2: at 25°C, 0.6% (0.30 OD/h), 0.8% (0.32 OD/h). Interpolate for 0.7%: 0.30 + (0.32 - 0.30) * (0.7 - 0.6)/(0.8 - 0.6) = 0.30 + 0.02 * 0.5/0.2 = 0.30 + 0.025 = 0.325 OD/h. Averaging (0.25 + 0.325)/2 = 0.2875 ≈ 0.31 OD/h (considering 25°C trend dominates). Option A) 0.31 OD/h is correct. B) 0.28, C) 0.25, and D) 0.33 deviate from the estimate.";
-                    }
-                        // Set 11: Phytoplankton Oxygen Production Passage
-                    } else if (questionText.includes("Researchers studied the effects of salinity and light intensity on the oxygen production rate of a marine phytoplankton species, Skeletonema costatum")) {
-                        if (questionText.includes("In Experiment 1, what is the effect of increasing salinity from 15 ppt to 25 ppt on the oxygen production rate of Skeletonema costatum?")) {
-                            return "Figure 1 shows oxygen production rates at 500 µmol photons/m²/s: 15 ppt (10 µmol/L/h), 20 ppt (15 µmol/L/h), 25 ppt (20 µmol/L/h). From 15 ppt to 25 ppt, the rate increases from 10 to 20 µmol/L/h. Option B) It increases is correct. A) It decreases, C) It remains constant, and D) It increases then decreases do not match the data.";
-                        } else if (questionText.includes("According to Figure 2, at which light intensity does the oxygen production rate of Skeletonema costatum peak in Experiment 2?")) {
-                            return "Figure 2 shows oxygen production rates at 25 ppt: 200 µmol photons/m²/s (8 µmol/L/h), 400 (15), 600 (22), 800 (25), 1000 (26). The highest rate is 26 µmol/L/h at 1000 µmol photons/m²/s. Option C) 1000 µmol photons/m²/s is correct. A) 600, B) 800, and D) 400 have lower rates.";
-                        } else if (questionText.includes("Which of the following best explains why the oxygen production rate decreases from 25 ppt to 35 ppt in Experiment 1?")) {
-                            return "Figure 1 shows the oxygen production rate peaks at 25 ppt (20 µmol/L/h) and drops to 12 µmol/L/h at 35 ppt. High salinity can disrupt photosynthetic processes by affecting enzyme activity or cell membrane function. Option A) High salinity disrupts photosynthetic processes is correct. B) Light intensity is constant, C) Dormancy is not indicated, and D) Oxygen solubility is unrelated to the observed trend.";
-                        } else if (questionText.includes("Based on Experiment 3, what can be inferred about the interaction between salinity and light intensity on oxygen production rate?")) {
-                            return "Table 1 shows: at 20 ppt, 400 to 800 µmol increases the rate by 23 - 14 = 9 µmol/L/h; at 30 ppt, by 22 - 13 = 9 µmol/L/h. The consistent increase suggests light intensity’s effect is not significantly altered by salinity. Option B) The effect of light intensity is consistent across salinity levels is correct. A) Salinity’s effect is not greater, C) Salinity does not enhance light’s effect, and D) Light does not reduce salinity’s impact.";
-                        } else if (questionText.includes("To maximize the oxygen production rate of Skeletonema costatum based on all experiments, which combination of conditions should be used?")) {
-                            return "Experiment 1 shows the highest rate at 25 ppt, 500 µmol (20 µmol/L/h). Experiment 2 shows 25 ppt, 1000 µmol (26 µmol/L/h) as the peak. Experiment 3 suggests 20 ppt, 800 µmol (23 µmol/L/h) and 30 ppt, 800 µmol (22 µmol/L/h) are lower. The highest rate is at 25 ppt, 1000 µmol. Option A) 25 ppt, 1000 µmol photons/m²/s is correct. B) 30 ppt, 800 µmol (22), C) 20 ppt, 600 µmol (lower), and D) 35 ppt, 400 µmol (lower) are suboptimal.";
-                        } else if (questionText.includes("Assuming a linear relationship between the data points in Figure 2, what is the approximate oxygen production rate at 500 µmol photons/m²/s and 25 ppt salinity?")) {
-                            return "Figure 2: at 25 ppt, 400 µmol photons/m²/s (15 µmol/L/h), 600 µmol (22 µmol/L/h). Linear interpolation for 500 µmol: 15 + (22 - 15) * (500 - 400)/(600 - 400) = 15 + 7 * 100/200 = 15 + 3.5 = 18.5 µmol/L/h. Option D) 18.5 µmol/L/h is correct. A) 18, B) 19, and C) 20 deviate from the estimate.";
-                        } else if (questionText.includes("If a fourth experiment tested the oxygen production rate at 22.5 ppt salinity and 700 µmol photons/m²/s, what would be the most likely oxygen production rate based on the trends in Figures 1 and 2?")) {
-                            return "Figure 1: at 500 µmol, 20 ppt (15 µmol/L/h), 25 ppt (20 µmol/L/h). Interpolate for 22.5 ppt: 15 + (20 - 15) * (22.5 - 20)/(25 - 20) = 15 + 5 * 0.5 = 17.5 µmol/L/h. Figure 2: at 25 ppt, 600 µmol (22 µmol/L/h), 800 µmol (25 µmol/L/h). Interpolate for 700 µmol: 22 + (25 - 22) * (700 - 600)/(800 - 600) = 22 + 3 * 0.5 = 23.5 µmol/L/h. Averaging (17.5 + 23.5)/2 = 20.5, but 23.5 is closer to Experiment 2’s trend at optimal salinity. Option C) 23.5 µmol/L/h is correct. A) 21.5, B) 22.5, and D) 20.5 deviate from the estimate.";
-                        }
-                    // Set 12: Coral Reef Decline Passage
-                } else if (questionText.includes("Coral reefs in the Pacific Ocean have shown significant declines in health, with reduced coral cover and biodiversity")) {
-                    if (questionText.includes("According to Scientist 1, what is the primary reason for the decline in coral cover observed in Figure 1?")) {
-                        return "Scientist 1 attributes coral decline to ocean acidification, which reduces carbonate ion availability, weakening coral skeletons. Figure 1 shows declining coral cover with decreasing pH. Option B) Reduced carbonate ion availability is correct. A) Increased sea surface temperatures and C) Loss of symbiotic algae are Scientist 2’s focus, and D) Increased bleaching events is a symptom, not the cause per Scientist 1.";
-                    } else if (questionText.includes("Which of the following would most weaken Scientist 2’s argument?")) {
-                        return "Scientist 2 argues thermal stress from rising temperatures causes coral decline via bleaching. Data showing coral cover declining in regions with stable temperatures would suggest another factor, weakening Scientist 2’s hypothesis. Option A) Data showing coral cover declining in regions with stable sea temperatures is correct. B) Increased CO₂ supports Scientist 1, C) Coral recovery doesn’t directly refute temperature’s role, and D) Stable pH doesn’t address temperature effects.";
-                    } else if (questionText.includes("How does Scientist 2’s explanation of coral decline differ from Scientist 1’s?")) {
-                        return "Scientist 2 attributes coral decline to thermal stress causing bleaching (expulsion of symbiotic algae), while Scientist 1 cites ocean acidification causing weakened skeletons due to low carbonate ions. Option B) Scientist 2 attributes decline to coral bleaching, while Scientist 1 cites weakened skeletons is correct. A) Reverses the scientists’ claims, C) Misattributes carbonate ions to Scientist 2, and D) Incorrectly assigns skeletal damage to Scientist 2.";
-                    } else if (questionText.includes("Which of the following data would most support Scientist 1’s hypothesis over Scientist 2’s?")) {
-                        return "Scientist 1 links coral decline to acidification reducing carbonate ions. Data showing coral cover loss correlated with lower carbonate ion concentrations directly supports this over Scientist 2’s temperature-based hypothesis. Option C) Coral cover loss correlated with lower carbonate ion concentrations is correct. A) Stable temperatures with declining pH supports Scientist 1 but is less specific, B) Supports Scientist 2, and D) Contradicts Scientist 2 but doesn’t directly support Scientist 1.";
-                    } else if (questionText.includes("Suppose a study finds that coral cover declined significantly in a region where seawater pH remained stable at 8.1 but sea surface temperature increased from 27°C to 29°C")) {
-                        return "Stable pH (8.1) undermines Scientist 1’s acidification hypothesis, as it suggests pH isn’t driving the decline. Increased temperature aligns with Scientist 2’s thermal stress hypothesis, supporting bleaching as the cause. Option A) It would weaken Scientist 1’s hypothesis and support Scientist 2’s is correct. B) Reverses the impact, C) Equal support is incorrect as pH is stable, and D) Weakening both is incorrect as temperature supports Scientist 2.";
-                    } else if (questionText.includes("If a new study showed that coral cover remained stable in a region with increasing sea surface temperatures but decreasing pH")) {
-                        return "Stable coral cover despite decreasing pH challenges Scientist 1’s hypothesis that acidification drives decline. Increasing temperatures with stable coral cover weakens Scientist 2’s assumption that bleaching (from thermal stress) is the main cause. Option C) Scientist 1; Scientist 2’s assumption that bleaching is the main cause of decline is correct. A) Incorrectly supports Scientist 1, B) Incorrectly supports Scientist 2, and D) Misattributes the challenged assumption.";
-                    } else if (questionText.includes("Suppose a researcher finds that coral cover declined in a region where both pH decreased and temperature increased, but the decline correlated more strongly with pH changes")) {
-                        return "Stronger correlation with pH changes supports Scientist 1’s acidification hypothesis over Scientist 2’s thermal stress hypothesis, as it suggests pH is the dominant driver. Option D) It would make Scientist 1’s hypothesis more plausible than Scientist 2’s is correct. A) Incorrectly favors Scientist 2, B) Reverses the correlation, and C) Equal plausibility ignores the stronger pH correlation.";
-                    }
-                   
-                        }
-                       
-                   
-                        return "No explanation available for this question.";
-                    }
-                
-                
-                
-                
-                   
-                    function handleNextButton() {
-                        recordTestResults();
-                        currentQuestionIndex++;
-                        if (currentQuestionIndex < selectedQuestions.length) {
-                            showQuestion();
+                }
+            
+            
+            
+            
+                function showIntroMessage() {
+                    resetState();
+                    passageElement.innerHTML = "";
+                    questionElement.innerHTML = "This is a timed ACT Test. English: 45 min, Math: 60 min, Reading: 35 min, Science: 35 min.";
+                    questionElement.classList.add("centered-score");
+            
+            
+            
+            
+                    const startButton = document.createElement("button");
+                    startButton.innerHTML = "Start Test";
+                    startButton.classList.add("btn", "centered-btn");
+                    startButton.addEventListener("click", () => {
+                        questionElement.classList.remove("centered-score");
+                        startEnglishSection();
+                    });
+                    answerButtons.appendChild(startButton);
+                }
+            
+            
+            
+            
+                // Event Listeners
+                if (startTestButton) {
+                    startTestButton.addEventListener("click", startTest);
+                } else {
+                    console.error("start-test-btn element not found");
+                }
+            
+            
+            
+            
+                if (nextButton) {
+                    nextButton.addEventListener("click", () => {
+                        if (nextButton.innerHTML === "Continue") {
+                            document.getElementById("break-message").classList.remove("hide");
+                            document.getElementById("question-container").classList.add("hide");
                         } else {
-                            showScore();
+                            handleNextButton();
                         }
-                    }
-                
-                
-                
-                
-                    function updateProgressBar() {
-                        const progressBar = document.getElementById("progress-bar-test");
-                        let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
-                        progressBar.firstElementChild.style.width = progress + "%";
-                    }
-                
-                
-                
-                
-                    function recordTestResults() {
-                        let storedResults = localStorage.getItem("actTestResults");
-                        let results = storedResults ? JSON.parse(storedResults) : {};
-                   
-                        if (typeof results !== "object" || Array.isArray(results)) {
-                            results = {};
+                    });
+                } else {
+                    console.error("next-btn element not found");
+                }
+            
+            
+            
+            
+                if (continueButton) {
+                    continueButton.addEventListener("click", () => {
+                        document.getElementById("break-message").classList.add("hide");
+                        document.getElementById("question-container").classList.remove("hide");
+                        switch (currentSection) {
+                            case "english": startMathSection(); break;
+                            case "math": startReadingSection(); break;
+                            case "reading": startScienceSection(); break;
+                            case "science": showFinalScore(); break;
                         }
-                   
-                        for (let category in categoryStats) {
-                            if (!results[category]) {
-                                results[category] = { correct: 0, incorrect: 0 };
-                            }
-                   
-                            results[category].correct += categoryStats[category].correct || 0;
-                            results[category].incorrect += categoryStats[category].incorrect || 0;
-                        }
-                   
-                        localStorage.setItem("actTestResults", JSON.stringify(results));
-                   
-                        for (let category in categoryStats) {
-                            categoryStats[category].correct = 0;
-                            categoryStats[category].incorrect = 0;
-                        }
-                    }
-                
-                
-                
-                
-                    function showIntroMessage() {
-                        resetState();
-                        passageElement.innerHTML = "";
-                        questionElement.innerHTML = "This is a timed ACT Test. English: 45 min, Math: 60 min, Reading: 35 min, Science: 35 min.";
-                        questionElement.classList.add("centered-score");
-                
-                
-                
-                
-                        const startButton = document.createElement("button");
-                        startButton.innerHTML = "Start Test";
-                        startButton.classList.add("btn", "centered-btn");
-                        startButton.addEventListener("click", () => {
-                            questionElement.classList.remove("centered-score");
-                            startEnglishSection();
-                        });
-                        answerButtons.appendChild(startButton);
-                    }
-                
-                
-                
-                
-                    // Event Listeners
-                    if (startTestButton) {
-                        startTestButton.addEventListener("click", startTest);
-                    } else {
-                        console.error("start-test-btn element not found");
-                    }
-                
-                
-                
-                
-                    if (nextButton) {
-                        nextButton.addEventListener("click", () => {
-                            if (nextButton.innerHTML === "Continue") {
-                                document.getElementById("break-message").classList.remove("hide");
-                                document.getElementById("question-container").classList.add("hide");
-                            } else {
-                                handleNextButton();
-                            }
-                        });
-                    } else {
-                        console.error("next-btn element not found");
-                    }
-                
-                
-                
-                
-                    if (continueButton) {
-                        continueButton.addEventListener("click", () => {
-                            document.getElementById("break-message").classList.add("hide");
-                            document.getElementById("question-container").classList.remove("hide");
-                            switch (currentSection) {
-                                case "english": startMathSection(); break;
-                                case "math": startReadingSection(); break;
-                                case "reading": startScienceSection(); break;
-                                case "science": showFinalScore(); break;
-                            }
-                        });
-                    } else {
-                        console.error("continue-btn element not found");
-                    }
-                });
-    
+                    });
+                } else {
+                    console.error("continue-btn element not found");
+                }
+            });
+            
+            
