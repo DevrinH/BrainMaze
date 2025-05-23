@@ -4,7 +4,7 @@
     let mockHistory = {};
 
     // Start at 1300 and end at 1580 over 6 tests
-    const mockTotalScores = [1200, 1270, 1350, 1330, 1440, 1560];
+    const mockTotalScores = [1200, 1270, 1350, 1330, 1440, 1550];
 
     for (let i = 0; i < 6; i++) {
         const testDate = new Date(today);
