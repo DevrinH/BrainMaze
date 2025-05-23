@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ///Passage 1
        
         {
-            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. <mark>Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.</mark> Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
             question: "Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?",
             answers: [
                 { text: "A) Aisha the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
@@ -2292,7 +2292,7 @@ const scienceQuestions = [
         { "text": "C) 50°C", "correct": false },
         { "text": "D) 60°C", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "data representation"
 },
@@ -2305,7 +2305,7 @@ const scienceQuestions = [
         { "text": "C) It remains constant", "correct": false },
         { "text": "D) It increases then decreases", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "data representation"
 },
@@ -2318,7 +2318,7 @@ const scienceQuestions = [
         { "text": "C) 30 µmol/min", "correct": true },
         { "text": "D) 15 µmol/min", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "data representation"
 },
@@ -2331,7 +2331,7 @@ const scienceQuestions = [
         { "text": "C) The pH becomes too acidic at high temperatures", "correct": false },
         { "text": "D) The glucose product inhibits the enzyme", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "data representation"
 },
@@ -2344,7 +2344,7 @@ const scienceQuestions = [
         { "text": "C) 38 µmol/min", "correct": false },
         { "text": "D) 35 µmol/min", "correct": true }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "data representation"
 },
@@ -2357,7 +2357,7 @@ const scienceQuestions = [
         { "text": "C) Both have equal growth rates", "correct": false },
         { "text": "D) Cannot be determined", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "data representation"
 },
@@ -2370,7 +2370,7 @@ const scienceQuestions = [
         { "text": "C) It remains constant", "correct": false },
         { "text": "D) It increases then decreases", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "data representation"
 },
@@ -2383,7 +2383,7 @@ const scienceQuestions = [
         { "text": "C) 0.25 OD/h", "correct": true },
         { "text": "D) 0.15 OD/h", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "data representation"
 },
@@ -2396,7 +2396,7 @@ const scienceQuestions = [
         { "text": "C) The oxygen solubility decreases, limiting bacterial respiration", "correct": false },
         { "text": "D) The cellular membrane becomes less stable at higher temperatures", "correct": true }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "data representation"
 },
@@ -2409,7 +2409,7 @@ const scienceQuestions = [
         { "text": "C) 0.35 OD/h", "correct": false },
         { "text": "D) 0.45 OD/h", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "data representation"
 },
@@ -2422,7 +2422,7 @@ const scienceQuestions = [
         { "text": "C) It remains constant", "correct": false },
         { "text": "D) It increases then decreases", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "research summary"
 },
@@ -2435,7 +2435,7 @@ const scienceQuestions = [
         { "text": "C) 50%", "correct": true },
         { "text": "D) 60%", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "research summary"
 },
@@ -2448,7 +2448,7 @@ const scienceQuestions = [
         { "text": "C) It remains constant", "correct": false },
         { "text": "D) It increases by 1.0 μmol CO₂/m²/s", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "research summary"
 },
@@ -2461,7 +2461,7 @@ const scienceQuestions = [
         { "text": "C) The plant’s stomata close to conserve water", "correct": false },
         { "text": "D) Chlorophyll degrades under intense light", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "research summary"
 },
@@ -2474,7 +2474,7 @@ const scienceQuestions = [
         { "text": "C) The effect of soil moisture is independent of light intensity", "correct": true },
         { "text": "D) Light intensity reduces the impact of soil moisture", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "research summary"
 },
@@ -2487,7 +2487,7 @@ const scienceQuestions = [
         { "text": "C) 1000 μmol photons/m²/s, 50% soil moisture", "correct": false },
         { "text": "D) 800 μmol photons/m²/s, 60% soil moisture", "correct": true }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "research summary"
 },
@@ -2500,7 +2500,7 @@ const scienceQuestions = [
         { "text": "C) 13.5 μmol CO₂/m²/s", "correct": false },
         { "text": "D) 12.5 μmol CO₂/m²/s", "correct": true }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "research summary"
 },
@@ -2513,7 +2513,7 @@ const scienceQuestions = [
         { "text": "C) 10.5 μmol CO₂/m²/s", "correct": false },
         { "text": "D) 13.0 μmol CO₂/m²/s", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "research summary"
 },
@@ -2526,7 +2526,7 @@ const scienceQuestions = [
         { "text": "C) It remains constant", "correct": false },
         { "text": "D) It increases then decreases", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "research summary"
 },
@@ -2539,7 +2539,7 @@ const scienceQuestions = [
         { "text": "C) 0.8%", "correct": false },
         { "text": "D) 1.0%", "correct": true }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "research summary"
 },
@@ -2552,7 +2552,7 @@ const scienceQuestions = [
         { "text": "C) It remains constant", "correct": false },
         { "text": "D) It increases by 0.02 OD/h", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "research summary"
 },
@@ -2565,7 +2565,7 @@ const scienceQuestions = [
         { "text": "C) Nutrient concentration becomes limiting", "correct": false },
         { "text": "D) The algae enter a dormant state", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "research summary"
 },
@@ -2578,7 +2578,7 @@ const scienceQuestions = [
         { "text": "C) The effect of nutrient concentration is consistent across temperatures", "correct": true },
         { "text": "D) Higher temperatures reduce the impact of nutrient concentration", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "research summary"
 },
@@ -2591,7 +2591,7 @@ const scienceQuestions = [
         { "text": "C) 20°C, 1.0% nutrient concentration", "correct": false },
         { "text": "D) 35°C, 0.4% nutrient concentration", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "research summary"
 },
@@ -2604,7 +2604,7 @@ const scienceQuestions = [
         { "text": "C) 0.27 OD/h", "correct": true },
         { "text": "D) 0.30 OD/h", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "research summary"
 },
@@ -2617,8 +2617,8 @@ const scienceQuestions = [
         { "text": "C) 0.25 OD/h", "correct": false },
         { "text": "D) 0.33 OD/h", "correct": false }
     ],
-    "type": "reading",
-    "difficulty": "very hard",
+    "type": "science",
+    "difficulty": "ard",
     "category": "research summary"
 },
 
@@ -2635,7 +2635,7 @@ const scienceQuestions = [
         { "text": "C) It remains constant", "correct": false },
         { "text": "D) It increases then decreases", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "research summary"
 },
@@ -2648,7 +2648,7 @@ const scienceQuestions = [
         { "text": "C) 1000 µmol photons/m²/s", "correct": true },
         { "text": "D) 400 µmol photons/m²/s", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "medium",
     "category": "research summary"
 },
@@ -2661,7 +2661,7 @@ const scienceQuestions = [
         { "text": "C) The phytoplankton enter a dormant state", "correct": false },
         { "text": "D) Oxygen solubility increases", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "research summary"
 },
@@ -2674,7 +2674,7 @@ const scienceQuestions = [
         { "text": "C) Higher salinity enhances the effect of light intensity", "correct": false },
         { "text": "D) Light intensity reduces the impact of salinity", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "research summary"
 },
@@ -2687,7 +2687,7 @@ const scienceQuestions = [
         { "text": "C) 20 ppt, 600 µmol photons/m²/s", "correct": false },
         { "text": "D) 35 ppt, 400 µmol photons/m²/s", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "research summary"
 },
@@ -2700,7 +2700,7 @@ const scienceQuestions = [
         { "text": "C) 20 µmol/L/h", "correct": false },
         { "text": "D) 18.5 µmol/L/h", "correct": true }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "research summary"
 },
@@ -2713,7 +2713,7 @@ const scienceQuestions = [
         { "text": "C) 23.5 µmol/L/h", "correct": true },
         { "text": "D) 20.5 µmol/L/h", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "research summary"
 },
@@ -2726,7 +2726,7 @@ const scienceQuestions = [
         { "text": "C) Loss of symbiotic algae", "correct": false },
         { "text": "D) Increased bleaching events", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "conflicting viewpoints"
 },
@@ -2739,7 +2739,7 @@ const scienceQuestions = [
         { "text": "C) A study showing coral recovery after bleaching events", "correct": false },
         { "text": "D) Measurements of stable seawater pH in bleaching-affected areas", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "conflicting viewpoints"
 },
@@ -2752,7 +2752,7 @@ const scienceQuestions = [
         { "text": "C) Scientist 2 links decline to carbonate ion scarcity, while Scientist 1 blames algal loss", "correct": false },
         { "text": "D) Scientist 2 emphasizes skeletal damage, while Scientist 1 focuses on bleaching events", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "conflicting viewpoints"
 },
@@ -2765,7 +2765,7 @@ const scienceQuestions = [
         { "text": "C) Coral cover loss correlated with lower carbonate ion concentrations", "correct": true },
         { "text": "D) Stable coral cover in areas with high temperatures", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "hard",
     "category": "conflicting viewpoints"
 },
@@ -2778,7 +2778,7 @@ const scienceQuestions = [
         { "text": "C) It would support both hypotheses equally", "correct": false },
         { "text": "D) It would weaken both hypotheses", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "conflicting viewpoints"
 },
@@ -2791,7 +2791,7 @@ const scienceQuestions = [
         { "text": "C) Scientist 1; Scientist 2’s assumption that bleaching is the main cause of decline", "correct": true },
         { "text": "D) Scientist 2; Scientist 1’s assumption that carbonate ions are critical", "correct": false }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "conflicting viewpoints"
 },
@@ -2804,21 +2804,11 @@ const scienceQuestions = [
         { "text": "C) It would make both hypotheses equally plausible", "correct": false },
         { "text": "D) It would make Scientist 1’s hypothesis more plausible than Scientist 2’s", "correct": true }
     ],
-    "type": "reading",
+    "type": "science",
     "difficulty": "very hard",
     "category": "conflicting viewpoints"
 }
-
-
-
-
 ];
-
-
-
-
-
-
 
     function startTest() {
         if (!actIntroContainer || !document.getElementById("question-container")) {
