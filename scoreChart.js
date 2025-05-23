@@ -1,3 +1,32 @@
+// TEMPORARY MOCK DATA FOR PROMO VIDEO
+(function injectMockSATProgression() {
+    const today = new Date();
+    let mockHistory = {};
+
+    // Start at 1300 and end at 1580 over 6 tests
+    const mockTotalScores = [1300, 1380, 1450, 1500, 1540, 1580];
+
+    for (let i = 0; i < 6; i++) {
+        const testDate = new Date(today);
+        testDate.setDate(today.getDate() - (14 - i * 3)); // Spread tests ~3 days apart within 2 weeks
+        const dateStr = testDate.toISOString().split("T")[0];
+
+        const total = mockTotalScores[i];
+        const reading = Math.floor(total * 0.48); // Rough split
+        const math = total - reading;
+
+        mockHistory[dateStr] = {
+            readingWriting: reading,
+            math: math,
+            total: total
+        };
+    }
+
+    // Inject into localStorage
+    localStorage.setItem("satScoreHistory", JSON.stringify(mockHistory));
+})();
+
+
 function updateScoreChart() {
     // Read from satScoreHistory
     let scoreHistory = JSON.parse(localStorage.getItem("satScoreHistory")) || {};
