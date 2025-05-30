@@ -2487,3 +2487,26 @@ footer h3 {
   min-height: 400px !important;
   max-height: 450px !important;
 }
+
+.logo {
+    display: block;
+    width: 100px;
+    height: auto;
+}
+.toggle-icon {
+    font-size: 20px;
+    display: inline-block;
+    color: black;
+    line-height: 1;
+}
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
