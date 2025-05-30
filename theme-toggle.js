@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    console.log("Elements found in theme-toggle.js:", { toggleButton, toggleIcon, logoImage });
+
     toggleButton.addEventListener('click', () => {
         console.log("Theme toggle clicked in theme-toggle.js");
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
