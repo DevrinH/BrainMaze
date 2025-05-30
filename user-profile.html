@@ -19,17 +19,22 @@
             width: 200px;
             height: auto;
         }
-        .toggle-icon {
-            font-size: 20px;
+.toggle-icon {
+            font-size: 24px; /* Increased for visibility */
             display: inline-block;
-            color: black;
+            color: #000; /* Black for light mode */
             line-height: 1;
+            margin: 0;
+            padding: 0;
         }
         .theme-toggle {
             background: none;
             border: none;
             cursor: pointer;
-            padding: 5px;
+            padding: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         .header-container {
             display: flex;
@@ -3931,6 +3936,22 @@ for (let i = 1; i <= 5; i++) {
     <script src="/gedScoreChart.js"></script>
     <script src="/categoryScoreTracker.js"></script>
     <script src="/algebra-lessons.js"></script>
-    <script src="/progress-tracker.js"></script>
+    <script src="/progress-tracker.js"></script><script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.querySelector(".theme-toggle");
+            const toggleIcon = document.querySelector(".toggle-icon");
+            const logoImage = document.querySelector(".logo");
+            if (toggleButton && toggleIcon && logoImage) {
+                toggleButton.addEventListener("click", () => {
+                    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+                    document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
+                    toggleIcon.textContent = isDark ? "☀️" : "🌙";
+                    logoImage.src = isDark ? "/BrainJelli-header.png" : "/BrainJelli-header-white.png";
+                });
+            } else {
+                console.error("Theme toggle elements not found:", { toggleButton, toggleIcon, logoImage });
+            }
+        });
+    </script>
 </body>
 </html>
