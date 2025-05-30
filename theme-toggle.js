@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Theme toggle clicked in theme-toggle.js");
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        toggleIcon.textContent = isDark ? '☀️' : '🌙';
+        toggleIcon.textContent = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19'; // Explicit Unicode
         logoImage.src = isDark ? '/BrainJelli-header.png' : '/BrainJelli-header-white.png';
     });
 });
