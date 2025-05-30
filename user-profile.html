@@ -3937,6 +3937,25 @@ for (let i = 1; i <= 5; i++) {
     <script src="/categoryScoreTracker.js"></script>
     <script src="/algebra-lessons.js"></script>
     <script src="/progress-tracker.js"></script>
-    
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("Inline theme toggle script running");
+            const toggleButton = document.querySelector(".theme-toggle");
+            const toggleIcon = document.querySelector(".toggle-icon");
+            const logoImage = document.querySelector(".logo");
+            if (!toggleButton || !toggleIcon || !logoImage) {
+                console.error("Theme toggle elements not found:", { toggleButton, toggleIcon, logoImage });
+                return;
+            }
+            console.log("Elements found:", { toggleButton, toggleIcon, logoImage });
+            toggleButton.addEventListener("click", () => {
+                console.log("Theme toggle clicked");
+                const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+                document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
+                toggleIcon.textContent = isDark ? "\u2600\uFE0F" : "\uD83C\uDF19"; // Explicit Unicode
+                logoImage.src = isDark ? "/BrainJelli-header.png" : "/BrainJelli-header-white.png";
+            });
+        });
+    </script>
 </body>
 </html>
