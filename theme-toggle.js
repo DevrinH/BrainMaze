@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
         toggleIcon.textContent = isDark ? '☀️' : '🌙';
-        // Update logo for dark/light mode if needed
         logoImage.src = isDark ? '/BrainJelli-header.png' : '/BrainJelli-header-white.png';
     });
 });
