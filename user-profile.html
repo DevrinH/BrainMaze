@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
     <title>user-profile</title>
-    <link href="https://www.brainjelli.com/landing.css" rel="stylesheet">
+    <link href="/landing.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="BrainJelli LOGO.png">
-    <meta property="og:image" content="https://brainjelli.com/BrainJelliPNG1-02.png"/>
-    <link rel="apple-touch-icon" href="https://brainjelli.com/BrainJelliPNG1-03.png">
-    <link rel="android-touch-icon" href="https://brainjelli.com/BrainJelliPNG1-03.png">
-    <link rel="icon" href="BrainJelli Circle Icon.png" type="image/x-icon">
+    <link rel="icon" type="image/png" href="/BrainJelliLOGO.png">
+    <meta property="og:image" content="/BrainJelliLOGO.png"/>
+    <link rel="apple-touch-icon" href="/BrainJelliLOGO.png">
+    <link rel="android-touch-icon" href="/BrainJelliLOGO.png">
+    <link rel="icon" href="/BrainJelliCircleIcon.png" type="image/x-icon">
     <!-- Load Chart.js and Plugin -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 </head>
 
-
 <body>
     <header>
         <div class="header-container">
-            <a href="https://www.brainjelli.com/user-profile.html"> <img src="BrainJelli-header.png" class="logo"></a>
+            <a href="/user-profile.html"> <img src="/BrainJelli-header.png" class="logo"></a>
             <div class="button-group">
                 <button class="theme-toggle" aria-label="Toggle dark mode">
                     <span class="toggle-icon">☀️</span>
@@ -28,45 +27,58 @@
         </div>
     </header>
 
+    <main>
+        <div class="line-chart-container" id="line-chart-sat">
+            <h2 class="progress-title">SAT Progress</h2>
+            <div class="chart-container">
+                <canvas id="scoreChart"></canvas>
+            </div>
+            <div class="last-score-container">
+                <p class="last-score-text">Last SAT Score:</p>
+            </div>
+            <div class="chart-container-bar">
+                <canvas id="lastScoreBarChart"></canvas>
+            </div>
+        </div>
+        <div class="line-chart-container hidden" id="line-chart-act">
+            <h2 class="progress-title">ACT Progress</h2>
+            <div class="chart-container">
+                <canvas id="actScoreChart"></canvas>
+            </div>
+            <div class="last-score-container">
+                <p class="last-score-text">Last ACT Score:</p>
+            </div>
+            <div class="chart-container-bar">
+                <canvas id="actLastScoreBarChart"></canvas>
+            </div>
+        </div>
+        <div class="line-chart-container hidden" id="line-chart-ged">
+            <h2 class="progress-title">GED Progress</h2>
+            <div class="chart-container">
+                <canvas id="gedScoreChart"></canvas>
+            </div>
+            <div class="last-score-container">
+                <p class="last-score-text">Last GED Score:</p>
+            </div>
+            <div class="chart-container-bar">
+                <canvas id="gedLastScoreBarChart"></canvas>
+            </div>
+        </div>
 
 <main>
     <div class="line-chart-container" id="line-chart-sat">
         <h2 class="progress-title"> Test SAT Progress</h2>
         <div class="chart-container">
             <canvas id="scoreChart"></canvas>
+        <!-- Social Media Icons -->
+        <div class="social-media-links">
+            <a href="https://twitter.com"><img src="/Twitter.png" alt="Twitter"></a>
+            <a href="https://reddit.com"><img src="/Reddit.png" alt="Reddit"></a>
+            <a href="https://youtube.com"><img src="/YouTube.png" alt="YouTube"></a>
+            <a href="https://instagram.com"><img src="/Insta.png" alt="Instagram"></a>
+            <a href="https://tiktok.com"><img src="/Tik Tok.png" alt="TikTok"></a>
         </div>
-        <div class="last-score-container">
-            <p class="last-score-text">Last SAT Score:</p>
-        </div>  
-        <div class="chart-container-bar">
-            <canvas id="lastScoreBarChart"></canvas>
-        </div>
-    </div>
-    <div class="line-chart-container hidden" id="line-chart-act">
-        <h2 class="progress-title">ACT Progress</h2>
-        <div class="chart-container">
-            <canvas id="actScoreChart"></canvas>
-        </div>
-        <div class="last-score-container">
-            <p class="last-score-text">Last ACT Score:</p>
-        </div>  
-        <div class="chart-container-bar">
-            <canvas id="actLastScoreBarChart"></canvas>
-        </div>
-    </div>
-    <div class="line-chart-container hidden" id="line-chart-ged">
-        <h2 class="progress-title">GED Progress</h2>
-        <div class="chart-container">
-            <canvas id="gedScoreChart"></canvas>
-        </div>
-        <div class="last-score-container">
-            <p class="last-score-text">Last GED Score:</p>
-        </div>  
-        <div class="chart-container-bar">
-            <canvas id="gedLastScoreBarChart"></canvas>
-        </div>
-    </div>
-</main>
+    </main>
 <div class="button-container">
     <button class="button-30" role="button" onclick="showGED()">GED</button>
     <button class="button-30" role="button" onclick="showSAT()">SAT</button>
@@ -3900,13 +3912,13 @@ for (let i = 1; i <= 5; i++) {
     </footer>
 </div>
     <!-- Load SAT Chart JavaScript (Move it here to ensure canvas exists first) -->
-<script src="scoreChart.js" defer></script>
-<script src="actScoreChart.js"></script>
-<script src="gedScoreChart.js"></script>
-
-<script src="algebra-lessons.js"></script>
-<script src="theme-toggle.js"></script>
-<script src="categoryScoreTracker.js"></script>
-<script src="progress-tracker.js"></script>
+<!-- Scripts -->
+    <script src="/theme-toggle.js"></script>
+    <script src="/scoreChart.js"></script>
+    <script src="/actScoreChart.js"></script>
+    <script src="/gedScoreChart.js"></script>
+    <script src="/categoryScoreTracker.js"></script>
+    <script src="/algebra-lessons.js"></script>
+    <script src="/progress-tracker.js"></script>
 </body>
 </html>
