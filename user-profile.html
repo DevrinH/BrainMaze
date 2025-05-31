@@ -2227,371 +2227,358 @@
     <script src="scoreChart.js"></script>
     <script src="actScoreChart.js"></script>
     <script src="gedScoreChart.js"></script>
-
-    <div class="progress-container" id="sat-progress-container">
-        <h2>SAT Category Progress</h2>
-        <br/>
-        <div class="progress-item" data-category="command-of-evidence">
-            <div class="progress-label">Command of Evidence</div>
-            <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
-            <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="central-ideas">
-            <div class="progress-label">Central Ideas and Detail</div>
-            <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
-            <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="inferences">
-            <div class="progress-label">Inferences</div>
-            <div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div>
-            <div class="progress-percentage" id="inferences-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="words-in-context">
-            <div class="progress-label">Words in Context</div>
-            <div class="progress-bar"><div class="progress-fill" id="words-in-context-bar"></div></div>
-            <div class="progress-percentage" id="words-in-context-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="text-structure-and-purpose">
-            <div class="progress-label">Text Structure and Purpose</div>
-            <div class="progress-bar"><div class="progress-fill" id="text-structure-and-purpose-bar"></div></div>
-            <div class="progress-percentage" id="text-structure-and-purpose-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="cross-text-connections">
-            <div class="progress-label">Cross-Text Connections</div>
-            <div class="progress-bar"><div class="progress-fill" id="cross-text-connections-bar"></div></div>
-            <div class="progress-percentage" id="cross-text-connections-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="transitions">
-            <div class="progress-label">Transitions</div>
-            <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
-            <div class="progress-percentage" id="transitions-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="rhetorical-synthesis">
-            <div class="progress-label">Rhetorical Synthesis</div>
-            <div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div>
-            <div class="progress-percentage" id="rhetorical-synthesis-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="boundaries">
-            <div class="progress-label">Boundaries</div>
-            <div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div>
-            <div class="progress-percentage" id="boundaries-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="algebra">
-            <div class="progress-label">Algebra</div>
-            <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
-            <div class="progress-percentage" id="algebra-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="advanced-math">
-            <div class="progress-label">Advanced Math</div>
-            <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
-            <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="problem-solving-and-data">
-            <div class="progress-label">Problem Solving and Data Analysis</div>
-            <div class="progress-bar"><div class="progress-fill" id="problem-solving-and-data-bar"></div></div>
-            <div class="progress-percentage" id="problem-solving-and-data-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="geometry-and-trigonometry">
-            <div class="progress-label">Geometry and Trigonometry</div>
-            <div class="progress-bar"><div class="progress-fill" id="geometry-and-trigonometry-bar"></div></div>
-            <div class="progress-percentage" id="geometry-and-trigonometry-text">0% <span class="arrow">→</span></div>
-        </div>
-    </div>
-
-
-   
-   
-    <div class="progress-container hidden" id="act-progress-container">
-        <h2>ACT Category Progress</h2>
-        <br/>
-        <div class="progress-item" data-category="act-conventions-of-standard-english">
-            <div class="progress-label">Conventions of Standard English</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-conventions-of-standard-english-bar"></div></div>
-            <div class="progress-percentage" id="act-conventions-of-standard-english-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-knowledge-of-language">
-            <div class="progress-label">Knowledge of Language</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-knowledge-of-language-bar"></div></div>
-            <div class="progress-percentage" id="act-knowledge-of-language-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-production-of-writing">
-            <div class="progress-label">Production of Writing</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-production-of-writing-bar"></div></div>
-            <div class="progress-percentage" id="act-production-of-writing-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-algebra">
-            <div class="progress-label">Algebra</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-algebra-bar"></div></div>
-            <div class="progress-percentage" id="act-algebra-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-functions">
-            <div class="progress-label">Functions</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-functions-bar"></div></div>
-            <div class="progress-percentage" id="act-functions-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-coordinate-geometry">
-            <div class="progress-label">Coordinate Geometry</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-coordinate-geometry-bar"></div></div>
-            <div class="progress-percentage" id="act-coordinate-geometry-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-systems-of-equations">
-            <div class="progress-label">Systems of Equations</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-systems-of-equations-bar"></div></div>
-            <div class="progress-percentage" id="Systems-of-Equations-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-geometry">
-            <div class="progress-label">Geometry</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-geometry-bar"></div></div>
-            <div class="progress-percentage" id="act-geometry-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-trigonometry">
-            <div class="progress-label">Trigonometry</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-trigonometry-bar"></div></div>
-            <div class="progress-percentage" id="act-trigonometry-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-quadratics">
-            <div class="progress-label">Quadratics</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-quadratics-bar"></div></div>
-            <div class="progress-percentage" id="act-quadratics-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-logarithms">
-            <div class="progress-label">Logarithms</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-logarithms-bar"></div></div>
-            <div class="progress-percentage" id="act-logarithms-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-complex-numbers">
-            <div class="progress-label">Complex Numbers</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-complex-numbers-bar"></div></div>
-            <div class="progress-percentage" id="act-complex-numbers-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-word-problems">
-            <div class="progress-label">Word Problems</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-word-problems-bar"></div></div>
-            <div class="progress-percentage" id="act-word-problems-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-probability">
-            <div class="progress-label">Probability</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-probability-bar"></div></div>
-            <div class="progress-percentage" id="act-probability-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-sequences">
-            <div class="progress-label">Sequences</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-sequences-bar"></div></div>
-            <div class="progress-percentage" id="act-sequences-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-main-idea">
-            <div class="progress-label">Main Idea</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-main-idea-bar"></div></div>
-            <div class="progress-percentage" id="act-main-idea-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-authors-purpose">
-            <div class="progress-label">authors purpose</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-authors-purpose-bar"></div></div>
-            <div class="progress-percentage" id="act-authors-purpose-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-inference">
-            <div class="progress-label">Inference</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-inference-bar"></div></div>
-            <div class="progress-percentage" id="act-inference-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-character-motivation">
-            <div class="progress-label">Character Motivation</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-character-motivation-bar"></div></div>
-            <div class="progress-percentage" id="act-character-motivation-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-vocabulary-in-context">
-            <div class="progress-label">Vocabulary in Context</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-vocabulary-in-context-bar"></div></div>
-            <div class="progress-percentage" id="act-vocabulary-in-context-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-character-development">
-            <div class="progress-label">Character Development</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-character-development-bar"></div></div>
-            <div class="progress-percentage" id="act-character-development-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-symbolism">
-            <div class="progress-label">Symbolism</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-symbolism-bar"></div></div>
-            <div class="progress-percentage" id="act-symbolism-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-literary-device">
-            <div class="progress-label">Literary Device</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-literary-device-bar"></div></div>
-            <div class="progress-percentage" id="act-literary-device-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-theme">
-            <div class="progress-label">Theme</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-theme-bar"></div></div>
-            <div class="progress-percentage" id="act-theme-text">0% <span class="arrow">→</span></div>
-        </div>
-
-
-        <div class="progress-item" data-category="act-detail">
-            <div class="progress-label">Detail</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-detail-bar"></div></div>
-            <div class="progress-percentage" id="act-detail-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-relationship">
-            <div class="progress-label">Relationship</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-relationship-bar"></div></div>
-            <div class="progress-percentage" id="act-relationship-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-implication">
-            <div class="progress-label">Implication</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-implication-bar"></div></div>
-            <div class="progress-percentage" id="act-implication-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-comparison">
-            <div class="progress-label">Comparison</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-comparison-bar"></div></div>
-            <div class="progress-percentage" id="act-comparison-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-data-representation">
-            <div class="progress-label">Data Representation</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-data-representation-bar"></div></div>
-            <div class="progress-percentage" id="act-data-representation-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-research-summary">
-            <div class="progress-label">Research Summary</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-research-summary-bar"></div></div>
-            <div class="progress-percentage" id="act-research-summary-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="act-conflicting-viewpoints">
-            <div class="progress-label">Conflicting Viewpoints</div>
-            <div class="progress-bar"><div class="progress-fill" id="act-conflicting-viewpoints-bar"></div></div>
-            <div class="progress-percentage" id="act-conflicting-viewpoints-text">0% <span class="arrow">→</span></div>
-        </div>
-    </div>
-   
-    <div class="progress-container hidden" id="ged-progress-container">
-        <h2>GED Category Progress</h2>
-        <br/>
-        <div class="progress-item" data-category="ged-algebra">
-            <div class="progress-label">Algebra</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-algebra-bar"></div></div>
-            <div class="progress-percentage" id="ged-algebra-text">0% <span class="arrow">→</span></div>
-        </div>
-
-        <div class="progress-item" data-category="ged-geometry">
-            <div class="progress-label">Geometry</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-geometry-bar"></div></div>
-            <div class="progress-percentage" id="ged-geometry-text">0% <span class="arrow">→</span></div>
-        </div>
-
-        <div class="progress-item" data-category="ged-language-arts">
-            <div class="progress-label">Reasoning Through Language Arts</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-language-arts-bar"></div></div>
-            <div class="progress-percentage" id="ged-language-arts-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-science">
-            <div class="progress-label">Science</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-science-bar"></div></div>
-            <div class="progress-percentage" id="ged-science-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-social-studies">
-            <div class="progress-label">Social Studies</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-social-studies-bar"></div></div>
-            <div class="progress-percentage" id="ged-social-studies-text">0% <span class="arrow">→</span></div>
-        </div>
-
-
-        <div class="progress-item" data-category="ged-reading-comprehension">
-            <div class="progress-label">Reading Comprehension</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-reading-comprehension-bar"></div></div>
-            <div class="progress-percentage" id="ged-reading-comprehension-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-central-ideas">
-            <div class="progress-label">Central Ideas</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-central-ideas-bar"></div></div>
-            <div class="progress-percentage" id="ged-central-ideas-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-inference-and-authors-purpose">
-            <div class="progress-label">Inference and Author's Purpose</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-inference-and-authors-purpose-bar"></div></div>
-            <div class="progress-percentage" id="ged-inference-and-authors-purpose-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-grammar-sentence-structure">
-            <div class="progress-label">Grammar Sentence Structure</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-grammar-sentence-structure-bar"></div></div>
-            <div class="progress-percentage" id="ged-grammar-sentence-structure-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-basic-arithmetic">
-            <div class="progress-label">Basic Arthmetic</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-basic-arithmetic-bar"></div></div>
-            <div class="progress-percentage" id="ged-basic-arithmetic-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-punctuation-usage">
-            <div class="progress-label">Punctuation Usage</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-punctuation-usage-bar"></div></div>
-            <div class="progress-percentage" id="ged-punctuation-usage-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-linear-equations">
-            <div class="progress-label">Linear Equations</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-linear-equations-bar"></div></div>
-            <div class="progress-percentage" id="ged-linear-equations-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-data-interpretation">
-            <div class="progress-label">Data Interpretation</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-data-interpretation-bar"></div></div>
-            <div class="progress-percentage" id="ged-data-interpretation-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-word-problems">
-            <div class="progress-label">Word Problems</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-word-problems-bar"></div></div>
-            <div class="progress-percentage" id="ged-word-problems-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-life-science">
-            <div class="progress-label">Life Science</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-life-science-bar"></div></div>
-            <div class="progress-percentage" id="ged-life-science-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-physical-science">
-            <div class="progress-label">Physical Science</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-physical-science-bar"></div></div>
-            <div class="progress-percentage" id="ged-physical-science-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-earth-space">
-            <div class="progress-label">Earth and Space Science</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-earth-space-bar"></div></div>
-            <div class="progress-percentage" id="ged-earth-space-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-scientific-method-and-experimental-design">
-            <div class="progress-label">Scientific Method</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-scientific-method-and-experimental-design-bar"></div></div>
-            <div class="progress-percentage" id="ged-scientific-method-and-experimental-design-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-data-analysis-interpretation">
-            <div class="progress-label">Data Analysis Interpretation</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-data-analysis-interpretation-bar"></div></div>
-            <div class="progress-percentage" id="ged-data-analysis-interpretation-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-us-history">
-            <div class="progress-label">US History</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-us-history-bar"></div></div>
-            <div class="progress-percentage" id="ged-us-history-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-civics-and-government">
-            <div class="progress-label">Scientific Method</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-civics-and-government-bar"></div></div>
-            <div class="progress-percentage" id="ged-civics-and-government-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-economics">
-            <div class="progress-label">Economics</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-economics-bar"></div></div>
-            <div class="progress-percentage" id="ged-economics-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-geography-environmental-issues">
-            <div class="progress-label">Geography and Environment</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-geography-environmental-issues-bar"></div></div>
-            <div class="progress-percentage" id="ged-geography-environmental-issues-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="ged-reading-and-analyzing-historical-docs">
-            <div class="progress-label">Reading and Analyzing History</div>
-            <div class="progress-bar"><div class="progress-fill" id="ged-reading-and-analyzing-historical-docs-bar"></div></div>
-            <div class="progress-percentage" id="ged-reading-and-analyzing-historical-docs-text">0% <span class="arrow">→</span></div>
-        </div>
-
-    </div>
+<div class="progress-container" id="sat-progress-container">
+         <h2>SAT Category Progress</h2>
+         <br/>
+         <div class="progress-item" data-category="command-of-evidence">
+             <div class="progress-label">Command of Evidence</div>
+             <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
+             <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="central-ideas">
+             <div class="progress-label">Central Ideas and Detail</div>
+             <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
+             <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="inferences">
+             <div class="progress-label">Inferences</div>
+             <div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div>
+             <div class="progress-percentage" id="inferences-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="words-in-context">
+             <div class="progress-label">Words in Context</div>
+             <div class="progress-bar"><div class="progress-fill" id="words-in-context-bar"></div></div>
+             <div class="progress-percentage" id="words-in-context-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="text-structure-and-purpose">
+             <div class="progress-label">Text Structure and Purpose</div>
+             <div class="progress-bar"><div class="progress-fill" id="text-structure-and-purpose-bar"></div></div>
+             <div class="progress-percentage" id="text-structure-and-purpose-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="cross-text-connections">
+             <div class="progress-label">Cross-Text Connections</div>
+             <div class="progress-bar"><div class="progress-fill" id="cross-text-connections-bar"></div></div>
+             <div class="progress-percentage" id="cross-text-connections-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="transitions">
+             <div class="progress-label">Transitions</div>
+             <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
+             <div class="progress-percentage" id="transitions-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="rhetorical-synthesis">
+             <div class="progress-label">Rhetorical Synthesis</div>
+             <div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div>
+             <div class="progress-percentage" id="rhetorical-synthesis-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="boundaries">
+             <div class="progress-label">Boundaries</div>
+             <div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div>
+             <div class="progress-percentage" id="boundaries-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="algebra">
+             <div class="progress-label">Algebra</div>
+             <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
+             <div class="progress-percentage" id="algebra-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="advanced-math">
+             <div class="progress-label">Advanced Math</div>
+             <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
+             <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="problem-solving-and-data">
+             <div class="progress-label">Problem Solving and Data Analysis</div>
+             <div class="progress-bar"><div class="progress-fill" id="problem-solving-and-data-bar"></div></div>
+             <div class="progress-percentage" id="problem-solving-and-data-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="geometry-and-trigonometry">
+             <div class="progress-label">Geometry and Trigonometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="geometry-and-trigonometry-bar"></div></div>
+             <div class="progress-percentage" id="geometry-and-trigonometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+     </div>
+     <div class="progress-container hidden" id="act-progress-container">
+         <h2>ACT Category Progress</h2>
+         <br/>
+         <div class="progress-item" data-category="act-conventions-of-standard-english">
+             <div class="progress-label">Conventions of Standard English</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-conventions-of-standard-english-bar"></div></div>
+             <div class="progress-percentage" id="act-conventions-of-standard-english-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-knowledge-of-language">
+             <div class="progress-label">Knowledge of Language</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-knowledge-of-language-bar"></div></div>
+             <div class="progress-percentage" id="act-knowledge-of-language-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-production-of-writing">
+             <div class="progress-label">Production of Writing</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-production-of-writing-bar"></div></div>
+             <div class="progress-percentage" id="act-production-of-writing-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-algebra">
+             <div class="progress-label">Algebra</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-algebra-bar"></div></div>
+             <div class="progress-percentage" id="act-algebra-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-functions">
+             <div class="progress-label">Functions</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-functions-bar"></div></div>
+             <div class="progress-percentage" id="act-functions-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-coordinate-geometry">
+             <div class="progress-label">Coordinate Geometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-coordinate-geometry-bar"></div></div>
+             <div class="progress-percentage" id="act-coordinate-geometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-systems-of-equations">
+             <div class="progress-label">Systems of Equations</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-systems-of-equations-bar"></div></div>
+             <div class="progress-percentage" id="Systems-of-Equations-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-geometry">
+             <div class="progress-label">Geometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-geometry-bar"></div></div>
+             <div class="progress-percentage" id="act-geometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-trigonometry">
+             <div class="progress-label">Trigonometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-trigonometry-bar"></div></div>
+             <div class="progress-percentage" id="act-trigonometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-quadratics">
+             <div class="progress-label">Quadratics</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-quadratics-bar"></div></div>
+             <div class="progress-percentage" id="act-quadratics-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-logarithms">
+             <div class="progress-label">Logarithms</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-logarithms-bar"></div></div>
+             <div class="progress-percentage" id="act-logarithms-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-complex-numbers">
+             <div class="progress-label">Complex Numbers</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-complex-numbers-bar"></div></div>
+             <div class="progress-percentage" id="act-complex-numbers-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-word-problems">
+             <div class="progress-label">Word Problems</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-word-problems-bar"></div></div>
+             <div class="progress-percentage" id="act-word-problems-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-probability">
+             <div class="progress-label">Probability</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-probability-bar"></div></div>
+             <div class="progress-percentage" id="act-probability-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-sequences">
+             <div class="progress-label">Sequences</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-sequences-bar"></div></div>
+             <div class="progress-percentage" id="act-sequences-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-main-idea">
+             <div class="progress-label">Main Idea</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-main-idea-bar"></div></div>
+             <div class="progress-percentage" id="act-main-idea-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-authors-purpose">
+             <div class="progress-label">Authors Purpose</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-authors-purpose-bar"></div></div>
+             <div class="progress-percentage" id="act-authors-purpose-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-inference">
+             <div class="progress-label">Inference</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-inference-bar"></div></div>
+             <div class="progress-percentage" id="act-inference-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-character-motivation">
+             <div class="progress-label">Character Motivation</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-character-motivation-bar"></div></div>
+             <div class="progress-percentage" id="act-character-motivation-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-vocabulary-in-context">
+             <div class="progress-label">Vocabulary in Context</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-vocabulary-in-context-bar"></div></div>
+             <div class="progress-percentage" id="act-vocabulary-in-context-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-character-development">
+             <div class="progress-label">Character Development</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-character-development-bar"></div></div>
+             <div class="progress-percentage" id="act-character-development-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-symbolism">
+             <div class="progress-label">Symbolism</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-symbolism-bar"></div></div>
+             <div class="progress-percentage" id="act-symbolism-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-literary-device">
+             <div class="progress-label">Literary Device</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-literary-device-bar"></div></div>
+             <div class="progress-percentage" id="act-literary-device-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-theme">
+             <div class="progress-label">Theme</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-theme-bar"></div></div>
+             <div class="progress-percentage" id="act-theme-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-detail">
+             <div class="progress-label">Detail</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-detail-bar"></div></div>
+             <div class="progress-percentage" id="act-detail-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-relationship">
+             <div class="progress-label">Relationship</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-relationship-bar"></div></div>
+             <div class="progress-percentage" id="act-relationship-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-implication">
+             <div class="progress-label">Implication</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-implication-bar"></div></div>
+             <div class="progress-percentage" id="act-implication-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-comparison">
+             <div class="progress-label">Comparison</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-comparison-bar"></div></div>
+             <div class="progress-percentage" id="act-comparison-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-data-representation">
+             <div class="progress-label">Data Representation</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-data-representation-bar"></div></div>
+             <div class="progress-percentage" id="act-data-representation-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-research-summary">
+             <div class="progress-label">Research Summary</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-research-summary-bar"></div></div>
+             <div class="progress-percentage" id="act-research-summary-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-conflicting-viewpoints">
+             <div class="progress-label">Conflicting Viewpoints</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-conflicting-viewpoints-bar"></div></div>
+             <div class="progress-percentage" id="act-conflicting-viewpoints-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+     </div>
+     <div class="progress-container hidden" id="ged-progress-container">
+         <h2>GED Category Progress</h2>
+         <br/>
+         <div class="progress-item" data-category="ged-algebra">
+             <div class="progress-label">Algebra</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-algebra-bar"></div></div>
+             <div class="progress-percentage" id="ged-algebra-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-geometry">
+             <div class="progress-label">Geometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-geometry-bar"></div></div>
+             <div class="progress-percentage" id="ged-geometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-language-arts">
+             <div class="progress-label">Reasoning Through Language Arts</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-language-arts-bar"></div></div>
+             <div class="progress-percentage" id="ged-language-arts-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-science">
+             <div class="progress-label">Science</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-science-bar"></div></div>
+             <div class="progress-percentage" id="ged-science-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-social-studies">
+             <div class="progress-label">Social Studies</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-social-studies-bar"></div></div>
+             <div class="progress-percentage" id="ged-social-studies-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-reading-comprehension">
+             <div class="progress-label">Reading Comprehension</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-reading-comprehension-bar"></div></div>
+             <div class="progress-percentage" id="ged-reading-comprehension-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-central-ideas">
+             <div class="progress-label">Central Ideas</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-central-ideas-bar"></div></div>
+             <div class="progress-percentage" id="ged-central-ideas-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-inference-and-authors-purpose">
+             <div class="progress-label">Inference and Author's Purpose</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-inference-and-authors-purpose-bar"></div></div>
+             <div class="progress-percentage" id="ged-inference-and-authors-purpose-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-grammar-sentence-structure">
+             <div class="progress-label">Grammar Sentence Structure</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-grammar-sentence-structure-bar"></div></div>
+             <div class="progress-percentage" id="ged-grammar-sentence-structure-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-basic-arithmetic">
+             <div class="progress-label">Basic Arithmetic</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-basic-arithmetic-bar"></div></div>
+             <div class="progress-percentage" id="ged-basic-arithmetic-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-punctuation-usage">
+             <div class="progress-label">Punctuation Usage</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-punctuation-usage-bar"></div></div>
+             <div class="progress-percentage" id="ged-punctuation-usage-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-linear-equations">
+             <div class="progress-label">Linear Equations</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-linear-equations-bar"></div></div>
+             <div class="progress-percentage" id="ged-linear-equations-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-data-interpretation">
+             <div class="progress-label">Data Interpretation</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-data-interpretation-bar"></div></div>
+             <div class="progress-percentage" id="ged-data-interpretation-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-word-problems">
+             <div class="progress-label">Word Problems</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-word-problems-bar"></div></div>
+             <div class="progress-percentage" id="ged-word-problems-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-life-science">
+             <div class="progress-label">Life Science</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-life-science-bar"></div></div>
+             <div class="progress-percentage" id="ged-life-science-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-physical-science">
+             <div class="progress-label">Physical Science</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-physical-science-bar"></div></div>
+             <div class="progress-percentage" id="ged-physical-science-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-earth-space">
+             <div class="progress-label">Earth and Space Science</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-earth-space-bar"></div></div>
+             <div class="progress-percentage" id="ged-earth-space-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-scientific-method-and-experimental-design">
+             <div class="progress-label">Scientific Method</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-scientific-method-and-experimental-design-bar"></div></div>
+             <div class="progress-percentage" id="ged-scientific-method-and-experimental-design-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-data-analysis-interpretation">
+             <div class="progress-label">Data Analysis Interpretation</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-data-analysis-interpretation-bar"></div></div>
+             <div class="progress-percentage" id="ged-data-analysis-interpretation-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-us-history">
+             <div class="progress-label">US History</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-us-history-bar"></div></div>
+             <div class="progress-percentage" id="ged-us-history-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-civics-and-government">
+             <div class="progress-label">Civics and Government</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-civics-and-government-bar"></div></div>
+             <div class="progress-percentage" id="ged-civics-and-government-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-economics">
+             <div class="progress-label">Economics</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-economics-bar"></div></div>
+             <div class="progress-percentage" id="ged-economics-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-geography-environmental-issues">
+             <div class="progress-label">Geography and Environment</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-geography-environmental-issues-bar"></div></div>
+             <div class="progress-percentage" id="ged-geography-environmental-issues-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-reading-and-analyzing-historical-docs">
+             <div class="progress-label">Reading and Analyzing History</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-reading-and-analyzing-historical-docs-bar"></div></div>
+             <div class="progress-percentage" id="ged-reading-and-analyzing-historical-docs-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+     </div>
 
 
 </div> <!-- End of main container -->
