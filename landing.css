@@ -2544,3 +2544,16 @@ footer h3 {
     display: block !important;
 }
 /* Removed .theme-toggle::before rule */
+.arrow {
+         font-size: 20px !important;
+         font-weight: bold !important;
+         margin-left: 5px !important;
+         color: #47474b !important;
+         font-family: Arial, sans-serif !important; /* Ensure arrow support */
+         display: inline-block !important;
+         vertical-align: middle !important;
+         visibility: visible !important;
+     }
+     [data-theme="dark"] .arrow {
+         color: #ffffff !important; /* White in dark mode */
+     }
