@@ -2488,14 +2488,13 @@ footer h3 {
   max-height: 450px !important;
 }
 
-.logo {
-    display: block;
-    width: 200px;
-    height: auto;
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-        
-/* Your provided landing.css */
-/* Your provided landing.css */
+
 /* Your provided landing.css */
 .toggle-icon {
     font-size: 28px !important;
@@ -2517,8 +2516,31 @@ footer h3 {
 [data-theme="dark"] .toggle-icon {
     color: white !important;
 }
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.theme-toggle {
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    background-color: transparent !important;
 }
+.header-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px !important;
+}
+.button-group {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+}
+.logo {
+    height: 45px !important;
+    display: block !important;
+}
+/* Removed .theme-toggle::before rule */
