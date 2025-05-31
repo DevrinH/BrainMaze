@@ -2494,15 +2494,24 @@ footer h3 {
     height: auto;
 }
         
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* Your provided landing.css */
+.toggle-icon {
+    font-size: 28px !important;
+    display: inline-block !important;
+    color: var(--text-color) !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+    visibility: visible !important;
+    font-family: 'Segoe UI Emoji', 'Noto Color Emoji', Arial, sans-serif !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+[data-theme="dark"] .toggle-icon {
+    color: white !important;
+}
 .header-container {
     display: flex;
     justify-content: space-between;
