@@ -9,13 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    console.log("Elements found in theme-toggle.js:", { toggleButton, toggleIcon, logoImage });
-
     toggleButton.addEventListener('click', () => {
         console.log("Theme toggle clicked in theme-toggle.js");
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        toggleIcon.textContent = isDark ? '\u2600\uFE0F' : '\uD83C\uDF19'; // Explicit Unicode
+        toggleIcon.textContent = isDark ? '☀️' : '🌙';
         logoImage.src = isDark ? '/BrainJelli-header.png' : '/BrainJelli-header-white.png';
     });
 });
