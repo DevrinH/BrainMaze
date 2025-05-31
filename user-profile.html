@@ -2233,7 +2233,7 @@
          <div class="progress-item" data-category="command-of-evidence">
              <div class="progress-label">Command of Evidence</div>
              <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
-             <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">&rarr;</span></div>
+             <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">▶</span></div>
          </div>
          <div class="progress-item" data-category="central-ideas">
              <div class="progress-label">Central Ideas and Detail</div>
@@ -3832,62 +3832,64 @@ for (let i = 1; i <= 5; i++) {
 <script src="/gedScoreChart.js"></script>
 <script src="/categoryScoreTracker.js"></script>
 <script src="/algebra-lessons.js"></script>
-<script src="/progress-tracker.js"></script><script>
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Theme toggle and arrow fallback script running");
+<script src="/progress-tracker.js"></script>     
 
-    // Theme toggle
-    const savedTheme = localStorage.getItem("theme") || "light";
-    document.documentElement.setAttribute("data-theme", savedTheme);
-    console.log("Loaded theme:", savedTheme);
-    const toggleButton = document.querySelector(".theme-toggle");
-    const toggleIcon = document.querySelector(".toggle-icon");
-    const logoImage = document.querySelector(".logo");
-    if (!toggleButton || !toggleIcon || !logoImage) {
-        console.error("Theme toggle elements not found:", { toggleButton, toggleIcon, logoImage });
-    } else {
-        console.log("Theme toggle elements found");
-        toggleIcon.innerHTML = savedTheme === "dark" ? "☀️" : "🌙";
-        logoImage.src = savedTheme === "dark" ? "/BrainJelli-header-white.png" : "/BrainJelli-header.png";
-        toggleButton.addEventListener("click", () => {
-            console.log("Theme toggle clicked");
-            const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-            const newTheme = isDark ? "light" : "dark";
-            document.documentElement.setAttribute("data-theme", newTheme);
-            toggleIcon.innerHTML = isDark ? "☀️" : "🌙";
-            logoImage.src = isDark ? "/BrainJelli-header.png" : "/BrainJelli-header-white.png";
-            localStorage.setItem("theme", newTheme);
-            console.log("Saved theme:", newTheme);
-        });
-    }
+<script>
+     document.addEventListener("DOMContentLoaded", function () {
+         console.log("Theme toggle and arrow fallback script running");
 
-    // Lightweight arrow fallback
-    function fixArrows() {
-        console.log("Running fixArrows");
-        document.querySelectorAll(".progress-percentage .arrow").forEach(arrow => {
-            const text = arrow.innerHTML;
-            if (text.includes("â†’") || text === "→" || text === "") {
-                arrow.innerHTML = "→";
-                console.log(`Fixed arrow: ${text} → →`);
-            } else if (text === "↑" || text.includes("â†‘")) {
-                arrow.innerHTML = "↑";
-                console.log(`Fixed arrow: ${text} → ↑`);
-            } else if (text === "↓" || text.includes("â†“")) {
-                arrow.innerHTML = "↓";
-                console.log(`Fixed arrow: ${text} → ↓`);
-            }
-        });
-    }
+         // Theme toggle
+         const savedTheme = localStorage.getItem("theme") || "light";
+         document.documentElement.setAttribute("data-theme", savedTheme);
+         console.log("Loaded theme:", savedTheme);
+         const toggleButton = document.querySelector(".theme-toggle");
+         const toggleIcon = document.querySelector(".toggle-icon");
+         const logoImage = document.querySelector(".logo");
+         if (!toggleButton || !toggleIcon || !logoImage) {
+             console.error("Theme toggle elements not found:", { toggleButton, toggleIcon, logoImage });
+         } else {
+             console.log("Theme toggle elements found");
+             toggleIcon.innerHTML = savedTheme === "dark" ? "☀️" : "🌙";
+             logoImage.src = savedTheme === "dark" ? "/BrainJelli-header-white.png" : "/BrainJelli-header.png";
+             toggleButton.addEventListener("click", () => {
+                 console.log("Theme toggle clicked");
+                 const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+                 const newTheme = isDark ? "light" : "dark";
+                 document.documentElement.setAttribute("data-theme", newTheme);
+                 toggleIcon.innerHTML = isDark ? "☀️" : "🌙";
+                 logoImage.src = isDark ? "/BrainJelli-header.png" : "/BrainJelli-header-white.png";
+                 localStorage.setItem("theme", newTheme);
+                 console.log("Saved theme:", newTheme);
+             });
+         }
 
-    // Run initially and on test toggles
-    fixArrows();
-    document.querySelectorAll(".button-30").forEach(button => {
-        button.addEventListener("click", () => {
-            setTimeout(fixArrows, 300); // Increased delay to run after progress-tracker.js
-        });
-    });
-});
-</script>
+         // Lightweight arrow fallback with triangle symbols
+         function fixArrows() {
+             console.log("Running fixArrows");
+             document.querySelectorAll(".progress-percentage .arrow").forEach(arrow => {
+                 const text = arrow.innerHTML;
+                 if (text.includes("â†’") || text.includes("→") || text === "" || text === "▶") {
+                     arrow.innerHTML = "▶";
+                     console.log(`Fixed arrow: ${text} → ▶`);
+                 } else if (text.includes("â†‘") || text === "↑" || text === "▲") {
+                     arrow.innerHTML = "▲";
+                     console.log(`Fixed arrow: ${text} → ▲`);
+                 } else if (text.includes("â†“") || text === "↓" || text === "▼") {
+                     arrow.innerHTML = "▼";
+                     console.log(`Fixed arrow: ${text} → ▼`);
+                 }
+             });
+         }
+
+         // Run initially and on test toggles
+         fixArrows();
+         document.querySelectorAll(".button-30").forEach(button => {
+             button.addEventListener("click", () => {
+                 setTimeout(fixArrows, 300);
+             });
+         });
+     });
+     </script>
 
 </body>
 </html>
