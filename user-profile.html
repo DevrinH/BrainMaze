@@ -12,34 +12,54 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 
-    <style>
-
-        .logo {
-            display: block;
-            width: 200px;
-            height: auto;
-        }
-.toggle-icon {
-            font-size: 24px; /* Increased for visibility */
-            display: inline-block;
-            color: #000; /* Black for light mode */
-            line-height: 1;
-            margin: 0;
-            padding: 0;
+<style>
+        .toggle-icon {
+            font-size: 28px !important;
+            display: inline-block !important;
+            color: var(--text-color) !important;
+            line-height: 1 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            vertical-align: middle !important;
+            visibility: visible !important;
+            font-family: 'Segoe UI Emoji', 'Noto Color Emoji', Arial, sans-serif !important;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            background: none !important;
+            border: none !important;
+            cursor: pointer !important;
+            padding: 8px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 40px !important;
+            min-height: 40px !important;
         }
         .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 10px !important;
+        }
+        .button-group {
+            display: flex !important;
+            gap: 10px !important;
+            align-items: center !important;
+        }
+        .logo {
+            height: 45px !important;
+            display: block !important;
+        }
+        .theme-toggle::before {
+            content: "Toggle: ";
+            font-size: 12px;
+            color: red;
+            display: inline-block;
+            margin-right: 5px;
+            font-family: Arial, sans-serif;
         }
     </style>
 </head>
