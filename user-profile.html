@@ -3117,22 +3117,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let progressUpdatedByMainScript = false;
 
-  document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
          function updateProgress(source) {
              console.log(`updateProgress called from: ${source}`);
 
              // Process ACT progress
              let actTestResults = localStorage.getItem("actTestResults");
              let parsedActResults = actTestResults ? JSON.parse(actTestResults) : {};
-             console.log("Parsed actTestResults:", parsedActResults);
-
              let actSection = document.getElementById("act-progress-container");
              if (actSection && !actSection.classList.contains("hidden")) {
                  let progressItems = actSection.querySelectorAll(".progress-item");
-                 console.log("Found ACT progress items:", progressItems.length);
-
                  let historicalProgress = JSON.parse(localStorage.getItem("actHistoricalProgress")) || {};
                  let actProgress = JSON.parse(localStorage.getItem("actProgress")) || {};
+
+                 // Initialize historicalProgress for all categories
+                 progressItems.forEach(item => {
+                     let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                     let category = `act-${displayCategory}`;
+                     if (!historicalProgress[category]) {
+                         historicalProgress[category] = { percentage: 0 };
+                         console.log(`Initialized historicalProgress for ACT ${category}`);
+                     }
+                 });
 
                  Object.keys(parsedActResults).forEach(category => {
                      if (!actProgress[category]) {
@@ -3140,12 +3146,10 @@ document.addEventListener("DOMContentLoaded", function () {
                      }
                      actProgress[category].correct += Number(parsedActResults[category]?.correct || 0);
                      actProgress[category].incorrect += Number(parsedActResults[category]?.incorrect || 0);
-                     console.log(`Category: ${category}, Updated ACT progress - Correct: ${actProgress[category].correct}, Incorrect: ${actProgress[category].incorrect}`);
                  });
 
                  localStorage.setItem("actProgress", JSON.stringify(actProgress));
                  localStorage.removeItem("actTestResults");
-                 console.log("Updated actProgress:", actProgress);
 
                  progressItems.forEach(item => {
                      let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
@@ -3164,7 +3168,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                      if (progressTextElement) {
                          let previousPercentage = historicalProgress[category]?.percentage || 0;
-                         console.log(`ACT Category: ${category}, Previous: ${previousPercentage}%, Current: ${percentage}%`);
+                         console.log(`ACT ${category} - Previous: ${previousPercentage}%, Current: ${percentage}%`);
 
                          let arrow = "▶";
                          let increased = percentage > previousPercentage;
@@ -3176,7 +3180,7 @@ document.addEventListener("DOMContentLoaded", function () {
                          }
                          let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
                          progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor} !important;">${arrow}</span>`;
-                         console.log(`Updated ACT ${category} - Bar: ${percentage}%, Arrow: ${arrow}, Color: ${arrowColor}`);
+                         console.log(`ACT ${category} - Arrow: ${arrow}, Color: ${arrowColor}, Total: ${total}`);
                          historicalProgress[category] = { percentage };
                      }
                  });
@@ -3185,7 +3189,7 @@ document.addEventListener("DOMContentLoaded", function () {
                  actSection.style.display = "block";
              }
 
-             // Process SAT progress
+             // Process SAT progress (similar changes)
              let satTestResults = localStorage.getItem("satTestResults");
              let parsedSatResults = satTestResults ? JSON.parse(satTestResults) : {};
              let satSection = document.getElementById("sat-progress-container");
@@ -3193,6 +3197,14 @@ document.addEventListener("DOMContentLoaded", function () {
                  let progressItems = satSection.querySelectorAll(".progress-item");
                  let historicalProgress = JSON.parse(localStorage.getItem("satHistoricalProgress")) || {};
                  let satProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
+
+                 progressItems.forEach(item => {
+                     let category = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                     if (!historicalProgress[category]) {
+                         historicalProgress[category] = { percentage: 0 };
+                         console.log(`Initialized historicalProgress for SAT ${category}`);
+                     }
+                 });
 
                  Object.keys(parsedSatResults).forEach(category => {
                      if (!satProgress[category]) {
@@ -3221,7 +3233,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                      if (progressTextElement) {
                          let previousPercentage = historicalProgress[category]?.percentage || 0;
-                         console.log(`SAT Category: ${category}, Previous: ${previousPercentage}%, Current: ${percentage}%`);
+                         console.log(`SAT ${category} - Previous: ${previousPercentage}%, Current: ${percentage}%`);
 
                          let arrow = "▶";
                          let increased = percentage > previousPercentage;
@@ -3233,7 +3245,7 @@ document.addEventListener("DOMContentLoaded", function () {
                          }
                          let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
                          progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor} !important;">${arrow}</span>`;
-                         console.log(`Updated SAT ${category} - Bar: ${percentage}%, Arrow: ${arrow}, Color: ${arrowColor}`);
+                         console.log(`SAT ${category} - Arrow: ${arrow}, Color: ${arrowColor}, Total: ${total}`);
                          historicalProgress[category] = { percentage };
                      }
                  });
@@ -3242,7 +3254,7 @@ document.addEventListener("DOMContentLoaded", function () {
                  satSection.style.display = "block";
              }
 
-             // Process GED progress
+             // Process GED progress (similar changes)
              let gedTestResults = localStorage.getItem("gedTestResults");
              let parsedGedResults = gedTestResults ? JSON.parse(gedTestResults) : {};
              let gedSection = document.getElementById("ged-progress-container");
@@ -3250,6 +3262,15 @@ document.addEventListener("DOMContentLoaded", function () {
                  let progressItems = gedSection.querySelectorAll(".progress-item");
                  let historicalProgress = JSON.parse(localStorage.getItem("gedHistoricalProgress")) || {};
                  let gedProgress = JSON.parse(localStorage.getItem("gedProgress")) || {};
+
+                 progressItems.forEach(item => {
+                     let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
+                     let category = `ged-${displayCategory}`;
+                     if (!historicalProgress[category]) {
+                         historicalProgress[category] = { percentage: 0 };
+                         console.log(`Initialized historicalProgress for GED ${category}`);
+                     }
+                 });
 
                  Object.keys(parsedGedResults).forEach(category => {
                      if (!gedProgress[category]) {
@@ -3279,7 +3300,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                      if (progressTextElement) {
                          let previousPercentage = historicalProgress[category]?.percentage || 0;
-                         console.log(`GED Category: ${category}, Previous: ${previousPercentage}%, Current: ${percentage}%`);
+                         console.log(`GED ${category} - Previous: ${previousPercentage}%, Current: ${percentage}%`);
 
                          let arrow = "▶";
                          let increased = percentage > previousPercentage;
@@ -3291,7 +3312,7 @@ document.addEventListener("DOMContentLoaded", function () {
                          }
                          let arrowColor = increased ? "green" : decreased ? "red" : "#4e5163";
                          progressTextElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor} !important;">${arrow}</span>`;
-                         console.log(`Updated GED ${category} - Bar: ${percentage}%, Arrow: ${arrow}, Color: ${arrowColor}`);
+                         console.log(`GED ${category} - Arrow: ${arrow}, Color: ${arrowColor}, Total: ${total}`);
                          historicalProgress[category] = { percentage };
                      }
                  });
@@ -3303,12 +3324,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
          // Event Listeners
          document.addEventListener("DOMContentLoaded", () => updateProgress("DOMContentLoaded"));
-
-         window.addEventListener("testSubmitted", () => {
-             console.log("Test submitted, updating progress...");
-             updateProgress("testSubmitted");
-         });
-
+         window.addEventListener("testSubmitted", () => updateProgress("testSubmitted"));
          document.querySelectorAll(".button-30").forEach(button => {
              button.addEventListener("click", () => {
                  setTimeout(() => {
@@ -3318,8 +3334,7 @@ document.addEventListener("DOMContentLoaded", function () {
                      const isActSectionActive = actSection && !actSection.classList.contains("hidden");
                      const isSatSectionActive = satSection && !satSection.classList.contains("hidden");
                      const isGedSectionActive = gedSection && !gedSection.classList.contains("hidden");
-                     console.log("Button clicked - ACT active:", isActSectionActive, "SAT active:", isSatSectionActive, "GED active:", isGedSectionActive);
-
+                     console.log("Button clicked - ACT:", isActSectionActive, "SAT:", isSatSectionActive, "GED:", isGedSectionActive);
                      if (isActSectionActive || isSatSectionActive || isGedSectionActive) {
                          updateProgress("tabSwitch");
                      }
@@ -3888,6 +3903,33 @@ for (let i = 1; i <= 5; i++) {
                  setTimeout(fixArrows, 300);
              });
          });
+
+         // Check last activity and show correct exam section
+         const urlParams = new URLSearchParams(window.location.search);
+         const examFromUrl = urlParams.get('exam');
+         const lastActivity = JSON.parse(localStorage.getItem("lastActivity")) || {};
+         const lastExam = examFromUrl || lastActivity.exam || "SAT";
+         console.log("Last exam detected:", lastExam, "from URL:", examFromUrl, "lastActivity:", lastActivity);
+
+         if (lastExam === "SAT") {
+             showSAT();
+             setTimeout(() => {
+                 window.updateProgress("lessonReturnSAT");
+                 fixArrows();
+             }, 500); // Delay to ensure DOM and localStorage are ready
+         } else if (lastExam === "ACT") {
+             showACT();
+             setTimeout(() => {
+                 window.updateProgress("lessonReturnACT");
+                 fixArrows();
+             }, 500);
+         } else if (lastExam === "GED") {
+             showGED();
+             setTimeout(() => {
+                 window.updateProgress("lessonReturnGED");
+                 fixArrows();
+             }, 500);
+         }
      });
      </script>
 
