@@ -2496,6 +2496,7 @@ footer h3 {
         
 /* Your provided landing.css */
 /* Your provided landing.css */
+/* Your provided landing.css */
 .toggle-icon {
     font-size: 28px !important;
     display: inline-block !important;
@@ -2509,6 +2510,9 @@ footer h3 {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 28px !important;
+    height: 28px !important;
+    text-align: center !important;
 }
 [data-theme="dark"] .toggle-icon {
     color: white !important;

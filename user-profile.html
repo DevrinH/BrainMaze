@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>User Profile</title>
-    <link href="/landing.css" rel="stylesheet">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link href="/landing.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="/BrainJelliLOGO.png">
     <meta property="og:image" content="/BrainJelliLOGO.png"/>
     <link rel="apple-touch-icon" href="/BrainJelliLOGO.png">
     <link rel="android-touch-icon" href="/BrainJelliLOGO.png">
     <link rel="icon" href="/BrainJelliCircleIcon.png" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
-
-<style>
+    <style>
         .toggle-icon {
             font-size: 28px !important;
             display: inline-block !important;
@@ -26,6 +26,15 @@
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            width: 28px !important;
+            height: 28px !important;
+            text-align: center !important;
+            background-color: transparent !important;
+            border: none !important;
+            overflow: visible !important;
+        }
+        [data-theme="dark"] .toggle-icon {
+            color: white !important;
         }
         .theme-toggle {
             background: none !important;
@@ -35,8 +44,9 @@
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
-            min-width: 40px !important;
-            min-height: 40px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            background-color: transparent !important;
         }
         .header-container {
             display: flex !important;
@@ -61,13 +71,20 @@
             margin-right: 5px;
             font-family: Arial, sans-serif;
         }
+        /* Fallback for emoji failure */
+        .toggle-icon:empty::after {
+            content: "[Icon]";
+            font-size: 12px;
+            color: blue;
+            font-family: Arial, sans-serif;
+        }
     </style>
 </head>
 
 <body>
-    <header>
+<header>
         <div class="header-container">
-            <a href="/user-profile.html"> <img src="/BrainJelli-header.png" class="logo"></a>
+            <a href="/user-profile.html"><img src="/BrainJelli-header.png" class="logo"></a>
             <div class="button-group">
                 <button class="theme-toggle" aria-label="Toggle dark mode">
                     <span class="toggle-icon">☀️</span>
