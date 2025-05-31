@@ -3954,24 +3954,39 @@ for (let i = 1; i <= 5; i++) {
     <script src="/algebra-lessons.js"></script>
     <script src="/progress-tracker.js"></script>
 <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            console.log("Theme toggle script running");
-            const toggleButton = document.querySelector(".theme-toggle");
-            const toggleIcon = document.querySelector(".toggle-icon");
-            const logoImage = document.querySelector(".logo");
-            if (!toggleButton || !toggleIcon || !logoImage) {
-                console.error("Theme toggle elements not found:", { toggleButton, toggleIcon, logoImage });
-                return;
-            }
-            console.log("Elements found:", { toggleButton, toggleIcon, logoImage });
-            toggleButton.addEventListener("click", () => {
-                console.log("Theme toggle clicked");
-                const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-                document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
-                toggleIcon.innerHTML = isDark ? "☀️" : "🌙";
-                logoImage.src = isDark ? "/BrainJelli-header.png" : "/BrainJelli-header-white.png";
-            });
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("Theme toggle script running");
+
+        // Load saved theme from localStorage
+        const savedTheme = localStorage.getItem("theme") || "light"; // Default to light
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        console.log("Loaded theme:", savedTheme);
+
+        const toggleButton = document.querySelector(".theme-toggle");
+        const toggleIcon = document.querySelector(".toggle-icon");
+        const logoImage = document.querySelector(".logo");
+        if (!toggleButton || !toggleIcon || !logoImage) {
+            console.error("Theme toggle elements not found:", { toggleButton, toggleIcon, logoImage });
+            return;
+        }
+        console.log("Elements found:", { toggleButton, toggleIcon, logoImage });
+
+        // Set initial icon and logo based on saved theme
+        toggleIcon.innerHTML = savedTheme === "dark" ? "☀️" : "🌙";
+        logoImage.src = savedTheme === "dark" ? "/BrainJelli-header-white.png" : "/BrainJelli-header.png";
+
+        toggleButton.addEventListener("click", () => {
+            console.log("Theme toggle clicked");
+            const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+            const newTheme = isDark ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            toggleIcon.innerHTML = isDark ? "☀️" : "🌙";
+            logoImage.src = isDark ? "/BrainJelli-header.png" : "/BrainJelli-header-white.png";
+            // Save theme to localStorage
+            localStorage.setItem("theme", newTheme);
+            console.log("Saved theme:", newTheme);
         });
-    </script>
+    });
+</script>
 </body>
 </html>
