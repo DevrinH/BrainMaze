@@ -1,814 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>user-profile</title>
+  <head> 
+    <title>BrainJelli - Landing Page</title> 
     <link href="https://www.brainjelli.com/landing.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="BrainJelli LOGO.png">
     <meta property="og:image" content="https://brainjelli.com/BrainJelliPNG1-02.png"/>
-    <link rel="apple-touch-icon" href="https://brainjelli.com/BrainJelliPNG1-03.png">
-    <link rel="android-touch-icon" href="https://brainjelli.com/BrainJelliPNG1-03.png">
+   <link rel="apple-touch-icon" href="https://brainjelli.com/BrainJelliPNG1-03.png">
+   <link rel="android-touch-icon" href="https://brainjelli.com/BrainJelliPNG1-03.png">
+   <link rel="icon" href="BrainJelli Circle Icon.png" type="image/x-icon">
     <!-- Load Chart.js and Plugin -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+
+    <!-- Load SAT Chart JavaScript -->
+    <script src="satChart.js" defer></script>
 </head>
+ <header> <div class="header-container"> <img src="BrainJelli-header.png" class="logo"> <button class="login-button">Login</button> </div> </header>
+  
+ 
 
 
 <body>
+    <div class="image-container">  
+        <img src="landing-image.webp" class="landingimg">
+        <div class="overlay-text">
+          <h2>Level Up Your Score <br> For Free</h2>
+        </div>
+      </div>
+<div class="center">
+  <h2>Start Now!</h2>
+  </div>
+<div class="button-container"> <button class="button-30" role="button">GED</button> <button class="button-30" role="button">SAT</button> <button class="button-30" role="button">ACT</button> </div>
 
 
-<header>
-    <div class="header-container">
-        <img src="BrainJelli-header.png" class="logo">
-        <button class="login-button">Login</button>
+ <div class="margin-top">
+<h1>
+  Adaptive Lessons to Increase Your Score
+</h1>
+</div>
+
+<div class="purple-container">
+  <div class="chart-container">
+    <div class="bar">
+        <div class="subject">
+            <h2>SAT Subjects</h2>
+        </div>
     </div>
-</header>
+  <div class="bar">
+      <div class="bar-label">Area and Perimeter</div>
+      <div class="bar-container"><div class="bar-value red" data-score="690" data-width="82%">0</div></div>
+  </div>
+  <div class="bar">
+      <div class="bar-label">Geometry</div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="775" data-width="92%">0</div></div>
+  </div>
+  <div class="bar">
+      <div class="bar-label">Algebra</div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="730" data-width="87%">0</div></div>
+  </div>
+  <div class="bar">
+      <div class="bar-label">Trigonometry</div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="751" data-width="90%">0</div></div>
+  </div>
+  <div class="bar">
+      <div class="bar-label">Detail Question</div>
+      <div class="bar-container"><div class="bar-value red" data-score="780" data-width="92%">0</div></div>
+  </div>
+  <div class="bar">
+      <div class="bar-label">Words in Context</div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="760" data-width="90%">0</div></div>
+  </div>
+  <div class="bar">
+      <div class="bar-label">Inference</div>
+      <div class="bar-container"><div class="bar-value red" data-score="755" data-width="89%">0</div></div>
+  </div>
+  <div class="bar">
+      <div class="bar-label">Supporting Evidence</div>
+      <div class="bar-container"><div class="bar-value yellow" data-score="650" data-width="77%">0</div></div>
+  </div>
+  <div class="bar">
+      <div class="bar-label">Big Picture Passage</div>
+      <div class="bar-container"><div class="bar-value green" data-score="800" data-width="95%">0</div></div>
+  </div>
+</div>
+<p class="font">Lessons that focus on areas that need to be beefed up.</p>
+</div>
 
-
-<div class="line-chart-container">
-    <h2 class="progress-title">Progress</h2>
-    <div class="chart-container">
-        <canvas id="scoreChart"></canvas>
-    </div>
-    <div class="last-score-container">
-        <p class="last-score-text">Last Score:</p>
-    </div>  
-    <div class="chart-container-bar">
-        <canvas id="lastScoreBarChart"></canvas>
-    </div>
-</div>  
-
-
-<div class="button-container">
-    <button class="button-30" role="button">GED</button>
-    <button class="button-30" role="button">SAT</button>
-    <button class="button-30" role="button">ACT</button>
-
+<div class="subject-dark">
+<h1>Prep Tests To See Where You Stand</h1>
 
 </div>
 
 
-<div class="flex-container">          
-    <div class="testlessonscontainer">
-        <h2>SAT Practice Tests and Lessons</h2>
-        <br/>
-        <div class="align-center">
-            <div class="test-lesson-buttons">
-                <button class="button-29" onclick="showTests()">Tests</button>
-                <button class="button-29" onclick="showLessons()">Lessons</button>
-            </div><br/><br/>
-        </div>
 
-
-        <div id="tests-container" class="container">
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/test.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">TEST % (beta)</p>
-                    <p>Each level gets harder as you go. See how far you can go.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/test-2.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">TEST-2 % (beta)</p>
-                    <p>Each level gets harder as you go. See how far you can go.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/test-3.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">TEST-3 % (beta)</p>
-                    <p>Each level gets harder as you go. See how far you can go.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/timedsattest.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Timed SAT (not adaptive)</p>
-                    <p>This is a timed SAT practice test. Wrong answers will be displayed.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" type="button" onclick="location.href='https://www.brainjelli.com/dsat.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Timed DSAT (adaptive)</p>
-                    <p>This is a timed SAT practice test. Wrong answers will be displayed.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-untimed.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Untimed SAT Prep Test</p>
-                    <p>Non-timed SAT practice test. Wrong answers and explanations will be shown.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-just-reading-1.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Timed SAT (just Reading)</p>
-                    <p>Timed SAT practice test. Wrong answers will be shown.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-just-math-1.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Timed SAT (just math)</p>
-                    <p>Timed SAT practice test. Wrong answers will be shown.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-vocab-multi-1.html'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Multiple Choice Vocab test</p>
-                    <p>Test your vocabulary knowledge.</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="lessons-container" class="container hidden">
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-vocab'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Vocabulary</p>
-                    <p>Flashcards of the most common SAT words.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-landing'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Rank Up (beta)</p>
-                    <p>Each level gets harder as you go. See how far you can go.</p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" onclick="showAlgebraLessons()">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lessons</p>
-                    <p>Algebra Lesson</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="lessons-container-algebra" class="container hidden">
-           
-           
-           
-           
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=1'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 1: Solving Linear Equations</p>
-                    <p id="score-summary-1"></p>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=2'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 2: Solving Systems of Equations</p>
-                    <p id="score-summary-2"></p>
-                </div>
-            </div>
-       
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=3'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 3: Quadratic Equations</p>
-                    <p id="score-summary-3"></p>
-                </div>
-            </div>
-
-
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=4'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 4: Expressions and Polynomials</p>
-                    <p id="score-summary-4"></p>
-                </div>
-            </div>
-
-
-
-
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=5'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 5: Rational Expressions and Equations</p>
-                    <p id="score-summary-5"></p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=6'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 6: Exponents and Radicals</p>
-                    <p id="score-summary-6"></p>
-                </div>
-            </div>
-
-
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=7'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 7: Absolute Value and Inequalities</p>
-                    <p id="score-summary-7"></p>
-                </div>
-            </div>
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=8'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 8: Functions and Graphs</p>
-                    <p id="score-summary-8"></p>
-                </div>
-            </div>
-
-
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=9'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 9: Exponential and Logarithmic Functions</p>
-                    <p id="score-summary-9"></p>
-                </div>
-            </div>
-
-
-
-
-
-
-            <div class="seccontainer">
-                <div class="satplacement">
-                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=10'">START</button>
-                </div>
-                <div class="satdesc">
-                    <p class="pbungee">Algebra Lesson 10: Mathematical Modeling and Word Problems</p>
-                    <p id="score-summary-10"></p>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-        </div>
+<div class="flex-container">
+
+  <!-- GED Donut Chart -->
+  <div class="left-container">
+    <div class="chart-section">
+      <div class="donut-chart-container ged-chart">
+        <canvas id="donutChartGED"></canvas>
+        <div class="center-text" id="gedScore">655</div>
+      </div>
+    </div>
+    <script src="gedChart.js"></script>
+
+    <!-- GED Legend (Moved Inside left-container) -->
+    <div class="exam">GED</div>
+    <div class="donut-legend">
+      <div class="legend-item">
+        <div class="legend-color math-gradient"></div> Math
+      </div>
+      <div class="legend-item">
+        <div class="legend-color reading-gradient"></div> Language
+      </div>
+      <div class="legend-item">
+        <div class="legend-color science-gradient"></div> Science
+      </div>
+      <div class="legend-item">
+        <div class="legend-color social-gradient"></div> Social Studies
+      </div>
+      <div class="legend-item">
+        <div class="legend-color unfilled-gradient"></div> Missed
+      </div>
+    </div>
+  </div>
+
+  <!-- SAT Donut Chart -->
+  <div class="center-container">
+    <div class="donut-chart-container">
+      <canvas id="donutChart"></canvas>
+      <div class="center-text">1500</div>
     </div>
 
-
-
-
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Selecting buttons for test/lesson toggling
-    const testButton = document.querySelector(".button-29[onclick='showTests()']");
-    const lessonButton = document.querySelector(".button-29[onclick='showLessons()']");
-    const algebraLessonButton = document.querySelector(".button-29[onclick='showAlgebraLessons()']");
-
-
-    // Selecting containers
-    const testsContainer = document.getElementById("tests-container");
-    const lessonsContainer = document.getElementById("lessons-container");
-    const algebraLessonsContainer = document.getElementById("lessons-container-algebra");
-
-
-    // Function to hide all containers
-    function hideAllContainers() {
-        if (testsContainer) testsContainer.classList.add("hidden");
-        if (lessonsContainer) lessonsContainer.classList.add("hidden");
-        if (algebraLessonsContainer) algebraLessonsContainer.classList.add("hidden");
-    }
-
-
-    // Function to show the tests section
-    function showTests() {
-        hideAllContainers();
-        if (testsContainer) testsContainer.classList.remove("hidden");
-    }
-
-
-    // Function to show the general lessons section
-    function showLessons() {
-        hideAllContainers();
-        if (lessonsContainer) lessonsContainer.classList.remove("hidden");
-    }
-
-
-    // Function to show the algebra lessons section
-    function showAlgebraLessons() {
-        hideAllContainers();
-        if (algebraLessonsContainer) algebraLessonsContainer.classList.remove("hidden");
-    }
-
-
-    // Event Listeners (Check if buttons exist before adding event listeners)
-    if (testButton) testButton.addEventListener("click", showTests);
-    if (lessonButton) lessonButton.addEventListener("click", showLessons);
-    if (algebraLessonButton) algebraLessonButton.addEventListener("click", showAlgebraLessons);
-});
-        </script>
-       
-           <script src="scoreChart.js"></script>
-           
-   
-    <div class="progress-container">
-        <h2>SAT Category Progress</h2>
-        <br/>
-        <div class="progress-item" data-category="command-of-evidence">
-            <div class="progress-label">Command of Evidence</div>
-            <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
-            <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="central-ideas">
-            <div class="progress-label">Central Ideas and Detail</div>
-            <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
-            <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">→</span></div>
-        </div>
-
-
-   
-
-
-
-
-    <div class="progress-item" data-category="inference">
-    <div class="progress-label">Inferences</div>
-    <div class="progress-bar"><div class="progress-fill" id="inference-bar"></div></div>
-    <div class="progress-percentage" id="inference-text">0% <span class="arrow">→</span></div>
-</div>
-
-
-        <div class="progress-item" data-category="words-context">
-            <div class="progress-label">Words in Context</div>
-            <div class="progress-bar"><div class="progress-fill" id="words-context-bar"></div></div>
-            <div class="progress-percentage" id="words-context-text">0% <span class="arrow">→</span></div>
-        </div>
-
-
-
-
-        <div class="progress-item" data-category="text-structure">
-            <div class="progress-label">Text Structure and Purpose</div>
-            <div class="progress-bar"><div class="progress-fill" id="text-structure-bar"></div></div>
-            <div class="progress-percentage" id="text-structure-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="cross-text">
-            <div class="progress-label">Cross-Text Connections</div>
-            <div class="progress-bar"><div class="progress-fill" id="cross-text-bar"></div></div>
-            <div class="progress-percentage" id="cross-text-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="transitions">
-            <div class="progress-label">Transitions</div>
-            <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
-            <div class="progress-percentage" id="transitions-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="rhetorical-synthesis">
-            <div class="progress-label">Rhetorical Synthesis</div>
-            <div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div>
-            <div class="progress-percentage" id="rhetorical-synthesis-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="boundaries">
-            <div class="progress-label">Boundaries</div>
-            <div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div>
-            <div class="progress-percentage" id="boundaries-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="algebra">
-            <div class="progress-label">Algebra</div>
-            <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
-            <div class="progress-percentage" id="algebra-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="advanced-math">
-            <div class="progress-label">Advanced Math</div>
-            <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
-            <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="problem-solving">
-            <div class="progress-label">Problem Solving and Data Analysis</div>
-            <div class="progress-bar"><div class="progress-fill" id="problem-solving-bar"></div></div>
-            <div class="progress-percentage" id="problem-solving-text">0% <span class="arrow">→</span></div>
-        </div>
-        <div class="progress-item" data-category="geometry-trigonometry">
-            <div class="progress-label">Geometry and Trigonometry</div>
-            <div class="progress-bar"><div class="progress-fill" id="geometry-trigonometry-bar"></div></div>
-            <div class="progress-percentage" id="geometry-trigonometry-text">0% <span class="arrow">→</span></div>
-        </div>
+    <!-- SAT Legend (Moved Inside center-container) -->
+    <div class="exam">SAT</div>
+    <div class="donut-legend">
+      <div class="legend-item">
+        <div class="legend-color math-gradient"></div> Math
+      </div>
+      <div class="legend-item">
+        <div class="legend-color reading-gradient"></div> Reading/Writing
+      </div>
+      <div class="legend-item">
+        <div class="legend-color unfilled-gradient"></div> Missed
+      </div>
     </div>
+  </div>
 
+  <!-- ACT Donut Chart -->
+  <div class="right-container">
+    <div class="chart-section">
+      <div class="donut-chart-container act-chart">
+        <canvas id="donutChartACT"></canvas>
+        <div class="center-text" id="actScore">30</div>
+      </div>
+    </div>
+    <script src="act-chart.js"></script>
 
+    <!-- ACT Legend (Moved Inside right-container) -->
+    <div class="exam">ACT</div>
+    <div class="donut-legend">
+      <div class="legend-item">
+          <div class="legend-color math-gradient"></div> Math
+      </div>
+      <div class="legend-item">
+          <div class="legend-color english-gradient"></div> English
+      </div>
+      <div class="legend-item">
+          <div class="legend-color reading-gradient"></div> Reading
+      </div>
+      <div class="legend-item">
+          <div class="legend-color science-gradient"></div> Science
+      </div>
+      <div class="legend-item">
+          <div class="legend-color unfilled-gradient"></div> Missed
+      </div>
+  </div>
 
+</div>
+</div>
 
+<h1>Monitor Your Progress</h1>
 
+<div class="video-container">
+  <video autoplay loop muted playsinline>
+    <source src="Animated-Line-Chart_-Blue-[remix].mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
-
-
-
-
-
-
-   
-
-
+<div class="margin-top">
+<h1>Practice and Score Higher With </h1>
+</div>
+<div class="img-container">
+  <a href="https://www.brainjelli.com/">
+      <img class="img" src="BrainJelli-Dark.png" height="125px">
+  </a>
 </div>
 
 
-</div>    
+
+  <div class="getStarted center"> <button class="button-30">Get Started</button></div>
 
 
-</div>
-</div>
- </div>
+
+
+
+
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const canvas = document.getElementById("lastScoreBarChart");
-
-
-        if (!canvas) {
-            console.error("Last Score Bar Chart element not found!");
-            return;
-        }
-
-
-        const ctx = canvas.getContext("2d");
-
-
-        if (!ctx) {
-            console.error("Failed to get 2D context for Last Score Bar Chart!");
-            return;
-        }
-
-
-        // Retrieve the last test score from localStorage
-        let scoreHistory = JSON.parse(localStorage.getItem("scoreHistory")) || {};
-        let dates = Object.keys(scoreHistory).sort();
-        let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
-
-
-        let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
-        let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
-        let lastTotal = lastMath + lastReading;
-        const maxScore = 1600;
-        const unfilledScore = maxScore - lastTotal; // Remaining portion
-
-
-        // Destroy previous chart if it exists
-        if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
-            window.lastScoreBarChart.destroy();
-        }
-
-
-        // Create the new Last Score Single Bar Chart
-        window.lastScoreBarChart = new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: [""], // Single bar
-                datasets: [
-                    {
-                        label: "Math",
-                        data: [lastMath],
-                        backgroundColor: "rgb(96, 205, 241)", // blue
-                        stack: "total"
-                    },
-                    {
-                        label: "Reading/Writing",
-                        data: [lastReading],
-                        backgroundColor: "rgb(205, 120, 255)", // lavender
-                        stack: "total"
-                    },
-                    {
-                        label: "Missed",
-                        data: [unfilledScore],
-                        backgroundColor: "#d3d3d3", // Gray
-                        stack: "total"
-                    }
-                ]
-            },
-            options: {
-                indexAxis: "y", // Horizontal bar
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        stacked: true,
-                        max: maxScore,
-                        ticks: {
-                            stepSize: 800
-                        },
-                        grid: {
-                            display: false,
-                            drawBorder: false,
-                            drawOnChartArea: false
-                        }
-                    },
-                    y: {
-                        stacked: true,
-                        display: false,
-                        grid: {
-                            display: false,
-                            drawBorder: false,
-                            drawOnChartArea: false
-                        }
-                    }
-                },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: { enabled: true },
-                    datalabels: {
-                        anchor: "center",
-                        align: "center",
-                        color: "white",
-                        font: { size: 18, weight: "bold" },
-                        formatter: (value) => (value > 0 ? value : "")
-                    }
-                }
-            },
-            plugins: [ChartDataLabels]
-        });
-    });
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // Load stored progress from previous tests
-        let previousProgress = JSON.parse(localStorage.getItem("previousTestResults")) || {};
-        let currentTestResults = JSON.parse(localStorage.getItem("testResults")) || {};
-        let storedProgress = JSON.parse(localStorage.getItem("satProgress")) || {};
-
-
-        console.log("Previous Progress:", previousProgress);
-        console.log("Current Test Results:", currentTestResults);
-        console.log("Stored Progress Before Update:", storedProgress);
-
-
-        // **Accumulate results over multiple tests**
-        Object.keys(currentTestResults).forEach(category => {
-            if (!storedProgress[category]) {
-                storedProgress[category] = { correct: 0, incorrect: 0 };
-            }
-
-
-            // Ensure values are treated as numbers
-            let newCorrect = Number(currentTestResults[category]?.correct || 0);
-            let newIncorrect = Number(currentTestResults[category]?.incorrect || 0);
-
-
-            storedProgress[category].correct += newCorrect;
-            storedProgress[category].incorrect += newIncorrect;
-        });
-
-
-        // Save updated progress
-        localStorage.setItem("satProgress", JSON.stringify(storedProgress));
-        console.log("Updated Stored Progress:", storedProgress);
-
-
-        // Update progress bars
-        function updateProgressBars() {
-            console.log("Updating progress bars with data:", storedProgress);
-
-
-            Object.keys(storedProgress).forEach(category => {
-                const correct = storedProgress[category]?.correct || 0;
-                const incorrect = storedProgress[category]?.incorrect || 0;
-                const total = correct + incorrect;
-                const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-
-
-                // Update progress bar
-                const progressBar = document.getElementById(`${category}-bar`);
-                if (progressBar) {
-                    progressBar.style.width = `${percentage}%`;
-                } else {
-                    console.warn(`Progress bar not found: ${category}-bar`);
-                }
-
-
-                // Update progress text
-                const progressText = document.getElementById(`${category}-text`);
-                if (progressText) {
-                    let previousPercentage = previousProgress[category]?.percentage || 0;
-                    let arrow = "→";
-                    let arrowColor = "black";
-
-
-                    if (percentage > previousPercentage) {
-                        arrow = "↑";
-                        arrowColor = "green";
-                    } else if (percentage < previousPercentage) {
-                        arrow = "↓";
-                        arrowColor = "red";
-                    }
-
-
-                    progressText.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor};">${arrow}</span>`;
-                } else {
-                    console.warn(`Progress text not found: ${category}-text`);
-                }
-
-
-                // Store current progress for future reference
-                previousProgress[category] = { percentage };
-            });
-
-
-            // Save updated progress
-            localStorage.setItem("previousTestResults", JSON.stringify(previousProgress));
-        }
-
-
-        updateProgressBars();
-    });
-
-
-    function resetProgress() {
-        localStorage.removeItem("testResults");
-        localStorage.removeItem("scoreHistory");
-        localStorage.removeItem("satProgress"); // Clear stored progress
-
-
-        // Reset progress bars
-        document.querySelectorAll(".progress-fill").forEach(bar => {
-            bar.style.width = "0%";
-        });
-
-
-        // Reset progress text
-        document.querySelectorAll(".progress-percentage").forEach(text => {
-            text.innerHTML = "0% <span class='arrow'>→</span>";
-        });
-
-
-        // Reset the chart (if applicable)
-        if (window.lastScoreBarChart) {
-            window.lastScoreBarChart.data.datasets.forEach(dataset => {
-                dataset.data = [0, 0, 0]; // Reset scores
-            });
-            window.lastScoreBarChart.update();
-        }
-
-
-        alert("Progress has been reset!");
-    }
-    function showTests() {
-            document.getElementById('tests-container').classList.remove('hidden');
-            document.getElementById('lessons-container').classList.add('hidden');
-        }
-
-
-        function showLessons() {
-            document.getElementById('tests-container').classList.add('hidden');
-            document.getElementById('lessons-container').classList.remove('hidden');
-        }
+  function animateBars() {
+      const bars = document.querySelectorAll(".bar-value");
+      
+      bars.forEach(bar => {
+          const targetWidth = bar.getAttribute("data-width");
+          const targetScore = parseInt(bar.getAttribute("data-score"));
+          let currentScore = 0;
+          let step = targetScore / 100;
+          
+          bar.style.width = "0%";
+          bar.textContent = "0";
+          
+          setTimeout(() => {
+              bar.style.transition = "width 5s linear";
+              bar.style.width = targetWidth;
+          }, 100);
+          
+          const interval = setInterval(() => {
+              if (currentScore < targetScore) {
+                  currentScore += step;
+                  if (currentScore > targetScore) currentScore = targetScore;
+                  bar.textContent = Math.round(currentScore);
+                  
+                  if (currentScore <= 400) {
+                      bar.className = "bar-value red";
+                  } else if (currentScore <= 700) {
+                      bar.className = "bar-value yellow";
+                  } else {
+                      bar.className = "bar-value green";
+                  }
+              } else {
+                  clearInterval(interval);
+              }
+          }, 50);
+      });
+  }
+  
+  function resetBars() {
+      const bars = document.querySelectorAll(".bar-value");
+      bars.forEach(bar => {
+          bar.style.transition = "none";
+          bar.style.width = "0%";
+          bar.textContent = "0";
+      });
+  }
+  
+  function loopAnimation() {
+      animateBars();
+      setInterval(() => {
+          resetBars();
+          setTimeout(animateBars, 500);
+      }, 7000);
+  }
+  
+  document.addEventListener("DOMContentLoaded", loopAnimation);
 </script>
-   
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Landing page loaded, updating score summaries");
-    function getScore(lessonId) {
-        return localStorage.getItem(`lessonScore-${lessonId}`) || "Not completed yet";
-    }
-    for (let i = 1; i <= 10; i++) {
-        const scoreElement = document.getElementById(`score-summary-${i}`);
-        if (scoreElement) {
-            const score = getScore(i);
-            scoreElement.textContent = `Last Score: ${score}`;
-            console.log(`Updated score-summary-${i} with: ${score}`);
-        } else {
-            console.warn(`Score summary element for lesson ${i} not found`);
-        }
-    }
-});
-    </script>
-   
-
-
-<button onclick="resetProgress()">Reset Progress</button>
 
 
 
 
-    <footer>
-        <div class="center">
+<div class="center">
+  <footer>
+      <div class="center">
           <h2>Follow Us On</h2>
-        </div>
-     
-        <div class="social-container">
-            <img src="Twitter.png" height="35px">
-            <img src="Insta.png" height="35px">
-            <img src="Reddit.png" height="35px">
-            <img src="YouTube.png" height="35px">
-            <img src="Tik Tok.png" height="35px">
-        </div>
-     
-        <div class="margin-top">
-            <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
-        </div>
-    </footer>
-
-
-    <!-- Load SAT Chart JavaScript (Move it here to ensure canvas exists first) -->
+      </div>
+      <div class="social-container">
+          <img src="Twitter.png" height="35px">
+          <img src="Insta.png" height="35px">
+          <img src="Reddit.png" height="35px">
+          <img src="YouTube.png" height="35px">
+          <img src="Tik Tok.png" height="35px">
+      </div>
+      <div>
+          <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
+      </div>
+  </footer>
+</div>
+  <!-- Load SAT Chart JavaScript (Move it here to ensure canvas exists first) -->
 <script src="scoreChart.js" defer></script>
 <script defer src="test-2.js"></script>
 <script src="test-2.js"></script>
 <script src="algebra-lessons.js"></script>
-
-
+<script src="theme-toggle.js"></script>
 </body>
 </html>
-
-
-
