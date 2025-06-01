@@ -1500,889 +1500,968 @@ const lessons = {
 };
     
     // Question arrays for quizzes (with passage field removed)
-    const linearEquationsQuestions = [
-        {
-            question: "Solve for x: 5x + 3 = 18",
-            answers: [
-                { text: "A) 2", correct: false },
-                { text: "B) 3", correct: true },
-                { text: "C) 4", correct: false },
-                { text: "D) 5", correct: false }
-            ],
-            explanation: "5x + 3 = 18 → 5x = 15 → x = 3.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve for x: 3(x - 2) = 9",
-            answers: [
-                { text: "A) 5", correct: true },
-                { text: "B) 4", correct: false },
-                { text: "C) 3", correct: false },
-                { text: "D) 6", correct: false }
-            ],
-            explanation: "3(x - 2) = 9 → x - 2 = 3 → x = 5.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve for y: y + 7 = 15",
-            answers: [
-                { text: "A) 8", correct: true },
-                { text: "B) 7", correct: false },
-                { text: "C) 9", correct: false },
-                { text: "D) 6", correct: false }
-            ],
-            explanation: "y + 7 = 15 → y = 8.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve for x: 4x - 8 = 0",
-            answers: [
-                { text: "A) 2", correct: true },
-                { text: "B) 1", correct: false },
-                { text: "C) 3", correct: false },
-                { text: "D) 4", correct: false }
-            ],
-            explanation: "4x - 8 = 0 → 4x = 8 → x = 2.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve for x: 2x + 5 = x + 7",
-            answers: [
-                { text: "A) 2", correct: true },
-                { text: "B) 3", correct: false },
-                { text: "C) 1", correct: false },
-                { text: "D) 4", correct: false }
-            ],
-            explanation: "2x + 5 = x + 7 → x + 5 = 7 → x = 2.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve for x: -x + 3 = 6",
-            answers: [
-                { text: "A) -3", correct: true },
-                { text: "B) 3", correct: false },
-                { text: "C) -6", correct: false },
-                { text: "D) 6", correct: false }
-            ],
-            explanation: "-x + 3 = 6 → -x = 3 → x = -3.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve for x: (1/2)x - 1 = 3",
-            answers: [
-                { text: "A) 8", correct: true },
-                { text: "B) 4", correct: false },
-                { text: "C) 6", correct: false },
-                { text: "D) 2", correct: false }
-            ],
-            explanation: "(1/2)x - 1 = 3 → (1/2)x = 4 → x = 8.",
-            difficulty: "medium",
-            category: "algebra"
-        }
-    ];
-    
-    const systemsQuestions = [
-        {
-            question: "Solve: 2x + y = 8, x - y = 1",
-            answers: [
-                { text: "A) x = 3, y = 2", correct: true },
-                { text: "B) x = 2, y = 4", correct: false },
-                { text: "C) x = 4, y = 0", correct: false },
-                { text: "D) x = 1, y = 6", correct: false }
-            ],
-            explanation: "Add equations: 3x = 9 → x = 3. Then 2(3) + y = 8 → y = 2.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: x + y = 6, x - y = 4",
-            answers: [
-                { text: "A) x = 5, y = 1", correct: true },
-                { text: "B) x = 4, y = 2", correct: false },
-                { text: "C) x = 3, y = 3", correct: false },
-                { text: "D) x = 6, y = 0", correct: false }
-            ],
-            explanation: "Add equations: 2x = 10 → x = 5. Then 5 + y = 6 → y = 1.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve: 3x - y = 7, x + y = 5",
-            answers: [
-                { text: "A) x = 3, y = 2", correct: true },
-                { text: "B) x = 2, y = 3", correct: false },
-                { text: "C) x = 4, y = 1", correct: false },
-                { text: "D) x = 1, y = 4", correct: false }
-            ],
-            explanation: "Add equations: 4x = 12 → x = 3. Then 3 + y = 5 → y = 2.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: 4x + 2y = 10, 2x - y = 1",
-            answers: [
-                { text: "A) x = 2, y = 1", correct: true },
-                { text: "B) x = 1, y = 3", correct: false },
-                { text: "C) x = 3, y = -1", correct: false },
-                { text: "D) x = 4, y = -2", correct: false }
-            ],
-            explanation: "Multiply second by 2: 4x - 2y = 2. Add: 8x = 12 → x = 1.5. Adjust: Correct is x = 2, y = 1.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: x + y = 3, 2x + 2y = 6",
-            answers: [
-                { text: "A) x = 1, y = 2", correct: false },
-                { text: "B) Infinite solutions", correct: true },
-                { text: "C) No solution", correct: false },
-                { text: "D) x = 2, y = 1", correct: false }
-            ],
-            explanation: "Second is double of first: 0 = 0, infinite solutions.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: x - y = 2, x - y = 4",
-            answers: [
-                { text: "A) x = 3, y = 1", correct: false },
-                { text: "B) No solution", correct: true },
-                { text: "C) x = 2, y = 0", correct: false },
-                { text: "D) Infinite solutions", correct: false }
-            ],
-            explanation: "Subtract: 0 = 2, contradiction, no solution.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: 5x + y = 13, 2x - y = 1",
-            answers: [
-                { text: "A) x = 2, y = 3", correct: true },
-                { text: "B) x = 3, y = 2", correct: false },
-                { text: "C) x = 1, y = 8", correct: false },
-                { text: "D) x = 4, y = -1", correct: false }
-            ],
-            explanation: "Add equations: 7x = 14 → x = 2. Then 5(2) + y = 13 → y = 3.",
-            difficulty: "medium",
-            category: "algebra"
-        }
-    ];
-    
-    const quadraticQuestions = [
-        {
-            question: "Solve: x² - 9 = 0",
-            answers: [
-                { text: "A) x = 3, x = -3", correct: true },
-                { text: "B) x = 3 only", correct: false },
-                { text: "C) x = 9, x = -9", correct: false },
-                { text: "D) x = 4.5, x = -4.5", correct: false }
-            ],
-            explanation: "x² = 9 → x = ±3.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve: x² - 4x + 4 = 0",
-            answers: [
-                { text: "A) x = 2", correct: true },
-                { text: "B) x = 4", correct: false },
-                { text: "C) x = 1", correct: false },
-                { text: "D) x = 3", correct: false }
-            ],
-            explanation: "(x - 2)² = 0 → x = 2.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve: x² + 6x + 9 = 0",
-            answers: [
-                { text: "A) x = -3", correct: true },
-                { text: "B) x = 3", correct: false },
-                { text: "C) x = -6", correct: false },
-                { text: "D) x = 6", correct: false }
-            ],
-            explanation: "(x + 3)² = 0 → x = -3.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve: x² - 5x + 6 = 0",
-            answers: [
-                { text: "A) x = 2, x = 3", correct: true },
-                { text: "B) x = 1, x = 5", correct: false },
-                { text: "C) x = 4, x = 2", correct: false },
-                { text: "D) x = 6, x = -1", correct: false }
-            ],
-            explanation: "(x - 2)(x - 3) = 0 → x = 2 or x = 3.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: 2x² - 8 = 0",
-            answers: [
-                { text: "A) x = 2, x = -2", correct: true },
-                { text: "B) x = 4, x = -4", correct: false },
-                { text: "C) x = 1, x = -1", correct: false },
-                { text: "D) x = 3, x = -3", correct: false }
-            ],
-            explanation: "2x² = 8 → x² = 4 → x = ±2.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve: x² + 2 = 0",
-            answers: [
-                { text: "A) x = 1, x = -1", correct: false },
-                { text: "B) No real solutions", correct: true },
-                { text: "C) x = 2, x = -2", correct: false },
-                { text: "D) x = √2, x = -√2", correct: false }
-            ],
-            explanation: "x² = -2 → no real solutions.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: x² - x - 6 = 0",
-            answers: [
-                { text: "A) x = 3, x = -2", correct: true },
-                { text: "B) x = 2, x = -3", correct: false },
-                { text: "C) x = 1, x = -6", correct: false },
-                { text: "D) x = 4, x = -1", correct: false }
-            ],
-            explanation: "(x - 3)(x + 2) = 0 → x = 3 or x = -2.",
-            difficulty: "medium",
-            category: "algebra"
-        }
-    ];
-    
-    const linearFunctionsQuestions = [
-        {
-            question: "Find the slope of the line passing through (0, 1) and (2, 5).",
-            answers: [
-                { text: "A) 2", correct: true },
-                { text: "B) 1", correct: false },
-                { text: "C) 3", correct: false },
-                { text: "D) 4", correct: false }
-            ],
-            explanation: "m = (5 - 1) / (2 - 0) = 4 / 2 = 2.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "What is the slope of the line y = -2x + 7?",
-            answers: [
-                { text: "A) -2", correct: true },
-                { text: "B) 2", correct: false },
-                { text: "C) 7", correct: false },
-                { text: "D) -7", correct: false }
-            ],
-            explanation: "The equation is in slope-intercept form, y = mx + b, where m = -2.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Find the y-intercept of the line 2x - y = 4.",
-            answers: [
-                { text: "A) -4", correct: true },
-                { text: "B) 4", correct: false },
-                { text: "C) 2", correct: false },
-                { text: "D) -2", correct: false }
-            ],
-            explanation: "Convert to slope-intercept: y = 2x - 4. The y-intercept is -4.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Write the equation of a line with slope -1 through (2, 3) in slope-intercept form.",
-            answers: [
-                { text: "A) y = -x + 5", correct: true },
-                { text: "B) y = -x + 3", correct: false },
-                { text: "C) y = x - 5", correct: false },
-                { text: "D) y = x + 5", correct: false }
-            ],
-            explanation: "Use point-slope: y - 3 = -1(x - 2) → y = -x + 5.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Find the x-intercept of the line x + 2y = 6.",
-            answers: [
-                { text: "A) 6", correct: true },
-                { text: "B) 3", correct: false },
-                { text: "C) 2", correct: false },
-                { text: "D) 1", correct: false }
-            ],
-            explanation: "Set y = 0: x = 6.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "What is the slope of a line parallel to y = (1/3)x - 2?",
-            answers: [
-                { text: "A) 1/3", correct: true },
-                { text: "B) -1/3", correct: false },
-                { text: "C) 3", correct: false },
-                { text: "D) -3", correct: false }
-            ],
-            explanation: "Parallel lines have the same slope, so m = 1/3.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "What is the slope of a line perpendicular to y = -5x + 1?",
-            answers: [
-                { text: "A) 1/5", correct: true },
-                { text: "B) -1/5", correct: false },
-                { text: "C) 5", correct: false },
-                { text: "D) -5", correct: false }
-            ],
-            explanation: "The slope is -5. The perpendicular slope is the negative reciprocal: 1/5.",
-            difficulty: "medium",
-            category: "algebra"
-        }
-    ];
-    
-    const quadraticFunctionsQuestions = [
-        {
-            question: "Find the axis of symmetry for y = x² + 8x + 12.",
-            answers: [
-                { text: "A) x = -4", correct: true },
-                { text: "B) x = 4", correct: false },
-                { text: "C) x = -8", correct: false },
-                { text: "D) x = 8", correct: false }
-            ],
-            explanation: "Axis of symmetry: x = -b / (2a) = -8 / (2·1) = -4.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Find the x-intercepts of y = x² - 6x + 8.",
-            answers: [
-                { text: "A) (2, 0), (4, 0)", correct: true },
-                { text: "B) (-2, 0), (-4, 0)", correct: false },
-                { text: "C) (2, 0), (-4, 0)", correct: false },
-                { text: "D) (-2, 0), (4, 0)", correct: false }
-            ],
-            explanation: "Set y = 0: x² - 6x + 8 = (x - 2)(x - 4) = 0. x = 2, 4.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "What is the y-intercept of y = 3x² + 2x - 5?",
-            answers: [
-                { text: "A) -5", correct: true },
-                { text: "B) 3", correct: false },
-                { text: "C) 2", correct: false },
-                { text: "D) 5", correct: false }
-            ],
-            explanation: "Set x = 0: y = 3(0)² + 2(0) - 5 = -5.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Write y = x² + 10x + 23 in vertex form.",
-            answers: [
-                { text: "A) y = (x + 5)² - 2", correct: true },
-                { text: "B) y = (x + 5)² + 23", correct: false },
-                { text: "C) y = (x - 5)² - 2", correct: false },
-                { text: "D) y = (x + 10)² + 23", correct: false }
-            ],
-            explanation: "Complete the square: y = (x² + 10x + 25 - 25) + 23 = (x + 5)² - 2.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Does the parabola y = 4x² - 8x + 3 open up or down?",
-            answers: [
-                { text: "A) Up", correct: true },
-                { text: "B) Down", correct: false },
-                { text: "C) Left", correct: false },
-                { text: "D) Right", correct: false }
-            ],
-            explanation: "a = 4 > 0, so the parabola opens upward.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "A projectile’s height is h = -16t² + 64t + 10. What is the maximum height?",
-            answers: [
-                { text: "A) 74", correct: true },
-                { text: "B) 64", correct: false },
-                { text: "C) 80", correct: false },
-                { text: "D) 10", correct: false }
-            ],
-            explanation: "t = -64 / (2·-16) = 2. h = -16(2)² + 64(2) + 10 = -64 + 128 + 10 = 74.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "How many x-intercepts does y = x² + 6x + 9 have?",
-            answers: [
-                { text: "A) 1", correct: true },
-                { text: "B) 2", correct: false },
-                { text: "C) 0", correct: false },
-                { text: "D) 3", correct: false }
-            ],
-            explanation: "Discriminant: 6² - 4(1)(9) = 36 - 36 = 0. One x-intercept.",
-            difficulty: "medium",
-            category: "algebra"
-        }
-    ];
-    
-    const expressionsPolynomialsQuestions = [
-        {
-            question: "Simplify: 7x - 3x + 2 + 5x - 1.",
-            answers: [
-                { text: "A) 9x + 1", correct: true },
-                { text: "B) 9x - 1", correct: false },
-                { text: "C) 15x + 1", correct: false },
-                { text: "D) 7x + 1", correct: false }
-            ],
-            explanation: "Combine x terms: 7x - 3x + 5x = 9x. Combine constants: 2 - 1 = 1. Result: 9x + 1.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Add: (4x² + 2x - 3) + (x² - x + 6).",
-            answers: [
-                { text: "A) 5x² + x + 3", correct: true },
-                { text: "B) 5x² - x + 3", correct: false },
-                { text: "C) 4x² + x + 3", correct: false },
-                { text: "D) 5x² + 3x + 3", correct: false }
-            ],
-            explanation: "(4x² + x²) + (2x - x) + (-3 + 6) = 5x² + x + 3.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Subtract: (6x² - 4x + 5) - (3x² + x - 2).",
-            answers: [
-                { text: "A) 3x² - 5x + 7", correct: true },
-                { text: "B) 3x² + 5x + 7", correct: false },
-                { text: "C) 9x² - 5x + 7", correct: false },
-                { text: "D) 3x² - 3x + 7", correct: false }
-            ],
-            explanation: "(6x² - 3x²) + (-4x - x) + (5 - (-2)) = 3x² - 5x + 7.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Multiply: (x - 2)(x + 5).",
-            answers: [
-                { text: "A) x² + 3x - 10", correct: true },
-                { text: "B) x² - 3x - 10", correct: false },
-                { text: "C) x² + 3x + 10", correct: false },
-                { text: "D) x² - 7x - 10", correct: false }
-            ],
-            explanation: "FOIL: x·x = x², x·5 = 5x, -2·x = -2x, -2·5 = -10. Combine: x² + 5x - 2x - 10 = x² + 3x - 10.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Factor: x² + 8x + 15.",
-            answers: [
-                { text: "A) (x + 3)(x + 5)", correct: true },
-                { text: "B) (x + 2)(x + 6)", correct: false },
-                { text: "C) (x + 1)(x + 15)", correct: false },
-                { text: "D) (x + 4)(x + 4)", correct: false }
-            ],
-            explanation: "Numbers that multiply to 15 and add to 8: 3 and 5. Thus, (x + 3)(x + 5).",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Evaluate P(x) = 3x² - 2x + 4 when x = 2.",
-            answers: [
-                { text: "A) 12", correct: true },
-                { text: "B) 8", correct: false },
-                { text: "C) 16", correct: false },
-                { text: "D) 10", correct: false }
-            ],
-            explanation: "P(2) = 3(2)² - 2(2) + 4 = 3(4) - 4 + 4 = 12.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Multiply: 4x(2x² - 3x + 1).",
-            answers: [
-                { text: "A) 8x³ - 12x² + 4x", correct: true },
-                { text: "B) 8x³ + 12x² - 4x", correct: false },
-                { text: "C) 8x³ - 12x² - 4x", correct: false },
-                { text: "D) 6x³ - 12x² + 4x", correct: false }
-            ],
-            explanation: "Distribute: 4x·2x² + 4x·(-3x) + 4x·1 = 8x³ - 12x² + 4x.",
-            difficulty: "medium",
-            category: "algebra"
-        }
-    ];
-    
-    const rationalExpressionsQuestions = [
-        {
-            question: "Simplify: (x² - x - 6) / (x² - 4).",
-            answers: [
-                { text: "A) (x - 3) / (x - 2)", correct: true },
-                { text: "B) (x + 3) / (x + 2)", correct: false },
-                { text: "C) (x - 3) / (x + 2)", correct: false },
-                { text: "D) 1", correct: false }
-            ],
-            explanation: "Factor: (x - 3)(x + 2) / (x - 2)(x + 2) = (x - 3) / (x - 2), for x ≠ -2, 2.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Multiply: (3 / x) · (x² / (x + 1)).",
-            answers: [
-                { text: "A) 3x / (x + 1)", correct: true },
-                { text: "B) 3 / (x + 1)", correct: false },
-                { text: "C) x / (x + 1)", correct: false },
-                { text: "D) 3x² / (x + 1)", correct: false }
-            ],
-            explanation: "(3 · x²) / (x · (x + 1)) = 3x / (x + 1), for x ≠ 0, -1.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Divide: (x / (x - 1)) ÷ (2 / (x + 1)).",
-            answers: [
-                { text: "A) x(x + 1) / (2(x - 1))", correct: true },
-                { text: "B) x(x - 1) / (2(x + 1))", correct: false },
-                { text: "C) 2x / (x - 1)", correct: false },
-                { text: "D) x / 2", correct: false }
-            ],
-            explanation: "(x / (x - 1)) · ((x + 1) / 2) = x(x + 1) / (2(x - 1)), for x ≠ 1, -1.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Add: 2 / x + 3 / (x - 1).",
-            answers: [
-                { text: "A) (5x - 2) / (x(x - 1))", correct: true },
-                { text: "B) (5x + 2) / (x(x - 1))", correct: false },
-                { text: "C) 5 / (x - 1)", correct: false },
-                { text: "D) (2x - 3) / (x(x - 1))", correct: false }
-            ],
-            explanation: "LCD: x(x - 1). (2(x - 1) + 3x) / (x(x - 1)) = (2x - 2 + 3x) / (x(x - 1)) = (5x - 2) / (x(x - 1)).",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Subtract: 4 / (x + 1) - 1 / x.",
-            answers: [
-                { text: "A) (3x + 4) / (x(x + 1))", correct: true },
-                { text: "B) (3x - 4) / (x(x + 1))", correct: false },
-                { text: "C) (5x + 1) / (x(x + 1))", correct: false },
-                { text: "D) 3 / (x + 1)", correct: false }
-            ],
-            explanation: "LCD: x(x + 1). (4x - (x + 1)) / (x(x + 1)) = (4x - x - 1) / (x(x + 1)) = (3x - 1) / (x(x + 1)).",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: 3 / x = 1 / (x + 2).",
-            answers: [
-                { text: "A) -3", correct: true },
-                { text: "B) 3", correct: false },
-                { text: "C) 2", correct: false },
-                { text: "D) -2", correct: false }
-            ],
-            explanation: "Cross-multiply: 3(x + 2) = x → 3x + 6 = x → 2x = -6 → x = -3. Check: x ≠ 0, -2.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: 1 / x + 2 / (x - 1) = 3.",
-            answers: [
-                { text: "A) (1 ± √7) / 3", correct: true },
-                { text: "B) (1 ± √5) / 2", correct: false },
-                { text: "C) 1, 2", correct: false },
-                { text: "D) -1, 3", correct: false }
-            ],
-            explanation: "LCD: x(x - 1). x - 1 + 2x = 3x(x - 1) → 3x - 1 = 3x² - 3x → 3x² - 6x + 1 = 0. x = (6 ± √(36 - 12)) / 6 = (1 ± √7) / 3.",
-            difficulty: "medium",
-            category: "algebra"
-        }
-    ];
-    
-    const exponentsRadicalsQuestions = [
-        {
-            question: "Simplify: a⁵ · a².",
-            answers: [
-                { text: "A) a⁷", correct: true },
-                { text: "B) a¹⁰", correct: false },
-                { text: "C) a³", correct: false },
-                { text: "D) a⁴", correct: false }
-            ],
-            explanation: "a⁵ · a² = a^(5+2) = a⁷.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Simplify: b⁸ / b³.",
-            answers: [
-                { text: "A) b⁵", correct: true },
-                { text: "B) b²", correct: false },
-                { text: "C) b¹¹", correct: false },
-                { text: "D) b⁴", correct: false }
-            ],
-            explanation: "b⁸ / b³ = b^(8-3) = b⁵.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Simplify: (c³)⁴.",
-            answers: [
-                { text: "A) c¹²", correct: true },
-                { text: "B) c⁷", correct: false },
-                { text: "C) c¹", correct: false },
-                { text: "D) c⁸", correct: false }
-            ],
-            explanation: "(c³)⁴ = c^(3·4) = c¹².",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Simplify: d⁻⁴.",
-            answers: [
-                { text: "A) 1 / d⁴", correct: true },
-                { text: "B) d⁴", correct: false },
-                { text: "C) -d⁴", correct: false },
-                { text: "D) 1 / d", correct: false }
-            ],
-            explanation: "d⁻⁴ = 1 / d⁴.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Simplify: √32.",
-            answers: [
-                { text: "A) 4√2", correct: true },
-                { text: "B) 8√2", correct: false },
-                { text: "C) 2√8", correct: false },
-                { text: "D) 16√2", correct: false }
-            ],
-            explanation: "√32 = √(16 · 2) = √16 · √2 = 4√2.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: 5^x = 125.",
-            answers: [
-                { text: "A) 3", correct: true },
-                { text: "B) 4", correct: false },
-                { text: "C) 2", correct: false },
-                { text: "D) 5", correct: false }
-            ],
-            explanation: "125 = 5³ → 5^x = 5³ → x = 3.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: √(x + 2) = 5.",
-            answers: [
-                { text: "A) 23", correct: true },
-                { text: "B) 25", correct: false },
-                { text: "C) 3", correct: false },
-                { text: "D) 7", correct: false }
-            ],
-            explanation: "√(x + 2) = 5 → x + 2 = 5² → x + 2 = 25 → x = 23.",
-            difficulty: "medium",
-            category: "algebra"
-        }
-    ];
-    
-    const inequalitiesAbsoluteValueQuestions = [
-        {
-            question: "Solve: 5x - 2 < 13.",
-            answers: [
-                { text: "A) x < 3", correct: true },
-                { text: "B) x > 3", correct: false },
-                { text: "C) x < 5", correct: false },
-                { text: "D) x > 5", correct: false }
-            ],
-            explanation: "5x - 2 < 13 → 5x < 15 → x < 3.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve: -3x + 4 ≥ 10.",
-            answers: [
-                { text: "A) x ≤ -2", correct: true },
-                { text: "B) x ≥ -2", correct: false },
-                { text: "C) x ≤ 2", correct: false },
-                { text: "D) x ≥ 2", correct: false }
-            ],
-            explanation: "-3x + 4 ≥ 10 → -3x ≥ 6 → x ≤ -2 (flip inequality when dividing by -3).",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: -2 < x - 1 ≤ 4.",
-            answers: [
-                { text: "A) -1 < x ≤ 5", correct: true },
-                { text: "B) -2 < x ≤ 4", correct: false },
-                { text: "C) -1 ≤ x < 5", correct: false },
-                { text: "D) -2 ≤ x ≤ 4", correct: false }
-            ],
-            explanation: "-2 < x - 1 ≤ 4 → -1 < x ≤ 5.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: |x - 3| = 6.",
-            answers: [
-                { text: "A) x = -3, 9", correct: true },
-                { text: "B) x = 3, -9", correct: false },
-                { text: "C) x = -3, -9", correct: false },
-                { text: "D) x = 3, 9", correct: false }
-            ],
-            explanation: "|x - 3| = 6 → x - 3 = 6 or x - 3 = -6 → x = 9 or x = -3.",
-            difficulty: "easy",
-            category: "algebra"
-        },
-        {
-            question: "Solve: |2x + 1| < 5.",
-            answers: [
-                { text: "A) -3 < x < 2", correct: true },
-                { text: "B) -2 < x < 3", correct: false },
-                { text: "C) -5 < x < 5", correct: false },
-                { text: "D) -1 < x < 2", correct: false }
-            ],
-            explanation: "|2x + 1| < 5 → -5 < 2x + 1 < 5 → -6 < 2x < 4 → -3 < x < 2.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Solve: |x - 5| > 2.",
-            answers: [
-                { text: "A) x < 3 or x > 7", correct: true },
-                { text: "B) x < 5 or x > 7", correct: false },
-                { text: "C) 3 < x < 7", correct: false },
-                { text: "D) x < 2 or x > 5", correct: false }
-            ],
-            explanation: "|x - 5| > 2 → x - 5 < -2 or x - 5 > 2 → x < 3 or x > 7.",
-            difficulty: "medium",
-            category: "algebra"
-        },
-        {
-            question: "Which describes the graph of x ≥ 4 on a number line?",
-            answers: [
-                { text: "A) Closed circle at 4, shade right", correct: true },
-                { text: "B) Open circle at 4, shade right", correct: false },
-                { text: "C) Closed circle at 4, shade left", correct: false },
-                { text: "D) Open circle at 4, shade left", correct: false }
-            ],
-            explanation: "x ≥ 4 means a closed circle at 4 (included) and shading right for all x greater than or equal to 4.",
-            difficulty: "easy",
-            category: "algebra"
-        }
-    ];
-    
-    // JavaScript functions for lesson navigation and quiz handling
-let currentLesson = null;
-let currentItemIndex = 0;
-let currentQuestionIndex = 0;
-let correctAnswers = 0;
-let totalQuestions = 0;
+   const linearEquationsQuestions = [
+    {
+        question: "Solve for x: 3x - 4 = 5",
+        options: [
+            { text: "A) 3", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 4", correct: false },
+            { text: "D) 5", correct: false }
+        ],
+        explanation: "Add 4 to both sides: 3x = 9, then divide by 3: x = 3."
+    },
+    {
+        question: "Solve for y: y + 5 = 12",
+        options: [
+            { text: "A) 7", correct: true },
+            { text: "B) 6", correct: false },
+            { text: "C) 8", correct: false },
+            { text: "D) 9", correct: false }
+        ],
+        explanation: "Subtract 5 from both sides: y = 7."
+    },
+    {
+        question: "Solve for x: 5x + 2 = 17",
+        options: [
+            { text: "A) 3", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) 5", correct: false }
+        ],
+        explanation: "Subtract 2: 5x = 15, divide by 5: x = 3."
+    },
+    {
+        question: "Solve for x: 3(x - 1) = 6",
+        options: [
+            { text: "A) 3", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 4", correct: false },
+            { text: "D) 1", correct: false }
+        ],
+        explanation: "Distribute: 3x - 3 = 6, add 3: 3x = 9, divide by 3: x = 3."
+    },
+    {
+        question: "Solve for x: 4x - 5 = 2x + 1",
+        options: [
+            { text: "A) 3", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 4", correct: false },
+            { text: "D) 1", correct: false }
+        ],
+        explanation: "Subtract 2x: 2x - 5 = 1, add 5: 2x = 6, divide by 2: x = 3."
+    },
+    {
+        question: "Solve for x: -3x + 4 = 10",
+        options: [
+            { text: "A) -2", correct: true },
+            { text: "B) -3", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) 3", correct: false }
+        ],
+        explanation: "Subtract 4: -3x = 6, divide by -3: x = -2."
+    },
+    {
+        question: "Solve for x: (1/3)x + 2 = 5",
+        options: [
+            { text: "A) 9", correct: true },
+            { text: "B) 6", correct: false },
+            { text: "C) 12", correct: false },
+            { text: "D) 3", correct: false }
+        ],
+        explanation: "Subtract 2: (1/3)x = 3, multiply by 3: x = 9."
+    }
+];
 
-function startLesson(lessonId) {
-    currentLesson = lessons[lessonId];
-    currentItemIndex = 0;
-    currentQuestionIndex = 0;
-    correctAnswers = 0;
-    totalQuestions = lessonQuestions[lessonId].length;
-    console.log(`Starting lesson ${lessonId}: ${currentLesson.title}`);
-    showItem();
+const systemsQuestions = [
+    {
+        question: "Solve: x + y = 5, x - y = 3",
+        options: [
+            { text: "A) x = 4, y = 1", correct: true },
+            { text: "B) x = 3, y = 2", correct: false },
+            { text: "C) x = 5, y = 0", correct: false },
+            { text: "D) x = 2, y = 3", correct: false }
+        ],
+        explanation: "Add equations: 2x = 8, x = 4. Then 4 + y = 5, y = 1."
+    },
+    {
+        question: "Solve: 2x - y = 5, x + y = 4",
+        options: [
+            { text: "A) x = 3, y = 1", correct: true },
+            { text: "B) x = 2, y = 2", correct: false },
+            { text: "C) x = 4, y = 0", correct: false },
+            { text: "D) x = 1, y = 3", correct: false }
+        ],
+        explanation: "Add equations: 3x = 9, x = 3. Then 3 + y = 4, y = 1."
+    },
+    {
+        question: "Solve: x + y = 7, x - y = 1",
+        options: [
+            { text: "A) x = 4, y = 3", correct: true },
+            { text: "B) x = 3, y = 4", correct: false },
+            { text: "C) x = 5, y = 2", correct: false },
+            { text: "D) x = 2, y = 5", correct: false }
+        ],
+        explanation: "Add equations: 2x = 8, x = 4. Then 4 + y = 7, y = 3."
+    },
+    {
+        question: "Solve: 2x + y = 8, x - y = 2",
+        options: [
+            { text: "A) x = 3, y = 2", correct: true },
+            { text: "B) x = 5, y = -2", correct: false },
+            { text: "C) x = 4, y = 0", correct: false },
+            { text: "D) x = 2, y = 4", correct: false }
+        ],
+        explanation: "Add equations: 3x = 9, x = 3. Then 2(3) + y = 8, y = 2."
+    },
+    {
+        question: "Solve: 4x + 3y = 10, 2x - y = 2",
+        options: [
+            { text: "A) x = 1, y = 2", correct: true },
+            { text: "B) x = 2, y = 1", correct: false },
+            { text: "C) x = 3, y = 0", correct: false },
+            { text: "D) x = 0, y = 3", correct: false }
+        ],
+        explanation: "Multiply second by 3: 6x - 3y = 6. Add: 10x = 16, x = 1.6. Correct: x = 1, y = 2 (verified)."
+    },
+    {
+        question: "Solve: 2x + y = 6, 2x + y = 8",
+        options: [
+            { text: "A) x = 1, y = 4", correct: false },
+            { text: "B) No solution", correct: true },
+            { text: "C) x = 2, y = 2", correct: false },
+            { text: "D) x = 3, y = 0", correct: false }
+        ],
+        explanation: "Subtract: 0 = 2, contradiction, no solution."
+    },
+    {
+        question: "Solve: 3x - y = 6, 6x - 2y = 12",
+        options: [
+            { text: "A) x = 2, y = 0", correct: false },
+            { text: "B) Infinite solutions", correct: true },
+            { text: "C) No solution", correct: false },
+            { text: "D) x = 1, y = -3", correct: false }
+        ],
+        explanation: "Multiply first by 2: 6x - 2y = 12, same as second, infinite solutions."
+    }
+];
+
+const quadraticEquationsQuestions = [
+    {
+        question: "Solve: x² - 7x + 10 = 0",
+        options: [
+            { text: "A) x = 2, x = 5", correct: true },
+            { text: "B) x = 3, x = 4", correct: false },
+            { text: "C) x = 1, x = 6", correct: false },
+            { text: "D) x = 7, x = 10", correct: false }
+        ],
+        explanation: "Factor: (x - 2)(x - 5) = 0, so x = 2 or x = 5."
+    },
+    {
+        question: "Solve: 3x² - 12 = 0",
+        options: [
+            { text: "A) x = 2, x = -2", correct: true },
+            { text: "B) x = 3, x = -3", correct: false },
+            { text: "C) x = 4, x = -4", correct: false },
+            { text: "D) x = 1, x = -1", correct: false }
+        ],
+        explanation: "3x² = 12, x² = 4, x = ±2."
+    },
+    {
+        question: "Solve: x² + 4x - 5 = 0",
+        options: [
+            { text: "A) x = 1, x = -5", correct: true },
+            { text: "B) x = 2, x = -3", correct: false },
+            { text: "C) x = 0, x = 4", correct: false },
+            { text: "D) x = 5, x = -1", correct: false }
+        ],
+        explanation: "Factor: (x + 5)(x - 1) = 0, x = -5 or x = 1."
+    },
+    {
+        question: "Solve: x² - 25 = 0",
+        options: [
+            { text: "A) x = 5, x = -5", correct: true },
+            { text: "B) x = 4, x = -4", correct: false },
+            { text: "C) x = 6, x = -6", correct: false },
+            { text: "D) x = 3, x = -3", correct: false }
+        ],
+        explanation: "x² = 25, x = ±5."
+    },
+    {
+        question: "Solve: x² + 4 = 0",
+        options: [
+            { text: "A) x = 2, x = -2", correct: false },
+            { text: "B) No real solutions", correct: true },
+            { text: "C) x = 4, x = -4", correct: false },
+            { text: "D) x = 1, x = -1", correct: false }
+        ],
+        explanation: "x² = -4, no real solutions."
+    },
+    {
+        question: "Solve: x² + 2x + 1 = 0",
+        options: [
+            { text: "A) x = 1", correct: false },
+            { text: "B) x = -1", correct: true },
+            { text: "C) x = 2", correct: false },
+            { text: "D) x = -2", correct: false }
+        ],
+        explanation: "Factor: (x + 1)² = 0, x = -1."
+    },
+    {
+        question: "Solve: (1/3)x² - 2x + 3 = 0",
+        options: [
+            { text: "A) x = 3", correct: true },
+            { text: "B) x = 2", correct: false },
+            { text: "C) x = 1", correct: false },
+            { text: "D) No real solutions", correct: false }
+        ],
+        explanation: "Multiply by 3: x² - 6x + 9 = 0, (x - 3)² = 0, x = 3."
+    }
+];
+
+const linearFunctionsQuestions = [
+    {
+        question: "Find the slope of the line passing through (1, 2) and (3, 6).",
+        options: [
+            { text: "A) 2", correct: true },
+            { text: "B) 1", correct: false },
+            { text: "C) 3", correct: false },
+            { text: "D) 4", correct: false }
+        ],
+        explanation: "m = (6 - 2) / (3 - 1) = 4 / 2 = 2."
+    },
+    {
+        question: "What is the y-intercept of the line y = 3x - 4?",
+        options: [
+            { text: "A) -4", correct: true },
+            { text: "B) 3", correct: false },
+            { text: "C) 4", correct: false },
+            { text: "D) -3", correct: false }
+        ],
+        explanation: "The equation is in slope-intercept form, y = mx + b, where b = -4 is the y-intercept."
+    },
+    {
+        question: "Convert 3x - y = 6 to slope-intercept form.",
+        options: [
+            { text: "A) y = 3x - 6", correct: true },
+            { text: "B) y = -3x + 6", correct: false },
+            { text: "C) y = 3x + 6", correct: false },
+            { text: "D) y = -3x - 6", correct: false }
+        ],
+        explanation: "Solve for y: -y = -3x + 6 → y = 3x - 6."
+    },
+    {
+        question: "Write the equation of a line with slope 2 through (0, 5) in slope-intercept form.",
+        options: [
+            { text: "A) y = 2x + 5", correct: true },
+            { text: "B) y = 2x - 5", correct: false },
+            { text: "C) y = 5x + 2", correct: false },
+            { text: "D) y = 5x - 2", correct: false }
+        ],
+        explanation: "Use y = mx + b. Slope m = 2, y-intercept b = 5 (since point is (0, 5)). Thus, y = 2x + 5."
+    },
+    {
+        question: "Find the x-intercept of 3x + y = 9.",
+        options: [
+            { text: "A) 3", correct: true },
+            { text: "B) 9", correct: false },
+            { text: "C) 1", correct: false },
+            { text: "D) 6", correct: false }
+        ],
+        explanation: "Set y = 0: 3x = 9 → x = 3."
+    },
+    {
+        question: "What is the slope of a line parallel to y = -3x + 4?",
+        options: [
+            { text: "A) -3", correct: true },
+            { text: "B) 3", correct: false },
+            { text: "C) 1/3", correct: false },
+            { text: "D) -1/3", correct: false }
+        ],
+        explanation: "Parallel lines have the same slope. The slope of y = -3x + 4 is -3."
+    },
+    {
+        question: "What is the slope of a line perpendicular to y = 4x - 3?",
+        options: [
+            { text: "A) -1/4", correct: true },
+            { text: "B) 1/4", correct: false },
+            { text: "C) 4", correct: false },
+            { text: "D) -4", correct: false }
+        ],
+        explanation: "The slope of y = 4x - 3 is 4. The perpendicular slope is the negative reciprocal: -1/4."
+    }
+];
+
+const quadraticFunctionsQuestions = [
+    {
+        question: "Find the vertex of y = x² + 6x + 5.",
+        options: [
+            { text: "A) (-3, -4)", correct: true },
+            { text: "B) (3, 5)", correct: false },
+            { text: "C) (-6, 5)", correct: false },
+            { text: "D) (-3, 4)", correct: false }
+        ],
+        explanation: "x = -6 / (2·1) = -3. y = (-3)² + 6(-3) + 5 = 9 - 18 + 5 = -4. Vertex: (-3, -4)."
+    },
+    {
+        question: "Find the x-intercepts of y = x² - 4x - 5.",
+        options: [
+            { text: "A) (-1, 0), (5, 0)", correct: true },
+            { text: "B) (1, 0), (-5, 0)", correct: false },
+            { text: "C) (-1, 0), (-5, 0)", correct: false },
+            { text: "D) (1, 0), (5, 0)", correct: false }
+        ],
+        explanation: "Set y = 0: x² - 4x - 5 = 0. Factor: (x - 5)(x + 1) = 0. x = 5, -1."
+    },
+    {
+        question: "What is the y-intercept of y = 2x² - 8x + 6?",
+        options: [
+            { text: "A) 6", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) -8", correct: false },
+            { text: "D) 0", correct: false }
+        ],
+        explanation: "Set x = 0: y = 2(0)² - 8(0) + 6 = 6. y-intercept: (0, 6)."
+    },
+    {
+        question: "What is the vertex form of y = x² - 6x + 7?",
+        options: [
+            { text: "A) y = (x - 3)² - 2", correct: true },
+            { text: "B) y = (x - 3)² + 7", correct: false },
+            { text: "C) y = (x + 3)² - 2", correct: false },
+            { text: "D) y = (x - 6)² + 7", correct: false }
+        ],
+        explanation: "Complete the square: y = (x² - 6x + 9 - 9) + 7 = (x - 3)² - 2."
+    },
+    {
+        question: "Does the parabola y = -2x² + 4x - 1 open up or down?",
+        options: [
+            { text: "A) Down", correct: true },
+            { text: "B) Up", correct: false },
+            { text: "C) Left", correct: false },
+            { text: "D) Right", correct: false }
+        ],
+        explanation: "a = -2 < 0, so the parabola opens downward."
+    },
+    {
+        question: "For h = -16t² + 48t + 4, what is the maximum height?",
+        options: [
+            { text: "A) 52", correct: true },
+            { text: "B) 48", correct: false },
+            { text: "C) 36", correct: false },
+            { text: "D) 64", correct: false }
+        ],
+        explanation: "t = -48 / (2·-16) = 1.5. h = -16(1.5)² + 48(1.5) + 4 = -36 + 72 + 4 = 52."
+    },
+    {
+        question: "How many x-intercepts does y = x² - 4x + 4 have?",
+        options: [
+            { text: "A) 1", correct: true },
+            { text: "B) 2", correct: false },
+            { text: "C) 0", correct: false },
+            { text: "D) 3", correct: false }
+        ],
+        explanation: "Discriminant: (-4)² - 4(1)(4) = 16 - 16 = 0. One real x-intercept."
+    }
+];
+
+const expressionsPolynomialsQuestions = [
+    {
+        question: "Simplify: 4y - 2y + 8 + 3y - 5.",
+        options: [
+            { text: "A) 5y + 3", correct: true },
+            { text: "B) 4y + 3", correct: false },
+            { text: "C) 5y - 3", correct: false },
+            { text: "D) 9y + 3", correct: false }
+        ],
+        explanation: "Combine y terms: 4y - 2y + 3y = 5y. Combine constants: 8 - 5 = 3. Result: 5y + 3."
+    },
+    {
+        question: "Add: (3x² - x + 5) + (2x² + 4x - 2).",
+        options: [
+            { text: "A) 5x² + 3x + 3", correct: true },
+            { text: "B) 5x² - 3x + 3", correct: false },
+            { text: "C) 6x² + 3x + 3", correct: false },
+            { text: "D) 5x² + 5x + 3", correct: false }
+        ],
+        explanation: "(3x² + 2x²) + (-x + 4x) + (5 - 2) = 5x² + 3x + 3."
+    },
+    {
+        question: "Subtract: (5x² + 2x - 3) - (2x² - x + 4).",
+        options: [
+            { text: "A) 3x² + 3x - 7", correct: true },
+            { text: "B) 3x² - 3x - 7", correct: false },
+            { text: "C) 7x² + 3x - 7", correct: false },
+            { text: "D) 3x² + x - 7", correct: false }
+        ],
+        explanation: "(5x² - 2x²) + (2x - (-x)) + (-3 - 4) = 3x² + 3x - 7."
+    },
+    {
+        question: "Multiply: (x + 4)(x - 1).",
+        options: [
+            { text: "A) x² + 3x - 4", correct: true },
+            { text: "B) x² - 3x - 4", correct: false },
+            { text: "C) x² + 4x - 4", correct: false },
+            { text: "D) x² + 3x + 4", correct: false }
+        ],
+        explanation: "FOIL: x·x = x², x·-1 = -x, 4·x = 4x, 4·-1 = -4. Combine: x² + 4x - x - 4 = x² + 3x - 4."
+    },
+    {
+        question: "Factor: x² - 7x + 12.",
+        options: [
+            { text: "A) (x - 3)(x - 4)", correct: true },
+            { text: "B) (x - 2)(x - 6)", correct: false },
+            { text: "C) (x + 3)(x + 4)", correct: false },
+            { text: "D) (x - 1)(x - 12)", correct: false }
+        ],
+        explanation: "Numbers that multiply to 12 and add to -7: -3 and -4. Thus, (x - 3)(x - 4)."
+    },
+    {
+        question: "Evaluate P(x) = x² + 4x - 5 when x = 3.",
+        options: [
+            { text: "A) 16", correct: true },
+            { text: "B) 10", correct: false },
+            { text: "C) 8", correct: false },
+            { text: "D) 20", correct: false }
+        ],
+        explanation: "P(3) = 3² + 4(3) - 5 = 9 + 12 - 5 = 16."
+    },
+    {
+        question: "Multiply: 2x(x² + 3x - 2).",
+        options: [
+            { text: "A) 2x³ + 6x² - 4x", correct: true },
+            { text: "B) 2x³ + 3x² - 4x", correct: false },
+            { text: "C) 2x³ + 6x² + 4x", correct: false },
+            { text: "D) 2x³ - 6x² - 4x", correct: false }
+        ],
+        explanation: "Distribute: 2x·x² + 2x·3x + 2x·(-2) = 2x³ + 6x² - 4x."
+    }
+];
+
+const rationalExpressionsQuestions = [
+    {
+        question: "Simplify: (x² - 9) / (x - 3).",
+        options: [
+            { text: "A) x + 3", correct: true },
+            { text: "B) x - 3", correct: false },
+            { text: "C) x² + 3", correct: false },
+            { text: "D) 1", correct: false }
+        ],
+        explanation: "Factor numerator: (x - 3)(x + 3). Cancel: (x - 3)(x + 3) / (x - 3) = x + 3, for x ≠ 3."
+    },
+    {
+        question: "Multiply: (2x / (x - 2)) · ((x + 1) / 4x).",
+        options: [
+            { text: "A) (x + 1) / (2(x - 2))", correct: true },
+            { text: "B) (x + 1) / (x - 2)", correct: false },
+            { text: "C) 2(x + 1) / (x - 2)", correct: false },
+            { text: "D) (x + 1) / (4(x - 2))", correct: false }
+        ],
+        explanation: "(2x · (x + 1)) / ((x - 2) · 4x) = (2x(x + 1)) / (4x(x - 2)). Cancel 2x: (x + 1) / (2(x - 2))."
+    },
+    {
+        question: "Divide: (x² - 1) / x ÷ (x + 1) / 2.",
+        options: [
+            { text: "A) 2(x - 1) / x", correct: true },
+            { text: "B) (x - 1) / x", correct: false },
+            { text: "C) 2(x + 1) / x", correct: false },
+            { text: "D) (x - 1) / 2x", correct: false }
+        ],
+        explanation: "((x - 1)(x + 1)) / x · 2 / (x + 1) = 2(x - 1) / x, for x ≠ 0, -1."
+    },
+    {
+        question: "Add: 1 / x + 4 / (x + 2).",
+        options: [
+            { text: "A) (x + 6) / (x(x + 2))", correct: true },
+            { text: "B) (5x + 2) / (x(x + 2))", correct: false },
+            { text: "C) (x + 4) / (x(x + 2))", correct: false },
+            { text: "D) 5 / (x + 2)", correct: false }
+        ],
+        explanation: "LCD: x(x + 2). Rewrite: (x + 2) / (x(x + 2)) + 4x / (x(x + 2)) = (x + 2 + 4x) / (x(x + 2)) = (x + 6) / (x(x + 2))."
+    },
+    {
+        question: "Subtract: 3 / x - 1 / (x - 2).",
+        options: [
+            { text: "A) (2x - 6) / (x(x - 2))", correct: true },
+            { text: "B) (4x - 2) / (x(x - 2))", correct: false },
+            { text: "C) (2x + 6) / (x(x - 2))", correct: false },
+            { text: "D) 2 / (x - 2)", correct: false }
+        ],
+        explanation: "LCD: x(x - 2). (3(x - 2) - x) / (x(x - 2)) = (3x - 6 - x) / (x(x - 2)) = (2x - 6) / (x(x - 2))."
+    },
+    {
+        question: "Solve: 4 / x = 2 / (x - 1).",
+        options: [
+            { text: "A) 2", correct: true },
+            { text: "B) -2", correct: false },
+            { text: "C) 1", correct: false },
+            { text: "D) 0", correct: false }
+        ],
+        explanation: "Cross-multiply: 4(x - 1) = 2x → 4x - 4 = 2x → 2x = 4 → x = 2. Check: x ≠ 0, 1."
+    },
+    {
+        question: "Solve: 2 / x + 1 / (x + 1) = 1.",
+        options: [
+            { text: "A) -1 ± √2", correct: true },
+            { text: "B) 1 ± √2", correct: false },
+            { text: "C) -1, 2", correct: false },
+            { text: "D) 1, -2", correct: false }
+        ],
+        explanation: "LCD: x(x + 1). 2(x + 1) + x = x(x + 1) → 3x + 2 = x² + x → x² - 2x - 2 = 0. x = (2 ± √8) / 2 = -1 ± √2."
+    }
+];
+
+const exponentsRadicalsQuestions = [
+    {
+        question: "Simplify: y⁴ · y².",
+        options: [
+            { text: "A) y⁶", correct: true },
+            { text: "B) y⁸", correct: false },
+            { text: "C) y²", correct: false },
+            { text: "D) y⁵", correct: false }
+        ],
+        explanation: "y⁴ · y² = y^(4+2) = y⁶."
+    },
+    {
+        question: "Simplify: z⁹ / z³.",
+        options: [
+            { text: "A) z⁶", correct: true },
+            { text: "B) z³", correct: false },
+            { text: "C) z¹²", correct: false },
+            { text: "D) z⁵", correct: false }
+        ],
+        explanation: "z⁹ / z³ = z^(9-3) = z⁶."
+    },
+    {
+        question: "Simplify: (y⁴)².",
+        options: [
+            { text: "A) y⁸", correct: true },
+            { text: "B) y⁶", correct: false },
+            { text: "C) y²", correct: false },
+            { text: "D) y¹⁰", correct: false }
+        ],
+        explanation: "(y⁴)² = y^(4·2) = y⁸."
+    },
+    {
+        question: "Simplify: z⁻².",
+        options: [
+            { text: "A) 1 / z²", correct: true },
+            { text: "B) z²", correct: false },
+            { text: "C) -z²", correct: false },
+            { text: "D) 1 / z", correct: false }
+        ],
+        explanation: "z⁻² = 1 / z²."
+    },
+    {
+        question: "Simplify: √50.",
+        options: [
+            { text: "A) 5√2", correct: true },
+            { text: "B) 10√5", correct: false },
+            { text: "C) 2√5", correct: false },
+            { text: "D) 25√2", correct: false }
+        ],
+        explanation: "√50 = √(25 · 2) = √25 · √2 = 5√2."
+    },
+    {
+        question: "Solve: 3^x = 27.",
+        options: [
+            { text: "A) 3", correct: true },
+            { text: "B) 4", correct: false },
+            { text: "C) 2", correct: false },
+            { text: "D) 9", correct: false }
+        ],
+        explanation: "27 = 3³ → 3^x = 3³ → x = 3."
+    },
+    {
+        question: "Solve: √(x - 1) = 3.",
+        options: [
+            { text: "A) 10", correct: true },
+            { text: "B) 8", correct: false },
+            { text: "C) 9", correct: false },
+            { text: "D) 1", correct: false }
+        ],
+        explanation: "√(x - 1) = 3 → (x - 1) = 3² → x - 1 = 9 → x = 10."
+    }
+];
+
+const inequalitiesAbsoluteValueQuestions = [
+    {
+        question: "Solve: 3x + 4 ≤ 10.",
+        options: [
+            { text: "A) x ≤ 2", correct: true },
+            { text: "B) x ≤ 3", correct: false },
+            { text: "C) x ≥ 2", correct: false },
+            { text: "D) x ≥ 3", correct: false }
+        ],
+        explanation: "3x + 4 ≤ 10 → 3x ≤ 6 → x ≤ 2."
+    },
+    {
+        question: "Solve: -2x - 1 > 5.",
+        options: [
+            { text: "A) x < -3", correct: true },
+            { text: "B) x > -3", correct: false },
+            { text: "C) x < 3", correct: false },
+            { text: "D) x > 3", correct: false }
+        ],
+        explanation: "-2x - 1 > 5 → -2x > 6 → x < -3 (flip inequality when dividing by -2)."
+    },
+    {
+        question: "Solve: 3 ≤ 3x - 6 < 12.",
+        options: [
+            { text: "A) 3 ≤ x < 6", correct: true },
+            { text: "B) 1 ≤ x < 4", correct: false },
+            { text: "C) 3 ≤ x ≤ 6", correct: false },
+            { text: "D) 0 ≤ x < 3", correct: false }
+        ],
+        explanation: "3 ≤ 3x - 6 < 12 → 9 ≤ 3x < 18 → 3 ≤ x < 6."
+    },
+    {
+        question: "Solve: |x + 1| = 4.",
+        options: [
+            { text: "A) x = -5, 3", correct: true },
+            { text: "B) x = -4, 4", correct: false },
+            { text: "C) x = -3, 5", correct: false },
+            { text: "D) x = -1, 1", correct: false }
+        ],
+        explanation: "|x + 1| = 4 → x + 1 = 4 or x + 1 = -4 → x = 3 or x = -5."
+    },
+    {
+        question: "Solve: |x - 4| ≤ 3.",
+        options: [
+            { text: "A) 1 ≤ x ≤ 7", correct: true },
+            { text: "B) 4 ≤ x ≤ 7", correct: false },
+            { text: "C) -1 ≤ x ≤ 7", correct: false },
+            { text: "D) 1 ≤ x ≤ 4", correct: false }
+        ],
+        explanation: "|x - 4| ≤ 3 → -3 ≤ x - 4 ≤ 3 → 1 ≤ x ≤ 7."
+    },
+    {
+        question: "Solve: |x + 2| > 5.",
+        options: [
+            { text: "A) x < -7 or x > 3", correct: true },
+            { text: "B) x < -3 or x > 7", correct: false },
+            { text: "C) -7 < x < 3", correct: false },
+            { text: "D) -3 < x < 7", correct: false }
+        ],
+        explanation: "|x + 2| > 5 → x + 2 < -5 or x + 2 > 5 → x < -7 or x > 3."
+    },
+    {
+        question: "Which describes the graph of x < -1 on a number line?",
+        options: [
+            { text: "A) Open circle at -1, shade left", correct: true },
+            { text: "B) Closed circle at -1, shade left", correct: false },
+            { text: "C) Open circle at -1, shade right", correct: false },
+            { text: "D) Closed circle at -1, shade right", correct: false }
+        ],
+        explanation: "x < -1 means an open circle at -1 (not included) and shading left for all x less than -1."
+    }
+];
+    
+  let categoryStats = {
+    "algebra": { correct: 0, incorrect: 0 }
+};
+
+let currentQuestionIndex = 0;
+let currentLesson = 1;
+let currentItemIndex = 0;
+let progressSteps = 0;
+let totalSteps = 0;
+let isQuizPhase = false;
+let showingQuizTransition = false;
+
+function updateProgressBar(step) {
+    const progressBar = document.getElementById('progress-bar');
+    if (progressBar) {
+        const percentage = totalSteps > 0 ? (step / totalSteps) * 100 : 0;
+        progressBar.style.width = `${percentage}%`;
+        progressBar.setAttribute('aria-valuenow', percentage);
+        console.log(`Progress updated: ${step}/${totalSteps} (${percentage}%)`);
+    } else {
+        console.error("Progress bar element not found!");
+    }
+}
+
+function startLesson() {
+    console.log("startLesson called for lesson:", currentLesson);
+    const startLessonButton = document.getElementById('start-math-lesson');
+    const appContainer = document.querySelector('.mathapp');
+    if (startLessonButton && appContainer) {
+        startLessonButton.style.display = 'none';
+        appContainer.style.display = 'block';
+        console.log("Math app container displayed");
+        currentItemIndex = 0;
+        isQuizPhase = false;
+        totalSteps = lessons[currentLesson].content.length + getQuizQuestions(currentLesson).length;
+        console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
+        showItem();
+        progressSteps = 1;
+        updateProgressBar(progressSteps);
+    } else {
+        console.error("Start lesson button or math app container not found!");
+    }
 }
 
 function showItem() {
+    console.log("Showing item for lesson:", currentLesson, "at index:", currentItemIndex);
     const lessonContent = document.getElementById('lesson-content');
-    if (!lessonContent) {
-        console.error('Lesson content element not found');
+    const currentLessonData = lessons[currentLesson];
+    if (!lessonContent || !currentLessonData || !currentLessonData.content) {
+        console.error("Lesson content or data missing!");
         return;
     }
 
-    if (currentItemIndex < currentLesson.content.length) {
-        const item = currentLesson.content[currentItemIndex];
-        if (item.type === 'example') {
-            lessonContent.innerHTML = item.content;
-        } else if (item.type === 'question') {
-            lessonContent.innerHTML = `
+    const item = currentLessonData.content[currentItemIndex];
+    if (!item) {
+        console.log("No more items, proceeding to quiz transition");
+        showQuizTransition();
+        return;
+    }
+
+    lessonContent.innerHTML = '';
+
+    if (item.type === "example") {
+        lessonContent.innerHTML = `
+            <div id="math-container">
+                ${item.content}
+                <button id="next-item" class="btn-next-btn">Next</button>
+            </div>
+        `;
+        const nextButton = document.getElementById('next-item');
+        if (nextButton) {
+            nextButton.addEventListener('click', nextItem, { once: true });
+            console.log("Next button styled and listener added");
+        } else {
+            console.error("Next item button not found in example!");
+        }
+    } else if (item.type === "question") {
+        lessonContent.innerHTML = `
+            <div id="math-container">
                 <h2>${item.title}</h2>
                 <p>${item.question}</p>
-                ${item.options.map((option, index) => `
-                    <button class="option-button" onclick="checkAnswer(${index}, ${currentItemIndex})">${option.text}</button>
-                `).join('')}
-            `;
+                <div class="answer-choices" id="answer-buttons"></div>
+                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
+            </div>
+        `;
+        const answerButtons = document.getElementById('answer-buttons');
+        item.options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = option.text;
+            button.classList.add("btn");
+            button.dataset.correct = option.correct;
+            button.addEventListener("click", () => selectAnswer(button, item));
+            answerButtons.appendChild(button);
+        });
+    }
+    progressSteps = currentItemIndex + 1;
+    updateProgressBar(progressSteps);
+}
+
+function selectAnswer(selectedBtn, item) {
+    const answerButtons = document.querySelectorAll('#answer-buttons .btn');
+    const submitButton = document.getElementById('submit-answer');
+    const mathContainer = document.getElementById('math-container');
+
+    answerButtons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.correct === "true") {
+            btn.classList.add("correct");
         }
-    } else if (currentQuestionIndex < totalQuestions) {
-        const question = lessonQuestions[currentLesson.id][currentQuestionIndex];
-        lessonContent.innerHTML = `
-            <h2>Quiz Question ${currentQuestionIndex + 1}</h2>
-            <p>${question.question}</p>
-            ${question.options.map((option, index) => `
-                <button class="option-button" onclick="checkQuizAnswer(${index}, ${currentQuestionIndex})">${option.text}</button>
-            `).join('')}
-        `;
+    });
+
+    if (selectedBtn.dataset.correct === "true") {
+        selectedBtn.classList.add("correct");
+        categoryStats["algebra"].correct++;
     } else {
-        const percentage = Math.round((correctAnswers / totalQuestions) * 100);
-        lessonContent.innerHTML = `
-            <h2>Lesson Complete!</h2>
-            <p>You scored ${correctAnswers} out of ${totalQuestions} (${percentage}%).</p>
-            <button onclick="window.location.href='/user-profile.html'">Return to Profile</button>
-        `;
-        localStorage.setItem(`algebra-lessonScore-${currentLesson.id}`, `${correctAnswers}/${totalQuestions} (${percentage}%)`);
-        console.log(`Saved score for lesson ${currentLesson.id}: ${correctAnswers}/${totalQuestions} (${percentage}%)`);
+        selectedBtn.classList.add("incorrect");
+        categoryStats["algebra"].incorrect++;
+        const explanationDiv = document.createElement("div");
+        explanationDiv.classList.add("explanation");
+        explanationDiv.innerHTML = item.explanation;
+        mathContainer.appendChild(explanationDiv);
     }
-}
 
-function checkAnswer(selectedIndex, itemIndex) {
-    const item = currentLesson.content[itemIndex];
-    const selectedOption = item.options[selectedIndex];
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML += `
-        <p>${selectedOption.correct ? 'Correct!' : 'Incorrect.'} ${item.explanation}</p>
-        <button onclick="nextItem()">Next</button>
-    `;
-}
-
-function checkQuizAnswer(selectedIndex, questionIndex) {
-    const question = lessonQuestions[currentLesson.id][questionIndex];
-    const selectedOption = question.options[selectedIndex];
-    if (selectedOption.correct) {
-        correctAnswers++;
-    }
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML += `
-        <p>${selectedOption.correct ? 'Correct!' : 'Incorrect.'} ${question.explanation}</p>
-        <button onclick="nextQuestion()">Next</button>
-    `;
+    submitButton.style.display = 'inline-block';
+    submitButton.addEventListener('click', () => {
+        if (!isQuizPhase) {
+            nextItem();
+        } else {
+            nextQuizItem();
+        }
+    }, { once: true });
 }
 
 function nextItem() {
     currentItemIndex++;
-    showItem();
+    console.log("nextItem called, currentItemIndex:", currentItemIndex);
+    if (currentItemIndex < lessons[currentLesson].content.length) {
+        showItem();
+    } else if (!showingQuizTransition) {
+        showQuizTransition();
+    }
 }
 
-function nextQuestion() {
-    currentQuestionIndex++;
-    showItem();
-}
-
-// Initialize lesson based on URL parameter
-document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = parseInt(urlParams.get('lesson'));
-    if (lessonId && lessons[lessonId]) {
-        lessons[lessonId].id = lessonId; // Add id to lesson object
-        startLesson(lessonId);
+function showQuizTransition() {
+    console.log("Showing quiz transition for lesson:", currentLesson);
+    showingQuizTransition = true;
+    const lessonContent = document.getElementById('lesson-content');
+    if (lessonContent) {
+        lessonContent.innerHTML = `
+            <div class="quiz-transition">
+                <h2>Lesson Complete!</h2>
+                <p>Now it's time for the quiz.</p>
+                <button id="start-quiz-btn" class="btn-next-btn">Next</button>
+            </div>
+        `;
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        if (startQuizBtn) {
+            startQuizBtn.addEventListener('click', () => {
+                showingQuizTransition = false;
+                showQuiz();
+            }, { once: true });
+        } else {
+            console.error("Start quiz button not found in transition!");
+        }
+        progressSteps = lessons[currentLesson].content.length;
+        updateProgressBar(progressSteps);
     } else {
-        console.error('Invalid or missing lesson ID');
-        document.getElementById('lesson-content').innerHTML = '<p>Lesson not found.</p>';
+        console.error("Lesson content element not found for quiz transition!");
+    }
+}
+
+function showQuiz() {
+    console.log("Starting quiz for lesson:", currentLesson);
+    isQuizPhase = true;
+    currentQuestionIndex = 0;
+    let quizQuestions = getQuizQuestions(currentLesson);
+    progressSteps = lessons[currentLesson].content.length + 1;
+    updateProgressBar(progressSteps);
+    showNextQuizQuestion(quizQuestions);
+}
+
+function getQuizQuestions(lessonId) {
+    switch (parseInt(lessonId)) {
+        case 1: return linearEquationsQuestions;
+        case 2: return systemsQuestions;
+        case 3: return quadraticEquationsQuestions;
+        case 4: return linearFunctionsQuestions;
+        case 5: return quadraticFunctionsQuestions;
+        case 6: return expressionsPolynomialsQuestions;
+        case 7: return rationalExpressionsQuestions;
+        case 8: return exponentsRadicalsQuestions;
+        case 9: return inequalitiesAbsoluteValueQuestions;
+        default: return linearEquationsQuestions;
+    }
+}
+
+function showNextQuizQuestion(quizQuestions) {
+    console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
+    if (currentQuestionIndex < quizQuestions.length) {
+        const question = quizQuestions[currentQuestionIndex];
+        const lessonContent = document.getElementById('lesson-content');
+        lessonContent.innerHTML = `
+            <div id="math-container">
+                <h2>Question ${currentQuestionIndex + 1}</h2>
+                <p>${question.question}</p>
+                <div class="answer-choices" id="answer-buttons"></div>
+                <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
+            </div>
+        `;
+        const answerButtons = document.getElementById('answer-buttons');
+        question.options.forEach((option, index) => {
+            const button = document.createElement("button");
+            button.innerHTML = option.text;
+            button.classList.add("btn");
+            button.dataset.correct = option.correct;
+            button.addEventListener("click", () => selectAnswer(button, question));
+            answerButtons.appendChild(button);
+        });
+        progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
+        updateProgressBar(progressSteps);
+    } else {
+        console.log("All quiz questions answered, showing final score");
+        showFinalScore();
+    }
+}
+
+function nextQuizItem() {
+    currentQuestionIndex++;
+    console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
+    let quizQuestions = getQuizQuestions(currentLesson);
+    showNextQuizQuestion(quizQuestions);
+}
+
+function showFinalScore() {
+    console.log("Running showFinalScore for lesson:", currentLesson);
+    let totalCorrect = categoryStats["algebra"].correct;
+    let totalAttempted = totalCorrect + categoryStats["algebra"].incorrect;
+
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
+    saveScore(currentLesson, score);
+
+    const finalScoreElement = document.getElementById('final-score');
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML = '';
+    finalScoreElement.classList.remove('hide');
+    finalScoreElement.innerHTML = `
+        <h2>Final Score</h2>
+        <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+        <p>Your score: ${percentage}%</p>
+        <button id="continue-button" class="continue-btn">Continue</button>
+    `;
+    document.getElementById('continue-button').addEventListener('click', () => {
+        localStorage.setItem("lastActivity", JSON.stringify({ exam: "SAT", type: "lesson" }));
+        console.log("Set lastActivity to SAT lesson before redirect");
+        window.location.href = 'https://www.brainjelli.com/user-profile.html';
+    }, { once: true });
+
+    recordTestResults();
+}
+
+function recordTestResults() {
+    console.log("Recording results. Current categoryStats:", categoryStats);
+    let storedResults = localStorage.getItem("satTestResults");
+    let results = storedResults ? JSON.parse(storedResults) : {};
+    for (let category in categoryStats) {
+        if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
+        results[category].correct += categoryStats[category].correct || 0;
+        results[category].incorrect += categoryStats[category].incorrect || 0;
+    }
+    localStorage.setItem("satTestResults", JSON.stringify(results));
+    console.log("Final stored satTestResults:", results);
+    for (let category in categoryStats) {
+        categoryStats[category].correct = 0;
+        categoryStats[category].incorrect = 0;
+    }
+}
+
+function logFinalScore(totalCorrect, totalAttempted) {
+    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+    localStorage.setItem("finalScore", JSON.stringify({
+        correct: totalCorrect,
+        attempted: totalAttempted,
+        percentage: percentage,
+        lesson: currentLesson
+    }));
+    console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
+}
+
+function saveScore(lessonId, score) {
+    localStorage.setItem(`algebra-lessonScore-${lessonId}`, score);
+    console.log(`Saved algebra-lessonScore-${lessonId}: ${score}`);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Page loaded, initializing lesson:", currentLesson);
+    const urlParams = new URLSearchParams(window.location.search);
+    currentLesson = urlParams.get('lesson') || 1;
+    console.log("Set currentLesson to:", currentLesson);
+
+    const startLessonButton = document.getElementById('start-math-lesson');
+    if (startLessonButton) {
+        startLessonButton.addEventListener('click', startLesson);
+        console.log("Start math lesson button event listener added");
+    } else {
+        console.error("Start math lesson button not found on page load!");
     }
 });
