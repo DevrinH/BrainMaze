@@ -3025,12 +3025,44 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
     console.log("API-based progress update script loaded");
 
+    async function syncLocalStorageToAPI(examType) {
+        const resultsKey = `${examType.toLowerCase()}TestResults`;
+        const storedResults = localStorage.getItem(resultsKey);
+        if (storedResults) {
+            const results = JSON.parse(storedResults);
+            for (const category in results) {
+                const { correct, incorrect } = results[category];
+                const total = correct + incorrect;
+                const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+                try {
+                    await fetch('https://www.brainjelli.com/api/scores', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            user_id: 1,
+                            exam_type: examType,
+                            category: category.replace(/^[^-]+-/, ""),
+                            score: correct,
+                            percentage
+                        })
+                    });
+                    console.log(`Synced ${category} for ${examType}: ${percentage}%`);
+                } catch (error) {
+                    console.error(`Error syncing ${category}:`, error);
+                }
+            }
+        }
+    }
+
     window.updateProgress = async function(source) {
         console.log(`updateProgress called from: ${source}`);
         const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
         let examType = "SAT";
         if (activeExam === "line-chart-act") examType = "ACT";
         else if (activeExam === "line-chart-ged") examType = "GED";
+
+        // Sync localStorage data
+        await syncLocalStorageToAPI(examType);
 
         try {
             const response = await fetch(`https://www.brainjelli.com/api/scores/1?exam=${examType}`);

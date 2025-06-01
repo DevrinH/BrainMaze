@@ -1166,6 +1166,167 @@ const lessons = {
             }
         ]
     },
+    8: {
+        title: "Exponents and Radicals",
+        content: [
+            {
+                type: "example",
+                title: "Example 1: Simplifying Exponential Expressions",
+                content: `
+                    <h2>Example 1: Simplifying Exponential Expressions</h2>
+                    <p>Simplify: x⁵ · x³.</p>
+                    <p>Step 1: Add the exponents (same base): x⁵ · x³ = x^(5+3).</p>
+                    <p>Step 2: Simplify: x⁸.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 1",
+                question: "Simplify: y⁴ · y².",
+                options: [
+                    { text: "A) y⁶", correct: true },
+                    { text: "B) y⁸", correct: false },
+                    { text: "C) y²", correct: false },
+                    { text: "D) y⁵", correct: false }
+                ],
+                explanation: "y⁴ · y² = y^(4+2) = y⁶."
+            },
+            {
+                type: "example",
+                title: "Example 2: Dividing Exponential Expressions",
+                content: `
+                    <h2>Example 2: Dividing Exponential Expressions</h2>
+                    <p>Simplify: x⁷ / x⁴.</p>
+                    <p>Step 1: Subtract the exponents (same base): x⁷ / x⁴ = x^(7-4).</p>
+                    <p>Step 2: Simplify: x³.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 2",
+                question: "Simplify: z⁹ / z³.",
+                options: [
+                    { text: "A) z⁶", correct: true },
+                    { text: "B) z³", correct: false },
+                    { text: "C) z¹²", correct: false },
+                    { text: "D) z⁵", correct: false }
+                ],
+                explanation: "z⁹ / z³ = z^(9-3) = z⁶."
+            },
+            {
+                type: "example",
+                title: "Example 3: Power of a Power Rule",
+                content: `
+                    <h2>Example 3: Power of a Power Rule</h2>
+                    <p>Simplify: (x²)³.</p>
+                    <p>Step 1: Multiply the exponents: (x²)³ = x^(2·3).</p>
+                    <p>Step 2: Simplify: x⁶.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 3",
+                question: "Simplify: (y⁴)².",
+                options: [
+                    { text: "A) y⁸", correct: true },
+                    { text: "B) y⁶", correct: false },
+                    { text: "C) y²", correct: false },
+                    { text: "D) y¹⁰", correct: false }
+                ],
+                explanation: "(y⁴)² = y^(4·2) = y⁸."
+            },
+            {
+                type: "example",
+                title: "Example 4: Negative Exponents",
+                content: `
+                    <h2>Example 4: Negative Exponents</h2>
+                    <p>Simplify: x⁻³.</p>
+                    <p>Step 1: Rewrite with a positive exponent: x⁻³ = 1 / x³.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 4",
+                question: "Simplify: z⁻².",
+                options: [
+                    { text: "A) 1 / z²", correct: true },
+                    { text: "B) z²", correct: false },
+                    { text: "C) -z²", correct: false },
+                    { text: "D) 1 / z", correct: false }
+                ],
+                explanation: "z⁻² = 1 / z²."
+            },
+            {
+                type: "example",
+                title: "Example 5: Simplifying Square Roots",
+                content: `
+                    <h2>Example 5: Simplifying Square Roots</h2>
+                    <p>Simplify: √72.</p>
+                    <p>Step 1: Factor into perfect squares: √72 = √(36 · 2).</p>
+                    <p>Step 2: Simplify: √36 · √2 = 6√2.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 5",
+                question: "Simplify: √50.",
+                options: [
+                    { text: "A) 5√2", correct: true },
+                    { text: "B) 10√5", correct: false },
+                    { text: "C) 2√5", correct: false },
+                    { text: "D) 25√2", correct: false }
+                ],
+                explanation: "√50 = √(25 · 2) = √25 · √2 = 5√2."
+            },
+            {
+                type: "example",
+                title: "Example 6: Solving an Exponential Equation",
+                content: `
+                    <h2>Example 6: Solving an Exponential Equation</h2>
+                    <p>Solve: 2^x = 8.</p>
+                    <p>Step 1: Rewrite 8 as a power of 2: 8 = 2³.</p>
+                    <p>Step 2: Equate exponents: 2^x = 2³ → x = 3.</p>
+                    <p>Solution: x = 3.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 6",
+                question: "Solve: 3^x = 27.",
+                options: [
+                    { text: "A) 3", correct: true },
+                    { text: "B) 4", correct: false },
+                    { text: "C) 2", correct: false },
+                    { text: "D) 9", correct: false }
+                ],
+                explanation: "27 = 3³ → 3^x = 3³ → x = 3."
+            },
+            {
+                type: "example",
+                title: "Example 7: Solving a Radical Equation",
+                content: `
+                    <h2>Example 7: Solving a Radical Equation</h2>
+                    <p>Solve: √x + 2 = 4.</p>
+                    <p>Step 1: Isolate the radical: √x = 4 - 2 → √x = 2.</p>
+                    <p>Step 2: Square both sides: (√x)² = 2² → x = 4.</p>
+                    <p>Step 3: Check: √4 + 2 = 2 + 2 = 4, which matches.</p>
+                    <p>Solution: x = 4.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 7",
+                question: "Solve: √(x - 1) = 3.",
+                options: [
+                    { text: "A) 10", correct: true },
+                    { text: "B) 8", correct: false },
+                    { text: "C) 9", correct: false },
+                    { text: "D) 1", correct: false }
+                ],
+                explanation: "√(x - 1) = 3 → (x - 1) = 3² → x - 1 = 9 → x = 10."
+            }
+        ]
+    },
     9: {
         title: "Inequalities and Absolute Value",
         content: [
@@ -1213,291 +1374,130 @@ const lessons = {
                     { text: "A) x < -3", correct: true },
                     { text: "B) x > -3", correct: false },
                     { text: "C) x < 3", correct: false },
-                    { text: "D) x > 3",correct: false }
+                    { text: "D) x > 3", correct: false }
                 ],
                 explanation: "-2x - 1 > 5 → -2x > 6 → x < -3 (flip inequality when dividing by -2)."
-                },
-                {
-                    type: "example",
-                    title: "Example 3: Solving a Compound Inequality",
-                    content: `
-                        <h2>Example 3: Solving a Compound Inequality</h2>
-                        <p>Solve: -1 < 2x + 3 ≤ 7.</p>
-                        <p>Step 1: Subtract 3: -1 - 3 < 2x + 3 - 3 ≤ 7 - 3.</p>
-                        <p>Step 2: Simplify: -4 < 2x ≤ 4.</p>
-                        <p>Step 3: Divide by 2: -2 < x ≤ 2.</p>
-                        <p>Solution: -2 < x ≤ 2.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 3",
-                    question: "Solve: 3 ≤ 3x - 6 < 12.",
-                    options: [
-                        { text: "A) 3 ≤ x < 6", correct: true },
-                        { text: "B) 1 ≤ x < 4", correct: false },
-                        { text: "C) 3 ≤ x ≤ 6", correct: false },
-                        { text: "D) 0 ≤ x < 3", correct: false }
-                    ],
-                    explanation: "3 ≤ 3x - 6 < 12 → 9 ≤ 3x < 18 → 3 ≤ x < 6."
-                },
-                {
-                    type: "example",
-                    title: "Example 4: Solving an Absolute Value Equation",
-                    content: `
-                        <h2>Example 4: Solving an Absolute Value Equation</h2>
-                        <p>Solve: |x - 2| = 5.</p>
-                        <p>Step 1: Set up two equations: x - 2 = 5 or x - 2 = -5.</p>
-                        <p>Step 2: Solve: x = 7 or x = -3.</p>
-                        <p>Solution: x = -3, 7.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 4",
-                    question: "Solve: |x + 1| = 4.",
-                    options: [
-                        { text: "A) x = -5, 3", correct: true },
-                        { text: "B) x = -4, 4", correct: false },
-                        { text: "C) x = -3, 5", correct: false },
-                        { text: "D) x = -1, 1", correct: false }
-                    ],
-                    explanation: "|x + 1| = 4 → x + 1 = 4 or x + 1 = -4 → x = 3 or x = -5."
-                },
-                {
-                    type: "example",
-                    title: "Example 5: Solving an Absolute Value Inequality (Less Than)",
-                    content: `
-                        <h2>Example 5: Solving an Absolute Value Inequality (Less Than)</h2>
-                        <p>Solve: |x + 3| < 2.</p>
-                        <p>Step 1: Write as: -2 < x + 3 < 2.</p>
-                        <p>Step 2: Subtract 3: -2 - 3 < x + 3 - 3 < 2 - 3.</p>
-                        <p>Step 3: Simplify: -5 < x < -1.</p>
-                        <p>Solution: -5 < x < -1.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 5",
-                    question: "Solve: |x - 4| ≤ 3.",
-                    options: [
-                        { text: "A) 1 ≤ x ≤ 7", correct: true },
-                        { text: "B) 4 ≤ x ≤ 7", correct: false },
-                        { text: "C) -1 ≤ x ≤ 7", correct: false },
-                        { text: "D) 1 ≤ x ≤ 4", correct: false }
-                    ],
-                    explanation: "|x - 4| ≤ 3 → -3 ≤ x - 4 ≤ 3 → 1 ≤ x ≤ 7."
-                },
-                {
-                    type: "example",
-                    title: "Example 6: Solving an Absolute Value Inequality (Greater Than)",
-                    content: `
-                        <h2>Example 6: Solving an Absolute Value Inequality (Greater Than)</h2>
-                        <p>Solve: |2x - 1| > 3.</p>
-                        <p>Step 1: Write as: 2x - 1 < -3 or 2x - 1 > 3.</p>
-                        <p>Step 2: Solve first: 2x - 1 < -3 → 2x < -2 → x < -1.</p>
-                        <p>Step 3: Solve second: 2x - 1 > 3 → 2x > 4 → x > 2.</p>
-                        <p>Solution: x < -1 or x > 2.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 6",
-                    question: "Solve: |x + 2| > 5.",
-                    options: [
-                        { text: "A) x < -7 or x > 3", correct: true },
-                        { text: "B) x < -3 or x > 7", correct: false },
-                        { text: "C) -7 < x < 3", correct: false },
-                        { text: "D) -3 < x < 7", correct: false }
-                    ],
-                    explanation: "|x + 2| > 5 → x + 2 < -5 or x + 2 > 5 → x < -7 or x > 3."
-                },
-                {
-                    type: "example",
-                    title: "Example 7: Graphing an Inequality Solution",
-                    content: `
-                        <h2>Example 7: Graphing an Inequality Solution</h2>
-                        <p>Graph the solution to: 3x + 2 ≥ 8.</p>
-                        <p>Step 1: Solve: 3x + 2 ≥ 8 → 3x ≥ 6 → x ≥ 2.</p>
-                        <p>Step 2: On a number line, draw a closed circle at 2 (since ≥) and shade to the right.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 7",
-                    question: "Which describes the graph of x < -1 on a number line?",
-                    options: [
-                        { text: "A) Open circle at -1, shade left", correct: true },
-                        { text: "B) Closed circle at -1, shade left", correct: false },
-                        { text: "C) Open circle at -1, shade right", correct: false },
-                        { text: "D) Closed circle at -1, shade right", correct: false }
-                    ],
-                    explanation: "x < -1 means an open circle at -1 (not included) and shading left for all x less than -1."
-                }
-            ]
-        },
-        8: {
-            title: "Exponents and Radicals",
-            content: [
-                {
-                    type: "example",
-                    title: "Example 1: Simplifying Exponential Expressions",
-                    content: `
-                        <h2>Example 1: Simplifying Exponential Expressions</h2>
-                        <p>Simplify: x⁵ · x³.</p>
-                        <p>Step 1: Add the exponents (same base): x⁵ · x³ = x^(5+3).</p>
-                        <p>Step 2: Simplify: x⁸.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 1",
-                    question: "Simplify: y⁴ · y².",
-                    options: [
-                        { text: "A) y⁶", correct: true },
-                        { text: "B) y⁸", correct: false },
-                        { text: "C) y²", correct: false },
-                        { text: "D) y⁵", correct: false }
-                    ],
-                    explanation: "y⁴ · y² = y^(4+2) = y⁶."
-                },
-                {
-                    type: "example",
-                    title: "Example 2: Dividing Exponential Expressions",
-                    content: `
-                        <h2>Example 2: Dividing Exponential Expressions</h2>
-                        <p>Simplify: x⁷ / x⁴.</p>
-                        <p>Step 1: Subtract the exponents (same base): x⁷ / x⁴ = x^(7-4).</p>
-                        <p>Step 2: Simplify: x³.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 2",
-                    question: "Simplify: z⁹ / z³.",
-                    options: [
-                        { text: "A) z⁶", correct: true },
-                        { text: "B) z³", correct: false },
-                        { text: "C) z¹²", correct: false },
-                        { text: "D) z⁵", correct: false }
-                    ],
-                    explanation: "z⁹ / z³ = z^(9-3) = z⁶."
-                },
-                {
-                    type: "example",
-                    title: "Example 3: Power of a Power Rule",
-                    content: `
-                        <h2>Example 3: Power of a Power Rule</h2>
-                        <p>Simplify: (x²)³.</p>
-                        <p>Step 1: Multiply the exponents: (x²)³ = x^(2·3).</p>
-                        <p>Step 2: Simplify: x⁶.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 3",
-                    question: "Simplify: (y⁴)².",
-                    options: [
-                        { text: "A) y⁸", correct: true },
-                        { text: "B) y⁶", correct: false },
-                        { text: "C) y²", correct: false },
-                        { text: "D) y¹⁰", correct: false }
-                    ],
-                    explanation: "(y⁴)² = y^(4·2) = y⁸."
-                },
-                {
-                    type: "example",
-                    title: "Example 4: Negative Exponents",
-                    content: `
-                        <h2>Example 4: Negative Exponents</h2>
-                        <p>Simplify: x⁻³.</p>
-                        <p>Step 1: Rewrite with a positive exponent: x⁻³ = 1 / x³.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 4",
-                    question: "Simplify: z⁻².",
-                    options: [
-                        { text: "A) 1 / z²", correct: true },
-                        { text: "B) z²", correct: false },
-                        { text: "C) -z²", correct: false },
-                        { text: "D) 1 / z", correct: false }
-                    ],
-                    explanation: "z⁻² = 1 / z²."
-                },
-                {
-                    type: "example",
-                    title: "Example 5: Simplifying Square Roots",
-                    content: `
-                        <h2>Example 5: Simplifying Square Roots</h2>
-                        <p>Simplify: √72.</p>
-                        <p>Step 1: Factor into perfect squares: √72 = √(36 · 2).</p>
-                        <p>Step 2: Simplify: √36 · √2 = 6√2.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 5",
-                    question: "Simplify: √50.",
-                    options: [
-                        { text: "A) 5√2", correct: true },
-                        { text: "B) 10√5", correct: false },
-                        { text: "C) 2√5", correct: false },
-                        { text: "D) 25√2", correct: false }
-                    ],
-                    explanation: "√50 = √(25 · 2) = √25 · √2 = 5√2."
-                },
-                {
-                    type: "example",
-                    title: "Example 6: Solving an Exponential Equation",
-                    content: `
-                        <h2>Example 6: Solving an Exponential Equation</h2>
-                        <p>Solve: 2^x = 8.</p>
-                        <p>Step 1: Rewrite 8 as a power of 2: 8 = 2³.</p>
-                        <p>Step 2: Equate exponents: 2^x = 2³ → x = 3.</p>
-                        <p>Solution: x = 3.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 6",
-                    question: "Solve: 3^x = 27.",
-                    options: [
-                        { text: "A) 3", correct: true },
-                        { text: "B) 4", correct: false },
-                        { text: "C) 2", correct: false },
-                        { text: "D) 9", correct: false }
-                    ],
-                    explanation: "27 = 3³ → 3^x = 3³ → x = 3."
-                },
-                {
-                    type: "example",
-                    title: "Example 7: Solving a Radical Equation",
-                    content: `
-                        <h2>Example 7: Solving a Radical Equation</h2>
-                        <p>Solve: √x + 2 = 4.</p>
-                        <p>Step 1: Isolate the radical: √x = 4 - 2 → √x = 2.</p>
-                        <p>Step 2: Square both sides: (√x)² = 2² → x = 4.</p>
-                        <p>Step 3: Check: √4 + 2 = 2 + 2 = 4, which matches.</p>
-                        <p>Solution: x = 4.</p>
-                    `
-                },
-                {
-                    type: "question",
-                    title: "Question 7",
-                    question: "Solve: √(x - 1) = 3.",
-                    options: [
-                        { text: "A) 10", correct: true },
-                        { text: "B) 8", correct: false },
-                        { text: "C) 9", correct: false },
-                        { text: "D) 1", correct: false }
-                    ],
-                    explanation: "√(x - 1) = 3 → (x - 1) = 3² → x - 1 = 9 → x = 10."
-                }
-            ]
-        }
-    };
+            },
+            {
+                type: "example",
+                title: "Example 3: Solving a Compound Inequality",
+                content: `
+                    <h2>Example 3: Solving a Compound Inequality</h2>
+                    <p>Solve: -1 < 2x + 3 ≤ 7.</p>
+                    <p>Step 1: Subtract 3: -1 - 3 < 2x + 3 - 3 ≤ 7 - 3.</p>
+                    <p>Step 2: Simplify: -4 < 2x ≤ 4.</p>
+                    <p>Step 3: Divide by 2: -2 < x ≤ 2.</p>
+                    <p>Solution: -2 < x ≤ 2.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 3",
+                question: "Solve: 3 ≤ 3x - 6 < 12.",
+                options: [
+                    { text: "A) 3 ≤ x < 6", correct: true },
+                    { text: "B) 1 ≤ x < 4", correct: false },
+                    { text: "C) 3 ≤ x ≤ 6", correct: false },
+                    { text: "D) 0 ≤ x < 3", correct: false }
+                ],
+                explanation: "3 ≤ 3x - 6 < 12 → 9 ≤ 3x < 18 → 3 ≤ x < 6."
+            },
+            {
+                type: "example",
+                title: "Example 4: Solving an Absolute Value Equation",
+                content: `
+                    <h2>Example 4: Solving an Absolute Value Equation</h2>
+                    <p>Solve: |x - 2| = 5.</p>
+                    <p>Step 1: Set up two equations: x - 2 = 5 or x - 2 = -5.</p>
+                    <p>Step 2: Solve: x = 7 or x = -3.</p>
+                    <p>Solution: x = -3, 7.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 4",
+                question: "Solve: |x + 1| = 4.",
+                options: [
+                    { text: "A) x = -5, 3", correct: true },
+                    { text: "B) x = -4, 4", correct: false },
+                    { text: "C) x = -3, 5", correct: false },
+                    { text: "D) x = -1, 1", correct: false }
+                ],
+                explanation: "|x + 1| = 4 → x + 1 = 4 or x + 1 = -4 → x = 3 or x = -5."
+            },
+            {
+                type: "example",
+                title: "Example 5: Solving an Absolute Value Inequality (Less Than)",
+                content: `
+                    <h2>Example 5: Solving an Absolute Value Inequality (Less Than)</h2>
+                    <p>Solve: |x + 3| < 2.</p>
+                    <p>Step 1: Write as: -2 < x + 3 < 2.</p>
+                    <p>Step 2: Subtract 3: -2 - 3 < x + 3 - 3 < 2 - 3.</p>
+                    <p>Step 3: Simplify: -5 < x < -1.</p>
+                    <p>Solution: -5 < x < -1.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 5",
+                question: "Solve: |x - 4| ≤ 3.",
+                options: [
+                    { text: "A) 1 ≤ x ≤ 7", correct: true },
+                    { text: "B) 4 ≤ x ≤ 7", correct: false },
+                    { text: "C) -1 ≤ x ≤ 7", correct: false },
+                    { text: "D) 1 ≤ x ≤ 4", correct: false }
+                ],
+                explanation: "|x - 4| ≤ 3 → -3 ≤ x - 4 ≤ 3 → 1 ≤ x ≤ 7."
+            },
+            {
+                type: "example",
+                title: "Example 6: Solving an Absolute Value Inequality (Greater Than)",
+                content: `
+                    <h2>Example 6: Solving an Absolute Value Inequality (Greater Than)</h2>
+                    <p>Solve: |2x - 1| > 3.</p>
+                    <p>Step 1: Write as: 2x - 1 < -3 or 2x - 1 > 3.</p>
+                    <p>Step 2: Solve first: 2x - 1 < -3 → 2x < -2 → x < -1.</p>
+                    <p>Step 3: Solve second: 2x - 1 > 3 → 2x > 4 → x > 2.</p>
+                    <p>Solution: x < -1 or x > 2.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 6",
+                question: "Solve: |x + 2| > 5.",
+                options: [
+                    { text: "A) x < -7 or x > 3", correct: true },
+                    { text: "B) x < -3 or x > 7", correct: false },
+                    { text: "C) -7 < x < 3", correct: false },
+                    { text: "D) -3 < x < 7", correct: false }
+                ],
+                explanation: "|x + 2| > 5 → x + 2 < -5 or x + 2 > 5 → x < -7 or x > 3."
+            },
+            {
+                type: "example",
+                title: "Example 7: Graphing an Inequality Solution",
+                content: `
+                    <h2>Example 7: Graphing an Inequality Solution</h2>
+                    <p>Graph the solution to: 3x + 2 ≥ 8.</p>
+                    <p>Step 1: Solve: 3x + 2 ≥ 8 → 3x ≥ 6 → x ≥ 2.</p>
+                    <p>Step 2: On a number line, draw a closed circle at 2 (since ≥) and shade to the right.</p>
+                `
+            },
+            {
+                type: "question",
+                title: "Question 7",
+                question: "Which describes the graph of x < -1 on a number line?",
+                options: [
+                    { text: "A) Open circle at -1, shade left", correct: true },
+                    { text: "B) Closed circle at -1, shade left", correct: false },
+                    { text: "C) Open circle at -1, shade right", correct: false },
+                    { text: "D) Closed circle at -1, shade right", correct: false }
+                ],
+                explanation: "x < -1 means an open circle at -1 (not included) and shading left for all x less than -1."
+            }
+        ]
+    }
+};
     
     // Question arrays for quizzes (with passage field removed)
     const linearEquationsQuestions = [
@@ -2283,313 +2283,106 @@ const lessons = {
         }
     ];
     
-    // Original functions (unchanged)
-    let categoryStats = {
-        "algebra": { correct: 0, incorrect: 0 }
-    };
-    
-    let currentQuestionIndex = 0;
-    let currentLesson = 1;
-    let currentItemIndex = 0;
-    let progressSteps = 0;
-    let totalSteps = 0;
-    let isQuizPhase = false;
-    let showingQuizTransition = false;
-    
-    function updateProgressBar(step) {
-        const progressBar = document.getElementById('progress-bar');
-        if (progressBar) {
-            const percentage = totalSteps > 0 ? (step / totalSteps) * 100 : 0;
-            progressBar.style.width = `${percentage}%`;
-            progressBar.setAttribute('aria-valuenow', percentage);
-            console.log(`Progress updated: ${step}/${totalSteps} (${percentage}%)`);
-        } else {
-            console.error("Progress bar element not found!");
-        }
+    // JavaScript functions for lesson navigation and quiz handling
+let currentLesson = null;
+let currentItemIndex = 0;
+let currentQuestionIndex = 0;
+let correctAnswers = 0;
+let totalQuestions = 0;
+
+function startLesson(lessonId) {
+    currentLesson = lessons[lessonId];
+    currentItemIndex = 0;
+    currentQuestionIndex = 0;
+    correctAnswers = 0;
+    totalQuestions = lessonQuestions[lessonId].length;
+    console.log(`Starting lesson ${lessonId}: ${currentLesson.title}`);
+    showItem();
+}
+
+function showItem() {
+    const lessonContent = document.getElementById('lesson-content');
+    if (!lessonContent) {
+        console.error('Lesson content element not found');
+        return;
     }
-    
-    function startLesson() {
-        console.log("startLesson called for lesson:", currentLesson);
-        const startLessonButton = document.getElementById('start-math-lesson');
-        const appContainer = document.querySelector('.mathapp');
-        if (startLessonButton && appContainer) {
-            startLessonButton.style.display = 'none';
-            appContainer.style.display = 'block';
-            console.log("Math app container displayed");
-            currentItemIndex = 0;
-            isQuizPhase = false;
-            totalSteps = lessons[currentLesson].content.length + getQuizQuestions(currentLesson).length;
-            console.log(`Set totalSteps to ${totalSteps} for lesson ${currentLesson}`);
-            showItem();
-            progressSteps = 1;
-            updateProgressBar(progressSteps);
-        } else {
-            console.error("Start lesson button or math app container not found!");
-        }
-    }
-    
-    function showItem() {
-        console.log("Showing item for lesson:", currentLesson, "at index:", currentItemIndex);
-        const lessonContent = document.getElementById('lesson-content');
-        const currentLessonData = lessons[currentLesson];
-        if (!lessonContent || !currentLessonData || !currentLessonData.content) {
-            console.error("Lesson content or data missing!");
-            return;
-        }
-    
-        const item = currentLessonData.content[currentItemIndex];
-        if (!item) {
-            console.log("No more items, proceeding to quiz transition");
-            showQuizTransition();
-            return;
-        }
-    
-        lessonContent.innerHTML = '';
-    
-        if (item.type === "example") {
+
+    if (currentItemIndex < currentLesson.content.length) {
+        const item = currentLesson.content[currentItemIndex];
+        if (item.type === 'example') {
+            lessonContent.innerHTML = item.content;
+        } else if (item.type === 'question') {
             lessonContent.innerHTML = `
-                <div id="math-container">
-                    ${item.content}
-                    <button id="next-item" class="btn-next-btn">Next</button>
-                </div>
+                <h2>${item.title}</h2>
+                <p>${item.question}</p>
+                ${item.options.map((option, index) => `
+                    <button class="option-button" onclick="checkAnswer(${index}, ${currentItemIndex})">${option.text}</button>
+                `).join('')}
             `;
-            const nextButton = document.getElementById('next-item');
-            if (nextButton) {
-                nextButton.addEventListener('click', nextItem, { once: true });
-                console.log("Next button styled and listener added");
-            } else {
-                console.error("Next item button not found in example!");
-            }
-        } else if (item.type === "question") {
-            lessonContent.innerHTML = `
-                <div id="math-container">
-                    <h2>${item.title}</h2>
-                    <p>${item.question}</p>
-                    <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
-                </div>
-            `;
-            const answerButtons = document.getElementById('answer-buttons');
-            item.options.forEach((option, index) => {
-                const button = document.createElement("button");
-                button.innerHTML = option.text;
-                button.classList.add("btn");
-                button.dataset.correct = option.correct;
-                button.addEventListener("click", () => selectAnswer(button, item));
-                answerButtons.appendChild(button);
-            });
         }
-        progressSteps = currentItemIndex + 1;
-        updateProgressBar(progressSteps);
-    }
-    
-    function selectAnswer(selectedBtn, item) {
-        const answerButtons = document.querySelectorAll('#answer-buttons .btn');
-        const submitButton = document.getElementById('submit-answer');
-        const mathContainer = document.getElementById('math-container');
-    
-        answerButtons.forEach(btn => {
-            btn.disabled = true;
-            if (btn.dataset.correct === "true") {
-                btn.classList.add("correct");
-            }
-        });
-    
-        if (selectedBtn.dataset.correct === "true") {
-            selectedBtn.classList.add("correct");
-            categoryStats["algebra"].correct++;
-        } else {
-            selectedBtn.classList.add("incorrect");
-            categoryStats["algebra"].incorrect++;
-            const explanationDiv = document.createElement("div");
-            explanationDiv.classList.add("explanation");
-            explanationDiv.innerHTML = item.explanation;
-            mathContainer.appendChild(explanationDiv);
-        }
-    
-        submitButton.style.display = 'inline-block';
-        submitButton.addEventListener('click', () => {
-            if (!isQuizPhase) {
-                nextItem();
-            } else {
-                nextQuizItem();
-            }
-        }, { once: true });
-    }
-    
-    function nextItem() {
-        currentItemIndex++;
-        console.log("nextItem called, currentItemIndex:", currentItemIndex);
-        if (currentItemIndex < lessons[currentLesson].content.length) {
-            showItem();
-        } else if (!showingQuizTransition) {
-            showQuizTransition();
-        }
-    }
-    
-    function showQuizTransition() {
-        console.log("Showing quiz transition for lesson:", currentLesson);
-        showingQuizTransition = true;
-        const lessonContent = document.getElementById('lesson-content');
-        if (lessonContent) {
-            lessonContent.innerHTML = `
-                <div class="quiz-transition">
-                    <h2>Lesson Complete!</h2>
-                    <p>Now it's time for the quiz.</p>
-                    <button id="start-quiz-btn" class="btn-next-btn">Next</button>
-                </div>
-            `;
-            const startQuizBtn = document.getElementById('start-quiz-btn');
-            if (startQuizBtn) {
-                startQuizBtn.addEventListener('click', () => {
-                    showingQuizTransition = false;
-                    showQuiz();
-                }, { once: true });
-            } else {
-                console.error("Start quiz button not found in transition!");
-            }
-            progressSteps = lessons[currentLesson].content.length;
-            updateProgressBar(progressSteps);
-        } else {
-            console.error("Lesson content element not found for quiz transition!");
-        }
-    }
-    
-    function showQuiz() {
-        console.log("Starting quiz for lesson:", currentLesson);
-        isQuizPhase = true;
-        currentQuestionIndex = 0;
-        let quizQuestions = getQuizQuestions(currentLesson);
-        progressSteps = lessons[currentLesson].content.length + 1;
-        updateProgressBar(progressSteps);
-        showNextQuizQuestion(quizQuestions);
-    }
-    
-    function getQuizQuestions(lessonId) {
-        switch (parseInt(lessonId)) {
-            case 1: return linearEquationsQuestions;
-            case 2: return systemsQuestions;
-            case 3: return quadraticQuestions;
-            case 4: return linearFunctionsQuestions;
-            case 5: return quadraticFunctionsQuestions;
-            case 6: return expressionsPolynomialsQuestions;
-            case 7: return rationalExpressionsQuestions;
-            case 8: return exponentsRadicalsQuestions;
-            case 9: return inequalitiesAbsoluteValueQuestions;
-            default: return linearEquationsQuestions;
-        }
-    }
-    
-    function showNextQuizQuestion(quizQuestions) {
-        console.log("showNextQuizQuestion called, currentQuestionIndex:", currentQuestionIndex, "quizQuestions.length:", quizQuestions.length);
-        if (currentQuestionIndex < quizQuestions.length) {
-            const question = quizQuestions[currentQuestionIndex];
-            const lessonContent = document.getElementById('lesson-content');
-            lessonContent.innerHTML = `
-                <div id="math-container">
-                    <h2>Question ${currentQuestionIndex + 1}</h2>
-                    <p>${question.question}</p>
-                    <div class="answer-choices" id="answer-buttons"></div>
-                    <button id="submit-answer" class="btn-next-btn" style="display: none;">Next</button>
-                </div>
-            `;
-            const answerButtons = document.getElementById('answer-buttons');
-            question.answers.forEach((answer, index) => {
-                const button = document.createElement("button");
-                button.innerHTML = answer.text;
-                button.classList.add("btn");
-                button.dataset.correct = answer.correct;
-                button.addEventListener("click", () => selectAnswer(button, question));
-                answerButtons.appendChild(button);
-            });
-            progressSteps = lessons[currentLesson].content.length + currentQuestionIndex + 1;
-            updateProgressBar(progressSteps);
-        } else {
-            console.log("All quiz questions answered, showing final score");
-            showFinalScore();
-        }
-    }
-    
-    function nextQuizItem() {
-        currentQuestionIndex++;
-        console.log("nextQuizItem called, currentQuestionIndex:", currentQuestionIndex);
-        let quizQuestions = getQuizQuestions(currentLesson);
-        showNextQuizQuestion(quizQuestions);
-    }
-    
-    function showFinalScore() {
-        console.log("Running showFinalScore for lesson:", currentLesson);
-        let totalCorrect = categoryStats["algebra"].correct;
-        let totalAttempted = totalCorrect + categoryStats["algebra"].incorrect;
-    
-        const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-        const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-        saveScore(currentLesson, score);
-    
-        const finalScoreElement = document.getElementById('final-score');
-        const lessonContent = document.getElementById('lesson-content');
-        lessonContent.innerHTML = '';
-        finalScoreElement.classList.remove('hide');
-        finalScoreElement.innerHTML = `
-            <h2>Final Score</h2>
-            <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-            <p>Your score: ${percentage}%</p>
-            <button id="continue-button" class="continue-btn">Continue</button>
+    } else if (currentQuestionIndex < totalQuestions) {
+        const question = lessonQuestions[currentLesson.id][currentQuestionIndex];
+        lessonContent.innerHTML = `
+            <h2>Quiz Question ${currentQuestionIndex + 1}</h2>
+            <p>${question.question}</p>
+            ${question.options.map((option, index) => `
+                <button class="option-button" onclick="checkQuizAnswer(${index}, ${currentQuestionIndex})">${option.text}</button>
+            `).join('')}
         `;
-        document.getElementById('continue-button').addEventListener('click', () => {
-            // Set lastActivity to ensure SAT lessons toggle is shown
-            localStorage.setItem("lastActivity", JSON.stringify({ exam: "SAT", type: "lesson" }));
-            console.log("Set lastActivity to SAT lesson before redirect");
-            window.location.href = 'https://www.brainjelli.com/user-profile.html';
-        }, { once: true });
-    
-        recordTestResults();
+    } else {
+        const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+        lessonContent.innerHTML = `
+            <h2>Lesson Complete!</h2>
+            <p>You scored ${correctAnswers} out of ${totalQuestions} (${percentage}%).</p>
+            <button onclick="window.location.href='/user-profile.html'">Return to Profile</button>
+        `;
+        localStorage.setItem(`algebra-lessonScore-${currentLesson.id}`, `${correctAnswers}/${totalQuestions} (${percentage}%)`);
+        console.log(`Saved score for lesson ${currentLesson.id}: ${correctAnswers}/${totalQuestions} (${percentage}%)`);
     }
-    
-    function recordTestResults() {
-        console.log("Recording results. Current categoryStats:", categoryStats);
-        let storedResults = localStorage.getItem("satTestResults");
-        let results = storedResults ? JSON.parse(storedResults) : {};
-        for (let category in categoryStats) {
-            if (!results[category]) results[category] = { correct: 0, incorrect: 0 };
-            results[category].correct += categoryStats[category].correct || 0;
-            results[category].incorrect += categoryStats[category].incorrect || 0;
-        }
-        localStorage.setItem("satTestResults", JSON.stringify(results));
-        console.log("Final stored satTestResults:", results);
-        for (let category in categoryStats) {
-            categoryStats[category].correct = 0;
-            categoryStats[category].incorrect = 0;
-        }
+}
+
+function checkAnswer(selectedIndex, itemIndex) {
+    const item = currentLesson.content[itemIndex];
+    const selectedOption = item.options[selectedIndex];
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML += `
+        <p>${selectedOption.correct ? 'Correct!' : 'Incorrect.'} ${item.explanation}</p>
+        <button onclick="nextItem()">Next</button>
+    `;
+}
+
+function checkQuizAnswer(selectedIndex, questionIndex) {
+    const question = lessonQuestions[currentLesson.id][questionIndex];
+    const selectedOption = question.options[selectedIndex];
+    if (selectedOption.correct) {
+        correctAnswers++;
     }
-    
-    function logFinalScore(totalCorrect, totalAttempted) {
-        const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-        localStorage.setItem("finalScore", JSON.stringify({
-            correct: totalCorrect,
-            attempted: totalAttempted,
-            percentage: percentage,
-            lesson: currentLesson
-        }));
-        console.log("Final score logged:", { totalCorrect, totalAttempted, percentage, lesson: currentLesson });
+    const lessonContent = document.getElementById('lesson-content');
+    lessonContent.innerHTML += `
+        <p>${selectedOption.correct ? 'Correct!' : 'Incorrect.'} ${question.explanation}</p>
+        <button onclick="nextQuestion()">Next</button>
+    `;
+}
+
+function nextItem() {
+    currentItemIndex++;
+    showItem();
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+    showItem();
+}
+
+// Initialize lesson based on URL parameter
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lessonId = parseInt(urlParams.get('lesson'));
+    if (lessonId && lessons[lessonId]) {
+        lessons[lessonId].id = lessonId; // Add id to lesson object
+        startLesson(lessonId);
+    } else {
+        console.error('Invalid or missing lesson ID');
+        document.getElementById('lesson-content').innerHTML = '<p>Lesson not found.</p>';
     }
-    
-    function saveScore(lessonId, score) {
-        localStorage.setItem(`algebra-lessonScore-${lessonId}`, score);
-        console.log(`Saved algebra-lessonScore-${lessonId}: ${score}`);
-    }
-    
-    document.addEventListener("DOMContentLoaded", function() {
-        console.log("Page loaded, initializing lesson:", currentLesson);
-        const urlParams = new URLSearchParams(window.location.search);
-        currentLesson = urlParams.get('lesson') || 1;
-        console.log("Set currentLesson to:", currentLesson);
-    
-        const startLessonButton = document.getElementById('start-math-lesson');
-        if (startLessonButton) {
-            startLessonButton.addEventListener('click', startLesson);
-            console.log("Start math lesson button event listener added");
-        } else {
-            console.error("Start math lesson button not found on page load!");
-        }
-    });
+});
