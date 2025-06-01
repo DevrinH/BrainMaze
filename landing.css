@@ -2487,3 +2487,72 @@ footer h3 {
   min-height: 400px !important;
   max-height: 450px !important;
 }
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Your provided landing.css */
+.toggle-icon {
+    font-size: 28px !important;
+    display: inline-block !important;
+    color: var(--text-color) !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+    visibility: visible !important;
+    font-family: 'Segoe UI Emoji', 'Noto Color Emoji', Arial, sans-serif !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 28px !important;
+    height: 28px !important;
+    text-align: center !important;
+}
+[data-theme="dark"] .toggle-icon {
+    color: white !important;
+}
+.theme-toggle {
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    background-color: transparent !important;
+}
+.header-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px !important;
+}
+.button-group {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+}
+.logo {
+    height: 45px !important;
+    display: block !important;
+}
+/* Removed .theme-toggle::before rule */
+.arrow {
+         font-size: 20px !important;
+         font-weight: bold !important;
+         margin-left: 5px !important;
+         font-family: Arial, 'Segoe UI Symbol', sans-serif !important; /* Support triangle symbols */
+         display: inline-block !important;
+         vertical-align: middle !important;
+         visibility: visible !important;
+     }
+     [data-theme="dark"] .arrow {
+         color: #ffffff !important; /* Default dark mode color, overridden by inline style */
+     }

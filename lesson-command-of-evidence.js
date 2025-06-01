@@ -1382,35 +1382,35 @@ function saveLessonCompletion() {
 }
 
 function showFinalScore() {
-    console.log("Running showFinalScore for lesson:", currentLesson);
-    let totalCorrect = categoryStats["command-of-evidence"].correct;
-    let totalAttempted = totalCorrect + categoryStats["command-of-evidence"].incorrect;
+         console.log("Running showFinalScore for lesson:", currentLesson);
+         let totalCorrect = categoryStats["command-of-evidence"].correct;
+         let totalAttempted = totalCorrect + categoryStats["command-of-evidence"].incorrect;
 
-    const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
-    const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
-    logFinalScore(totalCorrect, totalAttempted);
-    saveScore(currentLesson, score);
+         const percentage = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
+         const score = `${totalCorrect}/${totalAttempted} (${percentage}%)`;
+         logFinalScore(totalCorrect, totalAttempted);
+         saveScore(currentLesson, score);
 
-    const lessonContent = document.getElementById('lesson-content');
-    lessonContent.innerHTML = `
-        <div class="score-box">
-            <div class="centered-content">
-                <h2>Final Score</h2>
-                <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
-                <p>Your score: ${percentage}%</p>
-                <button id="continue-button" class="btn continue-btn">Continue</button>
-            </div>
-        </div>
-    `;
-    const finalScoreElement = document.getElementById('final-score');
-    if (finalScoreElement) finalScoreElement.classList.add('hide');
-    document.getElementById('continue-button').addEventListener('click', () => {
-        saveLessonCompletion();
-        window.location.href = 'https://www.brainjelli.com/user-profile.html';
-    }, { once: true });
+         const lessonContent = document.getElementById('lesson-content');
+         lessonContent.innerHTML = `
+             <div class="score-box">
+                 <div class="centered-content">
+                     <h2>Final Score</h2>
+                     <p>You answered ${totalCorrect} out of ${totalAttempted} questions correctly.</p>
+                     <p>Your score: ${percentage}%</p>
+                     <button id="continue-button" class="btn continue-btn">Continue</button>
+                 </div>
+             </div>
+         `;
+         const finalScoreElement = document.getElementById('final-score');
+         if (finalScoreElement) finalScoreElement.classList.add('hide');
+         document.getElementById('continue-button').addEventListener('click', () => {
+             saveLessonCompletion();
+             window.location.href = 'https://www.brainjelli.com/user-profile.html?exam=SAT';
+         }, { once: true });
 
-    recordTestResults();
-}
+         recordTestResults();
+     }
 
 function recordTestResults() {
     console.log("Recording results. Current categoryStats:", categoryStats);

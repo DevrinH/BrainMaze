@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             progressItems.forEach(item => {
                 let displayCategory = item.querySelector(".progress-label").textContent.toLowerCase().replace(/\s+/g, "-");
-                let category = `ged-${displayCategory}`; // Add ged- prefix for GED categories
+                let category = `ged-${displayCategory}`;
                 console.log("Processing GED category:", category);
 
                 let progressBarElement = document.getElementById(`${category}-bar`);
