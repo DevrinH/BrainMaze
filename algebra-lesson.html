@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="https://www.brainjelli.com/landing.css">
 </head>
 <body>
-    <header>
+<header>
         <div class="header-container">
-            <a href="https://www.brainjelli.com/user-profile.html">
-                <img src="BrainJelli-header.png" class="logo" alt="BrainJelli Logo">
-            </a>
+            <a href="/user-profile.html"><img src="/BrainJelli-header.png" class="logo"></a>
             <div class="button-group">
-                <button class="theme-toggle"><span class="toggle-icon"></span></button>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-icon">☀️</span>
+                </button>
                 <button class="login-button">Login</button>
             </div>
         </div>
     </header>
+
 
 
     <h1>Algebra</h1>
@@ -36,5 +37,37 @@
         <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
     </footer>
     <script src="theme-toggle.js"></script>
+    <script>
+     document.addEventListener("DOMContentLoaded", function () {
+         console.log("Theme toggle and arrow fallback script running");
+
+         // Theme toggle
+         const savedTheme = localStorage.getItem("theme") || "light";
+         document.documentElement.setAttribute("data-theme", savedTheme);
+         console.log("Loaded theme:", savedTheme);
+         const toggleButton = document.querySelector(".theme-toggle");
+         const toggleIcon = document.querySelector(".toggle-icon");
+         const logoImage = document.querySelector(".logo");
+         if (!toggleButton || !toggleIcon || !logoImage) {
+             console.error("Theme toggle elements not found:", { toggleButton, toggleIcon, logoImage });
+         } else {
+             console.log("Theme toggle elements found");
+             toggleIcon.innerHTML = savedTheme === "dark" ? "☀️" : "🌙";
+             logoImage.src = savedTheme === "dark" ? "/BrainJelli-header-white.png" : "/BrainJelli-header.png";
+             toggleButton.addEventListener("click", () => {
+                 console.log("Theme toggle clicked");
+                 const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+                 const newTheme = isDark ? "light" : "dark";
+                 document.documentElement.setAttribute("data-theme", newTheme);
+                 toggleIcon.innerHTML = isDark ? "☀️" : "🌙";
+                 logoImage.src = isDark ? "/BrainJelli-header.png" : "/BrainJelli-header-white.png";
+                 localStorage.setItem("theme", newTheme);
+                 console.log("Saved theme:", newTheme);
+             });
+         }
+
+
+     });
+     </script>
 </body>
 </html>
