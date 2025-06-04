@@ -4,7 +4,7 @@
     <title>BrainJelli - Landing Page</title> 
     <link href="https://www.brainjelli.com/landing.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="BrainJelli LOGO.png">
+    <link rel="icon" type="image/png" href="/BrainJelli%20LOGO.png?v=1">
     <meta property="og:image" content="https://brainjelli.com/BrainJelliPNG1-02.png"/>
    <link rel="apple-touch-icon" href="https://brainjelli.com/BrainJelliPNG1-03.png">
    <link rel="android-touch-icon" href="https://brainjelli.com/BrainJelliPNG1-03.png">
@@ -16,7 +16,12 @@
     <!-- Load SAT Chart JavaScript -->
     <script src="satChart.js" defer></script>
 </head>
- <header> <div class="header-container"> <img src="BrainJelli-header.png" class="logo"> <button class="login-button">Login</button> </div> </header>
+ <header>
+    <div class="header-container">
+        <img src="BrainJelli-header.png" class="logo">
+        <button class="login-button" onclick="window.location.href='/login.html'">Login</button>
+    </div>
+</header>
   
  
 
@@ -25,7 +30,7 @@
     <div class="image-container">  
         <img src="landing-image.webp" class="landingimg">
         <div class="overlay-text">
-          <h2>Level Up Your Score <br> For Free</h2>
+          <h2>Level Up Your ScorEe <br> For Free</h2>
         </div>
       </div>
 <div class="center">
@@ -208,30 +213,6 @@
 
 
 
-<!-- Google Sign-In Script -->
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<div id="g_id_onload"
-     data-client_id="840514499818-08bfivlpcrvgjj713mc87bsbk7up7s41.apps.googleusercontent.com"
-     data-callback="handleCredentialResponse">
-</div>
-<script>
-  document.querySelector('.login-button').addEventListener('click', () => {
-      google.accounts.id.prompt();
-  });
-  function handleCredentialResponse(response) {
-      fetch('https://www.brainjelli.com/api/auth/google', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ token: response.credential })
-      })
-      .then(res => res.json())
-      .then(data => {
-          console.log('Login success:', data);
-          window.location.href = '/user-profile.html';
-      })
-      .catch(err => console.error('Login error:', err));
-  }
-</script>
 
 
 <script>
