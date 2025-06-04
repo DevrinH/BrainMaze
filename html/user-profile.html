@@ -12,42 +12,8 @@
     <link rel="icon" href="/BrainJelliCircleIcon.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.3/purify.min.js"></script>
     <style>
-        .toggle-icon {
-            font-size: 28px !important;
-            display: inline-block !important;
-            color: var(--text-color) !important;
-            line-height: 1 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            vertical-align: middle !important;
-            visibility: visible !important;
-            font-family: 'Segoe UI Emoji', 'Noto Color Emoji', Arial, sans-serif !important;
-            text-rendering: optimizeLegibility;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            width: 28px !important;
-            height: 28px !important;
-            text-align: center !important;
-            background-color: transparent !important;
-            border: none !important;
-            overflow: visible !important;
-        }
-        [data-theme="dark"] .toggle-icon {
-            color: white !important;
-        }
-        .theme-toggle {
-            background: none !important;
-            border: none !important;
-            cursor: pointer !important;
-            padding: 8px !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            min-width: 44px !important;
-            min-height: 44px !important;
-            background-color: transparent !important;
-        }
         .header-container {
             display: flex !important;
             justify-content: space-between !important;
@@ -63,17 +29,11 @@
             height: 45px !important;
             display: block !important;
         }
-        /* Removed .theme-toggle::before rule */
-        .toggle-icon:empty::after {
-            content: "[Icon]";
-            font-size: 12px;
-            color: blue;
-            font-family: Arial, sans-serif;
-        }
     </style>
 </head>
 
 <body>
+<script src="theme-toggle.js"></script>
 <header>
         <div class="header-container">
             <a href="/user-profile.html"><img src="/BrainJelli-header.png" class="logo"></a>
@@ -124,10 +84,18 @@
             </div>
         </div>
 </main>
-<div class="profile-container">
-    <h2>User Information</h2>
-    <p id="user-info">Loading user information...</p>
+
+<div id="user-info">
+<div id="user-email"></div>
+<div id="user-name"></div>
 </div>
+
+<script>document.addEventListener('DOMContentLoaded', () => {
+const emailElement = document.querySelector('#user-email');
+const nameElement = document.querySelector('#user-name');
+if (emailElement) emailElement.innerHTML = DOMPurify.sanitize(getCookie('email') || 'Not logged in');
+if (nameElement) nameElement.innerHTML = DOMPurify.sanitize(getCookie('name') || 'Guest');
+});</script>
 
 <style>
     .profile-container {
@@ -3151,7 +3119,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }[examType];
 
             categories.forEach(category => {
-                const scoreData = scores.find(s => s.category === category.replace(/^[^-]+-/, ""));
+const scoreData = scores.find(s => s.category === category);
                 const percentage = scoreData ? scoreData.percentage : 0;
                 const previousPercentage = scoreData ? scoreData.previous_percentage : 0;
 
@@ -3702,30 +3670,6 @@ for (let i = 1; i <= 5; i++) {
      document.addEventListener("DOMContentLoaded", function () {
          console.log("Theme toggle and arrow fallback script running");
 
-         // Theme toggle
-         const savedTheme = localStorage.getItem("theme") || "light";
-         document.documentElement.setAttribute("data-theme", savedTheme);
-         console.log("Loaded theme:", savedTheme);
-         const toggleButton = document.querySelector(".theme-toggle");
-         const toggleIcon = document.querySelector(".toggle-icon");
-         const logoImage = document.querySelector(".logo");
-         if (!toggleButton || !toggleIcon || !logoImage) {
-             console.error("Theme toggle elements not found:", { toggleButton, toggleIcon, logoImage });
-         } else {
-             console.log("Theme toggle elements found");
-             toggleIcon.innerHTML = savedTheme === "dark" ? "☀️" : "🌙";
-             logoImage.src = savedTheme === "dark" ? "/BrainJelli-header-white.png" : "/BrainJelli-header.png";
-             toggleButton.addEventListener("click", () => {
-                 console.log("Theme toggle clicked");
-                 const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-                 const newTheme = isDark ? "light" : "dark";
-                 document.documentElement.setAttribute("data-theme", newTheme);
-                 toggleIcon.innerHTML = isDark ? "☀️" : "🌙";
-                 logoImage.src = isDark ? "/BrainJelli-header.png" : "/BrainJelli-header-white.png";
-                 localStorage.setItem("theme", newTheme);
-                 console.log("Saved theme:", newTheme);
-             });
-         }
 
          // Lightweight arrow fallback with triangle symbols
          function fixArrows() {
