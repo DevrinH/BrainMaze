@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile</title>
     <link href="/landing.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/BrainJelliLOGO.png">
     <meta property="og:image" content="/BrainJelliLOGO.png"/>
     <link rel="apple-touch-icon" href="/BrainJelliLOGO.png">
@@ -37,18 +36,6 @@
             color: blue;
             font-family: Arial, sans-serif;
         }
-@font-face {
-    font-family: 'Montserrat';
-    src: url('/Montserrat-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Montserrat';
-    src: url('/Montserrat-ExtraBold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
-}
     </style>
 </head>
 
@@ -3087,15 +3074,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-window.updateProgress = async function(source) {
-    console.log(`updateProgress called from: ${source}`);
-    const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
-    let examType = "SAT";
-    if (activeExam === "line-chart-act") examType = "ACT";
-    else if (activeExam === "GED") examType = "GED";
+    window.updateProgress = async function(source) {
+        console.log(`updateProgress called from: ${source}`);
+        const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
+        let examType = "SAT";
+        if (activeExam === "line-chart-act") examType = "ACT";
+        else if (activeExam === "line-chart-ged") examType = "GED";
 
-    // Sync localStorage data
-    await syncLocalStorageToAPI(examType);
+        // Sync localStorage data
+        await syncLocalStorageToAPI(examType);
 
         try {
             const response = await fetch(`https://www.brainjelli.com/api/scores/1?exam=${examType}`);
@@ -3222,25 +3209,74 @@ const scoreData = scores.find(s => s.category === category);
                 barElement.style.width = `${percentage}%`;
                 console.log(`Set ${category} bar width to ${percentage}%`);
             }
+            const scores = await response.json();
+            console.log(`Fetched scores for ${examType}:`, scores);
 
-            if (textElement && arrowElement) {
-                let arrow = "▶";
-                let arrowColor = "#4e5163";
-                if (percentage > previousPercentage) {
-                    arrow = "▲";
-                    arrowColor = "green";
-                } else if (percentage < previousPercentage) {
-                    arrow = "▼";
-                    arrowColor = "red";
+            const categories = {
+                SAT: [
+                    "command-of-evidence", "central-ideas", "inferences", "words-in-context",
+                    "text-structure-and-purpose", "cross-text-connections", "transitions",
+                    "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
+                    "problem-solving-and-data", "geometry-and-trigonometry"
+                ],
+                ACT: [
+                    "act-conventions-of-standard-english", "act-knowledge-of-language",
+                    "act-production-of-writing", "act-algebra", "act-functions",
+                    "act-coordinate-geometry", "act-systems-of-equations", "act-geometry",
+                    "act-trigonometry", "act-quadratics", "act-logarithms", "act-complex-numbers",
+                    "act-word-problems", "act-probability", "act-sequences", "act-main-idea",
+                    "act-authors-purpose", "act-inference", "act-character-motivation",
+                    "act-vocabulary-in-context", "act-character-development", "act-symbolism",
+                    "act-literary-device", "act-theme", "act-detail", "act-relationship",
+                    "act-implication", "act-comparison", "act-data-representation",
+                    "act-research-summary", "act-conflicting-viewpoints"
+                ],
+                GED: [
+                    "ged-algebra", "ged-geometry", "ged-language-arts", "ged-science",
+                    "ged-social-studies", "ged-reading-comprehension", "ged-central-ideas",
+                    "ged-inference-and-authors-purpose", "ged-grammar-sentence-structure",
+                    "ged-punctuation-usage", "ged-basic-arithmetic", "ged-linear-equations",
+                    "ged-data-interpretation", "ged-word-problems", "ged-life-science",
+                    "ged-physical-science", "ged-earth-space",
+                    "ged-scientific-method-and-experimental-design", "ged-data-analysis-interpretation",
+                    "ged-us-history", "ged-civics-and-government", "ged-economics",
+                    "ged-geography-environmental-issues", "ged-reading-and-analyzing-historical-docs"
+                ]
+            }[examType];
+
+            categories.forEach(category => {
+                const scoreData = scores.find(s => s.category === category.replace(/^[^-]+-/, ""));
+                const percentage = scoreData ? scoreData.percentage : 0;
+                const previousPercentage = scoreData ? scoreData.previous_percentage : 0;
+
+                const barElement = document.querySelector(`#${category}-bar`);
+                const textElement = document.querySelector(`#${category}-text`);
+                const arrowElement = textElement ? textElement.querySelector(".arrow") : null;
+
+                if (barElement) {
+                    barElement.style.width = `${percentage}%`;
+                    console.log(`Set ${category} bar width to ${percentage}%`);
                 }
-                textElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor}">${arrow}</span>`;
-                console.log(`Updated ${category}: ${percentage}% (prev: ${previousPercentage}%) with arrow ${arrow}`);
-            }
-        });
-    } catch (error) {
-        console.error("Error updating progress:", error);
-    }
-};
+
+                if (textElement && arrowElement) {
+                    let arrow = "▶";
+                    let arrowColor = "#4e5163";
+                    if (percentage > previousPercentage) {
+                        arrow = "▲";
+                        arrowColor = "green";
+                    } else if (percentage < previousPercentage) {
+                        arrow = "▼";
+                        arrowColor = "red";
+                    }
+                    textElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor} !important;">${arrow}</span>`;
+                    console.log(`Updated ${category}: ${percentage}% (prev: ${previousPercentage}%), Arrow: ${arrow}, Color: ${arrowColor}`);
+                }
+            });
+        } catch (error) {
+            console.error("Error updating progress:", error);
+        }
+    };
+
     // Initial update
     setTimeout(() => window.updateProgress("DOMContentLoaded"), 1000);
 
