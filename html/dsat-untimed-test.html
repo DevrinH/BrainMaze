@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSAT Test (Untimed)</title>
+    <link rel="stylesheet" href="https://www.brainjelli.com/stylesat.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="https://www.brainjelli.com/user-profile.html"> <img src="BrainJelli-header.png" class="logo"></a>
+          <div class="button-group">
+            <button class="theme-toggle"><span class="toggle-icon"></span></button>
+            <button class="login-button">Login</button>
+          </div>
+        </div>
+      </header>
+
+    <h1>DSAT Untimed Prep Test</h1>
+    <div id="progress-bar-test"><div></div></div>
+    
+    <div id="sat-intro-container">
+        <p id="intro-message">This is an untimed DSAT preparation test. The Reading/Writing section has two modules (27 questions each), and the Math section has two modules (22 questions each). The second module adapts based on your performance. You’ll see your Reading/Writing score before proceeding to Math, with a break in between. Take your time and good luck!</p>
+        <button id="start-test-btn" class="start-test-btn">Start Test</button>
+    </div>
+
+    <div id="question-container" class="hide">
+        <div class="question-row">
+            <div id="passage" class="passage-text"></div>
+            <div class="right-column">
+                <div id="question" class="question-text"></div>
+                <div id="answer-buttons" class="answer-choices"></div>
+            </div>
+        </div>
+        <button id="next-btn" class="btn hide">Next</button>
+    </div>
+
+    <div id="break-message" class="hide">
+        <p>Take a break! Press continue to start the Math test.</p>
+        <button id="continue-btn" class="continue-btn">Continue</button>
+    </div>
+    <script src="theme-toggle.js"></script>
+    <script src="dsat-untimed-test.js"></script>
+</body>
+</html>

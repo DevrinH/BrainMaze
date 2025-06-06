@@ -1,0 +1,3743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+<link href="/landing.css?v=1" rel="stylesheet">
+<link rel="icon" type="image/png" href="/BrainJelliLOGO.png">   
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <meta property="og:image" content="/BrainJelliLOGO.png"/>
+    <link rel="apple-touch-icon" href="/BrainJelliLOGO.png">
+    <link rel="android-touch-icon" href="/BrainJelliLOGO.png">
+<link rel="icon" href="/BrainJelliCircleIcon.png" type="image/x-icon">   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.3/purify.min.js"></script>
+    <style>
+        .header-container {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 10px !important;
+        }
+        .button-group {
+            display: flex !important;
+            gap: 10px !important;
+            align-items: center !important;
+        }
+        .logo {
+            height: 45px !important;
+            display: block !important;
+        }
+#user-info {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+#user-email, #user-name {
+    margin: 5px 0;
+}
+    </style>
+</head>
+
+<body>
+<script src="theme-toggle.js"></script>
+<header>
+        <div class="header-container">
+            <a href="/user-profile.html"><img src="/BrainJelli-header.png" class="logo"></a>
+            <div class="button-group">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-icon">☀️</span>
+                </button>
+                <button class="login-button">Login</button>
+            </div>
+        </div>
+    </header>
+
+<div id="user-info">
+    <div id="user-email"></div>
+    <div id="user-name"></div>
+</div>
+
+    <main>
+        <div class="line-chart-container" id="line-chart-sat">
+            <h2 class="progress-title">SAT Progress</h2>
+            <div class="chart-container">
+                <canvas id="scoreChart"></canvas>
+            </div>
+            <div class="last-score-container">
+                <p class="last-score-text">Last SAT Score:</p>
+            </div>
+            <div class="chart-container-bar">
+                <canvas id="lastScoreBarChart"></canvas>
+            </div>
+        </div>
+        <div class="line-chart-container hidden" id="line-chart-act">
+            <h2 class="progress-title">ACT Progress</h2>
+            <div class="chart-container">
+                <canvas id="actScoreChart"></canvas>
+            </div>
+            <div class="last-score-container">
+                <p class="last-score-text">Last ACT Score:</p>
+            </div>
+            <div class="chart-container-bar">
+                <canvas id="actLastScoreBarChart"></canvas>
+            </div>
+        </div>
+        <div class="line-chart-container hidden" id="line-chart-ged">
+            <h2 class="progress-title">GED Progress</h2>
+            <div class="chart-container">
+                <canvas id="gedScoreChart"></canvas>
+            </div>
+            <div class="last-score-container">
+                <p class="last-score-text">Last GED Score:</p>
+            </div>
+            <div class="chart-container-bar">
+                <canvas id="gedLastScoreBarChart"></canvas>
+            </div>
+        </div>
+
+</div>
+
+</main>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const emailElement = document.querySelector('#user-email');
+    const nameElement = document.querySelector('#user-name');
+    if (emailElement) emailElement.innerHTML = DOMPurify.sanitize(getCookie('email') || 'Not logged in');
+    if (nameElement) nameElement.innerHTML = DOMPurify.sanitize(getCookie('name') || 'Guest');
+});
+</script>
+<style>
+    .profile-container {
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: center;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #user-info {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+</style>
+
+<script>
+function getCookie(name) {
+    console.log('Cookies:', document.cookie);
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) {
+        const cookieValue = parts.pop().split(';').shift();
+        console.log(`Retrieved cookie ${name}:`, cookieValue);
+        return decodeURIComponent(cookieValue);
+    }
+    console.warn(`Cookie ${name} not found`);
+    return null;
+}
+</script>
+<div class="button-container">
+    <button class="button-30" role="button" onclick="showGED()">GED</button>
+    <button class="button-30" role="button" onclick="showSAT()">SAT</button>
+    <button class="button-30" role="button" onclick="showACT()">ACT</button>
+</div>
+
+
+<div class="flex-container">          
+    <div class="testlessonscontainer">
+        <h2 id="test-title">SAT Practice Tests and Lessons</h2>
+        <br/>
+        <div class="align-center">
+            <div class="test-lesson-buttons">
+                <button class="button-28" onclick="showTests()">Tests</button>
+                <button class="button-28" onclick="showLessons()">Lessons</button>
+            </div><br/><br/>
+        </div>
+
+
+        <div id="sat-tests-container" class="container">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Timed Test</p>
+                    <p>Wrong Answers will be displayed at the end.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-untimed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Untimed Test</p>
+                    <p>This will not reflect on the chart.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/dsat-timed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">DSAT Timed Test</p>
+                    <p>Description here</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/dsat-untimed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">DSAT Untimed Test</p>
+                    <p>This is a timed SAT practice test. Wrong answers will be displayed.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" type="button" onclick="location.href='https://www.brainjelli.com/sat-timed-reading-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Timed Reading and Writing Test</p>
+                    <p><span id="reading-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-reading-untimed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Untimed Reading and Writing Test</p>
+                    <p><span id="reading-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/sat-timed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Timed Math Test</p>
+                    <p><span id="sat-math-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-untimed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">SAT Untimed Math Test</p>
+                    <p><span id="sat-math-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="sat-lessons-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-vocab'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Vocabulary</p>
+                    <p>Flashcards of the most common SAT words.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/sat-rank-up-landing'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rank Up (beta)</p>
+                    <p>Each level gets harder as you go. See how far you can go.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showCommandOfEvidenceLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showCentralIdeasAndDetailLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Details</p>
+                    <p>5 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showInferenceLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences</p>
+                    <p>6 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showWordsInContextLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+           
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showTextStructureAndPurposeLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showCrossTextConnectionsLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross-Text Connections</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showTransitionsLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showRhetoricalSynthesisLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis</p>
+                    <p>5 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showBoundariesLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries</p>
+                    <p>4 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showAlgebraLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lessons</p>
+                    <p>8 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showAdvancedMathLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lessons</p>
+                    <p>8 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showProblemSolvingDataLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving and Data Analysis</p>
+                    <p>8 Lessons</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" onclick="showGeometryLessons()">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lessons</p>
+                    <p>8 Lesson</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="act-tests-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed Test</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-test-2.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed Test 2</p>
+                    <p>Full-length timed ACT practice test. Results shown at the end.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed Test</p>
+                    <p>Full-length untimed ACT practice test. Immediate feedback provided.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-english-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed English Test</p>
+                    <p><span id="act-english-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-english-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed English Test</p>
+                    <p><span id="act-english-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed Math Test</p>
+                    <p><span id="act-math-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed Math Test</p>
+                    <p><span id="act-math-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-reading-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed Reading Test</p>
+                    <p><span id="act-reading-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+   
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-reading-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed Reading Test</p>
+                    <p><span id="act-reading-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+   
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/act-timed-science-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Timed Science Test</p>
+                    <p><span id="act-science-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+   
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-untimed-science-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">ACT Untimed Science Test</p>
+                    <p><span id="act-science-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+       
+
+
+        <div id="act-lessons-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-english-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">English Lessons</p>
+                    <p>Lessons covering grammar, punctuation, and rhetorical skills.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-math-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Math Lessons</p>
+                    <p>Lessons on algebra, geometry, and trigonometry for ACT prep.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-reading-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Reading Lessons</p>
+                    <p>Lessons to improve comprehension and analysis skills.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-science-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Science Lessons</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-conventions-of-standard-english.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Conventions of standard English</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-knowledge-of-language.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Knowledge of Language</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-production-of-writing.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Production of Writing</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+            
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-algebra.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+            
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-functions.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Functions</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+            
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-coordinate-geometry.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Coordinate Geometry</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+            
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-systems-of-equations.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Systems of Equations</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-geometry.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-trigonometry.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Trigonometry</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-quadratics.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Quadratics</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-logarithms.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Logarithms</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-complex-numbers.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Complex Numbers</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-word-problems.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Word Problems</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-probability.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Probability</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-sequences.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Sequences</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-main-idea.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Main Idea</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-authors-purpose.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Author's Purpose</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-inference.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inference</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-character-motivation.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Character Motivation</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-vocabulary-in-context.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Vocabulary in Context</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-character-development.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Character Development</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-symbolism.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Symbolism</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-symbolism.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Literary Device</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-theme.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Theme</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-detail.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Detail</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-relationship.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Relationship</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-implication.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Implication</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-comparison.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Comparison</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-data-representation.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Data Representation</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-research-summary.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Research Summary</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/act-lesson-conflicting-viewpoints.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Conflicting Viewpoints</p>
+                    <p>Lessons on data interpretation and scientific reasoning.</p>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <div id="ged-tests-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-timed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Timed Test</p>
+                    <p>Full-length timed GED practice test. Results shown at the end.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-untimed-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Untimed Test</p>
+                    <p>Full-length untimed GED practice test. Immediate feedback provided.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-timed-rla-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Timed RLA Test</p>
+                    <p><span id="rla-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-untimed-rla-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Untimed RLA Test</p>
+                    <p><span id="rla-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-timed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Timed Math Test</p>
+                    <p><span id="math-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-untimed-math-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Untimed Math Test</p>
+                    <p><span id="math-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-timed-science-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Timed Science Test</p>
+                    <p><span id="science-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-untimed-science-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Untimed Science Test</p>
+                    <p><span id="science-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-timed-social-studies-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Timed Social Studies Test</p>
+                    <p><span id="social-studies-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-31" role="button" onclick="location.href='https://www.brainjelli.com/ged-untimed-social-studies-test.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">GED Untimed Social Studies Test</p>
+                    <p><span id="social-studies-untimed-score">Last Score: Not taken yet</span></p>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div id="ged-lessons-container" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-math-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Mathematical Reasoning Lessons</p>
+                    <p>Lessons covering arithmetic, algebra, and data analysis.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-english-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Reasoning Through Language Arts Lessons</p>
+                    <p>Lessons on reading comprehension and writing skills.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-science-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Science Lessons</p>
+                    <p>Lessons on life, physical, and earth sciences.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-social-studies-lessons.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Social Studies Lessons</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-reading-comprehension.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Reading Comprehension</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-central-ideas.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-inference-and-authors-purpose.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inference and Author's Purpose</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-grammar-sentence-structure.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Grammar Sentence Structure</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-punctuation-usage.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Punctuation Usage</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-basic-arithmetic.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Basic Arithmetic</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-linear-equations.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Linear Equations</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-data-interpretation.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Data Interpretation</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-word-problems.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Word Problems</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-life-science.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Life Science</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-physical-science.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Physical Science</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-earth-space.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Earth and Space Science</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-scientific-method.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Scientific Method and Experimental Design</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-data-analysis-interpretation.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Data Analysis and Interpretation</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-us-history.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">US History</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-civics-and-government.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Civics and Goverment</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-economics.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Economics</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-geography-environmental-issues.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geography and Enivironmental Issues</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-reading-and-analyzing-historical-docs.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Analyzing Historical Documents</p>
+                    <p>Lessons on history, civics, and economics.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-geometry.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry</p>
+                    <p>Lessons on geometry.</p>
+                </div>
+            </div>
+
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/ged-lesson-algebra.html'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra</p>
+                    <p>Lessons on Algebra.</p>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <!--Command of evidence lessons-->
+        <div id="lessons-container-command-of-evidence" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 1: Textual Evidence</p>
+                    <p id="command-of-evidence-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 2: Understanding Author’s Use of Evidence</p>
+                    <p id="command-of-evidence-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 3: Data Interpretation in Texts</p>
+                    <p id="command-of-evidence-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-command-of-evidence.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Command of Evidence Lesson 4: Cross-Text Evidence Comparison</p>
+                    <p id="command-of-evidence-score-summary-4"></p>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+        <!--Central Ideas lessons-->
+        <div id="lessons-container-central-ideas" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 1: Identifying the Central Idea</p>
+                    <p id="central-ideas-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 2: Summarizing a Passage</p>
+                    <p id="central-ideas-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 3: Identifying Key Details</p>
+                    <p id="central-ideas-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 4: Understanding Supporting Evidence</p>
+                    <p id="central-ideas-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-central-ideas.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Central Ideas and Detail Lesson 5: Paraphrasing and Restating Ideas</p>
+                    <p id="central-ideas-score-summary-5"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Inferences lessons-->
+        <div id="lessons-container-inferences" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 1: Drawing Logical Conclusions</p>
+                    <p id="inferences-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 2: Inferring the Author’s Perspective and Tone</p>
+                    <p id="inferences-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 3: Predicting Outcomes and Next Steps</p>
+                    <p id="inferences-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 4: Understanding Relationships Between Ideas</p>
+                    <p id="inferences-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 5: Interpreting Figurative Language and Symbolism</p>
+                    <p id="inferences-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-inferences.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Inferences Lesson 6: Inferring Meaning from Context</p>
+                    <p id="inferences-score-summary-6"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Words in context lessons-->
+        <div id="lessons-container-words-in-context" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 1: Determining Word Meaning from Context</p>
+                    <p id="words-in-context-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 2: Recognizing Nuanced Word Meanings</p>
+                    <p id="words-in-context-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 3: Interpreting Figurative and Connotative Meanings</p>
+                    <p id="words-in-context-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-words-in-context.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Words in Context Lesson 4: Analyzing Word Choice and Rhetorical Effect</p>
+                    <p id="words-in-context-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Text Structure lessons-->
+        <div id="lessons-container-text-structure-and-purpose" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 1: Identifying the Author’s Purpose</p>
+                    <p id="text-structure-and-purpose-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 2: Recognizing Text Structures</p>
+                    <p id="text-structure-and-purpose-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 3: Understanding How Ideas are Organized</p>
+                    <p id="text-structure-and-purpose-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-text-structure.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Text Structure and Purpose Lesson 4: Evaluating Rhetorical Strategies</p>
+                    <p id="text-structure-and-purpose-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Cross Text lessons-->
+        <div id="lessons-container-cross-text-connections" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 1: Comparing Main Ideas and Arguments</p>
+                    <p id="cross-text-connections-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 2: Evaluating Evidence Across Texts</p>
+                    <p id="cross-text-connections-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 3: Understanding Differences in Tone and Perspective</p>
+                    <p id="cross-text-connections-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-cross-text.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Cross Text Connections Lesson 4: Synthesizing Information from Multiple Sources</p>
+                    <p id="cross-text-connections-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Transitions lessons-->
+        <div id="lessons-container-transitions" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 1: Identifying the Correct Type of Transition</p>
+                    <p id="transitions-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 2: Choosing the Best Transition Word or Phrase</p>
+                    <p id="transitions-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 3: Transitioning Between Sentences</p>
+                    <p id="transitions-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-transitions.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Transitions Lesson 4: Transitioning Between Paragraphs</p>
+                    <p id="transitions-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Rhetorical lessons-->
+        <div id="lessons-container-rhetorical-synthesis" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 1: Choosing the Best Sentence for Clarity and Impact</p>
+                    <p id="rhetorical-synthesis-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 2: Connecting Ideas Logically</p>
+                    <p id="rhetorical-synthesis-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 3: Integrating Evidence and Supporting Details</p>
+                    <p id="rhetorical-synthesis-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 4: Maintaining the Author’s Purpose and Tone</p>
+                    <p id="rhetorical-synthesis-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-rhetorical-synthesis.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Rhetorical Synthesis Lesson 5: Strengthening Arguments and Explanations</p>
+                    <p id="rhetorical-synthesis-score-summary-5"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Boundaries lessons-->
+        <div id="lessons-container-boundaries" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 1: Avoiding Run-On Sentences and Comma Splices</p>
+                    <p id="boundaries-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 2: Avoiding Sentence Fragments</p>
+                    <p id="boundaries-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 3: Proper Use of Semicolons, Colons, and Dashes</p>
+                    <p id="boundaries-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-boundaries.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Boundaries Lesson 4: Maintaining Logical and Clear Sentence Boundaries</p>
+                    <p id="boundaries-score-summary-4"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Geometry lessons-->
+        <div id="lessons-container-geometry" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 1: Lines and Angles</p>
+                    <p id="geometry-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 2: Triangles</p>
+                    <p id="geometry-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 3: Quadrilaterals and Polygons</p>
+                    <p id="geometry-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 4: Circles</p>
+                    <p id="geometry-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 5: Coordinate Geometry</p>
+                    <p id="geometry-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 6: 3D Geometry (Solids)</p>
+                    <p id="geometry-score-summary-6"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 7: Transformations</p>
+                    <p id="geometry-score-summary-7"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-geometry.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Geometry Lesson 8: Trigonometry (Basic Concepts)</p>
+                    <p id="geometry-score-summary-8"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="lessons-container-algebra" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 1: Solving Linear Equations</p>
+                    <p id="algebra-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 2: Solving Systems of Equations</p>
+                    <p id="algebra-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 3: Quadratic Equations</p>
+                    <p id="algebra-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 4: Linear Functions and Graphs</p>
+                    <p id="algebra-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 5: Quadratic Functions and Their Properties</p>
+                    <p id="algebra-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 6: Expressions and Polynomials</p>
+                    <p id="algebra-score-summary-6"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 7: Rational Expressions and Equations </p>
+                    <p id="algebra-score-summary-7"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/algebra-lesson.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Algebra Lesson 8: Inequalities and Absolute Value </p>
+                    <p id="algebra-score-summary-8"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Advanced math lessons-->
+        <div id="lessons-container-advanced-math" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 1: Nonlinear Equations and Functions</p>
+                    <p id="advanced-math-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 2: Systems of Equations with Nonlinear Functions</p>
+                    <p id="advanced-math-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 3: Function Transformations and Composition</p>
+                    <p id="advanced-math-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 4: Complex Numbers</p>
+                    <p id="advanced-math-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 5: Polynomial Division and Remainder Theorem</p>
+                    <p id="advanced-math-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 6: Rational Exponents and Radical Equations</p>
+                    <p id="advanced-math-score-summary-6"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 7: Absolute Value and Piecewise Functions</p>
+                    <p id="advanced-math-score-summary-7"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-advanced-math.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Advanced Math Lesson 8: Trigonometric Functions and Identities</p>
+                    <p id="advanced-math-score-summary-8"></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="lessons-container-problem-solving-data" class="container hidden">
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=1'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 1: Ratios, Proportions, and Percentages</p>
+                    <p id="problem-solving-data-score-summary-1"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=2'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 2: Unit Conversions and Rates</p>
+                    <p id="problem-solving-data-score-summary-2"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=3'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 3: Linear and Exponential Growth</p>
+                    <p id="problem-solving-data-score-summary-3"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=4'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 4: Data Interpretation (Tables, Graphs, and Charts)</p>
+                    <p id="problem-solving-data-score-summary-4"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=5'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 5: Measures of Center and Spread (Statistics)</p>
+                    <p id="problem-solving-data-score-summary-5"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=6'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 6: Probability and Expected Value</p>
+                    <p id="problem-solving-data-score-summary-6"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=7'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 7: Two-Way Tables and Conditional Probability</p>
+                    <p id="problem-solving-data-score-summary-7"></p>
+                </div>
+            </div>
+            <div class="seccontainer">
+                <div class="satplacement">
+                    <button class="button-29" role="button" onclick="location.href='https://www.brainjelli.com/lesson-problem-solving-data.html?lesson=8'">START</button>
+                </div>
+                <div class="satdesc">
+                    <p class="pbungee">Problem Solving Lesson 8: Experimental Design and Statistical Validity</p>
+                    <p id="problem-solving-data-score-summary-8"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+
+ 
+            // Select Containers
+            const satTestsContainer = document.getElementById("sat-tests-container");
+            const satLessonsContainer = document.getElementById("sat-lessons-container");
+            const actTestsContainer = document.getElementById("act-tests-container");
+            const actLessonsContainer = document.getElementById("act-lessons-container");
+            const gedTestsContainer = document.getElementById("ged-tests-container");
+            const gedLessonsContainer = document.getElementById("ged-lessons-container");
+            const algebraContainer = document.getElementById("lessons-container-algebra");
+            const inferenceContainer = document.getElementById("lessons-container-inferences");
+            const geometryContainer = document.getElementById("lessons-container-geometry");
+            const commandOfEvidenceContainer = document.getElementById("lessons-container-command-of-evidence");
+            const centralIdeasAndDetailContainer = document.getElementById("lessons-container-central-ideas");
+            const wordsInContextContainer = document.getElementById("lessons-container-words-in-context");
+            const textStructureAndPurposeContainer = document.getElementById("lessons-container-text-structure-and-purpose");
+            const crossTextConnectionsContainer = document.getElementById("lessons-container-cross-text-connections");
+            const transitionsContainer = document.getElementById("lessons-container-transitions");
+            const rhetoricalSynthesisContainer = document.getElementById("lessons-container-rhetorical-synthesis");
+            const boundariesContainer = document.getElementById("lessons-container-boundaries");
+            const advancedMathContainer = document.getElementById("lessons-container-advanced-math");
+            const problemSolvingDataContainer = document.getElementById("lessons-container-problem-solving-data");
+
+
+
+
+            // Select Line Charts
+            const testTitle = document.getElementById("test-title");
+            const satLineChart = document.getElementById("line-chart-sat");
+            const actLineChart = document.getElementById("line-chart-act");
+            const gedLineChart = document.getElementById("line-chart-ged");
+            const satProgressContainer = document.getElementById("sat-progress-container");
+            const actProgressContainer = document.getElementById("act-progress-container");
+            const gedProgressContainer = document.getElementById("ged-progress-container");
+
+
+            // Function to hide all containers
+            window.hideAllContainers = function () {
+                const allTestContainers = [
+                    satTestsContainer,
+                    satLessonsContainer,
+                    actTestsContainer,
+                    actLessonsContainer,
+                    gedTestsContainer,
+                    gedLessonsContainer,
+                    algebraContainer,
+                    inferenceContainer,
+                    geometryContainer,
+                    commandOfEvidenceContainer,
+                    centralIdeasAndDetailContainer,
+                    wordsInContextContainer,
+                    textStructureAndPurposeContainer,
+                    crossTextConnectionsContainer,
+                    transitionsContainer,
+                    rhetoricalSynthesisContainer,
+                    boundariesContainer,
+                    advancedMathContainer,
+                    problemSolvingDataContainer
+                ];
+                const allChartContainers = [
+                    satLineChart,
+                    actLineChart,
+                    gedLineChart
+                ];
+                const allProgressContainers = [
+                    satProgressContainer,
+                    actProgressContainer,
+                    gedProgressContainer
+                ];
+                allTestContainers.forEach(container => {
+                    if (container) container.classList.add("hidden");
+                });
+                allChartContainers.forEach(container => {
+                    if (container) container.classList.add("hidden");
+                });
+                allProgressContainers.forEach(container => {
+                    if (container) container.classList.add("hidden");
+                });
+            };
+
+
+            // Functions to show specific sections
+            window.showSAT = function () {
+                hideAllContainers();
+                if (satTestsContainer) satTestsContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+                if (testTitle) testTitle.textContent = "SAT Practice Tests and Lessons";
+            };
+
+
+            window.showACT = function () {
+                hideAllContainers();
+                if (actTestsContainer) actTestsContainer.classList.remove("hidden");
+                if (actLineChart) actLineChart.classList.remove("hidden");
+                if (actProgressContainer) actProgressContainer.classList.remove("hidden");
+                if (testTitle) testTitle.textContent = "ACT Practice Tests and Lessons";
+            };
+
+
+            window.showGED = function () {
+                hideAllContainers();
+                if (gedTestsContainer) gedTestsContainer.classList.remove("hidden");
+                if (gedLineChart) gedLineChart.classList.remove("hidden");
+                if (gedProgressContainer) gedProgressContainer.classList.remove("hidden");
+                if (testTitle) testTitle.textContent = "GED Practice Tests and Lessons";
+            };
+
+
+            window.showTests = function () {
+                hideAllContainers();
+                if (testTitle.textContent.includes("SAT")) {
+                    if (satTestsContainer) satTestsContainer.classList.remove("hidden");
+                    if (satLineChart) satLineChart.classList.remove("hidden");
+                    if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+                } else if (testTitle.textContent.includes("ACT")) {
+                    if (actTestsContainer) actTestsContainer.classList.remove("hidden");
+                    if (actLineChart) actLineChart.classList.remove("hidden");
+                    if (actProgressContainer) actProgressContainer.classList.remove("hidden");
+                } else if (testTitle.textContent.includes("GED")) {
+                    if (gedTestsContainer) gedTestsContainer.classList.remove("hidden");
+                    if (gedLineChart) gedLineChart.classList.remove("hidden");
+                    if (gedProgressContainer) gedProgressContainer.classList.remove("hidden");
+                }
+            };
+
+
+            window.showLessons = function () {
+                hideAllContainers();
+                if (testTitle.textContent.includes("SAT")) {
+                    if (satLessonsContainer) satLessonsContainer.classList.remove("hidden");
+                    if (satLineChart) satLineChart.classList.remove("hidden");
+                    if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+                } else if (testTitle.textContent.includes("ACT")) {
+                    if (actLessonsContainer) actLessonsContainer.classList.remove("hidden");
+                    if (actLineChart) actLineChart.classList.remove("hidden");
+                    if (actProgressContainer) actProgressContainer.classList.remove("hidden");
+                } else if (testTitle.textContent.includes("GED")) {
+                    if (gedLessonsContainer) gedLessonsContainer.classList.remove("hidden");
+                    if (gedLineChart) gedLineChart.classList.remove("hidden");
+                    if (gedProgressContainer) gedProgressContainer.classList.remove("hidden");
+                }
+            };
+
+
+            window.showAlgebraLessons = function () {
+                hideAllContainers();
+                if (algebraContainer) algebraContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showInferenceLessons = function () {
+                hideAllContainers();
+                if (inferenceContainer) inferenceContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showGeometryLessons = function () {
+                hideAllContainers();
+                if (geometryContainer) geometryContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showCommandOfEvidenceLessons = function () {
+                hideAllContainers();
+                if (commandOfEvidenceContainer) commandOfEvidenceContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showCentralIdeasAndDetailLessons = function () {
+                hideAllContainers();
+                if (centralIdeasAndDetailContainer) centralIdeasAndDetailContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showWordsInContextLessons = function () {
+                hideAllContainers();
+                if (wordsInContextContainer) wordsInContextContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showTextStructureAndPurposeLessons = function () {
+                hideAllContainers();
+                if (textStructureAndPurposeContainer) textStructureAndPurposeContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showCrossTextConnectionsLessons = function () {
+                hideAllContainers();
+                if (crossTextConnectionsContainer) crossTextConnectionsContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showTransitionsLessons = function () {
+                hideAllContainers();
+                if (transitionsContainer) transitionsContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showRhetoricalSynthesisLessons = function () {
+                hideAllContainers();
+                if (rhetoricalSynthesisContainer) rhetoricalSynthesisContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showBoundariesLessons = function () {
+                hideAllContainers();
+                if (boundariesContainer) boundariesContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showAdvancedMathLessons = function () {
+                hideAllContainers();
+                if (advancedMathContainer) advancedMathContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+
+
+            window.showProblemSolvingDataLessons = function () {
+                hideAllContainers();
+                if (problemSolvingDataContainer) problemSolvingDataContainer.classList.remove("hidden");
+                if (satLineChart) satLineChart.classList.remove("hidden");
+                if (satProgressContainer) satProgressContainer.classList.remove("hidden");
+            };
+        });
+    </script>
+    <script src="scoreChart.js"></script>
+    <script src="actScoreChart.js"></script>
+    <script src="gedScoreChart.js"></script>
+<div class="progress-container" id="sat-progress-container">
+         <h2>SAT Category Progress</h2>
+         <br/>
+         <div class="progress-item" data-category="command-of-evidence">
+             <div class="progress-label">Command of Evidence</div>
+             <div class="progress-bar"><div class="progress-fill" id="command-of-evidence-bar"></div></div>
+             <div class="progress-percentage" id="command-of-evidence-text">0% <span class="arrow">▶</span></div>
+         </div>
+         <div class="progress-item" data-category="central-ideas">
+             <div class="progress-label">Central Ideas and Detail</div>
+             <div class="progress-bar"><div class="progress-fill" id="central-ideas-bar"></div></div>
+             <div class="progress-percentage" id="central-ideas-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="inferences">
+             <div class="progress-label">Inferences</div>
+             <div class="progress-bar"><div class="progress-fill" id="inferences-bar"></div></div>
+             <div class="progress-percentage" id="inferences-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="words-in-context">
+             <div class="progress-label">Words in Context</div>
+             <div class="progress-bar"><div class="progress-fill" id="words-in-context-bar"></div></div>
+             <div class="progress-percentage" id="words-in-context-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="text-structure-and-purpose">
+             <div class="progress-label">Text Structure and Purpose</div>
+             <div class="progress-bar"><div class="progress-fill" id="text-structure-and-purpose-bar"></div></div>
+             <div class="progress-percentage" id="text-structure-and-purpose-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="cross-text-connections">
+             <div class="progress-label">Cross-Text Connections</div>
+             <div class="progress-bar"><div class="progress-fill" id="cross-text-connections-bar"></div></div>
+             <div class="progress-percentage" id="cross-text-connections-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="transitions">
+             <div class="progress-label">Transitions</div>
+             <div class="progress-bar"><div class="progress-fill" id="transitions-bar"></div></div>
+             <div class="progress-percentage" id="transitions-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="rhetorical-synthesis">
+             <div class="progress-label">Rhetorical Synthesis</div>
+             <div class="progress-bar"><div class="progress-fill" id="rhetorical-synthesis-bar"></div></div>
+             <div class="progress-percentage" id="rhetorical-synthesis-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="boundaries">
+             <div class="progress-label">Boundaries</div>
+             <div class="progress-bar"><div class="progress-fill" id="boundaries-bar"></div></div>
+             <div class="progress-percentage" id="boundaries-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="algebra">
+             <div class="progress-label">Algebra</div>
+             <div class="progress-bar"><div class="progress-fill" id="algebra-bar"></div></div>
+             <div class="progress-percentage" id="algebra-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="advanced-math">
+             <div class="progress-label">Advanced Math</div>
+             <div class="progress-bar"><div class="progress-fill" id="advanced-math-bar"></div></div>
+             <div class="progress-percentage" id="advanced-math-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="problem-solving-and-data">
+             <div class="progress-label">Problem Solving and Data Analysis</div>
+             <div class="progress-bar"><div class="progress-fill" id="problem-solving-and-data-bar"></div></div>
+             <div class="progress-percentage" id="problem-solving-and-data-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="geometry-and-trigonometry">
+             <div class="progress-label">Geometry and Trigonometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="geometry-and-trigonometry-bar"></div></div>
+             <div class="progress-percentage" id="geometry-and-trigonometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+     </div>
+     <div class="progress-container hidden" id="act-progress-container">
+         <h2>ACT Category Progress</h2>
+         <br/>
+         <div class="progress-item" data-category="act-conventions-of-standard-english">
+             <div class="progress-label">Conventions of Standard English</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-conventions-of-standard-english-bar"></div></div>
+             <div class="progress-percentage" id="act-conventions-of-standard-english-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-knowledge-of-language">
+             <div class="progress-label">Knowledge of Language</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-knowledge-of-language-bar"></div></div>
+             <div class="progress-percentage" id="act-knowledge-of-language-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-production-of-writing">
+             <div class="progress-label">Production of Writing</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-production-of-writing-bar"></div></div>
+             <div class="progress-percentage" id="act-production-of-writing-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-algebra">
+             <div class="progress-label">Algebra</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-algebra-bar"></div></div>
+             <div class="progress-percentage" id="act-algebra-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-functions">
+             <div class="progress-label">Functions</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-functions-bar"></div></div>
+             <div class="progress-percentage" id="act-functions-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-coordinate-geometry">
+             <div class="progress-label">Coordinate Geometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-coordinate-geometry-bar"></div></div>
+             <div class="progress-percentage" id="act-coordinate-geometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-systems-of-equations">
+             <div class="progress-label">Systems of Equations</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-systems-of-equations-bar"></div></div>
+             <div class="progress-percentage" id="Systems-of-Equations-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-geometry">
+             <div class="progress-label">Geometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-geometry-bar"></div></div>
+             <div class="progress-percentage" id="act-geometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-trigonometry">
+             <div class="progress-label">Trigonometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-trigonometry-bar"></div></div>
+             <div class="progress-percentage" id="act-trigonometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-quadratics">
+             <div class="progress-label">Quadratics</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-quadratics-bar"></div></div>
+             <div class="progress-percentage" id="act-quadratics-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-logarithms">
+             <div class="progress-label">Logarithms</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-logarithms-bar"></div></div>
+             <div class="progress-percentage" id="act-logarithms-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-complex-numbers">
+             <div class="progress-label">Complex Numbers</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-complex-numbers-bar"></div></div>
+             <div class="progress-percentage" id="act-complex-numbers-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-word-problems">
+             <div class="progress-label">Word Problems</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-word-problems-bar"></div></div>
+             <div class="progress-percentage" id="act-word-problems-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-probability">
+             <div class="progress-label">Probability</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-probability-bar"></div></div>
+             <div class="progress-percentage" id="act-probability-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-sequences">
+             <div class="progress-label">Sequences</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-sequences-bar"></div></div>
+             <div class="progress-percentage" id="act-sequences-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-main-idea">
+             <div class="progress-label">Main Idea</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-main-idea-bar"></div></div>
+             <div class="progress-percentage" id="act-main-idea-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-authors-purpose">
+             <div class="progress-label">Authors Purpose</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-authors-purpose-bar"></div></div>
+             <div class="progress-percentage" id="act-authors-purpose-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-inference">
+             <div class="progress-label">Inference</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-inference-bar"></div></div>
+             <div class="progress-percentage" id="act-inference-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-character-motivation">
+             <div class="progress-label">Character Motivation</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-character-motivation-bar"></div></div>
+             <div class="progress-percentage" id="act-character-motivation-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-vocabulary-in-context">
+             <div class="progress-label">Vocabulary in Context</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-vocabulary-in-context-bar"></div></div>
+             <div class="progress-percentage" id="act-vocabulary-in-context-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-character-development">
+             <div class="progress-label">Character Development</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-character-development-bar"></div></div>
+             <div class="progress-percentage" id="act-character-development-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-symbolism">
+             <div class="progress-label">Symbolism</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-symbolism-bar"></div></div>
+             <div class="progress-percentage" id="act-symbolism-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-literary-device">
+             <div class="progress-label">Literary Device</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-literary-device-bar"></div></div>
+             <div class="progress-percentage" id="act-literary-device-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-theme">
+             <div class="progress-label">Theme</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-theme-bar"></div></div>
+             <div class="progress-percentage" id="act-theme-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-detail">
+             <div class="progress-label">Detail</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-detail-bar"></div></div>
+             <div class="progress-percentage" id="act-detail-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-relationship">
+             <div class="progress-label">Relationship</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-relationship-bar"></div></div>
+             <div class="progress-percentage" id="act-relationship-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-implication">
+             <div class="progress-label">Implication</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-implication-bar"></div></div>
+             <div class="progress-percentage" id="act-implication-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-comparison">
+             <div class="progress-label">Comparison</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-comparison-bar"></div></div>
+             <div class="progress-percentage" id="act-comparison-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-data-representation">
+             <div class="progress-label">Data Representation</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-data-representation-bar"></div></div>
+             <div class="progress-percentage" id="act-data-representation-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-research-summary">
+             <div class="progress-label">Research Summary</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-research-summary-bar"></div></div>
+             <div class="progress-percentage" id="act-research-summary-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="act-conflicting-viewpoints">
+             <div class="progress-label">Conflicting Viewpoints</div>
+             <div class="progress-bar"><div class="progress-fill" id="act-conflicting-viewpoints-bar"></div></div>
+             <div class="progress-percentage" id="act-conflicting-viewpoints-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+     </div>
+     <div class="progress-container hidden" id="ged-progress-container">
+         <h2>GED Category Progress</h2>
+         <br/>
+         <div class="progress-item" data-category="ged-algebra">
+             <div class="progress-label">Algebra</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-algebra-bar"></div></div>
+             <div class="progress-percentage" id="ged-algebra-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-geometry">
+             <div class="progress-label">Geometry</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-geometry-bar"></div></div>
+             <div class="progress-percentage" id="ged-geometry-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-language-arts">
+             <div class="progress-label">Reasoning Through Language Arts</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-language-arts-bar"></div></div>
+             <div class="progress-percentage" id="ged-language-arts-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-science">
+             <div class="progress-label">Science</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-science-bar"></div></div>
+             <div class="progress-percentage" id="ged-science-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-social-studies">
+             <div class="progress-label">Social Studies</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-social-studies-bar"></div></div>
+             <div class="progress-percentage" id="ged-social-studies-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-reading-comprehension">
+             <div class="progress-label">Reading Comprehension</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-reading-comprehension-bar"></div></div>
+             <div class="progress-percentage" id="ged-reading-comprehension-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-central-ideas">
+             <div class="progress-label">Central Ideas</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-central-ideas-bar"></div></div>
+             <div class="progress-percentage" id="ged-central-ideas-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-inference-and-authors-purpose">
+             <div class="progress-label">Inference and Author's Purpose</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-inference-and-authors-purpose-bar"></div></div>
+             <div class="progress-percentage" id="ged-inference-and-authors-purpose-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-grammar-sentence-structure">
+             <div class="progress-label">Grammar Sentence Structure</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-grammar-sentence-structure-bar"></div></div>
+             <div class="progress-percentage" id="ged-grammar-sentence-structure-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-basic-arithmetic">
+             <div class="progress-label">Basic Arithmetic</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-basic-arithmetic-bar"></div></div>
+             <div class="progress-percentage" id="ged-basic-arithmetic-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-punctuation-usage">
+             <div class="progress-label">Punctuation Usage</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-punctuation-usage-bar"></div></div>
+             <div class="progress-percentage" id="ged-punctuation-usage-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-linear-equations">
+             <div class="progress-label">Linear Equations</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-linear-equations-bar"></div></div>
+             <div class="progress-percentage" id="ged-linear-equations-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-data-interpretation">
+             <div class="progress-label">Data Interpretation</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-data-interpretation-bar"></div></div>
+             <div class="progress-percentage" id="ged-data-interpretation-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-word-problems">
+             <div class="progress-label">Word Problems</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-word-problems-bar"></div></div>
+             <div class="progress-percentage" id="ged-word-problems-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-life-science">
+             <div class="progress-label">Life Science</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-life-science-bar"></div></div>
+             <div class="progress-percentage" id="ged-life-science-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-physical-science">
+             <div class="progress-label">Physical Science</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-physical-science-bar"></div></div>
+             <div class="progress-percentage" id="ged-physical-science-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-earth-space">
+             <div class="progress-label">Earth and Space Science</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-earth-space-bar"></div></div>
+             <div class="progress-percentage" id="ged-earth-space-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-scientific-method-and-experimental-design">
+             <div class="progress-label">Scientific Method</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-scientific-method-and-experimental-design-bar"></div></div>
+             <div class="progress-percentage" id="ged-scientific-method-and-experimental-design-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-data-analysis-interpretation">
+             <div class="progress-label">Data Analysis Interpretation</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-data-analysis-interpretation-bar"></div></div>
+             <div class="progress-percentage" id="ged-data-analysis-interpretation-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-us-history">
+             <div class="progress-label">US History</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-us-history-bar"></div></div>
+             <div class="progress-percentage" id="ged-us-history-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-civics-and-government">
+             <div class="progress-label">Civics and Government</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-civics-and-government-bar"></div></div>
+             <div class="progress-percentage" id="ged-civics-and-government-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-economics">
+             <div class="progress-label">Economics</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-economics-bar"></div></div>
+             <div class="progress-percentage" id="ged-economics-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-geography-environmental-issues">
+             <div class="progress-label">Geography and Environment</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-geography-environmental-issues-bar"></div></div>
+             <div class="progress-percentage" id="ged-geography-environmental-issues-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+         <div class="progress-item" data-category="ged-reading-and-analyzing-historical-docs">
+             <div class="progress-label">Reading and Analyzing History</div>
+             <div class="progress-bar"><div class="progress-fill" id="ged-reading-and-analyzing-historical-docs-bar"></div></div>
+             <div class="progress-percentage" id="ged-reading-and-analyzing-historical-docs-text">0% <span class="arrow">&rarr;</span></div>
+         </div>
+     </div>
+
+
+</div> <!-- End of main container -->
+
+
+</div>    
+
+
+</div>
+</div>
+ </div>
+</div>
+
+
+
+
+<script>
+   
+   document.addEventListener("DOMContentLoaded", function () {
+        const canvas = document.getElementById("lastScoreBarChart");
+
+        if (!canvas) {
+            console.error("Last Score Bar Chart element not found!");
+            return;
+        }
+
+        const ctx = canvas.getContext("2d");
+
+        if (!ctx) {
+            console.error("Failed to get 2D context for Last Score Bar Chart!");
+            return;
+        }
+
+        // Retrieve the last test score from satScoreHistory
+        let scoreHistory = JSON.parse(localStorage.getItem("satScoreHistory")) || {};
+        let dates = Object.keys(scoreHistory).sort();
+        let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+
+        let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+        let lastReading = lastDate ? scoreHistory[lastDate]?.readingWriting ?? 0 : 0;
+        let lastTotal = lastMath + lastReading;
+        const maxScore = 1600;
+        const unfilledScore = maxScore - lastTotal; // Remaining portion
+
+        // Log for debugging
+        console.log(`Updating lastScoreBarChart with local date: ${new Date().toLocaleDateString()}`);
+
+        // Destroy previous chart if it exists
+        if (window.lastScoreBarChart && typeof window.lastScoreBarChart.destroy === "function") {
+            window.lastScoreBarChart.destroy();
+        }
+
+        // Create the new Last Score Single Bar Chart
+        window.lastScoreBarChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [""], // Single bar
+                datasets: [
+                    {
+                        label: "Math",
+                        data: [lastMath],
+                        backgroundColor: "rgb(96, 205, 241)", // blue
+                        stack: "total"
+                    },
+                    {
+                        label: "Reading/Writing",
+                        data: [lastReading],
+                        backgroundColor: "rgb(205, 120, 255)", // lavender
+                        stack: "total"
+                    },
+                    {
+                        label: "Missed",
+                        data: [unfilledScore],
+                        backgroundColor: "#d3d3d3", // Gray
+                        stack: "total"
+                    }
+                ]
+            },
+            options: {
+                indexAxis: "y", // Horizontal bar
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        max: maxScore,
+                        ticks: {
+                            stepSize: 800
+                        },
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        display: false,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true },
+                    datalabels: {
+                        anchor: "center",
+                        align: "center",
+                        color: "white",
+                        font: { size: 18, weight: "bold" },
+                        formatter: (value) => (value > 0 ? value : "")
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+    });
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("actLastScoreBarChart");
+
+    if (!canvas) {
+        console.error("ACT Last Score Bar Chart element not found!");
+        return;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) {
+        console.error("Failed to get 2D context for ACT Last Score Bar Chart!");
+        return;
+    }
+
+    // Function to render the chart
+    const renderChart = () => {
+        // Retrieve the last test score from localStorage
+        let scoreHistory = JSON.parse(localStorage.getItem("actScoreHistory")) || {};
+        let dates = Object.keys(scoreHistory).sort();
+        let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+
+        let lastEnglish = lastDate ? scoreHistory[lastDate]?.english ?? 0 : 0;
+        let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 0 : 0;
+        let lastReading = lastDate ? scoreHistory[lastDate]?.reading ?? 0 : 0;
+        let lastScience = lastDate ? scoreHistory[lastDate]?.science ?? 0 : 0;
+        let lastTotal = lastEnglish + lastMath + lastReading + lastScience;
+        const maxScore = 144; // 36 per section × 4 sections
+        const unfilledScore = Math.max(0, maxScore - lastTotal); // Remaining portion
+
+        // Log scores for debugging
+        console.log(`ACT Last Score Bar Chart - Scores for ${lastDate || "No Data"}:`, {
+            english: lastEnglish,
+            math: lastMath,
+            reading: lastReading,
+            science: lastScience,
+            total: lastTotal,
+            unfilled: unfilledScore
+        });
+
+        // Destroy previous chart if it exists
+        if (window.actLastScoreBarChart && typeof window.actLastScoreBarChart.destroy === "function") {
+            window.actLastScoreBarChart.destroy();
+        }
+
+        // Get theme and text color
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+        const textColor = currentTheme === "light" ? "black" : "rgb(220, 220, 220)";
+        const dataLabelColor = "white"; // Always white for visibility on colored bars
+        console.log(`ACT Last Score Bar Chart: Theme: ${currentTheme}, Tick color: ${textColor}, Data label color: ${dataLabelColor}`);
+
+        // Create the new ACT Last Score Single Bar Chart
+        window.actLastScoreBarChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [""], // Single bar
+                datasets: [
+                    {
+                        label: "English",
+                        data: [lastEnglish],
+                        backgroundColor: "rgb(255, 99, 132)", // Red
+                        stack: "total"
+                    },
+                    {
+                        label: "Math",
+                        data: [lastMath],
+                        backgroundColor: "rgb(0, 222, 230)", // Cyan
+                        stack: "total"
+                    },
+                    {
+                        label: "Reading",
+                        data: [lastReading],
+                        backgroundColor: "rgb(205, 120, 255)", // Pink
+                        stack: "total"
+                    },
+                    {
+                        label: "Science",
+                        data: [lastScience],
+                        backgroundColor: "rgb(75, 192, 192)", // Teal
+                        stack: "total"
+                    },
+                    {
+                        label: "Missed",
+                        data: [unfilledScore],
+                        backgroundColor: "#d3d3d3", // Gray
+                        stack: "total"
+                    }
+                ]
+            },
+            options: {
+                indexAxis: "y", // Horizontal bar
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        max: maxScore,
+                        ticks: {
+                        stepSize: 36,
+                        color: textColor,
+                        font: { size: 14, weight: "bold" },
+                        callback: function () {
+                            return "36"; // Always display "36" at each tick
+                        },
+                        },  
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        display: false,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true },
+                    datalabels: {
+                        anchor: "center",
+                        align: "center",
+                        color: dataLabelColor,
+                        font: { size: 18, weight: "bold" },
+                        formatter: (value) => (value >= 1 ? value : "") // Show only non-zero values
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+    };
+
+    // Initial render with delay
+    setTimeout(renderChart, 100);
+
+    // Re-render on theme changes
+    const observer = new MutationObserver(() => {
+        console.log("data-theme changed, re-rendering ACT Last Score Bar Chart");
+        renderChart();
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("gedLastScoreBarChart");
+
+    if (!canvas) {
+        console.error("GED Last Score Bar Chart element not found!");
+        return;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) {
+        console.error("Failed to get 2D context for GED Last Score Bar Chart!");
+        return;
+    }
+
+    // Function to render the chart
+    const renderChart = () => {
+        // Retrieve the last test score from localStorage
+        let scoreHistory = JSON.parse(localStorage.getItem("gedScoreHistory")) || {};
+        let dates = Object.keys(scoreHistory).sort();
+        let lastDate = dates.length > 0 ? dates[dates.length - 1] : null;
+
+        let lastMath = lastDate ? scoreHistory[lastDate]?.math ?? 100 : 100;
+        let lastRLA = lastDate ? scoreHistory[lastDate]?.rla ?? 100 : 100;
+        let lastSocialStudies = lastDate ? scoreHistory[lastDate]?.socialStudies ?? 100 : 100;
+        let lastScience = lastDate ? scoreHistory[lastDate]?.science ?? 100 : 100;
+        let lastTotal = lastDate ? scoreHistory[lastDate]?.total ?? 400 : 400;
+
+        // Log scores for debugging
+        console.log(`GED Last Score Bar Chart - Scores for ${lastDate || "No Data"}:`, {
+            math: lastMath,
+            rla: lastRLA,
+            socialStudies: lastSocialStudies,
+            science: lastScience,
+            total: lastTotal
+        });
+
+        // Calculate "Missed" portion based on total score
+        const maxScore = 800; // Max GED total score
+        const unfilledScore = Math.max(0, maxScore - lastTotal); // Remaining portion
+
+        // Destroy previous chart if it exists
+        if (window.gedLastScoreBarChart && typeof window.gedLastScoreBarChart.destroy === "function") {
+            window.gedLastScoreBarChart.destroy();
+        }
+
+        // Get theme and text color
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+        const textColor = currentTheme === "light" ? "black" : "rgb(220, 220, 220)";
+        const dataLabelColor = "white"; // Always white for visibility on colored bars
+        console.log(`GED Last Score Bar Chart: Theme: ${currentTheme}, Tick color: ${textColor}, Data label color: ${dataLabelColor}`);
+
+        // Create the new GED Last Score Single Bar Chart
+        window.gedLastScoreBarChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: [""], // Single bar
+                datasets: [
+                    {
+                        label: "Math",
+                        data: [lastMath],
+                        backgroundColor: "rgb(0, 222, 230)", // Cyan
+                        stack: "total"
+                    },
+                    {
+                        label: "Reasoning Through Language Arts",
+                        data: [lastRLA],
+                        backgroundColor: "rgb(205, 120, 255)", // Light purple
+                        stack: "total"
+                    },
+                    {
+                        label: "Social Studies",
+                        data: [lastSocialStudies],
+                        backgroundColor: "rgb(255, 165, 0)", // Orange
+                        stack: "total"
+                    },
+                    {
+                        label: "Science",
+                        data: [lastScience],
+                        backgroundColor: "rgb(50, 205, 50)", // Green
+                        stack: "total"
+                    },
+                    {
+                        label: "Missed",
+                        data: [unfilledScore],
+                        backgroundColor: "#d3d3d3", // Gray
+                        stack: "total"
+                    }
+                ]
+            },
+            options: {
+                indexAxis: "y", // Horizontal bar
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        stacked: true,
+                        max: maxScore,
+                        ticks: {
+                            stepSize: 200, // Increments of 200 for GED total scores (200, 400, 600, 800)
+                            color: textColor,
+                            font: { size: 14, weight: "bold" }
+                        },
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        display: false,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawOnChartArea: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: true },
+                    datalabels: {
+                        anchor: "center",
+                        align: "center",
+                        color: dataLabelColor,
+                        font: { size: 18, weight: "bold" },
+                        formatter: (value) => (value >= 100 ? value : "") // Show only non-default values
+                    }
+                }
+            },
+            plugins: typeof ChartDataLabels !== "undefined" ? [ChartDataLabels] : []
+        });
+    };
+
+    // Initial render with delay
+    setTimeout(renderChart, 100);
+
+    // Re-render on theme changes
+    const observer = new MutationObserver(() => {
+        console.log("data-theme changed, re-rendering GED Last Score Bar Chart");
+        renderChart();
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+});
+
+// Add localStorage monitoring
+(function () {
+ const originalSetItem = localStorage.setItem;
+ const originalRemoveItem = localStorage.removeItem;
+ const originalClear = localStorage.clear;
+
+ localStorage.setItem = function (key, value) {
+ console.log(`localStorage.setItem called - Key: ${key}, Value: ${value}`);
+ originalSetItem.apply(this, arguments);
+ };
+
+ localStorage.removeItem = function (key) {
+ console.log(`localStorage.removeItem called - Key: ${key}`);
+ originalRemoveItem.apply(this, arguments);
+ };
+
+ localStorage.clear = function () {
+ console.log("localStorage.clear called");
+ originalClear.apply(this, arguments);
+ };
+})();
+
+// Define categories in global scope so resetProgress can access them
+// Define categories in global scope so resetProgress can access them
+// Define categories in global scope so resetProgress can access them
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("API-based progress update script loaded");
+
+    async function syncLocalStorageToAPI(examType) {
+        const userId = getCookie('userId');
+        const resultsKey = `${examType.toLowerCase()}TestResults_${userId}`;
+        const storedResults = localStorage.getItem(resultsKey);
+        if (!userId) {
+            console.error('No userId cookie found for syncing');
+            return;
+        }
+        if (storedResults) {
+            const results = JSON.parse(storedResults);
+            for (const category in results) {
+                const { correct, incorrect } = results[category];
+                const total = correct + incorrect;
+                const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+                try {
+                    await fetch('/api/scores', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            user_id: parseInt(userId),
+                            exam_type: examType,
+                            category: category.replace(/^[^-]+-/, ""),
+                            score: correct,
+                            percentage
+                        })
+                    });
+                    console.log(`Synced ${category} for ${examType}: ${percentage}%`);
+                } catch (error) {
+                    console.error(`Error syncing ${category}:`, error);
+                }
+            }
+        }
+    }
+
+    window.updateProgress = async function(source) {
+        console.log(`updateProgress called from: ${source}`);
+        const userId = getCookie('userId');
+        const userInfo = document.getElementById('user-info');
+        if (!userId) {
+            console.error('No userId cookie found');
+            userInfo.innerHTML += '<p>Please log in to view scores.</p>';
+            return;
+        }
+        const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
+        let examType = "SAT";
+        if (activeExam === "line-chart-act") examType = "ACT";
+        else if (activeExam === "line-chart-ged") examType = "GED";
+
+        await syncLocalStorageToAPI(examType);
+
+        try {
+            const response = await fetch(`/api/scores/${userId}?exam=${examType}`);
+            if (!response.ok) {
+                console.error(`Failed to fetch scores: ${response.status}`);
+                userInfo.innerHTML += '<p>Error loading scores.</p>';
+                return;
+            }
+            const scores = await response.json();
+            console.log(`Fetched scores for ${examType}:`, scores);
+
+            const categories = {
+                SAT: [
+                    "command-of-evidence", "central-ideas", "inferences", "words-in-context",
+                    "text-structure-and-purpose", "cross-text-connections", "transitions",
+                    "rhetorical-synthesis", "boundaries", "algebra", "advanced-math",
+                    "problem-solving-and-data", "geometry-and-trigonometry"
+                ],
+                ACT: [
+                    "act-conventions-of-standard-english", "act-knowledge-of-language",
+                    "act-production-of-writing", "act-algebra", "act-functions",
+                    "act-coordinate-geometry", "act-systems-of-equations", "act-geometry",
+                    "act-trigonometry", "act-quadratics", "act-logarithms", "act-complex-numbers",
+                    "act-word-problems", "act-probability", "act-sequences", "act-main-idea",
+                    "act-authors-purpose", "act-inference", "act-character-motivation",
+                    "act-vocabulary-in-context", "act-character-development", "act-symbolism",
+                    "act-literary-device", "act-theme", "act-detail", "act-relationship",
+                    "act-implication", "act-comparison", "act-data-representation",
+                    "act-research-summary", "act-conflicting-viewpoints"
+                ],
+                GED: [
+                    "ged-algebra", "ged-geometry", "ged-language-arts", "ged-science",
+                    "ged-social-studies", "ged-reading-comprehension", "ged-central-ideas",
+                    "ged-inference-and-authors-purpose", "ged-grammar-sentence-structure",
+                    "ged-punctuation-usage", "ged-basic-arithmetic", "ged-linear-equations",
+                    "ged-data-interpretation", "ged-word-problems", "ged-life-science",
+                    "ged-physical-science", "ged-earth-space",
+                    "ged-scientific-method-and-experimental-design", "ged-data-analysis-interpretation",
+                    "ged-us-history", "ged-civics-and-government", "ged-economics",
+                    "ged-geography-environmental-issues", "ged-reading-and-analyzing-historical-docs"
+                ]
+            }[examType];
+
+            categories.forEach(category => {
+                const scoreData = scores.find(s => s.category === category.replace(/^[^-]+-/, ""));
+                const percentage = scoreData ? scoreData.percentage : 0;
+                const previousPercentage = scoreData ? scoreData.previous_percentage : 0;
+
+                const barElement = document.querySelector(`#${category}-bar`);
+                const textElement = document.querySelector(`#${category}-text`);
+                const arrowElement = textElement ? textElement.querySelector(".arrow") : null;
+
+                if (barElement) {
+                    barElement.style.width = `${percentage}%`;
+                    console.log(`Set ${category} bar width to ${percentage}%`);
+                }
+
+                if (textElement && arrowElement) {
+                    let arrow = "▶";
+                    let arrowColor = "#4e5163";
+                    if (percentage > previousPercentage) {
+                        arrow = "▲";
+                        arrowColor = "green";
+                    } else if (percentage < previousPercentage) {
+                        arrow = "▼";
+                        arrowColor = "red";
+                    }
+                    textElement.innerHTML = `${percentage}% <span class="arrow" style="color:${arrowColor} !important;">${arrow}</span>`;
+                    console.log(`Updated ${category}: ${percentage}% (prev: ${previousPercentage}%), Arrow: ${arrow}, Color: ${arrowColor}`);
+                }
+            });
+        } catch (error) {
+            console.error("Error updating progress:", error);
+            userInfo.innerHTML += '<p>Error loading scores.</p>';
+        }
+    };
+
+    setTimeout(() => window.updateProgress("DOMContentLoaded"), 1000);
+
+    document.querySelectorAll(".button-30").forEach(button => {
+        button.addEventListener("click", () => {
+            setTimeout(() => window.updateProgress("tabSwitch"), 1000);
+        });
+    });
+
+    window.addEventListener("testSubmitted", () => window.updateProgress("testSubmitted"));
+    window.addEventListener("load", () => window.updateProgress("windowLoad"));
+});
+
+// Define category arrays globally or in an accessible scope
+const satCategories = ["sat-reading", "sat-math"];
+const actCategories = ["act-english", "act-math", "act-reading", "act-science"];
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOMContentLoaded event fired. Script is running...");
+
+    // Define categories in global scope so resetProgress can access them
+    window.satCategories = [
+        "command-of-evidence",
+        "central-ideas",
+        "inferences",
+        "words-in-context",
+        "text-structure-and-purpose",
+        "cross-text-connections",
+        "transitions",
+        "rhetorical-synthesis",
+        "boundaries",
+        "algebra",
+        "advanced-math",
+        "problem-solving-and-data",
+        "geometry-and-trigonometry"
+    ];
+
+    window.actCategories = [
+        "act-conventions-of-standard-english",
+        "act-knowledge-of-language",
+        "act-production-of-writing",
+        "act-algebra",
+        "act-functions",
+        "act-coordinate-geometry",
+        "act-systems-of-equations",
+        "act-geometry",
+        "act-trigonometry",
+        "act-quadratics",
+        "act-logarithms",
+        "act-complex-numbers",
+        "act-word-problems",
+        "act-probability",
+        "act-sequences",
+        "act-main-idea",
+        "act-authors-purpose",
+        "act-inference",
+        "act-character-motivation",
+        "act-vocabulary-in-context",
+        "act-character-development",
+        "act-symbolism",
+        "act-literary-device",
+        "act-theme",
+        "act-detail",
+        "act-relationship",
+        "act-implication",
+        "act-comparison",
+        "act-data-representation",
+        "act-research-summary",
+        "act-conflicting-viewpoints"
+    ];
+
+    window.gedCategories = [
+        "ged-algebra",
+        "ged-geometry",
+        "ged-language-arts",
+        "ged-science",
+        "ged-social-studies",
+        "ged-reading-comprehension",
+        "ged-central-ideas",
+        "ged-inference-and-authors-purpose",
+        "ged-grammar-sentence-structure",
+        "ged-punctuation-usage",
+        "ged-basic-arithmetic",
+        "ged-linear-equations",
+        "ged-data-interpretation",
+        "ged-word-problems",
+        "ged-life-science",
+        "ged-physical-science",
+        "ged-earth-space",
+        "ged-scientific-method-and-experimental-design",
+        "ged-data-analysis-interpretation",
+        "ged-us-history",
+        "ged-civics-and-government",
+        "ged-economics",
+        "ged-geography-environmental-issues",
+        "ged-reading-and-analyzing-historical-docs",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ];
+
+    // Category mapping for GED to handle label mismatches
+    window.gedCategoryMap = {
+        "reasoning-through-language-arts": "ged-language-arts"
+    };
+});
+
+// Define resetProgress function
+function resetProgress() {
+    const activeExam = document.querySelector(".line-chart-container:not(.hidden)").id;
+    let storageKey, progressPrefix;
+
+    if (activeExam === "line-chart-sat") {
+        storageKey = "satProgress";
+        progressPrefix = window.satCategories;
+    } else if (activeExam === "line-chart-act") {
+        storageKey = "actProgress";
+        progressPrefix = window.actCategories;
+    } else if (activeExam === "line-chart-ged") {
+        storageKey = "gedProgress";
+        progressPrefix = window.gedCategories;
+    } else {
+        alert("No exam selected!");
+        return;
+    }
+
+    if (!progressPrefix) {
+        console.error(`Progress prefix not defined for exam: ${activeExam}`);
+        alert("Error: Unable to reset progress due to missing category definitions.");
+        return;
+    }
+
+    if (confirm("Are you sure you want to reset your progress for this exam? This action cannot be undone.")) {
+        // Remove specific exam progress from localStorage
+        localStorage.removeItem(storageKey);
+        localStorage.removeItem(`${storageKey.replace('Progress', '')}HistoricalProgress`);
+        console.log(`Cleared localStorage keys: ${storageKey}, ${storageKey.replace('Progress', '')}HistoricalProgress`);
+
+        // Remove test-specific storage items
+        if (activeExam === "line-chart-act") {
+            localStorage.removeItem("actScoreHistory");
+            localStorage.removeItem("actTestResults");
+            progressPrefix.forEach(category => {
+                localStorage.removeItem(`${category}Progress`);
+            });
+            console.log("Cleared ACT-specific localStorage keys");
+        } else if (activeExam === "line-chart-sat") {
+            localStorage.removeItem("satTestResults");
+            localStorage.removeItem("scoreHistory");
+            localStorage.removeItem("readingScore");
+            localStorage.removeItem("mathScore");
+            localStorage.removeItem("satScoreHistory"); // Clear SAT score history
+            // Clear lesson-specific scores for all SAT categories
+            window.satCategories.forEach(category => {
+                for (let i = 1; i <= 10; i++) { // Adjust range based on max lessons per category
+                    localStorage.removeItem(`${category}-lessonScore-${i}`);
+                }
+            });
+            console.log("Cleared SAT-specific localStorage keys: satTestResults, scoreHistory, readingScore, mathScore, satScoreHistory, lesson scores");
+        } else if (activeExam === "line-chart-ged") {
+            localStorage.removeItem("gedTestResults");
+            localStorage.removeItem("rlaScore");
+            localStorage.removeItem("mathScore");
+            localStorage.removeItem("scienceScore");
+            localStorage.removeItem("socialStudiesScore");
+            localStorage.removeItem("gedScoreHistory");
+            console.log("Cleared GED-specific localStorage keys");
+        }
+
+        // Reset progress bars and text for the active exam
+        progressPrefix.forEach(prefix => {
+            const bar = document.getElementById(`${prefix}-bar`);
+            const text = document.getElementById(`${prefix}-text`);
+            if (bar) {
+                bar.style.width = "0%";
+                console.log(`Reset progress bar: ${prefix}-bar to 0%`);
+            } else {
+                console.warn(`Progress bar not found: ${prefix}-bar`);
+            }
+            if (text) {
+                text.innerHTML = `0% <span class="arrow" style="color:#4e5163;">→</span>`;
+                console.log(`Reset progress text: ${prefix}-text to 0%`);
+            } else {
+                console.warn(`Progress text not found: ${prefix}-text`);
+            }
+        });
+
+        // Reset the bar chart for the active exam
+        let barChart;
+        if (activeExam === "line-chart-sat" && window.lastScoreBarChart) {
+            barChart = window.lastScoreBarChart;
+            console.log("SAT bar chart (lastScoreBarChart) found for reset");
+        } else if (activeExam === "line-chart-act" && window.actLastScoreBarChart) {
+            barChart = window.actLastScoreBarChart;
+            console.log("ACT bar chart (actLastScoreBarChart) found for reset");
+        } else if (activeExam === "line-chart-ged" && window.gedLastScoreBarChart) {
+            barChart = window.gedLastScoreBarChart;
+            console.log("GED bar chart (gedLastScoreBarChart) found for reset");
+        } else {
+            console.warn(`No bar chart found for active exam: ${activeExam}`);
+        }
+
+        if (barChart) {
+            barChart.data.datasets.forEach(dataset => {
+                dataset.data = Array(dataset.data.length).fill(0);
+            });
+            barChart.data.labels = ["No Data"];
+            barChart.update();
+            console.log(`Reset bar chart for ${activeExam}: datasets cleared, labels set to 'No Data'`);
+        }
+
+        // Reset the line chart for SAT
+        if (activeExam === "line-chart-sat" && window.scoreChart) {
+            window.scoreChart.data.datasets.forEach(dataset => {
+                dataset.data = Array(dataset.data.length).fill(0);
+            });
+            window.scoreChart.data.labels = ["No Data"];
+            window.scoreChart.update();
+            console.log("SAT line chart (scoreChart) reset: datasets cleared, labels set to 'No Data'");
+        }
+
+        // Reset the line chart for ACT
+        if (activeExam === "line-chart-act" && window.actScoreChart) {
+            window.actScoreChart.data.datasets.forEach(dataset => {
+                dataset.data = Array(dataset.data.length).fill(0);
+            });
+            window.actScoreChart.data.labels = ["No Data"];
+            window.actScoreChart.update();
+            console.log("ACT line chart (actScoreChart) reset: datasets cleared, labels set to 'No Data'");
+        }
+
+        // Reset the line chart for GED
+        if (activeExam === "line-chart-ged" && window.gedScoreChart) {
+            window.gedScoreChart.data.datasets.forEach(dataset => {
+                dataset.data = Array(dataset.data.length).fill(NaN); // Use NaN to match gedScoreChart.js
+            });
+            window.gedScoreChart.data.labels = ["No Data"];
+            window.gedScoreChart.update();
+            console.log("GED line chart (gedScoreChart) reset: datasets cleared, labels set to 'No Data'");
+        }
+
+        alert("Progress for this exam has been reset!");
+        console.log(`Progress reset completed for exam: ${activeExam}`);
+    }
+}
+    function showTests() {
+            document.getElementById('tests-container').classList.remove('hidden');
+            document.getElementById('lessons-container').classList.add('hidden');
+        }
+
+
+        function showLessons() {
+            document.getElementById('tests-container').classList.add('hidden');
+            document.getElementById('lessons-container').classList.remove('hidden');
+        }
+</script>
+   
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("User profile page loaded, updating score summaries");
+
+
+        function getScore(lessonId, subject) {
+            const score = localStorage.getItem(`${subject}-lessonScore-${lessonId}`) || "Not completed yet";
+            console.log(`Fetching ${subject}-lessonScore-${lessonId}: ${score}`);
+            return score;
+        }
+
+
+for (let i = 1; i <= 8; i++) {
+    const scoreElement = document.getElementById(`algebra-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "algebra");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated algebra-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Algebra score summary element for lesson ${i} not found`);
+    }
+}
+
+        // Update Geometry lesson scores (1–8)
+        for (let i = 1; i <= 8; i++) {
+            const scoreElement = document.getElementById(`geometry-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "geometry");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated geometry-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Geometry score summary element for lesson ${i} not found`);
+            }
+        }
+
+
+        // Update Command of Evidence lesson scores (1–4)
+        for (let i = 1; i <= 4; i++) {
+            const scoreElement = document.getElementById(`command-of-evidence-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "command-of-evidence");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated command-of-evidence-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Command of Evidence score summary element for lesson ${i} not found`);
+            }
+        }
+
+
+        for (let i = 1; i <= 5; i++) {
+          const scoreElement = document.getElementById(`central-ideas-score-summary-${i}`);
+        if (scoreElement) {
+        const score = getScore(i, "central-ideas");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated central-ideas-score-summary-${i} with: ${score}`);
+             } else {
+                 console.warn(`Central Ideas and Detail score summary element for lesson ${i} not found`);
+            }
+        }
+        for (let i = 1; i <= 6; i++) {
+    const scoreElement = document.getElementById(`inferences-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "inferences");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated inferences-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Inferences score summary element for lesson ${i} not found`);
+    }
+        }
+        for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`words-in-context-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "words-in-context");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated words-in-context-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Words in Context score summary element for lesson ${i} not found`);
+    }
+}
+for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`text-structure-and-purpose-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "text-structure-and-purpose");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated text-structure-and-purpose-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Text Structure and Purpose score summary element for lesson ${i} not found`);
+    }
+}
+for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`cross-text-connections-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "cross-text-connections");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated cross-text-connections-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Cross Text Connections score summary element for lesson ${i} not found`);
+    }
+}
+
+
+for (let i = 1; i <= 4; i++) {
+    const scoreElement = document.getElementById(`transitions-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "transitions");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated transitions-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Transitions score summary element for lesson ${i} not found`);
+    }
+}
+
+
+for (let i = 1; i <= 5; i++) {
+    const scoreElement = document.getElementById(`rhetorical-synthesis-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "rhetorical-synthesis");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated rhetorical-synthesis-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Rhetorical Synthesis score summary element for lesson ${i} not found`);
+    }
+}
+
+
+        for (let i = 1; i <= 4; i++) {
+            const scoreElement = document.getElementById(`boundaries-score-summary-${i}`);
+            if (scoreElement) {
+                const score = getScore(i, "boundaries");
+                scoreElement.textContent = `Last Score: ${score}`;
+                console.log(`Updated boundaries-score-summary-${i} with: ${score}`);
+            } else {
+                console.warn(`Boundaries score summary element for lesson ${i} not found`);
+            }
+        }
+
+
+        for (let i = 1; i <= 8; i++) {
+    const scoreElement = document.getElementById(`advanced-math-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "advanced-math");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated advanced-math-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Advanced Math score summary element for lesson ${i} not found`);
+    }
+}
+
+
+        // Update Problem Solving and Data Analysis lesson scores (1–4)
+        for (let i = 1; i <= 8; i++) {
+    const scoreElement = document.getElementById(`problem-solving-data-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "problem-solving-and-data");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated problem-solving-and-data-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Problem Solving and Data Analysis score summary element for lesson ${i} not found`);
+    }
+}
+
+
+
+
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Existing code...
+   
+        // Check last activity and show the corresponding exam
+        function showLastExam() {
+            const lastActivity = JSON.parse(localStorage.getItem("lastActivity"));
+            if (lastActivity && lastActivity.exam) {
+                switch (lastActivity.exam) {
+                    case "SAT":
+                        showSAT();
+                        break;
+                    case "ACT":
+                        showACT();
+                        break;
+                    case "GED":
+                        showGED();
+                        break;
+                    default:
+                        showSAT(); // Default to SAT
+                }
+                // Show tests or lessons based on type
+                if (lastActivity.type === "test") {
+                    showTests();
+                } else if (lastActivity.type === "lesson") {
+                    showLessons();
+                }
+            } else {
+                showSAT(); // Default to SAT
+            }
+        }
+   
+        // Call the function to show the last exam
+        showLastExam();
+    });
+    </script>
+   
+<div class="reset-container center">
+    <button class="resetBtn" onclick="resetProgress()">Reset Progress</button>
+</div>
+
+
+<div class="center">
+    <footer>
+        <div class="center">
+            <h2>Follow Us On</h2>
+        </div>
+        <div class="social-container">
+            <img src="Twitter.png" height="35px">
+            <img src="Insta.png" height="35px">
+            <img src="Reddit.png" height="35px">
+            <img src="YouTube.png" height="35px">
+            <img src="Tik Tok.png" height="35px">
+        </div>
+        <div>
+            <h3>Copyright © 2025 BrainJelli. All rights reserved.</h3>
+        </div>
+    </footer>
+</div>
+    <!-- Load SAT Chart JavaScript (Move it here to ensure canvas exists first) -->
+<!-- Scripts -->
+<script src="/scoreChart.js"></script>
+<script src="/actScoreChart.js"></script>
+<script src="/gedScoreChart.js"></script>
+<script src="/categoryScoreTracker.js"></script>
+<script src="/algebra-lessons.js"></script>
+<script src="/progress-tracker.js"></script>     
+
+<script>
+     document.addEventListener("DOMContentLoaded", function () {
+         console.log("Theme toggle and arrow fallback script running");
+
+
+         // Lightweight arrow fallback with triangle symbols
+         function fixArrows() {
+             console.log("Running fixArrows");
+             document.querySelectorAll(".progress-percentage .arrow").forEach(arrow => {
+                 const text = arrow.innerHTML;
+                 if (text.includes("â†’") || text.includes("→") || text === "" || text === "▶") {
+                     arrow.innerHTML = "▶";
+                     console.log(`Fixed arrow: ${text} → ▶`);
+                 } else if (text.includes("â†‘") || text === "↑" || text === "▲") {
+                     arrow.innerHTML = "▲";
+                     console.log(`Fixed arrow: ${text} → ▲`);
+                 } else if (text.includes("â†“") || text === "↓" || text === "▼") {
+                     arrow.innerHTML = "▼";
+                     console.log(`Fixed arrow: ${text} → ▼`);
+                 }
+             });
+         }
+
+         // Run initially and on test toggles
+         fixArrows();
+         document.querySelectorAll(".button-30").forEach(button => {
+             button.addEventListener("click", () => {
+                 setTimeout(fixArrows, 300);
+             });
+         });
+
+         // Check last activity and show correct exam section
+         const urlParams = new URLSearchParams(window.location.search);
+         const examFromUrl = urlParams.get('exam');
+         const lastActivity = JSON.parse(localStorage.getItem("lastActivity")) || {};
+         const lastExam = examFromUrl || lastActivity.exam || "SAT";
+         console.log("Last exam detected:", lastExam, "from URL:", examFromUrl, "lastActivity:", lastActivity);
+
+         if (lastExam === "SAT") {
+             showSAT();
+             setTimeout(() => {
+                 window.updateProgress("lessonReturnSAT");
+                 fixArrows();
+             }, 500); // Delay to ensure DOM and localStorage are ready
+         } else if (lastExam === "ACT") {
+             showACT();
+             setTimeout(() => {
+                 window.updateProgress("lessonReturnACT");
+                 fixArrows();
+             }, 500);
+         } else if (lastExam === "GED") {
+             showGED();
+             setTimeout(() => {
+                 window.updateProgress("lessonReturnGED");
+                 fixArrows();
+             }, 500);
+         }
+     });
+     </script>
+
+</body>
+</html>
