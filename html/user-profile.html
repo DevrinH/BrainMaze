@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile</title>
-    <link href="/landing.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/BrainJelliLOGO.png">
+<link href="/landing.css?v=1" rel="stylesheet">
+<link rel="icon" type="image/png" href="/BrainJelliLOGO.png">   
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <meta property="og:image" content="/BrainJelliLOGO.png"/>
     <link rel="apple-touch-icon" href="/BrainJelliLOGO.png">
     <link rel="android-touch-icon" href="/BrainJelliLOGO.png">
-    <link rel="icon" href="/BrainJelliCircleIcon.png" type="image/x-icon">
+<link rel="icon" href="/BrainJelliCircleIcon.png" type="image/x-icon">   
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.3/purify.min.js"></script>
@@ -29,6 +30,15 @@
             height: 45px !important;
             display: block !important;
         }
+#user-info {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+#user-email, #user-name {
+    margin: 5px 0;
+}
     </style>
 </head>
 
@@ -45,6 +55,11 @@
             </div>
         </div>
     </header>
+
+<div id="user-info">
+    <div id="user-email"></div>
+    <div id="user-name"></div>
+</div>
 
     <main>
         <div class="line-chart-container" id="line-chart-sat">
@@ -83,20 +98,20 @@
                 <canvas id="gedLastScoreBarChart"></canvas>
             </div>
         </div>
-</main>
 
-<div id="user-info">
-<div id="user-email"></div>
-<div id="user-name"></div>
 </div>
 
-<script>document.addEventListener('DOMContentLoaded', () => {
-const emailElement = document.querySelector('#user-email');
-const nameElement = document.querySelector('#user-name');
-if (emailElement) emailElement.innerHTML = DOMPurify.sanitize(getCookie('email') || 'Not logged in');
-if (nameElement) nameElement.innerHTML = DOMPurify.sanitize(getCookie('name') || 'Guest');
-});</script>
+</main>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const emailElement = document.querySelector('#user-email');
+    const nameElement = document.querySelector('#user-name');
+    if (emailElement) emailElement.innerHTML = DOMPurify.sanitize(getCookie('email') || 'Not logged in');
+    if (nameElement) nameElement.innerHTML = DOMPurify.sanitize(getCookie('name') || 'Guest');
+});
+</script>
 <style>
     .profile-container {
         max-width: 600px;
@@ -114,29 +129,18 @@ if (nameElement) nameElement.innerHTML = DOMPurify.sanitize(getCookie('name') ||
 </style>
 
 <script>
-    function getCookie(name) {
+function getCookie(name) {
+    console.log('Cookies:', document.cookie);
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) {
-        const encodedCookie = parts.pop().split(';').shift();
-        return decodeURIComponent(encodedCookie);
+        const cookieValue = parts.pop().split(';').shift();
+        console.log(`Retrieved cookie ${name}:`, cookieValue);
+        return decodeURIComponent(cookieValue);
     }
+    console.warn(`Cookie ${name} not found`);
     return null;
 }
-
-    const userCookie = getCookie('user');
-    const userInfo = document.getElementById('user-info');
-    if (userCookie) {
-        try {
-            const user = JSON.parse(userCookie);
-            userInfo.innerHTML = `User ID: ${user.userId}<br>Email: ${user.email}<br>Name: ${user.name}`;
-        } catch (error) {
-            userInfo.innerHTML = 'Error parsing user information.';
-            console.error('Error parsing user cookie:', error);
-        }
-    } else {
-        userInfo.innerHTML = 'Unable to load user information. Please sign in again.';
-    }
 </script>
 <div class="button-container">
     <button class="button-30" role="button" onclick="showGED()">GED</button>
@@ -3035,12 +3039,18 @@ document.addEventListener("DOMContentLoaded", function () {
 // Define categories in global scope so resetProgress can access them
 // Define categories in global scope so resetProgress can access them
 // Define categories in global scope so resetProgress can access them
-document.addEventListener("DOMContentLoaded", () => {
+
+document.addEventListener("DOMContentLoaded", function () {
     console.log("API-based progress update script loaded");
 
     async function syncLocalStorageToAPI(examType) {
-        const resultsKey = `${examType.toLowerCase()}TestResults`;
+        const userId = getCookie('userId');
+        const resultsKey = `${examType.toLowerCase()}TestResults_${userId}`;
         const storedResults = localStorage.getItem(resultsKey);
+        if (!userId) {
+            console.error('No userId cookie found for syncing');
+            return;
+        }
         if (storedResults) {
             const results = JSON.parse(storedResults);
             for (const category in results) {
@@ -3048,11 +3058,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const total = correct + incorrect;
                 const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
                 try {
-                    await fetch('https://www.brainjelli.com/api/scores', {
+                    await fetch('/api/scores', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            user_id: 1,
+                            user_id: parseInt(userId),
                             exam_type: examType,
                             category: category.replace(/^[^-]+-/, ""),
                             score: correct,
@@ -3069,18 +3079,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.updateProgress = async function(source) {
         console.log(`updateProgress called from: ${source}`);
+        const userId = getCookie('userId');
+        const userInfo = document.getElementById('user-info');
+        if (!userId) {
+            console.error('No userId cookie found');
+            userInfo.innerHTML += '<p>Please log in to view scores.</p>';
+            return;
+        }
         const activeExam = document.querySelector(".line-chart-container:not(.hidden)")?.id;
         let examType = "SAT";
         if (activeExam === "line-chart-act") examType = "ACT";
         else if (activeExam === "line-chart-ged") examType = "GED";
 
-        // Sync localStorage data
         await syncLocalStorageToAPI(examType);
 
         try {
-            const response = await fetch(`https://www.brainjelli.com/api/scores/1?exam=${examType}`);
+            const response = await fetch(`/api/scores/${userId}?exam=${examType}`);
             if (!response.ok) {
                 console.error(`Failed to fetch scores: ${response.status}`);
+                userInfo.innerHTML += '<p>Error loading scores.</p>';
                 return;
             }
             const scores = await response.json();
@@ -3119,7 +3136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }[examType];
 
             categories.forEach(category => {
-const scoreData = scores.find(s => s.category === category);
+                const scoreData = scores.find(s => s.category === category.replace(/^[^-]+-/, ""));
                 const percentage = scoreData ? scoreData.percentage : 0;
                 const previousPercentage = scoreData ? scoreData.previous_percentage : 0;
 
@@ -3148,20 +3165,18 @@ const scoreData = scores.find(s => s.category === category);
             });
         } catch (error) {
             console.error("Error updating progress:", error);
+            userInfo.innerHTML += '<p>Error loading scores.</p>';
         }
     };
 
-    // Initial update
     setTimeout(() => window.updateProgress("DOMContentLoaded"), 1000);
 
-    // Update on tab switch
     document.querySelectorAll(".button-30").forEach(button => {
         button.addEventListener("click", () => {
             setTimeout(() => window.updateProgress("tabSwitch"), 1000);
         });
     });
 
-    // Update on test submission or lesson return
     window.addEventListener("testSubmitted", () => window.updateProgress("testSubmitted"));
     window.addEventListener("load", () => window.updateProgress("windowLoad"));
 });
@@ -3440,18 +3455,16 @@ function resetProgress() {
         }
 
 
-        // Update Algebra lesson scores (1–10)
-        for (let i = 1; i <= 10; i++) {
-            const scoreElement = document.getElementById(`algebra-score-summary-${i}`);
-            if (scoreElement) {
-                const score = getScore(i, "algebra");
-                scoreElement.textContent = `Last Score: ${score}`;
-                console.log(`Updated algebra-score-summary-${i} with: ${score}`);
-            } else {
-                console.warn(`Algebra score summary element for lesson ${i} not found`);
-            }
-        }
-
+for (let i = 1; i <= 8; i++) {
+    const scoreElement = document.getElementById(`algebra-score-summary-${i}`);
+    if (scoreElement) {
+        const score = getScore(i, "algebra");
+        scoreElement.textContent = `Last Score: ${score}`;
+        console.log(`Updated algebra-score-summary-${i} with: ${score}`);
+    } else {
+        console.warn(`Algebra score summary element for lesson ${i} not found`);
+    }
+}
 
         // Update Geometry lesson scores (1–8)
         for (let i = 1; i <= 8; i++) {
