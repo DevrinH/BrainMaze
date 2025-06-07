@@ -7,4 +7,4 @@ tmp/
 temp/
 *.bak
 *.swp
-*.tmp.env
+*.tmp
