@@ -28,6 +28,7 @@ jobs:
             sudo chown -R brainjelli:brainjelli /home/brainjelli/BrainMaze
             sudo chmod -R 644 /home/brainjelli/BrainMaze/*
             sudo chmod -R 755 /home/brainjelli/BrainMaze
+            npm install
             sudo systemctl reload nginx
             pm2 restart brainjelli-backend || pm2 start backend/server.js --name brainjelli-backend
           ENDSSH
