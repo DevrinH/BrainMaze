@@ -21,15 +21,17 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > /tmp/ssh_key
           chmod 600 /tmp/ssh_key
           ssh -o StrictHostKeyChecking=no -i /tmp/ssh_key brainjelli@$DROPLET_IP << 'ENDSSH'
+            mkdir -p /home/brainjelli/BrainMaze
+            rm -rf /home/brainjelli/BrainMaze/*
+          ENDSSH
+          scp -o StrictHostKeyChecking=no -i /tmp/ssh_key -r ./* brainjelli@$DROPLET_IP:/home/brainjelli/BrainMaze/
+          ssh -o StrictHostKeyChecking=no -i /tmp/ssh_key brainjelli@$DROPLET_IP << 'ENDSSH'
             cd /home/brainjelli/BrainMaze
-            git pull origin main
-            mkdir -p /home/brainjelli/BrainMaze/html
-            cp -r html/* /home/brainjelli/BrainMaze/html/
             sudo chown -R brainjelli:brainjelli /home/brainjelli/BrainMaze
             sudo chmod -R 644 /home/brainjelli/BrainMaze/*
             sudo chmod -R 755 /home/brainjelli/BrainMaze
             npm install
-            sudo systemctl reload nginx
             pm2 restart brainjelli-backend || pm2 start backend/server.js --name brainjelli-backend
+            sudo systemctl reload nginx
           ENDSSH
           rm /tmp/ssh_key
