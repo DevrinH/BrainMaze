@@ -1,98 +1,82 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // DOM Elements
     const passageElement = document.getElementById("passage");
     const questionElement = document.getElementById("question");
     const answerButtons = document.getElementById("answer-buttons");
     const nextButton = document.getElementById("next-btn");
-    const gedIntroContainer = document.getElementById("ged-intro-container");
+    const actIntroContainer = document.getElementById("act-intro-container");
     const startTestButton = document.getElementById("start-test-btn");
 
-    // State Variables
     let currentQuestionIndex = 0;
     let score = 0;
     let correctAnswers = 0;
     let selectedQuestions = [];
     let categoryStats = {};
-    let testCompleted = false;
-    let socialStudiesResponses = [];
+    let results = localStorage.getItem("actResults");
+    results = results ? JSON.parse(results) : {};
+    let englishResponses = [];
+    let englishScore = 0;
+    const currentSection = "english";
 
-    // Sample Question Bank
-    const socialStudiesQuestions = [
+    // English question bank
+    const englishQuestions = [
         {
-            passage: "In 1963, the March on Washington drew over 200,000 people to demand civil rights. Martin Luther King Jr. delivered his 'I Have a Dream' speech, calling for racial equality. The event pressured Congress to pass the Civil Rights Act of 1964.",
-            question: "What was the primary goal of the March on Washington?",
+            passage: "The community center buzzed with anticipation as the robotics team unveiled their project. For months, the group—led by juniors Aisha Khan and Leo Cruz—had toiled after school, soldering circuits and debugging code. Their goal was ambitious: a robot that could sort recyclables with precision, addressing the town’s overflowing landfill problem. Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass. Leo, an engineering whiz, designed a claw that adjusted its grip based on material density. Early prototypes had faltered; one memorably scattered cans across the lab. Yet each failure fueled their resolve. Now, with the regional competition looming, their robot hummed smoothly, its sensors blinking in rhythm. The crowd leaned closer as Aisha explained the machine’s logic, her voice steady despite her nerves. Leo demonstrated the claw, which plucked a bottle from a pile with eerie accuracy. Critics in the audience murmured—could a high school team really tackle such a complex issue? The judges, however, scribbled notes, their expressions unreadable. Aisha and Leo exchanged a glance, silently acknowledging months of scrapped designs and heated debates. Their robot wasn’t perfect; glass sorting still lagged behind plastic. But it was a start, a spark of innovation born from late-night pizza and stubborn hope. The team knew the stakes: a win could fund a town-wide recycling program. As the demo ended, applause erupted, though Aisha already mentally tweaked code for the next iteration. Progress, she thought, was messy but worth it.",
+            question: "Which punctuation corrects the sentence 'Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass'?",
             answers: [
-                { text: "A) Economic reform", correct: false },
-                { text: "B) Civil rights legislation", correct: true },
-                { text: "C) Voting rights", correct: false },
-                { text: "D) Education reform", correct: false }
+                { text: "A) Aisha the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                { text: "B) Aisha, the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: true },
+                { text: "C) Aisha the team’s coder, had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false },
+                { text: "D) Aisha, the team’s coder had spent sleepless nights refining algorithms to distinguish plastic from glass.", correct: false }
             ],
-            type: "social studies",
-            difficulty: "medium",
-            category: "ged-social-studies"
+            type: "english",
+            difficulty: "easy",
+            category: "act-conventions-of-standard-english"
         },
-        {
-            passage: "In 1963, the March on Washington drew over 200,000 people...",
-            question: "What legislation was influenced by the March?",
-            answers: [
-                { text: "A) Voting Rights Act", correct: false },
-                { text: "B) Civil Rights Act", correct: true },
-                { text: "C) Fair Housing Act", correct: false },
-                { text: "D) Equal Pay Act", correct: false }
-            ],
-            type: "social studies",
-            difficulty: "medium",
-            category: "ged-social-studies"
-        }
+        // Add more questions as needed
     ];
 
-    // Start Test
     function startTest() {
-        if (!gedIntroContainer || !document.getElementById("question-container")) {
+        if (!actIntroContainer || !document.getElementById("question-container")) {
             console.error("Required elements not found");
             return;
         }
-        gedIntroContainer.classList.add("hide");
+        actIntroContainer.classList.add("hide");
         document.getElementById("question-container").classList.remove("hide");
-        startSocialStudiesSection();
+        startEnglishSection();
     }
 
-    // Social Studies Section Starter
-    function startSocialStudiesSection() {
-        console.log("Starting Social Studies section");
-        socialStudiesResponses = [];
+    function startEnglishSection() {
+        englishResponses = [];
         score = 0;
         correctAnswers = 0;
-        passageElement.innerHTML = "";
-        startQuiz(socialStudiesQuestions);
+        startQuiz(englishQuestions);
     }
 
-    // Start Quiz
     function startQuiz(questions) {
         if (!questions || questions.length === 0) {
-            console.error("No questions available for Social Studies");
+            console.error("No questions available for English section");
             return;
         }
         const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
         if (missingPassages.length > 0) {
-            console.warn(`Warning: ${missingPassages.length} questions in Social Studies lack a valid passage`);
+            console.warn(`Warning: ${missingPassages.length} questions in English lack a valid passage`);
         }
         currentQuestionIndex = 0;
-        score = 0;
-        correctAnswers = 0;
         categoryStats = {};
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
 
+        // Reset layout classes
         document.querySelector(".question-row").classList.remove("score-display");
+
+        // Add section-specific class
         const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("social-studies-section");
-        questionRow.classList.add("social-studies-section");
+        questionRow.classList.remove("english-section");
+        questionRow.classList.add("english-section");
 
         showQuestion();
     }
 
-    // Show Question
     function showQuestion() {
         resetState();
         if (!selectedQuestions[currentQuestionIndex]) {
@@ -101,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        console.log(`Displaying question ${questionNo} in Social Studies, passage:`, currentQuestion.passage || "");
+        console.log(`Displaying question ${questionNo} in English, passage:`, currentQuestion.passage || "No passage");
         passageElement.style.display = "block";
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
@@ -110,7 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
         questionRow.classList.remove("score-display");
         questionElement.classList.remove("centered-score");
 
-        currentQuestion.answers.forEach((answer) => {
+        // Display answer buttons without option letters
+        currentQuestion.answers.forEach((answer, index) => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
             button.classList.add("btn");
@@ -124,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
         updateProgressBar();
     }
 
-    // Reset State
     function resetState() {
         nextButton.style.display = "none";
         nextButton.classList.remove("centered-btn");
@@ -133,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Select Answer
     function selectAnswer(e) {
         const selectedBtn = e.target;
         const isCorrect = selectedBtn.dataset.correct === "true";
@@ -146,11 +129,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+
         const safePassage = currentQuestion.passage || "No passage provided";
         const safeQuestion = currentQuestion.question || "No question provided";
         const responseQuestion = safePassage + "<br/><br/>" + safeQuestion;
 
-        console.log("Creating user response: Social Studies :", {
+        console.log("Creating user response:", {
             question: responseQuestion,
             userAnswer: selectedBtn.innerHTML,
             correctAnswer: correctAnswer,
@@ -158,62 +142,69 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const response = {
-            section: "social studies",
+            section: "english",
             question: responseQuestion,
             userAnswer: selectedBtn.innerHTML,
             correctAnswer: correctAnswer,
             wasCorrect: isCorrect
         };
 
-        socialStudiesResponses.push(response);
+        englishResponses.push(response);
 
         if (isCorrect) {
             selectedBtn.classList.add("correct");
             correctAnswers++;
-            if (questionDifficulty === "easy") score += 1;
-            else if (questionDifficulty === "medium") score += 2;
-            else if (questionDifficulty === "hard") score += 3;
+            if (questionDifficulty === "easy") {
+                score += 1;
+            } else if (questionDifficulty === "medium") {
+                score += 2;
+            } else if (questionDifficulty === "hard") {
+                score += 3;
+            }
             categoryStats[questionCategory].correct++;
         } else {
             selectedBtn.classList.add("incorrect");
             categoryStats[questionCategory].incorrect++;
         }
 
+        recordTestResults();
+
         Array.from(answerButtons.children).forEach(button => {
-            if (button.dataset.correct === "true") button.classList.add("correct");
+            if (button.dataset.correct === "true") {
+                button.classList.add("correct");
+            }
             button.disabled = true;
         });
-
-        recordTestResults();
 
         nextButton.style.display = "block";
         nextButton.disabled = false;
     }
 
-    // Show Final Score
     function showFinalScore() {
         resetState();
 
-        let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
+        // Calculate English score
+        let maxPossibleScore = (25 * 1) + (25 * 2) + (25 * 3); // Assume 75 questions
         let rawScore = score;
-        let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
+        englishScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
-        console.log(`Saving Untimed Social Studies score: ${scaledScore}/200`);
+        // Store score in localStorage
+        localStorage.setItem("englishUntimedScore", englishScore);
 
-        // Store Social Studies Untimed score for profile display
-        localStorage.setItem("socialStudiesUntimedScore", scaledScore);
+        // Do not write to actScoreHistory to avoid affecting the chart
+        console.log(`Untimed English score ${englishScore} saved to englishUntimedScore for ${new Date().toLocaleDateString("en-CA")}`);
 
-        // Do not write to gedScoreHistory to avoid affecting the chart
-        console.log(`Untimed Social Studies score ${scaledScore} saved to socialStudiesUntimedScore for ${new Date().toLocaleDateString("en-CA")}`);
+        // Save test completion metadata
+        saveTestCompletion("ACT-English-Untimed");
 
-        saveTestCompletion("GED-Social-Studies-Untimed");
-
+        // Update UI
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Untimed Social Studies GED Score:</strong> ${scaledScore} / 200</p>`;
+        questionElement.innerHTML = `<p><strong>ACT Untimed English Score:</strong> ${englishScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
+        // Set up review button
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
@@ -221,17 +212,15 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.addEventListener("click", showExplanations);
     }
 
-    // Save Test Completion
     function saveTestCompletion(examType) {
         const completionData = {
-            exam: "GED", // Changed from examType to "GED"
+            exam: "ACT", // Changed from examType to "GED"
             type: "test",
             timestamp: new Date().toISOString()
         };
         localStorage.setItem("lastActivity", JSON.stringify(completionData));
     }
 
-    // Show Explanations
     function showExplanations() {
         console.log("Entering showExplanations");
         resetState();
@@ -240,7 +229,9 @@ document.addEventListener("DOMContentLoaded", () => {
         questionElement.style.overflowY = "scroll";
         questionElement.style.maxHeight = "80vh";
 
-        const incorrectResponses = socialStudiesResponses.filter(response => response && response.wasCorrect === false);
+        const incorrectResponses = englishResponses.filter(
+            response => response && response.wasCorrect === false
+        );
         console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
 
         if (incorrectResponses.length === 0) {
@@ -248,11 +239,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             const fragment = document.createDocumentFragment();
             const sectionDiv = document.createElement("div");
-            sectionDiv.innerHTML = "<h3>Social Studies Section</h3>";
+            sectionDiv.innerHTML = "<h3>English Section</h3>";
             incorrectResponses.forEach((response, index) => {
-                console.log(`Processing Social Studies response ${index + 1}:`, response);
+                console.log(`Processing English response ${index + 1}:`, response);
                 const explanation = generateExplanation(response);
-                console.log(`Explanation for Social Studies response ${index + 1}:`, explanation);
+                console.log(`Explanation for English response ${index + 1}:`, explanation);
                 const div = document.createElement("div");
                 div.className = "explanation";
                 div.innerHTML = `
@@ -265,7 +256,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 sectionDiv.appendChild(div);
             });
             fragment.appendChild(sectionDiv);
-            console.log("Appending to questionElement:", questionElement);
             questionElement.appendChild(fragment);
         }
 
@@ -279,41 +269,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Generate Explanations
     function generateExplanation(response) {
         const questionText = response.question || "";
-
-        if (questionText.includes("What was the primary goal")) {
-            return "The March on Washington aimed to push for civil rights legislation, as stated in the passage. Option B) Civil rights legislation is correct.";
-        } else if (questionText.includes("What legislation was influenced")) {
-            return "The passage explicitly mentions the Civil Rights Act of 1964 as influenced by the March. Option B) Civil Rights Act is correct.";
-        }
-
         return "No explanation available for this question.";
     }
 
-    // Handle Next Button
     function handleNextButton() {
+        recordTestResults();
         currentQuestionIndex++;
         if (currentQuestionIndex < selectedQuestions.length) {
             showQuestion();
         } else {
-            testCompleted = true;
-            recordTestResults();
             showFinalScore();
         }
     }
 
-    // Update Progress Bar
     function updateProgressBar() {
         const progressBar = document.getElementById("progress-bar-test");
         let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
         progressBar.firstElementChild.style.width = progress + "%";
     }
 
-    // Record Test Results
     function recordTestResults() {
-        let storedResults = localStorage.getItem("gedTestResults");
+        let storedResults = localStorage.getItem("actTestResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
 
         if (typeof results !== "object" || Array.isArray(results)) {
@@ -326,25 +304,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             results[category].correct += categoryStats[category].correct || 0;
             results[category].incorrect += categoryStats[category].incorrect || 0;
-            console.log(`Saving category ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         }
 
-        localStorage.setItem("gedTestResults", JSON.stringify(results));
-        console.log("Stored gedTestResults:", results);
+        localStorage.setItem("actTestResults", JSON.stringify(results));
 
-        if (!testCompleted) {
-            for (let category in categoryStats) {
-                categoryStats[category].correct = 0;
-                categoryStats[category].incorrect = 0;
-            }
+        for (let category in categoryStats) {
+            categoryStats[category].correct = 0;
+            categoryStats[category].incorrect = 0;
         }
     }
 
-    // Show Intro Message
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
-        questionElement.innerHTML = "This is an untimed GED Social Studies Test. Take your time to answer approximately 35 questions.";
+        questionElement.innerHTML = "This is an untimed ACT English Test. Take your time to complete the section.";
         questionElement.classList.add("centered-score");
 
         const startButton = document.createElement("button");
@@ -352,7 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startButton.classList.add("btn", "centered-btn");
         startButton.addEventListener("click", () => {
             questionElement.classList.remove("centered-score");
-            startSocialStudiesSection();
+            startEnglishSection();
         });
         answerButtons.appendChild(startButton);
     }
@@ -365,13 +338,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (nextButton) {
-        nextButton.addEventListener("click", () => {
-            handleNextButton();
-        });
+        nextButton.addEventListener("click", handleNextButton);
     } else {
         console.error("next-btn element not found");
     }
 
-    // Initialize
+    // Initialize the test by showing the intro message
     showIntroMessage();
 });

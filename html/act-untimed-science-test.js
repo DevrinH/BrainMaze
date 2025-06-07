@@ -1,98 +1,94 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // DOM Elements
     const passageElement = document.getElementById("passage");
     const questionElement = document.getElementById("question");
     const answerButtons = document.getElementById("answer-buttons");
     const nextButton = document.getElementById("next-btn");
-    const gedIntroContainer = document.getElementById("ged-intro-container");
+    const actIntroContainer = document.getElementById("act-intro-container");
     const startTestButton = document.getElementById("start-test-btn");
 
-    // State Variables
     let currentQuestionIndex = 0;
     let score = 0;
     let correctAnswers = 0;
     let selectedQuestions = [];
     let categoryStats = {};
-    let testCompleted = false;
-    let socialStudiesResponses = [];
+    let results = localStorage.getItem("actResults");
+    results = results ? JSON.parse(results) : {};
+    let scienceResponses = [];
+    let scienceScore = 0;
+    const currentSection = "science";
 
-    // Sample Question Bank
-    const socialStudiesQuestions = [
+    // Science question bank
+    const scienceQuestions = [
         {
-            passage: "In 1963, the March on Washington drew over 200,000 people to demand civil rights. Martin Luther King Jr. delivered his 'I Have a Dream' speech, calling for racial equality. The event pressured Congress to pass the Civil Rights Act of 1964.",
-            question: "What was the primary goal of the March on Washington?",
+            passage: "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
+            question: "Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?",
             answers: [
-                { text: "A) Economic reform", correct: false },
-                { text: "B) Civil rights legislation", correct: true },
-                { text: "C) Voting rights", correct: false },
-                { text: "D) Education reform", correct: false }
+                { text: "A) 20°C", correct: false },
+                { text: "B) 40°C", correct: true },
+                { text: "C) 50°C", correct: false },
+                { text: "D) 60°C", correct: false }
             ],
-            type: "social studies",
+            type: "science",
             difficulty: "medium",
-            category: "ged-social-studies"
+            category: "act-data-representation"
         },
         {
-            passage: "In 1963, the March on Washington drew over 200,000 people...",
-            question: "What legislation was influenced by the March?",
+            passage: "A group of scientists conducted experiments to study the effects of temperature and pH on the enzymatic activity of amylase, an enzyme that breaks down starch into glucose. They measured the rate of glucose production (in micromoles per minute) under various conditions. Experiment 1 tested the enzyme's activity at pH 7 across five temperatures: 20°C, 30°C, 40°C, 50°C, and 60°C. Experiment 2 tested the enzyme's activity at 37°C across five pH levels: 5, 6, 7, 8, and 9. The results are shown in Figures 1 and 2.\n\n**Figure 1: Glucose Production Rate vs. Temperature (pH 7)**\n- 20°C: 10 µmol/min\n- 30°C: 25 µmol/min\n- 40°C: 40 µmol/min\n- 50°C: 30 µmol/min\n- 60°C: 5 µmol/min\n\n**Figure 2: Glucose Production Rate vs. pH (37°C)**\n- pH 5: 15 µmol/min\n- pH 6: 30 µmol/min\n- pH 7: 40 µmol/min\n- pH 8: 35 µmol/min\n- pH 9: 20 µmol/min",
+            question: "According to Figure 2, how does the enzymatic activity of amylase change as pH increases from 7 to 9 at 37°C?",
             answers: [
-                { text: "A) Voting Rights Act", correct: false },
-                { text: "B) Civil Rights Act", correct: true },
-                { text: "C) Fair Housing Act", correct: false },
-                { text: "D) Equal Pay Act", correct: false }
+                { text: "A) It increases steadily", correct: false },
+                { text: "B) It decreases", correct: true },
+                { text: "C) It remains constant", correct: false },
+                { text: "D) It increases then decreases", correct: false }
             ],
-            type: "social studies",
+            type: "science",
             difficulty: "medium",
-            category: "ged-social-studies"
+            category: "act-data-representation"
         }
     ];
 
-    // Start Test
     function startTest() {
-        if (!gedIntroContainer || !document.getElementById("question-container")) {
+        if (!actIntroContainer || !document.getElementById("question-container")) {
             console.error("Required elements not found");
             return;
         }
-        gedIntroContainer.classList.add("hide");
+        actIntroContainer.classList.add("hide");
         document.getElementById("question-container").classList.remove("hide");
-        startSocialStudiesSection();
+        startScienceSection();
     }
 
-    // Social Studies Section Starter
-    function startSocialStudiesSection() {
-        console.log("Starting Social Studies section");
-        socialStudiesResponses = [];
+    function startScienceSection() {
+        scienceResponses = [];
         score = 0;
         correctAnswers = 0;
-        passageElement.innerHTML = "";
-        startQuiz(socialStudiesQuestions);
+        startQuiz(scienceQuestions);
     }
 
-    // Start Quiz
     function startQuiz(questions) {
         if (!questions || questions.length === 0) {
-            console.error("No questions available for Social Studies");
+            console.error("No questions available for Science section");
             return;
         }
         const missingPassages = questions.filter(q => !q.passage || q.passage.trim() === "");
         if (missingPassages.length > 0) {
-            console.warn(`Warning: ${missingPassages.length} questions in Social Studies lack a valid passage`);
+            console.warn(`Warning: ${missingPassages.length} questions in Science lack a valid passage`);
         }
         currentQuestionIndex = 0;
-        score = 0;
-        correctAnswers = 0;
         categoryStats = {};
         selectedQuestions = questions;
         nextButton.innerHTML = "Next";
 
+        // Reset layout classes
         document.querySelector(".question-row").classList.remove("score-display");
+
+        // Add section-specific class
         const questionRow = document.querySelector(".question-row");
-        questionRow.classList.remove("social-studies-section");
-        questionRow.classList.add("social-studies-section");
+        questionRow.classList.remove("science-section");
+        questionRow.classList.add("science-section");
 
         showQuestion();
     }
 
-    // Show Question
     function showQuestion() {
         resetState();
         if (!selectedQuestions[currentQuestionIndex]) {
@@ -101,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         let currentQuestion = selectedQuestions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
-        console.log(`Displaying question ${questionNo} in Social Studies, passage:`, currentQuestion.passage || "");
+        console.log(`Displaying question ${questionNo} in Science, passage:`, currentQuestion.passage || "No passage");
         passageElement.style.display = "block";
         passageElement.innerHTML = currentQuestion.passage || "";
         questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
@@ -110,7 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
         questionRow.classList.remove("score-display");
         questionElement.classList.remove("centered-score");
 
-        currentQuestion.answers.forEach((answer) => {
+        // Display answer buttons without option letters
+        currentQuestion.answers.forEach((answer, index) => {
             const button = document.createElement("button");
             button.innerHTML = answer.text;
             button.classList.add("btn");
@@ -124,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
         updateProgressBar();
     }
 
-    // Reset State
     function resetState() {
         nextButton.style.display = "none";
         nextButton.classList.remove("centered-btn");
@@ -133,7 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Select Answer
     function selectAnswer(e) {
         const selectedBtn = e.target;
         const isCorrect = selectedBtn.dataset.correct === "true";
@@ -146,11 +141,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const correctAnswer = currentQuestion.answers.find(ans => ans.correct).text;
+
         const safePassage = currentQuestion.passage || "No passage provided";
         const safeQuestion = currentQuestion.question || "No question provided";
         const responseQuestion = safePassage + "<br/><br/>" + safeQuestion;
 
-        console.log("Creating user response: Social Studies :", {
+        console.log("Creating user response:", {
             question: responseQuestion,
             userAnswer: selectedBtn.innerHTML,
             correctAnswer: correctAnswer,
@@ -158,62 +154,69 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const response = {
-            section: "social studies",
+            section: "science",
             question: responseQuestion,
             userAnswer: selectedBtn.innerHTML,
             correctAnswer: correctAnswer,
             wasCorrect: isCorrect
         };
 
-        socialStudiesResponses.push(response);
+        scienceResponses.push(response);
 
         if (isCorrect) {
             selectedBtn.classList.add("correct");
             correctAnswers++;
-            if (questionDifficulty === "easy") score += 1;
-            else if (questionDifficulty === "medium") score += 2;
-            else if (questionDifficulty === "hard") score += 3;
+            if (questionDifficulty === "easy") {
+                score += 1;
+            } else if (questionDifficulty === "medium") {
+                score += 2;
+            } else if (questionDifficulty === "hard") {
+                score += 3;
+            }
             categoryStats[questionCategory].correct++;
         } else {
             selectedBtn.classList.add("incorrect");
             categoryStats[questionCategory].incorrect++;
         }
 
+        recordTestResults();
+
         Array.from(answerButtons.children).forEach(button => {
-            if (button.dataset.correct === "true") button.classList.add("correct");
+            if (button.dataset.correct === "true") {
+                button.classList.add("correct");
+            }
             button.disabled = true;
         });
-
-        recordTestResults();
 
         nextButton.style.display = "block";
         nextButton.disabled = false;
     }
 
-    // Show Final Score
     function showFinalScore() {
         resetState();
 
-        let maxPossibleScore = (10 * 1) + (10 * 2) + (10 * 3);
+        // Calculate Science score
+        let maxPossibleScore = (13 * 1) + (14 * 2) + (13 * 3); // Assume 40 questions (standard ACT Science)
         let rawScore = score;
-        let scaledScore = Math.round((rawScore / maxPossibleScore) * 100 + 100);
+        scienceScore = Math.round((rawScore / maxPossibleScore) * 35 + 1);
 
-        console.log(`Saving Untimed Social Studies score: ${scaledScore}/200`);
+        // Store score in localStorage
+        localStorage.setItem("actScienceUntimedScore", scienceScore);
 
-        // Store Social Studies Untimed score for profile display
-        localStorage.setItem("socialStudiesUntimedScore", scaledScore);
+        // Do not write to actScoreHistory to avoid affecting the chart
+        console.log(`Untimed Science score ${scienceScore} saved to actScienceUntimedScore for ${new Date().toLocaleDateString("en-CA")}`);
 
-        // Do not write to gedScoreHistory to avoid affecting the chart
-        console.log(`Untimed Social Studies score ${scaledScore} saved to socialStudiesUntimedScore for ${new Date().toLocaleDateString("en-CA")}`);
+        // Save test completion metadata
+        saveTestCompletion("ACT-Science-Untimed");
 
-        saveTestCompletion("GED-Social-Studies-Untimed");
-
+        // Update UI
         document.getElementById("question-container").classList.remove("hide");
         passageElement.innerHTML = "";
-        questionElement.innerHTML = `<p><strong>Untimed Social Studies GED Score:</strong> ${scaledScore} / 200</p>`;
+        questionElement.innerHTML = `<p><strong>ACT Untimed Science Score:</strong> ${scienceScore} / 36</p>`;
         questionElement.classList.add("centered-score");
         document.querySelector(".question-row").classList.add("score-display");
 
+        // Set up review button
         nextButton.innerHTML = "Review Incorrect Answers";
         nextButton.style.display = "block";
         nextButton.classList.add("centered-btn");
@@ -221,17 +224,15 @@ document.addEventListener("DOMContentLoaded", () => {
         nextButton.addEventListener("click", showExplanations);
     }
 
-    // Save Test Completion
     function saveTestCompletion(examType) {
         const completionData = {
-            exam: "GED", // Changed from examType to "GED"
+            exam: "ACT", // Changed from examType to "GED"
             type: "test",
             timestamp: new Date().toISOString()
         };
         localStorage.setItem("lastActivity", JSON.stringify(completionData));
     }
 
-    // Show Explanations
     function showExplanations() {
         console.log("Entering showExplanations");
         resetState();
@@ -240,7 +241,9 @@ document.addEventListener("DOMContentLoaded", () => {
         questionElement.style.overflowY = "scroll";
         questionElement.style.maxHeight = "80vh";
 
-        const incorrectResponses = socialStudiesResponses.filter(response => response && response.wasCorrect === false);
+        const incorrectResponses = scienceResponses.filter(
+            response => response && response.wasCorrect === false
+        );
         console.log("Incorrect responses:", incorrectResponses.length, incorrectResponses);
 
         if (incorrectResponses.length === 0) {
@@ -248,11 +251,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             const fragment = document.createDocumentFragment();
             const sectionDiv = document.createElement("div");
-            sectionDiv.innerHTML = "<h3>Social Studies Section</h3>";
+            sectionDiv.innerHTML = "<h3>Science Section</h3>";
             incorrectResponses.forEach((response, index) => {
-                console.log(`Processing Social Studies response ${index + 1}:`, response);
+                console.log(`Processing Science response ${index + 1}:`, response);
                 const explanation = generateExplanation(response);
-                console.log(`Explanation for Social Studies response ${index + 1}:`, explanation);
+                console.log(`Explanation for Science response ${index + 1}:`, explanation);
                 const div = document.createElement("div");
                 div.className = "explanation";
                 div.innerHTML = `
@@ -265,7 +268,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 sectionDiv.appendChild(div);
             });
             fragment.appendChild(sectionDiv);
-            console.log("Appending to questionElement:", questionElement);
             questionElement.appendChild(fragment);
         }
 
@@ -279,41 +281,34 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Generate Explanations
     function generateExplanation(response) {
         const questionText = response.question || "";
-
-        if (questionText.includes("What was the primary goal")) {
-            return "The March on Washington aimed to push for civil rights legislation, as stated in the passage. Option B) Civil rights legislation is correct.";
-        } else if (questionText.includes("What legislation was influenced")) {
-            return "The passage explicitly mentions the Civil Rights Act of 1964 as influenced by the March. Option B) Civil Rights Act is correct.";
+        if (questionText.includes("Based on Figure 1, at which temperature does amylase exhibit the highest enzymatic activity at pH 7?")) {
+            return "Figure 1 shows glucose production rates at pH 7: 20°C (10 µmol/min), 30°C (25 µmol/min), 40°C (40 µmol/min), 50°C (30 µmol/min), 60°C (5 µmol/min). The highest rate is 40 µmol/min at 40°C. Option B) 40°C is correct. A) 20°C, C) 50°C, and D) 60°C have lower rates.";
+        } else if (questionText.includes("According to Figure 2, how does the enzymatic activity of amylase change as pH increases from 7 to 9 at 37°C?")) {
+            return "Figure 2 shows glucose production rates at 37°C: pH 7 (40 µmol/min), pH 8 (35 µmol/min), pH 9 (20 µmol/min). From pH 7 to 9, the rate decreases from 40 to 20 µmol/min. Option B) It decreases is correct. A) is incorrect as the rate doesn’t increase; C) is wrong as it’s not constant; D) is false as there’s no increase.";
         }
-
         return "No explanation available for this question.";
     }
 
-    // Handle Next Button
     function handleNextButton() {
+        recordTestResults();
         currentQuestionIndex++;
         if (currentQuestionIndex < selectedQuestions.length) {
             showQuestion();
         } else {
-            testCompleted = true;
-            recordTestResults();
             showFinalScore();
         }
     }
 
-    // Update Progress Bar
     function updateProgressBar() {
         const progressBar = document.getElementById("progress-bar-test");
         let progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
         progressBar.firstElementChild.style.width = progress + "%";
     }
 
-    // Record Test Results
     function recordTestResults() {
-        let storedResults = localStorage.getItem("gedTestResults");
+        let storedResults = localStorage.getItem("actTestResults");
         let results = storedResults ? JSON.parse(storedResults) : {};
 
         if (typeof results !== "object" || Array.isArray(results)) {
@@ -326,25 +321,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             results[category].correct += categoryStats[category].correct || 0;
             results[category].incorrect += categoryStats[category].incorrect || 0;
-            console.log(`Saving category ${category}: Correct: ${results[category].correct}, Incorrect: ${results[category].incorrect}`);
         }
 
-        localStorage.setItem("gedTestResults", JSON.stringify(results));
-        console.log("Stored gedTestResults:", results);
+        localStorage.setItem("actTestResults", JSON.stringify(results));
 
-        if (!testCompleted) {
-            for (let category in categoryStats) {
-                categoryStats[category].correct = 0;
-                categoryStats[category].incorrect = 0;
-            }
+        for (let category in categoryStats) {
+            categoryStats[category].correct = 0;
+            categoryStats[category].incorrect = 0;
         }
     }
 
-    // Show Intro Message
     function showIntroMessage() {
         resetState();
         passageElement.innerHTML = "";
-        questionElement.innerHTML = "This is an untimed GED Social Studies Test. Take your time to answer approximately 35 questions.";
+        questionElement.innerHTML = "This is an untimed ACT Science Test. Complete the section at your own pace.";
         questionElement.classList.add("centered-score");
 
         const startButton = document.createElement("button");
@@ -352,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startButton.classList.add("btn", "centered-btn");
         startButton.addEventListener("click", () => {
             questionElement.classList.remove("centered-score");
-            startSocialStudiesSection();
+            startScienceSection();
         });
         answerButtons.appendChild(startButton);
     }
@@ -365,13 +355,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (nextButton) {
-        nextButton.addEventListener("click", () => {
-            handleNextButton();
-        });
+        nextButton.addEventListener("click", handleNextButton);
     } else {
         console.error("next-btn element not found");
     }
 
-    // Initialize
+    // Initialize the test by showing the intro message
     showIntroMessage();
 });
