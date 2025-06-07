@@ -1,0 +1,107 @@
+.header{
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50PX;
+  }
+  @font-face {
+    font-family: "Arcade";
+    src: url(ArcadeClassic.ttf);
+  }
+  
+  body {
+  font-family: Arial, sans-serif;
+    color: white; 
+    background-color: rgb(31, 2, 31); /* For browsers that do not support gradients */
+    background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
+    background-size: contain;
+    height: max-content;
+    padding-bottom: 50px;
+  }
+  
+  .linkcenter{
+    text-align: center;
+  }
+  
+  .arcade{
+    font-family: "Arcade";
+    font-size: 32px;
+  }
+  
+  .arcade2{
+    font-family: "Arcade";
+    font-size: 32px;
+  }
+  
+  .arcadetitle{
+    font-family: "Arcade";
+    font-size: 32px;
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center;
+    color: white;
+  }
+
+  
+  div{
+  margin-bottom: 30px;
+  }
+  a{
+    font-family: "Arcade";
+    font-size: 32px;
+  
+  }
+  
+
+  
+  .displaytestsat{
+    
+    background: #ffffff;
+    color:#131212;
+    border: 5px solid #9787f5;
+    width: 60%;
+    height: max-content;
+    box-shadow: 5px 5px #9787f5;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+  }
+  
+  
+  footer{
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center;
+    font-family: "Arcade";
+    color: white;
+  }
+  
+
+  
+  
+  button{
+    background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
+    box-shadow: 0px 3px  #784f88;
+    width: max-content;
+    padding: 17px;
+    font-family: "Arcade";
+    font-size: 27px;
+    border: none;
+    color:#ffffff;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  
+  button:hover{
+  cursor: pointer;
+  background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
+  box-shadow: 0 0 5px #9787f5,
+              0 0 20px #9787f5;
+  
+  }

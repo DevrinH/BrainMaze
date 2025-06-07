@@ -8,3 +8,4 @@ temp/
 *.bak
 *.swp
 *.tmp
+backend/.env

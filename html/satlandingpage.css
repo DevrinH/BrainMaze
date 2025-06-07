@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding:0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: content-box;
+}
+
+.header{
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 50px;
+    margin-top: 15px;
+  }
+  @font-face {
+    font-family: "Arcade";
+    src: url(ArcadeClassic.ttf);
+  }
+  @font-face {
+    font-family: "Bungee";
+    src: url(Bungee-Regular.ttf);
+  
+    
+  }
+  @font-face {
+    font-family: "Montserrat-SemiBold";
+    src: url(Montserrat-SemiBold.ttf);
+  
+    
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#4b1c81, #c890fd);
+    z-index: -1;
+  }
+  body{
+    background-image: linear-gradient(rgb(22, 7, 32), rgb(87, 42, 177));
+    background-color:  rgb(31, 2, 31); /* For browsers that do not support gradients */
+    background-size: contain;
+    height: max-content;
+    padding-bottom: 70px;
+    
+}
+a {
+font-family: "Montserrat-SemiBold";
+color: black;
+text-align: center;
+margin: 10px auto 0;
+
+}
+
+h1 {
+
+    font-family: "Bungee";
+    font-size: 32px;
+
+}
+h2 {
+  margin-top: 8px;
+  font-family: "Bungee";
+  font-size: 26px;
+  color:#000000;
+
+}
+.satbackground p {
+  font-family: "Montserrat-SemiBold";
+  color: black;
+
+}
+
+.wrapper{
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 35px;
+  }
+
+.search{
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  color: rgb(0, 0, 0);
+  box-shadow: 6px 6px #c890fd;
+  background:white;
+  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-input{
+  font-size: 16px;
+  font-family: 'Lexend', sans-serif;
+  margin-left: 14px;
+  outline: none;
+  border: none;
+  background: transparent;
+  width: 300px;
+}
+
+.search-input::placeholder{
+  color:black;
+}
+
+  
+  div{
+    margin: 20px;
+    }
+    
+    
+    .satbuttontimed{
+      background-image:linear-gradient(#8abbcf, #0b85b9);
+      color: #ffffff;
+      box-shadow: 2px 2px black;
+      width: 125px;
+      padding: 10px;
+      border-width: 3px;
+      border-color: black;
+      font-family: sans-serif;
+      font-size: 22px;
+      
+      border-radius: 12px;
+      display: block;
+      text-align: center;
+      transition: all 0.3s;
+      margin-bottom: 20px;
+     
+    }
+      
+      button:hover{
+      cursor: pointer;
+      background-image: linear-gradient(rgb(176, 127, 255), #9787f5);
+      box-shadow: 0 0 5px #9787f5,
+                  0 0 20px #9787f5;
+      
+      }
+
+      .satbackground{
+        background: #ffff;
+        width: 90%;
+        max-width: 800px;
+        margin: 50px auto 10px;
+        padding: 1px;
+        box-shadow: 4px 4px #000000; 
+        border-width: 4px;
+        border-color: #000000;
+        border-radius: 12px;
+        }
+.aboutsat{
+    width: 90%;
+    margin: 0 auto;
+  text-align: center;
+  max-width: 800px;
+  font-family: "Montserrat-SemiBold";
+  color: #ffffff;
+  margin-top: 50px;
+      }
+
+      .container{
+        display: flex;
+        column-gap: 15px;
+        margin-left: 5%;
+        }
+        
+        .satdesc{
+          font-size: 14px;
+          font-style: "Montserrat-SemiBold";
+          height: max-content;
+          color: #000000;
+          }
+          
+
+
+footer{
+          width: 100%;
+          text-align: center;
+          font-family: "Montserrat-SemiBold";
+          font-size: 11px;
+          color: white;
+          margin-top: 30px;
+        }
+
+        .lessoncontainer{
+          display: flex;
+          column-gap: 8px;
+          margin-left: 2%;
+          }
+.textpadding{
+  padding: 5px;
+}
+
+.morebutton{
+  background: #c890fd;
+  color: #ffffff;
+  box-shadow: 2px 2px black;
+  width: 86px;
+  height: 70px;
+  padding: 3px;
+  border-width: 3px;
+  border-color: black;
+  font-size: 24px;
+  font-family: "Bungee";
+  border-radius: 12px;
+  display: block;
+  text-align: center;
+  margin: auto;
+  transition: all 0.3s;
+  margin: 10px auto 15px;
+}
+.pbungee{
+  font-family: "Bungee";
+  font-size: 13px;
+  
+  }
+
+.satbutton{
+  background-image:linear-gradient(#8abbcf, #0b85b9);
+  color: #ffffff;
+  box-shadow: 2px 2px black;
+  width: 77px;
+  height: 77px;
+  padding: 3px;
+  border-width: 3px;
+  border-color: black;
+  font-size: 31px;
+  font-family: sans-serif;
+  border-radius: 12px;
+  display: block;
+  text-align: center;
+  transition: all 0.3s;
+  margin-bottom: 25px;
+}
+
